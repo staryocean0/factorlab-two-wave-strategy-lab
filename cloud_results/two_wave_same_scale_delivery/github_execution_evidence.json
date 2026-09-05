@@ -1,0 +1,16 @@
+{
+  "schema": "two_wave_same_scale_execution_evidence@1.0",
+  "repository": "staryocean0/factorlab-two-wave-strategy-lab",
+  "branch": "codex/two-wave-phase1-20260905",
+  "pr_number": 1,
+  "research_code_commit": "ba871b71edc3994c9e611f2451d414bb4f33cfcb",
+  "protocol_commits": {"v04":"6684e599fce98fe638990d01d4aef3ddd56e6abf","v041":"67acf42aea08781ecf7f2aca2e9c126421287760"},
+  "research_run": {"id":33961057778,"job_id":101292897716,"conclusion":"success","python":"3.11.16","url":"https://github.com/staryocean0/factorlab-two-wave-strategy-lab/actions/runs/33961057778"},
+  "artifact": {"id":9968031399,"size_bytes":113250377,"sha256":"1f6e6259f3e526b0049a051e9319b6f7554176f195acffa492fb968735c5bb75","zip_downloaded_and_hash_verified":true,"expires_at":"2026-10-05T10:41:56Z"},
+  "archive": {"run_id":33961571980,"conclusion":"success","commit":"b80f1b086d876b7c45027c799b56b2c8a25efaad","copied_source_files":483,"copied_source_bytes":32439021,"generated_index_and_manifest_files":4,"source_output_hashes_verified":588,"destination":"cloud_results/two_wave_same_scale_delivery","scope":"full primary native 5m candidate ledgers/segments/partitions/events; all review images; six-view group summaries; other views full ledgers remain in source artifact"},
+  "validation": {"tests":304,"errors":0,"failures":0,"skipped":0,"new_v04_tests":33,"new_v041_tests":13,"independent_real_data_prefix_checks":120,"frozen_source_files_unchanged":473,"immutable_tool_count":15,"original_data_products_unchanged":14,"original_bundle_rows":749337,"six_research_view_rows":689443},
+  "local_official_comparison": {"official_code_commit":"ba871b71edc3994c9e611f2451d414bb4f33cfcb","artifact_zip_sha256":"1f6e6259f3e526b0049a051e9319b6f7554176f195acffa492fb968735c5bb75","records_checked":147252,"json_records_exact_equal":147252,"max_numeric_difference":0.0,"numeric_tolerance":1e-10,"output_hashes_checked":588,"partition_files_checked":30,"all_checked_fields_equal_within_tolerance":true},
+  "primary_D1": {"candidates":4254,"scale_eligible":150,"exclusive_segments":98,"uptrend":32,"downtrend":31,"range":1,"uncertain":34,"owned_bars":4521,"total_bars":70114,"coverage":0.06448070285534986,"coverage_is_not_accuracy":true,"independent_human_labels":0},
+  "interpretation": {"status":"morphology_replication_not_yet_accepted","pnl_computed":false,"fresh_oos":false,"new_market_data":false,"price_resampling":false,"trading_authority":false,"main_merged":false,"PR_draft":true,"release_notes_only_do_not_imply_a_new_model_run":true},
+  "concurrent_protocol_preserved": "469ccbf3ffe84eff46d2ca258be3e794d086a414; v0.4.2 raw-price/1e-8 protocol is not the executed ba871b7 log-price/1e-6 study"
+}
