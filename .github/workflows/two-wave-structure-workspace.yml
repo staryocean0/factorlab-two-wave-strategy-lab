@@ -1,0 +1,27 @@
+name: two-wave-structure-workspace
+on:
+  push:
+    branches: ['codex/two-wave-phase1-20260905']
+    paths: ['.github/workflows/two-wave-structure-workspace.yml']
+permissions:
+  contents: read
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Archive tracked research workspace without credentials or git metadata
+        run: |
+          mkdir -p workspace_export
+          git archive --format=tar.gz --output=workspace_export/research.tar.gz HEAD
+          git rev-parse HEAD > workspace_export/commit.txt
+          sha256sum workspace_export/research.tar.gz > workspace_export/SHA256SUMS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: two-wave-structure-workspace-${{ github.sha }}
+          path: workspace_export/
+          retention-days: 7
+          if-no-files-found: error
