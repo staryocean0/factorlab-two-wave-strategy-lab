@@ -1,0 +1,39 @@
+name: two-wave-frequency-workspace
+on:
+  push:
+    branches: ['codex/two-wave-phase1-20260905']
+    paths: ['.github/workflows/two-wave-frequency-workspace.yml']
+permissions:
+  contents: read
+jobs:
+  verified-workspace:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify original data and package research working copy
+        run: |
+          python - <<'PY'
+          import pathlib, json, hashlib, zipfile, subprocess
+          root=pathlib.Path('.')
+          manifest=json.loads((root/'data/manifest.json').read_text())
+          for p in manifest['products']:
+              raw=(root/p['path']).read_bytes()
+              assert len(raw)==p['file_bytes']
+              assert hashlib.sha256(raw).hexdigest()==p['sha256']
+          with zipfile.ZipFile('frequency_workspace.zip','w',zipfile.ZIP_DEFLATED) as z:
+              for path in sorted(root.rglob('*')):
+                  if not path.is_file() or path.parts[0] in ('.git','cloud_results') or path.name=='frequency_workspace.zip':
+                      continue
+                  z.write(path,path.as_posix())
+              z.writestr('WORKSPACE_COMMIT.txt',subprocess.check_output(['git','rev-parse','HEAD']).decode())
+          print(json.dumps({'verified_products':len(manifest['products']),'sha256':hashlib.sha256(pathlib.Path('frequency_workspace.zip').read_bytes()).hexdigest()}))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: two-wave-frequency-workspace-${{ github.sha }}
+          path: frequency_workspace.zip
+          retention-days: 30
