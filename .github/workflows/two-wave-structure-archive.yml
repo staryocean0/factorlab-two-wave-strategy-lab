@@ -1,0 +1,59 @@
+name: two-wave-same-scale-archive
+on:
+  push:
+    branches: ['codex/two-wave-phase1-20260905']
+    paths: ['.github/workflows/two-wave-structure-archive.yml']
+permissions:
+  contents: write
+  actions: read
+jobs:
+  archive-verified-primary-results:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      BRANCH: codex/two-wave-phase1-20260905
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Require the exact successful source run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import json, os, urllib.request
+          url='https://api.github.com/repos/'+os.environ['GITHUB_REPOSITORY']+'/actions/runs/33961057778'
+          req=urllib.request.Request(url,headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
+          with urllib.request.urlopen(req, timeout=30) as response: run=json.load(response)
+          assert run['head_sha']=='ba871b71edc3994c9e611f2451d414bb4f33cfcb'
+          assert run['status']=='completed' and run['conclusion']=='success'
+          print('Verified source run',run['id'],run['head_sha'],run['conclusion'])
+          PY
+      - uses: actions/download-artifact@v4
+        with:
+          name: two-wave-same-scale-ba871b71edc3994c9e611f2451d414bb4f33cfcb
+          run-id: 33961057778
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/source-research
+      - name: Verify all hashes and create allowlisted delivery
+        run: python scripts/archive_two_wave_structure_delivery.py --source-root '${{ runner.temp }}/source-research'
+      - run: python -m pip install -e . editables==0.6
+      - run: python scripts/validate_theme_package.py
+      - name: Commit only new research delivery to the authorized branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git fetch origin "$BRANCH"
+          test "$(git rev-parse FETCH_HEAD)" = "$GITHUB_SHA"
+          git add -- cloud_results/two_wave_same_scale_delivery
+          python - <<'PY'
+          import subprocess
+          names=subprocess.check_output(['git','diff','--cached','--name-only'],text=True).splitlines()
+          assert names and all(p.startswith('cloud_results/two_wave_same_scale_delivery/') for p in names)
+          print('Archiving',len(names),'allowlisted files')
+          PY
+          git commit -m 'Archive verified same-scale primary ledgers, complete galleries and six-view summaries [skip ci]'
+          git push origin "HEAD:refs/heads/$BRANCH"
+          echo "ARCHIVE_COMMIT=$(git rev-parse HEAD)" >> "$GITHUB_STEP_SUMMARY"
