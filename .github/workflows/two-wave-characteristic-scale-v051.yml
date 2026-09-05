@@ -1,0 +1,58 @@
+name: two-wave-characteristic-scale-v051
+on:
+  push:
+    branches: ['codex/two-wave-phase1-20260905']
+    paths:
+      - 'src/factor_lab/visual_structure/two_wave/characteristic_scale_v051.py'
+      - 'tests/unit/test_two_wave_characteristic_scale_v051.py'
+      - 'scripts/run_two_wave_characteristic_scale_v051.py'
+      - 'docs/research/two_wave_characteristic_scale_protocol_v051.md'
+      - '.github/workflows/two-wave-characteristic-scale-v051.yml'
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: two-wave-characteristic-scale-v051-${{ github.ref }}
+  cancel-in-progress: false
+defaults:
+  run:
+    shell: bash
+jobs:
+  characteristic-scale:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: python -m pip install -e . editables==0.6
+      - name: Validate bounded source package and frozen development data
+        run: |
+          mkdir -p v051_proof/source
+          python scripts/validate_theme_package.py | tee v051_proof/package_validation.json
+          git rev-parse HEAD > v051_proof/commit.txt
+      - name: Full regression and synthetic characteristic-scale gates
+        run: python -m pytest -q --junitxml=v051_proof/tests.xml | tee v051_proof/tests.log
+      - name: Run characteristic-scale experiment on six frozen views
+        run: |
+          python scripts/run_two_wave_characteristic_scale_v051.py --output cloud_results/two_wave_characteristic_scale_v051 | tee v051_proof/research.log
+          git diff --exit-code -- data src tests scripts docs/research pyproject.toml
+      - name: Retain exact implementation and environment
+        if: always()
+        run: |
+          python -m pip freeze > v051_proof/environment.txt
+          cp src/factor_lab/visual_structure/two_wave/characteristic_scale_v051.py v051_proof/source/
+          cp tests/unit/test_two_wave_characteristic_scale_v051.py scripts/run_two_wave_characteristic_scale_v051.py docs/research/two_wave_characteristic_scale_protocol_v051.md v051_proof/source/
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: two-wave-characteristic-scale-v051-${{ github.sha }}
+          path: |
+            cloud_results/two_wave_characteristic_scale_v051/
+            v051_proof/
+          retention-days: 30
+          if-no-files-found: error
