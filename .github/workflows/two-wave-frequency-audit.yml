@@ -3,8 +3,8 @@ on:
   push:
     branches: ['codex/two-wave-phase1-20260905']
     paths:
-      - 'src/factor_lab/visual_structure/two_wave/frequency_v03.py'
-      - 'scripts/run_two_wave_frequency_study.py'
+      - 'src/factor_lab/visual_structure/two_wave/frequency_v03*.py'
+      - 'scripts/run_two_wave_frequency_study*.py'
       - 'tests/unit/test_two_wave_frequency*'
       - '.github/workflows/two-wave-frequency-audit.yml'
 permissions:
@@ -24,13 +24,13 @@ jobs:
         run: python scripts/validate_theme_package.py
       - name: Full regression suite with explicit test count
         run: python -m pytest -o addopts='' -q --junitxml=frequency_tests.xml
-      - name: Six-view frequency comparison and causal direction replay
-        run: python scripts/run_two_wave_frequency_study.py --stage all --output cloud_results/two_wave_frequency_v03
+      - name: Re-run six-view C1 after graphical failure attribution
+        run: python scripts/run_two_wave_frequency_study_c1.py --output cloud_results/two_wave_frequency_v031
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: two-wave-frequency-v03-${{ github.sha }}
+          name: two-wave-frequency-v031-${{ github.sha }}
           path: |
-            cloud_results/two_wave_frequency_v03/
+            cloud_results/two_wave_frequency_v031/
             frequency_tests.xml
           retention-days: 30

@@ -156,13 +156,13 @@ def frequency_study(output):
     return result
 
 
-def replay_study(output):
+def replay_study(output, engine_type=DirectionEngine):
     summaries=[]; selected=[]
     for view in VIEWS:
         bars,audit=load_development_bars(ROOT/f'data/development/{view}.parquet',ROOT/'data/manifest.json')
         for scale in (.008,.01,.012):
             config=CandidateConfig(timeframe=view,reversal_log=scale,geometry_variant='detrended_width')
-            engine=DirectionEngine(config); emitted=[]
+            engine=engine_type(config); emitted=[]
             for bar in bars: emitted.extend(engine.update(bar))
             assert emitted==engine.records
             records=engine.records; counts=Counter(r['direction_classification'] for r in records)
@@ -170,7 +170,7 @@ def replay_study(output):
             transitions=Counter(r['channel_classification_A']+'->'+r['direction_classification'] for r in records)
             checkpoints=sorted({i for i in (200,800,1600,len(bars)//2) if 0<i<len(bars)})
             for stop in checkpoints:
-                prefix=DirectionEngine(config)
+                prefix=engine_type(config)
                 for bar in bars[:stop]:prefix.update(bar)
                 assert prefix.records==[r for r in records if r['confirmation_bar']<stop]
             dest=output/view/f'reversal_{scale:g}';dest.mkdir(parents=True,exist_ok=True)
@@ -178,7 +178,7 @@ def replay_study(output):
                 for r in records:h.write(json.dumps(r,ensure_ascii=False,allow_nan=False)+'\n')
             perturb=None
             if scale==.01:
-                altered=DirectionEngine(config)
+                altered=engine_type(config)
                 for i,bar in enumerate(bars):
                     mult=math_exp_perturb(i)
                     altered.update({**bar,**{k:bar[k]*mult for k in ('open','high','low','close')}})
