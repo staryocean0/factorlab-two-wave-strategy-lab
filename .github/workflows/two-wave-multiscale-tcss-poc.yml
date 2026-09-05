@@ -6,6 +6,7 @@ on:
       - 'src/factor_lab/visual_structure/two_wave/multiscale_v050.py'
       - 'tests/unit/test_two_wave_multiscale_v050.py'
       - 'scripts/run_two_wave_multiscale_tcss_poc.py'
+      - 'scripts/run_two_wave_multiscale_tcss_poc_fast.py'
       - 'docs/research/two_wave_multiscale_pre_research_v050.md'
       - 'docs/research/two_wave_multiscale_poc_protocol_v050.md'
       - '.github/workflows/two-wave-multiscale-tcss-poc.yml'
@@ -40,14 +41,14 @@ jobs:
         run: python -m pytest -q --junitxml=v050_tcss_proof/tests.xml | tee v050_tcss_proof/tests.log
       - name: Run TCSS representation POC on six frozen views
         run: |
-          python scripts/run_two_wave_multiscale_tcss_poc.py --output cloud_results/two_wave_multiscale_tcss_v050 | tee v050_tcss_proof/research.log
+          python scripts/run_two_wave_multiscale_tcss_poc_fast.py --output cloud_results/two_wave_multiscale_tcss_v050 | tee v050_tcss_proof/research.log
           git diff --exit-code -- data src tests scripts docs/research pyproject.toml
       - name: Retain exact implementation and environment
         if: always()
         run: |
           python -m pip freeze > v050_tcss_proof/environment.txt
           cp src/factor_lab/visual_structure/two_wave/multiscale_v050.py v050_tcss_proof/source/
-          cp tests/unit/test_two_wave_multiscale_v050.py scripts/run_two_wave_multiscale_tcss_poc.py docs/research/two_wave_multiscale_pre_research_v050.md docs/research/two_wave_multiscale_poc_protocol_v050.md v050_tcss_proof/source/
+          cp tests/unit/test_two_wave_multiscale_v050.py scripts/run_two_wave_multiscale_tcss_poc.py scripts/run_two_wave_multiscale_tcss_poc_fast.py docs/research/two_wave_multiscale_pre_research_v050.md docs/research/two_wave_multiscale_poc_protocol_v050.md v050_tcss_proof/source/
       - uses: actions/upload-artifact@v4
         if: always()
         with:
