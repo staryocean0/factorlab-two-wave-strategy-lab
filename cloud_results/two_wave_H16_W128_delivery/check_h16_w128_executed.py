@@ -85,7 +85,7 @@ for path in sorted((ROOT/'inputs').glob('*.parquet')):
                 j.to_csv(ROOT/f'{view}_C1_at_confirmation_H16W128.csv',index=False)
                 c={}
                 for label,g in j.groupby('direction'):
-                    counts={'n':len(g),'channel_A_accepted':int(g.channel_A_accepted.sum()),
+                    counts={'n':len(g),'channel_A_accepted':int(g.channel_accepted_by_A.sum()),
                        'median_completed_two_cycle_return_count':float(g.completed_two_cycle_return_count.median()),
                        'p10_completed_two_cycle_return_count':float(g.completed_two_cycle_return_count.quantile(.1)),
                        'p90_completed_two_cycle_return_count':float(g.completed_two_cycle_return_count.quantile(.9)),
