@@ -1,0 +1,52 @@
+name: two-wave-same-scale-structure
+on:
+  push:
+    branches: ['codex/two-wave-phase1-20260905']
+    paths:
+      - 'src/factor_lab/visual_structure/two_wave/structure_v04.py'
+      - 'src/factor_lab/visual_structure/two_wave/direction_v041.py'
+      - 'tests/unit/test_two_wave_structure_v04.py'
+      - 'tests/unit/test_two_wave_direction_v041.py'
+      - 'scripts/run_two_wave_structure_v04.py'
+      - 'scripts/audit_two_wave_direction_v041.py'
+      - 'docs/research/two_wave_v04_legacy_cases.json'
+      - '.github/workflows/two-wave-structure-research.yml'
+permissions:
+  contents: read
+concurrency:
+  group: two-wave-same-scale-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  structure-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: python -m pip install -e . editables==0.6
+      - run: python scripts/validate_theme_package.py | tee structure_validation.json
+      - run: python -m pytest -q --junitxml=structure_tests.xml
+      - name: Replay D0 and C2G across original six views and all fixed scales
+        run: python scripts/run_two_wave_structure_v04.py --output cloud_results/two_wave_structure_v04
+      - name: Correct D0 false ranges in isolated D1; preserve ownership and clocks
+        run: python scripts/audit_two_wave_direction_v041.py --input cloud_results/two_wave_structure_v04 --output cloud_results/two_wave_direction_v041
+      - name: Record installed versions
+        if: always()
+        run: python -m pip freeze > structure_environment.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: two-wave-same-scale-${{ github.sha }}
+          path: |
+            cloud_results/two_wave_structure_v04/
+            cloud_results/two_wave_direction_v041/
+            structure_tests.xml
+            structure_validation.json
+            structure_environment.txt
+          retention-days: 30
+          if-no-files-found: error

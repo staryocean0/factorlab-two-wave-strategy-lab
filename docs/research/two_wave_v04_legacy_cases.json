@@ -1,0 +1,201 @@
+{
+  "source_commit": "80f75a96ccdc8397c21cf561d708f01098959232",
+  "source_run_id": 33955675562,
+  "source_artifact_id": 9966321961,
+  "artifact_zip_sha256": "d388d5563648b608c509c8ecc93e8d21e797892891a68ecc88da9e473dade1e9",
+  "original_selection": "legacy hash-sampled C1 gallery; retained for regression, not independent truth",
+  "cases": [
+    {
+      "case": "case_00_A_clear_C_uncertain",
+      "source_C1_id": "direction_d05ad9a6eb1eb5ef2e4a",
+      "five_occurrence_bars": [
+        48720,
+        48749,
+        48754,
+        48768,
+        48801
+      ],
+      "original_C1_direction": "uncertain"
+    },
+    {
+      "case": "case_01_A_clear_C_uncertain",
+      "source_C1_id": "direction_d8cfddb9a4dfcfcaf268",
+      "five_occurrence_bars": [
+        7922,
+        7930,
+        7943,
+        7964,
+        7981
+      ],
+      "original_C1_direction": "uncertain"
+    },
+    {
+      "case": "case_02_C_new_downtrend",
+      "source_C1_id": "direction_e598405f7bb126623063",
+      "five_occurrence_bars": [
+        4565,
+        4617,
+        4655,
+        4656,
+        4658
+      ],
+      "original_C1_direction": "downtrend"
+    },
+    {
+      "case": "case_03_C_new_downtrend",
+      "source_C1_id": "direction_f5f49920151bf454a004",
+      "five_occurrence_bars": [
+        51509,
+        51523,
+        51581,
+        51620,
+        51676
+      ],
+      "original_C1_direction": "downtrend"
+    },
+    {
+      "case": "case_04_C_new_range",
+      "source_C1_id": "direction_beb37dab6a72e7cdb8f2",
+      "five_occurrence_bars": [
+        8536,
+        8542,
+        8550,
+        8565,
+        8591
+      ],
+      "original_C1_direction": "range"
+    },
+    {
+      "case": "case_05_C_new_range",
+      "source_C1_id": "direction_c7e56c25df26e5a5f240",
+      "five_occurrence_bars": [
+        8033,
+        8054,
+        8063,
+        8064,
+        8075
+      ],
+      "original_C1_direction": "range"
+    },
+    {
+      "case": "case_06_C_new_uptrend",
+      "source_C1_id": "direction_ae4e726097a725a16149",
+      "five_occurrence_bars": [
+        13064,
+        13077,
+        13083,
+        13140,
+        13180
+      ],
+      "original_C1_direction": "uptrend"
+    },
+    {
+      "case": "case_07_C_new_uptrend",
+      "source_C1_id": "direction_46fd3f5c5fe4028a99b9",
+      "five_occurrence_bars": [
+        4043,
+        4052,
+        4079,
+        4080,
+        4113
+      ],
+      "original_C1_direction": "uptrend"
+    },
+    {
+      "case": "case_08_stable_downtrend",
+      "source_C1_id": "direction_4a98be373b50801dd6e8",
+      "five_occurrence_bars": [
+        12322,
+        12323,
+        12327,
+        12332,
+        12344
+      ],
+      "original_C1_direction": "downtrend"
+    },
+    {
+      "case": "case_09_stable_downtrend",
+      "source_C1_id": "direction_66c1289bacfe9c69c02b",
+      "five_occurrence_bars": [
+        5571,
+        5575,
+        5618,
+        5623,
+        5644
+      ],
+      "original_C1_direction": "downtrend"
+    },
+    {
+      "case": "case_10_stable_range",
+      "source_C1_id": "direction_bd395b36851c5586de64",
+      "five_occurrence_bars": [
+        8691,
+        8699,
+        8724,
+        8739,
+        8751
+      ],
+      "original_C1_direction": "range"
+    },
+    {
+      "case": "case_11_stable_range",
+      "source_C1_id": "direction_cdfadbb7c5937281166f",
+      "five_occurrence_bars": [
+        68627,
+        68754,
+        68938,
+        69212,
+        69351
+      ],
+      "original_C1_direction": "range"
+    },
+    {
+      "case": "case_12_stable_uncertain",
+      "source_C1_id": "direction_92bcc5041fc54b475fb2",
+      "five_occurrence_bars": [
+        64517,
+        64532,
+        64543,
+        64549,
+        64551
+      ],
+      "original_C1_direction": "uncertain"
+    },
+    {
+      "case": "case_13_stable_uncertain",
+      "source_C1_id": "direction_c039d4a7722af3f75610",
+      "five_occurrence_bars": [
+        1756,
+        1774,
+        1873,
+        1920,
+        2066
+      ],
+      "original_C1_direction": "uncertain"
+    },
+    {
+      "case": "case_14_stable_uptrend",
+      "source_C1_id": "direction_3b10a104a2f6c7f3e2ca",
+      "five_occurrence_bars": [
+        30423,
+        30513,
+        30802,
+        30941,
+        31408
+      ],
+      "original_C1_direction": "uptrend"
+    },
+    {
+      "case": "case_15_stable_uptrend",
+      "source_C1_id": "direction_c3629ed766c990341ce4",
+      "five_occurrence_bars": [
+        22754,
+        22772,
+        22785,
+        22808,
+        22826
+      ],
+      "original_C1_direction": "uptrend"
+    }
+  ]
+}
