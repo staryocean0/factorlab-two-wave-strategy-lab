@@ -1,5 +1,6 @@
 name: two-wave-extremum-ridge-v052-1m-diagnostic
 on:
+  workflow_dispatch:
   push:
     branches: ['codex/two-wave-phase1-20260905']
     paths:
