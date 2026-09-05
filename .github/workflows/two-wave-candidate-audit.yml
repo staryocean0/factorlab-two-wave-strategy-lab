@@ -1,0 +1,44 @@
+name: two-wave-autonomous-candidate-audit
+
+on:
+  push:
+    branches:
+      - 'codex/two-wave-phase1-*'
+    paths:
+      - 'src/factor_lab/visual_structure/two_wave/candidate_v02.py'
+      - 'scripts/run_two_wave_candidate_audit.py'
+      - 'tests/unit/test_two_wave_candidate*.py'
+      - 'docs/research/two_wave_autonomous_iteration_v02.md'
+      - '.github/workflows/two-wave-candidate-audit.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: two-wave-candidate-audit-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  candidate-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: python -m pip install -e . editables==0.6
+      - name: Verify immutable package and original data
+        run: python scripts/validate_theme_package.py
+      - name: Run full regression suite including autonomous audit smoke test
+        run: python -m pytest -q
+      - name: Replay all fourteen views and frozen scales with v01 and two candidates
+        run: python scripts/run_two_wave_candidate_audit.py --output cloud_results/two_wave_candidate_v02
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: two-wave-candidate-v02-${{ github.sha }}
+          path: cloud_results/two_wave_candidate_v02/
+          if-no-files-found: warn
+          retention-days: 30
