@@ -1,0 +1,60 @@
+name: two-wave-cycle-scale-qualification-v054-1m
+on:
+  push:
+    branches: ['codex/two-wave-phase1-20260905']
+    paths:
+      - 'src/factor_lab/visual_structure/two_wave/cycle_scale_qualification_v054.py'
+      - 'tests/unit/test_two_wave_cycle_scale_qualification_v054.py'
+      - 'scripts/run_two_wave_cycle_scale_qualification_v054_1m.py'
+      - 'scripts/run_two_wave_cycle_scale_qualification_v054_five_view.py'
+      - 'docs/research/two_wave_cycle_scale_qualification_protocol_v054.md'
+      - '.github/workflows/two-wave-cycle-scale-qualification-v054-1m.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: two-wave-cycle-scale-qualification-v054-1m-${{ github.ref }}
+  cancel-in-progress: false
+defaults:
+  run:
+    shell: bash
+jobs:
+  formal-one-minute-causal-diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: python -m pip install -e . editables==0.6
+      - name: Validate bounded package and frozen data
+        run: |
+          mkdir -p v054_1m_proof/source
+          python scripts/validate_theme_package.py | tee v054_1m_proof/package_validation.json
+          git rev-parse HEAD > v054_1m_proof/commit.txt
+      - name: Full regression before formal 1m diagnostic
+        run: python -m pytest -q --junitxml=v054_1m_proof/tests.xml | tee v054_1m_proof/tests.log
+      - name: Run frozen v0.5.4 1m full plus three prefixes
+        run: |
+          python scripts/run_two_wave_cycle_scale_qualification_v054_1m.py | tee v054_1m_proof/research.log
+          git diff --exit-code -- data src tests scripts docs/research pyproject.toml
+      - name: Retain exact implementation and environment
+        if: always()
+        run: |
+          python -m pip freeze > v054_1m_proof/environment.txt
+          cp src/factor_lab/visual_structure/two_wave/cycle_scale_qualification_v054.py v054_1m_proof/source/
+          cp scripts/run_two_wave_cycle_scale_qualification_v054_1m.py scripts/run_two_wave_cycle_scale_qualification_v054_five_view.py docs/research/two_wave_cycle_scale_qualification_protocol_v054.md v054_1m_proof/source/
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: two-wave-cycle-scale-qualification-v054-1m-${{ github.sha }}
+          path: |
+            cloud_results/two_wave_cycle_scale_qualification_v054_1m/
+            v054_1m_proof/
+          retention-days: 30
+          if-no-files-found: error
