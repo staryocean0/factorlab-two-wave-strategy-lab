@@ -190,7 +190,12 @@ def test_exact_parent_tuple_birth_requires_same_five_ridges_and_internal_child_d
     assert {row.ridge_id for row in birth.internal_child_deaths} == {"r_c1", "r_c2"}
     assert birth.prior_internal_ridge_count == 7
 
-    # Without the topology-changing child deaths this is not a parent birth.
+    # Adjacency is not causally certified until *all* intervening children are
+    # explicitly dead.  One confirmed child death plus one provisional child
+    # must remain provisional rather than publish a birth that future data can
+    # rewrite.
+    partial = identify_tuple_births(tuples, ridge_levels, deaths[:1])
+    assert not [row for row in partial if row.tuple_id == parent_tuple_id]
     assert not [row for row in identify_tuple_births(tuples, ridge_levels, []) if row.tuple_id == parent_tuple_id]
 
 
