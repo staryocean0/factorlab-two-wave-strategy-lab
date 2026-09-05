@@ -6,38 +6,20 @@ on:
 permissions:
   contents: read
 jobs:
-  verified-workspace:
+  pinned-reader:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Download pinned public parquet reader wheel for isolated CPython313 runtime
-        run: python -m pip download --only-binary=:all: --no-deps --platform manylinux_2_28_x86_64 --python-version 313 --implementation cp --abi cp313 --dest runtime_wheels pyarrow==19.0.1
-      - name: Verify original data and package research working copy
-        run: |
-          python - <<'PY'
-          import pathlib, json, hashlib, zipfile, subprocess
-          root=pathlib.Path('.')
-          manifest=json.loads((root/'data/manifest.json').read_text())
-          for p in manifest['products']:
-              raw=(root/p['path']).read_bytes()
-              assert len(raw)==p['file_bytes']
-              assert hashlib.sha256(raw).hexdigest()==p['sha256']
-          with zipfile.ZipFile('frequency_workspace.zip','w',zipfile.ZIP_DEFLATED) as z:
-              for path in sorted(root.rglob('*')):
-                  if not path.is_file() or path.parts[0] in ('.git','cloud_results','runtime_wheels') or path.name=='frequency_workspace.zip':
-                      continue
-                  z.write(path,path.as_posix())
-              z.writestr('WORKSPACE_COMMIT.txt',subprocess.check_output(['git','rev-parse','HEAD']).decode())
-          print(json.dumps({'verified_products':len(manifest['products']),'sha256':hashlib.sha256(pathlib.Path('frequency_workspace.zip').read_bytes()).hexdigest()}))
-          PY
+      - name: Download pinned public reader for isolated CPython313 analysis
+        run: >-
+          python -m pip download --only-binary=:all: --no-deps
+          --platform manylinux_2_28_x86_64 --python-version 313
+          --implementation cp --abi cp313 --dest runtime_wheels pyarrow==19.0.1
       - uses: actions/upload-artifact@v4
         with:
-          name: two-wave-frequency-workspace-${{ github.sha }}
-          path: |
-            frequency_workspace.zip
-            runtime_wheels/
+          name: two-wave-pinned-reader-${{ github.sha }}
+          path: runtime_wheels/
           retention-days: 30
