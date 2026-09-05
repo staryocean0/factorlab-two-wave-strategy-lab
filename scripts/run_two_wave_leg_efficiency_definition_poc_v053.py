@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Read-only competition between candidate parent-leg efficiency definitions.
 
-No qualification output is changed.  The frozen v0.5.2 exact-ridge candidates
+No qualification output is changed. The frozen v0.5.2 exact-ridge candidates
 are rebuilt, then several predeclared efficiency measurements are computed for
-structural diagnostics only.  See
+structural diagnostics only. See
 `docs/research/two_wave_leg_efficiency_definition_preanalysis_v053.md`.
 """
 from __future__ import annotations
@@ -11,7 +11,6 @@ from __future__ import annotations
 import json
 import math
 import sys
-from collections import Counter
 from pathlib import Path
 
 import numpy as np
@@ -73,16 +72,12 @@ def _quantiles(values):
     return {str(q): float(np.quantile(arr, q)) for q in (0, .1, .5, .9, .99, 1)}
 
 
-def _record_metrics(record, run, levels, scale_space, closes):
+def _record_metrics(record, ridge_maps_by_level, levels, scale_space, closes):
     raw_ids = list(record["five_occurrence_bars"])
     raw_signs = [_sign(float(closes[b] - closes[a])) for a, b in zip(raw_ids, raw_ids[1:])]
     birth_level = int(record["birth_scale_level"])
     birth_id = record["birth_scale_id"]
     birth_series = scale_space[birth_id]
-
-    by_level = []
-    for rows in run.ridge_nodes_by_level:
-        by_level.append({row.ridge_id: row.node for row in rows})
 
     values = {name: None for name in DEFINITIONS}
     signs = {name: None for name in DEFINITIONS}
@@ -95,7 +90,7 @@ def _record_metrics(record, run, levels, scale_space, closes):
     signs["birth_scale_raw_interval_er"] = [row[1] for row in tmp]
 
     ridge_ids = list(record["ridge_ids"])
-    birth_nodes = [by_level[birth_level].get(ridge_id) for ridge_id in ridge_ids]
+    birth_nodes = [ridge_maps_by_level[birth_level].get(ridge_id) for ridge_id in ridge_ids]
     if all(node is not None for node in birth_nodes):
         birth_occ = [int(node.occurrence_index) for node in birth_nodes]
         tmp = [_path_er(birth_series, a, b) for a, b in zip(birth_occ, birth_occ[1:])]
@@ -114,7 +109,7 @@ def _record_metrics(record, run, levels, scale_space, closes):
         values["prebirth_scale_raw_interval_er"] = [row[0] for row in tmp]
         signs["prebirth_scale_raw_interval_er"] = [row[1] for row in tmp]
 
-        pre_nodes = [by_level[pre_level].get(ridge_id) for ridge_id in ridge_ids]
+        pre_nodes = [ridge_maps_by_level[pre_level].get(ridge_id) for ridge_id in ridge_ids]
         if all(node is not None for node in pre_nodes):
             prebirth_occ = [int(node.occurrence_index) for node in pre_nodes]
             tmp = [_path_er(prebirth_series, a, b) for a, b in zip(prebirth_occ, prebirth_occ[1:])]
@@ -155,23 +150,15 @@ def _record_metrics(record, run, levels, scale_space, closes):
 def _definition_summary(rows, name):
     valid = [row for row in rows if row["metrics"]["definitions"][name]["valid"]]
     mins = [row["metrics"]["definitions"][name]["min_leg_er"] for row in valid]
-    leg_values = [
-        value
-        for row in valid
-        for value in row["metrics"]["definitions"][name]["leg_er"]
-    ]
+    leg_values = [value for row in valid for value in row["metrics"]["definitions"][name]["leg_er"]]
     disagree = sum(
         row["metrics"]["definitions"][name]["raw_direction_disagreement_legs"] or 0
         for row in valid
     )
     legs = 4 * len(valid)
-
     parent = [row for row in valid if row["excess_micro"] > 0]
     nonparent = [row for row in valid if row["excess_micro"] == 0]
-    single_eff = [
-        row for row in valid
-        if row["reasons"] == ["inefficient_leg"]
-    ]
+    single_eff = [row for row in valid if row["reasons"] == ["inefficient_leg"]]
     qualified = [row for row in valid if row["qualified"]]
 
     def passed(subset):
@@ -269,10 +256,14 @@ def _build_rows(view, bars, run, baseline):
     levels = build_scale_levels(sigmas)
     scale_space = time_causal_scale_space(np.log(closes), sigmas)
     pivots = local_pivot_bars(baseline)
+    ridge_maps_by_level = [
+        {row.ridge_id: row.node for row in level_rows}
+        for level_rows in run.ridge_nodes_by_level
+    ]
     rows = []
     for record in run.evaluated_records:
         _, excess = absorbed_local_count(record, pivots)
-        metrics = _record_metrics(record, run, levels, scale_space, closes)
+        metrics = _record_metrics(record, ridge_maps_by_level, levels, scale_space, closes)
         rows.append({
             "record_id": record["record_id"],
             "start_bar": int(record["start_bar"]),
@@ -293,35 +284,28 @@ def _cross_view(view_summaries):
     for name in DEFINITIONS:
         out[name] = {
             "raw_direction_disagreement_fraction_by_view": {
-                view: view_summaries[view]["definitions"][name]["raw_direction_disagreement_fraction"]
-                for view in VIEWS
+                view: view_summaries[view]["definitions"][name]["raw_direction_disagreement_fraction"] for view in VIEWS
             },
             "record_saturation_fraction_by_view": {
-                view: view_summaries[view]["definitions"][name]["record_all_legs_at_or_above_0_99_fraction"]
-                for view in VIEWS
+                view: view_summaries[view]["definitions"][name]["record_all_legs_at_or_above_0_99_fraction"] for view in VIEWS
             },
             "parent_pass_0_5_fraction_by_view": {
-                view: view_summaries[view]["definitions"][name]["pass_0_5_parent_like_fraction"]
-                for view in VIEWS
+                view: view_summaries[view]["definitions"][name]["pass_0_5_parent_like_fraction"] for view in VIEWS
             },
             "nonparent_pass_0_5_fraction_by_view": {
-                view: view_summaries[view]["definitions"][name]["pass_0_5_nonparent_fraction"]
-                for view in VIEWS
+                view: view_summaries[view]["definitions"][name]["pass_0_5_nonparent_fraction"] for view in VIEWS
             },
             "inefficient_single_pass_0_5_fraction_by_view": {
-                view: view_summaries[view]["definitions"][name]["pass_0_5_inefficient_single_fraction"]
-                for view in VIEWS
+                view: view_summaries[view]["definitions"][name]["pass_0_5_inefficient_single_fraction"] for view in VIEWS
             },
             "qualified_preservation_fraction_by_view": {
-                view: view_summaries[view]["definitions"][name]["qualified_preservation_fraction"]
-                for view in VIEWS
+                view: view_summaries[view]["definitions"][name]["qualified_preservation_fraction"] for view in VIEWS
             },
         }
     return out
 
 
 def main():
-    # Small deterministic mathematical self-check, independent of market data.
     straight = np.asarray([0., 1., 2., 3., 4.])
     zigzag = np.asarray([0., 1., .2, 1.2, .4])
     assert abs(_path_er(straight, 0, 4)[0] - 1.0) < 1e-12
@@ -342,10 +326,7 @@ def main():
     main_rows = None
     main_bars = None
     for view in VIEWS:
-        bars, audit = load_development_bars(
-            ROOT / f"data/development/{view}.parquet",
-            ROOT / "data/manifest.json",
-        )
+        bars, audit = load_development_bars(ROOT / f"data/development/{view}.parquet", ROOT / "data/manifest.json")
         cfg = MaturityConfig(timeframe=view)
         baseline = run_v043(bars, view)
         run = build_ridge_run(bars, cfg)
