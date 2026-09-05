@@ -8,6 +8,9 @@ on:
     paths:
       - 'src/factor_lab/visual_structure/two_wave/**'
       - 'scripts/run_two_wave_research.py'
+      - 'scripts/summarize_two_wave_run.py'
+      - 'scripts/diagnose_two_wave_rejections.py'
+      - 'scripts/audit_two_wave_window_blocks.py'
       - 'tests/unit/test_two_wave*'
       - 'docs/research/**'
       - '.github/workflows/two-wave-research.yml'
@@ -39,6 +42,18 @@ jobs:
           --output cloud_results/two_wave_h0
           --reversal-logs .008,.01,.012
           --replay-bars 1200
+      - name: Publish complete per-view morphology aggregates and provenance to native logs
+        run: python scripts/summarize_two_wave_run.py --input cloud_results/two_wave_h0
+      - name: Diagnose frozen rejection flags without changing the recognizer
+        run: >-
+          python scripts/diagnose_two_wave_rejections.py
+          --input-root cloud_results/two_wave_h0
+          --output cloud_results/two_wave_continuation/rejection_diagnostics
+      - name: Audit dependence of preselected human review windows without labels
+        run: >-
+          python scripts/audit_two_wave_window_blocks.py
+          --results cloud_results/two_wave_h0
+          --output cloud_results/two_wave_continuation/window_block_audit.json
       - name: Fixed perturbation sensitivity without parameter selection
         run: >-
           python scripts/check_two_wave_stability.py
@@ -53,5 +68,6 @@ jobs:
             cloud_results/two_wave_h0/
             cloud_results/two_wave_stability/
             cloud_results/two_wave_synthetic/
+            cloud_results/two_wave_continuation/
           if-no-files-found: warn
           retention-days: 30
