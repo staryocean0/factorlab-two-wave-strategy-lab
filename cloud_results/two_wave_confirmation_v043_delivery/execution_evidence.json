@@ -1,0 +1,53 @@
+{
+  "schema": "two_wave_confirmation_ablation_execution@0.4.3",
+  "source_commit": "911ae5ddb22a36c13fb61d997c1d2df1dfb4fb1e",
+  "workflow_run": 33962694957,
+  "artifact": {
+    "id": 9968496525,
+    "name": "two-wave-confirmation-v043-911ae5ddb22a36c13fb61d997c1d2df1dfb4fb1e",
+    "size_bytes": 38404039,
+    "sha256": "5136735eace8b8062be85369362ddbe883a33d3f167b3634966f6694b1fddef5",
+    "expires_at": "2026-10-05T11:17:20Z"
+  },
+  "tests": {"count": 358, "failures": 0, "errors": 0, "skipped": 0},
+  "prefix_replays": {"count": 18, "all_passed": true, "fractions_per_view": [0.25, 0.5, 0.75]},
+  "status": "morphology_replication_not_yet_accepted",
+  "fresh_oos": false,
+  "future_outcome_used": false,
+  "trade_authority": false,
+  "changed_component_only": "pivot_confirmation_kernel",
+  "unchanged_components": ["v0.4.2 pair qualification", "D1 direction", "exclusive (start,end] publishing"],
+  "views": {
+    "5m_offset_0": {
+      "strict3": {"candidates": 4184, "qualified": 151, "selected": 100, "labels": {"uptrend": 34, "downtrend": 30, "range": 1, "uncertain": 35}, "owned_fraction_not_accuracy": 0.06584990158884103},
+      "v043": {"candidates": 4706, "qualified": 341, "selected": 212, "labels": {"uptrend": 72, "downtrend": 66, "range": 0, "uncertain": 74}, "owned_fraction_not_accuracy": 0.1296745300510597, "short_leg_rejections": 0, "pivot_spacing_quantiles": {"min": 4.0, "median": 9.0, "p90": 23.0, "max": 44.0}, "selected_span_quantiles": {"min": 24.0, "median": 40.0, "p90": 63.0, "max": 83.0}, "confirmation_delay_quantiles": {"min": 4.0, "median": 4.0, "p90": 7.0, "max": 8.0}},
+      "exact_five_point_matches": 688
+    },
+    "5m_offset_1": {"strict3": {"candidates": 4243, "qualified": 115, "selected": 79, "owned_fraction_not_accuracy": 0.05371175139897607}, "v043": {"candidates": 4584, "qualified": 314, "selected": 179, "owned_fraction_not_accuracy": 0.11279616621026313}, "exact_five_point_matches": 646},
+    "5m_offset_2": {"strict3": {"candidates": 4348, "qualified": 143, "selected": 89, "owned_fraction_not_accuracy": 0.0586379330872723}, "v043": {"candidates": 4593, "qualified": 322, "selected": 194, "owned_fraction_not_accuracy": 0.1212644362424098}, "exact_five_point_matches": 729},
+    "5m_offset_3": {"strict3": {"candidates": 4285, "qualified": 125, "selected": 84, "owned_fraction_not_accuracy": 0.053383536975577815}, "v043": {"candidates": 4596, "qualified": 342, "selected": 214, "owned_fraction_not_accuracy": 0.13674043427142707}, "exact_five_point_matches": 662},
+    "5m_offset_4": {"strict3": {"candidates": 4221, "qualified": 128, "selected": 86, "owned_fraction_not_accuracy": 0.0563468321650221}, "v043": {"candidates": 4532, "qualified": 349, "selected": 206, "owned_fraction_not_accuracy": 0.13326189519429685}, "exact_five_point_matches": 711},
+    "1m_official": {"strict3": {"candidates": 37306, "qualified": 3757, "selected": 2171, "owned_fraction_not_accuracy": 0.25502551624396325}, "v043": {"candidates": 27697, "qualified": 4570, "selected": 2451, "owned_fraction_not_accuracy": 0.31786764642958004}, "exact_five_point_matches": 11805}
+  },
+  "native_5m_offset_interval_iou_on_existing_1m_timestamps": {
+    "5m_offset_1": {"strict3": 0.18007091400270148, "v043": 0.26421742815087945},
+    "5m_offset_2": {"strict3": 0.11427477017364658, "v043": 0.20266407735123973},
+    "5m_offset_3": {"strict3": 0.12982133686515124, "v043": 0.22858834363899486},
+    "5m_offset_4": {"strict3": 0.1841268084870951, "v043": 0.2800499965280189},
+    "mapping_basis": "existing 1m timestamps only; no price resampling"
+  },
+  "fixed_windows": {
+    "2018-06-20": {"strict3": {"candidates": 4, "qualified": 0, "selected": 0}, "v043": {"candidates": 4, "qualified": 0, "selected": 0}},
+    "2019-04-15": {"strict3": {"candidates": 3, "qualified": 0, "selected": 0}, "v043": {"candidates": 3, "qualified": 0, "selected": 0}},
+    "2020-07-15": {"strict3": {"candidates": 6, "qualified": 1, "selected": 1}, "v043": {"candidates": 6, "qualified": 1, "selected": 1, "selected_five_occurrence_bars": [64581, 64605, 64611, 64642, 64654], "classification": "downtrend", "confirmation_bar": 64658}}
+  },
+  "legacy_case_checks": {
+    "case_02_90_3_fake_second_wave_exactly_reproduced": false,
+    "case_11_multweek_exactly_reproduced": false,
+    "case_14_multweek_exactly_reproduced": false,
+    "case_00_human_visible_downtrend_recovered_in_old_window": false,
+    "case_09_exact_candidate_present_but_rejected_for_43_over_21_duration_ratio": true,
+    "case_10_has_local_scale_qualified_candidate_but_D1_is_uncertain_not_range": true,
+    "case_15_exact_candidate_scale_qualified_and_published_uptrend": true
+  }
+}
