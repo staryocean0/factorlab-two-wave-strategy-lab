@@ -1,0 +1,63 @@
+name: two-wave-extremum-ridge-v052-main-smoke
+on:
+  push:
+    branches: ['codex/two-wave-phase1-20260905']
+    paths:
+      - 'src/factor_lab/visual_structure/two_wave/extremum_ridge_v052.py'
+      - 'tests/unit/test_two_wave_extremum_ridge_v052.py'
+      - 'scripts/run_two_wave_extremum_ridge_v052.py'
+      - 'docs/research/two_wave_extremum_ridge_protocol_v052.md'
+      - 'docs/research/two_wave_extremum_ridge_synthetic_results_v052.md'
+      - '.github/workflows/two-wave-extremum-ridge-v052-main-smoke.yml'
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: two-wave-extremum-ridge-v052-main-smoke-${{ github.ref }}
+  cancel-in-progress: false
+defaults:
+  run:
+    shell: bash
+jobs:
+  main-view-integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: python -m pip install -e . editables==0.6
+      - name: Validate bounded package and frozen data
+        run: |
+          mkdir -p v052_main_proof/source
+          python scripts/validate_theme_package.py | tee v052_main_proof/package_validation.json
+          git rev-parse HEAD > v052_main_proof/commit.txt
+      - name: Full regression before real main-view integration
+        run: python -m pytest -q --junitxml=v052_main_proof/tests.xml | tee v052_main_proof/tests.log
+      - name: Run frozen v0.5.2 on main 5m only
+        run: |
+          python scripts/run_two_wave_extremum_ridge_v052.py \
+            --views 5m_offset_0 \
+            --skip-offset-stability \
+            --output cloud_results/two_wave_extremum_ridge_v052_main_smoke \
+            | tee v052_main_proof/research.log
+          git diff --exit-code -- data src tests scripts docs/research pyproject.toml
+      - name: Retain exact implementation and environment
+        if: always()
+        run: |
+          python -m pip freeze > v052_main_proof/environment.txt
+          cp src/factor_lab/visual_structure/two_wave/extremum_ridge_v052.py v052_main_proof/source/
+          cp tests/unit/test_two_wave_extremum_ridge_v052.py scripts/run_two_wave_extremum_ridge_v052.py docs/research/two_wave_extremum_ridge_protocol_v052.md v052_main_proof/source/
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: two-wave-extremum-ridge-v052-main-smoke-${{ github.sha }}
+          path: |
+            cloud_results/two_wave_extremum_ridge_v052_main_smoke/
+            v052_main_proof/
+          retention-days: 30
+          if-no-files-found: error
