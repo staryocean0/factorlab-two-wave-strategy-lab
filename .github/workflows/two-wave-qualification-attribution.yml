@@ -1,3 +1,4 @@
+# Diagnostic only: no qualification rule or threshold is changed by this workflow.
 name: two-wave-qualification-attribution
 on:
   push:
