@@ -1,0 +1,166 @@
+{
+  "fresh_oos": false,
+  "instrument": "000852.SH",
+  "local_resampling_performed": false,
+  "post_2020_rows_included": false,
+  "production_authority": false,
+  "products": [
+    {
+      "column_count": 25,
+      "data_role": "development_material",
+      "file_bytes": 12842573,
+      "maximum_trading_day": "2020-12-31",
+      "minimum_trading_day": "2015-01-05",
+      "path": "data/development/1m_official.parquet",
+      "row_count": 350561,
+      "sha256": "755217afce9dec383e48cd46d591402fa90dc50897abeb3dc7097c9a18a109d4",
+      "source_product": "1m_official.parquet"
+    },
+    {
+      "column_count": 25,
+      "data_role": "development_material",
+      "file_bytes": 3351411,
+      "maximum_trading_day": "2020-12-31",
+      "minimum_trading_day": "2015-01-05",
+      "path": "data/development/5m_offset_0.parquet",
+      "row_count": 70114,
+      "sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48",
+      "source_product": "5m_offset_0.parquet"
+    },
+    {
+      "column_count": 25,
+      "data_role": "development_material",
+      "file_bytes": 3226743,
+      "maximum_trading_day": "2020-12-31",
+      "minimum_trading_day": "2015-01-05",
+      "path": "data/development/5m_offset_1.parquet",
+      "row_count": 67192,
+      "sha256": "4523615193c177dda2f63a69dd32a2d21e2b15c78283de2d242dd6cd695fc284",
+      "source_product": "5m_offset_1.parquet"
+    },
+    {
+      "column_count": 25,
+      "data_role": "development_material",
+      "file_bytes": 3223863,
+      "maximum_trading_day": "2020-12-31",
+      "minimum_trading_day": "2015-01-05",
+      "path": "data/development/5m_offset_2.parquet",
+      "row_count": 67192,
+      "sha256": "737548b04ca93fdbfafda806c5f98051b0521e868d71bcab00f23c062ef8ee82",
+      "source_product": "5m_offset_2.parquet"
+    },
+    {
+      "column_count": 25,
+      "data_role": "development_material",
+      "file_bytes": 3225315,
+      "maximum_trading_day": "2020-12-31",
+      "minimum_trading_day": "2015-01-05",
+      "path": "data/development/5m_offset_3.parquet",
+      "row_count": 67193,
+      "sha256": "20a8a4aba19f60946e5781947f658d0b16a2d8758e6318b43c0a0ececdd09282",
+      "source_product": "5m_offset_3.parquet"
+    },
+    {
+      "column_count": 25,
+      "data_role": "development_material",
+      "file_bytes": 3227705,
+      "maximum_trading_day": "2020-12-31",
+      "minimum_trading_day": "2015-01-05",
+      "path": "data/development/5m_offset_4.parquet",
+      "row_count": 67191,
+      "sha256": "ceba69dce07223ba92204dc4994991eeabcaf62aacfb9869fd9403da43694b1b",
+      "source_product": "5m_offset_4.parquet"
+    },
+    {
+      "column_count": 25,
+      "data_role": "development_material",
+      "file_bytes": 1031824,
+      "maximum_trading_day": "2020-12-31",
+      "minimum_trading_day": "2015-01-05",
+      "path": "data/development/15m_offset_5.parquet",
+      "row_count": 20451,
+      "sha256": "ec04014bb25de3d47ba3e17e347803b4a95edf06b22a9cca305f8c8d7bf6a1b1",
+      "source_product": "15m_offset_5.parquet"
+    },
+    {
+      "column_count": 25,
+      "data_role": "development_material",
+      "file_bytes": 1034989,
+      "maximum_trading_day": "2020-12-31",
+      "minimum_trading_day": "2015-01-05",
+      "path": "data/development/15m_offset_10.parquet",
+      "row_count": 20451,
+      "sha256": "87d8086680284ba5f278d9e44699fac0d66387a70c9d63a0608a4569f77ab06e",
+      "source_product": "15m_offset_10.parquet"
+    },
+    {
+      "column_count": 25,
+      "data_role": "development_material",
+      "file_bytes": 461185,
+      "maximum_trading_day": "2020-12-31",
+      "minimum_trading_day": "2015-01-05",
+      "path": "data/development/30m_offset_15.parquet",
+      "row_count": 8765,
+      "sha256": "0bf323c25d637e80ea5ff81a116f5c54f0f3b20679878212441f4ac9b894aa3b",
+      "source_product": "30m_offset_15.parquet"
+    },
+    {
+      "column_count": 25,
+      "data_role": "development_material",
+      "file_bytes": 169599,
+      "maximum_trading_day": "2020-12-31",
+      "minimum_trading_day": "2015-01-05",
+      "path": "data/development/60m_offset_30.parquet",
+      "row_count": 2923,
+      "sha256": "7a754f7c802bb1eea7f6ad388650f7b9293f659c56c5a52a1717d28d46d4d00e",
+      "source_product": "60m_offset_30.parquet"
+    },
+    {
+      "column_count": 25,
+      "data_role": "development_material",
+      "file_bytes": 170017,
+      "maximum_trading_day": "2020-12-31",
+      "minimum_trading_day": "2015-01-05",
+      "path": "data/development/60m_offset_45.parquet",
+      "row_count": 2921,
+      "sha256": "192d6f2ba5e4c33cad71a32346af8af74257cc6d0c857f13238e4e0d2c2cb6d7",
+      "source_product": "60m_offset_45.parquet"
+    },
+    {
+      "column_count": 25,
+      "data_role": "development_material",
+      "file_bytes": 94201,
+      "maximum_trading_day": "2020-12-31",
+      "minimum_trading_day": "2015-01-05",
+      "path": "data/development/daily_noon_close_1130.parquet",
+      "row_count": 1462,
+      "sha256": "1389b655c846d2e4b9d4ccb6fbc3ba9fce92c4db60bb3d0cc91e17f5703b24ed",
+      "source_product": "daily_noon_close_1130.parquet"
+    },
+    {
+      "column_count": 25,
+      "data_role": "development_material",
+      "file_bytes": 93575,
+      "maximum_trading_day": "2020-12-31",
+      "minimum_trading_day": "2015-01-05",
+      "path": "data/development/daily_proxy_close_1400.parquet",
+      "row_count": 1461,
+      "sha256": "92812f6fd31957779ddc0b34ea4d810d612751b4047e31737d01114de18237d0",
+      "source_product": "daily_proxy_close_1400.parquet"
+    },
+    {
+      "column_count": 25,
+      "data_role": "development_material",
+      "file_bytes": 93368,
+      "maximum_trading_day": "2020-12-31",
+      "minimum_trading_day": "2015-01-05",
+      "path": "data/development/daily_proxy_close_1430.parquet",
+      "row_count": 1460,
+      "sha256": "f82888247b131553d747b15cad7682f7ed66e6da9a90a9ed93f83d145442c9dc",
+      "source_product": "daily_proxy_close_1430.parquet"
+    }
+  ],
+  "schema_id": "two_wave_cloud_theme_data_manifest@1.0",
+  "timestamp_normalization": "source_Z_wrapped_Shanghai_wall_clock_to_timezone_aware_UTC; source_string_retained_as_timestamp_source_serialized",
+  "trade_fill_authority": false
+}

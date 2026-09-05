@@ -1,0 +1,25 @@
+{
+  "schema_id": "timing_layer3_strategy_plugin_registry@2.1",
+  "status": "current_unfinished_p8_bucket_prototype_listed",
+  "parent": "timing_layer3_strategy_plugin_registry@2.0",
+  "identity_registry": "timing_strategy_identity_registry@2.2",
+  "installed_profiles": [],
+  "registered_usable_strategies": [],
+  "research_pending_requalification": [
+    "timing_strategy_router_v4",
+    "high_slope_explosive_owner_v3",
+    "crash_rebound_current_best_research_r1"
+  ],
+  "historical_closed": [
+    "parallel_annual_clean_room_a12"
+  ],
+  "legacy_installed_labels_authoritative": false,
+  "automatic_plugin_replacement": false,
+  "runtime_installation_authority": false,
+  "paper_trading_authority": false,
+  "live_trading_authority": false,
+  "production_authority": false,
+  "unfinished_strategy_prototypes": [
+    "csi1000_lat_p8_l2_matched_bucket_prototype"
+  ]
+}

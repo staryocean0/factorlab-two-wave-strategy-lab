@@ -1,0 +1,224 @@
+{
+  "architecture_id": "timing_layer3_four_category_v1",
+  "asset_count": 12,
+  "asset_ids": [
+    "tool_registry_v1_5",
+    "tool_relative_coupling",
+    "paper_kernel_tool_identity",
+    "formula_derived_tool_inversion",
+    "evaluation_platform_v4",
+    "formula_derived_joint_state_machine",
+    "volatility_three_state_machine",
+    "priority_composition_waterfall",
+    "timing_strategy_router_v4",
+    "explosive_layer_v3",
+    "crash_rebound_current_best",
+    "timing_research_samples_rN"
+  ],
+  "categories": [
+    {
+      "asset_ids": [
+        "tool_registry_v1_5",
+        "tool_relative_coupling",
+        "paper_kernel_tool_identity",
+        "formula_derived_tool_inversion"
+      ],
+      "category_id": "strategy_language_identity",
+      "current": true,
+      "dependency_predecessors": [],
+      "production_authority": false,
+      "role": "tool identity formula semantics parameter mechanism and compiler coverage",
+      "stability": "stable"
+    },
+    {
+      "asset_ids": [
+        "evaluation_platform_v4",
+        "formula_derived_joint_state_machine"
+      ],
+      "category_id": "research_construction_acceptance",
+      "current": true,
+      "dependency_predecessors": [
+        "strategy_language_identity"
+      ],
+      "production_authority": false,
+      "role": "preregistration evaluation progression promotion and post-training account audit",
+      "stability": "stable_governance"
+    },
+    {
+      "asset_ids": [
+        "volatility_three_state_machine",
+        "priority_composition_waterfall",
+        "timing_strategy_router_v4"
+      ],
+      "category_id": "generic_orchestration_kernel",
+      "current": true,
+      "dependency_predecessors": [
+        "strategy_language_identity",
+        "research_construction_acceptance"
+      ],
+      "production_authority": false,
+      "role": "state adapters exclusive claims remainder propagation and conflict arbitration",
+      "stability": "semi_stable_replaceable"
+    },
+    {
+      "asset_ids": [
+        "explosive_layer_v3",
+        "crash_rebound_current_best",
+        "timing_research_samples_rN"
+      ],
+      "category_id": "strategy_plugins_exemplars",
+      "current": true,
+      "dependency_predecessors": [
+        "generic_orchestration_kernel"
+      ],
+      "production_authority": false,
+      "role": "installed owner profiles research candidates and explicit historical exemplars",
+      "stability": "ephemeral_versioned"
+    }
+  ],
+  "category_order": [
+    "strategy_language_identity",
+    "research_construction_acceptance",
+    "generic_orchestration_kernel",
+    "strategy_plugins_exemplars"
+  ],
+  "current": true,
+  "formula_mutation": false,
+  "fresh_oos": false,
+  "generic_dependency_direction": "language_to_research_to_orchestration_to_plugins",
+  "plugins": [
+    {
+      "asset_id": "explosive_layer_v3",
+      "contract_ref": "src/factor_lab/market_state/timing_explosive_layer_v3.py",
+      "generic_core": false,
+      "installed_in_router": true,
+      "plugin_id": "high_slope_explosive_owner_v3",
+      "production_authority": false,
+      "status": "installed_current_owner_profile"
+    },
+    {
+      "asset_id": "crash_rebound_current_best",
+      "contract_ref": "src/factor_lab/market_state/timing_crash_rebound_current_best_r1.py",
+      "generic_core": false,
+      "installed_in_router": false,
+      "plugin_id": "crash_rebound_current_best_research_r1",
+      "production_authority": false,
+      "status": "research_candidate_not_installed"
+    },
+    {
+      "asset_id": "timing_research_samples_rN",
+      "contract_ref": "src/factor_lab/market_state/timing_three_specialist_isolated_annual_v7.py",
+      "generic_core": false,
+      "installed_in_router": false,
+      "plugin_id": "parallel_annual_clean_room_a12",
+      "production_authority": false,
+      "status": "historical_exemplar_not_current"
+    }
+  ],
+  "production_authority": false,
+  "research_acceptance": {
+    "evaluation_platform": "market_state_timing_evaluation_platform@4.0",
+    "formula_research_engine": "market_state_formula_derived_three_stage_workflow@1.0",
+    "joint_state_machine_runtime_authority": false,
+    "post_training_account_audit": "factorlab.post_training_account_audit@1.0",
+    "production_authority": false,
+    "progression_contract": "factorlab.strategy_progressive_development@1.0",
+    "progression_may_be_deleted_by_failed_promotion": false,
+    "required_order": [
+      "freeze_language_formula_and_attempt_family",
+      "evaluate_hard_validity",
+      "retain_hard_valid_progression",
+      "apply_candidate_promotion_separately",
+      "freeze_score_or_strategy_snapshot",
+      "run_A0_A7_post_training_account_audit",
+      "handoff_without_automatic_production"
+    ],
+    "schema_id": "timing_layer3_research_acceptance@1.0"
+  },
+  "schema_id": "timing_layer3_strategy_architecture@1.0",
+  "status": "four_category_current_research_only",
+  "strategy_language": {
+    "coupling_coverage": {
+      "covered_count": 14,
+      "covered_tool_ids": [
+        "laplace_iir_mixed_bandpass",
+        "laplace_iir_lowpass",
+        "butterworth_clean_bandpass",
+        "rolling_fourier_bandpass",
+        "causal_haar_wavelet_bandpass",
+        "r3_nested_moving_average_component",
+        "bollinger_volatility_channel",
+        "frequency_selective_bollinger_channel",
+        "butterworth_lowpass_residual_envelope",
+        "causal_asymmetric_arc_state_space_envelope",
+        "donchian_price_channel",
+        "causal_trendline_channel",
+        "simple_moving_average_trend",
+        "paper_kernel_multiscale_trend_router"
+      ],
+      "status": "partial_explicit_not_complete",
+      "uncovered_tool_ids": [
+        "lowpass_bandpass_lat_channel"
+      ]
+    },
+    "current_tool_count": 15,
+    "current_tool_ids": [
+      "laplace_iir_mixed_bandpass",
+      "laplace_iir_lowpass",
+      "butterworth_clean_bandpass",
+      "rolling_fourier_bandpass",
+      "causal_haar_wavelet_bandpass",
+      "r3_nested_moving_average_component",
+      "bollinger_volatility_channel",
+      "frequency_selective_bollinger_channel",
+      "butterworth_lowpass_residual_envelope",
+      "causal_asymmetric_arc_state_space_envelope",
+      "donchian_price_channel",
+      "causal_trendline_channel",
+      "simple_moving_average_trend",
+      "paper_kernel_multiscale_trend_router",
+      "lowpass_bandpass_lat_channel"
+    ],
+    "formula_compiler_coverage": {
+      "covered_count": 13,
+      "covered_tool_ids": [
+        "laplace_iir_mixed_bandpass",
+        "laplace_iir_lowpass",
+        "butterworth_clean_bandpass",
+        "rolling_fourier_bandpass",
+        "causal_haar_wavelet_bandpass",
+        "r3_nested_moving_average_component",
+        "bollinger_volatility_channel",
+        "frequency_selective_bollinger_channel",
+        "butterworth_lowpass_residual_envelope",
+        "causal_asymmetric_arc_state_space_envelope",
+        "donchian_price_channel",
+        "causal_trendline_channel",
+        "simple_moving_average_trend"
+      ],
+      "status": "historical_13_tool_prefix_explicit",
+      "uncovered_tool_ids": [
+        "paper_kernel_multiscale_trend_router",
+        "lowpass_bandpass_lat_channel"
+      ]
+    },
+    "lat_identity": {
+      "coupling_status": "uncovered",
+      "formula_compiler_status": "uncovered",
+      "registry_current": true,
+      "tool_id": "lowpass_bandpass_lat_channel"
+    },
+    "paper_kernel_identity": {
+      "independent_current_component": false,
+      "registry_lineage_view": true,
+      "tool_id": "paper_kernel_multiscale_trend_router"
+    },
+    "production_authority": false,
+    "routing_authority": false,
+    "schema_id": "timing_layer3_strategy_language@1.0",
+    "strategy_selection_authority": false,
+    "tool_registry": "tool_registry_v1_5",
+    "tool_registry_schema": "market_state_tool_registry@1.5"
+  },
+  "strategy_runtime_mutation": false
+}

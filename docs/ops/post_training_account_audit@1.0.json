@@ -1,0 +1,102 @@
+{
+  "schema_id": "factorlab.post_training_account_audit@1.0",
+  "status": "result_free_generic_stage_frozen",
+  "trigger": "model_or_score_snapshot_frozen_before_strategy_closeout",
+  "stages": [
+    "A0_freeze_model_score_identity",
+    "A1_freeze_result_free_account_family",
+    "A2_materialize_causal_formal_isolated_inputs",
+    "A3_validate_and_benchmark_exact_workload",
+    "A4_blind_test_prior_account_policy_only",
+    "A5_manual_review_then_reprice_complete_family",
+    "A6_seal_year_receipt_and_prior_policy_chain",
+    "A7_outcome_neutral_final_audit_and_handoff"
+  ],
+  "blind_family_separation": {
+    "blind_and_family_execution_may_share_one_command": false,
+    "blind_output_may_contain_non_prior_policy": false,
+    "family_execution_requires_completed_manual_blind_review": true
+  },
+  "frozen_score_schema": {
+    "required_fields": [
+      "decision_id",
+      "decision_time",
+      "variant_id",
+      "asset_id",
+      "score",
+      "score_available_at"
+    ],
+    "allowlist_only": true,
+    "score_available_after_decision_allowed": false,
+    "duplicate_primary_key_allowed": false
+  },
+  "execution_market_schema": {
+    "required_fields": [
+      "market_date",
+      "decision_time",
+      "execution_time",
+      "variant_id",
+      "asset_id",
+      "raw_execution_price",
+      "raw_mark_price",
+      "economic_unit_multiplier",
+      "accounting_execution_price",
+      "accounting_mark_price",
+      "buy_ok",
+      "sell_ok",
+      "market_available_at"
+    ],
+    "raw_or_pit_fill_required": true,
+    "next_tradable_after_bar_close_required_for_intraday": true,
+    "accounting_price_identity_required": true
+  },
+  "result_free_configurable_axes": [
+    "top_n",
+    "weighting_and_single_name_cap",
+    "buy_unavailable_action",
+    "group_concentration_constraints",
+    "variant_or_clock",
+    "cost_schedule_and_stress_scenarios"
+  ],
+  "hard_invariants": {
+    "model_checkpoint_and_score_definition_read_only": true,
+    "account_result_may_retrain_model": false,
+    "variant_accounts_must_be_isolated": true,
+    "forced_unsellable_holdings_must_carry": true,
+    "blocked_buy_may_increase_position": false,
+    "cash_shortfall_may_be_renormalized": false,
+    "backfill_only_same_event_frozen_rank": true,
+    "costs_frozen_before_results": true,
+    "complete_cartesian_policy_family_required": true,
+    "all_attempts_counted": true,
+    "formal_isolated_scientific_bytes_required": true,
+    "post_2020_or_other_forbidden_interval_read_allowed": false,
+    "production_authority": false
+  },
+  "required_outputs_per_year": [
+    "blind_receipt.json",
+    "analysis_ledger.json",
+    "family_metrics",
+    "annual_metrics",
+    "quarterly_metrics",
+    "progression_ledger",
+    "promotion_ledger",
+    "portfolio_daily",
+    "holdings",
+    "trades_with_additive_cost_legs",
+    "execution_events",
+    "session_receipt.json"
+  ],
+  "final_validator_outcome_neutral": true,
+  "strategy_specific_adapter_required": true,
+  "reference_adapter": {
+    "strategy_id": "REAKA_d8_h8_K1_r0",
+    "contract": "docs/ops/reaka_intraday_portfolio_mapping@1.2.json",
+    "engine": "src/factor_lab/factor_rotation/reaka_intraday_portfolio_mapping_v1.py",
+    "historical_result": "docs/ops/reaka_intraday_portfolio_mapping_final_result.md",
+    "role": "historical_compatibility_exemplar_not_generic_core"
+  },
+  "fresh_oos": false,
+  "production_authority": false,
+  "canonical_digest": "sha256:b7ac658bc4989cdb8367522458cd20f7f2e952d6926e09867dcd3acf31638413"
+}

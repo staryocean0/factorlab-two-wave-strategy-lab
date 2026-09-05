@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "market_state_timing_priority_composition@1.1",
+  "title": "Layer 3b timing priority composition scaffold over the current 15-tool registry",
+  "type": "object",
+  "required": [
+    "schema_id",
+    "framework_version",
+    "tool_registry_version",
+    "tool_count",
+    "eligible_tool_ids",
+    "four_layer_role",
+    "lifecycle",
+    "replaceable_by_layer2_measurement",
+    "long_term_foundation",
+    "composition_semantics",
+    "side_contracts",
+    "cross_side_arbitration",
+    "unclaimed_bar_policy",
+    "priority_selection_status",
+    "selection_data_rows_read",
+    "return_rows_read",
+    "production_authority",
+    "dynamic_parameter_authority",
+    "tool_routing_authority",
+    "semantic_digest"
+  ],
+  "properties": {
+    "schema_id": {"const": "market_state_timing_priority_composition@1.1"},
+    "framework_version": {"const": "timing_priority_composition_v1_1"},
+    "tool_registry_version": {"const": "tool_registry_v1_5"},
+    "tool_count": {"const": 15},
+    "eligible_tool_ids": {
+      "type": "array",
+      "minItems": 15,
+      "maxItems": 15,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "four_layer_role": {"const": "layer3b_strategy_ephemeral"},
+    "lifecycle": {
+      "const": "replaceable_by_more_complete_layer2_measurement_not_a_long_term_foundation"
+    },
+    "replaceable_by_layer2_measurement": {"const": true},
+    "long_term_foundation": {"const": false},
+    "composition_semantics": {"const": "first_eligible_claims_remaining_bars"},
+    "side_contracts": {
+      "type": "object",
+      "required": ["upside_capture", "downside_protection"],
+      "properties": {
+        "upside_capture": {"$ref": "#/$defs/emptySide"},
+        "downside_protection": {"$ref": "#/$defs/emptySide"}
+      },
+      "additionalProperties": false
+    },
+    "cross_side_arbitration": {"const": "not_defined_in_framework_v1"},
+    "unclaimed_bar_policy": {"const": "remain_unassigned_no_default_action"},
+    "priority_selection_status": {"const": "framework_only_no_priority_selected"},
+    "selection_data_rows_read": {"const": 0},
+    "return_rows_read": {"const": 0},
+    "production_authority": {"const": false},
+    "dynamic_parameter_authority": {"const": false},
+    "tool_routing_authority": {"const": false},
+    "semantic_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+  },
+  "$defs": {
+    "emptySide": {
+      "type": "object",
+      "required": ["meaning", "consumer_action_mapping", "priority_ladder"],
+      "properties": {
+        "meaning": {"type": "string", "minLength": 1},
+        "consumer_action_mapping": {"type": "string", "minLength": 1},
+        "priority_ladder": {"type": "array", "maxItems": 0}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,21 @@
+{
+  "schema_id": "timing_layer3_strategy_architecture_version_registry@1.0",
+  "current": "timing_layer3_strategy_architecture@2.2",
+  "current_identity_registry": "timing_strategy_identity_registry@2.2",
+  "current_plugin_registry": "timing_layer3_strategy_plugin_registry@2.1",
+  "historical": [
+    "timing_layer3a_strategy_foundation@1.0",
+    "timing_layer3b_strategy_ephemeral@1.0",
+    "timing_layer3_strategy_architecture@1.0",
+    "timing_layer3_strategy_architecture@1.1",
+    "timing_layer3_strategy_architecture@2.0",
+    "timing_strategy_identity_registry@2.0",
+    "timing_layer3_strategy_plugin_registry@1.0",
+    "timing_layer3_strategy_plugin_registry@1.1",
+    "timing_layer3_strategy_architecture@2.1",
+    "timing_strategy_identity_registry@2.1",
+    "timing_layer3_strategy_plugin_registry@2.0"
+  ],
+  "silent_retarget_forbidden": true,
+  "production_authority": false
+}

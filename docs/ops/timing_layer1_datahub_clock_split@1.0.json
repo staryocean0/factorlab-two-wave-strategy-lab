@@ -1,0 +1,104 @@
+{
+  "schema_version": "factor_lab.timing_layer1_datahub_clock_split.v1",
+  "contract_id": "timing_layer1_datahub_clock_split@1.0",
+  "status": "current_interface_authority",
+  "updated_at": "2026-09-01",
+  "production_authority": false,
+  "layer": "clock",
+  "supplier": "DataHub",
+  "consumer": "FactorLab",
+  "datahub_root": "../../unified_datahub",
+  "datahub_consumer_contract": "config/reliability/consumer_contracts/factorlab_timing_layer1_clock.v1.json",
+  "datahub_whitepaper": "docs/modules/history/session-offset-bars-whitepaper.md",
+  "datahub_on_demand_kline_contract": "config/reliability/consumer_contracts/factorlab_on_demand_kline_intervals.v1.json",
+  "supplier_owns": [
+    "1m_raw_canonical_physical_source",
+    "official_session_end_label_v2_bars",
+    "session_wall_clock_offset_bars",
+    "noon_close_daily_bars",
+    "on_demand_2m_3m_10m_20m_offset_0",
+    "on_demand_qfq_hfq_from_1m",
+    "first_tradable_slot_hint"
+  ],
+  "consumer_owns": [
+    "research_offset_menu",
+    "signal_qfq_vs_fill_raw_pairing",
+    "execution_window_pairing",
+    "inventory_gates_no_flip",
+    "cloudridge_shifted_session_clock_research_carrier",
+    "historical_remake_ledger_read_only"
+  ],
+  "factorlab_must_not": [
+    "local_wall_clock_resample_5m_15m_30m_60m_1d",
+    "local_resample_2m_3m_10m_20m",
+    "use_derive_shifted_bars_as_wall_clock_factory",
+    "recut_old_cloudridge_packs_as_new_bar_constructor",
+    "promote_datahub_gold_sample_60m_plus_5_or_15m_plus_15_to_research_default",
+    "open_new_offset_search"
+  ],
+  "datahub_must_not": [
+    "auto_apply_factorlab_research_menu",
+    "construct_session_clock_continuous",
+    "rewrite_official_latest_to_noon_close",
+    "mutate_pinned_factorlab_v9_1500_qfq",
+    "own_execution_windows_or_inventory_gates"
+  ],
+  "research_menu_fetch_fallback": {
+    "1d": "1d@11:30",
+    "60m": "60m+30",
+    "15m": "15m+5"
+  },
+  "datahub_capability_gold_samples_not_factorlab_defaults": {
+    "60m": 5,
+    "15m": 15
+  },
+  "continuous_clock": {
+    "construction_version": "shifted_session_clock@1.0",
+    "owner": "factor_lab_cloudridge_continuous_clock",
+    "not_a_datahub_product": true
+  },
+  "five_in_one": {
+    "factor_lab": {
+      "contract": "docs/ops/timing_layer1_datahub_clock_split@1.0.json",
+      "whitepaper": "docs/ops/timing_layer1_datahub_clock_split_whitepaper.md",
+      "workflow": "docs/user/timing_layer1_datahub_clock_split_workflow.md",
+      "code": [
+        "src/factor_lab/data/session_offset_defaults.py",
+        "src/factor_lab/data/services/shifted_bar_service.py",
+        "src/factor_lab/data/services/datahub_fetch_service.py"
+      ],
+      "tests": [
+        "tests/unit/test_timing_layer1_datahub_clock_split.py",
+        "tests/unit/test_session_offset_defaults.py",
+        "tests/unit/test_shifted_bar_service.py"
+      ]
+    },
+    "datahub": {
+      "contract": "config/reliability/consumer_contracts/factorlab_timing_layer1_clock.v1.json",
+      "whitepaper": "docs/modules/history/session-offset-bars-whitepaper.md",
+      "workflow": "docs/modules/history/session-offset-bars-workflow.md",
+      "code": [
+        "src/datahub/storage/query/session_offset_contract.py",
+        "src/datahub/storage/query/bars_deriver.py"
+      ],
+      "tests": [
+        "tests/unit/storage/test_factorlab_timing_layer1_clock_split.py",
+        "tests/unit/storage/test_session_offset_contract.py"
+      ]
+    }
+  },
+  "layer1_asset_roles": {
+    "unified_offset_data_and_backtest": "consumer_menu_and_pairing",
+    "datahub_on_demand_kline_binding": "consume_datahub_on_demand_klines",
+    "csi1000_5m_research_runtime": "consume_datahub_5m_and_pair_1m_fill",
+    "shifted_bar_derivation": "cloudridge_continuous_clock_exception",
+    "daily_afternoon_remake": "historical_remake_read_only",
+    "session_clock_reference": "inventory_gate_not_bar_construction",
+    "cloudridge_beta_index_reference": "index_reference_not_bar_construction"
+  },
+  "synthetic_path_adapter": {
+    "code": "src/factor_lab/data/unified_kline_v2.py",
+    "role": "apply_datahub_session_offset_contract_to_cloudridge_synthetic_1m",
+    "not_a_second_wall_clock_factory": true
+  }
+}

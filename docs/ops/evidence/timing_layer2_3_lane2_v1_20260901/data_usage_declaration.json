@@ -1,0 +1,32 @@
+{
+  "schema_id": "timing_layer2_3_lane2_data_usage@1.0",
+  "campaign_id": "TIMING_LAYER2_3_LANE2_V1_20260901",
+  "declared_at": "2026-09-01",
+  "task_type": "infrastructure_category_consolidation_without_economic_research",
+  "allowed_reads": [
+    "frozen_step_a_inventory",
+    "source_interfaces",
+    "versioned_contracts",
+    "tests",
+    "workflows",
+    "whitepapers"
+  ],
+  "forbidden_reads": [
+    "strategy_return_rows_for_selection",
+    "candidate_rankings",
+    "fresh_challenge_rows",
+    "lockbox_detail",
+    "post_result_parameter_surfaces"
+  ],
+  "counts": {
+    "strategy_return_rows_read": 0,
+    "candidate_rows_ranked": 0,
+    "fresh_challenge_rows_read": 0,
+    "lockbox_rows_read": 0
+  },
+  "authority": {
+    "strategy_selection": false,
+    "parameter_selection": false,
+    "production": false
+  }
+}

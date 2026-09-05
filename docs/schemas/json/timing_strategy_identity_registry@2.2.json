@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "timing_strategy_identity_registry@2.2",
+  "type": "object",
+  "required": ["schema_id", "status", "class_order", "classes", "infrastructure_asset_count", "strategy_research_asset_count", "registered_usable_strategy_count", "production_authority"],
+  "properties": {
+    "schema_id": {"const": "timing_strategy_identity_registry@2.2"},
+    "status": {"const": "current_unfinished_p8_bucket_prototype_added"},
+    "class_order": {"const": ["infrastructure", "strategy_research", "registered_usable_strategy"]},
+    "classes": {"type": "object"},
+    "infrastructure_asset_count": {"const": 10},
+    "strategy_research_asset_count": {"const": 5},
+    "registered_usable_strategy_count": {"const": 0},
+    "production_authority": {"const": false}
+  },
+  "additionalProperties": true
+}

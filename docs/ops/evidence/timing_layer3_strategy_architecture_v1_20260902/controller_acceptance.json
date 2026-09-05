@@ -1,0 +1,16 @@
+{
+  "schema_id":"timing_layer3_strategy_architecture_controller_acceptance@1.0",
+  "accepted_at":"2026-09-02",
+  "status":"passed_four_category_reclassification_complete",
+  "current_contract":"timing_layer3_strategy_architecture@1.0",
+  "category_count":4,
+  "asset_count":12,
+  "coverage":{"tool_registry":15,"tool_coupling":14,"formula_compiler":13},
+  "plugins":{"installed_current_owner_profiles":1,"research_candidates_not_installed":1,"historical_exemplars":1},
+  "research_acceptance":{"evaluation_platform":"@4.0","progression":"@1.0","post_training_account_audit":"A0-A7"},
+  "validation":{"pytest_passed":79,"ruff":"passed","basedpyright_errors":0,"basedpyright_warnings":0,"json_parse":"passed","git_diff_check":"passed"},
+  "formula_mutation":false,
+  "strategy_runtime_mutation":false,
+  "fresh_oos":false,
+  "production_authority":false
+}

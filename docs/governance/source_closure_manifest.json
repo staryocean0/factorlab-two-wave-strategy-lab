@@ -1,0 +1,2324 @@
+{
+  "file_count": 463,
+  "files": [
+    {
+      "bytes": 18373,
+      "path": ".codex/skills/strategy-slice-rebuild/SKILL.md",
+      "sha256": "08badb5d6621aff6863cf9dc9fcac64922d4ef182b07b3ba66b44166bbd029a1"
+    },
+    {
+      "bytes": 394,
+      "path": ".codex/skills/strategy-slice-rebuild/agents/openai.yaml",
+      "sha256": "e833cea218ddf2f4ad9567c5e17dd756a8b2acb347f3d7dd42284d0b912caaba"
+    },
+    {
+      "bytes": 4601,
+      "path": ".codex/skills/strategy-slice-rebuild/references/post-training-account-audit.md",
+      "sha256": "89639c5e667fe764d1056f60ceb170d922fab2b0cc4e836693280eec0a26ca36"
+    },
+    {
+      "bytes": 13526,
+      "path": ".codex/skills/strategy-slice-rebuild/references/project-contract.md",
+      "sha256": "4665e507b85792bb8365028b7880679aa9ae43cbfcb1532ca51e3c908307f138"
+    },
+    {
+      "bytes": 405,
+      "path": ".github/workflows/ci.yml",
+      "sha256": "cdebe3c07ca5b0753fdcd045beb7667aa4bfe0eac017e7e534ba8ef6d397090a"
+    },
+    {
+      "bytes": 146,
+      "path": ".gitignore",
+      "sha256": "aa2d05c422e180a8ff6ffaa86e532e7efb97eccf306891be6c60b910599d480a"
+    },
+    {
+      "bytes": 4421,
+      "path": "AGENTS.md",
+      "sha256": "886094b60f9caeaa422d67bc5d914680a19475d32bb78f4e2d1d4dd08f541351"
+    },
+    {
+      "bytes": 1681,
+      "path": "README.md",
+      "sha256": "ac310e516ce70ef172e1dbb051b7863c733c398b1752bde40bb002ab21e2b514"
+    },
+    {
+      "bytes": 108906,
+      "path": "ai-readme.md",
+      "sha256": "e71ce7b571796933557fc6938b4f7b04964f31df333d7543754154af7aacf01a"
+    },
+    {
+      "bytes": 1001,
+      "path": "data/README.md",
+      "sha256": "693e3c9cd0581f482e8bfdfd3e488046d656006d64136d7bf18c501ef8ebb309"
+    },
+    {
+      "bytes": 1034989,
+      "path": "data/development/15m_offset_10.parquet",
+      "sha256": "87d8086680284ba5f278d9e44699fac0d66387a70c9d63a0608a4569f77ab06e"
+    },
+    {
+      "bytes": 1031824,
+      "path": "data/development/15m_offset_5.parquet",
+      "sha256": "ec04014bb25de3d47ba3e17e347803b4a95edf06b22a9cca305f8c8d7bf6a1b1"
+    },
+    {
+      "bytes": 12842573,
+      "path": "data/development/1m_official.parquet",
+      "sha256": "755217afce9dec383e48cd46d591402fa90dc50897abeb3dc7097c9a18a109d4"
+    },
+    {
+      "bytes": 461185,
+      "path": "data/development/30m_offset_15.parquet",
+      "sha256": "0bf323c25d637e80ea5ff81a116f5c54f0f3b20679878212441f4ac9b894aa3b"
+    },
+    {
+      "bytes": 3351411,
+      "path": "data/development/5m_offset_0.parquet",
+      "sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48"
+    },
+    {
+      "bytes": 3226743,
+      "path": "data/development/5m_offset_1.parquet",
+      "sha256": "4523615193c177dda2f63a69dd32a2d21e2b15c78283de2d242dd6cd695fc284"
+    },
+    {
+      "bytes": 3223863,
+      "path": "data/development/5m_offset_2.parquet",
+      "sha256": "737548b04ca93fdbfafda806c5f98051b0521e868d71bcab00f23c062ef8ee82"
+    },
+    {
+      "bytes": 3225315,
+      "path": "data/development/5m_offset_3.parquet",
+      "sha256": "20a8a4aba19f60946e5781947f658d0b16a2d8758e6318b43c0a0ececdd09282"
+    },
+    {
+      "bytes": 3227705,
+      "path": "data/development/5m_offset_4.parquet",
+      "sha256": "ceba69dce07223ba92204dc4994991eeabcaf62aacfb9869fd9403da43694b1b"
+    },
+    {
+      "bytes": 169599,
+      "path": "data/development/60m_offset_30.parquet",
+      "sha256": "7a754f7c802bb1eea7f6ad388650f7b9293f659c56c5a52a1717d28d46d4d00e"
+    },
+    {
+      "bytes": 170017,
+      "path": "data/development/60m_offset_45.parquet",
+      "sha256": "192d6f2ba5e4c33cad71a32346af8af74257cc6d0c857f13238e4e0d2c2cb6d7"
+    },
+    {
+      "bytes": 94201,
+      "path": "data/development/daily_noon_close_1130.parquet",
+      "sha256": "1389b655c846d2e4b9d4ccb6fbc3ba9fce92c4db60bb3d0cc91e17f5703b24ed"
+    },
+    {
+      "bytes": 93575,
+      "path": "data/development/daily_proxy_close_1400.parquet",
+      "sha256": "92812f6fd31957779ddc0b34ea4d810d612751b4047e31737d01114de18237d0"
+    },
+    {
+      "bytes": 93368,
+      "path": "data/development/daily_proxy_close_1430.parquet",
+      "sha256": "f82888247b131553d747b15cad7682f7ed66e6da9a90a9ed93f83d145442c9dc"
+    },
+    {
+      "bytes": 6185,
+      "path": "data/manifest.json",
+      "sha256": "b40b352a4940c7cf475150a63af135fb3e92bd2061f9d631c0fc2032b4294291"
+    },
+    {
+      "bytes": 106451,
+      "path": "docs/00-index.md",
+      "sha256": "175859d75b2d03f3bc93c87ba3f3e3b85acd216827fd7f3aa5970921db035e50"
+    },
+    {
+      "bytes": 3884,
+      "path": "docs/INDEX.md",
+      "sha256": "149329ba1bbae8e33ce0770bf976d7dfa6386dc8797953624433d7bdfa002ef2"
+    },
+    {
+      "bytes": 44135,
+      "path": "docs/api/headless_cli_reference.md",
+      "sha256": "587e68605305cfca272261be69a5f9fd69ba892188361b78ff9c4625c3e934c9"
+    },
+    {
+      "bytes": 1281,
+      "path": "docs/governance/controller_validation.json",
+      "sha256": "5c56bad7cf4b34fd518ac191ab6bc8abbe98b4a7b47727edac70e869a032a0d4"
+    },
+    {
+      "bytes": 1262,
+      "path": "docs/governance/data_usage_declaration.json",
+      "sha256": "8c404b027df21625e7cc9f218a62f40fec9c850eedf28c33b6411c444aa4d105"
+    },
+    {
+      "bytes": 1226,
+      "path": "docs/governance/layer3_tool16_candidate_slot.json",
+      "sha256": "8e76dfbb98cec97d7c002e5e575791df0ca9c1a4aa006b584fa6b5833fb8a96c"
+    },
+    {
+      "bytes": 1102,
+      "path": "docs/governance/package_scope.json",
+      "sha256": "49155e4b8411bec3f0343f3805fbddcb6a8abd119a0f344608c6bbd91ba94ebf"
+    },
+    {
+      "bytes": 237689,
+      "path": "docs/ops/README.md",
+      "sha256": "114e6ddd372f12692a6573d1aaf950a192eb9dada6bb16e48fe1ca48f6967610"
+    },
+    {
+      "bytes": 7332,
+      "path": "docs/ops/bar_direction_continuity_indicator_whitepaper.md",
+      "sha256": "f3fcfd1438f5aae1274b199e0bbcfa0d4e1dd307c4de9fd5c537c02637c0e467"
+    },
+    {
+      "bytes": 6426,
+      "path": "docs/ops/cloudridge_attribute_infrastructure_whitepaper.md",
+      "sha256": "ba7c49b6f709064e482191df168211441d88f9dd8f6235fe54bae0aca87cd639"
+    },
+    {
+      "bytes": 6343,
+      "path": "docs/ops/cloudridge_beta_index_whitepaper.md",
+      "sha256": "ac596add1ebb1b4b14cb17b99e017536c32a16a49f609d8a281c99f2898e00f2"
+    },
+    {
+      "bytes": 8816,
+      "path": "docs/ops/cloudridge_paper_kernel_multiscale_timeseries_whitepaper.md",
+      "sha256": "54e21d69a94b25f243739cb9bd88309ec9cd051d2f56e57831613a2c57f96e38"
+    },
+    {
+      "bytes": 11557,
+      "path": "docs/ops/cross_frequency_opportunity_stability_infrastructure_whitepaper.md",
+      "sha256": "f1dd6a61829e693b2403f7737a5d560f1979bbac94c317730e2b6f50cc9b4923"
+    },
+    {
+      "bytes": 1152,
+      "path": "docs/ops/csi1000_5m_research_runtime_whitepaper.md",
+      "sha256": "f88dfb4915034ee4dae88754540be7f4dd969d882860cbe03ce4ab07e20427cf"
+    },
+    {
+      "bytes": 1877,
+      "path": "docs/ops/csi1000_datahub_on_demand_kline_binding_whitepaper.md",
+      "sha256": "00ade0aa5ed429cf1b22a0dbde6b46743548a6d60022e2da2aacde99451387a0"
+    },
+    {
+      "bytes": 1045,
+      "path": "docs/ops/csi1000_etf_option_fee_binding_whitepaper.md",
+      "sha256": "0a7bf647beaeb6c002d8c3e9d0a8506e7109a06f2c278942c59b5862cfed3f96"
+    },
+    {
+      "bytes": 853,
+      "path": "docs/ops/csi1000_future_kline_property_provider_whitepaper.md",
+      "sha256": "7ae88aa9e5d6f6004396ef6e6916f2ed9490452437aa06bd8d24f3d9806c67d3"
+    },
+    {
+      "bytes": 2471,
+      "path": "docs/ops/csi1000_mo_quote_change_bbo_binding_whitepaper.md",
+      "sha256": "396e60c9c3a0a4d171da02a3c70c72ce65dc1d5a06025a3e525268ea9d3c8149"
+    },
+    {
+      "bytes": 7343,
+      "path": "docs/ops/csi1000_option_lifecycle_cost_map_v1_whitepaper.md",
+      "sha256": "9fc52420ef2b26eeee0784f763eb187c706cd90e3bc86a45ae27a5f12c55078e"
+    },
+    {
+      "bytes": 8645,
+      "path": "docs/ops/csi1000_trade_instrument_router_v1p6_joint_scenario_whitepaper.md",
+      "sha256": "5b70c5da8feb08fa21af3e9f2a4fa3bbb40e8245fc7221e6c210447ec74c60ef"
+    },
+    {
+      "bytes": 1685,
+      "path": "docs/ops/evidence/timing_layer2_3_lane2_v1_20260901/completion_report.json",
+      "sha256": "51d6fc2ae5c21282875f666937a9cc2f78bb0b9ac3c0d8fc50cf5a1f51f15238"
+    },
+    {
+      "bytes": 828,
+      "path": "docs/ops/evidence/timing_layer2_3_lane2_v1_20260901/data_usage_declaration.json",
+      "sha256": "1835314a88a8c201d56862f42e5b77ade081a3bf9c5e0ffbb19fcb35a26cac63"
+    },
+    {
+      "bytes": 1467,
+      "path": "docs/ops/evidence/timing_layer2_3_lane2_v1_20260901/execution_contract.json",
+      "sha256": "0c083156044d7dffa63d98e8e91f9c9ef6a93eb4237b28f033e8a3b359bf08c9"
+    },
+    {
+      "bytes": 2940,
+      "path": "docs/ops/evidence/timing_layer2_3_lane2_v1_20260901/formula_identity_receipt.json",
+      "sha256": "a9bb0d92bd9a9d57a2780d1fc2de8e464284b9b7f531da60643c6239b7d964f9"
+    },
+    {
+      "bytes": 983,
+      "path": "docs/ops/evidence/timing_layer2_measurement_plane_v2_20260901/controller_acceptance.json",
+      "sha256": "dc7458862d8c423516b49a73fcd80c80c5a291a6f180bd168d6351646ae67613"
+    },
+    {
+      "bytes": 854,
+      "path": "docs/ops/evidence/timing_layer3_strategy_architecture_v1_20260902/controller_acceptance.json",
+      "sha256": "0d978506c3610407d454f47742b21967ec297f61d4ef35c2174b34248e995315"
+    },
+    {
+      "bytes": 7013,
+      "path": "docs/ops/group_correlation_market_state_whitepaper.md",
+      "sha256": "aa5ade4da768b964b2e8e4b34376d873b12049e8eeecb5543daa04b94cd5c837"
+    },
+    {
+      "bytes": 13961,
+      "path": "docs/ops/market_cloudridge_beta_index_runbook.md",
+      "sha256": "fae2d7764a1992bd14c8e78e041e4a7f65e536b0570cbfde11d084733635a56c"
+    },
+    {
+      "bytes": 5544,
+      "path": "docs/ops/market_state_all_frequency_timing_infrastructure_v2_1_whitepaper.md",
+      "sha256": "fc5a5fa12a969dd9f47cd7975d295e4356bc0bacb211d0d205cbda05ef6b71cc"
+    },
+    {
+      "bytes": 5469,
+      "path": "docs/ops/market_state_attribute_pool_infrastructure_whitepaper.md",
+      "sha256": "39639516c092f71ac65210881caf8f23da2ca1e44f948c0093ab6ead27572509"
+    },
+    {
+      "bytes": 7500,
+      "path": "docs/ops/market_state_derivatives_execution_pool_whitepaper.md",
+      "sha256": "61141177bce1136ce5871a13d7f0a5561e7b7a68c1dc3f35215dfca734ab3739"
+    },
+    {
+      "bytes": 6864,
+      "path": "docs/ops/market_state_empirical_formula_whitepaper.md",
+      "sha256": "954e2de47b54e25cb74c88bde072ebe9be1f4dc4cb006429505c49a31f1dae80"
+    },
+    {
+      "bytes": 33134,
+      "path": "docs/ops/market_state_formula_derived_state_machine_whitepaper.md",
+      "sha256": "7135c83bbfe5a094f90c9715989c76a047d4db776d6c39e1e679df7252da3411"
+    },
+    {
+      "bytes": 31769,
+      "path": "docs/ops/market_state_foundation_whitepaper.md",
+      "sha256": "9a0b4453aa3b905f1ef3f2c00a78c3d31d75953761d838cdcbb2b6184eba39bc"
+    },
+    {
+      "bytes": 4480,
+      "path": "docs/ops/market_state_session_clock_reference_whitepaper.md",
+      "sha256": "472ebb71ba4c4c4361a4bf90b2c917ba8d8a9880ec2cf482aeedd8bb49ecb7dc"
+    },
+    {
+      "bytes": 6688,
+      "path": "docs/ops/market_state_timing_evaluation_platform_whitepaper.md",
+      "sha256": "f16533e488bea39148c37162b0ad372c691b9d587a66ff43c0c6b9e6c4c744d9"
+    },
+    {
+      "bytes": 3644,
+      "path": "docs/ops/market_state_timing_explosive_layer_v3_whitepaper.md",
+      "sha256": "89184db15a3d57a6602a8a49a9b70a14dfdda8286be08222d7b067c5a730ce9f"
+    },
+    {
+      "bytes": 3920,
+      "path": "docs/ops/market_state_timing_priority_composition_whitepaper.md",
+      "sha256": "070d2de15a9cb288040e333b53e58c15d829f684231bd600560d8cee2c0ba69e"
+    },
+    {
+      "bytes": 4499,
+      "path": "docs/ops/market_state_timing_strategy_routing_whitepaper.md",
+      "sha256": "0de21824512fd4b64a377e9219f13414ddc6c69ad548fff615237b6da6ea4b87"
+    },
+    {
+      "bytes": 12835,
+      "path": "docs/ops/market_state_tool_conditioned_relationship_whitepaper.md",
+      "sha256": "62bff1ebf0de9880d643f2264211fa8a64adb72cd3391e6e78882c6556f32593"
+    },
+    {
+      "bytes": 3799,
+      "path": "docs/ops/market_state_trend_continuity_regime_whitepaper.md",
+      "sha256": "d1305bc3c62228db58f9d55d0aa47437ffe2f2d0da8b81ae8e7693af5bbe4401"
+    },
+    {
+      "bytes": 8253,
+      "path": "docs/ops/market_state_unified_kline_attribute_infrastructure_whitepaper.md",
+      "sha256": "4c4a43697ad1a0a6291e2ddce9ce8ede0e321f30d103c81fce18c80103889910"
+    },
+    {
+      "bytes": 8996,
+      "path": "docs/ops/market_state_unified_timing_factor_infrastructure_whitepaper.md",
+      "sha256": "7afa3dd6a5a37c57b8919ab42ee9033cf2f328a3d447f68a86d06cbb491e50ba"
+    },
+    {
+      "bytes": 1999,
+      "path": "docs/ops/market_state_volatility_regime_recognizer_nested_v2_whitepaper.md",
+      "sha256": "13884eda8f23d71a2beeecbd99e593c5fec8db0c4a11d51b4894565a6ae0d081"
+    },
+    {
+      "bytes": 3507,
+      "path": "docs/ops/post_training_account_audit@1.0.json",
+      "sha256": "ff1223c7737b8f1f552b845cb23ced05d74802a28f80242cfeaac3e8e88ac77d"
+    },
+    {
+      "bytes": 7906,
+      "path": "docs/ops/post_training_account_audit@1.1.json",
+      "sha256": "a533e16381aaafc720f7237473932075f1e50f04f60b923e7d3f0e359777f252"
+    },
+    {
+      "bytes": 4691,
+      "path": "docs/ops/post_training_strategy_science_acceptance@1.0.json",
+      "sha256": "0f8bc9a287a8b2e84294f218b1fe97d8c35405b4116615d3714bd799f98e2cf9"
+    },
+    {
+      "bytes": 10128,
+      "path": "docs/ops/project_asset_layer_inventory@1.0.json",
+      "sha256": "4eba48901d13cd519a1d84574b9c0e28985ad309b4a612215bae438de4c83d42"
+    },
+    {
+      "bytes": 5852,
+      "path": "docs/ops/shifted_bar_derivation_whitepaper.md",
+      "sha256": "3f471a23bad5f6732af0339d88abf91fd335fe60cabeac9e10ce31282452dba1"
+    },
+    {
+      "bytes": 3162,
+      "path": "docs/ops/strategy_progressive_development@1.0.json",
+      "sha256": "b7e81099465774c3ee329843748fd6da44e56f735ad9fd457a9d281b9052604e"
+    },
+    {
+      "bytes": 3516,
+      "path": "docs/ops/strategy_progressive_development_whitepaper.md",
+      "sha256": "b2fb35a5edb2291067a912b554161440f1cc7b4fa5ac4e3e9f77e82bef55bc98"
+    },
+    {
+      "bytes": 8373,
+      "path": "docs/ops/strategy_slice_rebuild_whitepaper.md",
+      "sha256": "8b871004a07cb4fc181eedfa00304054b92bce0e495f11b271c8ee4f578a2003"
+    },
+    {
+      "bytes": 3232,
+      "path": "docs/ops/timing_asset_cost_boundary_whitepaper.md",
+      "sha256": "7033e87c72ae148b3e6de714b30ffeee10f04b255dd1a35daba0022a10142f62"
+    },
+    {
+      "bytes": 2443,
+      "path": "docs/ops/timing_four_layer_integration_whitepaper.md",
+      "sha256": "9e541d58c1318ac12d8923eb9f7a6adb98907bfab2fd3e3d87d3d9478b70bac7"
+    },
+    {
+      "bytes": 1631,
+      "path": "docs/ops/timing_four_layer_port_contracts@1.1.json",
+      "sha256": "bb144d3795af199fe03203bb94412789347bdf810e126eb4a3ca6d6fc788408d"
+    },
+    {
+      "bytes": 2556,
+      "path": "docs/ops/timing_four_layer_port_contracts@1.2.json",
+      "sha256": "72dc8e8bdb1645f3cb0684023663c18ee628d96202ba5b4d811b2d8ceb29c8a0"
+    },
+    {
+      "bytes": 520,
+      "path": "docs/ops/timing_four_layer_port_version_registry@1.0.json",
+      "sha256": "7c61495bcf1b7936af57bbcebf01e3b0a2104ad1653fa9b1b668341eaab9ac6e"
+    },
+    {
+      "bytes": 58749,
+      "path": "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+      "sha256": "31c9f25bf31b5d11a3ef53d96852c9bd0f753577299dafc10b2f912c463ec929"
+    },
+    {
+      "bytes": 4158,
+      "path": "docs/ops/timing_layer1_datahub_clock_split@1.0.json",
+      "sha256": "f48edfd781ce98e222053c51d54463c42caebc50865980775c5b309e525639fe"
+    },
+    {
+      "bytes": 6583,
+      "path": "docs/ops/timing_layer1_datahub_clock_split_whitepaper.md",
+      "sha256": "2239731ef694a2e7e01dce79c6f2239e3f969f4b038203d030534f278a38f488"
+    },
+    {
+      "bytes": 3356,
+      "path": "docs/ops/timing_layer2_3_consolidation_whitepaper.md",
+      "sha256": "92d04178554fbb00cd0d7c65432030ec16144b3bb33bfd2342781fd8f3d955f0"
+    },
+    {
+      "bytes": 7632,
+      "path": "docs/ops/timing_layer2_3_registry@1.0.json",
+      "sha256": "f7e9c1dffb0549465750ddf90ef699647ef1b40d3d858835df634664fdd515a9"
+    },
+    {
+      "bytes": 3178,
+      "path": "docs/ops/timing_layer2_measurement_plane@2.3.json",
+      "sha256": "d4c6d9c93b5140fc68ee6f4dcb73ea0772ef4507955a701b9b6ffc7c3a162e98"
+    },
+    {
+      "bytes": 706,
+      "path": "docs/ops/timing_layer2_measurement_plane_version_registry@1.0.json",
+      "sha256": "5fc44aa92a1d5602b12227f787ea723d76fc7a8593f8bfe3b44007a9b2106d83"
+    },
+    {
+      "bytes": 5878,
+      "path": "docs/ops/timing_layer2_measurement_plane_whitepaper.md",
+      "sha256": "4e22f0b5b5de62dc76f0df7588029e795b6700de47ee8fc03bea1763e4f9721d"
+    },
+    {
+      "bytes": 7713,
+      "path": "docs/ops/timing_layer3_necessity_registry@1.0.json",
+      "sha256": "1811917f2ee8d372777c1c160a9c5e4a734fe83c61d0130b533d72c65dd98171"
+    },
+    {
+      "bytes": 7881,
+      "path": "docs/ops/timing_layer3_strategy_architecture@1.0.json",
+      "sha256": "92531b24fc5cf58641fa68b5e4aaa2add026c018fb30ecfbcbd4d41b0024ed9e"
+    },
+    {
+      "bytes": 1452,
+      "path": "docs/ops/timing_layer3_strategy_architecture@2.2.json",
+      "sha256": "92683292aecef3065c0121b05abc31821f169ba98d0ede3a16fedfb7d54b9344"
+    },
+    {
+      "bytes": 892,
+      "path": "docs/ops/timing_layer3_strategy_architecture_version_registry@1.0.json",
+      "sha256": "b8a1a050f88c8462c975580215a4dc7f1d6eca1d9d7154553742f4468d811244"
+    },
+    {
+      "bytes": 4489,
+      "path": "docs/ops/timing_layer3_strategy_architecture_whitepaper.md",
+      "sha256": "4da7a9ed96e09e5aed8d247445f4ce29622a50be8b441bc05ad1e8a95846c9dd"
+    },
+    {
+      "bytes": 1638,
+      "path": "docs/ops/timing_layer3_strategy_plugin_registry@1.0.json",
+      "sha256": "574ae88d9c5d318abff017081b108a32f94242ccfdade63b346eee0a1a9be149"
+    },
+    {
+      "bytes": 870,
+      "path": "docs/ops/timing_layer3_strategy_plugin_registry@2.1.json",
+      "sha256": "0138979286512998d9e1eb9f294416d8ed0c70bb6311cc2c283af27eff668a22"
+    },
+    {
+      "bytes": 6003,
+      "path": "docs/ops/timing_strategy_identity_registry@2.2.json",
+      "sha256": "d5a6305e8be79626a1695f8dcd698c5b174aeb40799d7a7c95972e06ba5b0dc3"
+    },
+    {
+      "bytes": 6954,
+      "path": "docs/ops/unified_offset_data_and_backtest_whitepaper.md",
+      "sha256": "ac28bcbf5502e621bd7dee0f3297b3fef54305cc0f32c040c563c889dd4f7479"
+    },
+    {
+      "bytes": 106451,
+      "path": "docs/reference/factorlab_docs_00_index.md",
+      "sha256": "175859d75b2d03f3bc93c87ba3f3e3b85acd216827fd7f3aa5970921db035e50"
+    },
+    {
+      "bytes": 237689,
+      "path": "docs/reference/factorlab_docs_ops_README.md",
+      "sha256": "114e6ddd372f12692a6573d1aaf950a192eb9dada6bb16e48fe1ca48f6967610"
+    },
+    {
+      "bytes": 128315,
+      "path": "docs/reference/factorlab_docs_user_README.md",
+      "sha256": "def3bd878f362a8a96de66b362ee1996686f6cf328acf475a68b0298c0b7d0ec"
+    },
+    {
+      "bytes": 2874,
+      "path": "docs/schemas/json/market_state_timing_priority_composition@1.1.json",
+      "sha256": "81981741cba783012e94285fdce7631d2843e982d734818e47f4bf48f60b0676"
+    },
+    {
+      "bytes": 1586,
+      "path": "docs/schemas/json/market_state_tool_registry@1.5.json",
+      "sha256": "44fb34020a64e65c24be43e5b2a55556b346c1877769a3ef1d177bf6fc8e7567"
+    },
+    {
+      "bytes": 1344,
+      "path": "docs/schemas/json/timing_four_layer_port_contracts@1.1.json",
+      "sha256": "7dac34316421c70345d8e28cff24069358da39728d7f7235549965927516499a"
+    },
+    {
+      "bytes": 1609,
+      "path": "docs/schemas/json/timing_four_layer_port_contracts@1.2.json",
+      "sha256": "ad1410adfbd6a0f72836455503531877c66a71ad44106b16e37afaedd3b92c87"
+    },
+    {
+      "bytes": 4147,
+      "path": "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+      "sha256": "77f560bd713096c6806af17a1ab29afa0d5f51b59a7693fc35e03967a4e1f588"
+    },
+    {
+      "bytes": 2824,
+      "path": "docs/schemas/json/timing_layer1_datahub_clock_split@1.0.json",
+      "sha256": "903ead947bbb493c8f9e28bbc922737a380ab513694b8affca49f1690d232e86"
+    },
+    {
+      "bytes": 999,
+      "path": "docs/schemas/json/timing_layer2_measurement_plane@2.3.json",
+      "sha256": "1a8c21e7e7b796124d3e3d47f0bb30472e0ab07a58c0f43767c4d6096fc368ee"
+    },
+    {
+      "bytes": 1397,
+      "path": "docs/schemas/json/timing_layer3_strategy_architecture@1.0.json",
+      "sha256": "375b028fe8cba4afd87f55d913a2a747f296eb1937f6e5c163755a26d4ac050a"
+    },
+    {
+      "bytes": 991,
+      "path": "docs/schemas/json/timing_layer3_strategy_architecture@2.2.json",
+      "sha256": "7450a7fddac38226f7f842524b98bf940f0c899730bed192846df658231acaf8"
+    },
+    {
+      "bytes": 854,
+      "path": "docs/schemas/json/timing_strategy_identity_registry@2.2.json",
+      "sha256": "928d1bce07b91bfab1c5de587d037beb25de83d7364d9038b8d9b4a27329c72e"
+    },
+    {
+      "bytes": 128315,
+      "path": "docs/user/README.md",
+      "sha256": "def3bd878f362a8a96de66b362ee1996686f6cf328acf475a68b0298c0b7d0ec"
+    },
+    {
+      "bytes": 1794,
+      "path": "docs/user/cloud_execution_prompt.md",
+      "sha256": "d5fb58b572818093bb5b4365a95f20e330d0ede9fb7afa09071dc91aea20d4ae"
+    },
+    {
+      "bytes": 5586,
+      "path": "docs/user/cloudridge_attribute_infrastructure.md",
+      "sha256": "d5edb760fb930655be3022df86feb79021e0f79978b7fcbd145423629a5cb73e"
+    },
+    {
+      "bytes": 11275,
+      "path": "docs/user/cloudridge_paper_kernel_multiscale_timeseries_workflow.md",
+      "sha256": "da1ce512341675c9a6694fcaa267500df409a7be984b754c16d4a5d2e5f27d2b"
+    },
+    {
+      "bytes": 5582,
+      "path": "docs/user/cross_frequency_opportunity_stability_infrastructure_workflow.md",
+      "sha256": "3917d46ffc1e0e328a0badd7a19830b2b7a6ac0d375105f58ab8cdbcf8edffa6"
+    },
+    {
+      "bytes": 1035,
+      "path": "docs/user/csi1000_5m_research_runtime_workflow.md",
+      "sha256": "e963056401e5712ce0c38eba7a5605333f00e4e04d9d2f033bc5d8da0b425184"
+    },
+    {
+      "bytes": 1308,
+      "path": "docs/user/csi1000_datahub_on_demand_kline_binding_workflow.md",
+      "sha256": "6f320d2a69c3fbbfae038f5ab21593b6c27723baa40b80d9e654d2f88722d688"
+    },
+    {
+      "bytes": 782,
+      "path": "docs/user/csi1000_etf_option_fee_binding_workflow.md",
+      "sha256": "f4d294db8154d51530c5aeaacab46a98a3eaa4f09fdadb0b2ffafb641df2e3cc"
+    },
+    {
+      "bytes": 677,
+      "path": "docs/user/csi1000_future_kline_property_provider_workflow.md",
+      "sha256": "205587d07fc77005bdc38ea6a7018ac006570c1a9b4820c615a3a0d12a7e7cc3"
+    },
+    {
+      "bytes": 989,
+      "path": "docs/user/csi1000_mo_quote_change_bbo_binding_workflow.md",
+      "sha256": "466d9381766a860b0c1cb04510b95c7d5d0e444b2e331dbd85d8c5661aa4c13b"
+    },
+    {
+      "bytes": 3210,
+      "path": "docs/user/csi1000_option_lifecycle_cost_map_v1_workflow.md",
+      "sha256": "10dc51320cac8180923f7f801a6e7db59278ff95fd407a3053afa1d407542157"
+    },
+    {
+      "bytes": 5270,
+      "path": "docs/user/csi1000_trade_instrument_router_v1p6_workflow.md",
+      "sha256": "a10e126bb5a32d1f6d4514a310f9d67f3e82fea5945fe8e276ac960d4f647ad3"
+    },
+    {
+      "bytes": 6556,
+      "path": "docs/user/group_correlation_market_state_workflow.md",
+      "sha256": "9072b95ec66c8c7b3a3aa388bb95eceefe776029a98c76694194d3223b72b62f"
+    },
+    {
+      "bytes": 2516,
+      "path": "docs/user/market_state_all_frequency_timing_infrastructure_v2_1_workflow.md",
+      "sha256": "59152bdd34eb2a27d3b633ca751d73c6b142945bc8a7e8b1da2c965dcf29b456"
+    },
+    {
+      "bytes": 4583,
+      "path": "docs/user/market_state_attribute_pool_infrastructure.md",
+      "sha256": "7410783763f55d278bd2170c3fa7f940fbe210ce5ff663d774a17885d5265343"
+    },
+    {
+      "bytes": 2440,
+      "path": "docs/user/market_state_attribute_pool_update_workflow.md",
+      "sha256": "9976c9863485e24734969853d9e947be10ed1cf96c37b13a71af909b9d3ad770"
+    },
+    {
+      "bytes": 3505,
+      "path": "docs/user/market_state_daily_afternoon_remake_workflow.md",
+      "sha256": "42e803d9745895a2231269ef88090837ae1ef8c9912a986648b357faf6a9fe04"
+    },
+    {
+      "bytes": 2314,
+      "path": "docs/user/market_state_derivatives_execution_pool_workflow.md",
+      "sha256": "d8b8af1de1bd0a0e2dc9aa486eb56c4578782683a51514815f4b90c900bec33f"
+    },
+    {
+      "bytes": 5830,
+      "path": "docs/user/market_state_empirical_formula_workflow.md",
+      "sha256": "452ba3d371b5399545808629fa3e629f959dc4666ca2eeea112a719824d5254a"
+    },
+    {
+      "bytes": 20653,
+      "path": "docs/user/market_state_formula_derived_state_machine_workflow.md",
+      "sha256": "a60a966f76c6e937e11e8a33832049f43542ed75d95fb69b6031c966908699f5"
+    },
+    {
+      "bytes": 19633,
+      "path": "docs/user/market_state_foundation_workflow.md",
+      "sha256": "3a31afc7a6807f360ef5761ed46242680c23bf7a2606557e6f96e31388b55f10"
+    },
+    {
+      "bytes": 3970,
+      "path": "docs/user/market_state_session_clock_reference_workflow.md",
+      "sha256": "fd30f759d9d950a563e27a56ffa91fd0695d1ab82aca15c06c7dcdd1e0debbf6"
+    },
+    {
+      "bytes": 7720,
+      "path": "docs/user/market_state_timing_evaluation_platform_workflow.md",
+      "sha256": "11f0f052662b7a34c97796ef6db31e2ed7c4441f546afd45cd90b4ed22316906"
+    },
+    {
+      "bytes": 4188,
+      "path": "docs/user/market_state_timing_explosive_layer_v3_workflow.md",
+      "sha256": "07012eeeafda7b2a140bfcaa3f308d3cf39df4c663c0dc71eb5c6026bd029452"
+    },
+    {
+      "bytes": 3921,
+      "path": "docs/user/market_state_timing_priority_composition_workflow.md",
+      "sha256": "75cca2fab88ce58b8cee1bd35e31fa4a92af026d529a74458537a5b454842f02"
+    },
+    {
+      "bytes": 5261,
+      "path": "docs/user/market_state_timing_strategy_routing_workflow.md",
+      "sha256": "dcdc07f57cd56e0397a23352d6bca465e3d018d6614f07a7b74816433fa27271"
+    },
+    {
+      "bytes": 15154,
+      "path": "docs/user/market_state_tool_conditioned_relationship_workflow.md",
+      "sha256": "7aafeb143356166f45e4229ee7bf039d2f6b172809dc5f630166c68961e11748"
+    },
+    {
+      "bytes": 2948,
+      "path": "docs/user/market_state_trend_continuity_regime_workflow.md",
+      "sha256": "a0be365d3566add6dd3f50ea6a7df4a2768250c9bc8b8c5915407a909d2e0ffd"
+    },
+    {
+      "bytes": 5163,
+      "path": "docs/user/market_state_unified_kline_attribute_infrastructure.md",
+      "sha256": "ba6f46e0a324df7ae28eb5eccac22fc83c9aa1035ee46c942fb5bc1ebd8974db"
+    },
+    {
+      "bytes": 8572,
+      "path": "docs/user/market_state_unified_timing_factor_infrastructure_workflow.md",
+      "sha256": "030e848daa051dfbe44ecb28e12ffea01fa8c11172981d1c8d91a504fa277a12"
+    },
+    {
+      "bytes": 942,
+      "path": "docs/user/market_state_volatility_regime_recognizer_nested_v2_workflow.md",
+      "sha256": "65e242f92b75261bf0042a42d0f3134ad633f4620986e630a86e84219744cc0b"
+    },
+    {
+      "bytes": 3196,
+      "path": "docs/user/strategy_progressive_development_workflow.md",
+      "sha256": "ba13563d08d439ecf5a06ffa36164c8109ba587dcc6bc0df530cd98feedd6a8b"
+    },
+    {
+      "bytes": 6955,
+      "path": "docs/user/strategy_slice_rebuild_workflow.md",
+      "sha256": "04b33e9eff7591caee44be3dd6d12c09720e6813988366a22fe5ce2ada026ec6"
+    },
+    {
+      "bytes": 1663,
+      "path": "docs/user/timing_asset_cost_boundary_workflow.md",
+      "sha256": "6012b7aecf0e2270c34bd3100e60a7793d0d01c35f9e97b8ada468c23e8f709b"
+    },
+    {
+      "bytes": 1939,
+      "path": "docs/user/timing_four_layer_ports_and_l4_parameter_optimization_plan.md",
+      "sha256": "ed99fd18d321fe601c03067ed60f6c2cf74fe9970185d50c7885e28b161d580b"
+    },
+    {
+      "bytes": 3279,
+      "path": "docs/user/timing_layer1_datahub_clock_split_workflow.md",
+      "sha256": "68f5ae88c5ab2c940764e00556c158243844911ed60945a317d65c1260445a7c"
+    },
+    {
+      "bytes": 1637,
+      "path": "docs/user/timing_layer2_3_consolidation_workflow.md",
+      "sha256": "866b1aa8c65a01415c65f4d47c1d262ecbb0939513073d7fac4b40962e87355c"
+    },
+    {
+      "bytes": 9607,
+      "path": "docs/user/timing_layer2_measurement_plane_v2_execution_plan.md",
+      "sha256": "59523ddb7abe40c2d3ff0fec5825ffec0bcff1b2c85b62370bccad6744a53fd7"
+    },
+    {
+      "bytes": 2684,
+      "path": "docs/user/timing_layer3_strategy_architecture_v1_execution_plan.md",
+      "sha256": "bcdf9d97834682bf423b5f429315aaf4df5e04a3a098d9c719b77d6f308efce2"
+    },
+    {
+      "bytes": 1496,
+      "path": "docs/user/timing_layer3_strategy_architecture_workflow.md",
+      "sha256": "1b2004e7c2876891f5d9a4f9d8e0b341f7cdb34019c7ca29fcda08910d60bbc9"
+    },
+    {
+      "bytes": 19861,
+      "path": "docs/user/two_wave_strategy_handoff_prompt.md",
+      "sha256": "4a04c3ed851e33ebec580c7ba099bef2ae9a30809c68d77a6a9abba322018e77"
+    },
+    {
+      "bytes": 3473,
+      "path": "docs/user/unified_offset_data_and_backtest_workflow.md",
+      "sha256": "3662955be52b1910dfa6b1ead916ac8b8b306af9d341752ddaffa4f6b96ce1db"
+    },
+    {
+      "bytes": 890,
+      "path": "pyproject.toml",
+      "sha256": "1672e84ccbfa12ce402cb796b00a0eb603ba0f5a4b3a211e3828c92e0ab77791"
+    },
+    {
+      "bytes": 1819,
+      "path": "scripts/build_market_state_tool_registry_v1_5.py",
+      "sha256": "6f0036abedf115396ca225d23cb7b6f54bf4c99b4d73a2baa9c13977c5c5aeac"
+    },
+    {
+      "bytes": 5659,
+      "path": "scripts/build_strategy_progressive_development_workflow.py",
+      "sha256": "673a7bdf3a35fe1c4b3aa676042fa70fce666e02b94ca3d9565f02d2281ac579"
+    },
+    {
+      "bytes": 4899,
+      "path": "scripts/build_strategy_slice_rebuild_workflow.py",
+      "sha256": "3f457cdfa530fcdce6d376b96ccbcf939124e4a80356b8d1c83b34a5568440bb"
+    },
+    {
+      "bytes": 5600,
+      "path": "scripts/validate_strategy_progressive_development_workflow.py",
+      "sha256": "f8eeebaf01384db7c1852b67d39c513b9965e94326e4578dcdd17ed7d0300d80"
+    },
+    {
+      "bytes": 5632,
+      "path": "scripts/validate_strategy_slice_rebuild_workflow.py",
+      "sha256": "a86b85c62e0f86150d72a6bc591dbed6cc178b37b967c5f61739778df1c6f203"
+    },
+    {
+      "bytes": 7369,
+      "path": "scripts/validate_theme_package.py",
+      "sha256": "f33e5017d7ed2d3e05496c675214b240a32d79467380a60fc294582417e270c8"
+    },
+    {
+      "bytes": 32,
+      "path": "src/factor_lab/__init__.py",
+      "sha256": "6503480ddd4618e54eff6560c46844c0cc017d88b1baf0aea97d4c87646d9076"
+    },
+    {
+      "bytes": 0,
+      "path": "src/factor_lab/candidate_assets/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "src/factor_lab/candidate_assets/services/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 69745,
+      "path": "src/factor_lab/candidate_assets/services/candidate_asset_service.py",
+      "sha256": "451e3d5e01a0bb3d2b73aaf5c684274206b9d76f39c8b49ef34130a39ed5c166"
+    },
+    {
+      "bytes": 46552,
+      "path": "src/factor_lab/candidate_assets/services/factor_asset_service.py",
+      "sha256": "96d2b918ef1b8b04a1247713b55cb02165b859bda15259f14ca893c76e143852"
+    },
+    {
+      "bytes": 1303,
+      "path": "src/factor_lab/cloudridge/__init__.py",
+      "sha256": "85cece92d6341287e4c0ec8ad93bd694ada40c72115b520158eb5744de80f4a8"
+    },
+    {
+      "bytes": 30164,
+      "path": "src/factor_lab/cloudridge/attributes.py",
+      "sha256": "953c5f05247359270deb908afc4e20e6b68e6b7ad76873c5abcc5d513903c353"
+    },
+    {
+      "bytes": 6439,
+      "path": "src/factor_lab/cloudridge/paper_kernel.py",
+      "sha256": "d1ef006f4df82c3a5cccd744dec37343d002fcb1ef06bc892c1fb3c4ba1d1750"
+    },
+    {
+      "bytes": 1337,
+      "path": "src/factor_lab/core/errors.py",
+      "sha256": "5a15e5ed4c28967263af89dd0a4b510ec2e8f0233df3887a1a750d303d50fa9a"
+    },
+    {
+      "bytes": 1896,
+      "path": "src/factor_lab/core/events.py",
+      "sha256": "17aa40725cd834bc1a7791ce800ff88d938477612f20fdf98b1e3de2c383347d"
+    },
+    {
+      "bytes": 1987,
+      "path": "src/factor_lab/core/hashing.py",
+      "sha256": "6e2850ff199ba9f9676513fc0df6ca7ff5e7fc1b5460ef016f965e1de71097db"
+    },
+    {
+      "bytes": 5325,
+      "path": "src/factor_lab/core/runtime_records.py",
+      "sha256": "cc3b59d7fdaa7da8e9d388d6263c96a47c3e90841260b33d004fa2838a698007"
+    },
+    {
+      "bytes": 23004,
+      "path": "src/factor_lab/core/runtime_state.py",
+      "sha256": "b6be174c49075838428ef43e3e393ea404cb416ab2bc57172bbe3303a17f4b15"
+    },
+    {
+      "bytes": 7218,
+      "path": "src/factor_lab/core/settings.py",
+      "sha256": "5d361f7d15faee8832b27357a440391f20148b5f649a4d0492c35d514f863ef5"
+    },
+    {
+      "bytes": 17002,
+      "path": "src/factor_lab/core/source_universe.py",
+      "sha256": "b1a875c9e0ea4edd32fb810ecbabd3c5050e7efcea13dff004e8ed8619dd9429"
+    },
+    {
+      "bytes": 2691,
+      "path": "src/factor_lab/core/storage.py",
+      "sha256": "b0bc42a83408aeaa1fcb294b800f198528154e1f7c4b25db1cb411d446e152e8"
+    },
+    {
+      "bytes": 1239,
+      "path": "src/factor_lab/core/versions.py",
+      "sha256": "a5776b49312fd54d2e2860ba15659e70611a0c1e4b4b5a5ffc4da3c6e05fb8d4"
+    },
+    {
+      "bytes": 42,
+      "path": "src/factor_lab/data/adapters/__init__.py",
+      "sha256": "6673382e00d291f36f77ecdf5125f25475e64c2b944183148982a34526b3ea83"
+    },
+    {
+      "bytes": 27847,
+      "path": "src/factor_lab/data/adapters/datahub_client.py",
+      "sha256": "2deacf6294081ec37cc69a3808bab488fdc7a98aa4276cc55559387b01164355"
+    },
+    {
+      "bytes": 19307,
+      "path": "src/factor_lab/data/session_offset_defaults.py",
+      "sha256": "b0890d351e631aa46c24b76ddecc5f22fffc35fce0fdb188e3c1bcdeebeb6724"
+    },
+    {
+      "bytes": 14502,
+      "path": "src/factor_lab/evaluation/engine.py",
+      "sha256": "b61c84a2a2763c1d92603935ae86688558b0ccba67019b932932b93b2a19b44b"
+    },
+    {
+      "bytes": 2614,
+      "path": "src/factor_lab/evaluation/label_builder.py",
+      "sha256": "a83e3caf22cbca7077388b1003895e9b842913c5954bee71a5ec3cd0ae097cb7"
+    },
+    {
+      "bytes": 6774,
+      "path": "src/factor_lab/evaluation/oos_analyzer.py",
+      "sha256": "764309cc8d6fe88f2a0c8472408557a7cbd67c737c927a733ed1fca474c87b4c"
+    },
+    {
+      "bytes": 16321,
+      "path": "src/factor_lab/evaluation/preprocessing.py",
+      "sha256": "22545b8a230acb84b7f5af46f412e72d656144ee9c50834c8c13fb13a5ef6bc6"
+    },
+    {
+      "bytes": 5151,
+      "path": "src/factor_lab/evaluation/report_generator.py",
+      "sha256": "cd4e1d0f10cd698c45267eb74a6d81cf02c28e16f66c6bbfe492cf88dc19ab48"
+    },
+    {
+      "bytes": 13442,
+      "path": "src/factor_lab/evaluation/risk_exposure_analyzer.py",
+      "sha256": "337f41797b301f2d10939409f2ffade1a04c883c679f40c6a6bdd3d12643e7c8"
+    },
+    {
+      "bytes": 66473,
+      "path": "src/factor_lab/evaluation/services/factor_evaluation_service.py",
+      "sha256": "f7e32c20fcaabcff051ffe7524fa200c7235b52ab59a3eed3ee2a0f119c95450"
+    },
+    {
+      "bytes": 87,
+      "path": "src/factor_lab/factor_dynamics/__init__.py",
+      "sha256": "65648cbdd32567f2033bd13eef27cfe48428649a34caa67554fb3366ae604a33"
+    },
+    {
+      "bytes": 292,
+      "path": "src/factor_lab/factor_dynamics/services/__init__.py",
+      "sha256": "952e704e9f2c065d5691463f20268b152178c3444514e0b9d29fa6036ead8914"
+    },
+    {
+      "bytes": 48944,
+      "path": "src/factor_lab/factor_dynamics/services/factor_temporal_dynamics_service.py",
+      "sha256": "3a841afdb1eabd98894121e963283d678ced8dc5599b0840659af8cc31e6ce83"
+    },
+    {
+      "bytes": 12019,
+      "path": "src/factor_lab/factor_engine/advanced_factors.py",
+      "sha256": "3a2ba9d2a1eb4dd2f2a161c874757975b3777465801c7c260d2d30f4dff22ceb"
+    },
+    {
+      "bytes": 33140,
+      "path": "src/factor_lab/factor_engine/base_factor_catalog.py",
+      "sha256": "9a3b0d1c95d465d417f2381064088fe245ab3e48be3fdfcc20e416b4d892a025"
+    },
+    {
+      "bytes": 43008,
+      "path": "src/factor_lab/factor_engine/dsl.py",
+      "sha256": "45cb92b572d351b924204e3563afc44283ae316d667f45de47611c841edfd915"
+    },
+    {
+      "bytes": 45863,
+      "path": "src/factor_lab/factor_engine/feature_library.py",
+      "sha256": "7794166fc1dfd861fd2cfbf617531b59cbb1ec3a15769ee8d508b302cbb33deb"
+    },
+    {
+      "bytes": 5610,
+      "path": "src/factor_lab/factor_engine/models/factor_spec.py",
+      "sha256": "547c10b77fc696d8be585d4891d60940481da1bb28f87ec4f42f2150c0f6bd5a"
+    },
+    {
+      "bytes": 10292,
+      "path": "src/factor_lab/factor_engine/repositories/spec_registry.py",
+      "sha256": "fa3eabed183263f2f28e017b0c2d2c268a8cce823fdf15bed1ee244e673880b0"
+    },
+    {
+      "bytes": 14039,
+      "path": "src/factor_lab/factor_engine/standard_factors.py",
+      "sha256": "e777c46b369dbd2e60b255567db1f0e9d9bf6a6993944d86997ac20a72500d52"
+    },
+    {
+      "bytes": 1711,
+      "path": "src/factor_lab/factor_rotation/__init__.py",
+      "sha256": "588e773c837e5e38a1059541e3557a098f73572699c8ec9e9e9bf62095583b23"
+    },
+    {
+      "bytes": 11543,
+      "path": "src/factor_lab/factor_rotation/candidate_profile_workflow.py",
+      "sha256": "ae557146f5a7d98ebb0d9f3da9ca0d05892859da0dd5f4a261705ecc726b4b16"
+    },
+    {
+      "bytes": 172,
+      "path": "src/factor_lab/factor_rotation/constants.py",
+      "sha256": "f9de3348d9092e10eead1875b764d8a6cf781e1f5c9b1bbcf90f0af8c50bc82a"
+    },
+    {
+      "bytes": 759,
+      "path": "src/factor_lab/factor_rotation/dates.py",
+      "sha256": "5bf0dba060eb403e1602cb1393c51d9fa27cec6424c9648a6c32b778d1f766e8"
+    },
+    {
+      "bytes": 12990,
+      "path": "src/factor_lab/factor_rotation/effectiveness_profile.py",
+      "sha256": "73385a7d0cee74b3862667b2d74c41968938899d2f688c78d923c7c05a962b37"
+    },
+    {
+      "bytes": 77804,
+      "path": "src/factor_lab/factor_rotation/factor_specs.py",
+      "sha256": "2fdbf9a763f44bbffd6ec4ed26dcd31b274353e3f2b648248565e9469e2b8fa2"
+    },
+    {
+      "bytes": 3883,
+      "path": "src/factor_lab/factor_rotation/factor_state.py",
+      "sha256": "0b4252d8e1a3af31f30a21ad97610458d4a001d8a8b9aa2c086d805b212b86b9"
+    },
+    {
+      "bytes": 24927,
+      "path": "src/factor_lab/factor_rotation/factor_usage_method_state.py",
+      "sha256": "65fe94b81dbffa5ce44dd313ea143b43b075fbf3ef7f6470903133fedb2f49c9"
+    },
+    {
+      "bytes": 69908,
+      "path": "src/factor_lab/factor_rotation/reaka_intraday_portfolio_mapping_v1.py",
+      "sha256": "883d1c2f6102ff45d0bc6ca94c2b21ab60ea6ea86e244b20bd68e684365bd6df"
+    },
+    {
+      "bytes": 6604,
+      "path": "src/factor_lab/factor_rotation/reaka_post_training_account_adapter.py",
+      "sha256": "2bba6cc6ab01610cd3920aa69ea12d234f6e953a1a9f34cbe15e158cc36ccc2e"
+    },
+    {
+      "bytes": 13581,
+      "path": "src/factor_lab/filtering/__init__.py",
+      "sha256": "e29023c644fcac8462ac3dead3420530b6f8648ab366d9416f98159a693049d8"
+    },
+    {
+      "bytes": 3955,
+      "path": "src/factor_lab/filtering/_cloudridge_causal_channel_math.py",
+      "sha256": "c3daf99da63fc0e252d31dca095180e3428b51f48d51d105a2a60e28c589200b"
+    },
+    {
+      "bytes": 21264,
+      "path": "src/factor_lab/filtering/cloudridge_3_0_hybrid_filter_bank.py",
+      "sha256": "5fd561ed0ab6805e2fb7e26bd8ac16aa24632383c4b19d34d309e69cd279520f"
+    },
+    {
+      "bytes": 26509,
+      "path": "src/factor_lab/filtering/cloudridge_v6_crash_channel_confirmation.py",
+      "sha256": "3485e0e5ee8279bc6a328a1023faa99d262bdbbcb68dfaa93ad1b09ed88a3198"
+    },
+    {
+      "bytes": 3314,
+      "path": "src/factor_lab/filtering/costs.py",
+      "sha256": "b8100bc61b28b05c03525e3c691d44e5380455eaab2bba2cc361fc6ae1c5ed52"
+    },
+    {
+      "bytes": 32599,
+      "path": "src/factor_lab/filtering/directional_information.py",
+      "sha256": "a2e03895b78e8f27f5c8d87698d8b99d9edf2f6a38aeedbcbb5e233d6869942c"
+    },
+    {
+      "bytes": 44066,
+      "path": "src/factor_lab/filtering/frequency_workflow.py",
+      "sha256": "c60f8b95f5386faa3fe6c531b5bf93083783202d5bc32e4bb8d86353eb75b1e6"
+    },
+    {
+      "bytes": 51080,
+      "path": "src/factor_lab/filtering/opportunity_density.py",
+      "sha256": "c0d044eb02a80cb3ea3dd7810f748a2993d800103de5e4aa526cf0736c2bb1c4"
+    },
+    {
+      "bytes": 58849,
+      "path": "src/factor_lab/filtering/parameter_workflow.py",
+      "sha256": "88f2710d7aa54cafcaf07750590af413738d8631990b10c990521c25591df78d"
+    },
+    {
+      "bytes": 10908,
+      "path": "src/factor_lab/filtering/post_wf_tuning.py",
+      "sha256": "0533a9ceda9c8003b97778a58a5c8e5145dd1cb6c1702e94dfb93099ed6e8f05"
+    },
+    {
+      "bytes": 30514,
+      "path": "src/factor_lab/filtering/protected_reversal_workflow.py",
+      "sha256": "829f926fcdd758e4291e313e144afc2cb5ac44a5001b37b93b48020a771f46a9"
+    },
+    {
+      "bytes": 47402,
+      "path": "src/factor_lab/filtering/research_decision.py",
+      "sha256": "fe035c49585401c5850195715491911c234301f471cb117bcb26a45122b4d081"
+    },
+    {
+      "bytes": 6440,
+      "path": "src/factor_lab/filtering/scale_hierarchy.py",
+      "sha256": "7753fc305d64814acb23f7c9b0d7d389046d044a2390b81e2e9e6f6320c753f8"
+    },
+    {
+      "bytes": 54893,
+      "path": "src/factor_lab/filtering/series_characteristics.py",
+      "sha256": "9e2fb964e80e670f48039174423bf589d4c2f881560cdb7787450b66be2b0d9a"
+    },
+    {
+      "bytes": 28554,
+      "path": "src/factor_lab/filtering/short_horizon_attribution.py",
+      "sha256": "2ea88b72bb21080b4d399b0937296953e9c1f17e15889f7229cff018f7a2afee"
+    },
+    {
+      "bytes": 11867,
+      "path": "src/factor_lab/filtering/spectrum_allocation.py",
+      "sha256": "2b8c9cd58339b4065eb8b40e612ba8e7eeea97264d55efacfb6932ee64180527"
+    },
+    {
+      "bytes": 4012,
+      "path": "src/factor_lab/filtering/spectrum_combination.py",
+      "sha256": "e0388b431bc3d2bec3bb92cf26b61164f58d6dd179c49859c40c537e2b9245af"
+    },
+    {
+      "bytes": 29340,
+      "path": "src/factor_lab/filtering/strategy_rendering.py",
+      "sha256": "d4ac078639906ae536687523194595d869c5a198816791a48eea9dee030fc4a7"
+    },
+    {
+      "bytes": 36156,
+      "path": "src/factor_lab/filtering/strategy_workflow.py",
+      "sha256": "0675c4c90c5a2cbd270d2faf13eb980189d515afa8ee9757315b6c6e016edf81"
+    },
+    {
+      "bytes": 33250,
+      "path": "src/factor_lab/filtering/timing_validation.py",
+      "sha256": "c622c93e370d4afba03403d03d5cbd90633cd54f1dda9b700b91d04a865d75dc"
+    },
+    {
+      "bytes": 20075,
+      "path": "src/factor_lab/filtering/tool_selection.py",
+      "sha256": "0c73ff37ed6e74e01c81a40f9af2f3f6b6d31b146e671f2dca4247e7e9e7e7d7"
+    },
+    {
+      "bytes": 25676,
+      "path": "src/factor_lab/filtering/walk_forward.py",
+      "sha256": "f73e4df9d2ec967475a73701c8956224ab14946bc51b0c22039d407eee540a0f"
+    },
+    {
+      "bytes": 85656,
+      "path": "src/factor_lab/filtering/workflow_chain.py",
+      "sha256": "016f49062b7e89049ac827a3887735dbb58c18d195f11f2e3433133b3b69559c"
+    },
+    {
+      "bytes": 694,
+      "path": "src/factor_lab/governance/canonicalization.py",
+      "sha256": "886cbe6dbf4b45cdb52b814d549cd8b21f1a7724a3f049dfcceb2fa53a68b41c"
+    },
+    {
+      "bytes": 8601,
+      "path": "src/factor_lab/governance/cutover_transition_contract.py",
+      "sha256": "71a1e4ede16fe6683c457478399327063cf699eefe37e46f1ab829b9d4372f28"
+    },
+    {
+      "bytes": 12771,
+      "path": "src/factor_lab/governance/evidence_resolver.py",
+      "sha256": "0058bd7e24f720a07888c36222ceac128f4c71f1def18c4aeef9f4964277b4f0"
+    },
+    {
+      "bytes": 35961,
+      "path": "src/factor_lab/governance/execution_surface_enforcement.py",
+      "sha256": "d611971f97d5aff0f053c5667de6b644b8263c216968f8d6ff73cc18a265cabd"
+    },
+    {
+      "bytes": 5309,
+      "path": "src/factor_lab/governance/factor_family_usage_governance.py",
+      "sha256": "1581efceefa0e40e09a973c4869bafbc6fab0569915f055797eb4041727cd050"
+    },
+    {
+      "bytes": 45287,
+      "path": "src/factor_lab/governance/factor_usage_discovery.py",
+      "sha256": "964363d97ec5c3c95713226783454a09369c769af2f2495dac19b7f0c94269d0"
+    },
+    {
+      "bytes": 204074,
+      "path": "src/factor_lab/governance/factor_usage_integration.py",
+      "sha256": "ffc1a2eb4715ab364c472258dc28520fb8dcbd61c8e35a296841160e5831a9ab"
+    },
+    {
+      "bytes": 5782,
+      "path": "src/factor_lab/governance/multiple_testing.py",
+      "sha256": "58e793288b47ab97d22c39ce94c58e7998dddcd81632313aa8ae1a009f5e1cd5"
+    },
+    {
+      "bytes": 21702,
+      "path": "src/factor_lab/governance/production_authorization.py",
+      "sha256": "7725ad093184dd300e5e6afb6ed6ec94f4b9ad9eb0d6c14760a93a3776bdc98f"
+    },
+    {
+      "bytes": 2367,
+      "path": "src/factor_lab/governance/run_snapshot.py",
+      "sha256": "9e612ade9efa50b87a315276004f2bd3797e84edf7f5616ad847807f9e592ef2"
+    },
+    {
+      "bytes": 2039,
+      "path": "src/factor_lab/governance/sealed_source.py",
+      "sha256": "bf7a24984efb5a0cf57f09e90da13a9904b08a44b1023653b3ec757fce3acd88"
+    },
+    {
+      "bytes": 4898,
+      "path": "src/factor_lab/governance/search_scope_registry.py",
+      "sha256": "aa1f7ef157beaf154c412bbd73cd4be3a74f7d68e809c8a359e9618fed6f867c"
+    },
+    {
+      "bytes": 20577,
+      "path": "src/factor_lab/governance/selection_freeze_manifest.py",
+      "sha256": "c5d82bbcd1c830de36ce795a0fd1b1b766e0fb685b99e8e7d4d0458e4591cea6"
+    },
+    {
+      "bytes": 10820,
+      "path": "src/factor_lab/governance/services/event_store.py",
+      "sha256": "037cce545c2332335f79216d6bfd01cb09ead474160a9077925a94b6187f0e79"
+    },
+    {
+      "bytes": 6944,
+      "path": "src/factor_lab/governance/services/state_machine.py",
+      "sha256": "c05b175bf674d1a4ce97e7d8ff37d3b617ec8cc0bdd3c548c9024e520ba92eb0"
+    },
+    {
+      "bytes": 2176,
+      "path": "src/factor_lab/governance/strategy_family_registry.py",
+      "sha256": "f550fa51e908cdabdf9bbcdf665502c6529a6c61befd3809ab43760fdde18455"
+    },
+    {
+      "bytes": 25865,
+      "path": "src/factor_lab/governance/strategy_progressive_development.py",
+      "sha256": "b4a82e917b84c514d6c3e8a97f7f7ce806a3eec45bd1680e6b3285777c14bc61"
+    },
+    {
+      "bytes": 81510,
+      "path": "src/factor_lab/governance/temporal_governance_repository.py",
+      "sha256": "acbf37f6e870be048887ad6ab3738f7dbc6e17dbeb0386f163ec0e8b4ccf8c30"
+    },
+    {
+      "bytes": 24908,
+      "path": "src/factor_lab/governance/temporal_integrity.py",
+      "sha256": "66cda0b1254e3f900222a6cd6b5afc9820cb4f430d2905f6cee7df9ad0433868"
+    },
+    {
+      "bytes": 11851,
+      "path": "src/factor_lab/governance/timing_strategy_identity_registry.py",
+      "sha256": "061307041fc3dd1f079d1d85f6a90fac66f46d8a04179e12c40b287985fa89a5"
+    },
+    {
+      "bytes": 1033,
+      "path": "src/factor_lab/indicators/__init__.py",
+      "sha256": "0cea5d60c35a5c8068409c07c01b2bf529c8cd8d7a24b32d5dd8e8850864d397"
+    },
+    {
+      "bytes": 8530,
+      "path": "src/factor_lab/indicators/bar_direction_continuity.py",
+      "sha256": "1721d8fa5207db31ce8cd8f8e7ad950569139cab34c13f85de06b54cc9d50aa3"
+    },
+    {
+      "bytes": 8987,
+      "path": "src/factor_lab/indicators/directional_impulse.py",
+      "sha256": "8ea27ccb0d51b0b1a8578113d9654e79db95cd0179b7844eb9790aaa5a2ad16f"
+    },
+    {
+      "bytes": 7649,
+      "path": "src/factor_lab/indicators/jump_reversal_risk.py",
+      "sha256": "725a5c45dba5f81d7b5b9f10f3bb7a583071493452af9eade9b522ceaf49a28e"
+    },
+    {
+      "bytes": 7154,
+      "path": "src/factor_lab/indicators/path_weighted_bar_color_imbalance.py",
+      "sha256": "0f5364673a1f07db2ccc5b80420038ab797af6b9867d61a35f2384622674dc47"
+    },
+    {
+      "bytes": 36,
+      "path": "src/factor_lab/latent/__init__.py",
+      "sha256": "1acb349bb088645aafa18c44e3d21b3eccebabae9a6927ff7ef41b5026cd2993"
+    },
+    {
+      "bytes": 1761,
+      "path": "src/factor_lab/latent/services/__init__.py",
+      "sha256": "7304154536b08fb2308ac7caa5c0f888b5cef9cf35b79a8cf81f3cfdb7173bb7"
+    },
+    {
+      "bytes": 46453,
+      "path": "src/factor_lab/latent/services/daily_event_window_clustering_service.py",
+      "sha256": "92ec1d6048cc2333408190feda770edc24830030610e119e40f48c840c64ec31"
+    },
+    {
+      "bytes": 54765,
+      "path": "src/factor_lab/latent/services/latent_exposure_materialization_service.py",
+      "sha256": "84dfde2774794ea10607ac24b216e34284d8053abc5effbd7afd140c845f6217"
+    },
+    {
+      "bytes": 36182,
+      "path": "src/factor_lab/latent/services/latent_factor_contract_service.py",
+      "sha256": "f4e3db8240c676828e7b74df33a7b1a0a6de894e070b6525cff68d515713e66f"
+    },
+    {
+      "bytes": 21688,
+      "path": "src/factor_lab/latent/services/latent_interpretation_service.py",
+      "sha256": "ec6d2fff7686cfa313b4b7b1ab20ea568a237a5dd016196b52227d4b744e4747"
+    },
+    {
+      "bytes": 38336,
+      "path": "src/factor_lab/latent/services/latent_lab_state_service.py",
+      "sha256": "dd1485d15943704d70db20b6ec78aab9da3524b0f246d0517df74739aa82fed7"
+    },
+    {
+      "bytes": 69,
+      "path": "src/factor_lab/market_correlation/__init__.py",
+      "sha256": "aa1ea386b2a3fd002cf45f7594997c234167517667518ec507fd3599f0c443e9"
+    },
+    {
+      "bytes": 4678,
+      "path": "src/factor_lab/market_correlation/contracts_group_timeseries.py",
+      "sha256": "aef4ae3fe1c9d6c9915e06c62b7dac2fdbf1c98c41638c6fefe98e709c390010"
+    },
+    {
+      "bytes": 11063,
+      "path": "src/factor_lab/market_correlation/group_correlation_daily_update.py",
+      "sha256": "1602cd2d8ae2217d9a9ed3300384906b1105514e20d6214af69f179469fbfc2b"
+    },
+    {
+      "bytes": 378,
+      "path": "src/factor_lab/market_correlation/services/__init__.py",
+      "sha256": "ab82a7f9cc61c1a3d444d67f0212eeca0e27f50b8d9d89c31442eeab27e33446"
+    },
+    {
+      "bytes": 21580,
+      "path": "src/factor_lab/market_correlation/services/beta_strength_cloud_scan_service.py",
+      "sha256": "8b29a78d43d6382a2cb452c8538c8128ab64628da210b2dac82833777563c74a"
+    },
+    {
+      "bytes": 18845,
+      "path": "src/factor_lab/market_correlation/services/cloudridge_beta_index_rendering.py",
+      "sha256": "1c3c4b3ad0baea5e078b519c4e6422384c7305463bec78c839700fe214a34461"
+    },
+    {
+      "bytes": 53503,
+      "path": "src/factor_lab/market_correlation/services/cloudridge_beta_index_service.py",
+      "sha256": "f4a86a3f5c827e9902d6feb0165a3b2100170acbd7922e1fbec76ba8f620cff3"
+    },
+    {
+      "bytes": 18969,
+      "path": "src/factor_lab/market_correlation/services/correlation_matrix_engine.py",
+      "sha256": "faa769450aff81f25b138e8bacc2616802955dc407b9b24900432ef826a62cc6"
+    },
+    {
+      "bytes": 20609,
+      "path": "src/factor_lab/market_correlation/services/group_correlation_timeseries_service.py",
+      "sha256": "f15f46cb0a9d776f873072a620e86bc75874f76ddd4f00d6b95fb27b27209b64"
+    },
+    {
+      "bytes": 90407,
+      "path": "src/factor_lab/market_correlation/services/market_correlation_core_service.py",
+      "sha256": "9f11ded429d8096ddda9640a44b907eb0b97091e44391bb1da1547183e45e897"
+    },
+    {
+      "bytes": 7145,
+      "path": "src/factor_lab/market_state/__init__.py",
+      "sha256": "dd961498b939e4101e355a408f5872d7630b1e01f3940f2162134dbb76784f20"
+    },
+    {
+      "bytes": 18142,
+      "path": "src/factor_lab/market_state/attributes.py",
+      "sha256": "3de5d6682d65bd1e4b7f9fb17ad8a060eba275b71c5a1f07b8be56b8a69ce2b7"
+    },
+    {
+      "bytes": 25745,
+      "path": "src/factor_lab/market_state/attributes_v1.py",
+      "sha256": "5d39df605f1e308dbb1f51d12dbd91593f4fd8084a3bcc7bd763891707995311"
+    },
+    {
+      "bytes": 16654,
+      "path": "src/factor_lab/market_state/brickwall_bandvol.py",
+      "sha256": "f22c7405e90179d72e126c2608ec365d3ca296734717b46f54923f7b09b11e7c"
+    },
+    {
+      "bytes": 28911,
+      "path": "src/factor_lab/market_state/bundle.py",
+      "sha256": "9968f13dbb9fdc69be2438db8b6f1e2a21e318f2966948fa949ffb210687967e"
+    },
+    {
+      "bytes": 37436,
+      "path": "src/factor_lab/market_state/bundle_a2.py",
+      "sha256": "c97184b289e11992db2c572affbaaa41ec3b40e7f5b67f1bc047ebfd78bb6f98"
+    },
+    {
+      "bytes": 12720,
+      "path": "src/factor_lab/market_state/causal_scale_ladder.py",
+      "sha256": "94218aec6a7813ee9bb1f6cebf43cd2782b27994b913e40a4c201faf429c2bcd"
+    },
+    {
+      "bytes": 29334,
+      "path": "src/factor_lab/market_state/cffex_index_option_black76.py",
+      "sha256": "e5961ff2220ecd73f8fe6a446591d198726d68629ab2bbde870dce67463e88e3"
+    },
+    {
+      "bytes": 19056,
+      "path": "src/factor_lab/market_state/checkpoint.py",
+      "sha256": "539348f2e4ff98784f671f96c9f4ce5a8375f57805461f1e2973fdefd9906083"
+    },
+    {
+      "bytes": 14886,
+      "path": "src/factor_lab/market_state/context_free_explosive_channel.py",
+      "sha256": "719c402b6ad2a50eb1959eee8150f6ccd2b63ff511ee93d3a41bc74df712de4d"
+    },
+    {
+      "bytes": 21007,
+      "path": "src/factor_lab/market_state/context_free_explosive_two_bucket.py",
+      "sha256": "0ba6942d6cfac0b8675d7ad9ff6cdeb81481d07fee5121317415bb3128e3a01c"
+    },
+    {
+      "bytes": 37055,
+      "path": "src/factor_lab/market_state/contracts.py",
+      "sha256": "78e40f9395748fd928b6af583d2d3c647add9951c7ce28ddb30d331150990d5f"
+    },
+    {
+      "bytes": 9639,
+      "path": "src/factor_lab/market_state/contracts_a2.py",
+      "sha256": "734d14e94a345a8e5e3dca89ba45264cd4a2f7ba7b290c24ddfa0c60da305f33"
+    },
+    {
+      "bytes": 9161,
+      "path": "src/factor_lab/market_state/contracts_b.py",
+      "sha256": "b8640b392fbca63cfd36902495c033d79754feb1406c76d14d22f65e8654f220"
+    },
+    {
+      "bytes": 9278,
+      "path": "src/factor_lab/market_state/core_kline_attribute_pool.py",
+      "sha256": "615ccd149fb9baeaae730130d552fc221304b431f16a961aa81c904e59a09d11"
+    },
+    {
+      "bytes": 24368,
+      "path": "src/factor_lab/market_state/crash_slope_lifecycle.py",
+      "sha256": "2ab393ca825b42b9a083239b11ddaefeca4f1d7f0adc44cbe74640f6295377d6"
+    },
+    {
+      "bytes": 83408,
+      "path": "src/factor_lab/market_state/cross_frequency_opportunity_infrastructure.py",
+      "sha256": "a585f1047ee07abf2fe60dc3f07a484de8d42e8bf446968a8d9ae32ee3bf52f7"
+    },
+    {
+      "bytes": 17317,
+      "path": "src/factor_lab/market_state/cross_round_infrastructure.py",
+      "sha256": "0f784e083bc26bcc20db0f6f0c69b30f2dd60c3293cb5cd717cd7331f802323a"
+    },
+    {
+      "bytes": 4097,
+      "path": "src/factor_lab/market_state/csi1000_5m_research_runtime.py",
+      "sha256": "b343f45e9e5a143b265b50db910ce1384ba4b1eacadc5003961cf7433014a267"
+    },
+    {
+      "bytes": 26864,
+      "path": "src/factor_lab/market_state/csi1000_datahub_gap_closure.py",
+      "sha256": "9410fdf3b8c2c2d90a67696e6bb2d36bc68e37173a975f6101dabe293ffe3923"
+    },
+    {
+      "bytes": 8508,
+      "path": "src/factor_lab/market_state/csi1000_future_kline_property_provider.py",
+      "sha256": "adfc76fe134666adbfd31988041192636e6e8fefd2c31b3f753b192ce9ee1ffa"
+    },
+    {
+      "bytes": 36137,
+      "path": "src/factor_lab/market_state/csi1000_instrument_state.py",
+      "sha256": "bf7f4324515ac96aa76fe2c9cf50e8e210a3553db4dd329f34fbd15585cd80e7"
+    },
+    {
+      "bytes": 10183,
+      "path": "src/factor_lab/market_state/csi1000_trade_opportunity.py",
+      "sha256": "801f8e221f9ad71fd10f04ab102b8cbeaafcdbdb3b06517bff4334b4f327b23d"
+    },
+    {
+      "bytes": 6182,
+      "path": "src/factor_lab/market_state/downside_bucket_morphology.py",
+      "sha256": "65792cd7d206ca4bc33ecc7b18a8ea3e700d31278a116afd0dbdde2b5c1b4afb"
+    },
+    {
+      "bytes": 3684,
+      "path": "src/factor_lab/market_state/downside_entry_orthogonal_veto.py",
+      "sha256": "9575db42e6d715776bd743c65157c2ed4acd4327f77f8fdeb1e6d390813fc69d"
+    },
+    {
+      "bytes": 15368,
+      "path": "src/factor_lab/market_state/empirical_formula_registry.py",
+      "sha256": "91895af63e76238ce3c33c18e104aeec5772142412200fb4772a56ebaa2a1600"
+    },
+    {
+      "bytes": 10236,
+      "path": "src/factor_lab/market_state/fda_explosive_channel_prototype.py",
+      "sha256": "10afd794491300918d4b41fb2bb89af3831bdfb5c61572dcfc9b1fcdb39e8119"
+    },
+    {
+      "bytes": 12077,
+      "path": "src/factor_lab/market_state/fda_multiscale_channel_v1.py",
+      "sha256": "02f76b2c2ebeaad8ea7319646110166a608314e90334702d189e2a8c9aa10257"
+    },
+    {
+      "bytes": 8499,
+      "path": "src/factor_lab/market_state/fda_recent_down_rebound_bridge.py",
+      "sha256": "9e723e41da22087f87a670e3e4c5ab549c4f0ba1d73890a6ae2904b5739b8ec3"
+    },
+    {
+      "bytes": 1858,
+      "path": "src/factor_lab/market_state/formula_derivation/__init__.py",
+      "sha256": "cf5a9798b73ba16ea2b0693275fa3680b404486b3508e5a1b76464592fb8c20c"
+    },
+    {
+      "bytes": 5550,
+      "path": "src/factor_lab/market_state/formula_derivation/attribute_contracts.py",
+      "sha256": "6108591cc35ce7e013ad4b76bd3c5cfe36bac2ee6b1ce0cc21485ce4adefcbcb"
+    },
+    {
+      "bytes": 4021,
+      "path": "src/factor_lab/market_state/formula_derivation/canonicalization.py",
+      "sha256": "8f2e0c44580c4dccddf86666b55878969398d22a0d013b78e425e913cc102b15"
+    },
+    {
+      "bytes": 13040,
+      "path": "src/factor_lab/market_state/formula_derivation/compiler.py",
+      "sha256": "a062a9e1d321cbab4a6cbe6c971b7ae47b9af010cabd6411d98695d2e7c915c0"
+    },
+    {
+      "bytes": 8336,
+      "path": "src/factor_lab/market_state/formula_derivation/contrasts.py",
+      "sha256": "b4c78786ecf83a4df717fc394ca1336ae587b148e47cd910a0a39fb3b13d8154"
+    },
+    {
+      "bytes": 33599,
+      "path": "src/factor_lab/market_state/formula_derivation/families.py",
+      "sha256": "b78aa0dd9e6e31caf7a183df5038c25dd2dddc8e25ca14bb1b44ab26679365a7"
+    },
+    {
+      "bytes": 68676,
+      "path": "src/factor_lab/market_state/formula_derivation/materialization.py",
+      "sha256": "6937a143038104e6ebb8edd55fcb4e4293831746ea955b04071e22d00483f3d5"
+    },
+    {
+      "bytes": 56648,
+      "path": "src/factor_lab/market_state/formula_derivation/models.py",
+      "sha256": "a7a0fe130258c59149a39edf978f7d60d9d39cfd0f333cb3bcdcc509d853c35a"
+    },
+    {
+      "bytes": 39923,
+      "path": "src/factor_lab/market_state/formula_derivation/preparation.py",
+      "sha256": "6bc0bb2adebfdb9b436a57df6846a0aa5855143c69d1fdb9ba621b59d8efca43"
+    },
+    {
+      "bytes": 5942,
+      "path": "src/factor_lab/market_state/formula_derivation/validation.py",
+      "sha256": "bbefc6f344d2dbfb24eb5696dee0f5b9a94a52e2f09b75a7b287bd77dc9296e7"
+    },
+    {
+      "bytes": 18231,
+      "path": "src/factor_lab/market_state/formula_derived_three_stage_workflow.py",
+      "sha256": "a2189ce118d1fe4d795799ab8401fcc3f0ab2a89e0ee7a3cecd7fc73a27979a9"
+    },
+    {
+      "bytes": 27010,
+      "path": "src/factor_lab/market_state/frozen_joint_policy_replay.py",
+      "sha256": "ded2d7aa404ea7b0cc7c74307838ecff6a42c0dbc66ca2f717e315d1635d8125"
+    },
+    {
+      "bytes": 9533,
+      "path": "src/factor_lab/market_state/group_correlation_attributes.py",
+      "sha256": "343f24b68f5a8c98c8f8349900dbb015101e8a6a5f9216cae28edf9904b846d5"
+    },
+    {
+      "bytes": 9516,
+      "path": "src/factor_lab/market_state/group_correlation_bundle.py",
+      "sha256": "66a99f6c8dd2eca4b6f69471e7e1d216fec50188f375111cf07be24c6fd4a2cb"
+    },
+    {
+      "bytes": 8028,
+      "path": "src/factor_lab/market_state/horizons.py",
+      "sha256": "a36c9780471660d3b9227c69a91be42775f901d1d9d1933a978bd22790198e00"
+    },
+    {
+      "bytes": 15093,
+      "path": "src/factor_lab/market_state/joint_mechanism_assessment.py",
+      "sha256": "17963f7b3cb7048f1649f4a06e9f8ff35d60d1efb80b4399a8559c6ddf8896d6"
+    },
+    {
+      "bytes": 58218,
+      "path": "src/factor_lab/market_state/joint_mechanism_research.py",
+      "sha256": "7e970febd33c82d32cabe33c9588b68ac79d4a160031b1190f1ab52b91aa56d5"
+    },
+    {
+      "bytes": 33963,
+      "path": "src/factor_lab/market_state/joint_policy_attempt_registry.py",
+      "sha256": "c8bdd1e6156f09ee134c1f90ec0b40d71c46a86544888f6d982250296bd3c4c2"
+    },
+    {
+      "bytes": 14979,
+      "path": "src/factor_lab/market_state/joint_policy_family_registry.py",
+      "sha256": "0fa0c279221b660d93b9274d48a66853618d533e92244bbe20b32c2650d3e8bf"
+    },
+    {
+      "bytes": 7450,
+      "path": "src/factor_lab/market_state/joint_policy_runtime.py",
+      "sha256": "91fd444a65f85c6cb1d8cb3b12c388a53f8eaf4b6fb7fe549af9eab5dd852893"
+    },
+    {
+      "bytes": 20264,
+      "path": "src/factor_lab/market_state/joint_research_decision_package.py",
+      "sha256": "859c8e5c04ce9f530082c1cc7680bc28e1759daaa6233872952809168081a170"
+    },
+    {
+      "bytes": 25013,
+      "path": "src/factor_lab/market_state/lat_index_portability.py",
+      "sha256": "51e77ed0b4811b4e1f7d3ee0806820cccfb063d160c8dca33d77fbf203811257"
+    },
+    {
+      "bytes": 12145,
+      "path": "src/factor_lab/market_state/lat_kline_attribute_atlas.py",
+      "sha256": "d725ba7d542f81bc83879fa34e9cccb69c199e08ae4b4d6fb5395a4f9fb0c5e0"
+    },
+    {
+      "bytes": 10758,
+      "path": "src/factor_lab/market_state/method_registry.py",
+      "sha256": "83ae79e17052d007de34f4ce06caddff0848430e80871413a31140f5b34c4b81"
+    },
+    {
+      "bytes": 1299,
+      "path": "src/factor_lab/market_state/normalization.py",
+      "sha256": "2b43c89e0bd4cb7ef3b6e97f7da71b59c5046b1e775df5773b531373c1c26d0f"
+    },
+    {
+      "bytes": 13646,
+      "path": "src/factor_lab/market_state/ols_explosive_channel_v1.py",
+      "sha256": "3686cffb0c1edb7ab8359b9da6052ac45ee9d9aea6020ea83febdf40569b8351"
+    },
+    {
+      "bytes": 945,
+      "path": "src/factor_lab/market_state/online_loader.py",
+      "sha256": "3a472adc98f8a6d2218bc9cc9bcd679e49939380e2ca305ee27a32b4c20af6f1"
+    },
+    {
+      "bytes": 17204,
+      "path": "src/factor_lab/market_state/online_state.py",
+      "sha256": "04ca09661b4f2720d134051c44539b2a04fd5f445ded47682a3ea5be7410b2c0"
+    },
+    {
+      "bytes": 6002,
+      "path": "src/factor_lab/market_state/performance.py",
+      "sha256": "bea9a8578e5e12283d30bfb1945ef9fa3ffff6c9a816f4e313920d031586b022"
+    },
+    {
+      "bytes": 9314,
+      "path": "src/factor_lab/market_state/recent_down_rebound_bridge.py",
+      "sha256": "466ac7733e0f12e15cc1e28fbc14b56c2fa8c2a2b486aa032569f07c1d4b75c8"
+    },
+    {
+      "bytes": 34750,
+      "path": "src/factor_lab/market_state/release.py",
+      "sha256": "c4a3d119a1b1899960f3533808798c4108555815d4167f4e8abadaff2582b497"
+    },
+    {
+      "bytes": 75,
+      "path": "src/factor_lab/market_state/research/__init__.py",
+      "sha256": "e4ee23af34db58ac087d5e7f5f3a547c1c96fd99673b87d81ae2f37cf873398f"
+    },
+    {
+      "bytes": 34209,
+      "path": "src/factor_lab/market_state/research/causal_filter_iir_competitive_period_temporal_surface_v20.py",
+      "sha256": "6a333e61267f5b9442d8a70c50160f3f38821472ccfe6c35b1b5ab9bc3d0c2a2"
+    },
+    {
+      "bytes": 18927,
+      "path": "src/factor_lab/market_state/research/causal_filter_iir_p13_slow_ownership_regime_v3.py",
+      "sha256": "96e7c7f5cebb6913d7a6091065641441d78e02da3b87175722b64d2ad45ffe7a"
+    },
+    {
+      "bytes": 34986,
+      "path": "src/factor_lab/market_state/research/ols_paper_explosive_bucket_battle_v1.py",
+      "sha256": "c750b8f5b425b6d26a59f191df939393a18b434334fae361293849ccad87adea"
+    },
+    {
+      "bytes": 34309,
+      "path": "src/factor_lab/market_state/research_artifact_truth_gate.py",
+      "sha256": "07bf82d094e5d568cbc50dbf087e48e2060863f879e17c9a9e8d52d25c89777f"
+    },
+    {
+      "bytes": 9568,
+      "path": "src/factor_lab/market_state/research_decision_package.py",
+      "sha256": "0421e535a37521f504caabcc5f24dc99edaeee97f286431bb1f5556f8cd31aa9"
+    },
+    {
+      "bytes": 8375,
+      "path": "src/factor_lab/market_state/session_clock_reference.py",
+      "sha256": "8d2412f02a6f436467f750884e101fe48f26e080ee978f6434667a9cda8483ad"
+    },
+    {
+      "bytes": 77158,
+      "path": "src/factor_lab/market_state/spectral_kline_attribute_measurement.py",
+      "sha256": "341e9fef18126853aa34714a0f7c57a46cfff388bc3b47be752534f410d0c02e"
+    },
+    {
+      "bytes": 13627,
+      "path": "src/factor_lab/market_state/time_scale_catalog.py",
+      "sha256": "e1f1599da3393e29614db08cdb625c1db89cc3d3d46c9b9ce2667fd2ea488a6d"
+    },
+    {
+      "bytes": 54893,
+      "path": "src/factor_lab/market_state/timing_all_frequency_infrastructure.py",
+      "sha256": "254decb5602c99a27558b4ae74cb2da024e95650858fdc6da0ed1583f44c5e9c"
+    },
+    {
+      "bytes": 31801,
+      "path": "src/factor_lab/market_state/timing_annual_session_rebuild.py",
+      "sha256": "d2505bc393c286d2ed8c209ad46770c69aa4b8c20d1470dc6e580ffd2c9b4368"
+    },
+    {
+      "bytes": 4498,
+      "path": "src/factor_lab/market_state/timing_artifact_identity.py",
+      "sha256": "32da0467337f66e7e5d081619be19a9f536b51b38910b7d0d279cacbd81a7a0a"
+    },
+    {
+      "bytes": 471,
+      "path": "src/factor_lab/market_state/timing_crash_rebound_current_best_r1.py",
+      "sha256": "d8de9ed5cc8c9d2d6b2775d1ae4cbf028d2244d7347dc749bfa9d9f42e4662ec"
+    },
+    {
+      "bytes": 6096,
+      "path": "src/factor_lab/market_state/timing_crash_rebound_long_ema_h4_routing_r1.py",
+      "sha256": "5a0b86d6fabad41bbad37a3f3adcfe42f85db302e611cd1eacec9c89f93b46fd"
+    },
+    {
+      "bytes": 54968,
+      "path": "src/factor_lab/market_state/timing_dynamic_reliability.py",
+      "sha256": "0652e0109309845920fe8f5eed83bbdcd37ab35ee51ab37301f7b18d3aceb282"
+    },
+    {
+      "bytes": 33889,
+      "path": "src/factor_lab/market_state/timing_evaluation.py",
+      "sha256": "8776ccc1b24f3ce7b46019af7238fabcc85cf306ff9dc163ea204026ed4e607e"
+    },
+    {
+      "bytes": 71143,
+      "path": "src/factor_lab/market_state/timing_evaluation_platform.py",
+      "sha256": "866cb9c9e8f5c612eca276b84ed0d1f98358238861ee9452111fa72ded1e6e38"
+    },
+    {
+      "bytes": 32955,
+      "path": "src/factor_lab/market_state/timing_event_opportunity_attribution.py",
+      "sha256": "ff91f44af4b6e23bd334aa580a7fcce3c057eb941f5c9f731d756b1862c4d0c5"
+    },
+    {
+      "bytes": 7836,
+      "path": "src/factor_lab/market_state/timing_explosive_layer_v2.py",
+      "sha256": "0a90b9975791109fb00700366169d84255f2a2dfd3a84cb87c058f9cb4cf27a0"
+    },
+    {
+      "bytes": 838,
+      "path": "src/factor_lab/market_state/timing_explosive_layer_v3.py",
+      "sha256": "d3a50d7a46241773b2782ec90c71b4c80d25935c24e701c35b52baa2ce6d9af1"
+    },
+    {
+      "bytes": 31690,
+      "path": "src/factor_lab/market_state/timing_factor_catalog.py",
+      "sha256": "21b7b5692a6ce22e42b0ca295ca0ea14103ee0bc66bd9e23d4528f9b40c8822b"
+    },
+    {
+      "bytes": 38037,
+      "path": "src/factor_lab/market_state/timing_factor_failure_gate.py",
+      "sha256": "a0e7789ee61c286b7ad5c363d01698d7040900cae1c381480dcb0c352837db29"
+    },
+    {
+      "bytes": 11198,
+      "path": "src/factor_lab/market_state/timing_four_layer_ports.py",
+      "sha256": "5262f5bb6553f917dd40de12e88c4f0a5a358a5a6b9889e93b1046ce7f70d4b5"
+    },
+    {
+      "bytes": 8436,
+      "path": "src/factor_lab/market_state/timing_layer1_index_ohlc_binding.py",
+      "sha256": "9c386dc3ff9529b46953f9ec832baa25fc5ef6978c3ab249f1c651e143fdc246"
+    },
+    {
+      "bytes": 7612,
+      "path": "src/factor_lab/market_state/timing_layer1_option_market.py",
+      "sha256": "262fe1211082192a73ee1fc9f77d9dda6d536a093289d3d4963456f13cebf176"
+    },
+    {
+      "bytes": 4366,
+      "path": "src/factor_lab/market_state/timing_layer1_option_seller_coordinate.py",
+      "sha256": "e44d58167f83bb64b6f966c8a26e47ca1442fbf5e88dd833fc77b4e8a0af6377"
+    },
+    {
+      "bytes": 16221,
+      "path": "src/factor_lab/market_state/timing_layer2_3_contracts.py",
+      "sha256": "3c0bb8cd73176611db601a3771cb41b8c30cf65a48dde86c66a1f5f6261c0339"
+    },
+    {
+      "bytes": 14220,
+      "path": "src/factor_lab/market_state/timing_layer2_adaptive_horizon_path_efficiency.py",
+      "sha256": "feeca24ff3e2baede17885b7d1b6d573b764203b7b7beb1e47f0931be52fd168"
+    },
+    {
+      "bytes": 1711,
+      "path": "src/factor_lab/market_state/timing_layer2_all_frequency_measurements.py",
+      "sha256": "dae7bf708cba1a8c1fd6983dd7c747b646de17d4fc6b7dd6029cec48e6ac2e4a"
+    },
+    {
+      "bytes": 14463,
+      "path": "src/factor_lab/market_state/timing_layer2_attribute_followability.py",
+      "sha256": "4c5583ca658cf47cbcf9904e0392785a2d54dc0cc7f9583bc2f63d361791c2d0"
+    },
+    {
+      "bytes": 9875,
+      "path": "src/factor_lab/market_state/timing_layer2_boundary_registry.py",
+      "sha256": "770e96dab4c7bc7fce52cae26ff04575990d57904c420f3ea8bcd3c7679a6e7e"
+    },
+    {
+      "bytes": 2478,
+      "path": "src/factor_lab/market_state/timing_layer2_consumer_adapters.py",
+      "sha256": "16c3e3c5ee2e17c04227eac786579b75f6165d6ccbb0e1fced2ce48024c475c8"
+    },
+    {
+      "bytes": 6628,
+      "path": "src/factor_lab/market_state/timing_layer2_context_measurements.py",
+      "sha256": "caf60eb20184cceb8c585cfff35a074b7405c3095bf6d87f84c5fac59ee0fe28"
+    },
+    {
+      "bytes": 4573,
+      "path": "src/factor_lab/market_state/timing_layer2_derivative_market_measurements.py",
+      "sha256": "860e7c225df009b2ca033835581b963c26092ef0b738bbca86c43eefde7fc505"
+    },
+    {
+      "bytes": 9059,
+      "path": "src/factor_lab/market_state/timing_layer2_er_climate.py",
+      "sha256": "8d0afa03798678f99f8fb788541621f1e13fee470edb68ea1b9efa470b516a94"
+    },
+    {
+      "bytes": 9295,
+      "path": "src/factor_lab/market_state/timing_layer2_er_climate_forecast.py",
+      "sha256": "3547d29f5dd5fbddd11c8e84396021669cbf7a8dde9c923ec436c748cce30f1b"
+    },
+    {
+      "bytes": 5385,
+      "path": "src/factor_lab/market_state/timing_layer2_er_climate_forecast_v2.py",
+      "sha256": "6a4343d1bb4493782c2526d0a01c14ce54619252012d8dfcf70494d1009b06c0"
+    },
+    {
+      "bytes": 14156,
+      "path": "src/factor_lab/market_state/timing_layer2_extended_measurements.py",
+      "sha256": "349711fd639809e4257cf12cce8c1968e5c157d8e5984413cf6d502ac7b036f8"
+    },
+    {
+      "bytes": 9947,
+      "path": "src/factor_lab/market_state/timing_layer2_future_path_provider_v2.py",
+      "sha256": "3159f4e663eec639d36b18eee5b18acc81e5227d240cd8c09cfc668145be6a19"
+    },
+    {
+      "bytes": 4238,
+      "path": "src/factor_lab/market_state/timing_layer2_har_volatility_provider.py",
+      "sha256": "de2423f6cd05b377cc90fe0a8128513f53e86f08ab0bc01354ee35de74c5fb2f"
+    },
+    {
+      "bytes": 32636,
+      "path": "src/factor_lab/market_state/timing_layer2_implied_intraday_reversal.py",
+      "sha256": "cca196e9d3d1c145e3ca5c43037fa36da3b365d1376a3071093a317a27473ec9"
+    },
+    {
+      "bytes": 25126,
+      "path": "src/factor_lab/market_state/timing_layer2_measurement_plane.py",
+      "sha256": "53665163b4722ab125e71220f93bfebc841a22ce1ea46bf5e0d4a9159b8fba3b"
+    },
+    {
+      "bytes": 21362,
+      "path": "src/factor_lab/market_state/timing_layer2_next_path_efficiency.py",
+      "sha256": "943049f7a5b53c7b1b7c575740c817fee8ffdfc1d55ef4bc57438aca179fb102"
+    },
+    {
+      "bytes": 21304,
+      "path": "src/factor_lab/market_state/timing_layer2_option_volatility.py",
+      "sha256": "b1a5e83026cdd007a738bc39267867952760ae34644ad62e6b6d4261dc176897"
+    },
+    {
+      "bytes": 10549,
+      "path": "src/factor_lab/market_state/timing_layer2_phase_relationship.py",
+      "sha256": "463ece02846f02b6dfbcd763626756c734483d1a91893f04652ade33fdbd22a6"
+    },
+    {
+      "bytes": 12126,
+      "path": "src/factor_lab/market_state/timing_layer2_pit_core.py",
+      "sha256": "e88b2fed022aa74382908e64cd3097dbee022151712fea2cc794987003ec12f2"
+    },
+    {
+      "bytes": 6646,
+      "path": "src/factor_lab/market_state/timing_layer2_scale_shape_path_efficiency.py",
+      "sha256": "aa3eafcf519f40dd071d41643c06859b8ff89116b7f84c98df660bf9a4aa86ca"
+    },
+    {
+      "bytes": 5682,
+      "path": "src/factor_lab/market_state/timing_layer2_state_machine_materials.py",
+      "sha256": "a6984473c54562ef292fb4aa6444615051979df2a87939c28ab3b25f59ebc1de"
+    },
+    {
+      "bytes": 10726,
+      "path": "src/factor_lab/market_state/timing_layer3_necessity.py",
+      "sha256": "e5d7f994ca1facd9e5b0be53e348e40b89ad6e53dcc53f405d1584dd352ba4e1"
+    },
+    {
+      "bytes": 5974,
+      "path": "src/factor_lab/market_state/timing_layer3_orchestration.py",
+      "sha256": "cfb9a0d37ff1808417439024a82f38f0847b4df71dd27fb84d9857eb4a5089b1"
+    },
+    {
+      "bytes": 13883,
+      "path": "src/factor_lab/market_state/timing_layer3_strategy_architecture.py",
+      "sha256": "47f24aec4ac8252141b70e603e728b7d6bb7ceea4562e126ed8fac0fe8f4742e"
+    },
+    {
+      "bytes": 1516,
+      "path": "src/factor_lab/market_state/timing_layer4_all_frequency_execution.py",
+      "sha256": "a252e29b44a7aa6fda00ab2c73b4e64ae9618de6e87c68450b07d8053373c3de"
+    },
+    {
+      "bytes": 9136,
+      "path": "src/factor_lab/market_state/timing_lifecycle_parameter_router.py",
+      "sha256": "6ce253445e8004b1fc92ebabeabc0ed9dbbf48eea8429470c89bef173e106165"
+    },
+    {
+      "bytes": 17097,
+      "path": "src/factor_lab/market_state/timing_matched_attribution.py",
+      "sha256": "835bd8445d97a16c56e5786feb12f7f65bc6268de20d291a9497d9e1159318db"
+    },
+    {
+      "bytes": 1890,
+      "path": "src/factor_lab/market_state/timing_matched_volatility_signal.py",
+      "sha256": "0ea87cd7d6ec80fac3a4e471162fec641c8a66635a3799aefd943c3d6801c42e"
+    },
+    {
+      "bytes": 35544,
+      "path": "src/factor_lab/market_state/timing_multiscale_market_field.py",
+      "sha256": "c598201462afde4e3d58a09642b38d8765b411b43480db26540580b944784d98"
+    },
+    {
+      "bytes": 9821,
+      "path": "src/factor_lab/market_state/timing_paper_up_channel_latency_surface_r1.py",
+      "sha256": "1a8ba064f58df581f27d5432a132f363e824ae8a506450f54178518a8cec6f14"
+    },
+    {
+      "bytes": 9571,
+      "path": "src/factor_lab/market_state/timing_priority_composition.py",
+      "sha256": "924f124a9a0f8686c55970b11590fa6885174547e886c7f546b4611897eafebc"
+    },
+    {
+      "bytes": 15715,
+      "path": "src/factor_lab/market_state/timing_scale_oracle.py",
+      "sha256": "f5895d9cf1bf1a45b7f2da2f8f97241df6456569e8ec617b438a6af001894c40"
+    },
+    {
+      "bytes": 23668,
+      "path": "src/factor_lab/market_state/timing_six_axis.py",
+      "sha256": "bddbaccd9c412e8f5a1c69d9a5565371a66f3e8e27ec9fd853a455d3e0f9ded0"
+    },
+    {
+      "bytes": 9710,
+      "path": "src/factor_lab/market_state/timing_six_axis_tool_loop.py",
+      "sha256": "bf1228faa76b3f2e50b2ce0ca2c86f10afbf0004256af4873bcd0ff412aea1c4"
+    },
+    {
+      "bytes": 41219,
+      "path": "src/factor_lab/market_state/timing_strategy_routing.py",
+      "sha256": "e4e14ce5f212e9062ea396bdb3ad54a6af8696df76f42ddb22e4b97b962eb084"
+    },
+    {
+      "bytes": 585,
+      "path": "src/factor_lab/market_state/timing_strategy_routing_v4.py",
+      "sha256": "7425567a7f79fba6ad0db907160db00cb058b4ab1ba3cbcc2bb82db8beaade02"
+    },
+    {
+      "bytes": 26550,
+      "path": "src/factor_lab/market_state/timing_strategy_stage_evaluation.py",
+      "sha256": "563e3adc9f8d5d8c503e40ac6fcc63b82d8d139e9dc9af1aa096ddbaa226e7b9"
+    },
+    {
+      "bytes": 27775,
+      "path": "src/factor_lab/market_state/timing_three_bucket_iir_reference_v1.py",
+      "sha256": "c56eb302641c15accd1ca622671ac2fd86a47a021d1e28f9cc2ad655a24ddaba"
+    },
+    {
+      "bytes": 17137,
+      "path": "src/factor_lab/market_state/timing_three_bucket_iir_reference_v2.py",
+      "sha256": "2064c6542f43f201b8483ef0d5ddeab776c6106e6ce493ff71b831df28e169ae"
+    },
+    {
+      "bytes": 19716,
+      "path": "src/factor_lab/market_state/timing_three_bucket_iir_reference_v3.py",
+      "sha256": "a6f58b1c0f22cd9773d5faa39f6891403c151a23353ca20371b7bda2a7b57cb9"
+    },
+    {
+      "bytes": 25506,
+      "path": "src/factor_lab/market_state/timing_three_bucket_iir_reference_v4.py",
+      "sha256": "fdb6f01255990a6df54b435132520c1f56bdabeca6dc4b8f3d15c86d0c909c23"
+    },
+    {
+      "bytes": 33618,
+      "path": "src/factor_lab/market_state/timing_three_specialist_isolated_annual_v7.py",
+      "sha256": "9a9410e255792539d1f1d722c174b10f18187128baf7360863af96479a4c2a3f"
+    },
+    {
+      "bytes": 43697,
+      "path": "src/factor_lab/market_state/tool_affinity.py",
+      "sha256": "3bbee53712c812afa73c131424210b7b4d22abcbcdb0c00e880fd133d4efda43"
+    },
+    {
+      "bytes": 19365,
+      "path": "src/factor_lab/market_state/tool_benchmark_adapters.py",
+      "sha256": "8518ce3d7b95409acc227f5ac72ccb78282275f49f40a43b1d9712ab2595aae2"
+    },
+    {
+      "bytes": 48689,
+      "path": "src/factor_lab/market_state/tool_capability_contracts.py",
+      "sha256": "db2f3acb1e032c00a9d5556eff3fa189e0febb00591137238e8e8adace3fdb8a"
+    },
+    {
+      "bytes": 68887,
+      "path": "src/factor_lab/market_state/tool_conditioned_relationships.py",
+      "sha256": "0ce2062debceb6f9a2504fcad63c92c1a09a7dd85eb1105a90d1387aad55a646"
+    },
+    {
+      "bytes": 19744,
+      "path": "src/factor_lab/market_state/tool_factor_coupling.py",
+      "sha256": "512383a488027d726483f068d9ff7ee805f0aec6672be5aaf3058983701b524d"
+    },
+    {
+      "bytes": 30363,
+      "path": "src/factor_lab/market_state/tool_factor_research_orchestrator.py",
+      "sha256": "05840e9fa3573f00b5ee1a55acc20ede29766d2f829db8e409ba360413144d79"
+    },
+    {
+      "bytes": 90659,
+      "path": "src/factor_lab/market_state/tool_formula_mechanisms.py",
+      "sha256": "c8c933d61577dda2e639a47fdcc017c028ccf45a0869cc1e07abe00ebed4d486"
+    },
+    {
+      "bytes": 14696,
+      "path": "src/factor_lab/market_state/tool_formula_surface_audit.py",
+      "sha256": "c8f7b6fac53c315fae4382e40d2a13aa0a43ba1dc5919fb06cd4bbab36e3d395"
+    },
+    {
+      "bytes": 16948,
+      "path": "src/factor_lab/market_state/tool_mechanism_features.py",
+      "sha256": "85b9f0ef4170105aeae49c66d3983fc30148ad851a9e8dcc1e05bb91629af546"
+    },
+    {
+      "bytes": 65505,
+      "path": "src/factor_lab/market_state/tool_parameter_catalog_v2.py",
+      "sha256": "23cc33808e3bf2fe12541591d6f4ad2a50693cf237997d98648e525dfe81d20e"
+    },
+    {
+      "bytes": 25087,
+      "path": "src/factor_lab/market_state/tool_parameter_dictionary.py",
+      "sha256": "6c6d110b24bf79aa74eded0ed8fb0436189fc1fbcddc2307d3dde0de8f761949"
+    },
+    {
+      "bytes": 39489,
+      "path": "src/factor_lab/market_state/tool_parameter_experiment_registry.py",
+      "sha256": "51c8952c1910eb0e4a15ef5b238ef7e8e775673d8e03bce5c7e81883569b09fa"
+    },
+    {
+      "bytes": 39597,
+      "path": "src/factor_lab/market_state/tool_registry.py",
+      "sha256": "7a6825e128e5efd2e3a0955412b3bab2019787a23cd0905c14f232ad78ccf5fe"
+    },
+    {
+      "bytes": 14024,
+      "path": "src/factor_lab/market_state/tool_registry_v1_4.py",
+      "sha256": "70e50b2c0a91627ff56b6dee2989f74d05fdd6b6d88f99cbbd5db1760fac7688"
+    },
+    {
+      "bytes": 15588,
+      "path": "src/factor_lab/market_state/tool_registry_v1_5.py",
+      "sha256": "b6b6d054d77111c829965249c08e0447c85db9761ada6013be89a6f4efb67dee"
+    },
+    {
+      "bytes": 26162,
+      "path": "src/factor_lab/market_state/tool_research_preparation.py",
+      "sha256": "bb446d8d925dced5088cf609972e9fb533d450265ca2e7308444c6fac336799e"
+    },
+    {
+      "bytes": 24919,
+      "path": "src/factor_lab/market_state/trend_continuity_regime.py",
+      "sha256": "f798617ee218e57f53a0a97188cd3b9cefb78be60c25218aea5c0e1fc98c68ff"
+    },
+    {
+      "bytes": 38170,
+      "path": "src/factor_lab/market_state/unified_timing_infrastructure.py",
+      "sha256": "cc5b70ab58b973154381ea61ef2c1d98fe909e34b882cb095683c0526e7e3a93"
+    },
+    {
+      "bytes": 27612,
+      "path": "src/factor_lab/market_state/volatility_regime_recognizer_battle.py",
+      "sha256": "670f0a1a4579f5c8ed46fb13e6d775f822ebee445f455048b2d0ed34da9f26b0"
+    },
+    {
+      "bytes": 12587,
+      "path": "src/factor_lab/market_state/volatility_regime_recognizer_nested_tuning.py",
+      "sha256": "22e55efa9a6e3c42c7419fb7908ad15cf20b7df4c99c307828aa78dad9067d4d"
+    },
+    {
+      "bytes": 328,
+      "path": "src/factor_lab/observability/__init__.py",
+      "sha256": "601177643271e2525dd343a1c865d0d689a2cc02208a26e62218f4c73ca16d4e"
+    },
+    {
+      "bytes": 10484,
+      "path": "src/factor_lab/observability/config.py",
+      "sha256": "30c6a82eb0c2fc7f43c3cbf656156d62173229810cb26344d96e2377270f61dc"
+    },
+    {
+      "bytes": 5622,
+      "path": "src/factor_lab/observability/exceptions.py",
+      "sha256": "3af4fee33fdc958f7f7215afb53f10405c4591a1a04d2b08c6ba87f35fc63a54"
+    },
+    {
+      "bytes": 7990,
+      "path": "src/factor_lab/observability/logger.py",
+      "sha256": "ecfaf2b0fe9ee3a12ba85130e3dc304aeeec6098eedb8a89106c2713fd4198ca"
+    },
+    {
+      "bytes": 57,
+      "path": "src/factor_lab/strategy/__init__.py",
+      "sha256": "4ad48e3bdf57d110cd66ad003f5a4933e5fd48a43129488b3fc63c738a612e1d"
+    },
+    {
+      "bytes": 75,
+      "path": "src/factor_lab/strategy/research/__init__.py",
+      "sha256": "7461e221f046dea5cbf3b7d2113dd9e00436d790ac7d0940d1df85f77e5ccae7"
+    },
+    {
+      "bytes": 81,
+      "path": "src/factor_lab/strategy/research/timing/__init__.py",
+      "sha256": "1d80f85a97931273e54380ec323a9a63cbd2db663d459703094b0ce2fcfe20c3"
+    },
+    {
+      "bytes": 1380,
+      "path": "src/factor_lab/strategy/research/timing/all_frequency_strategy_diagnostics.py",
+      "sha256": "7961660053392f42195444901ef5e557daf2542ba110a303e060795d24989897"
+    },
+    {
+      "bytes": 2704,
+      "path": "src/factor_lab/strategy/research/timing/conditional_effect_research.py",
+      "sha256": "073717f42c10b9464a38188e470c289d9fc72087695c9ce826dd43b057209631"
+    },
+    {
+      "bytes": 4053,
+      "path": "src/factor_lab/strategy/research/timing/crash_rebound_r1.py",
+      "sha256": "7789d1a896acfd982d2f58c9ebc04d68d937bec956528ee46f3a25693864d3ed"
+    },
+    {
+      "bytes": 10145,
+      "path": "src/factor_lab/strategy/research/timing/explosive_v3.py",
+      "sha256": "c140e984319b767b99e5b6f49725ee73cd6edad02e9aba6246422ac9c2394e1e"
+    },
+    {
+      "bytes": 8179,
+      "path": "src/factor_lab/strategy/research/timing/lat_p8_l2_matched_bucket_prototype.py",
+      "sha256": "8fdd81dd349d7704a7754db3b07dcbd33e1716ff9d8e69b438852fd47f00ffe4"
+    },
+    {
+      "bytes": 5115,
+      "path": "src/factor_lab/strategy/research/timing/router_v4.py",
+      "sha256": "fa95440199bb627fe2f1a459b1604ce9427726e558360a849d88cfbb7b135938"
+    },
+    {
+      "bytes": 32,
+      "path": "src/factor_lab/strategy/services/__init__.py",
+      "sha256": "095351eb48d6441a5e893836d6f584599022f788eeef4cccc3f0b39bfa226b73"
+    },
+    {
+      "bytes": 11046,
+      "path": "src/factor_lab/strategy/services/risk_off_paper_kernel_hierarchical_trend_v1.py",
+      "sha256": "dbd11e07f41d5db829f23e825b23af834c0840c70951880253756c2db6dedd39"
+    },
+    {
+      "bytes": 9431,
+      "path": "src/factor_lab/strategy/services/risk_off_paper_kernel_native_trend.py",
+      "sha256": "a36d09a52d1b3f208ed14c36fdcc1c37363c53c69b4a26bffc664bfcda5aded1"
+    },
+    {
+      "bytes": 12248,
+      "path": "src/factor_lab/strategy/services/risk_off_state_bucket_evaluation.py",
+      "sha256": "71d60568738aedc7d8b22c040d702175269b7a709782cee9b52f829dabec82a4"
+    },
+    {
+      "bytes": 17922,
+      "path": "src/factor_lab/strategy/services/risk_off_v56_steep_crash_specialist.py",
+      "sha256": "cfb229a2ce409ad95577393f9483ba22542cce5a6599572daf1365b78af01de8"
+    },
+    {
+      "bytes": 17396,
+      "path": "src/factor_lab/strategy/services/risk_off_v57_asymmetric_arc_envelope.py",
+      "sha256": "f3b355cecc83e6ca9f11be7b856f5d9c428b1f6636ec4f5a7e66f3a0363233ae"
+    },
+    {
+      "bytes": 5972,
+      "path": "src/factor_lab/strategy/services/risk_off_v57_lowpass_battle.py",
+      "sha256": "54efaf994c43bca0c7113de9c9afd6107b8912867d96cb1d36203cc47ab2acd1"
+    },
+    {
+      "bytes": 5944,
+      "path": "src/factor_lab/strategy/services/risk_off_v58_channel_inertia_width.py",
+      "sha256": "e001dffcc19859651763de5930c224f45b60671a8b71396db474c8b535b8ebaf"
+    },
+    {
+      "bytes": 12934,
+      "path": "src/factor_lab/strategy/services/risk_off_v58_frequency_bollinger.py",
+      "sha256": "d71b3ea029c4dd66d9c75e8ee08f4acb061fc2af1ff05bb36c15ee147ae764fb"
+    },
+    {
+      "bytes": 10237,
+      "path": "src/factor_lab/strategy/services/risk_off_v58_lowpass_residual_envelope.py",
+      "sha256": "65d185aec1dfef45192ce4f3155bbbf923d4a668f051cc736f907712a0ee198f"
+    },
+    {
+      "bytes": 8006,
+      "path": "src/factor_lab/strategy/services/risk_off_v58_short_volatility_confirmation.py",
+      "sha256": "d123f85c6d93a2448222b12c55cdaaaacaddd0d5dec423f35fe0eba234913fdc"
+    },
+    {
+      "bytes": 3234,
+      "path": "src/factor_lab/strategy/services/risk_off_v59_crash_rebound_handoff.py",
+      "sha256": "ad48df6ffb2aca70e2ea26891e75ba20ec7758b5ba7b9af578cbd60789ac6414"
+    },
+    {
+      "bytes": 30933,
+      "path": "src/factor_lab/strategy/services/risk_off_v59_large_channel_parent.py",
+      "sha256": "a249d5f496579b13b5e3b22b301fe44dbd42e1a5df8479b1b1c6802d15609389"
+    },
+    {
+      "bytes": 22541,
+      "path": "src/factor_lab/strategy/services/risk_off_v59_multiscale_middle_v56.py",
+      "sha256": "1d57d536d02b782124545b2872c871eeff8c1ec85e632e27e52aa8982e560fdd"
+    },
+    {
+      "bytes": 551,
+      "path": "src/factor_lab/visual_structure/__init__.py",
+      "sha256": "e802523420cc642ef87a671c015f8a32a258621074c623d5bbdc1f8130b8f82b"
+    },
+    {
+      "bytes": 15454,
+      "path": "src/factor_lab/visual_structure/endpoint_channel.py",
+      "sha256": "115008047d43ecd452ae6e2b8b598fc3a9df7c98a126ea55c726162f3252a678"
+    },
+    {
+      "bytes": 3766,
+      "path": "tests/unit/test_market_state_timing_priority_composition.py",
+      "sha256": "2c84495f37676a3de1e23868a14f53c6a00a9cea94f2d39603f7d1fe75f3706b"
+    },
+    {
+      "bytes": 3458,
+      "path": "tests/unit/test_market_state_tool_registry_v1_5.py",
+      "sha256": "150526a22b3bac77c684d7b5dd969da6c79052f81c5b1bf1ab81fd52019d99e4"
+    },
+    {
+      "bytes": 3847,
+      "path": "tests/unit/test_timing_infrastructure_four_layer_inventory.py",
+      "sha256": "558a6b53b24604b552672517c62c58d0fed9b2d88d1c095748a4dc726a82a7ed"
+    },
+    {
+      "bytes": 5146,
+      "path": "tests/unit/test_timing_layer2_layer3_boundary_repair.py",
+      "sha256": "8c20a249e870f9fd7fcd375d94cd9be155215b96bbee940b378d6d3f6c1a1a87"
+    },
+    {
+      "bytes": 4404,
+      "path": "tests/unit/test_timing_layer2_measurement_boundary.py",
+      "sha256": "3d12b601880718d3169779873c0c228def5f52e1bef3f7cdb6c63c409b099d35"
+    },
+    {
+      "bytes": 6952,
+      "path": "tests/unit/test_timing_layer2_pit_core.py",
+      "sha256": "16243bd06d620b8725bfa2919234ce2e734365cc1dc45cae7b4455adbd4b5704"
+    },
+    {
+      "bytes": 2031,
+      "path": "tests/unit/test_timing_layer2_scale_shape_path_efficiency.py",
+      "sha256": "a1c35a800721aec5c82cf68d18deeba89b82a9961abc3e36a5e13286b15776e7"
+    },
+    {
+      "bytes": 2765,
+      "path": "tests/unit/test_timing_layer3_necessity.py",
+      "sha256": "f5d47e3f90581698ad0f6f2be0c80051a51b8517214d14d02f955b1a3d3cb975"
+    },
+    {
+      "bytes": 2913,
+      "path": "tests/unit/test_timing_layer3_orchestration.py",
+      "sha256": "03e929ab35d20d899e0a71a08916f7597e2a566c4d4424f30b948509bf11d96f"
+    },
+    {
+      "bytes": 5784,
+      "path": "tests/unit/test_timing_layer3_strategy_boundary.py",
+      "sha256": "989bba8680e8a90aedc6240cf31bd109abaa94c0b9f15a1b8e0203218bf13aa6"
+    },
+    {
+      "bytes": 4594,
+      "path": "tests/unit/test_timing_strategy_identity_registry.py",
+      "sha256": "f9dcceacb8e534cfa77c55c5ec846df1d1555577fff4da1b5be243d117406f77"
+    },
+    {
+      "bytes": 2125,
+      "path": "tests/unit/test_visual_structure_endpoint_channel.py",
+      "sha256": "229607373aa2dd6dc60aef7d4f101f14b78592e20ef543b23dede69f8de51999"
+    }
+  ],
+  "production_authority": false,
+  "schema_id": "two_wave_cloud_theme_source_closure@1.0",
+  "status": "frozen_before_cloud_strategy_results",
+  "total_bytes": 39970589
+}

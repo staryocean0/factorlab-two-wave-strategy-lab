@@ -1,0 +1,31 @@
+{
+  "schema_id": "timing_layer3_tool16_candidate_slot@1.0",
+  "status": "reserved_research_slot_not_installed",
+  "immutable_prefix_registry": "tool_registry_v1_5",
+  "immutable_prefix_schema": "market_state_tool_registry@1.5",
+  "immutable_prefix_tool_count": 15,
+  "candidate_registry_version": "tool_registry_v1_6_candidate",
+  "candidate_tool_ordinal": 16,
+  "candidate_tool_id": "two_wave_parent_structure_recognizer",
+  "candidate_category": "visual_structure_and_causal_wave_geometry",
+  "candidate_layer": "Layer3_strategy_language_research_candidate",
+  "phase1_output": "causal_two_complete_wave_parent_structure_measurement_and_classification",
+  "must_not_output": [
+    "position",
+    "option_contract",
+    "buyer_or_seller_side",
+    "selected_trading_parameter",
+    "production_signal"
+  ],
+  "installation_requires": [
+    "independent_morphology_labels",
+    "stream_batch_prefix_invariance",
+    "predeclared_matching_and_classification_acceptance",
+    "complete_candidate_registry_v1_6_validation",
+    "controller_review_in_authoritative_local_FactorLab"
+  ],
+  "strategy_selection_authority": false,
+  "routing_authority": false,
+  "registered_use_authority": false,
+  "production_authority": false
+}

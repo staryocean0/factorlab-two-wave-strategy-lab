@@ -1,0 +1,36 @@
+{
+  "schema_id": "timing_layer2_3_lane2_execution_contract@1.0",
+  "campaign_id": "TIMING_LAYER2_3_LANE2_V1_20260901",
+  "status": "result_free_scope_frozen",
+  "objective": "separate_and_consolidate_layer2_measurement_layer3a_foundation_and_layer3b_ephemeral_identities_without_formula_change",
+  "frozen_step_a_inventory": "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+  "hard_gates": [
+    "frozen_lane2_denominator_exactly_29",
+    "layer2_has_no_owner_action_or_position_output",
+    "volatility_measurement_and_three_state_public_apis_separate",
+    "tool_registry_v1_5_remains_current_with_15_tools",
+    "evaluation_platform_4_0_remains_current",
+    "layer3b_replaceable_not_long_term_foundation",
+    "no_claim_entry_exit_or_state_formula_change",
+    "no_cross_lane_or_shared_frozen_write",
+    "production_authority_false"
+  ],
+  "write_denylist": [
+    "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+    "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+    "ai-readme.md",
+    "README.md",
+    "docs/00-index.md",
+    "docs/user/README.md",
+    "docs/ops/README.md",
+    "docs/ops/project_asset_layer_inventory@1.0.json",
+    "src/factor_lab/filtering/",
+    "src/factor_lab/data/session_offset_defaults.py",
+    "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+  ],
+  "authority": {
+    "strategy_selection": false,
+    "parameter_selection": false,
+    "production": false
+  }
+}

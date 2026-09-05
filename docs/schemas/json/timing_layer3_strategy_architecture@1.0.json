@@ -1,0 +1,25 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"timing_layer3_strategy_architecture@1.0",
+  "type":"object",
+  "required":["schema_id","architecture_id","status","current","category_order","categories","asset_count","asset_ids","strategy_language","research_acceptance","plugins","formula_mutation","strategy_runtime_mutation","production_authority"],
+  "properties":{
+    "schema_id":{"const":"timing_layer3_strategy_architecture@1.0"},
+    "architecture_id":{"const":"timing_layer3_four_category_v1"},
+    "status":{"const":"four_category_current_research_only"},
+    "current":{"const":true},
+    "category_order":{"const":["strategy_language_identity","research_construction_acceptance","generic_orchestration_kernel","strategy_plugins_exemplars"]},
+    "categories":{"type":"array","minItems":4,"maxItems":4},
+    "asset_count":{"const":12},
+    "asset_ids":{"type":"array","minItems":12,"maxItems":12,"uniqueItems":true},
+    "strategy_language":{"type":"object"},
+    "research_acceptance":{"type":"object"},
+    "plugins":{"type":"array","minItems":3,"maxItems":3},
+    "generic_dependency_direction":{"const":"language_to_research_to_orchestration_to_plugins"},
+    "formula_mutation":{"const":false},
+    "strategy_runtime_mutation":{"const":false},
+    "fresh_oos":{"const":false},
+    "production_authority":{"const":false}
+  },
+  "additionalProperties":false
+}

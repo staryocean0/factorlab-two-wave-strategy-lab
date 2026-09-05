@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "market_state_tool_registry@1.5",
+  "title": "Current fifteen-tool market-state registry",
+  "type": "object",
+  "required": [
+    "schema_id",
+    "registry_version",
+    "base_registry_version",
+    "historical_registry_not_inherited",
+    "historical_exclusion_reason",
+    "tool_count",
+    "current_tool_ids",
+    "tools",
+    "benchmarks",
+    "capability_certificate_inherited",
+    "production_authority",
+    "dynamic_parameter_authority",
+    "tool_routing_authority",
+    "semantic_digest"
+  ],
+  "properties": {
+    "schema_id": {"const": "market_state_tool_registry@1.5"},
+    "registry_version": {"const": "tool_registry_v1_5"},
+    "base_registry_version": {"const": "tool_registry_v1_4"},
+    "historical_registry_not_inherited": {"const": "tool_registry_v1_3"},
+    "historical_exclusion_reason": {"type": "string", "minLength": 1},
+    "tool_count": {"const": 15},
+    "current_tool_ids": {
+      "type": "array",
+      "minItems": 15,
+      "maxItems": 15,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "tools": {"type": "array", "minItems": 15, "maxItems": 15},
+    "benchmarks": {"type": "array", "minItems": 15, "maxItems": 15},
+    "capability_certificate_inherited": {"const": false},
+    "production_authority": {"const": false},
+    "dynamic_parameter_authority": {"const": false},
+    "tool_routing_authority": {"const": false},
+    "semantic_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+  },
+  "additionalProperties": true
+}

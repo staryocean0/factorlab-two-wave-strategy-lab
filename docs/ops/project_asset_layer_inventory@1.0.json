@@ -1,0 +1,106 @@
+{
+  "schema_version": "project_asset_layer_inventory@1.0",
+  "status": "current_governance_authority",
+  "updated_at": "2026-08-12",
+  "production_authority": false,
+  "scope": "repository_asset_ownership_and_progressive_disclosure",
+  "top_level_blocks": [
+    "strategies",
+    "infrastructure"
+  ],
+  "ownership_model": {
+    "strategies": "策略本体及只服务于某一策略族的基础设施。",
+    "infrastructure": "跨策略复用或天然服务全项目的能力。",
+    "historical_evidence": "生命周期标签，不是第三个业务块；不得成为当前入口或生产权威。"
+  },
+  "infrastructure_scopes": {
+    "project_level": "属于 infrastructure 顶层块。",
+    "strategy_level": "随所属策略族进入 strategies 顶层块，不得伪装成项目公共能力。"
+  },
+  "governed_strategy_families": [
+    "t0",
+    "factor_rotation",
+    "risk_off",
+    "filter_timing",
+    "etf_lof_l0"
+  ],
+  "source_roots": [
+    {"path": "src/factor_lab/app", "block": "infrastructure", "scope": "project_level", "lifecycle": "current", "families": [], "action": "keep", "reason": "API、CLI 与 Workbench 控制面。"},
+    {"path": "src/factor_lab/backtest", "block": "infrastructure", "scope": "project_level", "lifecycle": "current", "families": [], "action": "keep", "reason": "通用回测能力。"},
+    {"path": "src/factor_lab/baylum", "block": "infrastructure", "scope": "project_level", "lifecycle": "current", "families": [], "action": "keep", "reason": "Baylum 边界、发布与设备运行能力。"},
+    {"path": "src/factor_lab/candidate", "block": "infrastructure", "scope": "project_level", "lifecycle": "current", "families": [], "action": "keep", "reason": "通用候选发现能力。"},
+    {"path": "src/factor_lab/candidate_assets", "block": "infrastructure", "scope": "project_level", "lifecycle": "current", "families": [], "action": "keep", "reason": "CandidateAsset 生命周期。"},
+    {"path": "src/factor_lab/cloudridge", "block": "infrastructure", "scope": "project_level", "lifecycle": "current", "families": [], "action": "keep", "reason": "论文核与 CloudRidge 公共属性；不是 CloudRidge 策略本体。"},
+    {"path": "src/factor_lab/core", "block": "infrastructure", "scope": "project_level", "lifecycle": "current", "families": [], "action": "keep", "reason": "运行时、配置、错误与研究资源公共内核。"},
+    {"path": "src/factor_lab/data", "block": "infrastructure", "scope": "project_level", "lifecycle": "current", "families": [], "action": "keep", "reason": "数据与发布日历边界。"},
+    {"path": "src/factor_lab/etf_lof_rotation", "block": "strategies", "scope": "strategy_level", "lifecycle": "current", "families": ["etf_lof_l0"], "action": "keep", "reason": "ETF/LOF 策略本体及族内基础设施。"},
+    {"path": "src/factor_lab/evaluation", "block": "infrastructure", "scope": "project_level", "lifecycle": "current", "families": [], "action": "keep", "reason": "跨策略评价能力。"},
+    {"path": "src/factor_lab/factor_dynamics", "block": "infrastructure", "scope": "project_level", "lifecycle": "current", "families": [], "action": "keep", "reason": "因子动态公共研究能力。"},
+    {"path": "src/factor_lab/factor_engine", "block": "infrastructure", "scope": "project_level", "lifecycle": "current", "families": [], "action": "keep", "reason": "项目因子库与因子构造内核。"},
+    {"path": "src/factor_lab/factor_rotation", "block": "strategies", "scope": "strategy_level", "lifecycle": "current", "families": ["factor_rotation"], "action": "keep", "reason": "多因子轮动策略本体及族内基础设施。"},
+    {"path": "src/factor_lab/filtering", "block": "strategies", "scope": "strategy_level", "lifecycle": "current", "families": ["filter_timing"], "action": "keep", "reason": "滤波择时/CloudRidge 策略实现、状态机与族内工具链。"},
+    {"path": "src/factor_lab/governance", "block": "infrastructure", "scope": "project_level", "lifecycle": "current", "families": [], "action": "keep", "reason": "跨策略治理、时序完整性和生产授权。"},
+    {"path": "src/factor_lab/indicators", "block": "infrastructure", "scope": "project_level", "lifecycle": "current", "families": [], "action": "keep", "reason": "K 线属性与通用指标实现。"},
+    {"path": "src/factor_lab/l7", "block": "infrastructure", "scope": "project_level", "lifecycle": "current", "families": [], "action": "keep", "reason": "通用 L7 执行面。"},
+    {"path": "src/factor_lab/latent", "block": "infrastructure", "scope": "project_level", "lifecycle": "current", "families": [], "action": "keep", "reason": "隐性因子与关系结构公共研究能力。"},
+    {"path": "src/factor_lab/market_correlation", "block": "infrastructure", "scope": "project_level", "lifecycle": "current", "families": [], "action": "keep", "reason": "市场相关性与群体时间序列公共能力。"},
+    {"path": "src/factor_lab/market_state", "block": "infrastructure", "scope": "project_level", "lifecycle": "current", "families": [], "action": "keep", "reason": "15 个择时工具、K 线属性、参数面、评价与研究合同；研究样板不等于策略生产实现。"},
+    {"path": "src/factor_lab/mining", "block": "infrastructure", "scope": "project_level", "lifecycle": "current", "families": [], "action": "keep", "reason": "通用因子和公式挖掘能力。"},
+    {"path": "src/factor_lab/ml", "block": "infrastructure", "scope": "project_level", "lifecycle": "current", "families": [], "action": "keep", "reason": "通用模型工具。"},
+    {"path": "src/factor_lab/observability", "block": "infrastructure", "scope": "project_level", "lifecycle": "current", "families": [], "action": "keep", "reason": "通用日志与可观测性。"},
+    {"path": "src/factor_lab/portfolio", "block": "infrastructure", "scope": "project_level", "lifecycle": "current", "families": [], "action": "keep", "reason": "通用组合能力。"},
+    {"path": "src/factor_lab/research", "block": "infrastructure", "scope": "project_level", "lifecycle": "current", "families": [], "action": "keep", "reason": "跨主题研究支撑能力。"},
+    {"path": "src/factor_lab/sector_rotation", "block": "strategies", "scope": "strategy_level", "lifecycle": "historical_unactivated", "families": [], "action": "keep_pending_review", "reason": "未登记为正式策略族且仍有历史测试/证据引用；不作为 current 入口，也不直接删除。"},
+    {"path": "src/factor_lab/strategy", "block": "strategies", "scope": "strategy_level", "lifecycle": "current", "families": ["t0", "risk_off", "filter_timing"], "action": "keep", "reason": "多策略族运行实现及族内基础设施。"},
+    {"path": "src/factor_lab/terminal_export", "block": "infrastructure", "scope": "project_level", "lifecycle": "current", "families": [], "action": "keep", "reason": "通用终端导出能力。"},
+    {"path": "src/factor_lab/visual_structure", "block": "infrastructure", "scope": "project_level", "lifecycle": "current", "families": [], "action": "keep", "reason": "通用图形结构与端点通道。"}
+  ],
+  "repository_domains": [
+    {"path": "docs", "role": "mixed_documentation", "authority_rule": "按 user/ops/requirements/api/schemas/adr/archive 内容类型分层；入口只路由，不承载实验日志。"},
+    {"path": "scripts", "role": "mixed_research_execution", "authority_rule": "逐文件归属以 script_identity_ledger.json 为准，脚本不得成为第二套业务实现。"},
+    {"path": "tests", "role": "verification_infrastructure", "authority_rule": "锁定项目级和策略级边界，不提供生产授权。"},
+    {"path": "research_materials", "role": "external_historical_evidence", "authority_rule": "研究来源与方法背景，不自动获得因子或生产准入。"},
+    {"path": "artifacts", "role": "governed_evidence_outputs", "authority_rule": "由 manifest/ledger 引用的证据，不作为源码入口。"},
+    {"path": "output", "role": "generated_research_outputs", "authority_rule": "产物必须经 registry/manifest/ResultPackage 才能成为权威。"},
+    {"path": "tmp", "role": "working_evidence", "authority_rule": "无 current 权威；含未登记研究证据，审计前不得按名称批量删除。"},
+    {"path": ".tmp", "role": "working_evidence", "authority_rule": "无 current 权威；含复现实验和暂存资产，审计前不得按名称批量删除。"},
+    {"path": "build", "role": "regenerable_build_output", "authority_rule": "可再生，不作为源码或证据权威。"},
+    {"path": "dist", "role": "regenerable_distribution_output", "authority_rule": "可再生，不作为源码或证据权威。"}
+  ],
+  "progressive_disclosure": [
+    "ai-readme.md",
+    "README.md",
+    "docs/00-index.md",
+    "docs/user/project_asset_layer_audit_workflow.md",
+    "docs/ops/project_asset_layer_audit_whitepaper.md",
+    "docs/ops/project_asset_layer_inventory@1.0.json",
+    "docs/schemas/json/project_asset_layer_inventory@1.0.json",
+    "scripts/audit_project_asset_layers.py",
+    "tests/unit/test_project_asset_layer_inventory.py"
+  ],
+  "cleanup_policy": {
+    "delete_now": [
+      "src/**/__pycache__",
+      "scripts/**/__pycache__",
+      "tests/**/__pycache__",
+      ".pytest_cache",
+      ".ruff_cache",
+      ".tmp/**/__pycache__"
+    ],
+    "delete_now_reason": "解释器/测试/静态检查可再生缓存，无研究证据价值。",
+    "defer": [
+      "tmp",
+      ".tmp",
+      "artifacts",
+      "output",
+      "scripts/_archive"
+    ],
+    "defer_reason": "名称或版本号不足以证明无引用、无反证价值和有替代入口。"
+  },
+  "known_governance_debt": [
+    "script_identity_ledger 当前未覆盖工作区新增脚本。",
+    "current 入口仍直接引用部分 historical_evidence 脚本。",
+    "archive_migration_ledger 的 deleted_after_proof 数量与治理工作流/测试声明不一致。",
+    "docs/00-index.md 的历史长篇主题目录仍需逐主题迁移；本清单先提供唯一归属真源。"
+  ]
+}

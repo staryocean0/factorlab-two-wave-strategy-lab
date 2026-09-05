@@ -1,0 +1,13 @@
+{
+  "schema_id": "timing_four_layer_port_version_registry@1.0",
+  "current": "timing_four_layer_port_contracts@1.1",
+  "candidate": {
+    "schema_id": "timing_four_layer_port_contracts@1.2",
+    "path": "docs/ops/timing_four_layer_port_contracts@1.2.json",
+    "current_pointer_authority": false
+  },
+  "historical": ["timing_four_layer_port_contracts@1.0"],
+  "reference_assemblies": ["csi1000_etf_lat_p49_four_layer_reference_assembly@1.0"],
+  "global_component_chain_locked": false,
+  "production_authority": false
+}

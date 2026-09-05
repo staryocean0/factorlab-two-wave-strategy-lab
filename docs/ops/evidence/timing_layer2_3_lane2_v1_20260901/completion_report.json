@@ -1,0 +1,46 @@
+{
+  "schema_id": "timing_layer2_3_lane2_completion@1.0",
+  "campaign_id": "TIMING_LAYER2_3_LANE2_V1_20260901",
+  "status": "lane_scoped_passed_waiting_controller_three_lane_merge",
+  "asset_counts": {
+    "lane2_total": 29,
+    "layer2_measurement": 17,
+    "layer3a_strategy_foundation": 5,
+    "layer3b_strategy_ephemeral": 7
+  },
+  "split_identity_count": 5,
+  "validation": {
+    "registry_validator": "passed",
+    "lane_scoped_pytest": {
+      "passed": 119,
+      "failed": 0
+    },
+    "formula_document_tests_excluding_shared_index_discovery": {
+      "passed": 8,
+      "failed": 0
+    },
+    "ruff": "passed",
+    "basedpyright": {
+      "errors": 0,
+      "warnings": 3
+    },
+    "git_diff_check": "passed",
+    "json_parse": "passed"
+  },
+  "shared_frozen_hashes": {
+    "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json": "31c9f25bf31b5d11a3ef53d96852c9bd0f753577299dafc10b2f912c463ec929",
+    "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json": "77f560bd713096c6806af17a1ab29afa0d5f51b59a7693fc35e03967a4e1f588",
+    "src/factor_lab/market_state/attribute_pool_infrastructure.py": "6ec6558e573817accc6d559d471919904dab8b249307ae7df10b178ea66529b7"
+  },
+  "out_of_scope_shared_index_blocker": {
+    "test": "test_v3_is_discoverable_from_all_primary_document_indexes",
+    "missing_entry": "ai-readme.md:market_state_formula_derived_state_machine",
+    "present_in_git_head_baseline": false,
+    "lane2_write_forbidden": true,
+    "lane2_action": "record_only_controller_must_reconcile_after_three_lane_merge"
+  },
+  "formula_mutation": false,
+  "scientific_result_created": false,
+  "fresh_oos": false,
+  "production_authority": false
+}

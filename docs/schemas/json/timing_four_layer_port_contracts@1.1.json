@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "timing_four_layer_port_contracts@1.1",
+  "type": "object",
+  "required": [
+    "schema_id",
+    "status",
+    "parent",
+    "roles",
+    "connection_authority",
+    "layer1_layer2_equal_consumer_rule",
+    "global_component_chain_locked",
+    "new_selected_parameter_without_layer4_receipt_allowed",
+    "strategy_behavior_change_requires_strategy_slice_rebuild",
+    "post_training_account_audit_required",
+    "production_authority"
+  ],
+  "properties": {
+    "schema_id": {"const": "timing_four_layer_port_contracts@1.1"},
+    "status": {"const": "current_shared_prestrategy_ports_parameter_selection_after_layer4"},
+    "parent": {"const": "timing_four_layer_port_contracts@1.0"},
+    "roles": {"type": "object", "required": ["Layer1", "Layer2", "Layer3", "Layer4"]},
+    "connection_authority": {"const": "per_strategy_StrategyAssemblyManifest"},
+    "layer1_layer2_equal_consumer_rule": {"const": true},
+    "global_component_chain_locked": {"const": false},
+    "new_selected_parameter_without_layer4_receipt_allowed": {"const": false},
+    "strategy_behavior_change_requires_strategy_slice_rebuild": {"const": true},
+    "post_training_account_audit_required": {"const": true},
+    "production_authority": {"const": false}
+  },
+  "additionalProperties": false
+}
+

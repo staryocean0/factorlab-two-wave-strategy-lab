@@ -1,0 +1,201 @@
+{
+  "asset_count": 12,
+  "assets": [
+    {
+      "asset_id": "tool_registry_v1_5",
+      "current_standalone": true,
+      "necessity": "essential_core",
+      "reason": "unique_15_tool_identity_truth",
+      "retained_as": "StrategyLanguageRegistry"
+    },
+    {
+      "asset_id": "tool_relative_coupling",
+      "current_standalone": false,
+      "necessity": "conditional_operator",
+      "reason": "relations_change_when_layer2_knowledge_improves",
+      "retained_as": "versioned_language_relation_view"
+    },
+    {
+      "asset_id": "paper_kernel_tool_identity",
+      "current_standalone": false,
+      "necessity": "merged_lineage",
+      "reason": "already_the_14th_registry_tool",
+      "retained_as": "tool_registry_v1_5_lineage"
+    },
+    {
+      "asset_id": "formula_derived_tool_inversion",
+      "current_standalone": false,
+      "necessity": "conditional_operator",
+      "reason": "auditable_structural_compilation_not_runtime_state",
+      "retained_as": "formula_compiler_service"
+    },
+    {
+      "asset_id": "evaluation_platform_v4",
+      "current_standalone": true,
+      "necessity": "essential_core",
+      "reason": "measurement_cannot_replace_strategy_evaluation",
+      "retained_as": "ResearchAcceptanceGovernance"
+    },
+    {
+      "asset_id": "formula_derived_joint_state_machine",
+      "current_standalone": false,
+      "necessity": "conditional_operator",
+      "reason": "specific_state_templates_are_candidates_not_runtime_core",
+      "retained_as": "research_family_engine"
+    },
+    {
+      "asset_id": "volatility_three_state_machine",
+      "current_standalone": false,
+      "necessity": "replaceable_compatibility",
+      "reason": "lossy_bucket_of_layer2_continuous_volatility",
+      "retained_as": "compatibility_state_adapter"
+    },
+    {
+      "asset_id": "priority_composition_waterfall",
+      "current_standalone": false,
+      "necessity": "merged_lineage",
+      "reason": "capability_retained_but_standalone_asset_merged",
+      "retained_as": "GenericOrchestrationKernel"
+    },
+    {
+      "asset_id": "timing_strategy_router_v4",
+      "current_standalone": false,
+      "necessity": "strategy_plugin",
+      "reason": "specific_three_tier_taxonomy_is_replaceable",
+      "retained_as": "installed_router_profile_v4"
+    },
+    {
+      "asset_id": "explosive_layer_v3",
+      "current_standalone": false,
+      "necessity": "strategy_plugin",
+      "reason": "current_prior_policy_not_generic_infrastructure",
+      "retained_as": "installed_owner_profile_v3"
+    },
+    {
+      "asset_id": "crash_rebound_current_best",
+      "current_standalone": false,
+      "necessity": "research_candidate",
+      "reason": "candidate_name_does_not_grant_installation",
+      "retained_as": "uninstalled_research_plugin"
+    },
+    {
+      "asset_id": "timing_research_samples_rN",
+      "current_standalone": false,
+      "necessity": "historical_only",
+      "reason": "wildcard_market_state_directory_is_not_an_asset",
+      "retained_as": "explicit_A12_historical_exemplar"
+    }
+  ],
+  "essential_surfaces": [
+    "StrategyLanguageRegistry",
+    "ResearchAcceptanceGovernance",
+    "GenericOrchestrationKernel",
+    "PluginLifecycleRegistry"
+  ],
+  "formula_mutation": false,
+  "material_count": 12,
+  "materials": [
+    {
+      "layer2_destination": "timing_layer2_measurement_plane@2.1:context_and_extended_volatility",
+      "material_id": "volatility_continuous_rv_bipower_jump",
+      "material_kind": "continuous_measurement",
+      "migration_status": "already_in_layer2",
+      "retained_layer3_material": null,
+      "source_asset_id": "volatility_three_state_machine"
+    },
+    {
+      "layer2_destination": null,
+      "material_id": "volatility_quantile_thresholds_hysteresis_residence",
+      "material_kind": "bucket_and_memory_policy",
+      "migration_status": "not_layer2_policy_material",
+      "retained_layer3_material": "compatibility_state_adapter",
+      "source_asset_id": "volatility_three_state_machine"
+    },
+    {
+      "layer2_destination": "timing_layer2_state_machine_research_material@1.0:formula_native_projection",
+      "material_id": "formula_native_continuous_attributes",
+      "material_kind": "structural_continuous_measurement",
+      "migration_status": "migrated_now",
+      "retained_layer3_material": null,
+      "source_asset_id": "formula_derived_joint_state_machine"
+    },
+    {
+      "layer2_destination": null,
+      "material_id": "formula_interaction_state_templates",
+      "material_kind": "candidate_state_topology",
+      "migration_status": "not_layer2_policy_material",
+      "retained_layer3_material": "research_family_engine",
+      "source_asset_id": "formula_derived_joint_state_machine"
+    },
+    {
+      "layer2_destination": "timing_layer2_state_machine_research_material@1.0:local_quadratic_kinematics",
+      "material_id": "fda_local_quadratic_velocity_acceleration",
+      "material_kind": "continuous_path_kinematics",
+      "migration_status": "migrated_now",
+      "retained_layer3_material": null,
+      "source_asset_id": "explosive_layer_v3"
+    },
+    {
+      "layer2_destination": "timing_layer2_phase_relationship@1.0",
+      "material_id": "multiscale_component_phase_energy",
+      "material_kind": "continuous_phase_measurement",
+      "migration_status": "already_in_layer2",
+      "retained_layer3_material": null,
+      "source_asset_id": "explosive_layer_v3"
+    },
+    {
+      "layer2_destination": null,
+      "material_id": "authority_period_arc_parent_down_context",
+      "material_kind": "owner_and_lifecycle_policy",
+      "migration_status": "not_layer2_policy_material",
+      "retained_layer3_material": "installed_owner_profile_v3",
+      "source_asset_id": "explosive_layer_v3"
+    },
+    {
+      "layer2_destination": "timing_layer2_state_machine_research_material@1.0:ema_velocity",
+      "material_id": "ema_h4_continuous_velocity_axis",
+      "material_kind": "continuous_momentum_measurement",
+      "migration_status": "migrated_now",
+      "retained_layer3_material": null,
+      "source_asset_id": "crash_rebound_current_best"
+    },
+    {
+      "layer2_destination": null,
+      "material_id": "ema_boundaries_k_mapping_entry_exit",
+      "material_kind": "threshold_route_and_lifecycle_policy",
+      "migration_status": "not_layer2_policy_material",
+      "retained_layer3_material": "uninstalled_research_plugin",
+      "source_asset_id": "crash_rebound_current_best"
+    },
+    {
+      "layer2_destination": null,
+      "material_id": "priority_and_remainder_semantics",
+      "material_kind": "orchestration_policy",
+      "migration_status": "no_attribute_material",
+      "retained_layer3_material": "GenericOrchestrationKernel",
+      "source_asset_id": "priority_composition_waterfall"
+    },
+    {
+      "layer2_destination": null,
+      "material_id": "three_tier_owner_taxonomy",
+      "material_kind": "routing_profile",
+      "migration_status": "no_attribute_material",
+      "retained_layer3_material": "installed_router_profile_v4",
+      "source_asset_id": "timing_strategy_router_v4"
+    },
+    {
+      "layer2_destination": null,
+      "material_id": "annual_rebuild_evidence_and_counterexamples",
+      "material_kind": "historical_strategy_evidence",
+      "migration_status": "no_attribute_material",
+      "retained_layer3_material": "explicit_A12_historical_exemplar",
+      "source_asset_id": "timing_research_samples_rN"
+    }
+  ],
+  "parent_architecture": "timing_layer3_strategy_architecture@1.0",
+  "physical_deletion": false,
+  "production_authority": false,
+  "schema_id": "timing_layer3_necessity_registry@1.0",
+  "status": "material_migration_complete_demotion_ready",
+  "strategy_runtime_mutation": false
+}

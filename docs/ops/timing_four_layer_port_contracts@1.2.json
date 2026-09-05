@@ -1,0 +1,63 @@
+{
+  "schema_id": "timing_four_layer_port_contracts@1.2",
+  "status": "controller_accepted_infrastructure_candidate_not_current_shared_prestrategy_ports_with_seller_margin_coordinates",
+  "parent": "timing_four_layer_port_contracts@1.1",
+  "roles": {
+    "Layer1": {
+      "phase": "PreStrategy",
+      "ports": [
+        "BarViewPort@1.0",
+        "OptionMarketCoordinatePort@1.0",
+        "OptionMarketCoordinatePort@1.1"
+      ],
+      "allowed_consumers": ["Layer3", "Layer4"],
+      "parameter_selection_authority": false,
+      "may_compute_iv_hv_or_margin": false
+    },
+    "Layer2": {
+      "phase": "PreStrategy",
+      "ports": ["FeatureProviderPort@1.0", "OptionVolatilityFeatureProviderPort@1.0"],
+      "allowed_consumers": ["Layer3", "Layer4"],
+      "parameter_selection_authority": false,
+      "may_emit_seller_action": false
+    },
+    "Layer3": {
+      "phase": "StrategyConstruction",
+      "port": "StrategyPolicyFamilyPort@1.0",
+      "output": "complete_result_free_parameter_family",
+      "selected_parameter_id": null,
+      "parameter_selection_authority": false,
+      "may_select_final_buyer_seller_side": false,
+      "may_specify_contract": false
+    },
+    "Layer4": {
+      "phase": "AfterStrategy",
+      "ports": [
+        "AccountFamilyReplayPort@1.0",
+        "Layer4OptionVolatilityBindingPort@1.0",
+        "Layer4RecentOneYearLiquidityImpactReferencePort@1.0",
+        "CFFEXIndexOptionSellerMarginPort@1.0",
+        "Layer4BuyingPowerPort@1.0",
+        "Layer4SellerAccountReplayPort@1.0"
+      ],
+      "parameter_selection_receipt": "Layer4ParameterSelectionReceipt@1.0",
+      "prestrategy_direct_calculator_allowed": false,
+      "parameter_selection_authority": true,
+      "price_path_authority": "actual_PIT_market_price_only",
+      "liquidity_capacity_impact_authority": "latest_completed_recent_one_year_BBO_only",
+      "historical_same_event_depth_required": false,
+      "production_authority": false,
+      "combo_margin_authorized": false
+    }
+  },
+  "connection_authority": "per_strategy_StrategyAssemblyManifest",
+  "layer1_layer2_equal_consumer_rule": true,
+  "global_component_chain_locked": false,
+  "new_selected_parameter_without_layer4_receipt_allowed": false,
+  "strategy_behavior_change_requires_strategy_slice_rebuild": true,
+  "post_training_account_audit_required": true,
+  "iv_hv_hard_switch_authorized": false,
+  "current_exchange_parameter_receipt_status": "blocked_missing_current_exchange_parameter_receipt",
+  "current_pointer_authority": false,
+  "production_authority": false
+}

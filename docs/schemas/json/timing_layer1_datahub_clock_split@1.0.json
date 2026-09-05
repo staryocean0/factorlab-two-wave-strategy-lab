@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "timing_layer1_datahub_clock_split@1.0",
+  "title": "FactorLab / DataHub layer-1 clock construction split",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "contract_id",
+    "status",
+    "updated_at",
+    "production_authority",
+    "layer",
+    "supplier",
+    "consumer",
+    "supplier_owns",
+    "consumer_owns",
+    "factorlab_must_not",
+    "datahub_must_not",
+    "five_in_one",
+    "layer1_asset_roles"
+  ],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "contract_id": {"const": "timing_layer1_datahub_clock_split@1.0"},
+    "status": {"type": "string"},
+    "updated_at": {"type": "string"},
+    "production_authority": {"const": false},
+    "layer": {"const": "clock"},
+    "supplier": {"const": "DataHub"},
+    "consumer": {"const": "FactorLab"},
+    "datahub_root": {"type": "string"},
+    "datahub_consumer_contract": {"type": "string"},
+    "datahub_whitepaper": {"type": "string"},
+    "datahub_on_demand_kline_contract": {"type": "string"},
+    "supplier_owns": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "consumer_owns": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "factorlab_must_not": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "datahub_must_not": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "research_menu_fetch_fallback": {"type": "object"},
+    "datahub_capability_gold_samples_not_factorlab_defaults": {"type": "object"},
+    "continuous_clock": {"type": "object"},
+    "five_in_one": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["factor_lab", "datahub"],
+      "properties": {
+        "factor_lab": {"$ref": "#/$defs/five"},
+        "datahub": {"$ref": "#/$defs/five"}
+      }
+    },
+    "layer1_asset_roles": {
+      "type": "object",
+      "additionalProperties": {"type": "string"},
+      "required": [
+        "unified_offset_data_and_backtest",
+        "datahub_on_demand_kline_binding",
+        "csi1000_5m_research_runtime",
+        "shifted_bar_derivation",
+        "daily_afternoon_remake",
+        "session_clock_reference",
+        "cloudridge_beta_index_reference"
+      ]
+    },
+    "synthetic_path_adapter": {"type": "object"}
+  },
+  "$defs": {
+    "five": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contract", "whitepaper", "workflow", "code", "tests"],
+      "properties": {
+        "contract": {"type": "string"},
+        "whitepaper": {"type": "string"},
+        "workflow": {"type": "string"},
+        "code": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "tests": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+      }
+    }
+  }
+}

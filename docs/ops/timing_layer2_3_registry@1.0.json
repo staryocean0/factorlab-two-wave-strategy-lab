@@ -1,0 +1,169 @@
+{
+  "schema_id": "timing_layer2_3_registry@1.0",
+  "registry_id": "timing_layer2_measurement_layer3_strategy@1.0",
+  "status": "current_lane2_category_facades_ready_research_only",
+  "current": true,
+  "frozen_step_a_inventory": "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+  "layers": {
+    "measurement": {
+      "category_id": "timing_layer2_kline_measurement@1.0",
+      "asset_ids": [
+        "unified_kline_attribute_v3",
+        "all_frequency_timing_v2_1",
+        "cross_frequency_opportunity_v2",
+        "future_kline_property_provider",
+        "paper_kernel_timeseries",
+        "market_state_foundation_facts",
+        "empirical_formula_registry",
+        "six_axis_common_market_state",
+        "tool_conditioned_relationships",
+        "tool_attribute_relationship_maps",
+        "group_correlation_market_attributes",
+        "trend_continuity_diagnostic",
+        "kline_indicators_bdci",
+        "visual_structure_endpoint_channel",
+        "volatility_continuous_features",
+        "cloudridge_daily_attributes_legacy",
+        "attribute_pool_kline_four_pools"
+      ],
+      "output_types": [
+        "continuous_attributes",
+        "causal_relationships",
+        "frequency_surfaces",
+        "diagnostics"
+      ],
+      "ownership_output": false,
+      "position_output": false,
+      "strategy_selection": false,
+      "frequency_selection": false,
+      "measurement_authority": true,
+      "routing_authority": false,
+      "production_authority": false
+    },
+    "strategy_foundation": {
+      "category_id": "timing_layer3a_strategy_foundation@1.0",
+      "asset_ids": [
+        "tool_registry_v1_5",
+        "tool_relative_coupling",
+        "evaluation_platform_v4",
+        "paper_kernel_tool_identity",
+        "formula_derived_tool_inversion"
+      ],
+      "role": "tool_vocabulary_relative_coupling_formula_inversion_and_evaluation_exam",
+      "tool_or_parameter_selection": false,
+      "routing_authority": false,
+      "production_authority": false
+    },
+    "strategy_ephemeral": {
+      "category_id": "timing_layer3b_strategy_ephemeral@1.0",
+      "asset_ids": [
+        "priority_composition_waterfall",
+        "timing_strategy_router_v4",
+        "explosive_layer_v3",
+        "crash_rebound_current_best",
+        "timing_research_samples_rN",
+        "volatility_three_state_machine",
+        "formula_derived_joint_state_machine"
+      ],
+      "role": "remainder_state_machine_and_bucket_policy",
+      "lifecycle": "replaceable_by_more_complete_layer2_measurement_not_a_long_term_foundation",
+      "replaceable_by_layer2_measurement": true,
+      "long_term_foundation": false,
+      "formula_mutation": false,
+      "production_authority": false
+    }
+  },
+  "split_identities": [
+    {
+      "split_from": "six_axis_unified_catalog",
+      "measurement_or_foundation_identity": "six_axis_common_market_state",
+      "foundation_or_ephemeral_identity": "tool_relative_coupling",
+      "implementation_policy": "existing_modules_composed_no_formula_copy"
+    },
+    {
+      "split_from": "paper_kernel",
+      "measurement_or_foundation_identity": "paper_kernel_timeseries",
+      "foundation_or_ephemeral_identity": "paper_kernel_tool_identity",
+      "implementation_policy": "timeseries_and_tool_registry_identity_separate"
+    },
+    {
+      "split_from": "volatility_regime_recognizer_nested_v2",
+      "measurement_or_foundation_identity": "volatility_continuous_features",
+      "foundation_or_ephemeral_identity": "volatility_three_state_machine",
+      "implementation_policy": "separate_public_adapters_measure_then_cut_state"
+    },
+    {
+      "split_from": "formula_derived_v3",
+      "measurement_or_foundation_identity": "formula_derived_tool_inversion",
+      "foundation_or_ephemeral_identity": "formula_derived_joint_state_machine",
+      "implementation_policy": "derivation_contract_and_joint_policy_workflow_separate"
+    }
+  ],
+  "attribute_pool_cross_lane_split": {
+    "split_from": "attribute_pool_v1",
+    "lane2_identity": "attribute_pool_kline_four_pools",
+    "lane3_identity": "attribute_pool_derivatives_overlay",
+    "framework_frozen": "src/factor_lab/market_state/attribute_pool_infrastructure.py",
+    "lane2_scope": "source_registration_only"
+  },
+  "current_versions": {
+    "tool_registry": "tool_registry_v1_5",
+    "tool_registry_schema": "market_state_tool_registry@1.5",
+    "tool_count": 15,
+    "evaluation_platform_schema": "market_state_timing_evaluation_platform@4.0",
+    "all_frequency_schema": "market_state_all_frequency_timing_infrastructure@2.1",
+    "priority_composition_schema": "market_state_timing_priority_composition@1.1",
+    "timing_router": "timing_strategy_router_v4",
+    "explosive_layer": "timing_explosive_layer_v3"
+  },
+  "owned_files": [
+    "src/factor_lab/market_state/timing_layer2_3_contracts.py",
+    "src/factor_lab/market_state/timing_priority_composition.py",
+    "src/factor_lab/market_state/timing_strategy_routing_v4.py",
+    "src/factor_lab/market_state/timing_explosive_layer_v3.py",
+    "src/factor_lab/market_state/timing_crash_rebound_current_best_r1.py",
+    "src/factor_lab/market_state/volatility_regime_recognizer_battle.py",
+    "src/factor_lab/market_state/formula_derived_three_stage_workflow.py",
+    "src/factor_lab/market_state/timing_all_frequency_infrastructure.py",
+    "docs/ops/timing_layer2_3_registry@1.0.json",
+    "docs/ops/timing_layer2_3_consolidation_whitepaper.md",
+    "docs/user/timing_layer2_3_consolidation_workflow.md",
+    "docs/schemas/json/market_state_timing_priority_composition@1.1.json",
+    "docs/user/market_state_unified_timing_factor_infrastructure_workflow.md",
+    "docs/ops/market_state_unified_timing_factor_infrastructure_whitepaper.md",
+    "docs/user/cloudridge_paper_kernel_multiscale_timeseries_workflow.md",
+    "docs/ops/cloudridge_paper_kernel_multiscale_timeseries_whitepaper.md",
+    "docs/user/market_state_volatility_regime_recognizer_nested_v2_workflow.md",
+    "docs/ops/market_state_volatility_regime_recognizer_nested_v2_whitepaper.md",
+    "docs/user/market_state_formula_derived_state_machine_workflow.md",
+    "docs/ops/market_state_formula_derived_state_machine_whitepaper.md",
+    "docs/user/market_state_timing_priority_composition_workflow.md",
+    "docs/ops/market_state_timing_priority_composition_whitepaper.md",
+    "docs/user/market_state_timing_strategy_routing_workflow.md",
+    "docs/ops/market_state_timing_strategy_routing_whitepaper.md",
+    "docs/user/market_state_all_frequency_timing_infrastructure_v2_1_workflow.md",
+    "docs/ops/market_state_all_frequency_timing_infrastructure_v2_1_whitepaper.md",
+    "docs/user/market_state_foundation_workflow.md",
+    "docs/ops/market_state_foundation_whitepaper.md",
+    "tests/unit/test_timing_layer2_measurement_boundary.py",
+    "tests/unit/test_timing_layer3_strategy_boundary.py",
+    "tests/unit/test_market_state_timing_priority_composition.py",
+    "docs/ops/evidence/timing_layer2_3_lane2_v1_20260901/data_usage_declaration.json",
+    "docs/ops/evidence/timing_layer2_3_lane2_v1_20260901/execution_contract.json",
+    "docs/ops/evidence/timing_layer2_3_lane2_v1_20260901/formula_identity_receipt.json",
+    "docs/ops/evidence/timing_layer2_3_lane2_v1_20260901/completion_report.json"
+  ],
+  "classification": {
+    "category_facades_only": true,
+    "scientific_implementation_moved": false,
+    "new_timing_tool_created": false,
+    "strategy_formula_changed": false,
+    "return_rows_read": 0,
+    "fresh_oos": false
+  },
+  "authority": {
+    "strategy_selection": false,
+    "parameter_selection": false,
+    "production": false
+  }
+}

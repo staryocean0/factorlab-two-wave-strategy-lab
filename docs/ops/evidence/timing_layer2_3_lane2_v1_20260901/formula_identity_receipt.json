@@ -1,0 +1,72 @@
+{
+  "schema_id": "timing_layer2_3_lane2_formula_identity@1.0",
+  "campaign_id": "TIMING_LAYER2_3_LANE2_V1_20260901",
+  "method": "sha256_of_python_ast_subtrees_without_location_attributes",
+  "reference": "git_HEAD_before_lane2_metadata_overlay",
+  "checks": [
+    {
+      "identity": "explosive_layer_v3_builder",
+      "before": "75fc66cd8b092e20fc246b7e0383fdeb6c92cd538482d5b014d601c2bf6d7d8d",
+      "after": "75fc66cd8b092e20fc246b7e0383fdeb6c92cd538482d5b014d601c2bf6d7d8d",
+      "equal": true
+    },
+    {
+      "identity": "crash_rebound_current_best_formula",
+      "before": "d8e4f1aab7dd8ba2cf13f8fccf31bce33456a6ce8c00ec8b9c3a00b3d2292e24",
+      "after": "d8e4f1aab7dd8ba2cf13f8fccf31bce33456a6ce8c00ec8b9c3a00b3d2292e24",
+      "equal": true
+    },
+    {
+      "identity": "router_v4_tiers",
+      "before": "af417670e9c2039dc57183dfc9fd9318e85b324bcb7af4100c9ab9014913689b",
+      "after": "af417670e9c2039dc57183dfc9fd9318e85b324bcb7af4100c9ab9014913689b",
+      "equal": true
+    },
+    {
+      "identity": "router_v4_direction_semantics",
+      "before": "fec6164f56df6904e9becc09543b2cb7c69ebc7d349c0f513306964347bfc182",
+      "after": "fec6164f56df6904e9becc09543b2cb7c69ebc7d349c0f513306964347bfc182",
+      "equal": true
+    },
+    {
+      "identity": "router_v4_execution_semantics",
+      "before": "6dd33eb9164c23328d39e77560098fce886128d284343569984aaf0f5fa3f90d",
+      "after": "6dd33eb9164c23328d39e77560098fce886128d284343569984aaf0f5fa3f90d",
+      "equal": true
+    },
+    {
+      "identity": "priority_waterfall_formula",
+      "before": "4e79ae4588c9b84a4bd4ac849e79c5ed33c3bebaab9e46ac592c8bc3af09432b",
+      "after": "4e79ae4588c9b84a4bd4ac849e79c5ed33c3bebaab9e46ac592c8bc3af09432b",
+      "equal": true
+    },
+    {
+      "identity": "priority_side_contracts",
+      "before": "dda40797de3510f572ab8cd309b38844f27fdb0d117f4a8f0c9335f9341aba2f",
+      "after": "dda40797de3510f572ab8cd309b38844f27fdb0d117f4a8f0c9335f9341aba2f",
+      "equal": true
+    },
+    {
+      "identity": "priority_unclaimed_bar_policy",
+      "before": "e9f12dfef80162c70f8c521ff543af92f35ed54c84fb2115a9fe423d0a16c82e",
+      "after": "e9f12dfef80162c70f8c521ff543af92f35ed54c84fb2115a9fe423d0a16c82e",
+      "equal": true
+    },
+    {
+      "identity": "formula_workflow_build",
+      "before": "d5399e79500e18c49a1d06b7b22bbd983900c6c9dfb1883f57e0935131d6de70",
+      "after": "d5399e79500e18c49a1d06b7b22bbd983900c6c9dfb1883f57e0935131d6de70",
+      "equal": true
+    },
+    {
+      "identity": "formula_workflow_validation",
+      "before": "908dc4ed15b909e93721f4c5fcf4d22a0b1aa1d3cf0e68617f7d49228dae5498",
+      "after": "908dc4ed15b909e93721f4c5fcf4d22a0b1aa1d3cf0e68617f7d49228dae5498",
+      "equal": true
+    }
+  ],
+  "all_equal": true,
+  "priority_registry_alignment_only": "eligible_identity_allowlist_14_to_15_no_priority_preselection",
+  "strategy_formula_changed": false,
+  "production_authority": false
+}

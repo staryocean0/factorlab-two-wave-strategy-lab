@@ -1,0 +1,151 @@
+{
+  "schema_id": "timing_strategy_identity_registry@2.2",
+  "status": "current_unfinished_p8_bucket_prototype_added",
+  "class_order": [
+    "infrastructure",
+    "strategy_research",
+    "registered_usable_strategy"
+  ],
+  "classes": {
+    "infrastructure": {
+      "asset_ids": [
+        "tool_registry_v1_5",
+        "tool_relative_coupling",
+        "paper_kernel_tool_identity",
+        "formula_derived_tool_inversion",
+        "evaluation_platform_v4",
+        "formula_derived_joint_state_machine",
+        "volatility_three_state_machine",
+        "priority_composition_waterfall",
+        "tool_conditioned_relationships",
+        "tool_attribute_relationship_maps"
+      ],
+      "strategy_identity": false,
+      "position_output_authority": false,
+      "registered_use_authority": false,
+      "trading_authority": false,
+      "production_authority": false,
+      "essential_surfaces": [
+        "StrategyLanguageRegistry",
+        "ResearchAcceptanceGovernance",
+        "GenericOrchestrationKernel",
+        "PluginLifecycleRegistry",
+        "StrategyConditionalEffectResearch"
+      ]
+    },
+    "strategy_research": {
+      "assets": [
+        {
+          "strategy_id": "timing_strategy_router_v4",
+          "asset_id": "timing_strategy_router_v4",
+          "status": "research_pending_requalification",
+          "canonical_source": "src/factor_lab/strategy/research/timing/router_v4.py",
+          "legacy_compatibility_source": "src/factor_lab/market_state/timing_strategy_routing_v4.py",
+          "requalification_required": true,
+          "historical_labels_revoked": [
+            "installed_router_profile",
+            "architecture_locked"
+          ],
+          "registered_use_authority": false,
+          "parameter_selection_authority": false,
+          "paper_trading_authority": false,
+          "live_trading_authority": false,
+          "production_authority": false
+        },
+        {
+          "strategy_id": "high_slope_explosive_owner_v3",
+          "asset_id": "explosive_layer_v3",
+          "status": "research_pending_requalification",
+          "canonical_source": "src/factor_lab/strategy/research/timing/explosive_v3.py",
+          "legacy_compatibility_source": "src/factor_lab/market_state/timing_explosive_layer_v3.py",
+          "requalification_required": true,
+          "historical_labels_revoked": [
+            "installed_current_owner_profile"
+          ],
+          "registered_use_authority": false,
+          "parameter_selection_authority": false,
+          "paper_trading_authority": false,
+          "live_trading_authority": false,
+          "production_authority": false
+        },
+        {
+          "strategy_id": "crash_rebound_current_best_research_r1",
+          "asset_id": "crash_rebound_current_best",
+          "status": "research_pending_requalification",
+          "canonical_source": "src/factor_lab/strategy/research/timing/crash_rebound_r1.py",
+          "legacy_compatibility_source": "src/factor_lab/market_state/timing_crash_rebound_current_best_r1.py",
+          "requalification_required": true,
+          "historical_labels_revoked": [
+            "current_best",
+            "fresh_oos_authority"
+          ],
+          "registered_use_authority": false,
+          "parameter_selection_authority": false,
+          "paper_trading_authority": false,
+          "live_trading_authority": false,
+          "production_authority": false
+        },
+        {
+          "strategy_id": "csi1000_lat_p8_l2_matched_bucket_prototype",
+          "asset_id": "csi1000_lat_p8_l2_matched_bucket_prototype",
+          "status": "unfinished_strategy_prototype",
+          "canonical_source": "src/factor_lab/strategy/research/timing/lat_p8_l2_matched_bucket_prototype.py",
+          "legacy_compatibility_source": null,
+          "requalification_required": true,
+          "historical_labels_revoked": [
+            "layer2_infrastructure",
+            "installed_plugin",
+            "registered_usable_strategy"
+          ],
+          "registered_use_authority": false,
+          "parameter_selection_authority": false,
+          "paper_trading_authority": false,
+          "live_trading_authority": false,
+          "production_authority": false
+        },
+        {
+          "strategy_id": "parallel_annual_clean_room_a12",
+          "asset_id": "timing_research_samples_rN",
+          "status": "historical_closed",
+          "canonical_source": "src/factor_lab/market_state/timing_three_specialist_isolated_annual_v7.py",
+          "legacy_compatibility_source": null,
+          "requalification_required": false,
+          "historical_labels_revoked": [
+            "current_research_exemplar"
+          ],
+          "registered_use_authority": false,
+          "parameter_selection_authority": false,
+          "paper_trading_authority": false,
+          "live_trading_authority": false,
+          "production_authority": false
+        }
+      ],
+      "research_backtest_allowed": true,
+      "runtime_installation_allowed": false,
+      "registered_use_authority": false,
+      "trading_authority": false,
+      "production_authority": false
+    },
+    "registered_usable_strategy": {
+      "assets": [],
+      "registration_requires_explicit_receipt": true,
+      "paper_live_production_authorities_are_separate": true
+    }
+  },
+  "infrastructure_asset_count": 10,
+  "strategy_research_asset_count": 5,
+  "registered_usable_strategy_count": 0,
+  "legacy_installed_labels_have_current_authority": false,
+  "requalification_contract": {
+    "four_layer_assembly_manifest_required": true,
+    "layer4_parameter_selection_receipt_required": true,
+    "strategy_slice_rebuild_required_for_behavior_change": true,
+    "post_training_account_audit_A0_A7_required": true,
+    "genuinely_unseen_challenge_required": true,
+    "explicit_registration_receipt_required": true
+  },
+  "registered_use_authority": false,
+  "paper_trading_authority": false,
+  "live_trading_authority": false,
+  "production_authority": false
+}

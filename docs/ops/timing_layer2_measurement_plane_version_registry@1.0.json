@@ -1,0 +1,12 @@
+{
+  "schema_id": "timing_layer2_measurement_plane_version_registry@1.0",
+  "current": "timing_layer2_measurement_plane@2.3",
+  "versions": [
+    {"schema_id": "timing_layer2_measurement_plane@2.0", "status": "phase_A_common_root_historical"},
+    {"schema_id": "timing_layer2_measurement_plane@2.1", "status": "historical_complete_measurement_plane_before_option_volatility"},
+    {"schema_id": "timing_layer2_measurement_plane@2.2", "status": "historical_option_volatility_provider_added_before_boundary_repair"},
+    {"schema_id": "timing_layer2_measurement_plane@2.3", "status": "current_causal_offline_strategy_effect_split"}
+  ],
+  "silent_retarget_forbidden": true,
+  "production_authority": false
+}

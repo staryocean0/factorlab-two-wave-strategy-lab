@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "timing_layer3_strategy_architecture@2.2",
+  "type": "object",
+  "required": ["schema_id", "status", "parent", "identity_registry", "essential_surfaces", "strategy_conditional_effect_research", "registered_usable_strategy_count", "production_authority"],
+  "properties": {
+    "schema_id": {"const": "timing_layer3_strategy_architecture@2.2"},
+    "status": {"const": "current_unfinished_p8_bucket_prototype_added"},
+    "parent": {"const": "timing_layer3_strategy_architecture@2.1"},
+    "identity_registry": {"const": "timing_strategy_identity_registry@2.2"},
+    "essential_surfaces": {"type": "array", "contains": {"const": "StrategyConditionalEffectResearch"}},
+    "strategy_conditional_effect_research": {"type": "object"},
+    "strategy_research_asset_count": {"const": 5},
+    "registered_usable_strategy_count": {"const": 0},
+    "production_authority": {"const": false}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,14 @@
+{
+  "schema_id":"timing_layer2_measurement_plane_v2_controller_acceptance@1.0",
+  "campaign_id":"TIMING_LAYER2_MEASUREMENT_PLANE_V2_20260901",
+  "accepted_at":"2026-09-02",
+  "status":"passed_plan_complete",
+  "current_contract":"timing_layer2_measurement_plane@2.1",
+  "completed_phases":["A","B1","B2","C","D","E","F","G"],
+  "validation":{"pytest_passed":64,"ruff":"passed","basedpyright_errors":0,"basedpyright_warnings":0,"json_parse":"passed","attribute_pool_current":"passed","git_diff_check":"passed"},
+  "current_snapshot":{"snapshot_id":"snapshot-df36e5798d1384f2","source_count":84,"missing_optional_source_count":0,"source_hashes_current":true},
+  "honest_limitations":["future_v2_experimental_targets_have_no_economic_validation","second_condensation_kernel_not_promoted_without_controller_acceptance","consumer_adapters_do_not_change_strategy_runtime"],
+  "scientific_status":"measurement_infrastructure_complete",
+  "fresh_oos":false,
+  "production_authority":false
+}

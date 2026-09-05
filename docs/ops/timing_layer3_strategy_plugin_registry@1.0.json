@@ -1,0 +1,42 @@
+{
+  "schema_id":"timing_layer3_strategy_plugin_registry@1.0",
+  "status":"current_explicit_plugins_and_exemplars",
+  "state_adapters":[
+    {
+      "adapter_id":"volatility_three_state_nested_v2",
+      "asset_id":"volatility_three_state_machine",
+      "input":"Layer2 continuous volatility measurements",
+      "output_domain":["low","normal","high","unavailable"],
+      "replaceable_by_layer2_measurement":true,
+      "position_output":false
+    }
+  ],
+  "owner_profiles":[
+    {
+      "profile_id":"high_slope_explosive_owner_v3",
+      "asset_id":"explosive_layer_v3",
+      "status":"installed_current_owner_profile",
+      "router":"timing_strategy_router_v4",
+      "formula_contract_ref":"src/factor_lab/market_state/timing_explosive_layer_v3.py",
+      "formula_digest":"sha256:d02a259d317d7699ed51252ed65ff799b005788aa9eb95f6d4502e4f4215910b"
+    },
+    {
+      "profile_id":"crash_rebound_current_best_research_r1",
+      "asset_id":"crash_rebound_current_best",
+      "status":"research_candidate_not_installed",
+      "router":null,
+      "formula_contract_ref":"src/factor_lab/market_state/timing_crash_rebound_current_best_r1.py",
+      "formula_digest":"sha256:bbb3dc6c537680a9d78a051868720ec99bb122f82756b94b48541de3fe928aca"
+    }
+  ],
+  "historical_exemplars":[
+    {
+      "profile_id":"parallel_annual_clean_room_a12",
+      "asset_id":"timing_research_samples_rN",
+      "status":"historical_exemplar_not_current",
+      "explicit_source":"src/factor_lab/market_state/timing_three_specialist_isolated_annual_v7.py",
+      "wildcard_market_state_directory_current":false
+    }
+  ],
+  "production_authority":false
+}

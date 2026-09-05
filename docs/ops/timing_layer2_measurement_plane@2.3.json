@@ -1,0 +1,86 @@
+{
+  "schema_id": "timing_layer2_measurement_plane@2.3",
+  "measurement_plane_id": "timing_layer2_measurement_plane_v2_causal_offline_split",
+  "status": "current_strategy_independent_measurement_and_attribute_forecast_only",
+  "parent": "timing_layer2_measurement_plane@2.2",
+  "class_order": [
+    "causal_feature_provider",
+    "offline_target_or_research_material",
+    "definition_compatibility_discovery",
+    "migrated_to_layer3"
+  ],
+  "classes": {
+    "causal_feature_provider": {
+      "asset_ids": [
+        "future_kline_property_provider",
+        "paper_kernel_timeseries",
+        "market_state_foundation_facts",
+        "six_axis_common_market_state",
+        "group_correlation_market_attributes",
+        "trend_continuity_diagnostic",
+        "kline_indicators_bdci",
+        "visual_structure_endpoint_channel",
+        "volatility_continuous_features",
+        "timing_layer2_option_volatility"
+      ],
+      "successor_components": ["timing_layer2_all_frequency_measurements@1.0"],
+      "runtime_feature_output_allowed": true,
+      "strategy_or_tool_effect_inputs_allowed": false,
+      "strategy_selection_authority": false
+    },
+    "offline_target_or_research_material": {
+      "asset_ids": ["unified_kline_attribute_v3", "cross_frequency_opportunity_v2"],
+      "runtime_feature_output_allowed": false,
+      "may_train_strategy_independent_attribute_forecast": true,
+      "oracle_or_future_columns_must_remain_offline": true,
+      "strategy_selection_authority": false
+    },
+    "definition_compatibility_discovery": {
+      "asset_ids": [
+        "all_frequency_timing_v2_1",
+        "empirical_formula_registry",
+        "cloudridge_daily_attributes_legacy",
+        "attribute_pool_kline_four_pools"
+      ],
+      "runtime_feature_output_allowed": false,
+      "current_successor_for_all_frequency": "timing_layer2_all_frequency_measurements@1.0",
+      "strategy_selection_authority": false
+    },
+    "migrated_to_layer3": {
+      "asset_ids": ["tool_conditioned_relationships", "tool_attribute_relationship_maps"],
+      "destination": "timing_layer3_strategy_conditional_effect_research@1.0",
+      "Layer2_authority": false
+    }
+  },
+  "future_property_split": {
+    "offline_training_targets": [
+      "future_log_realized_variance",
+      "future_log_close_path_range",
+      "future_log_noise_inflation_1m_to_5m",
+      "future_log_path_inefficiency",
+      "future_log_jump_burden"
+    ],
+    "causal_runtime_output": "FuturePathForecastCardV2",
+    "runtime_future_reads": 0,
+    "direction_or_strategy_forecast": false
+  },
+  "all_frequency_split": {
+    "legacy_mixed_asset": "all_frequency_timing_v2_1",
+    "layer2": "timing_layer2_all_frequency_measurements@1.0",
+    "layer3": "timing_layer3_all_frequency_strategy_diagnostics@1.0",
+    "layer4": "timing_layer4_all_frequency_execution@1.0",
+    "legacy_formula_mutation": false
+  },
+  "legacy_asset_count": 18,
+  "strategy_formula_mutation": false,
+  "strategy_runtime_mutation": false,
+  "fresh_oos": false,
+  "authority": {
+    "measurement": true,
+    "strategy_selection": false,
+    "parameter_selection": false,
+    "routing": false,
+    "production": false
+  }
+}
+

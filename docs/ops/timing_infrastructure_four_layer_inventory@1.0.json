@@ -1,0 +1,1558 @@
+{
+  "schema_version": "timing_infrastructure_four_layer_inventory@1.0",
+  "status": "step_a_frozen_waiting_lane_execution",
+  "updated_at": "2026-09-01",
+  "production_authority": false,
+  "execution_order": [
+    "clock",
+    "measurement",
+    "strategy_foundation",
+    "strategy_ephemeral",
+    "execution"
+  ],
+  "owner_lanes": {
+    "1": "clock",
+    "2": "measurement_and_strategy",
+    "3": "execution"
+  },
+  "shared_frozen": [
+    "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+    "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+    "ai-readme.md",
+    "README.md",
+    "docs/00-index.md",
+    "docs/user/README.md",
+    "docs/ops/README.md",
+    "docs/ops/project_asset_layer_inventory@1.0.json",
+    "src/factor_lab/filtering/",
+    "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+  ],
+  "allowlist_intersection_exceptions": [
+    {
+      "path": "docs/ops/market_state_attribute_pool_overlay_mo_theta@1.0.json",
+      "allowed_lanes": [
+        3
+      ],
+      "reason": "named derivatives overlay; the only permitted cross-layer attribute-pool exception class"
+    },
+    {
+      "path": "docs/ops/market_state_attribute_pool_overlay_csi1000_execution_v1@1.0.json",
+      "allowed_lanes": [
+        3
+      ],
+      "reason": "named derivatives overlay"
+    }
+  ],
+  "split_required": [
+    {
+      "from": "six_axis_unified_catalog",
+      "into": [
+        "six_axis_common_market_state",
+        "tool_relative_coupling"
+      ]
+    },
+    {
+      "from": "paper_kernel",
+      "into": [
+        "paper_kernel_timeseries",
+        "paper_kernel_tool_identity"
+      ]
+    },
+    {
+      "from": "volatility_regime_recognizer_nested_v2",
+      "into": [
+        "volatility_continuous_features",
+        "volatility_three_state_machine"
+      ]
+    },
+    {
+      "from": "formula_derived_v3",
+      "into": [
+        "formula_derived_tool_inversion",
+        "formula_derived_joint_state_machine"
+      ]
+    },
+    {
+      "from": "attribute_pool_v1",
+      "into": [
+        "attribute_pool_kline_four_pools",
+        "attribute_pool_derivatives_overlay"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "asset_id": "unified_offset_data_and_backtest",
+      "layer": "clock",
+      "owner_lane": 1,
+      "reusable": true,
+      "live_entry": "docs/ops/unified_offset_data_and_backtest_whitepaper.md",
+      "code": [
+        "src/factor_lab/data/session_offset_defaults.py"
+      ],
+      "tests": [],
+      "workflow": "docs/user/unified_offset_data_and_backtest_workflow.md",
+      "whitepaper": "docs/ops/unified_offset_data_and_backtest_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/data/session_offset_defaults.py",
+        "docs/ops/unified_offset_data_and_backtest_whitepaper.md",
+        "docs/user/unified_offset_data_and_backtest_workflow.md"
+      ],
+      "measurement_authority": false,
+      "routing_authority": false,
+      "split_from": null,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "datahub_on_demand_kline_binding",
+      "layer": "clock",
+      "owner_lane": 1,
+      "reusable": true,
+      "live_entry": "docs/user/csi1000_datahub_on_demand_kline_binding_workflow.md",
+      "code": [
+        "src/factor_lab/market_state/csi1000_datahub_gap_closure.py"
+      ],
+      "tests": [
+        "tests/unit/test_csi1000_datahub_gap_closure.py"
+      ],
+      "workflow": "docs/user/csi1000_datahub_on_demand_kline_binding_workflow.md",
+      "whitepaper": "docs/ops/csi1000_datahub_on_demand_kline_binding_whitepaper.md",
+      "write_allowlist": [
+        "docs/user/csi1000_datahub_on_demand_kline_binding_workflow.md",
+        "docs/ops/csi1000_datahub_on_demand_kline_binding@1.0.json"
+      ],
+      "measurement_authority": false,
+      "routing_authority": false,
+      "note": "lane1 may only change clock-binding docs/identity; not LAT/option matching in gap_closure.py",
+      "split_from": null,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "csi1000_5m_research_runtime",
+      "layer": "clock",
+      "owner_lane": 1,
+      "reusable": true,
+      "live_entry": "docs/user/csi1000_5m_research_runtime_workflow.md",
+      "code": [
+        "src/factor_lab/market_state/csi1000_5m_research_runtime.py"
+      ],
+      "tests": [],
+      "workflow": "docs/user/csi1000_5m_research_runtime_workflow.md",
+      "whitepaper": "docs/ops/csi1000_5m_research_runtime_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/market_state/csi1000_5m_research_runtime.py",
+        "docs/user/csi1000_5m_research_runtime_workflow.md"
+      ],
+      "measurement_authority": false,
+      "routing_authority": false,
+      "split_from": null,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "shifted_bar_derivation",
+      "layer": "clock",
+      "owner_lane": 1,
+      "reusable": true,
+      "live_entry": "docs/ops/shifted_bar_derivation_whitepaper.md",
+      "code": [],
+      "tests": [],
+      "workflow": "docs/api/headless_cli_reference.md",
+      "whitepaper": "docs/ops/shifted_bar_derivation_whitepaper.md",
+      "write_allowlist": [
+        "docs/ops/shifted_bar_derivation_whitepaper.md"
+      ],
+      "measurement_authority": false,
+      "routing_authority": false,
+      "split_from": null,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "daily_afternoon_remake",
+      "layer": "clock",
+      "owner_lane": 1,
+      "reusable": true,
+      "live_entry": "docs/user/market_state_daily_afternoon_remake_workflow.md",
+      "code": [
+        "src/factor_lab/market_state/timing_artifact_identity.py"
+      ],
+      "tests": [],
+      "workflow": "docs/user/market_state_daily_afternoon_remake_workflow.md",
+      "whitepaper": "docs/ops/unified_offset_data_and_backtest_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/market_state/timing_artifact_identity.py",
+        "docs/user/market_state_daily_afternoon_remake_workflow.md",
+        "src/factor_lab/market_state/timing_intraday_infrastructure_remake.py"
+      ],
+      "measurement_authority": false,
+      "routing_authority": false,
+      "split_from": null,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "session_clock_reference",
+      "layer": "clock",
+      "owner_lane": 1,
+      "reusable": true,
+      "live_entry": "docs/user/market_state_session_clock_reference_workflow.md",
+      "code": [
+        "src/factor_lab/market_state/session_clock_reference.py"
+      ],
+      "tests": [],
+      "workflow": "docs/user/market_state_session_clock_reference_workflow.md",
+      "whitepaper": "docs/ops/market_state_session_clock_reference_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/market_state/session_clock_reference.py",
+        "docs/user/market_state_session_clock_reference_workflow.md",
+        "docs/ops/market_state_session_clock_reference_whitepaper.md"
+      ],
+      "measurement_authority": false,
+      "routing_authority": false,
+      "split_from": null,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "cloudridge_beta_index_reference",
+      "layer": "clock",
+      "owner_lane": 1,
+      "reusable": true,
+      "live_entry": "docs/ops/cloudridge_beta_index_whitepaper.md",
+      "code": [
+        "src/factor_lab/market_correlation/"
+      ],
+      "tests": [],
+      "workflow": "docs/ops/market_cloudridge_beta_index_runbook.md",
+      "whitepaper": "docs/ops/cloudridge_beta_index_whitepaper.md",
+      "write_allowlist": [
+        "docs/ops/cloudridge_beta_index_whitepaper.md"
+      ],
+      "measurement_authority": false,
+      "routing_authority": false,
+      "note": "reference-only; lane1 must not change index algorithm",
+      "split_from": null,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "unified_kline_attribute_v3",
+      "layer": "measurement",
+      "owner_lane": 2,
+      "reusable": true,
+      "live_entry": "docs/user/market_state_unified_kline_attribute_infrastructure.md",
+      "code": [
+        "src/factor_lab/market_state/core_kline_attribute_pool.py"
+      ],
+      "tests": [
+        "tests/unit/test_unified_kline_infrastructure_documentation.py"
+      ],
+      "workflow": "docs/user/market_state_unified_kline_attribute_infrastructure.md",
+      "whitepaper": "docs/ops/market_state_unified_kline_attribute_infrastructure_whitepaper.md",
+      "write_allowlist": [
+        "docs/user/market_state_unified_kline_attribute_infrastructure.md",
+        "docs/ops/market_state_unified_kline_attribute_infrastructure_whitepaper.md",
+        "src/factor_lab/market_state/core_kline_attribute_pool.py"
+      ],
+      "measurement_authority": true,
+      "routing_authority": false,
+      "split_from": null,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "all_frequency_timing_v2_1",
+      "layer": "measurement",
+      "owner_lane": 2,
+      "reusable": true,
+      "live_entry": "docs/user/market_state_all_frequency_timing_infrastructure_v2_1_workflow.md",
+      "code": [
+        "src/factor_lab/market_state/timing_all_frequency_infrastructure.py"
+      ],
+      "tests": [
+        "tests/unit/test_timing_all_frequency_infrastructure.py"
+      ],
+      "workflow": "docs/user/market_state_all_frequency_timing_infrastructure_v2_1_workflow.md",
+      "whitepaper": "docs/ops/market_state_all_frequency_timing_infrastructure_v2_1_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/market_state/timing_all_frequency_infrastructure.py",
+        "docs/user/market_state_all_frequency_timing_infrastructure_v2_1_workflow.md"
+      ],
+      "measurement_authority": true,
+      "routing_authority": false,
+      "split_from": null,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "cross_frequency_opportunity_v2",
+      "layer": "measurement",
+      "owner_lane": 2,
+      "reusable": true,
+      "live_entry": "docs/user/cross_frequency_opportunity_stability_infrastructure_workflow.md",
+      "code": [
+        "src/factor_lab/market_state/cross_frequency_opportunity_infrastructure.py"
+      ],
+      "tests": [
+        "tests/unit/test_cross_frequency_opportunity_infrastructure.py"
+      ],
+      "workflow": "docs/user/cross_frequency_opportunity_stability_infrastructure_workflow.md",
+      "whitepaper": "docs/ops/cross_frequency_opportunity_stability_infrastructure_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/market_state/cross_frequency_opportunity_infrastructure.py"
+      ],
+      "measurement_authority": true,
+      "routing_authority": false,
+      "split_from": null,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "future_kline_property_provider",
+      "layer": "measurement",
+      "owner_lane": 2,
+      "reusable": true,
+      "live_entry": "docs/user/csi1000_future_kline_property_provider_workflow.md",
+      "code": [
+        "src/factor_lab/market_state/csi1000_future_kline_property_provider.py"
+      ],
+      "tests": [],
+      "workflow": "docs/user/csi1000_future_kline_property_provider_workflow.md",
+      "whitepaper": "docs/ops/csi1000_future_kline_property_provider_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/market_state/csi1000_future_kline_property_provider.py",
+        "docs/ops/market_state_attribute_pool_overlay_future_kline_provider_v1@1.0.json"
+      ],
+      "measurement_authority": true,
+      "routing_authority": false,
+      "split_from": null,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "paper_kernel_timeseries",
+      "layer": "measurement",
+      "owner_lane": 2,
+      "reusable": true,
+      "split_from": "paper_kernel",
+      "live_entry": "docs/user/cloudridge_paper_kernel_multiscale_timeseries_workflow.md",
+      "code": [
+        "src/factor_lab/cloudridge/paper_kernel.py"
+      ],
+      "tests": [],
+      "workflow": "docs/user/cloudridge_paper_kernel_multiscale_timeseries_workflow.md",
+      "whitepaper": "docs/ops/cloudridge_paper_kernel_multiscale_timeseries_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/cloudridge/paper_kernel.py",
+        "docs/user/cloudridge_paper_kernel_multiscale_timeseries_workflow.md"
+      ],
+      "measurement_authority": true,
+      "routing_authority": false,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "market_state_foundation_facts",
+      "layer": "measurement",
+      "owner_lane": 2,
+      "reusable": true,
+      "live_entry": "docs/user/market_state_foundation_workflow.md",
+      "code": [
+        "src/factor_lab/market_state/bundle_a2.py"
+      ],
+      "tests": [],
+      "workflow": "docs/user/market_state_foundation_workflow.md",
+      "whitepaper": "docs/ops/market_state_foundation_whitepaper.md",
+      "write_allowlist": [
+        "docs/user/market_state_foundation_workflow.md",
+        "docs/ops/market_state_foundation_whitepaper.md"
+      ],
+      "measurement_authority": true,
+      "routing_authority": false,
+      "split_from": null,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "empirical_formula_registry",
+      "layer": "measurement",
+      "owner_lane": 2,
+      "reusable": true,
+      "live_entry": "docs/user/market_state_empirical_formula_workflow.md",
+      "code": [
+        "src/factor_lab/market_state/empirical_formula_registry.py"
+      ],
+      "tests": [],
+      "workflow": "docs/user/market_state_empirical_formula_workflow.md",
+      "whitepaper": "docs/ops/market_state_empirical_formula_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/market_state/empirical_formula_registry.py"
+      ],
+      "measurement_authority": true,
+      "routing_authority": false,
+      "split_from": null,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "six_axis_common_market_state",
+      "layer": "measurement",
+      "owner_lane": 2,
+      "reusable": true,
+      "split_from": "six_axis_unified_catalog",
+      "live_entry": "docs/user/market_state_unified_timing_factor_infrastructure_workflow.md",
+      "code": [
+        "src/factor_lab/market_state/timing_six_axis.py"
+      ],
+      "tests": [],
+      "workflow": "docs/user/market_state_unified_timing_factor_infrastructure_workflow.md",
+      "whitepaper": "docs/ops/market_state_unified_timing_factor_infrastructure_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/market_state/timing_six_axis.py"
+      ],
+      "measurement_authority": true,
+      "routing_authority": false,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "tool_conditioned_relationships",
+      "layer": "measurement",
+      "owner_lane": 2,
+      "reusable": true,
+      "live_entry": "docs/user/market_state_tool_conditioned_relationship_workflow.md",
+      "code": [
+        "src/factor_lab/market_state/tool_conditioned_relationships.py"
+      ],
+      "tests": [],
+      "workflow": "docs/user/market_state_tool_conditioned_relationship_workflow.md",
+      "whitepaper": "docs/ops/market_state_tool_conditioned_relationship_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/market_state/tool_conditioned_relationships.py"
+      ],
+      "measurement_authority": true,
+      "routing_authority": false,
+      "split_from": null,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "tool_attribute_relationship_maps",
+      "layer": "measurement",
+      "owner_lane": 2,
+      "reusable": true,
+      "live_entry": "docs/user/market_state_foundation_workflow.md",
+      "code": [
+        "src/factor_lab/market_state/tool_affinity.py"
+      ],
+      "tests": [],
+      "workflow": "docs/user/market_state_foundation_workflow.md",
+      "whitepaper": "docs/ops/market_state_foundation_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/market_state/tool_affinity.py"
+      ],
+      "measurement_authority": true,
+      "routing_authority": false,
+      "split_from": null,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "group_correlation_market_attributes",
+      "layer": "measurement",
+      "owner_lane": 2,
+      "reusable": true,
+      "live_entry": "docs/user/group_correlation_market_state_workflow.md",
+      "code": [
+        "src/factor_lab/market_correlation/group_correlation_daily_update.py"
+      ],
+      "tests": [],
+      "workflow": "docs/user/group_correlation_market_state_workflow.md",
+      "whitepaper": "docs/ops/group_correlation_market_state_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/market_correlation/group_correlation_daily_update.py",
+        "src/factor_lab/market_correlation/contracts_group_timeseries.py"
+      ],
+      "measurement_authority": true,
+      "routing_authority": false,
+      "split_from": null,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "trend_continuity_diagnostic",
+      "layer": "measurement",
+      "owner_lane": 2,
+      "reusable": true,
+      "live_entry": "docs/user/market_state_trend_continuity_regime_workflow.md",
+      "code": [
+        "src/factor_lab/market_state/trend_continuity_regime.py"
+      ],
+      "tests": [],
+      "workflow": "docs/user/market_state_trend_continuity_regime_workflow.md",
+      "whitepaper": "docs/ops/market_state_trend_continuity_regime_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/market_state/trend_continuity_regime.py"
+      ],
+      "measurement_authority": true,
+      "routing_authority": false,
+      "split_from": null,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "kline_indicators_bdci",
+      "layer": "measurement",
+      "owner_lane": 2,
+      "reusable": true,
+      "live_entry": "docs/ops/bar_direction_continuity_indicator_whitepaper.md",
+      "code": [
+        "src/factor_lab/indicators/bar_direction_continuity.py"
+      ],
+      "tests": [],
+      "workflow": "docs/ops/bar_direction_continuity_indicator_whitepaper.md",
+      "whitepaper": "docs/ops/bar_direction_continuity_indicator_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/indicators/"
+      ],
+      "measurement_authority": true,
+      "routing_authority": false,
+      "split_from": null,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "visual_structure_endpoint_channel",
+      "layer": "measurement",
+      "owner_lane": 2,
+      "reusable": true,
+      "live_entry": "src/factor_lab/visual_structure/endpoint_channel.py",
+      "code": [
+        "src/factor_lab/visual_structure/endpoint_channel.py"
+      ],
+      "tests": [],
+      "workflow": "src/factor_lab/visual_structure/__init__.py",
+      "whitepaper": "src/factor_lab/visual_structure/__init__.py",
+      "write_allowlist": [
+        "src/factor_lab/visual_structure/"
+      ],
+      "measurement_authority": true,
+      "routing_authority": false,
+      "split_from": null,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "volatility_continuous_features",
+      "layer": "measurement",
+      "owner_lane": 2,
+      "reusable": true,
+      "split_from": "volatility_regime_recognizer_nested_v2",
+      "live_entry": "docs/user/market_state_volatility_regime_recognizer_nested_v2_workflow.md",
+      "code": [
+        "src/factor_lab/market_state/volatility_regime_recognizer_nested_tuning.py"
+      ],
+      "tests": [
+        "tests/unit/test_volatility_regime_recognizer_nested_tuning.py"
+      ],
+      "workflow": "docs/user/market_state_volatility_regime_recognizer_nested_v2_workflow.md",
+      "whitepaper": "docs/ops/market_state_volatility_regime_recognizer_nested_v2_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/market_state/volatility_regime_recognizer_nested_tuning.py"
+      ],
+      "measurement_authority": true,
+      "routing_authority": false,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "cloudridge_daily_attributes_legacy",
+      "layer": "measurement",
+      "owner_lane": 2,
+      "reusable": true,
+      "live_entry": "docs/user/cloudridge_attribute_infrastructure.md",
+      "code": [
+        "src/factor_lab/cloudridge/attributes.py"
+      ],
+      "tests": [],
+      "workflow": "docs/user/cloudridge_attribute_infrastructure.md",
+      "whitepaper": "docs/ops/cloudridge_attribute_infrastructure_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/cloudridge/attributes.py"
+      ],
+      "measurement_authority": true,
+      "routing_authority": false,
+      "split_from": null,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "attribute_pool_kline_four_pools",
+      "layer": "measurement",
+      "owner_lane": 2,
+      "reusable": true,
+      "split_from": "attribute_pool_v1",
+      "live_entry": "docs/user/market_state_attribute_pool_infrastructure.md",
+      "code": [],
+      "tests": [
+        "tests/unit/test_market_state_attribute_pool_infrastructure.py"
+      ],
+      "workflow": "docs/user/market_state_attribute_pool_infrastructure.md",
+      "whitepaper": "docs/ops/market_state_attribute_pool_infrastructure_whitepaper.md",
+      "write_allowlist": [
+        "docs/ops/market_state_attribute_pool_overlay_future_kline_provider_v1@1.0.json"
+      ],
+      "measurement_authority": true,
+      "routing_authority": false,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "tool_registry_v1_5",
+      "layer": "strategy_foundation",
+      "owner_lane": 2,
+      "reusable": true,
+      "live_entry": "docs/user/market_state_timing_priority_composition_workflow.md",
+      "code": [
+        "src/factor_lab/market_state/tool_registry_v1_5.py"
+      ],
+      "tests": [
+        "tests/unit/test_market_state_tool_registry_v1_5.py"
+      ],
+      "workflow": "docs/user/market_state_timing_priority_composition_workflow.md",
+      "whitepaper": "docs/ops/market_state_timing_priority_composition_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/market_state/tool_registry_v1_5.py"
+      ],
+      "measurement_authority": false,
+      "routing_authority": false,
+      "split_from": null,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "tool_relative_coupling",
+      "layer": "strategy_foundation",
+      "owner_lane": 2,
+      "reusable": true,
+      "split_from": "six_axis_unified_catalog",
+      "live_entry": "docs/user/market_state_unified_timing_factor_infrastructure_workflow.md",
+      "code": [
+        "src/factor_lab/market_state/tool_factor_coupling.py"
+      ],
+      "tests": [],
+      "workflow": "docs/user/market_state_unified_timing_factor_infrastructure_workflow.md",
+      "whitepaper": "docs/ops/market_state_unified_timing_factor_infrastructure_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/market_state/tool_factor_coupling.py"
+      ],
+      "measurement_authority": false,
+      "routing_authority": false,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "evaluation_platform_v4",
+      "layer": "strategy_foundation",
+      "owner_lane": 2,
+      "reusable": true,
+      "live_entry": "docs/user/market_state_timing_evaluation_platform_workflow.md",
+      "code": [
+        "src/factor_lab/market_state/timing_evaluation_platform.py"
+      ],
+      "tests": [
+        "tests/unit/test_market_state_timing_evaluation_platform.py"
+      ],
+      "workflow": "docs/user/market_state_timing_evaluation_platform_workflow.md",
+      "whitepaper": "docs/ops/market_state_timing_evaluation_platform_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/market_state/timing_evaluation_platform.py",
+        "docs/user/market_state_timing_evaluation_platform_workflow.md"
+      ],
+      "measurement_authority": false,
+      "routing_authority": false,
+      "split_from": null,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "paper_kernel_tool_identity",
+      "layer": "strategy_foundation",
+      "owner_lane": 2,
+      "reusable": true,
+      "split_from": "paper_kernel",
+      "live_entry": "docs/user/market_state_timing_priority_composition_workflow.md",
+      "code": [
+        "src/factor_lab/market_state/tool_registry_v1_4.py"
+      ],
+      "tests": [
+        "tests/unit/test_market_state_tool_registry_v1_5.py"
+      ],
+      "workflow": "docs/user/market_state_timing_priority_composition_workflow.md",
+      "whitepaper": "docs/ops/market_state_timing_priority_composition_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/market_state/tool_registry_v1_4.py"
+      ],
+      "measurement_authority": false,
+      "routing_authority": false,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "formula_derived_tool_inversion",
+      "layer": "strategy_foundation",
+      "owner_lane": 2,
+      "reusable": true,
+      "split_from": "formula_derived_v3",
+      "live_entry": "docs/user/market_state_formula_derived_state_machine_workflow.md",
+      "code": [
+        "src/factor_lab/market_state/formula_derivation/"
+      ],
+      "tests": [],
+      "workflow": "docs/user/market_state_formula_derived_state_machine_workflow.md",
+      "whitepaper": "docs/ops/market_state_formula_derived_state_machine_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/market_state/formula_derivation/"
+      ],
+      "measurement_authority": false,
+      "routing_authority": false,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "priority_composition_waterfall",
+      "layer": "strategy_ephemeral",
+      "owner_lane": 2,
+      "reusable": false,
+      "live_entry": "docs/user/market_state_timing_priority_composition_workflow.md",
+      "code": [
+        "src/factor_lab/market_state/timing_priority_composition.py"
+      ],
+      "tests": [],
+      "workflow": "docs/user/market_state_timing_priority_composition_workflow.md",
+      "whitepaper": "docs/ops/market_state_timing_priority_composition_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/market_state/timing_priority_composition.py"
+      ],
+      "measurement_authority": false,
+      "routing_authority": true,
+      "split_from": null,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "timing_strategy_router_v4",
+      "layer": "strategy_ephemeral",
+      "owner_lane": 2,
+      "reusable": false,
+      "live_entry": "docs/user/market_state_timing_strategy_routing_workflow.md",
+      "code": [
+        "src/factor_lab/market_state/timing_strategy_routing_v4.py"
+      ],
+      "tests": [],
+      "workflow": "docs/user/market_state_timing_strategy_routing_workflow.md",
+      "whitepaper": "docs/ops/market_state_timing_strategy_routing_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/market_state/timing_strategy_routing_v4.py"
+      ],
+      "measurement_authority": false,
+      "routing_authority": true,
+      "split_from": null,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "explosive_layer_v3",
+      "layer": "strategy_ephemeral",
+      "owner_lane": 2,
+      "reusable": false,
+      "live_entry": "docs/user/market_state_timing_explosive_layer_v3_workflow.md",
+      "code": [
+        "src/factor_lab/market_state/timing_explosive_layer_v3.py"
+      ],
+      "tests": [
+        "tests/unit/test_market_state_timing_explosive_layer_v3.py"
+      ],
+      "workflow": "docs/user/market_state_timing_explosive_layer_v3_workflow.md",
+      "whitepaper": "docs/ops/market_state_timing_explosive_layer_v3_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/market_state/timing_explosive_layer_v3.py"
+      ],
+      "measurement_authority": false,
+      "routing_authority": true,
+      "split_from": null,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "crash_rebound_current_best",
+      "layer": "strategy_ephemeral",
+      "owner_lane": 2,
+      "reusable": false,
+      "live_entry": "src/factor_lab/market_state/timing_crash_rebound_current_best_r1.py",
+      "code": [
+        "src/factor_lab/market_state/timing_crash_rebound_current_best_r1.py"
+      ],
+      "tests": [],
+      "workflow": "docs/user/market_state_timing_strategy_routing_workflow.md",
+      "whitepaper": "docs/ops/market_state_timing_strategy_routing_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/market_state/timing_crash_rebound_current_best_r1.py"
+      ],
+      "measurement_authority": false,
+      "routing_authority": true,
+      "split_from": null,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "timing_research_samples_rN",
+      "layer": "strategy_ephemeral",
+      "owner_lane": 2,
+      "reusable": false,
+      "current": true,
+      "live_entry": null,
+      "code": [
+        "src/factor_lab/market_state/"
+      ],
+      "tests": [],
+      "workflow": "docs/user/strategy_slice_rebuild_workflow.md",
+      "whitepaper": "docs/ops/strategy_slice_rebuild_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/market_state/timing_three_specialist_isolated_annual_v7.py"
+      ],
+      "measurement_authority": false,
+      "routing_authority": false,
+      "note": "research samples; not a live project entry",
+      "split_from": null,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "volatility_three_state_machine",
+      "layer": "strategy_ephemeral",
+      "owner_lane": 2,
+      "reusable": false,
+      "split_from": "volatility_regime_recognizer_nested_v2",
+      "live_entry": "docs/user/market_state_volatility_regime_recognizer_nested_v2_workflow.md",
+      "code": [
+        "src/factor_lab/market_state/volatility_regime_recognizer_battle.py"
+      ],
+      "tests": [
+        "tests/unit/test_volatility_regime_recognizer_battle.py"
+      ],
+      "workflow": "docs/user/market_state_volatility_regime_recognizer_nested_v2_workflow.md",
+      "whitepaper": "docs/ops/market_state_volatility_regime_recognizer_nested_v2_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/market_state/volatility_regime_recognizer_battle.py"
+      ],
+      "measurement_authority": false,
+      "routing_authority": true,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "formula_derived_joint_state_machine",
+      "layer": "strategy_ephemeral",
+      "owner_lane": 2,
+      "reusable": false,
+      "split_from": "formula_derived_v3",
+      "live_entry": "docs/user/market_state_formula_derived_state_machine_workflow.md",
+      "code": [
+        "src/factor_lab/market_state/formula_derived_three_stage_workflow.py"
+      ],
+      "tests": [],
+      "workflow": "docs/user/market_state_formula_derived_state_machine_workflow.md",
+      "whitepaper": "docs/ops/market_state_formula_derived_state_machine_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/market_state/formula_derived_three_stage_workflow.py"
+      ],
+      "measurement_authority": false,
+      "routing_authority": true,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "derivatives_execution_pool_v1_4",
+      "layer": "execution",
+      "owner_lane": 3,
+      "reusable": true,
+      "live_entry": "docs/user/market_state_derivatives_execution_pool_workflow.md",
+      "code": [
+        "src/factor_lab/market_state/derivatives_execution_pool.py"
+      ],
+      "tests": [
+        "tests/unit/test_derivatives_execution_pool.py"
+      ],
+      "workflow": "docs/user/market_state_derivatives_execution_pool_workflow.md",
+      "whitepaper": "docs/ops/market_state_derivatives_execution_pool_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/market_state/derivatives_execution_pool.py"
+      ],
+      "measurement_authority": false,
+      "routing_authority": false,
+      "split_from": null,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "csi1000_trade_instrument_router_v1p6",
+      "layer": "execution",
+      "owner_lane": 3,
+      "reusable": true,
+      "live_entry": "docs/user/csi1000_trade_instrument_router_v1p6_workflow.md",
+      "code": [
+        "src/factor_lab/market_state/csi1000_trade_instrument_router.py"
+      ],
+      "tests": [
+        "tests/unit/test_csi1000_trade_instrument_router.py"
+      ],
+      "workflow": "docs/user/csi1000_trade_instrument_router_v1p6_workflow.md",
+      "whitepaper": "docs/ops/csi1000_trade_instrument_router_v1p6_joint_scenario_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/market_state/csi1000_trade_instrument_router.py",
+        "src/factor_lab/market_state/csi1000_joint_scenario_option_matcher.py",
+        "src/factor_lab/market_state/csi1000_risk_sized_routing.py"
+      ],
+      "measurement_authority": false,
+      "routing_authority": false,
+      "split_from": null,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "option_lifecycle_cost_map",
+      "layer": "execution",
+      "owner_lane": 3,
+      "reusable": true,
+      "live_entry": "docs/user/csi1000_option_lifecycle_cost_map_v1_workflow.md",
+      "code": [
+        "src/factor_lab/market_state/csi1000_option_lifecycle_cost_map.py"
+      ],
+      "tests": [
+        "tests/unit/test_csi1000_option_lifecycle_cost_map.py"
+      ],
+      "workflow": "docs/user/csi1000_option_lifecycle_cost_map_v1_workflow.md",
+      "whitepaper": "docs/ops/csi1000_option_lifecycle_cost_map_v1_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/market_state/csi1000_option_lifecycle_cost_map.py",
+        "src/factor_lab/market_state/csi1000_option_cost_backcast.py"
+      ],
+      "measurement_authority": false,
+      "routing_authority": false,
+      "split_from": null,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "mo_quote_change_bbo_binding",
+      "layer": "execution",
+      "owner_lane": 3,
+      "reusable": true,
+      "live_entry": "docs/user/csi1000_mo_quote_change_bbo_binding_workflow.md",
+      "code": [
+        "src/factor_lab/market_state/csi1000_mo_continuous_bbo_research.py"
+      ],
+      "tests": [
+        "tests/unit/test_csi1000_datahub_gap_closure.py"
+      ],
+      "workflow": "docs/user/csi1000_mo_quote_change_bbo_binding_workflow.md",
+      "whitepaper": "docs/ops/csi1000_mo_quote_change_bbo_binding_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/market_state/csi1000_mo_continuous_bbo_research.py"
+      ],
+      "measurement_authority": false,
+      "routing_authority": false,
+      "split_from": null,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "etf_option_fee_binding",
+      "layer": "execution",
+      "owner_lane": 3,
+      "reusable": true,
+      "live_entry": "docs/user/csi1000_etf_option_fee_binding_workflow.md",
+      "code": [
+        "src/factor_lab/market_state/csi1000_datahub_gap_closure.py"
+      ],
+      "tests": [
+        "tests/unit/test_csi1000_datahub_gap_closure.py"
+      ],
+      "workflow": "docs/user/csi1000_etf_option_fee_binding_workflow.md",
+      "whitepaper": "docs/ops/csi1000_etf_option_fee_binding_whitepaper.md",
+      "write_allowlist": [
+        "docs/ops/csi1000_etf_option_fee_binding@1.0.json"
+      ],
+      "measurement_authority": false,
+      "routing_authority": false,
+      "split_from": null,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "timing_asset_cost_boundary_v2",
+      "layer": "execution",
+      "owner_lane": 3,
+      "reusable": true,
+      "live_entry": "docs/user/timing_asset_cost_boundary_workflow.md",
+      "code": [
+        "src/factor_lab/market_state/timing_asset_cost_boundary.py"
+      ],
+      "tests": [
+        "tests/unit/test_timing_asset_cost_boundary.py"
+      ],
+      "workflow": "docs/user/timing_asset_cost_boundary_workflow.md",
+      "whitepaper": "docs/ops/timing_asset_cost_boundary_whitepaper.md",
+      "write_allowlist": [
+        "src/factor_lab/market_state/timing_asset_cost_boundary.py",
+        "docs/ops/timing_asset_cost_boundary_registry@2.0.json"
+      ],
+      "measurement_authority": false,
+      "routing_authority": false,
+      "split_from": null,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    },
+    {
+      "asset_id": "attribute_pool_derivatives_overlay",
+      "layer": "execution",
+      "owner_lane": 3,
+      "reusable": true,
+      "split_from": "attribute_pool_v1",
+      "live_entry": "docs/user/market_state_attribute_pool_infrastructure.md",
+      "code": [],
+      "tests": [
+        "tests/unit/test_market_state_attribute_pool_infrastructure.py"
+      ],
+      "workflow": "docs/user/market_state_attribute_pool_update_workflow.md",
+      "whitepaper": "docs/ops/market_state_attribute_pool_infrastructure_whitepaper.md",
+      "write_allowlist": [
+        "docs/ops/market_state_attribute_pool_overlay_mo_theta@1.0.json",
+        "docs/ops/market_state_attribute_pool_overlay_csi1000_execution_v1@1.0.json"
+      ],
+      "measurement_authority": false,
+      "routing_authority": false,
+      "current": true,
+      "production_authority": false,
+      "write_denylist": [
+        "docs/ops/timing_infrastructure_four_layer_inventory@1.0.json",
+        "docs/schemas/json/timing_infrastructure_four_layer_inventory@1.0.json",
+        "ai-readme.md",
+        "README.md",
+        "docs/00-index.md",
+        "docs/user/README.md",
+        "docs/ops/README.md",
+        "docs/ops/project_asset_layer_inventory@1.0.json",
+        "src/factor_lab/filtering/",
+        "src/factor_lab/market_state/attribute_pool_infrastructure.py"
+      ]
+    }
+  ]
+}

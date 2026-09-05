@@ -1,0 +1,61 @@
+# Two-Wave Theme Document Index
+
+## 1. User objective
+
+- [`user/two_wave_strategy_handoff_prompt.md`](user/two_wave_strategy_handoff_prompt.md)
+- [`user/cloud_execution_prompt.md`](user/cloud_execution_prompt.md)
+
+## 2. Package and data boundary
+
+- [`governance/package_scope.json`](governance/package_scope.json)
+- [`governance/data_usage_declaration.json`](governance/data_usage_declaration.json)
+- [`governance/layer3_tool16_candidate_slot.json`](governance/layer3_tool16_candidate_slot.json)
+- [`../data/README.md`](../data/README.md)
+- [`../data/manifest.json`](../data/manifest.json)
+
+## 3. Current FactorLab timing index chain
+
+- [`ops/timing_infrastructure_four_layer_inventory@1.0.json`](ops/timing_infrastructure_four_layer_inventory@1.0.json)
+- [`ops/timing_infrastructure_four_layer_split_whitepaper.md`](ops/timing_infrastructure_four_layer_split_whitepaper.md)
+- [`user/timing_infrastructure_four_layer_split_workflow.md`](user/timing_infrastructure_four_layer_split_workflow.md)
+- [`ops/timing_layer1_datahub_clock_split@1.0.json`](ops/timing_layer1_datahub_clock_split@1.0.json)
+- [`ops/timing_layer1_datahub_clock_split_whitepaper.md`](ops/timing_layer1_datahub_clock_split_whitepaper.md)
+- [`ops/timing_layer2_measurement_plane_version_registry@1.0.json`](ops/timing_layer2_measurement_plane_version_registry@1.0.json)
+- [`ops/timing_layer2_measurement_plane@2.3.json`](ops/timing_layer2_measurement_plane@2.3.json)
+- [`ops/timing_layer2_measurement_plane_whitepaper.md`](ops/timing_layer2_measurement_plane_whitepaper.md)
+- [`ops/timing_layer3_strategy_architecture_version_registry@1.0.json`](ops/timing_layer3_strategy_architecture_version_registry@1.0.json)
+- [`ops/timing_layer3_strategy_architecture@2.2.json`](ops/timing_layer3_strategy_architecture@2.2.json)
+- [`ops/timing_strategy_identity_registry@2.2.json`](ops/timing_strategy_identity_registry@2.2.json)
+- [`ops/timing_layer3_strategy_architecture_whitepaper.md`](ops/timing_layer3_strategy_architecture_whitepaper.md)
+- [`user/timing_layer3_strategy_architecture_workflow.md`](user/timing_layer3_strategy_architecture_workflow.md)
+- [`ops/timing_four_layer_port_version_registry@1.0.json`](ops/timing_four_layer_port_version_registry@1.0.json)
+- [`ops/timing_four_layer_port_contracts@1.1.json`](ops/timing_four_layer_port_contracts@1.1.json)
+- [`ops/timing_four_layer_integration_whitepaper.md`](ops/timing_four_layer_integration_whitepaper.md)
+
+## 4. Current fifteen-tool language
+
+- Python: `src/factor_lab/market_state/tool_registry_v1_5.py`
+- Regression test: `tests/unit/test_market_state_tool_registry_v1_5.py`
+- Candidate slot: [`governance/layer3_tool16_candidate_slot.json`](governance/layer3_tool16_candidate_slot.json)
+
+V1.5 is immutable. The cloud task may propose V1.6 but may not rewrite V1.5.
+
+## 5. Research governance
+
+- [`user/strategy_slice_rebuild_workflow.md`](user/strategy_slice_rebuild_workflow.md)
+- [`ops/strategy_slice_rebuild_whitepaper.md`](ops/strategy_slice_rebuild_whitepaper.md)
+- [`ops/strategy_progressive_development@1.0.json`](ops/strategy_progressive_development@1.0.json)
+- [`ops/post_training_strategy_science_acceptance@1.0.json`](ops/post_training_strategy_science_acceptance@1.0.json)
+- [`ops/post_training_account_audit@1.1.json`](ops/post_training_account_audit@1.1.json)
+
+The supplied data cannot satisfy the twelve-year strategy promotion workflow.
+Use these documents to preserve scientific boundaries, not to overclaim status.
+
+## 6. Reference-only original project indexes
+
+- [`reference/factorlab_docs_00_index.md`](reference/factorlab_docs_00_index.md)
+- [`reference/factorlab_docs_ops_README.md`](reference/factorlab_docs_ops_README.md)
+- [`reference/factorlab_docs_user_README.md`](reference/factorlab_docs_user_README.md)
+
+These snapshots contain links outside this bounded theme package. The scoped
+index above is the executable package index.

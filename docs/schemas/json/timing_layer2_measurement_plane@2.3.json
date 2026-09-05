@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "timing_layer2_measurement_plane@2.3",
+  "type": "object",
+  "required": ["schema_id", "measurement_plane_id", "status", "parent", "class_order", "classes", "future_property_split", "all_frequency_split", "authority"],
+  "properties": {
+    "schema_id": {"const": "timing_layer2_measurement_plane@2.3"},
+    "measurement_plane_id": {"const": "timing_layer2_measurement_plane_v2_causal_offline_split"},
+    "status": {"const": "current_strategy_independent_measurement_and_attribute_forecast_only"},
+    "parent": {"const": "timing_layer2_measurement_plane@2.2"},
+    "class_order": {"const": ["causal_feature_provider", "offline_target_or_research_material", "definition_compatibility_discovery", "migrated_to_layer3"]},
+    "classes": {"type": "object"},
+    "future_property_split": {"type": "object"},
+    "all_frequency_split": {"type": "object"},
+    "authority": {"type": "object"}
+  },
+  "additionalProperties": true
+}
+

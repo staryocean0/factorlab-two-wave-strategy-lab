@@ -1,0 +1,40 @@
+{
+  "schema_id": "timing_layer3_strategy_architecture@2.2",
+  "status": "current_unfinished_p8_bucket_prototype_added",
+  "parent": "timing_layer3_strategy_architecture@2.1",
+  "identity_registry": "timing_strategy_identity_registry@2.2",
+  "class_order": [
+    "infrastructure",
+    "strategy_research",
+    "registered_usable_strategy"
+  ],
+  "essential_surfaces": [
+    "StrategyLanguageRegistry",
+    "ResearchAcceptanceGovernance",
+    "GenericOrchestrationKernel",
+    "PluginLifecycleRegistry",
+    "StrategyConditionalEffectResearch"
+  ],
+  "strategy_conditional_effect_research": {
+    "contract": "timing_layer3_strategy_conditional_effect_research@1.0",
+    "asset_ids": [
+      "tool_conditioned_relationships",
+      "tool_attribute_relationship_maps"
+    ],
+    "canonical_source": "src/factor_lab/strategy/research/timing/conditional_effect_research.py",
+    "requires_named_strategy_or_tool": true,
+    "Layer2_measurement_authority": false,
+    "runtime_routing_authority": false
+  },
+  "all_frequency_strategy_diagnostics": "timing_layer3_all_frequency_strategy_diagnostics@1.0",
+  "infrastructure_asset_count": 10,
+  "strategy_research_asset_count": 5,
+  "registered_usable_strategy_count": 0,
+  "strategy_formula_mutation": false,
+  "strategy_signal_mutation": false,
+  "fresh_oos": false,
+  "registered_use_authority": false,
+  "paper_trading_authority": false,
+  "live_trading_authority": false,
+  "production_authority": false
+}
