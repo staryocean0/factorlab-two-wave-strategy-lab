@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://starryocean.local/schemas/log-schema-v1.json",
+  "title": "Canonical JSON Log Schema v1",
+  "description": "Workspace-wide structured log event schema for terminal_trading_v2, unified_datahub, and factor_lab.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "timestamp",
+    "level",
+    "logger",
+    "message",
+    "request_id",
+    "trace_id"
+  ],
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]{0,127}$"
+    },
+    "traceId": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{32}$"
+    },
+    "jsonValue": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "integer"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/$defs/jsonObject"
+        },
+        {
+          "$ref": "#/$defs/jsonArray"
+        }
+      ]
+    },
+    "jsonObject": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/jsonValue"
+      }
+    },
+    "jsonArray": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/jsonValue"
+      }
+    }
+  },
+  "properties": {
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "RFC 3339 / ISO 8601 UTC timestamp."
+    },
+    "level": {
+      "type": "string",
+      "enum": [
+        "DEBUG",
+        "INFO",
+        "WARNING",
+        "ERROR",
+        "CRITICAL"
+      ]
+    },
+    "logger": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "message": {
+      "type": "string",
+      "minLength": 1
+    },
+    "request_id": {
+      "$ref": "#/$defs/identifier"
+    },
+    "trace_id": {
+      "$ref": "#/$defs/traceId"
+    },
+    "instance_id": {
+      "$ref": "#/$defs/identifier"
+    },
+    "job_id": {
+      "$ref": "#/$defs/identifier"
+    },
+    "correlation_id": {
+      "$ref": "#/$defs/identifier"
+    },
+    "user_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256
+    },
+    "extra": {
+      "$ref": "#/$defs/jsonObject"
+    }
+  },
+  "examples": [
+    {
+      "timestamp": "2026-04-10T08:45:31.382Z",
+      "level": "INFO",
+      "logger": "datahub.api.jobs",
+      "message": "job accepted",
+      "request_id": "req_9fa82c1d0b2e",
+      "trace_id": "4c75d76f6f1b44d7a4f883273d30a912",
+      "job_id": "job_publish_001",
+      "correlation_id": "publish_20260410_01",
+      "extra": {
+        "event": "job.accepted",
+        "status": "queued"
+      }
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "file_count": 463,
+  "file_count": 473,
   "files": [
     {
       "bytes": 18373,
@@ -144,7 +144,7 @@
     {
       "bytes": 1282,
       "path": "docs/governance/controller_validation.json",
-      "sha256": "db5fbbf90444901c894afad8d9a5db58f0de9ed841ebefa975a5e456a56568f3"
+      "sha256": "30caacc0b9081f3e9aac6ea7e66f65b1134de24dc1faa1a0e3767544aceb2852"
     },
     {
       "bytes": 1262,
@@ -562,6 +562,11 @@
       "sha256": "928d1bce07b91bfab1c5de587d037beb25de83d7364d9038b8d9b4a27329c72e"
     },
     {
+      "bytes": 2723,
+      "path": "docs/schemas/log-schema-v1.json",
+      "sha256": "c26fcc315179378353d9a704ae61627d71de6e366d71d7be04b9f3c72919bdf5"
+    },
+    {
       "bytes": 128315,
       "path": "docs/user/README.md",
       "sha256": "def3bd878f362a8a96de66b362ee1996686f6cf328acf475a68b0298c0b7d0ec"
@@ -772,9 +777,9 @@
       "sha256": "3662955be52b1910dfa6b1ead916ac8b8b306af9d341752ddaffa4f6b96ce1db"
     },
     {
-      "bytes": 890,
+      "bytes": 900,
       "path": "pyproject.toml",
-      "sha256": "1672e84ccbfa12ce402cb796b00a0eb603ba0f5a4b3a211e3828c92e0ab77791"
+      "sha256": "cdba66971bfec67326148105c49e2b9de709af96cc054147795ee02658608448"
     },
     {
       "bytes": 1819,
@@ -805,6 +810,51 @@
       "bytes": 7369,
       "path": "scripts/validate_theme_package.py",
       "sha256": "f33e5017d7ed2d3e05496c675214b240a32d79467380a60fc294582417e270c8"
+    },
+    {
+      "bytes": 34,
+      "path": "shared/__init__.py",
+      "sha256": "a6519fb6d75943cecfdc6dc5e998aa3a0bf8abe3a386ead1a028666aeb2fa0f0"
+    },
+    {
+      "bytes": 1275,
+      "path": "shared/observability/__init__.py",
+      "sha256": "89aeefcb607a2518300c66a70f390b06e30db58bc0b1378c04f6fdcf25cadd15"
+    },
+    {
+      "bytes": 10584,
+      "path": "shared/observability/context.py",
+      "sha256": "97142d64d63a7690efb0aca949c338ed48e2e7f0a5a1f20993f34269832f4520"
+    },
+    {
+      "bytes": 16816,
+      "path": "shared/observability/error_codes.py",
+      "sha256": "de842b4c6269bafcd98c62f4d398102f17babb814dc5a14f7cf89050db6dbcc6"
+    },
+    {
+      "bytes": 5438,
+      "path": "shared/observability/exceptions.py",
+      "sha256": "a366544fba441232f38f54ec5e741c6c5a5b64077329f2b3b583cab99e0188d7"
+    },
+    {
+      "bytes": 6942,
+      "path": "shared/observability/json_formatter.py",
+      "sha256": "2b3f716d7655b76db14af31711e070c6bf7812bdfb71195a1e2fddde461621ba"
+    },
+    {
+      "bytes": 1872,
+      "path": "shared/observability/logger_protocol.py",
+      "sha256": "3048c472d9ddda5838cf3002a62c7a345ea66844415492ee2ec6d97f2f12cae6"
+    },
+    {
+      "bytes": 4314,
+      "path": "shared/observability/performance.py",
+      "sha256": "ebfba3b44f70b734ea3b71fa7acf9fe3a313beb7312f292a5bf6a67baca923f9"
+    },
+    {
+      "bytes": 4457,
+      "path": "shared/observability/retention.py",
+      "sha256": "8a5b4918f178c109a47a362f9a9763d58431d02efcf1e08bb58ee042b23d423c"
     },
     {
       "bytes": 32,
@@ -2320,5 +2370,5 @@
   "production_authority": false,
   "schema_id": "two_wave_cloud_theme_source_closure@1.0",
   "status": "frozen_before_cloud_strategy_results",
-  "total_bytes": 39970590
+  "total_bytes": 40025055
 }
