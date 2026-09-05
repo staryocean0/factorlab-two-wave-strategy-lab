@@ -1,0 +1,101 @@
+[
+  {
+    "start": 5388,
+    "stop": 5426,
+    "label": "downtrend",
+    "record_id": "C2G_52a7231cbd802021fd4d",
+    "anchor_bar": 5387,
+    "known_at_bar": 5426,
+    "effective_information_time": "2015-06-23T07:30:00+00:00",
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 6667,
+    "stop": 6703,
+    "label": "downtrend",
+    "record_id": "C2G_f6dccd169b6b740d47fb",
+    "anchor_bar": 6666,
+    "known_at_bar": 6707,
+    "effective_information_time": "2015-07-29T07:30:00+00:00",
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 6804,
+    "stop": 6867,
+    "label": "downtrend",
+    "record_id": "C2G_426b6f7858d59a68ff62",
+    "anchor_bar": 6803,
+    "known_at_bar": 6871,
+    "effective_information_time": "2015-08-04T07:30:00+00:00",
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 7804,
+    "stop": 7873,
+    "label": "downtrend",
+    "record_id": "C2G_ede6f81f329a8a349dbd",
+    "anchor_bar": 7803,
+    "known_at_bar": 7875,
+    "effective_information_time": "2015-09-02T07:30:00+00:00",
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 8210,
+    "stop": 8246,
+    "label": "uncertain",
+    "record_id": "C2G_6e326ed684e28a6dcdfa",
+    "anchor_bar": 8209,
+    "known_at_bar": 8247,
+    "effective_information_time": "2015-09-15T07:30:00+00:00",
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 9557,
+    "stop": 9646,
+    "label": "downtrend",
+    "record_id": "C2G_5e1c16fd3510a502e8d0",
+    "anchor_bar": 9556,
+    "known_at_bar": 9652,
+    "effective_information_time": "2015-11-03T07:30:00+00:00",
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 10009,
+    "stop": 10081,
+    "label": "uncertain",
+    "record_id": "C2G_c9b2c655af5d2aed8b53",
+    "anchor_bar": 10008,
+    "known_at_bar": 10086,
+    "effective_information_time": "2015-11-16T07:30:00+00:00",
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 13296,
+    "stop": 13350,
+    "label": "uncertain",
+    "record_id": "C2G_931f6da37213a66a17d9",
+    "anchor_bar": 13295,
+    "known_at_bar": 13355,
+    "effective_information_time": "2016-02-29T07:30:00+00:00",
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 60878,
+    "stop": 60944,
+    "label": "downtrend",
+    "record_id": "C2G_4668d0b3c3986c4a4741",
+    "anchor_bar": 60877,
+    "known_at_bar": 60946,
+    "effective_information_time": "2020-03-24T07:30:00+00:00",
+    "provisional": false,
+    "retrospective_only": true
+  }
+]

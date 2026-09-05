@@ -1,0 +1,185 @@
+{
+  "candidates": 1136,
+  "eligible_before_ownership": 14,
+  "selected_pairs": 7,
+  "direction_counts": {
+    "downtrend": 5,
+    "uptrend": 1,
+    "uncertain": 1
+  },
+  "rejections": {
+    "short_leg": 124,
+    "cycle_duration": 935,
+    "pair_duration": 780,
+    "period_asymmetry": 509,
+    "leg_time_asymmetry": 899,
+    "amplitude_asymmetry": 278,
+    "internal_backtracking": 959,
+    "single_bar_dominance": 205,
+    "too_many_sessions": 714,
+    "calendar_span": 434,
+    "late_confirmation": 646
+  },
+  "overlap_suppressed": 7,
+  "selected_span_bars": {
+    "min": 34.0,
+    "p50": 57.0,
+    "p90": 65.0,
+    "max": 68.0
+  },
+  "selected_delay_bars": {
+    "min": 2.0,
+    "p50": 4.0,
+    "p90": 5.4,
+    "max": 6.0
+  },
+  "owned_bars": 355,
+  "total_bars": 67191,
+  "full_partition_rows": 14,
+  "max_published_ownership_multiplicity": 1,
+  "not_accuracy": true,
+  "morphology_accepted": false,
+  "view": "5m_offset_4",
+  "operator": "C2G",
+  "reversal_log": 0.012,
+  "C1_all_overlap": {
+    "interval_convention": "inclusive C1 occurrence windows, audit only",
+    "histogram": {
+      "0": 340,
+      "1": 129,
+      "2": 214,
+      "3": 149,
+      "4": 65227,
+      "5": 1132
+    },
+    "mean_multiplicity_all_bars": 3.9822595288059413,
+    "mean_multiplicity_covered_bars": 4.002513051412843,
+    "fraction_bars_multiple_candidates": 0.9930198984983107,
+    "max": 5
+  },
+  "C1_definite_overlap": {
+    "interval_convention": "inclusive C1 occurrence windows, audit only",
+    "histogram": {
+      "0": 19339,
+      "1": 18984,
+      "2": 14797,
+      "3": 6958,
+      "4": 7054,
+      "5": 59
+    },
+    "mean_multiplicity_all_bars": 1.457978003006355,
+    "mean_multiplicity_covered_bars": 2.0472080581793866,
+    "fraction_bars_multiple_candidates": 0.4296408745218854,
+    "max": 5
+  },
+  "C1_counts": {
+    "uptrend": 187,
+    "uncertain": 720,
+    "range": 55,
+    "downtrend": 174
+  },
+  "C1_span_by_direction": {
+    "range": {
+      "min": 21.0,
+      "p50": 115.0,
+      "p90": 428.0,
+      "max": 984.0
+    },
+    "uptrend": {
+      "min": 24.0,
+      "p50": 212.0,
+      "p90": 628.6,
+      "max": 1274.0
+    },
+    "downtrend": {
+      "min": 20.0,
+      "p50": 96.5,
+      "p90": 490.2000000000001,
+      "max": 840.0
+    },
+    "uncertain": {
+      "min": 10.0,
+      "p50": 166.5,
+      "p90": 529.4000000000001,
+      "max": 1169.0
+    }
+  },
+  "selected_information_lag_seconds": {
+    "min": 3960.0,
+    "p50": 17460.0,
+    "p90": 20280.0,
+    "max": 20460.0
+  },
+  "all_confirmations_available_at_bar_end": false,
+  "confirmation_tape_semantics": "bar-prefix event only; respect effective_information_time; no forward filling",
+  "annual": [
+    {
+      "year": "2015",
+      "selected": 4,
+      "directions": {
+        "downtrend": 3,
+        "uptrend": 1
+      }
+    },
+    {
+      "year": "2016",
+      "selected": 2,
+      "directions": {
+        "uncertain": 1,
+        "downtrend": 1
+      }
+    },
+    {
+      "year": "2017",
+      "selected": 0,
+      "directions": {}
+    },
+    {
+      "year": "2018",
+      "selected": 0,
+      "directions": {}
+    },
+    {
+      "year": "2019",
+      "selected": 0,
+      "directions": {}
+    },
+    {
+      "year": "2020",
+      "selected": 1,
+      "directions": {
+        "downtrend": 1
+      }
+    }
+  ],
+  "prefix_checks": [
+    {
+      "bars": 128,
+      "candidate_records": 0,
+      "selected": 0,
+      "independent_replay_equal": true,
+      "closed_partition_equal": true
+    },
+    {
+      "bars": 1000,
+      "candidate_records": 8,
+      "selected": 0,
+      "independent_replay_equal": true,
+      "closed_partition_equal": true
+    },
+    {
+      "bars": 33595,
+      "candidate_records": 654,
+      "selected": 6,
+      "independent_replay_equal": true,
+      "closed_partition_equal": true
+    },
+    {
+      "bars": 67190,
+      "candidate_records": 1136,
+      "selected": 7,
+      "independent_replay_equal": true,
+      "closed_partition_equal": true
+    }
+  ]
+}

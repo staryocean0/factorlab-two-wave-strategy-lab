@@ -1,0 +1,198 @@
+{
+  "candidates": 4285,
+  "eligible_before_ownership": 133,
+  "selected_pairs": 89,
+  "direction_counts": {
+    "uptrend": 29,
+    "uncertain": 34,
+    "downtrend": 24,
+    "range": 2
+  },
+  "rejections": {
+    "short_leg": 2181,
+    "leg_time_asymmetry": 3214,
+    "amplitude_asymmetry": 1543,
+    "internal_backtracking": 2394,
+    "single_bar_dominance": 2186,
+    "late_confirmation": 660,
+    "cycle_duration": 1561,
+    "period_asymmetry": 1626,
+    "calendar_span": 37,
+    "pair_duration": 35,
+    "too_many_sessions": 10
+  },
+  "overlap_suppressed": 44,
+  "selected_span_bars": {
+    "min": 24.0,
+    "p50": 40.0,
+    "p90": 67.0,
+    "max": 81.0
+  },
+  "selected_delay_bars": {
+    "min": 3.0,
+    "p50": 3.0,
+    "p90": 6.0,
+    "max": 8.0
+  },
+  "owned_bars": 3937,
+  "total_bars": 67191,
+  "full_partition_rows": 174,
+  "max_published_ownership_multiplicity": 1,
+  "not_accuracy": true,
+  "morphology_accepted": false,
+  "view": "5m_offset_4",
+  "operator": "D1",
+  "reversal_log": null,
+  "selected_information_lag_seconds": {
+    "min": 1860.0,
+    "p50": 7260.0,
+    "p90": 19860.0,
+    "max": 21060.0
+  },
+  "all_confirmations_available_at_bar_end": false,
+  "confirmation_tape_semantics": "bar-prefix event only; respect effective_information_time; no forward filling",
+  "annual": [
+    {
+      "year": "2015",
+      "selected": 8,
+      "directions": {
+        "uptrend": 3,
+        "uncertain": 2,
+        "downtrend": 2,
+        "range": 1
+      }
+    },
+    {
+      "year": "2016",
+      "selected": 16,
+      "directions": {
+        "uncertain": 8,
+        "uptrend": 7,
+        "downtrend": 1
+      }
+    },
+    {
+      "year": "2017",
+      "selected": 18,
+      "directions": {
+        "downtrend": 7,
+        "uncertain": 6,
+        "range": 1,
+        "uptrend": 4
+      }
+    },
+    {
+      "year": "2018",
+      "selected": 16,
+      "directions": {
+        "uncertain": 5,
+        "uptrend": 6,
+        "downtrend": 5
+      }
+    },
+    {
+      "year": "2019",
+      "selected": 12,
+      "directions": {
+        "downtrend": 3,
+        "uncertain": 7,
+        "uptrend": 2
+      }
+    },
+    {
+      "year": "2020",
+      "selected": 19,
+      "directions": {
+        "downtrend": 6,
+        "uptrend": 7,
+        "uncertain": 6
+      }
+    }
+  ],
+  "prefix_checks": [],
+  "D0_to_D1_selected": {
+    "uptrend->uptrend": 29,
+    "uncertain->uncertain": 30,
+    "downtrend->downtrend": 24,
+    "range->range": 2,
+    "range->uncertain": 4
+  },
+  "independent_D1_prefix_checks": [
+    {
+      "bars": 128,
+      "independent_stream_equal": true,
+      "closed_partition_equal": true
+    },
+    {
+      "bars": 1000,
+      "independent_stream_equal": true,
+      "closed_partition_equal": true
+    },
+    {
+      "bars": 33595,
+      "independent_stream_equal": true,
+      "closed_partition_equal": true
+    },
+    {
+      "bars": 67190,
+      "independent_stream_equal": true,
+      "closed_partition_equal": true
+    }
+  ],
+  "D0_ownership_unchanged": true,
+  "data_audit": {
+    "rows": 67191,
+    "columns": 25,
+    "instrument": "000852.SH",
+    "view_id": "5m_offset_4",
+    "export_frequency": "5m",
+    "minimum_trading_day": "2015-01-05",
+    "maximum_trading_day": "2020-12-31",
+    "rows_by_year": {
+      "2015": 11224,
+      "2016": 11164,
+      "2017": 11224,
+      "2018": 11178,
+      "2019": 11224,
+      "2020": 11177
+    },
+    "timestamp_timezone": "UTC",
+    "timestamp_semantics": "bar_end",
+    "volume_missing_rows": 67191,
+    "invalid_ohlc_rows": 0,
+    "duplicate_timestamp_rows": 0,
+    "rows_after_2020": 0,
+    "available_at_after_bar_end_rows": 67191,
+    "availability_delay_minutes_quantiles": {
+      "0": 31.0,
+      "0.5": 241.0,
+      "0.9": 331.0,
+      "0.99": 351.0,
+      "1": 351.0
+    },
+    "adjacent_timestamp_gap_minutes_quantiles": {
+      "0": 5.0,
+      "0.5": 5.0,
+      "0.9": 5.0,
+      "0.99": 1120.0,
+      "1": 15520.0
+    },
+    "historical_bar_end_realtime_availability_proven": false,
+    "availability_note": "Replay is bar-order morphology. available_at is preserved; bar-end realtime availability and execution are not asserted.",
+    "gaps_note": "Gaps are observed, not filled; no exchange calendar completeness claim is made.",
+    "daily_view_note": "daily_proxy views select supplied intraday bars; their OHLC is not full-day OHLC.",
+    "data_role": "development_material",
+    "local_resampling_performed": false,
+    "trade_fill_authority": false,
+    "fresh_oos": false,
+    "path": "data/development/5m_offset_4.parquet",
+    "file_bytes": 3227705,
+    "sha256": "ceba69dce07223ba92204dc4994991eeabcaf62aacfb9869fd9403da43694b1b",
+    "git_blob_sha": "0820a02b12180d7afba58ba77a150e1f003ac476",
+    "manifest_verified": true,
+    "processed_rows": 67191,
+    "processed_minimum_timestamp": "2015-01-05T01:39:00+00:00",
+    "processed_maximum_timestamp": "2020-12-31T06:59:00+00:00",
+    "max_bars": null
+  }
+}

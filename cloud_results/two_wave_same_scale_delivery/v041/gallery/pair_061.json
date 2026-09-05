@@ -1,0 +1,167 @@
+{
+  "schema_version": "two_wave_same_scale_direction@0.4.1",
+  "operator": "D1",
+  "timeframe": "5m_offset_0",
+  "scale_id": "D0_scale_2da91a90fe5f70f179b1",
+  "grammar_hash": "grammar_8ef56208469d6cbbdd86",
+  "start_bar": 37890,
+  "end_bar": 37927,
+  "five_occurrence_bars": [
+    37890,
+    37908,
+    37913,
+    37923,
+    37927
+  ],
+  "pivot_ids": [
+    "D0_pivot_f3c86849a6d65b9ef6b5",
+    "D0_pivot_63b121823f76f43e4d80",
+    "D0_pivot_c70992b7defd715f8267",
+    "D0_pivot_9a609b414e042db503d6",
+    "D0_pivot_bae9a87c3ed385ace80d"
+  ],
+  "cycle_ids": [
+    "D0_cycle_52cb9eb685cec031aa43",
+    "D0_cycle_3c0c1d2fd090e8ee8ed2"
+  ],
+  "phase": "low",
+  "confirmation_bar": 37930,
+  "confirmation_time": "2018-04-02T05:05:00+00:00",
+  "effective_information_time": "2018-04-02T07:30:00+00:00",
+  "channel_classification_A": "uptrend",
+  "channel_rejection_reasons_A": [],
+  "channel_accepted_by_A": true,
+  "D": 2.2842282810104724,
+  "E": 0.07212207787116336,
+  "geometry": {
+    "valid": true,
+    "origin_bar": 37890,
+    "fit_end_bar": 37927,
+    "a": 8.820711270329237,
+    "b": 0.000286985238619912,
+    "width": 0.004648595728023937,
+    "D": 2.2842282810104724,
+    "E": 0.07212207787116336,
+    "lower_offset": 8.819127627130845,
+    "upper_offset": 8.825709092609353,
+    "envelope_width": 0.0065814654785079085,
+    "nominal_coverage": 0.631578947368421,
+    "envelope_coverage": 1.0,
+    "fit_bar_count": 38,
+    "classification": "uptrend",
+    "attributes": [],
+    "regression_rank": 3,
+    "envelope_to_model_width_ratio": 1.4157964821143119,
+    "phase_lines": {
+      "high": {
+        "offset": 8.826547236334367,
+        "slope": 0.00024042169834114025,
+        "normalized_drift": 1.9136107674399996
+      },
+      "low": {
+        "offset": 8.820561172957285,
+        "slope": 0.0002944901072176935,
+        "normalized_drift": 2.3439624791133378
+      }
+    },
+    "phase_width_start": 0.0059860633770814076,
+    "phase_width_end": 0.003985532248648937,
+    "phase_width_ratio": 1.5019482978993919,
+    "majority_phase_step_displacements": [
+      1.5836466042160353,
+      0.7379766666157409
+    ],
+    "majority_phase_step_slopes": [
+      2.547605406782318,
+      1.950366904627315
+    ],
+    "cycle_amplitudes_log": [
+      0.010475192088849283,
+      0.00671978472490764
+    ],
+    "cycle_amplitude_ratio": 1.5588582845551289,
+    "price_basis": "log_close",
+    "time_basis": "bar_ordinal",
+    "boundary_basis": "frozen_all_completed_interval_closes",
+    "geometry_schema": "two_wave_research_candidate@0.2.0",
+    "geometry_variant": "detrended_width",
+    "baseline_classification": "uptrend",
+    "baseline_attributes": [],
+    "rejection_reasons": [],
+    "cycle_detrended_widths_log": [
+      0.0065814654785079085,
+      0.004437170499574705
+    ],
+    "cycle_detrended_width_ratio": 1.4832572873047656,
+    "diagnostic_attributes_are_not_rejection_reasons": true,
+    "cycle_width_basis": "all_completed_cycle_closes_minus_common_fitted_drift"
+  },
+  "trade_authority": false,
+  "human_reference": false,
+  "future_outcome_used": false,
+  "scale_eligible": true,
+  "scale_rejection_reasons": [],
+  "leg_bars": [
+    18,
+    5,
+    10,
+    4
+  ],
+  "cycle_bars": [
+    23,
+    14
+  ],
+  "pair_bars": 37,
+  "period_ratio": 1.6428571428571428,
+  "corresponding_leg_ratios": [
+    1.8,
+    1.25
+  ],
+  "cycle_chord_amplitudes": [
+    0.0047138359539342645,
+    0.004269388167898569
+  ],
+  "amplitude_ratio": 1.1041010488054208,
+  "leg_er": [
+    0.7418783910085825,
+    1.0,
+    0.8223298355091453,
+    1.0
+  ],
+  "single_step_path_shares": [
+    0.22787501069191396,
+    0.4486418850743948,
+    0.2433943234334705,
+    0.47985558010170565
+  ],
+  "exact_flat_shares": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "observed_sessions": 2,
+  "calendar_days": 2.8993055555555554,
+  "confirmation_delay_bars": 3,
+  "direction": "uptrend",
+  "direction_reasons": [],
+  "phase_steps": [
+    1.6389956966934214,
+    0.7637692510584603,
+    0.8029022600809477
+  ],
+  "net_drift": 2.4027649477518818,
+  "phase_spans": [
+    2.4027649477518818,
+    0.8029022600809477
+  ],
+  "phase_conflict": false,
+  "record_id": "D1_pair_bdef0d798b7307909761",
+  "selected": true,
+  "ownership_rejection": null,
+  "detector_operator": "D0",
+  "source_D0_record_id": "D0_pair_f0bc63d6e874cd2eb117",
+  "source_D0_direction": "uptrend",
+  "direction_audit_reason": "all_three_phases_clear_up",
+  "direction_changed": false
+}

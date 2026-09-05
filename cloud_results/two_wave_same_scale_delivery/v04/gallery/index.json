@@ -1,0 +1,330 @@
+[
+  {
+    "case": "legacy_case_00_A_clear_C_uncertain",
+    "selection": "retained legacy sample; no new case selection",
+    "bars_start": 48704,
+    "bars_stop": 48819,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "legacy_case_01_A_clear_C_uncertain",
+    "selection": "retained legacy sample; no new case selection",
+    "bars_start": 7906,
+    "bars_stop": 8007,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "legacy_case_02_C_new_downtrend",
+    "selection": "retained legacy sample; no new case selection",
+    "bars_start": 4549,
+    "bars_stop": 4676,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "legacy_case_03_C_new_downtrend",
+    "selection": "retained legacy sample; no new case selection",
+    "bars_start": 51493,
+    "bars_stop": 51712,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "legacy_case_04_C_new_range",
+    "selection": "retained legacy sample; no new case selection",
+    "bars_start": 8520,
+    "bars_stop": 8621,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "legacy_case_05_C_new_range",
+    "selection": "retained legacy sample; no new case selection",
+    "bars_start": 8017,
+    "bars_stop": 8099,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "legacy_case_06_C_new_uptrend",
+    "selection": "retained legacy sample; no new case selection",
+    "bars_start": 13048,
+    "bars_stop": 13201,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "legacy_case_07_C_new_uptrend",
+    "selection": "retained legacy sample; no new case selection",
+    "bars_start": 4027,
+    "bars_stop": 4136,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "legacy_case_08_stable_downtrend",
+    "selection": "retained legacy sample; no new case selection",
+    "bars_start": 12306,
+    "bars_stop": 12366,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "legacy_case_09_stable_downtrend",
+    "selection": "retained legacy sample; no new case selection",
+    "bars_start": 5555,
+    "bars_stop": 5664,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "legacy_case_10_stable_range",
+    "selection": "retained legacy sample; no new case selection",
+    "bars_start": 8675,
+    "bars_stop": 8778,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "legacy_case_11_stable_range",
+    "selection": "retained legacy sample; no new case selection",
+    "bars_start": 68611,
+    "bars_stop": 69387,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "legacy_case_12_stable_uncertain",
+    "selection": "retained legacy sample; no new case selection",
+    "bars_start": 64501,
+    "bars_stop": 64572,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "legacy_case_13_stable_uncertain",
+    "selection": "retained legacy sample; no new case selection",
+    "bars_start": 1740,
+    "bars_stop": 2105,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "legacy_case_14_stable_uptrend",
+    "selection": "retained legacy sample; no new case selection",
+    "bars_start": 30407,
+    "bars_stop": 31480,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "legacy_case_15_stable_uptrend",
+    "selection": "retained legacy sample; no new case selection",
+    "bars_start": 22738,
+    "bars_stop": 22857,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "D0_selected_range_0",
+    "selection": "first two chronological in direction; diagnostic not truth",
+    "bars_start": 9540,
+    "bars_stop": 9669,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "D0_selected_range_1",
+    "selection": "first two chronological in direction; diagnostic not truth",
+    "bars_start": 24728,
+    "bars_stop": 24799,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "D0_selected_uptrend_0",
+    "selection": "first two chronological in direction; diagnostic not truth",
+    "bars_start": 568,
+    "bars_stop": 656,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "D0_selected_uptrend_1",
+    "selection": "first two chronological in direction; diagnostic not truth",
+    "bars_start": 4683,
+    "bars_stop": 4797,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "D0_selected_downtrend_0",
+    "selection": "first two chronological in direction; diagnostic not truth",
+    "bars_start": 822,
+    "bars_stop": 902,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "D0_selected_downtrend_1",
+    "selection": "first two chronological in direction; diagnostic not truth",
+    "bars_start": 13479,
+    "bars_stop": 13569,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "D0_selected_uncertain_0",
+    "selection": "first two chronological in direction; diagnostic not truth",
+    "bars_start": 1028,
+    "bars_stop": 1094,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "D0_selected_uncertain_1",
+    "selection": "first two chronological in direction; diagnostic not truth",
+    "bars_start": 3249,
+    "bars_stop": 3350,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "D0_rejected_short_leg",
+    "selection": "earliest candidate with short_leg; diagnostic",
+    "bars_start": 0,
+    "bars_stop": 83,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "D0_rejected_cycle_duration",
+    "selection": "earliest candidate with cycle_duration; diagnostic",
+    "bars_start": 0,
+    "bars_stop": 83,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "D0_rejected_leg_time_asymmetry",
+    "selection": "earliest candidate with leg_time_asymmetry; diagnostic",
+    "bars_start": 0,
+    "bars_stop": 83,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "D0_rejected_amplitude_asymmetry",
+    "selection": "earliest candidate with amplitude_asymmetry; diagnostic",
+    "bars_start": 35,
+    "bars_stop": 100,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "D0_rejected_single_bar_dominance",
+    "selection": "earliest candidate with single_bar_dominance; diagnostic",
+    "bars_start": 0,
+    "bars_stop": 83,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "D0_rejected_internal_backtracking",
+    "selection": "earliest candidate with internal_backtracking; diagnostic",
+    "bars_start": 0,
+    "bars_stop": 83,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "D0_rejected_late_confirmation",
+    "selection": "earliest candidate with late_confirmation; diagnostic",
+    "bars_start": 163,
+    "bars_stop": 272,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "D0_rejected_calendar_span",
+    "selection": "earliest candidate with calendar_span; diagnostic",
+    "bars_start": 1453,
+    "bars_stop": 1560,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "D0_eligible_overlap_suppressed",
+    "selection": "earliest eligible full pair suppressed by ownership",
+    "bars_start": 828,
+    "bars_stop": 909,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "D0_weak_third_phase",
+    "selection": "earliest selected trend with one weak phase; diagnostic",
+    "bars_start": 19250,
+    "bars_stop": 19337,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "fixed_2015_start",
+    "selection": "first 144 native bars of each development year",
+    "bars_start": 0,
+    "bars_stop": 144,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "fixed_2016_start",
+    "selection": "first 144 native bars of each development year",
+    "bars_start": 11712,
+    "bars_stop": 11856,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "fixed_2017_start",
+    "selection": "first 144 native bars of each development year",
+    "bars_start": 23363,
+    "bars_stop": 23507,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "fixed_2018_start",
+    "selection": "first 144 native bars of each development year",
+    "bars_start": 35074,
+    "bars_stop": 35218,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "fixed_2019_start",
+    "selection": "first 144 native bars of each development year",
+    "bars_start": 46738,
+    "bars_stop": 46882,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "fixed_2020_start",
+    "selection": "first 144 native bars of each development year",
+    "bars_start": 58450,
+    "bars_stop": 58594,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  },
+  {
+    "case": "review_2018_06_20",
+    "selection": "user-specified conflicting-overlay review date",
+    "bars_start": 40354,
+    "bars_stop": 40498,
+    "human_reference": false,
+    "future_prices_shown_only_as_review_context": true
+  }
+]

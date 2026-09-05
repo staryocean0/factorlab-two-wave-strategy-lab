@@ -1,0 +1,127 @@
+{
+  "case": "legacy_case_04_C_new_range",
+  "selection": "retained legacy sample; no new case selection",
+  "bars_start": 8520,
+  "bars_stop": 8621,
+  "record": {
+    "schema_version": "two_wave_same_scale@0.4.0",
+    "config_hash": "direction_cfg_c631e55d562c507bb996",
+    "source_structure_id": "structure_55cdb2d4b5b7d805ff50",
+    "pivot_ids": [
+      "pivot_ea09476ce9546a053a38",
+      "pivot_979ea047ed1258ff52bd",
+      "pivot_3a20e92e9d278a12f518",
+      "pivot_2f29779eff4a49d00d6e",
+      "pivot_a541a1458ed46a59a58a"
+    ],
+    "cycle_ids": [
+      "cycle_bdf45dd60bb650d2ced1",
+      "cycle_0ac1c4d939f2dff31dac"
+    ],
+    "phase": "high",
+    "five_occurrence_bars": [
+      8536,
+      8542,
+      8550,
+      8565,
+      8591
+    ],
+    "timeframe": "5m_offset_0",
+    "scale_id": "scale_d37d7ace5f06079f6fc0",
+    "start_bar": 8536,
+    "end_bar": 8591,
+    "confirmation_bar": 8604,
+    "confirmation_time": "2015-09-25T02:35:00+00:00",
+    "effective_information_time": "2015-09-25T07:30:00+00:00",
+    "direction_classification": "range",
+    "direction_rejection_reasons": [],
+    "phase_displacements_in_widths": [
+      0.20109562742391232,
+      -0.018000657770901533,
+      0.09185517419848775
+    ],
+    "phase_spans_in_widths": [
+      0.20109562742391232,
+      0.09185517419848775
+    ],
+    "D": 0.14790793189191276,
+    "E": 0.055228934898393804,
+    "path_er": 0.023417341991596653,
+    "channel_classification_A": "uncertain",
+    "channel_rejection_reasons_A": [
+      "uneven_phase_drift"
+    ],
+    "channel_accepted_by_A": false,
+    "morphology_attributes": [
+      "uneven_phase_drift"
+    ],
+    "boundary_basis": "unchanged_A_diagnostic_only",
+    "trade_authority": false,
+    "human_reference": false,
+    "future_outcome_used": false,
+    "direction_record_id": "direction_beb37dab6a72e7cdb8f2",
+    "source_C0_direction_record_id": "direction_e19cf8134fb6481d4c80",
+    "direction_classification_before_range_audit": "range",
+    "range_audit_tolerance": 0.15,
+    "range_audit_conflicts": [],
+    "scale_eligible": false,
+    "scale_rejection_reasons": [
+      "period_asymmetry",
+      "leg_time_asymmetry",
+      "internal_backtracking",
+      "single_bar_dominance",
+      "late_confirmation"
+    ],
+    "leg_bars": [
+      6,
+      8,
+      15,
+      26
+    ],
+    "cycle_bars": [
+      14,
+      41
+    ],
+    "pair_bars": 55,
+    "period_ratio": 2.9285714285714284,
+    "corresponding_leg_ratios": [
+      2.5,
+      3.25
+    ],
+    "cycle_chord_amplitudes": [
+      0.013061993714424958,
+      0.013273159804345624
+    ],
+    "amplitude_ratio": 1.0161664516564164,
+    "leg_er": [
+      0.9236416825585014,
+      0.8941204942568223,
+      0.6204281703367747,
+      0.26514121270984475
+    ],
+    "single_step_path_shares": [
+      0.3247581987397113,
+      0.5406570483528297,
+      0.1534750508895534,
+      0.11481523402857197
+    ],
+    "exact_flat_shares": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "observed_sessions": 2,
+    "calendar_days": 1.0243055555555556,
+    "confirmation_delay_bars": 13,
+    "grammar_hash": "grammar_8ef56208469d6cbbdd86",
+    "operator": "C2G",
+    "record_id": "C2G_dfa98e2a1b3978006487",
+    "direction": "range",
+    "source_C1_id": "direction_beb37dab6a72e7cdb8f2",
+    "selected": false,
+    "ownership_rejection": null
+  },
+  "human_reference": false,
+  "future_prices_shown_only_as_review_context": true
+}

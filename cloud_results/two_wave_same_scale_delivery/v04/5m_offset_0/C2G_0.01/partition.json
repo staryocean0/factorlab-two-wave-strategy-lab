@@ -1,0 +1,382 @@
+[
+  {
+    "start": 0,
+    "stop": 3256,
+    "label": "uncovered",
+    "known_at_bar": 3314,
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 3256,
+    "stop": 3313,
+    "label": "uncertain",
+    "record_id": "C2G_7ab43b33595af15e9582",
+    "anchor_bar": 3255,
+    "known_at_bar": 3314,
+    "effective_information_time": "2015-04-20T07:30:00+00:00",
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 3313,
+    "stop": 5203,
+    "label": "uncovered",
+    "known_at_bar": 5280,
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 5203,
+    "stop": 5276,
+    "label": "uncertain",
+    "record_id": "C2G_a0ca264d59e6cfe2d8fa",
+    "anchor_bar": 5202,
+    "known_at_bar": 5280,
+    "effective_information_time": "2015-06-17T07:30:00+00:00",
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 5276,
+    "stop": 5388,
+    "label": "uncovered",
+    "known_at_bar": 5426,
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 5388,
+    "stop": 5426,
+    "label": "downtrend",
+    "record_id": "C2G_34b93ce22ca07ff06495",
+    "anchor_bar": 5387,
+    "known_at_bar": 5426,
+    "effective_information_time": "2015-06-23T07:30:00+00:00",
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 5426,
+    "stop": 6385,
+    "label": "uncovered",
+    "known_at_bar": 6432,
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 6385,
+    "stop": 6425,
+    "label": "uptrend",
+    "record_id": "C2G_e487b4de716115b6014d",
+    "anchor_bar": 6384,
+    "known_at_bar": 6432,
+    "effective_information_time": "2015-07-22T07:30:00+00:00",
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 6425,
+    "stop": 6667,
+    "label": "uncovered",
+    "known_at_bar": 6706,
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 6667,
+    "stop": 6703,
+    "label": "downtrend",
+    "record_id": "C2G_b21da5f769f554d79559",
+    "anchor_bar": 6666,
+    "known_at_bar": 6706,
+    "effective_information_time": "2015-07-29T07:30:00+00:00",
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 6703,
+    "stop": 6804,
+    "label": "uncovered",
+    "known_at_bar": 6869,
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 6804,
+    "stop": 6867,
+    "label": "downtrend",
+    "record_id": "C2G_97e1c45a3cbab45b1588",
+    "anchor_bar": 6803,
+    "known_at_bar": 6869,
+    "effective_information_time": "2015-08-04T07:30:00+00:00",
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 6867,
+    "stop": 7684,
+    "label": "uncovered",
+    "known_at_bar": 7720,
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 7684,
+    "stop": 7719,
+    "label": "downtrend",
+    "record_id": "C2G_cbac72734c49b5daa8b8",
+    "anchor_bar": 7683,
+    "known_at_bar": 7720,
+    "effective_information_time": "2015-08-27T07:30:00+00:00",
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 7719,
+    "stop": 7785,
+    "label": "uptrend",
+    "record_id": "C2G_4e7d7567995d47702d9a",
+    "anchor_bar": 7718,
+    "known_at_bar": 7789,
+    "effective_information_time": "2015-08-31T07:30:00+00:00",
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 7785,
+    "stop": 7804,
+    "label": "uncovered",
+    "known_at_bar": 7874,
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 7804,
+    "stop": 7873,
+    "label": "downtrend",
+    "record_id": "C2G_3f7f154a4697add29bfd",
+    "anchor_bar": 7803,
+    "known_at_bar": 7874,
+    "effective_information_time": "2015-09-02T07:30:00+00:00",
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 7873,
+    "stop": 8210,
+    "label": "uncovered",
+    "known_at_bar": 8247,
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 8210,
+    "stop": 8246,
+    "label": "uncertain",
+    "record_id": "C2G_46498e6578bc877a1b01",
+    "anchor_bar": 8209,
+    "known_at_bar": 8247,
+    "effective_information_time": "2015-09-15T07:30:00+00:00",
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 8246,
+    "stop": 9523,
+    "label": "uncovered",
+    "known_at_bar": 9604,
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 9523,
+    "stop": 9601,
+    "label": "range",
+    "record_id": "C2G_af82367a53f59329cf5b",
+    "anchor_bar": 9522,
+    "known_at_bar": 9604,
+    "effective_information_time": "2015-11-02T07:30:00+00:00",
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 9601,
+    "stop": 10009,
+    "label": "uncovered",
+    "known_at_bar": 10086,
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 10009,
+    "stop": 10081,
+    "label": "uncertain",
+    "record_id": "C2G_e47caf918dae5b243fe4",
+    "anchor_bar": 10008,
+    "known_at_bar": 10086,
+    "effective_information_time": "2015-11-16T07:30:00+00:00",
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 10081,
+    "stop": 11860,
+    "label": "uncovered",
+    "known_at_bar": 11923,
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 11860,
+    "stop": 11919,
+    "label": "downtrend",
+    "record_id": "C2G_7e56c02c557c1ce8e4a2",
+    "anchor_bar": 11859,
+    "known_at_bar": 11923,
+    "effective_information_time": "2016-01-11T07:30:00+00:00",
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 11919,
+    "stop": 12516,
+    "label": "uncovered",
+    "known_at_bar": 12551,
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 12516,
+    "stop": 12550,
+    "label": "uncertain",
+    "record_id": "C2G_23d2a020cb3c587f961e",
+    "anchor_bar": 12515,
+    "known_at_bar": 12551,
+    "effective_information_time": "2016-01-28T07:30:00+00:00",
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 12550,
+    "stop": 13047,
+    "label": "uncovered",
+    "known_at_bar": 13091,
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 13047,
+    "stop": 13084,
+    "label": "uncertain",
+    "record_id": "C2G_6e526158328b98f0c084",
+    "anchor_bar": 13046,
+    "known_at_bar": 13091,
+    "effective_information_time": "2016-02-22T07:30:00+00:00",
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 13084,
+    "stop": 13296,
+    "label": "uncovered",
+    "known_at_bar": 13355,
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 13296,
+    "stop": 13350,
+    "label": "uncertain",
+    "record_id": "C2G_aad058623b81150d3d40",
+    "anchor_bar": 13295,
+    "known_at_bar": 13355,
+    "effective_information_time": "2016-02-29T07:30:00+00:00",
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 13350,
+    "stop": 41952,
+    "label": "uncovered",
+    "known_at_bar": 42034,
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 41952,
+    "stop": 42029,
+    "label": "downtrend",
+    "record_id": "C2G_e3ddec0ca6f32f754838",
+    "anchor_bar": 41951,
+    "known_at_bar": 42034,
+    "effective_information_time": "2018-08-07T07:30:00+00:00",
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 42029,
+    "stop": 48665,
+    "label": "uncovered",
+    "known_at_bar": 48728,
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 48665,
+    "stop": 48721,
+    "label": "uptrend",
+    "record_id": "C2G_d5a81bc1fce636f753e5",
+    "anchor_bar": 48664,
+    "known_at_bar": 48728,
+    "effective_information_time": "2019-03-07T07:30:00+00:00",
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 48721,
+    "stop": 60878,
+    "label": "uncovered",
+    "known_at_bar": 60946,
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 60878,
+    "stop": 60944,
+    "label": "downtrend",
+    "record_id": "C2G_5cb5e65f44e365747b1a",
+    "anchor_bar": 60877,
+    "known_at_bar": 60946,
+    "effective_information_time": "2020-03-24T07:30:00+00:00",
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 60944,
+    "stop": 64606,
+    "label": "uncovered",
+    "known_at_bar": 64680,
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 64606,
+    "stop": 64673,
+    "label": "downtrend",
+    "record_id": "C2G_eef764aacf8160af971e",
+    "anchor_bar": 64605,
+    "known_at_bar": 64680,
+    "effective_information_time": "2020-07-17T07:30:00+00:00",
+    "provisional": false,
+    "retrospective_only": true
+  },
+  {
+    "start": 64673,
+    "stop": 70114,
+    "label": "pending_or_uncovered",
+    "known_at_bar": null,
+    "provisional": true,
+    "retrospective_only": true
+  }
+]

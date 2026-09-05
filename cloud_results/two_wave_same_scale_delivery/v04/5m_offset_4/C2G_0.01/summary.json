@@ -1,0 +1,187 @@
+{
+  "candidates": 1472,
+  "eligible_before_ownership": 15,
+  "selected_pairs": 8,
+  "direction_counts": {
+    "downtrend": 4,
+    "uptrend": 1,
+    "range": 1,
+    "uncertain": 2
+  },
+  "rejections": {
+    "short_leg": 255,
+    "cycle_duration": 1138,
+    "pair_duration": 885,
+    "period_asymmetry": 648,
+    "leg_time_asymmetry": 1187,
+    "amplitude_asymmetry": 398,
+    "internal_backtracking": 1164,
+    "single_bar_dominance": 341,
+    "too_many_sessions": 791,
+    "calendar_span": 429,
+    "late_confirmation": 699
+  },
+  "overlap_suppressed": 7,
+  "selected_span_bars": {
+    "min": 34.0,
+    "p50": 49.5,
+    "p90": 65.9,
+    "max": 68.0
+  },
+  "selected_delay_bars": {
+    "min": 2.0,
+    "p50": 4.0,
+    "p90": 4.3,
+    "max": 5.0
+  },
+  "owned_bars": 403,
+  "total_bars": 67191,
+  "full_partition_rows": 16,
+  "max_published_ownership_multiplicity": 1,
+  "not_accuracy": true,
+  "morphology_accepted": false,
+  "view": "5m_offset_4",
+  "operator": "C2G",
+  "reversal_log": 0.01,
+  "C1_all_overlap": {
+    "interval_convention": "inclusive C1 occurrence windows, audit only",
+    "histogram": {
+      "0": 303,
+      "1": 88,
+      "2": 200,
+      "3": 71,
+      "4": 65061,
+      "5": 1468
+    },
+    "mean_multiplicity_all_bars": 3.9928710690419846,
+    "mean_multiplicity_covered_bars": 4.010958617390265,
+    "fraction_bars_multiple_candidates": 0.9941807682576536,
+    "max": 5
+  },
+  "C1_definite_overlap": {
+    "interval_convention": "inclusive C1 occurrence windows, audit only",
+    "histogram": {
+      "0": 21294,
+      "1": 19464,
+      "2": 14528,
+      "3": 7330,
+      "4": 4521,
+      "5": 54
+    },
+    "mean_multiplicity_all_bars": 1.3225580806953312,
+    "mean_multiplicity_covered_bars": 1.9361614048848508,
+    "fraction_bars_multiple_candidates": 0.39340090190650534,
+    "max": 5
+  },
+  "C1_counts": {
+    "uptrend": 222,
+    "uncertain": 963,
+    "downtrend": 220,
+    "range": 67
+  },
+  "C1_span_by_direction": {
+    "range": {
+      "min": 14.0,
+      "p50": 79.0,
+      "p90": 354.4,
+      "max": 694.0
+    },
+    "uptrend": {
+      "min": 17.0,
+      "p50": 153.0,
+      "p90": 448.9000000000001,
+      "max": 944.0
+    },
+    "downtrend": {
+      "min": 17.0,
+      "p50": 78.5,
+      "p90": 372.2,
+      "max": 632.0
+    },
+    "uncertain": {
+      "min": 10.0,
+      "p50": 127.0,
+      "p90": 406.00000000000034,
+      "max": 886.0
+    }
+  },
+  "selected_information_lag_seconds": {
+    "min": 3960.0,
+    "p50": 18660.0,
+    "p90": 20850.0,
+    "max": 21060.0
+  },
+  "all_confirmations_available_at_bar_end": false,
+  "confirmation_tape_semantics": "bar-prefix event only; respect effective_information_time; no forward filling",
+  "annual": [
+    {
+      "year": "2015",
+      "selected": 6,
+      "directions": {
+        "downtrend": 3,
+        "uptrend": 1,
+        "range": 1,
+        "uncertain": 1
+      }
+    },
+    {
+      "year": "2016",
+      "selected": 1,
+      "directions": {
+        "uncertain": 1
+      }
+    },
+    {
+      "year": "2017",
+      "selected": 0,
+      "directions": {}
+    },
+    {
+      "year": "2018",
+      "selected": 0,
+      "directions": {}
+    },
+    {
+      "year": "2019",
+      "selected": 0,
+      "directions": {}
+    },
+    {
+      "year": "2020",
+      "selected": 1,
+      "directions": {
+        "downtrend": 1
+      }
+    }
+  ],
+  "prefix_checks": [
+    {
+      "bars": 128,
+      "candidate_records": 0,
+      "selected": 0,
+      "independent_replay_equal": true,
+      "closed_partition_equal": true
+    },
+    {
+      "bars": 1000,
+      "candidate_records": 10,
+      "selected": 0,
+      "independent_replay_equal": true,
+      "closed_partition_equal": true
+    },
+    {
+      "bars": 33595,
+      "candidate_records": 852,
+      "selected": 7,
+      "independent_replay_equal": true,
+      "closed_partition_equal": true
+    },
+    {
+      "bars": 67190,
+      "candidate_records": 1472,
+      "selected": 8,
+      "independent_replay_equal": true,
+      "closed_partition_equal": true
+    }
+  ]
+}

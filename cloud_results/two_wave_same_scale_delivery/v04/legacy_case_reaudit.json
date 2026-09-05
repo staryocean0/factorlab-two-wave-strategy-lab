@@ -1,0 +1,540 @@
+[
+  {
+    "case": "case_00_A_clear_C_uncertain",
+    "source_C1_id": "direction_d05ad9a6eb1eb5ef2e4a",
+    "five_occurrence_bars": [
+      48720,
+      48749,
+      48754,
+      48768,
+      48801
+    ],
+    "original_C1_direction": "uncertain",
+    "cycle_bars": [
+      34,
+      47
+    ],
+    "leg_bars": [
+      29,
+      5,
+      14,
+      33
+    ],
+    "scale_eligible": false,
+    "scale_rejection_reasons": [
+      "leg_time_asymmetry",
+      "internal_backtracking",
+      "single_bar_dominance"
+    ],
+    "selected": false,
+    "pair_bars": 81,
+    "amplitude_ratio": 1.0521893415081194,
+    "direction": "uncertain"
+  },
+  {
+    "case": "case_01_A_clear_C_uncertain",
+    "source_C1_id": "direction_d8cfddb9a4dfcfcaf268",
+    "five_occurrence_bars": [
+      7922,
+      7930,
+      7943,
+      7964,
+      7981
+    ],
+    "original_C1_direction": "uncertain",
+    "cycle_bars": [
+      21,
+      38
+    ],
+    "leg_bars": [
+      8,
+      13,
+      21,
+      17
+    ],
+    "scale_eligible": false,
+    "scale_rejection_reasons": [
+      "leg_time_asymmetry",
+      "internal_backtracking",
+      "late_confirmation"
+    ],
+    "selected": false,
+    "pair_bars": 59,
+    "amplitude_ratio": 1.0756141208823427,
+    "direction": "uncertain"
+  },
+  {
+    "case": "case_02_C_new_downtrend",
+    "source_C1_id": "direction_e598405f7bb126623063",
+    "five_occurrence_bars": [
+      4565,
+      4617,
+      4655,
+      4656,
+      4658
+    ],
+    "original_C1_direction": "downtrend",
+    "cycle_bars": [
+      90,
+      3
+    ],
+    "leg_bars": [
+      52,
+      38,
+      1,
+      2
+    ],
+    "scale_eligible": false,
+    "scale_rejection_reasons": [
+      "short_leg",
+      "cycle_duration",
+      "period_asymmetry",
+      "leg_time_asymmetry",
+      "amplitude_asymmetry",
+      "internal_backtracking",
+      "single_bar_dominance"
+    ],
+    "selected": false,
+    "pair_bars": 93,
+    "amplitude_ratio": 2.0818024769174017,
+    "direction": "downtrend"
+  },
+  {
+    "case": "case_03_C_new_downtrend",
+    "source_C1_id": "direction_f5f49920151bf454a004",
+    "five_occurrence_bars": [
+      51509,
+      51523,
+      51581,
+      51620,
+      51676
+    ],
+    "original_C1_direction": "downtrend",
+    "cycle_bars": [
+      72,
+      95
+    ],
+    "leg_bars": [
+      14,
+      58,
+      39,
+      56
+    ],
+    "scale_eligible": false,
+    "scale_rejection_reasons": [
+      "cycle_duration",
+      "pair_duration",
+      "leg_time_asymmetry",
+      "internal_backtracking",
+      "too_many_sessions",
+      "late_confirmation"
+    ],
+    "selected": false,
+    "pair_bars": 167,
+    "amplitude_ratio": 1.4913506735284356,
+    "direction": "downtrend"
+  },
+  {
+    "case": "case_04_C_new_range",
+    "source_C1_id": "direction_beb37dab6a72e7cdb8f2",
+    "five_occurrence_bars": [
+      8536,
+      8542,
+      8550,
+      8565,
+      8591
+    ],
+    "original_C1_direction": "range",
+    "cycle_bars": [
+      14,
+      41
+    ],
+    "leg_bars": [
+      6,
+      8,
+      15,
+      26
+    ],
+    "scale_eligible": false,
+    "scale_rejection_reasons": [
+      "period_asymmetry",
+      "leg_time_asymmetry",
+      "internal_backtracking",
+      "single_bar_dominance",
+      "late_confirmation"
+    ],
+    "selected": false,
+    "pair_bars": 55,
+    "amplitude_ratio": 1.0161664516564164,
+    "direction": "range"
+  },
+  {
+    "case": "case_05_C_new_range",
+    "source_C1_id": "direction_c7e56c25df26e5a5f240",
+    "five_occurrence_bars": [
+      8033,
+      8054,
+      8063,
+      8064,
+      8075
+    ],
+    "original_C1_direction": "range",
+    "cycle_bars": [
+      30,
+      12
+    ],
+    "leg_bars": [
+      21,
+      9,
+      1,
+      11
+    ],
+    "scale_eligible": false,
+    "scale_rejection_reasons": [
+      "short_leg",
+      "period_asymmetry",
+      "leg_time_asymmetry",
+      "internal_backtracking",
+      "single_bar_dominance"
+    ],
+    "selected": false,
+    "pair_bars": 42,
+    "amplitude_ratio": 1.4898231568033946,
+    "direction": "range"
+  },
+  {
+    "case": "case_06_C_new_uptrend",
+    "source_C1_id": "direction_ae4e726097a725a16149",
+    "five_occurrence_bars": [
+      13064,
+      13077,
+      13083,
+      13140,
+      13180
+    ],
+    "original_C1_direction": "uptrend",
+    "cycle_bars": [
+      19,
+      97
+    ],
+    "leg_bars": [
+      13,
+      6,
+      57,
+      40
+    ],
+    "scale_eligible": false,
+    "scale_rejection_reasons": [
+      "cycle_duration",
+      "pair_duration",
+      "period_asymmetry",
+      "leg_time_asymmetry",
+      "amplitude_asymmetry",
+      "internal_backtracking"
+    ],
+    "selected": false,
+    "pair_bars": 116,
+    "amplitude_ratio": 2.032703062350035,
+    "direction": "uptrend"
+  },
+  {
+    "case": "case_07_C_new_uptrend",
+    "source_C1_id": "direction_46fd3f5c5fe4028a99b9",
+    "five_occurrence_bars": [
+      4043,
+      4052,
+      4079,
+      4080,
+      4113
+    ],
+    "original_C1_direction": "uptrend",
+    "cycle_bars": [
+      36,
+      34
+    ],
+    "leg_bars": [
+      9,
+      27,
+      1,
+      33
+    ],
+    "scale_eligible": false,
+    "scale_rejection_reasons": [
+      "short_leg",
+      "leg_time_asymmetry",
+      "internal_backtracking",
+      "single_bar_dominance"
+    ],
+    "selected": false,
+    "pair_bars": 70,
+    "amplitude_ratio": 1.0661653641732816,
+    "direction": "uptrend"
+  },
+  {
+    "case": "case_08_stable_downtrend",
+    "source_C1_id": "direction_4a98be373b50801dd6e8",
+    "five_occurrence_bars": [
+      12322,
+      12323,
+      12327,
+      12332,
+      12344
+    ],
+    "original_C1_direction": "downtrend",
+    "cycle_bars": [
+      5,
+      17
+    ],
+    "leg_bars": [
+      1,
+      4,
+      5,
+      12
+    ],
+    "scale_eligible": false,
+    "scale_rejection_reasons": [
+      "short_leg",
+      "cycle_duration",
+      "period_asymmetry",
+      "leg_time_asymmetry",
+      "single_bar_dominance"
+    ],
+    "selected": false,
+    "pair_bars": 22,
+    "amplitude_ratio": 1.1290855448803034,
+    "direction": "downtrend"
+  },
+  {
+    "case": "case_09_stable_downtrend",
+    "source_C1_id": "direction_66c1289bacfe9c69c02b",
+    "five_occurrence_bars": [
+      5571,
+      5575,
+      5618,
+      5623,
+      5644
+    ],
+    "original_C1_direction": "downtrend",
+    "cycle_bars": [
+      47,
+      26
+    ],
+    "leg_bars": [
+      4,
+      43,
+      5,
+      21
+    ],
+    "scale_eligible": false,
+    "scale_rejection_reasons": [
+      "leg_time_asymmetry"
+    ],
+    "selected": false,
+    "pair_bars": 73,
+    "amplitude_ratio": 1.2555299056733236,
+    "direction": "downtrend"
+  },
+  {
+    "case": "case_10_stable_range",
+    "source_C1_id": "direction_bd395b36851c5586de64",
+    "five_occurrence_bars": [
+      8691,
+      8699,
+      8724,
+      8739,
+      8751
+    ],
+    "original_C1_direction": "range",
+    "cycle_bars": [
+      33,
+      27
+    ],
+    "leg_bars": [
+      8,
+      25,
+      15,
+      12
+    ],
+    "scale_eligible": false,
+    "scale_rejection_reasons": [
+      "leg_time_asymmetry",
+      "internal_backtracking",
+      "late_confirmation"
+    ],
+    "selected": false,
+    "pair_bars": 60,
+    "amplitude_ratio": 1.0582385818692053,
+    "direction": "range"
+  },
+  {
+    "case": "case_11_stable_range",
+    "source_C1_id": "direction_cdfadbb7c5937281166f",
+    "five_occurrence_bars": [
+      68627,
+      68754,
+      68938,
+      69212,
+      69351
+    ],
+    "original_C1_direction": "range",
+    "cycle_bars": [
+      311,
+      413
+    ],
+    "leg_bars": [
+      127,
+      184,
+      274,
+      139
+    ],
+    "scale_eligible": false,
+    "scale_rejection_reasons": [
+      "cycle_duration",
+      "pair_duration",
+      "leg_time_asymmetry",
+      "internal_backtracking",
+      "too_many_sessions",
+      "calendar_span",
+      "late_confirmation"
+    ],
+    "selected": false,
+    "pair_bars": 724,
+    "amplitude_ratio": 1.0711712677244976,
+    "direction": "range"
+  },
+  {
+    "case": "case_12_stable_uncertain",
+    "source_C1_id": "direction_92bcc5041fc54b475fb2",
+    "five_occurrence_bars": [
+      64517,
+      64532,
+      64543,
+      64549,
+      64551
+    ],
+    "original_C1_direction": "uncertain",
+    "cycle_bars": [
+      26,
+      8
+    ],
+    "leg_bars": [
+      15,
+      11,
+      6,
+      2
+    ],
+    "scale_eligible": false,
+    "scale_rejection_reasons": [
+      "short_leg",
+      "cycle_duration",
+      "period_asymmetry",
+      "leg_time_asymmetry",
+      "single_bar_dominance"
+    ],
+    "selected": false,
+    "pair_bars": 34,
+    "amplitude_ratio": 1.6537450762292512,
+    "direction": "uncertain"
+  },
+  {
+    "case": "case_13_stable_uncertain",
+    "source_C1_id": "direction_c039d4a7722af3f75610",
+    "five_occurrence_bars": [
+      1756,
+      1774,
+      1873,
+      1920,
+      2066
+    ],
+    "original_C1_direction": "uncertain",
+    "cycle_bars": [
+      117,
+      193
+    ],
+    "leg_bars": [
+      18,
+      99,
+      47,
+      146
+    ],
+    "scale_eligible": false,
+    "scale_rejection_reasons": [
+      "cycle_duration",
+      "pair_duration",
+      "leg_time_asymmetry",
+      "internal_backtracking",
+      "too_many_sessions",
+      "calendar_span",
+      "late_confirmation"
+    ],
+    "selected": false,
+    "pair_bars": 310,
+    "amplitude_ratio": 1.7095306205520315,
+    "direction": "uncertain"
+  },
+  {
+    "case": "case_14_stable_uptrend",
+    "source_C1_id": "direction_3b10a104a2f6c7f3e2ca",
+    "five_occurrence_bars": [
+      30423,
+      30513,
+      30802,
+      30941,
+      31408
+    ],
+    "original_C1_direction": "uptrend",
+    "cycle_bars": [
+      379,
+      606
+    ],
+    "leg_bars": [
+      90,
+      289,
+      139,
+      467
+    ],
+    "scale_eligible": false,
+    "scale_rejection_reasons": [
+      "cycle_duration",
+      "pair_duration",
+      "internal_backtracking",
+      "too_many_sessions",
+      "calendar_span",
+      "late_confirmation"
+    ],
+    "selected": false,
+    "pair_bars": 985,
+    "amplitude_ratio": 1.0178145145615995,
+    "direction": "uptrend"
+  },
+  {
+    "case": "case_15_stable_uptrend",
+    "source_C1_id": "direction_c3629ed766c990341ce4",
+    "five_occurrence_bars": [
+      22754,
+      22772,
+      22785,
+      22808,
+      22826
+    ],
+    "original_C1_direction": "uptrend",
+    "cycle_bars": [
+      31,
+      41
+    ],
+    "leg_bars": [
+      18,
+      13,
+      23,
+      18
+    ],
+    "scale_eligible": false,
+    "scale_rejection_reasons": [
+      "late_confirmation"
+    ],
+    "selected": false,
+    "pair_bars": 72,
+    "amplitude_ratio": 1.1289648814396258,
+    "direction": "uptrend"
+  }
+]

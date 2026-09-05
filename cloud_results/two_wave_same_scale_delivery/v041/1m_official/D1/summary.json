@@ -1,0 +1,204 @@
+{
+  "candidates": 37354,
+  "eligible_before_ownership": 3761,
+  "selected_pairs": 2172,
+  "direction_counts": {
+    "uncertain": 768,
+    "uptrend": 755,
+    "downtrend": 642,
+    "range": 7
+  },
+  "rejections": {
+    "leg_time_asymmetry": 24608,
+    "single_bar_dominance": 16656,
+    "amplitude_asymmetry": 14833,
+    "short_leg": 18555,
+    "cycle_duration": 17931,
+    "period_asymmetry": 10979,
+    "internal_backtracking": 2951,
+    "late_confirmation": 979,
+    "pair_duration": 29,
+    "calendar_span": 48,
+    "long_exact_plateau": 4
+  },
+  "overlap_suppressed": 1589,
+  "selected_span_bars": {
+    "min": 24.0,
+    "p50": 38.0,
+    "p90": 59.0,
+    "max": 90.0
+  },
+  "selected_delay_bars": {
+    "min": 3.0,
+    "p50": 3.0,
+    "p90": 4.0,
+    "max": 8.0
+  },
+  "owned_bars": 89423,
+  "total_bars": 350561,
+  "full_partition_rows": 4103,
+  "max_published_ownership_multiplicity": 1,
+  "not_accuracy": true,
+  "morphology_accepted": false,
+  "view": "1m_official",
+  "operator": "D1",
+  "reversal_log": null,
+  "selected_information_lag_seconds": {
+    "min": 1860.0,
+    "p50": 8220.0,
+    "p90": 19140.0,
+    "max": 28620.0
+  },
+  "all_confirmations_available_at_bar_end": false,
+  "confirmation_tape_semantics": "bar-prefix event only; respect effective_information_time; no forward filling",
+  "annual": [
+    {
+      "year": "2015",
+      "selected": 374,
+      "directions": {
+        "uncertain": 118,
+        "uptrend": 156,
+        "downtrend": 98,
+        "range": 2
+      }
+    },
+    {
+      "year": "2016",
+      "selected": 437,
+      "directions": {
+        "downtrend": 121,
+        "uptrend": 153,
+        "uncertain": 162,
+        "range": 1
+      }
+    },
+    {
+      "year": "2017",
+      "selected": 429,
+      "directions": {
+        "uptrend": 123,
+        "downtrend": 138,
+        "uncertain": 167,
+        "range": 1
+      }
+    },
+    {
+      "year": "2018",
+      "selected": 384,
+      "directions": {
+        "uptrend": 126,
+        "downtrend": 124,
+        "uncertain": 134
+      }
+    },
+    {
+      "year": "2019",
+      "selected": 311,
+      "directions": {
+        "uncertain": 99,
+        "downtrend": 91,
+        "uptrend": 120,
+        "range": 1
+      }
+    },
+    {
+      "year": "2020",
+      "selected": 237,
+      "directions": {
+        "uncertain": 88,
+        "uptrend": 77,
+        "downtrend": 70,
+        "range": 2
+      }
+    }
+  ],
+  "prefix_checks": [],
+  "D0_to_D1_selected": {
+    "uncertain->uncertain": 692,
+    "uptrend->uptrend": 746,
+    "downtrend->downtrend": 640,
+    "uncertain->uptrend": 4,
+    "range->uncertain": 76,
+    "range->range": 7,
+    "range->downtrend": 2,
+    "range->uptrend": 5
+  },
+  "independent_D1_prefix_checks": [
+    {
+      "bars": 128,
+      "independent_stream_equal": true,
+      "closed_partition_equal": true
+    },
+    {
+      "bars": 1000,
+      "independent_stream_equal": true,
+      "closed_partition_equal": true
+    },
+    {
+      "bars": 175280,
+      "independent_stream_equal": true,
+      "closed_partition_equal": true
+    },
+    {
+      "bars": 350560,
+      "independent_stream_equal": true,
+      "closed_partition_equal": true
+    }
+  ],
+  "D0_ownership_unchanged": true,
+  "data_audit": {
+    "rows": 350561,
+    "columns": 25,
+    "instrument": "000852.SH",
+    "view_id": "1m_official",
+    "export_frequency": "1m",
+    "minimum_trading_day": "2015-01-05",
+    "maximum_trading_day": "2020-12-31",
+    "rows_by_year": {
+      "2015": 58560,
+      "2016": 58241,
+      "2017": 58560,
+      "2018": 58320,
+      "2019": 58560,
+      "2020": 58320
+    },
+    "timestamp_timezone": "UTC",
+    "timestamp_semantics": "bar_end",
+    "volume_missing_rows": 349923,
+    "invalid_ohlc_rows": 0,
+    "duplicate_timestamp_rows": 0,
+    "rows_after_2020": 0,
+    "available_at_after_bar_end_rows": 350561,
+    "availability_delay_minutes_quantiles": {
+      "0": 30.0,
+      "0.5": 240.0,
+      "0.9": 336.0,
+      "0.99": 358.0,
+      "1": 480.0
+    },
+    "adjacent_timestamp_gap_minutes_quantiles": {
+      "0": 1.0,
+      "0.5": 1.0,
+      "0.9": 1.0,
+      "0.99": 1.0,
+      "1": 15511.0
+    },
+    "historical_bar_end_realtime_availability_proven": false,
+    "availability_note": "Replay is bar-order morphology. available_at is preserved; bar-end realtime availability and execution are not asserted.",
+    "gaps_note": "Gaps are observed, not filled; no exchange calendar completeness claim is made.",
+    "daily_view_note": "daily_proxy views select supplied intraday bars; their OHLC is not full-day OHLC.",
+    "data_role": "development_material",
+    "local_resampling_performed": false,
+    "trade_fill_authority": false,
+    "fresh_oos": false,
+    "path": "data/development/1m_official.parquet",
+    "file_bytes": 12842573,
+    "sha256": "755217afce9dec383e48cd46d591402fa90dc50897abeb3dc7097c9a18a109d4",
+    "git_blob_sha": "bd2aab00b58c1d31865ed596e99e8f531c5c9ddb",
+    "manifest_verified": true,
+    "processed_rows": 350561,
+    "processed_minimum_timestamp": "2015-01-05T01:31:00+00:00",
+    "processed_maximum_timestamp": "2020-12-31T07:00:00+00:00",
+    "max_bars": null
+  }
+}

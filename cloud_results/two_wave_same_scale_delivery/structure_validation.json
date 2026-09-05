@@ -1,0 +1,17 @@
+{
+  "candidate_installed": false,
+  "candidate_tool_id": "two_wave_parent_structure_recognizer",
+  "data_product_count": 14,
+  "data_row_count": 749337,
+  "fresh_oos": false,
+  "immutable_tool_count": 15,
+  "maximum_file_bytes": 12842573,
+  "maximum_trading_day": "2020-12-31",
+  "minimum_trading_day": "2015-01-05",
+  "production_authority": false,
+  "registered_use_authority": false,
+  "repository_file_count": 573,
+  "schema_id": "two_wave_cloud_theme_validation@1.0",
+  "source_files_checked": 473,
+  "status": "passed_bounded_cloud_theme_ready_for_morphology_research"
+}

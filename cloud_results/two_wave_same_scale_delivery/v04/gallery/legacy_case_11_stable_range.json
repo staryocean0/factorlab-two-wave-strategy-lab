@@ -1,0 +1,125 @@
+{
+  "case": "legacy_case_11_stable_range",
+  "selection": "retained legacy sample; no new case selection",
+  "bars_start": 68611,
+  "bars_stop": 69387,
+  "record": {
+    "schema_version": "two_wave_same_scale@0.4.0",
+    "config_hash": "direction_cfg_c631e55d562c507bb996",
+    "source_structure_id": "structure_ef08331de60f82aa6d99",
+    "pivot_ids": [
+      "pivot_f0ab75716057281e546c",
+      "pivot_1bcbee57fba87b0ab2d8",
+      "pivot_2adb5691b78ed09d5bc7",
+      "pivot_422a710ec9388935473a",
+      "pivot_032540da9cd58c130547"
+    ],
+    "cycle_ids": [
+      "cycle_6198a8b9e61cdbd1e034",
+      "cycle_f1dc4a34fec55c3a9085"
+    ],
+    "phase": "low",
+    "five_occurrence_bars": [
+      68627,
+      68754,
+      68938,
+      69212,
+      69351
+    ],
+    "timeframe": "5m_offset_0",
+    "scale_id": "scale_d37d7ace5f06079f6fc0",
+    "start_bar": 68627,
+    "end_bar": 69351,
+    "confirmation_bar": 69370,
+    "confirmation_time": "2020-12-10T05:05:00+00:00",
+    "effective_information_time": "2020-12-10T07:30:00+00:00",
+    "direction_classification": "range",
+    "direction_rejection_reasons": [],
+    "phase_displacements_in_widths": [
+      -0.22990063591597878,
+      -0.12556736871959806,
+      -0.28823344520629374
+    ],
+    "phase_spans_in_widths": [
+      0.3554680046355768,
+      0.28823344520629374
+    ],
+    "D": -0.3788071657578024,
+    "E": 0.03346144572825444,
+    "path_er": 0.022481104877844417,
+    "channel_classification_A": "range",
+    "channel_rejection_reasons_A": [],
+    "channel_accepted_by_A": true,
+    "morphology_attributes": [],
+    "boundary_basis": "unchanged_A_diagnostic_only",
+    "trade_authority": false,
+    "human_reference": false,
+    "future_outcome_used": false,
+    "direction_record_id": "direction_cdfadbb7c5937281166f",
+    "source_C0_direction_record_id": "direction_e15191f08e3096d90473",
+    "direction_classification_before_range_audit": "range",
+    "range_audit_tolerance": 0.15,
+    "range_audit_conflicts": [],
+    "scale_eligible": false,
+    "scale_rejection_reasons": [
+      "cycle_duration",
+      "pair_duration",
+      "leg_time_asymmetry",
+      "internal_backtracking",
+      "too_many_sessions",
+      "calendar_span",
+      "late_confirmation"
+    ],
+    "leg_bars": [
+      127,
+      184,
+      274,
+      139
+    ],
+    "cycle_bars": [
+      311,
+      413
+    ],
+    "pair_bars": 724,
+    "period_ratio": 1.3279742765273312,
+    "corresponding_leg_ratios": [
+      2.15748031496063,
+      1.3237410071942446
+    ],
+    "cycle_chord_amplitudes": [
+      0.03321146524154983,
+      0.031004813368548767
+    ],
+    "amplitude_ratio": 1.0711712677244976,
+    "leg_er": [
+      0.35098792569204657,
+      0.2668858780544607,
+      0.15417093767429077,
+      0.33805860442635177
+    ],
+    "single_step_path_shares": [
+      0.045426385065997395,
+      0.02727054031166928,
+      0.030218219362884723,
+      0.06439342759340824
+    ],
+    "exact_flat_shares": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "observed_sessions": 16,
+    "calendar_days": 21.01388888888889,
+    "confirmation_delay_bars": 19,
+    "grammar_hash": "grammar_8ef56208469d6cbbdd86",
+    "operator": "C2G",
+    "record_id": "C2G_aa2b858692ec86edf026",
+    "direction": "range",
+    "source_C1_id": "direction_cdfadbb7c5937281166f",
+    "selected": false,
+    "ownership_rejection": null
+  },
+  "human_reference": false,
+  "future_prices_shown_only_as_review_context": true
+}

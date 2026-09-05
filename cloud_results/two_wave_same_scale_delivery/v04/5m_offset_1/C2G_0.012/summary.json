@@ -1,0 +1,183 @@
+{
+  "candidates": 1152,
+  "eligible_before_ownership": 10,
+  "selected_pairs": 6,
+  "direction_counts": {
+    "downtrend": 3,
+    "range": 1,
+    "uncertain": 2
+  },
+  "rejections": {
+    "short_leg": 154,
+    "cycle_duration": 932,
+    "pair_duration": 791,
+    "period_asymmetry": 513,
+    "leg_time_asymmetry": 908,
+    "internal_backtracking": 1001,
+    "single_bar_dominance": 222,
+    "too_many_sessions": 731,
+    "calendar_span": 440,
+    "amplitude_asymmetry": 277,
+    "late_confirmation": 658
+  },
+  "overlap_suppressed": 4,
+  "selected_span_bars": {
+    "min": 35.0,
+    "p50": 48.0,
+    "p90": 75.5,
+    "max": 77.0
+  },
+  "selected_delay_bars": {
+    "min": 1.0,
+    "p50": 3.5,
+    "p90": 6.0,
+    "max": 7.0
+  },
+  "owned_bars": 318,
+  "total_bars": 67192,
+  "full_partition_rows": 13,
+  "max_published_ownership_multiplicity": 1,
+  "not_accuracy": true,
+  "morphology_accepted": false,
+  "view": "5m_offset_1",
+  "operator": "C2G",
+  "reversal_log": 0.012,
+  "C1_all_overlap": {
+    "interval_convention": "inclusive C1 occurrence windows, audit only",
+    "histogram": {
+      "0": 300,
+      "1": 169,
+      "2": 213,
+      "3": 150,
+      "4": 65212,
+      "5": 1148
+    },
+    "mean_multiplicity_all_bars": 3.983108108108108,
+    "mean_multiplicity_covered_bars": 4.000971715601268,
+    "fraction_bars_multiple_candidates": 0.9930200023812359,
+    "max": 5
+  },
+  "C1_definite_overlap": {
+    "interval_convention": "inclusive C1 occurrence windows, audit only",
+    "histogram": {
+      "0": 17691,
+      "1": 21939,
+      "2": 14181,
+      "3": 6616,
+      "4": 6721,
+      "5": 44
+    },
+    "mean_multiplicity_all_bars": 1.447389570186927,
+    "mean_multiplicity_covered_bars": 1.9646673804569605,
+    "fraction_bars_multiple_candidates": 0.4101976425764972,
+    "max": 5
+  },
+  "C1_counts": {
+    "uptrend": 188,
+    "uncertain": 740,
+    "range": 50,
+    "downtrend": 174
+  },
+  "C1_span_by_direction": {
+    "range": {
+      "min": 29.0,
+      "p50": 115.0,
+      "p90": 393.0,
+      "max": 984.0
+    },
+    "uptrend": {
+      "min": 22.0,
+      "p50": 200.0,
+      "p90": 649.3000000000002,
+      "max": 1274.0
+    },
+    "downtrend": {
+      "min": 24.0,
+      "p50": 102.0,
+      "p90": 479.9000000000003,
+      "max": 839.0
+    },
+    "uncertain": {
+      "min": 12.0,
+      "p50": 163.5,
+      "p90": 509.30000000000007,
+      "max": 1166.0
+    }
+  },
+  "selected_information_lag_seconds": {
+    "min": 3840.0,
+    "p50": 13290.0,
+    "p90": 20940.0,
+    "max": 21240.0
+  },
+  "all_confirmations_available_at_bar_end": false,
+  "confirmation_tape_semantics": "bar-prefix event only; respect effective_information_time; no forward filling",
+  "annual": [
+    {
+      "year": "2015",
+      "selected": 3,
+      "directions": {
+        "downtrend": 2,
+        "range": 1
+      }
+    },
+    {
+      "year": "2016",
+      "selected": 3,
+      "directions": {
+        "downtrend": 1,
+        "uncertain": 2
+      }
+    },
+    {
+      "year": "2017",
+      "selected": 0,
+      "directions": {}
+    },
+    {
+      "year": "2018",
+      "selected": 0,
+      "directions": {}
+    },
+    {
+      "year": "2019",
+      "selected": 0,
+      "directions": {}
+    },
+    {
+      "year": "2020",
+      "selected": 0,
+      "directions": {}
+    }
+  ],
+  "prefix_checks": [
+    {
+      "bars": 128,
+      "candidate_records": 0,
+      "selected": 0,
+      "independent_replay_equal": true,
+      "closed_partition_equal": true
+    },
+    {
+      "bars": 1000,
+      "candidate_records": 8,
+      "selected": 0,
+      "independent_replay_equal": true,
+      "closed_partition_equal": true
+    },
+    {
+      "bars": 33596,
+      "candidate_records": 662,
+      "selected": 6,
+      "independent_replay_equal": true,
+      "closed_partition_equal": true
+    },
+    {
+      "bars": 67191,
+      "candidate_records": 1152,
+      "selected": 6,
+      "independent_replay_equal": true,
+      "closed_partition_equal": true
+    }
+  ]
+}

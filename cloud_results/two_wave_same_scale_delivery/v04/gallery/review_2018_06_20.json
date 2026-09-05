@@ -1,0 +1,9 @@
+{
+  "case": "review_2018_06_20",
+  "selection": "user-specified conflicting-overlay review date",
+  "bars_start": 40354,
+  "bars_stop": 40498,
+  "record": null,
+  "human_reference": false,
+  "future_prices_shown_only_as_review_context": true
+}

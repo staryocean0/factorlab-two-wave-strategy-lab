@@ -1,0 +1,194 @@
+{
+  "schema_version": "two_wave_same_scale_direction@0.4.1",
+  "operator": "D1",
+  "timeframe": "5m_offset_0",
+  "scale_id": "D0_scale_2da91a90fe5f70f179b1",
+  "grammar_hash": "grammar_8ef56208469d6cbbdd86",
+  "start_bar": 32527,
+  "end_bar": 32552,
+  "five_occurrence_bars": [
+    32527,
+    32531,
+    32539,
+    32545,
+    32552
+  ],
+  "pivot_ids": [
+    "D0_pivot_5733d2744af89cafb8f4",
+    "D0_pivot_d433fe4bb71f2adbca56",
+    "D0_pivot_45a1b66599bd322826b0",
+    "D0_pivot_95b39928f1819d7e1718",
+    "D0_pivot_5f0773eca73cdb73c6bc"
+  ],
+  "cycle_ids": [
+    "D0_cycle_9cf50c780bbb1811ddff",
+    "D0_cycle_74bea8b307afe17d5a09"
+  ],
+  "phase": "low",
+  "confirmation_bar": 32555,
+  "confirmation_time": "2017-10-18T05:10:00+00:00",
+  "effective_information_time": "2017-10-18T07:30:00+00:00",
+  "channel_classification_A": "uncertain",
+  "channel_rejection_reasons_A": [
+    "converging",
+    "high_low_direction_conflict",
+    "phase_slope_disagreement",
+    "uneven_phase_drift",
+    "detrended_cycle_width_change"
+  ],
+  "channel_accepted_by_A": false,
+  "D": 0.38011475651555343,
+  "E": 0.19292768853689402,
+  "geometry": {
+    "valid": true,
+    "origin_bar": 32527,
+    "fit_end_bar": 32552,
+    "a": 8.961390105065776,
+    "b": 4.560379737437165e-05,
+    "width": 0.0029993440528601027,
+    "D": 0.38011475651555343,
+    "E": 0.19292768853689402,
+    "lower_offset": 8.960703963603487,
+    "upper_offset": 8.965016720799618,
+    "envelope_width": 0.004312757196130335,
+    "nominal_coverage": 0.8461538461538461,
+    "envelope_coverage": 1.0,
+    "fit_bar_count": 26,
+    "classification": "uncertain",
+    "attributes": [
+      "converging",
+      "high_low_direction_conflict",
+      "phase_slope_disagreement",
+      "uneven_phase_drift",
+      "cycle_amplitude_change",
+      "detrended_cycle_width_change"
+    ],
+    "regression_rank": 3,
+    "envelope_to_model_width_ratio": 1.4379001275354832,
+    "phase_lines": {
+      "high": {
+        "offset": 8.965375161760175,
+        "slope": -4.4006442766213333e-05,
+        "normalized_drift": -0.3668005569771984
+      },
+      "low": {
+        "offset": 8.961043701301657,
+        "slope": 7.369058905991168e-05,
+        "normalized_drift": 0.6142225413390145
+      }
+    },
+    "phase_width_start": 0.004331460458518066,
+    "phase_width_end": 0.0013890346628649408,
+    "phase_width_ratio": 3.1183242393564545,
+    "majority_phase_step_displacements": [
+      0.625925689433573,
+      -0.0029900199489365595
+    ],
+    "majority_phase_step_slopes": [
+      1.3040118529866103,
+      -0.005750038363339538
+    ],
+    "cycle_amplitudes_log": [
+      0.00449517238562791,
+      0.002010683791315415
+    ],
+    "cycle_amplitude_ratio": 2.2356436178794232,
+    "price_basis": "log_close",
+    "time_basis": "bar_ordinal",
+    "boundary_basis": "frozen_all_completed_interval_closes",
+    "geometry_schema": "two_wave_research_candidate@0.2.0",
+    "geometry_variant": "detrended_width",
+    "baseline_classification": "uncertain",
+    "baseline_attributes": [
+      "converging",
+      "high_low_direction_conflict",
+      "phase_slope_disagreement",
+      "uneven_phase_drift",
+      "cycle_amplitude_change"
+    ],
+    "rejection_reasons": [
+      "converging",
+      "high_low_direction_conflict",
+      "phase_slope_disagreement",
+      "uneven_phase_drift",
+      "detrended_cycle_width_change"
+    ],
+    "cycle_detrended_widths_log": [
+      0.004312757196130335,
+      0.0023299103729357284
+    ],
+    "cycle_detrended_width_ratio": 1.8510399568272593,
+    "diagnostic_attributes_are_not_rejection_reasons": true,
+    "cycle_width_basis": "all_completed_cycle_closes_minus_common_fitted_drift"
+  },
+  "trade_authority": false,
+  "human_reference": false,
+  "future_outcome_used": false,
+  "scale_eligible": true,
+  "scale_rejection_reasons": [],
+  "leg_bars": [
+    4,
+    8,
+    6,
+    7
+  ],
+  "cycle_bars": [
+    12,
+    13
+  ],
+  "pair_bars": 25,
+  "period_ratio": 1.0833333333333333,
+  "corresponding_leg_ratios": [
+    1.5,
+    1.1428571428571428
+  ],
+  "cycle_chord_amplitudes": [
+    0.0038693835542495947,
+    0.0020058548151720146
+  ],
+  "amplitude_ratio": 1.929044677103298,
+  "leg_er": [
+    1.0,
+    0.7053978171464533,
+    0.625509216781923,
+    0.9013436641507978
+  ],
+  "single_step_path_shares": [
+    0.3747410630484862,
+    0.18592411678988358,
+    0.18794115075399878,
+    0.2568503201147867
+  ],
+  "exact_flat_shares": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "observed_sessions": 2,
+  "calendar_days": 0.8576388888888888,
+  "confirmation_delay_bars": 3,
+  "direction": "uncertain",
+  "direction_reasons": [
+    "net_drift_alone_does_not_establish_range"
+  ],
+  "phase_steps": [
+    0.6390775577399305,
+    -0.003052845855055514,
+    -0.20972432435621355
+  ],
+  "net_drift": 0.636024711884875,
+  "phase_spans": [
+    0.6390775577399305,
+    0.20972432435621355
+  ],
+  "phase_conflict": true,
+  "record_id": "D1_pair_4e258efda7796b8d1bb6",
+  "selected": true,
+  "ownership_rejection": null,
+  "detector_operator": "D0",
+  "source_D0_record_id": "D0_pair_a6193c0690473c06196f",
+  "source_D0_direction": "uncertain",
+  "direction_audit_reason": "net_drift_alone_does_not_establish_range",
+  "direction_changed": false
+}

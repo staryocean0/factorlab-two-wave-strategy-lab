@@ -1,0 +1,213 @@
+{
+  "case": "D0_rejected_cycle_duration",
+  "selection": "earliest candidate with cycle_duration; diagnostic",
+  "bars_start": 0,
+  "bars_stop": 83,
+  "record": {
+    "schema_version": "two_wave_same_scale@0.4.0",
+    "operator": "D0",
+    "timeframe": "5m_offset_0",
+    "scale_id": "D0_scale_2da91a90fe5f70f179b1",
+    "grammar_hash": "grammar_8ef56208469d6cbbdd86",
+    "start_bar": 9,
+    "end_bar": 63,
+    "five_occurrence_bars": [
+      9,
+      51,
+      54,
+      57,
+      63
+    ],
+    "pivot_ids": [
+      "D0_pivot_0c155a74226b9b2bb96e",
+      "D0_pivot_5f9fa3f26a46ea86031e",
+      "D0_pivot_fb4cd59aca4f6b01f01c",
+      "D0_pivot_dd1f44efa13fdcb289e6",
+      "D0_pivot_e8ff03dc9d028f16e7ab"
+    ],
+    "cycle_ids": [
+      "D0_cycle_9f45588f02e558ad474c",
+      "D0_cycle_97026b98ab9eac07e5bb"
+    ],
+    "phase": "low",
+    "confirmation_bar": 66,
+    "confirmation_time": "2015-01-06T03:05:00+00:00",
+    "effective_information_time": "2015-01-06T07:30:00+00:00",
+    "channel_classification_A": "uncertain",
+    "channel_rejection_reasons_A": [
+      "poor_pivot_fit",
+      "converging",
+      "high_low_direction_conflict",
+      "within_phase_direction_conflict",
+      "phase_slope_disagreement",
+      "uneven_phase_drift",
+      "large_envelope_expansion"
+    ],
+    "channel_accepted_by_A": false,
+    "D": 1.851044648968977,
+    "E": 0.35360351891469144,
+    "geometry": {
+      "valid": true,
+      "origin_bar": 9,
+      "fit_end_bar": 63,
+      "a": 8.692540322653482,
+      "b": 0.00022349519966283476,
+      "width": 0.006519962005516889,
+      "D": 1.851044648968977,
+      "E": 0.35360351891469144,
+      "lower_offset": 8.689502225296069,
+      "upper_offset": 8.701695760498623,
+      "envelope_width": 0.012193535202554173,
+      "nominal_coverage": 0.45454545454545453,
+      "envelope_coverage": 1.0,
+      "fit_bar_count": 55,
+      "classification": "uncertain",
+      "attributes": [
+        "poor_pivot_fit",
+        "converging",
+        "high_low_direction_conflict",
+        "within_phase_direction_conflict",
+        "phase_slope_disagreement",
+        "uneven_phase_drift",
+        "cycle_amplitude_change",
+        "large_envelope_expansion"
+      ],
+      "regression_rank": 3,
+      "envelope_to_model_width_ratio": 1.8701850090900178,
+      "phase_lines": {
+        "high": {
+          "offset": 8.715493546161785,
+          "slope": -0.00014168838928813192,
+          "normalized_drift": -1.1734996331397418
+        },
+        "low": {
+          "offset": 8.692410741379984,
+          "slope": 0.00022742190492022315,
+          "normalized_drift": 1.8835666304957945
+        }
+      },
+      "phase_width_start": 0.023082804781800803,
+      "phase_width_end": 0.00315084889454963,
+      "phase_width_ratio": 7.325900274598909,
+      "majority_phase_step_displacements": [
+        2.2397012657435793,
+        -0.7390274392461076
+      ],
+      "majority_phase_step_slopes": [
+        2.6876415188922955,
+        -4.434164635476645
+      ],
+      "cycle_amplitudes_log": [
+        0.01775600406526401,
+        0.0071215373980972885
+      ],
+      "cycle_amplitude_ratio": 2.4932824294383407,
+      "price_basis": "log_close",
+      "time_basis": "bar_ordinal",
+      "boundary_basis": "frozen_all_completed_interval_closes",
+      "geometry_schema": "two_wave_research_candidate@0.2.0",
+      "geometry_variant": "detrended_width",
+      "baseline_classification": "uncertain",
+      "baseline_attributes": [
+        "poor_pivot_fit",
+        "converging",
+        "high_low_direction_conflict",
+        "within_phase_direction_conflict",
+        "phase_slope_disagreement",
+        "uneven_phase_drift",
+        "cycle_amplitude_change",
+        "large_envelope_expansion"
+      ],
+      "rejection_reasons": [
+        "poor_pivot_fit",
+        "converging",
+        "high_low_direction_conflict",
+        "within_phase_direction_conflict",
+        "phase_slope_disagreement",
+        "uneven_phase_drift",
+        "large_envelope_expansion"
+      ],
+      "cycle_detrended_widths_log": [
+        0.009909130752198791,
+        0.00860342836716299
+      ],
+      "cycle_detrended_width_ratio": 1.1517653578681868,
+      "diagnostic_attributes_are_not_rejection_reasons": true,
+      "cycle_width_basis": "all_completed_cycle_closes_minus_common_fitted_drift"
+    },
+    "trade_authority": false,
+    "human_reference": false,
+    "future_outcome_used": false,
+    "scale_eligible": false,
+    "scale_rejection_reasons": [
+      "short_leg",
+      "cycle_duration",
+      "period_asymmetry",
+      "leg_time_asymmetry",
+      "internal_backtracking",
+      "single_bar_dominance"
+    ],
+    "leg_bars": [
+      42,
+      3,
+      3,
+      6
+    ],
+    "cycle_bars": [
+      45,
+      9
+    ],
+    "pair_bars": 54,
+    "period_ratio": 5.0,
+    "corresponding_leg_ratios": [
+      14.0,
+      2.0
+    ],
+    "cycle_chord_amplitudes": [
+      0.004126754719331771,
+      0.00390925018148458
+    ],
+    "amplitude_ratio": 1.0556384287906053,
+    "leg_er": [
+      0.44808399138472865,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "single_step_path_shares": [
+      0.17307668216508168,
+      0.767576949343328,
+      0.5595085182055222,
+      0.4788964733987264
+    ],
+    "exact_flat_shares": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "observed_sessions": 2,
+    "calendar_days": 1.0208333333333333,
+    "confirmation_delay_bars": 3,
+    "direction": "uncertain",
+    "direction_reasons": [
+      "opposed_or_insufficient_phase_steps"
+    ],
+    "phase_steps": [
+      3.634335054940739,
+      -1.1992105242319038,
+      -0.21158034277535043
+    ],
+    "net_drift": 2.4351245307088356,
+    "phase_spans": [
+      3.634335054940739,
+      0.21158034277535043
+    ],
+    "phase_conflict": true,
+    "record_id": "D0_pair_7f682f4a9554af666d51",
+    "selected": false,
+    "ownership_rejection": null
+  },
+  "human_reference": false,
+  "future_prices_shown_only_as_review_context": true
+}

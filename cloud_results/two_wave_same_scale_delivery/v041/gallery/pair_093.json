@@ -1,0 +1,169 @@
+{
+  "schema_version": "two_wave_same_scale_direction@0.4.1",
+  "operator": "D1",
+  "timeframe": "5m_offset_0",
+  "scale_id": "D0_scale_2da91a90fe5f70f179b1",
+  "grammar_hash": "grammar_8ef56208469d6cbbdd86",
+  "start_bar": 67156,
+  "end_bar": 67184,
+  "five_occurrence_bars": [
+    67156,
+    67162,
+    67170,
+    67177,
+    67184
+  ],
+  "pivot_ids": [
+    "D0_pivot_4dc145ea4901aa333256",
+    "D0_pivot_1d0ac300f2ba2df480eb",
+    "D0_pivot_d2ed745ff4f0ff87cb7b",
+    "D0_pivot_a2a19e9df4bf4d0528f4",
+    "D0_pivot_fe03102bead87f6bdf17"
+  ],
+  "cycle_ids": [
+    "D0_cycle_bc034c539b7d7b9723f9",
+    "D0_cycle_db3bd093847074580e7d"
+  ],
+  "phase": "low",
+  "confirmation_bar": 67187,
+  "confirmation_time": "2020-09-30T01:40:00+00:00",
+  "effective_information_time": "2020-09-30T07:30:00+00:00",
+  "channel_classification_A": "range",
+  "channel_rejection_reasons_A": [],
+  "channel_accepted_by_A": true,
+  "D": -0.18238609393964658,
+  "E": 0.06341655939183632,
+  "geometry": {
+    "valid": true,
+    "origin_bar": 67156,
+    "fit_end_bar": 67184,
+    "a": 8.798493443230912,
+    "b": -2.4343899485747022e-05,
+    "width": 0.003737287042434686,
+    "D": -0.18238609393964658,
+    "E": 0.06341655939183632,
+    "lower_offset": 8.798334373338422,
+    "upper_offset": 8.802559994993036,
+    "envelope_width": 0.004225621654613931,
+    "nominal_coverage": 0.8275862068965517,
+    "envelope_coverage": 1.0,
+    "fit_bar_count": 29,
+    "classification": "range",
+    "attributes": [],
+    "regression_rank": 3,
+    "envelope_to_model_width_ratio": 1.130665535356127,
+    "phase_lines": {
+      "high": {
+        "offset": 8.801638053777896,
+        "slope": 1.9558063139759454e-05,
+        "normalized_drift": 0.14653029368504417
+      },
+      "low": {
+        "offset": 8.798669835045038,
+        "slope": -3.694331478038321e-05,
+        "normalized_drift": -0.27678174090070784
+      }
+    },
+    "phase_width_start": 0.002968218732858574,
+    "phase_width_end": 0.004550257314622569,
+    "phase_width_ratio": 1.5329925871872643,
+    "majority_phase_step_displacements": [
+      -0.15229554630487657,
+      -0.12448619459598491
+    ],
+    "majority_phase_step_slopes": [
+      -0.30459109260975314,
+      -0.24897238919196982
+    ],
+    "cycle_amplitudes_log": [
+      0.0036374173618938244,
+      0.004396028951015651
+    ],
+    "cycle_amplitude_ratio": 1.2085577522857744,
+    "price_basis": "log_close",
+    "time_basis": "bar_ordinal",
+    "boundary_basis": "frozen_all_completed_interval_closes",
+    "geometry_schema": "two_wave_research_candidate@0.2.0",
+    "geometry_variant": "detrended_width",
+    "baseline_classification": "range",
+    "baseline_attributes": [],
+    "rejection_reasons": [],
+    "cycle_detrended_widths_log": [
+      0.0034426661660091895,
+      0.004225621654613931
+    ],
+    "cycle_detrended_width_ratio": 1.2274270727540104,
+    "diagnostic_attributes_are_not_rejection_reasons": true,
+    "cycle_width_basis": "all_completed_cycle_closes_minus_common_fitted_drift"
+  },
+  "trade_authority": false,
+  "human_reference": false,
+  "future_outcome_used": false,
+  "scale_eligible": true,
+  "scale_rejection_reasons": [],
+  "leg_bars": [
+    6,
+    8,
+    7,
+    7
+  ],
+  "cycle_bars": [
+    14,
+    14
+  ],
+  "pair_bars": 28,
+  "period_ratio": 1.0,
+  "corresponding_leg_ratios": [
+    1.1666666666666667,
+    1.1428571428571428
+  ],
+  "cycle_chord_amplitudes": [
+    0.003312176120850552,
+    0.004163408630002863
+  ],
+  "amplitude_ratio": 1.257000980048645,
+  "leg_er": [
+    0.7523739937894786,
+    0.7799049490744561,
+    0.9241467971685554,
+    1.0
+  ],
+  "single_step_path_shares": [
+    0.2174191162826162,
+    0.3335528397247896,
+    0.4932410571753803,
+    0.2507557416040434
+  ],
+  "exact_flat_shares": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "observed_sessions": 1,
+  "calendar_days": 0.1597222222222222,
+  "confirmation_delay_bars": 3,
+  "direction": "uncertain",
+  "direction_reasons": [
+    "net_drift_alone_does_not_establish_range"
+  ],
+  "phase_steps": [
+    -0.15227495662081825,
+    -0.12446936461324053,
+    0.07848775898440814
+  ],
+  "net_drift": -0.27674432123405873,
+  "phase_spans": [
+    0.27674432123405873,
+    0.07848775898440814
+  ],
+  "phase_conflict": false,
+  "record_id": "D1_pair_9c7011b30c22470f212b",
+  "selected": true,
+  "ownership_rejection": null,
+  "detector_operator": "D0",
+  "source_D0_record_id": "D0_pair_fbfe3429bde524828740",
+  "source_D0_direction": "range",
+  "direction_audit_reason": "net_drift_alone_does_not_establish_range",
+  "direction_changed": true
+}

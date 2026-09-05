@@ -1,0 +1,124 @@
+{
+  "case": "legacy_case_14_stable_uptrend",
+  "selection": "retained legacy sample; no new case selection",
+  "bars_start": 30407,
+  "bars_stop": 31480,
+  "record": {
+    "schema_version": "two_wave_same_scale@0.4.0",
+    "config_hash": "direction_cfg_c631e55d562c507bb996",
+    "source_structure_id": "structure_59dc81d4955c3422c13f",
+    "pivot_ids": [
+      "pivot_b71bc3139dcfbe0f7ab3",
+      "pivot_110499ee35fae917f37c",
+      "pivot_d13776281d8ba8603741",
+      "pivot_600e9ebef9f54669cfb6",
+      "pivot_aa8644f96481ec941d6c"
+    ],
+    "cycle_ids": [
+      "cycle_be4db0abff6363a6b660",
+      "cycle_23156ccd5f56019cca1b"
+    ],
+    "phase": "high",
+    "five_occurrence_bars": [
+      30423,
+      30513,
+      30802,
+      30941,
+      31408
+    ],
+    "timeframe": "5m_offset_0",
+    "scale_id": "scale_d37d7ace5f06079f6fc0",
+    "start_bar": 30423,
+    "end_bar": 31408,
+    "confirmation_bar": 31463,
+    "confirmation_time": "2017-09-08T06:10:00+00:00",
+    "effective_information_time": "2017-09-08T07:30:00+00:00",
+    "direction_classification": "uptrend",
+    "direction_rejection_reasons": [],
+    "phase_displacements_in_widths": [
+      0.6169076577906211,
+      1.1487103373632048,
+      0.7164543876274589
+    ],
+    "phase_spans_in_widths": [
+      1.765617995153826,
+      0.7164543876274589
+    ],
+    "D": 1.7552976617427192,
+    "E": 0.02765170780322032,
+    "path_er": 0.08626293674347181,
+    "channel_classification_A": "uptrend",
+    "channel_rejection_reasons_A": [],
+    "channel_accepted_by_A": true,
+    "morphology_attributes": [],
+    "boundary_basis": "unchanged_A_diagnostic_only",
+    "trade_authority": false,
+    "human_reference": false,
+    "future_outcome_used": false,
+    "direction_record_id": "direction_3b10a104a2f6c7f3e2ca",
+    "source_C0_direction_record_id": "direction_fa2a868ed4f6b54cc8c9",
+    "direction_classification_before_range_audit": "uptrend",
+    "range_audit_tolerance": 0.15,
+    "range_audit_conflicts": [],
+    "scale_eligible": false,
+    "scale_rejection_reasons": [
+      "cycle_duration",
+      "pair_duration",
+      "internal_backtracking",
+      "too_many_sessions",
+      "calendar_span",
+      "late_confirmation"
+    ],
+    "leg_bars": [
+      90,
+      289,
+      139,
+      467
+    ],
+    "cycle_bars": [
+      379,
+      606
+    ],
+    "pair_bars": 985,
+    "period_ratio": 1.5989445910290236,
+    "corresponding_leg_ratios": [
+      1.5444444444444445,
+      1.6159169550173011
+    ],
+    "cycle_chord_amplitudes": [
+      0.027948925126374036,
+      0.028446821660018884
+    ],
+    "amplitude_ratio": 1.0178145145615995,
+    "leg_er": [
+      0.26024062164303746,
+      0.24506249157485221,
+      0.2381693335835641,
+      0.2273561125226035
+    ],
+    "single_step_path_shares": [
+      0.08188497573275662,
+      0.03768090241404093,
+      0.03105926258863186,
+      0.012611502452073679
+    ],
+    "exact_flat_shares": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "observed_sessions": 21,
+    "calendar_days": 28.15277777777778,
+    "confirmation_delay_bars": 55,
+    "grammar_hash": "grammar_8ef56208469d6cbbdd86",
+    "operator": "C2G",
+    "record_id": "C2G_81af9c831042b2c6a3c5",
+    "direction": "uptrend",
+    "source_C1_id": "direction_3b10a104a2f6c7f3e2ca",
+    "selected": false,
+    "ownership_rejection": null
+  },
+  "human_reference": false,
+  "future_prices_shown_only_as_review_context": true
+}

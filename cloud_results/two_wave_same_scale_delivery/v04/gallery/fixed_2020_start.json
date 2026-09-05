@@ -1,0 +1,9 @@
+{
+  "case": "fixed_2020_start",
+  "selection": "first 144 native bars of each development year",
+  "bars_start": 58450,
+  "bars_stop": 58594,
+  "record": null,
+  "human_reference": false,
+  "future_prices_shown_only_as_review_context": true
+}

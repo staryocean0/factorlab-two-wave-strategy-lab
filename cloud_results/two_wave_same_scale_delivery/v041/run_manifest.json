@@ -1,0 +1,16 @@
+{
+  "schema": "two_wave_same_scale_direction@0.4.1",
+  "python": "3.11.16",
+  "actual_git_commit": "ba871b71edc3994c9e611f2451d414bb4f33cfcb",
+  "source_sha256": {
+    "scripts/audit_two_wave_direction_v041.py": "61ccd155103a79108b64b614089537eccb7db5b890f7ebdee4293f98d4bd7f7a",
+    "src/factor_lab/visual_structure/two_wave/direction_v041.py": "ba8b9625cd4f246b17d2429f9fd4157c89f38d3ebe11afe7858b4eb79a73c2ef"
+  },
+  "source_D0_manifest_sha256": "348f7b87918e4c956f9b2426c9edb20a485efe4d219638632c624221c721c773",
+  "protocol_freeze_commit": "67acf42aea08781ecf7f2aca2e9c126421287760",
+  "started_at_utc": "2026-09-05T10:39:31.393611+00:00",
+  "pnl_computed": false,
+  "fresh_oos": false,
+  "finished_at_utc": "2026-09-05T10:41:55.054758+00:00",
+  "source_hashes_unchanged": true
+}

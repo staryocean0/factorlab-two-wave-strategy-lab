@@ -1,0 +1,135 @@
+{
+  "case": "legacy_case_13_stable_uncertain",
+  "selection": "retained legacy sample; no new case selection",
+  "bars_start": 1740,
+  "bars_stop": 2105,
+  "record": {
+    "schema_version": "two_wave_same_scale@0.4.0",
+    "config_hash": "direction_cfg_c631e55d562c507bb996",
+    "source_structure_id": "structure_338170bb1bb604075787",
+    "pivot_ids": [
+      "pivot_281eee4b4cf48f88047d",
+      "pivot_9880a3bc92c20c29b212",
+      "pivot_0d4657b1302b1dc6302d",
+      "pivot_ed1975fedbfe5fb67d40",
+      "pivot_605463eea8997a4f5180"
+    ],
+    "cycle_ids": [
+      "cycle_219684954a63880b4285",
+      "cycle_9e10f9be9e76b78b19dd"
+    ],
+    "phase": "high",
+    "five_occurrence_bars": [
+      1756,
+      1774,
+      1873,
+      1920,
+      2066
+    ],
+    "timeframe": "5m_offset_0",
+    "scale_id": "scale_d37d7ace5f06079f6fc0",
+    "start_bar": 1756,
+    "end_bar": 2066,
+    "confirmation_bar": 2088,
+    "confirmation_time": "2015-03-12T05:05:00+00:00",
+    "effective_information_time": "2015-03-12T07:30:00+00:00",
+    "direction_classification": "uncertain",
+    "direction_rejection_reasons": [
+      "not_all_three_phase_steps_clearly_codirectional"
+    ],
+    "phase_displacements_in_widths": [
+      0.48172706601508175,
+      0.7283853823418306,
+      0.07619330939177359
+    ],
+    "phase_spans_in_widths": [
+      1.2101124483569123,
+      0.07619330939177359
+    ],
+    "D": 1.0195747110294155,
+    "E": 0.14125119594692434,
+    "path_er": 0.1013153993339316,
+    "channel_classification_A": "uncertain",
+    "channel_rejection_reasons_A": [
+      "expanding",
+      "phase_slope_disagreement",
+      "detrended_cycle_width_change"
+    ],
+    "channel_accepted_by_A": false,
+    "morphology_attributes": [
+      "expanding",
+      "phase_slope_disagreement",
+      "detrended_cycle_width_change"
+    ],
+    "boundary_basis": "unchanged_A_diagnostic_only",
+    "trade_authority": false,
+    "human_reference": false,
+    "future_outcome_used": false,
+    "direction_record_id": "direction_c039d4a7722af3f75610",
+    "source_C0_direction_record_id": "direction_a9013f41959fa9454eab",
+    "direction_classification_before_range_audit": "uncertain",
+    "range_audit_tolerance": 0.15,
+    "range_audit_conflicts": [],
+    "scale_eligible": false,
+    "scale_rejection_reasons": [
+      "cycle_duration",
+      "pair_duration",
+      "leg_time_asymmetry",
+      "internal_backtracking",
+      "too_many_sessions",
+      "calendar_span",
+      "late_confirmation"
+    ],
+    "leg_bars": [
+      18,
+      99,
+      47,
+      146
+    ],
+    "cycle_bars": [
+      117,
+      193
+    ],
+    "pair_bars": 310,
+    "period_ratio": 1.6495726495726495,
+    "corresponding_leg_ratios": [
+      2.611111111111111,
+      1.4747474747474747
+    ],
+    "cycle_chord_amplitudes": [
+      0.016237507736436285,
+      0.027758516676888334
+    ],
+    "amplitude_ratio": 1.7095306205520315,
+    "leg_er": [
+      0.6370354786671222,
+      0.28211127929931257,
+      0.4478122806115482,
+      0.3857382934060819
+    ],
+    "single_step_path_shares": [
+      0.1261076764724431,
+      0.045840941137679406,
+      0.11948333808250322,
+      0.030241566394392856
+    ],
+    "exact_flat_shares": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "observed_sessions": 8,
+    "calendar_days": 8.847222222222221,
+    "confirmation_delay_bars": 22,
+    "grammar_hash": "grammar_8ef56208469d6cbbdd86",
+    "operator": "C2G",
+    "record_id": "C2G_469861c104d0c5b6cbbc",
+    "direction": "uncertain",
+    "source_C1_id": "direction_c039d4a7722af3f75610",
+    "selected": false,
+    "ownership_rejection": null
+  },
+  "human_reference": false,
+  "future_prices_shown_only_as_review_context": true
+}

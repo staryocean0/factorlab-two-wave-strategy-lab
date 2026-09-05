@@ -1,0 +1,194 @@
+{
+  "candidates": 1977,
+  "eligible_before_ownership": 37,
+  "selected_pairs": 21,
+  "direction_counts": {
+    "uncertain": 10,
+    "downtrend": 7,
+    "uptrend": 3,
+    "range": 1
+  },
+  "rejections": {
+    "cycle_duration": 1407,
+    "pair_duration": 896,
+    "leg_time_asymmetry": 1600,
+    "internal_backtracking": 1432,
+    "single_bar_dominance": 711,
+    "too_many_sessions": 791,
+    "calendar_span": 388,
+    "late_confirmation": 727,
+    "amplitude_asymmetry": 521,
+    "short_leg": 515,
+    "period_asymmetry": 912
+  },
+  "overlap_suppressed": 16,
+  "selected_span_bars": {
+    "min": 29.0,
+    "p50": 49.0,
+    "p90": 74.0,
+    "max": 81.0
+  },
+  "selected_delay_bars": {
+    "min": 1.0,
+    "p50": 4.0,
+    "p90": 7.0,
+    "max": 7.0
+  },
+  "owned_bars": 1054,
+  "total_bars": 67192,
+  "full_partition_rows": 41,
+  "max_published_ownership_multiplicity": 1,
+  "not_accuracy": true,
+  "morphology_accepted": false,
+  "view": "5m_offset_1",
+  "operator": "C2G",
+  "reversal_log": 0.008,
+  "C1_all_overlap": {
+    "interval_convention": "inclusive C1 occurrence windows, audit only",
+    "histogram": {
+      "0": 99,
+      "1": 165,
+      "2": 13,
+      "3": 94,
+      "4": 64848,
+      "5": 1973
+    },
+    "mean_multiplicity_all_bars": 4.01431718061674,
+    "mean_multiplicity_covered_bars": 4.020240561608514,
+    "fraction_bars_multiple_candidates": 0.9960709608286701,
+    "max": 5
+  },
+  "C1_definite_overlap": {
+    "interval_convention": "inclusive C1 occurrence windows, audit only",
+    "histogram": {
+      "0": 22743,
+      "1": 18101,
+      "2": 15388,
+      "3": 6282,
+      "4": 4603,
+      "5": 75
+    },
+    "mean_multiplicity_all_bars": 1.2875044648172402,
+    "mean_multiplicity_covered_bars": 1.946275506760557,
+    "fraction_bars_multiple_candidates": 0.3921300154780331,
+    "max": 5
+  },
+  "C1_counts": {
+    "uncertain": 1286,
+    "uptrend": 293,
+    "downtrend": 314,
+    "range": 84
+  },
+  "C1_span_by_direction": {
+    "range": {
+      "min": 17.0,
+      "p50": 64.0,
+      "p90": 179.70000000000005,
+      "max": 428.0
+    },
+    "uptrend": {
+      "min": 16.0,
+      "p50": 118.0,
+      "p90": 375.00000000000017,
+      "max": 943.0
+    },
+    "downtrend": {
+      "min": 11.0,
+      "p50": 58.5,
+      "p90": 225.49999999999994,
+      "max": 629.0
+    },
+    "uncertain": {
+      "min": 8.0,
+      "p50": 92.0,
+      "p90": 327.5,
+      "max": 880.0
+    }
+  },
+  "selected_information_lag_seconds": {
+    "min": 2640.0,
+    "p50": 7740.0,
+    "p90": 20940.0,
+    "max": 21240.0
+  },
+  "all_confirmations_available_at_bar_end": false,
+  "confirmation_tape_semantics": "bar-prefix event only; respect effective_information_time; no forward filling",
+  "annual": [
+    {
+      "year": "2015",
+      "selected": 7,
+      "directions": {
+        "uncertain": 2,
+        "downtrend": 3,
+        "uptrend": 1,
+        "range": 1
+      }
+    },
+    {
+      "year": "2016",
+      "selected": 6,
+      "directions": {
+        "downtrend": 2,
+        "uncertain": 4
+      }
+    },
+    {
+      "year": "2017",
+      "selected": 0,
+      "directions": {}
+    },
+    {
+      "year": "2018",
+      "selected": 2,
+      "directions": {
+        "downtrend": 1,
+        "uncertain": 1
+      }
+    },
+    {
+      "year": "2019",
+      "selected": 2,
+      "directions": {
+        "uptrend": 2
+      }
+    },
+    {
+      "year": "2020",
+      "selected": 4,
+      "directions": {
+        "uncertain": 3,
+        "downtrend": 1
+      }
+    }
+  ],
+  "prefix_checks": [
+    {
+      "bars": 128,
+      "candidate_records": 0,
+      "selected": 0,
+      "independent_replay_equal": true,
+      "closed_partition_equal": true
+    },
+    {
+      "bars": 1000,
+      "candidate_records": 17,
+      "selected": 0,
+      "independent_replay_equal": true,
+      "closed_partition_equal": true
+    },
+    {
+      "bars": 33596,
+      "candidate_records": 1141,
+      "selected": 13,
+      "independent_replay_equal": true,
+      "closed_partition_equal": true
+    },
+    {
+      "bars": 67191,
+      "candidate_records": 1977,
+      "selected": 21,
+      "independent_replay_equal": true,
+      "closed_partition_equal": true
+    }
+  ]
+}

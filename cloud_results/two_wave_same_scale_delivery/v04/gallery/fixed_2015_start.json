@@ -1,0 +1,9 @@
+{
+  "case": "fixed_2015_start",
+  "selection": "first 144 native bars of each development year",
+  "bars_start": 0,
+  "bars_stop": 144,
+  "record": null,
+  "human_reference": false,
+  "future_prices_shown_only_as_review_context": true
+}
