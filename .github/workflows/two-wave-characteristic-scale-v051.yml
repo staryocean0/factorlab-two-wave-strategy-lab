@@ -4,6 +4,7 @@ on:
     branches: ['codex/two-wave-phase1-20260905']
     paths:
       - 'src/factor_lab/visual_structure/two_wave/characteristic_scale_v051.py'
+      - 'src/factor_lab/visual_structure/two_wave/geometry.py'
       - 'tests/unit/test_two_wave_characteristic_scale_v051.py'
       - 'scripts/run_two_wave_characteristic_scale_v051.py'
       - 'docs/research/two_wave_characteristic_scale_protocol_v051.md'
@@ -45,7 +46,7 @@ jobs:
         if: always()
         run: |
           python -m pip freeze > v051_proof/environment.txt
-          cp src/factor_lab/visual_structure/two_wave/characteristic_scale_v051.py v051_proof/source/
+          cp src/factor_lab/visual_structure/two_wave/characteristic_scale_v051.py src/factor_lab/visual_structure/two_wave/geometry.py v051_proof/source/
           cp tests/unit/test_two_wave_characteristic_scale_v051.py scripts/run_two_wave_characteristic_scale_v051.py docs/research/two_wave_characteristic_scale_protocol_v051.md v051_proof/source/
       - uses: actions/upload-artifact@v4
         if: always()
