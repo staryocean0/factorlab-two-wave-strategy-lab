@@ -1,0 +1,65 @@
+name: two-wave-independent-same-scale
+on:
+  push:
+    branches: ['codex/two-wave-phase1-20260905']
+    paths:
+      - 'src/factor_lab/visual_structure/two_wave/same_scale_v04.py'
+      - 'tests/unit/test_two_wave_same_scale_v04.py'
+      - 'scripts/run_two_wave_same_scale_study.py'
+      - '.github/workflows/two-wave-same-scale-independent.yml'
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: independent-same-scale-${{ github.ref }}
+  cancel-in-progress: false
+defaults:
+  run:
+    shell: bash
+jobs:
+  independent-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: python -m pip install -e . editables==0.6
+      - name: Validate immutable source package and original data
+        run: |
+          mkdir -p independent_proof
+          python scripts/validate_theme_package.py | tee independent_proof/package_validation.json
+          git rev-parse HEAD > independent_proof/commit.txt
+      - name: Regression tests including parallel and independent implementations
+        run: python -m pytest -q --junitxml=independent_proof/tests.xml | tee independent_proof/tests.log
+      - name: Retrieve exact original C1 review cases
+        uses: actions/download-artifact@v4
+        with:
+          name: two-wave-frequency-v031-80f75a96ccdc8397c21cf561d708f01098959232
+          run-id: 33955675562
+          github-token: ${{ github.token }}
+          path: original_c1_artifact
+      - name: Replay six views, audit original C1, compare parallel D1, and render failures
+        run: |
+          python scripts/run_two_wave_same_scale_study.py --output cloud_results/two_wave_independent_v042 --c1-root original_c1_artifact/cloud_results/two_wave_frequency_v031 | tee independent_proof/research.log
+          git diff --exit-code -- data src tests scripts pyproject.toml
+      - name: Retain reproducibility evidence without duplicating raw prices
+        if: always()
+        run: |
+          mkdir -p independent_proof/source
+          python -m pip freeze > independent_proof/environment.txt
+          cp -r src/factor_lab/visual_structure/two_wave independent_proof/source/
+          cp tests/unit/test_two_wave_same_scale_v04.py scripts/run_two_wave_same_scale_study.py independent_proof/source/
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: two-wave-independent-${{ github.sha }}
+          path: |
+            cloud_results/two_wave_independent_v042/
+            independent_proof/
+          retention-days: 30
+          if-no-files-found: error
