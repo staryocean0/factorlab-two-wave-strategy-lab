@@ -1,0 +1,37 @@
+name: two-wave-h16-w128-diagnostic
+
+on:
+  push:
+    branches: ['codex/two-wave-phase1-20260905']
+    paths:
+      - 'scripts/run_two_wave_h16_w128_diagnostic.py'
+      - '.github/workflows/two-wave-h16-w128.yml'
+      - 'src/factor_lab/visual_structure/two_wave/frequency_v03*.py'
+
+permissions:
+  contents: read
+
+jobs:
+  diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: python -m pip install -e . editables==0.6
+      - name: Validate original package and data
+        run: python scripts/validate_theme_package.py
+      - name: Run full regression suite
+        run: python -m pytest -q
+      - name: Reproduce H16/W128 diagnostic and C1 cross-check
+        run: python scripts/run_two_wave_h16_w128_diagnostic.py --output cloud_results/two_wave_H16_W128
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: two-wave-H16-W128-${{ github.sha }}
+          path: cloud_results/two_wave_H16_W128/
+          retention-days: 30
+          if-no-files-found: warn
