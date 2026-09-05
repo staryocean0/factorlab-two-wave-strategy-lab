@@ -59,14 +59,17 @@ def fit_geometry(pivots: list[dict], bars: list[dict], config: Config) -> dict:
     if len(interval) != end - start + 1:
         raise ValueError("all bar closes in the completed two-cycle interval are required")
     full_t = np.arange(end - start + 1, dtype=float)
-    # Some research callers provide immutable manifest bars directly rather
-    # than passing through Engine._normalize.  Deriving log_close from the
-    # same positive observed close is representation-preserving and produces
-    # exactly the prior value whenever log_close is already present.
-    full_x = np.array(
-        [row.get("log_close", math.log(float(row["close"]))) for row in interval],
-        dtype=float,
-    )
+
+    def row_log_close(row: dict) -> float:
+        # Legacy geometry tests and Engine-normalized bars already carry
+        # log_close.  Raw manifest callers carry close instead.  Branching
+        # explicitly avoids eager evaluation of a fallback expression and
+        # therefore preserves the old path byte-for-value.
+        if "log_close" in row:
+            return float(row["log_close"])
+        return math.log(float(row["close"]))
+
+    full_x = np.array([row_log_close(row) for row in interval], dtype=float)
     residuals = x - design @ coef
     detrended = full_x - b * full_t
     lower, upper = float(detrended.min()), float(detrended.max())
