@@ -312,7 +312,7 @@ def _last_argextreme(values: np.ndarray, kind: str) -> tuple[int, float]:
     return int(positions[-1]), target
 
 
-def project_event_to_raw(event: CharacteristicEvent, bars: list[dict]) -> dict:
+def project_event_to_raw(event: CharacteristicEvent, bars: list[dict], closes: np.ndarray | None = None) -> dict:
     """Project one characteristic TCSS member to five immutable raw-close extrema."""
 
     filtered = event.feature.occurrence_indices
@@ -320,7 +320,10 @@ def project_event_to_raw(event: CharacteristicEvent, bars: list[dict]) -> dict:
     selection_confirmation = event.confirmation_index
     if selection_confirmation >= len(bars) or member_confirmation >= len(bars):
         return {"event_id": event.event_id, "valid": False, "reason": "confirmation_outside_bars"}
-    closes = np.asarray([bar["close"] for bar in bars], dtype=float)
+    if closes is None:
+        closes = np.asarray([bar["close"] for bar in bars], dtype=float)
+    elif closes.ndim != 1 or len(closes) != len(bars):
+        raise ValueError("closes must align one-to-one with bars")
     kinds = [point.kind for point in event.feature.candidate.extrema]
     left = max(0, 2 * filtered[0] - filtered[1])
     uppers = [filtered[1] - 1, filtered[2] - 1, filtered[3] - 1, filtered[4] - 1, member_confirmation]
@@ -467,7 +470,7 @@ def build_characteristic_run(
     projection_audit = []
     evaluated = []
     for event in events:
-        projection = project_event_to_raw(event, bars)
+        projection = project_event_to_raw(event, bars, closes)
         audit = {
             "event_id": event.event_id,
             "family_id": event.family_id,
