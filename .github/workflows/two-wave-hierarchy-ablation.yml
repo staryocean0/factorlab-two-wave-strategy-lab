@@ -6,6 +6,7 @@ on:
       - 'src/factor_lab/visual_structure/two_wave/same_scale_v044.py'
       - 'tests/unit/test_two_wave_hierarchy_v044.py'
       - 'scripts/run_two_wave_hierarchy_ablation.py'
+      - 'scripts/run_two_wave_hierarchy_ablation_reportfix.py'
       - 'docs/research/two_wave_hierarchy_protocol_v044.md'
       - '.github/workflows/two-wave-hierarchy-ablation.yml'
 permissions:
@@ -39,14 +40,14 @@ jobs:
         run: python -m pytest -q --junitxml=v044_proof/tests.xml | tee v044_proof/tests.log
       - name: Run hierarchical candidate-construction ablation on six frozen development views
         run: |
-          python scripts/run_two_wave_hierarchy_ablation.py --output cloud_results/two_wave_hierarchy_v044 | tee v044_proof/research.log
+          python scripts/run_two_wave_hierarchy_ablation_reportfix.py --output cloud_results/two_wave_hierarchy_v044 | tee v044_proof/research.log
           git diff --exit-code -- data src tests scripts docs/research pyproject.toml
       - name: Retain exact implementation and environment
         if: always()
         run: |
           python -m pip freeze > v044_proof/environment.txt
           cp src/factor_lab/visual_structure/two_wave/same_scale_v044.py v044_proof/source/
-          cp tests/unit/test_two_wave_hierarchy_v044.py scripts/run_two_wave_hierarchy_ablation.py docs/research/two_wave_hierarchy_protocol_v044.md v044_proof/source/
+          cp tests/unit/test_two_wave_hierarchy_v044.py scripts/run_two_wave_hierarchy_ablation.py scripts/run_two_wave_hierarchy_ablation_reportfix.py docs/research/two_wave_hierarchy_protocol_v044.md v044_proof/source/
       - uses: actions/upload-artifact@v4
         if: always()
         with:
