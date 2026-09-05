@@ -14,15 +14,19 @@
 
 1. [H16/W128当前状态与识别器尺度核对](docs/research/two_wave_H16_W128_status_20260905.md)
 2. [H16/W128核心摘要](cloud_results/two_wave_H16_W128_delivery/H16_W128_core_summary.json)
-3. [五分钟分离度及C0/C1两轮结果](docs/research/two_wave_5m_separation_results_20260905.md)
-4. [v0.3预先协议](docs/research/two_wave_5m_separation_protocol_v03.md)
-5. [C1修订说明](docs/research/two_wave_5m_range_audit_revision_v031.md)
+3. [GitHub H16/W128执行证据](cloud_results/two_wave_H16_W128_delivery/github_execution_evidence.json)
+4. [五分钟分离度及C0/C1两轮结果](docs/research/two_wave_5m_separation_results_20260905.md)
+5. [v0.3预先协议](docs/research/two_wave_5m_separation_protocol_v03.md)
+6. [C1修订说明](docs/research/two_wave_5m_range_audit_revision_v031.md)
 
 H16/W128补算使用既有2015—2020开发数据，不是fresh OOS，也没有改识别器。旧开发期整段均值下：1m的std128为0.250559，主5m为0.194528；相邻ER变化均值分别0.079748和0.079703。该结果不能否定外部研究所述“历史到近期”的变化，因为现有仓库没有对齐其近期数据和分割日期。按仓库暂用0.2/0.6阈值时，主5m的状态切换均值0.218054，1m为0.202993；这些阈值不是外部研究真值。
 
 更重要的是，当前C1与H16不是同一尺度：主5m/.01下，上涨两浪跨度中位数160根、下跌76.5根、震荡77根；它们显著长于单次H16窗口。16不是强迫两浪总长为16，而是说明不能从C1分类计数直接推断已经抓住H16/W128短中期状态切换。
 
-仓库已新增 `scripts/run_two_wave_h16_w128_diagnostic.py` 和 `.github/workflows/two-wave-h16-w128.yml`，用于在正式Python3.11环境重跑完整六视图H8/H16/H32/H64×W128诊断，并把完整JSON与逐视图CSV放入GitHub Actions工件。原本本地执行的补算脚本快照保存在 `cloud_results/two_wave_H16_W128_delivery/check_h16_w128_executed.py`。
+仓库已新增 `scripts/run_two_wave_h16_w128_diagnostic.py` 和 `.github/workflows/two-wave-h16-w128.yml`。GitHub正式复现运行 `33957723542` 已成功：原包/数据验证、全回归测试、六视图 H=8/16/32/64 × W=128 诊断及C1确认时刻交叉核对全部成功。完整工件 ID `9966929949`，969,681字节，SHA-256 `83ea9ca3057c3f562adecc888bfb63ca8a5c9f53c2c98b9c2f31abab82dc5916`，2026-10-05 09:22:29 UTC 到期。完整JSON和逐视图CSV位于该原生工件；仓库内保存核心摘要、执行证据和本地初次补算脚本快照。
+
+H16/W128工件：
+https://github.com/staryocean0/factorlab-two-wave-strategy-lab/actions/runs/33957723542/artifacts/9966929949
 
 ## 已完成且有原生证据的 C0 / C1 结果
 
