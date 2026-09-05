@@ -6,6 +6,8 @@ on:
       - 'src/factor_lab/visual_structure/two_wave/cycle_scale_qualification_v054.py'
       - 'tests/unit/test_two_wave_cycle_scale_qualification_v054.py'
       - 'scripts/run_two_wave_cycle_scale_qualification_v054_five_view.py'
+      - 'scripts/run_two_wave_cycle_scale_qualification_v054_view.py'
+      - 'scripts/aggregate_two_wave_cycle_scale_qualification_v054_five_view.py'
       - 'docs/research/two_wave_cycle_scale_qualification_protocol_v054.md'
       - '.github/workflows/two-wave-cycle-scale-qualification-v054-five-view.yml'
   workflow_dispatch:
@@ -19,9 +21,9 @@ defaults:
   run:
     shell: bash
 jobs:
-  formal-five-view-adjudication:
+  precheck:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
         with:
@@ -31,29 +33,87 @@ jobs:
           python-version: '3.11'
           cache: pip
       - run: python -m pip install -e . editables==0.6
-      - name: Validate bounded package and frozen data
+      - name: Validate bounded package and full regression once
         run: |
-          mkdir -p v054_five_view_proof/source
-          python scripts/validate_theme_package.py | tee v054_five_view_proof/package_validation.json
-          git rev-parse HEAD > v054_five_view_proof/commit.txt
-      - name: Full regression before formal five-view adjudication
-        run: python -m pytest -q --junitxml=v054_five_view_proof/tests.xml | tee v054_five_view_proof/tests.log
-      - name: Run frozen v0.5.4 on five native 5m views
-        run: |
-          python scripts/run_two_wave_cycle_scale_qualification_v054_five_view.py | tee v054_five_view_proof/research.log
+          mkdir -p v054_five_view_precheck
+          python scripts/validate_theme_package.py | tee v054_five_view_precheck/package_validation.json
+          python -m pytest -q --junitxml=v054_five_view_precheck/tests.xml | tee v054_five_view_precheck/tests.log
+          git rev-parse HEAD > v054_five_view_precheck/commit.txt
           git diff --exit-code -- data src tests scripts docs/research pyproject.toml
-      - name: Retain exact implementation and environment
-        if: always()
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v054-five-view-precheck-${{ github.sha }}
+          path: v054_five_view_precheck/
+          retention-days: 30
+
+  native-view:
+    needs: precheck
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        view: [5m_offset_0, 5m_offset_1, 5m_offset_2, 5m_offset_3, 5m_offset_4]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: python -m pip install -e . editables==0.6
+      - name: Run frozen v0.5.4 full plus three prefixes for one native view
         run: |
-          python -m pip freeze > v054_five_view_proof/environment.txt
-          cp src/factor_lab/visual_structure/two_wave/cycle_scale_qualification_v054.py v054_five_view_proof/source/
-          cp tests/unit/test_two_wave_cycle_scale_qualification_v054.py scripts/run_two_wave_cycle_scale_qualification_v054_five_view.py docs/research/two_wave_cycle_scale_qualification_protocol_v054.md v054_five_view_proof/source/
+          mkdir -p v054_view_proof/${{ matrix.view }}/source
+          git rev-parse HEAD > v054_view_proof/${{ matrix.view }}/commit.txt
+          python scripts/run_two_wave_cycle_scale_qualification_v054_view.py --view ${{ matrix.view }} | tee v054_view_proof/${{ matrix.view }}/research.log
+          python -m pip freeze > v054_view_proof/${{ matrix.view }}/environment.txt
+          cp src/factor_lab/visual_structure/two_wave/cycle_scale_qualification_v054.py v054_view_proof/${{ matrix.view }}/source/
+          cp scripts/run_two_wave_cycle_scale_qualification_v054_view.py scripts/run_two_wave_cycle_scale_qualification_v054_five_view.py docs/research/two_wave_cycle_scale_qualification_protocol_v054.md v054_view_proof/${{ matrix.view }}/source/
+          git diff --exit-code -- data src tests scripts docs/research pyproject.toml
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: two-wave-cycle-scale-qualification-v054-five-view-${{ github.sha }}
+          name: v054-native5m-${{ matrix.view }}-${{ github.sha }}
+          path: |
+            cloud_results/two_wave_cycle_scale_qualification_v054_views/${{ matrix.view }}/
+            v054_view_proof/${{ matrix.view }}/
+          retention-days: 30
+          if-no-files-found: error
+
+  aggregate:
+    needs: native-view
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: python -m pip install -e . editables==0.6
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: v054-native5m-*-${{ github.sha }}
+          path: downloaded_v054_views
+          merge-multiple: false
+      - name: Aggregate frozen native-5m results without re-running models
+        run: |
+          mkdir -p v054_five_view_final_proof/source
+          git rev-parse HEAD > v054_five_view_final_proof/commit.txt
+          python scripts/aggregate_two_wave_cycle_scale_qualification_v054_five_view.py --input-root downloaded_v054_views | tee v054_five_view_final_proof/aggregate.log
+          python -m pip freeze > v054_five_view_final_proof/environment.txt
+          cp scripts/aggregate_two_wave_cycle_scale_qualification_v054_five_view.py docs/research/two_wave_cycle_scale_qualification_protocol_v054.md v054_five_view_final_proof/source/
+          git diff --exit-code -- data src tests scripts docs/research pyproject.toml
+      - uses: actions/upload-artifact@v4
+        with:
+          name: two-wave-cycle-scale-qualification-v054-five-view-final-${{ github.sha }}
           path: |
             cloud_results/two_wave_cycle_scale_qualification_v054_five_view/
-            v054_five_view_proof/
+            v054_five_view_final_proof/
+            downloaded_v054_views/
           retention-days: 30
           if-no-files-found: error
