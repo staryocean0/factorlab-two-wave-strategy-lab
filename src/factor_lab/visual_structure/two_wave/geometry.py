@@ -59,7 +59,14 @@ def fit_geometry(pivots: list[dict], bars: list[dict], config: Config) -> dict:
     if len(interval) != end - start + 1:
         raise ValueError("all bar closes in the completed two-cycle interval are required")
     full_t = np.arange(end - start + 1, dtype=float)
-    full_x = np.array([row["log_close"] for row in interval], dtype=float)
+    # Some research callers provide immutable manifest bars directly rather
+    # than passing through Engine._normalize.  Deriving log_close from the
+    # same positive observed close is representation-preserving and produces
+    # exactly the prior value whenever log_close is already present.
+    full_x = np.array(
+        [row.get("log_close", math.log(float(row["close"]))) for row in interval],
+        dtype=float,
+    )
     residuals = x - design @ coef
     detrended = full_x - b * full_t
     lower, upper = float(detrended.min()), float(detrended.max())
