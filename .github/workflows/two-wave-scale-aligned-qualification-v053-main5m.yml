@@ -1,3 +1,4 @@
+# Research logic is frozen in the result-before protocol; this update only triggers the existing workflow.
 name: two-wave-scale-aligned-qualification-v053-main5m
 on:
   push:
