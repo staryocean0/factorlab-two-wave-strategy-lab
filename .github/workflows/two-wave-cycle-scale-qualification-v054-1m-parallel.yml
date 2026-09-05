@@ -1,0 +1,91 @@
+name: two-wave-cycle-scale-qualification-v054-1m-parallel
+on:
+  push:
+    branches: ['codex/two-wave-phase1-20260905']
+    paths:
+      - 'src/factor_lab/visual_structure/two_wave/cycle_scale_qualification_v054.py'
+      - 'scripts/run_two_wave_cycle_scale_qualification_v054_1m_fraction.py'
+      - 'scripts/aggregate_two_wave_cycle_scale_qualification_v054_1m_shards.py'
+      - 'scripts/run_two_wave_cycle_scale_qualification_v054_five_view.py'
+      - 'docs/research/two_wave_cycle_scale_qualification_protocol_v054.md'
+      - '.github/workflows/two-wave-cycle-scale-qualification-v054-1m-parallel.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: two-wave-cycle-scale-qualification-v054-1m-parallel-${{ github.ref }}
+  cancel-in-progress: false
+defaults:
+  run:
+    shell: bash
+jobs:
+  shard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        fraction: ['0.25', '0.50', '0.75']
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: python -m pip install -e . editables==0.6
+      - name: Run frozen 1m full plus one prefix shard
+        run: |
+          mkdir -p v054_1m_shard_proof/${{ matrix.fraction }}/source
+          git rev-parse HEAD > v054_1m_shard_proof/${{ matrix.fraction }}/commit.txt
+          python scripts/run_two_wave_cycle_scale_qualification_v054_1m_fraction.py --fraction ${{ matrix.fraction }} | tee v054_1m_shard_proof/${{ matrix.fraction }}/research.log
+          python -m pip freeze > v054_1m_shard_proof/${{ matrix.fraction }}/environment.txt
+          cp src/factor_lab/visual_structure/two_wave/cycle_scale_qualification_v054.py v054_1m_shard_proof/${{ matrix.fraction }}/source/
+          cp scripts/run_two_wave_cycle_scale_qualification_v054_1m_fraction.py scripts/run_two_wave_cycle_scale_qualification_v054_five_view.py docs/research/two_wave_cycle_scale_qualification_protocol_v054.md v054_1m_shard_proof/${{ matrix.fraction }}/source/
+          git diff --exit-code -- data src tests scripts docs/research pyproject.toml
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v054-1m-prefix-${{ matrix.fraction }}-${{ github.sha }}
+          path: |
+            cloud_results/two_wave_cycle_scale_qualification_v054_1m_shards/
+            v054_1m_shard_proof/${{ matrix.fraction }}/
+          retention-days: 30
+          if-no-files-found: error
+
+  aggregate:
+    needs: shard
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: python -m pip install -e . editables==0.6
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: v054-1m-prefix-*-${{ github.sha }}
+          path: downloaded_v054_1m_shards
+          merge-multiple: false
+      - name: Aggregate frozen 1m shards without re-running model
+        run: |
+          mkdir -p v054_1m_parallel_final_proof/source
+          git rev-parse HEAD > v054_1m_parallel_final_proof/commit.txt
+          python scripts/aggregate_two_wave_cycle_scale_qualification_v054_1m_shards.py --input-root downloaded_v054_1m_shards | tee v054_1m_parallel_final_proof/aggregate.log
+          python -m pip freeze > v054_1m_parallel_final_proof/environment.txt
+          cp scripts/aggregate_two_wave_cycle_scale_qualification_v054_1m_shards.py docs/research/two_wave_cycle_scale_qualification_protocol_v054.md v054_1m_parallel_final_proof/source/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: two-wave-cycle-scale-qualification-v054-1m-parallel-final-${{ github.sha }}
+          path: |
+            cloud_results/two_wave_cycle_scale_qualification_v054_1m_shards/final_summary.json
+            v054_1m_parallel_final_proof/
+            downloaded_v054_1m_shards/
+          retention-days: 30
+          if-no-files-found: error
