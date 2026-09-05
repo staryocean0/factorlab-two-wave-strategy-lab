@@ -3,9 +3,9 @@
 Research component only.  The frozen change from v0.5.1 is structural identity:
 individual confirmed TCSS extrema are linked across adjacent scales before any
 five-point parent candidate is constructed.  A parent event is the first scale
-where the *same five ridge IDs* become consecutive after at least one internal
-child ridge dies.  Qualification, D1, raw projection, outcomes and trading are
-not redefined here.
+where the *same five ridge IDs* become consecutive after every intervening
+child ridge has a causally certified death in that scale transition.
+Qualification, D1, raw projection, outcomes and trading are not redefined here.
 """
 from __future__ import annotations
 
@@ -392,6 +392,11 @@ def identify_tuple_births(
         prev_by_ridge = {row.ridge_id: row for row in previous_nodes}
         prev_positions = {row.ridge_id: i for i, row in enumerate(previous_nodes)}
         transition_deaths = deaths_by_transition.get(level, [])
+        death_by_ridge: dict[str, RidgeDeath] = {}
+        for death in transition_deaths:
+            if death.ridge_id in death_by_ridge:
+                raise ValueError("one ridge may die at most once in one adjacent-scale transition")
+            death_by_ridge[death.ridge_id] = death
 
         for row in tuples_by_level[level]:
             if row.tuple_id in previous_tuple_ids:
@@ -405,16 +410,21 @@ def identify_tuple_births(
             prior_internal = previous_nodes[lo_pos : hi_pos + 1]
             if len(prior_internal) <= 5:
                 continue
-            lo_occ = prior_internal[0].node.occurrence_index
-            hi_occ = prior_internal[-1].node.occurrence_index
             parent_ids = set(row.ridge_ids)
-            child_deaths = tuple(
-                death
-                for death in transition_deaths
-                if death.ridge_id not in parent_ids and lo_occ < death.occurrence_index < hi_occ
+            expected_child_ids = tuple(
+                node.ridge_id for node in prior_internal if node.ridge_id not in parent_ids
             )
-            if not child_deaths:
+            if not expected_child_ids:
                 continue
+            # Causal adjacency certification: the tuple cannot be published
+            # merely because the currently visible coarse list looks adjacent.
+            # Every finer-scale ridge that previously lay between the five
+            # parents must already have an explicit death in this transition.
+            # If even one remains provisional, future coarse information could
+            # still enlarge the child-death set and rewrite the birth event.
+            if any(ridge_id not in death_by_ridge for ridge_id in expected_child_ids):
+                continue
+            child_deaths = tuple(death_by_ridge[ridge_id] for ridge_id in expected_child_ids)
             confirmation = max(
                 [node.node.confirmation_index for node in row.nodes]
                 + [death.confirmation_index for death in child_deaths]
