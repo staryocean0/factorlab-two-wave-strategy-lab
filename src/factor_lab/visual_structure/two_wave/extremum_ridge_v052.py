@@ -268,8 +268,6 @@ def _link_one_phase(
             continue
 
         distance, _, _, chosen = min(options)
-        # Once this coarse continuation passes unmatched fine nodes, future
-        # coarse nodes cannot use them without violating temporal order.
         for idx in range(last_used + 1, chosen):
             row = fine[idx]
             deaths.append(
@@ -399,7 +397,6 @@ def identify_tuple_births(
             if row.tuple_id in previous_tuple_ids:
                 continue
             if any(ridge_id not in prev_by_ridge for ridge_id in row.ridge_ids):
-                # A valid coarse hierarchy may not invent new ridges.
                 continue
             positions = [prev_positions[ridge_id] for ridge_id in row.ridge_ids]
             if positions != sorted(positions):
@@ -407,7 +404,6 @@ def identify_tuple_births(
             lo_pos, hi_pos = positions[0], positions[-1]
             prior_internal = previous_nodes[lo_pos : hi_pos + 1]
             if len(prior_internal) <= 5:
-                # No child ridge separated these parent ridges at the finer scale.
                 continue
             lo_occ = prior_internal[0].node.occurrence_index
             hi_occ = prior_internal[-1].node.occurrence_index
@@ -558,6 +554,12 @@ def build_ridge_run(
                 record["birth_scale_level"] = birth.level
                 record["birth_scale_id"] = birth.scale_id
                 record["birth_sigma_bars"] = birth.sigma_bars
+                # Compatibility aliases only: the frozen v0.5.1 ledger sorts
+                # qualified records by these names.  Values are identical to
+                # the v0.5.2 birth-scale fields and do not change research logic.
+                record["characteristic_scale_level"] = birth.level
+                record["characteristic_scale_id"] = birth.scale_id
+                record["characteristic_sigma_bars"] = birth.sigma_bars
                 record["filtered_occurrence_bars"] = list(birth.occurrence_indices)
                 record["tuple_birth_confirmation_bar"] = birth.confirmation_index
                 record["tuple_birth_delay_bars"] = birth.confirmation_index - adapter.feature.confirmation_index
