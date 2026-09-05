@@ -1,0 +1,20 @@
+{
+  "old_zip_sha256": "ac78edd65290d0dd7b2fc24dee67ed3e8d8e0213c27f38999526024534c1a613",
+  "source": "original v0.1 native replay prefixes; no modified or new market data",
+  "objects": 4845,
+  "counts": {
+    "baseline": {"uncertain": 4652, "range": 55, "downtrend": 67, "uptrend": 71},
+    "A": {"uncertain": 4622, "range": 55, "uptrend": 94, "downtrend": 74},
+    "B": {"uncertain": 4306, "uptrend": 258, "downtrend": 200, "range": 81}
+  },
+  "scope": "independent implementation oracle; NOT independent morphology truth",
+  "verification": {
+    "comparison_records": 14535,
+    "extra_records_in_new_prefix": 0,
+    "maximum_ratio_absolute_error": 0.0,
+    "failures": [],
+    "passed": true,
+    "independent_human_reference": false,
+    "scope": "implementation_arithmetic_oracle_on_saved_first_1200_bar_prefixes"
+  }
+}
