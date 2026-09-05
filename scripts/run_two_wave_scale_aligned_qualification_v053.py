@@ -76,7 +76,10 @@ def main():
 
     cfg = MaturityConfig(timeframe=args.view)
     assert cfg.min_leg_efficiency == FROZEN_NUMERICAL_THRESHOLD == 0.5
-    bars, audit = load_development_bars(args.view)
+    bars, audit = load_development_bars(
+        ROOT / f"data/development/{args.view}.parquet",
+        ROOT / "data/manifest.json",
+    )
     run = build_scale_aligned_qualification_run(bars, cfg=cfg)
     before = run.base_run.evaluated_records
     after = run.evaluated_records
@@ -113,6 +116,7 @@ def main():
 
     day_indices = [i for i, bar in enumerate(bars) if bar.get("trading_day") == "2018-06-20"]
     day_range = [min(day_indices), max(day_indices)] if day_indices else None
+
     def audit_range(lo, hi):
         old_rows = [row for row in before if overlap(row, lo, hi)]
         new_rows = [row for row in run.ledger.records if overlap(row, lo, hi)]
