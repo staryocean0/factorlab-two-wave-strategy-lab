@@ -1,0 +1,54 @@
+{
+  "status": "supplementary_H16_W128_diagnostic_not_recognizer_recalibration",
+  "source_range": "2015-01-05 to 2020-12-31, previously used development data",
+  "external_AI_method_confirmed_by_user": {
+    "same_bar_count_across_frequencies": true,
+    "primary_H": 16,
+    "dynamic_window_ER_observations": 128,
+    "sensitivity_H": [8, 16, 32, 64]
+  },
+  "still_not_identified_from_external_study": [
+    "exact historical-versus-recent split dates",
+    "high/mid/low ER thresholds",
+    "whether high-low switching permits traversal through the middle state",
+    "raw-close versus log-close basis",
+    "population versus sample standard-deviation convention"
+  ],
+  "definitions_used_in_supplementary_diagnostic": {
+    "ER": "abs(p[t]-p[t-H]) / sum(abs(diff(p[t-H:t+1])))",
+    "local_std128": "population standard deviation of the last 128 ER observations, ddof=0",
+    "mean_abs_change127": "mean of the 127 adjacent absolute ER changes within the 128-ER window",
+    "state_switch127": "adjacent switches among low<=0.2, mid(0.2,0.6), high>=0.6 divided by 127",
+    "direct_extreme_switch127": "adjacent low/high swaps only divided by 127",
+    "price_basis": "raw close primary; log close also computed as sensitivity",
+    "clock": "continuous supplied bar order; lunch/overnight gaps not filled"
+  },
+  "H16_W128_whole_period_close_means": [
+    {"view":"1m_official","local_std128":0.25055895439089293,"mean_abs_change127":0.07974818490040708,"state_switch127":0.20299293401810384,"direct_extreme_switch127":0.0012927418112083284},
+    {"view":"5m_offset_0","local_std128":0.19452779823269023,"mean_abs_change127":0.07970288772531203,"state_switch127":0.21805434129797532,"direct_extreme_switch127":0.0007574566606165412},
+    {"view":"5m_offset_1","local_std128":0.1928291334475039,"mean_abs_change127":0.07998625369806221,"state_switch127":0.21922549767633803,"direct_extreme_switch127":0.0006276993567872504},
+    {"view":"5m_offset_2","local_std128":0.1922951611332685,"mean_abs_change127":0.07983082052268389,"state_switch127":0.21734040318145517,"direct_extreme_switch127":0.0007158943459261137},
+    {"view":"5m_offset_3","local_std128":0.19317501005981713,"mean_abs_change127":0.07965470235124356,"state_switch127":0.2147237635564011,"direct_extreme_switch127":0.0009246830723340791},
+    {"view":"5m_offset_4","local_std128":0.19442688837351435,"mean_abs_change127":0.07952510017015102,"state_switch127":0.21505124545865367,"direct_extreme_switch127":0.0008501372151294595}
+  ],
+  "main_5m_C1_scale_0_01_cross_diagnostic": {
+    "candidate_count": 1508,
+    "direction_counts": {"uptrend":227,"downtrend":220,"range":67,"uncertain":994},
+    "uptrend": {"median_two_cycle_span_bars":160.0,"p10_span":53.4,"p90_span":541.0,"median_confirmation_delay_bars":9.0,"median_ER16_at_confirmation":0.24005803259151767,"mean_std128_at_confirmation":0.1975274559173605,"channel_A_accepted":25},
+    "downtrend": {"median_two_cycle_span_bars":76.5,"p10_span":37.0,"p90_span":336.8,"median_confirmation_delay_bars":5.0,"median_ER16_at_confirmation":0.29219664461776346,"mean_std128_at_confirmation":0.19146517272527266,"channel_A_accepted":27},
+    "range": {"median_two_cycle_span_bars":77.0,"p10_span":38.2,"p90_span":282.8,"median_confirmation_delay_bars":9.0,"median_ER16_at_confirmation":0.17357239167668692,"mean_std128_at_confirmation":0.18051619383137077,"channel_A_accepted":27},
+    "uncertain": {"median_two_cycle_span_bars":127.5,"p10_span":44.0,"p90_span":409.7,"median_confirmation_delay_bars":9.0,"median_ER16_at_confirmation":0.2737468818366179,"mean_std128_at_confirmation":0.18974760271,"channel_A_accepted":3}
+  },
+  "interpretation": [
+    "The current C1 direction layer does not use rolling H16/W128 dynamics as a classifier input.",
+    "The main 5m two-cycle spans are often far longer than H=16, so existing C1 counts cannot be treated as proof that the short/medium-term H16/W128 state transitions have been captured.",
+    "The old 2015-2020 development period does not show 5m uniformly larger than 1m on local std128, while state_switch127 is modestly larger for the five 5m offsets under the repository's 0.2/0.6 diagnostic thresholds.",
+    "These are descriptive development diagnostics, not accuracy, fresh OOS, or trading results."
+  ],
+  "local_full_diagnostic_sha256_before_repository_sync": "dbee9115fb7f1c488d011883b5f37743a816c82340ab7cbf34e38546c22b155f",
+  "recognizer_modified": false,
+  "pnl_computed": false,
+  "fresh_oos": false,
+  "h1_opened": false,
+  "production_authority": false
+}
