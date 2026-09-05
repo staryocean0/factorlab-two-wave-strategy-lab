@@ -1,0 +1,42 @@
+{
+  "status": "github_H16_W128_reproduction_success",
+  "workflow_name": "two-wave-h16-w128-diagnostic",
+  "workflow_source_commit": "37bad824983f6ff1d37c666d979570897d30a808",
+  "workflow_run_id": 33957723542,
+  "job_id": 101283977115,
+  "conclusion": "success",
+  "steps": {
+    "checkout": "success",
+    "python_setup": "success",
+    "package_install": "success",
+    "validate_original_package_and_data": "success",
+    "full_regression_suite": "success",
+    "reproduce_H16_W128_and_C1_cross_check": "success",
+    "upload_artifact": "success"
+  },
+  "artifact": {
+    "id": 9966929949,
+    "name": "two-wave-H16-W128-37bad824983f6ff1d37c666d979570897d30a808",
+    "size_bytes": 969681,
+    "sha256": "83ea9ca3057c3f562adecc888bfb63ca8a5c9f53c2c98b9c2f31abab82dc5916",
+    "expires_at_utc": "2026-10-05T09:22:29Z"
+  },
+  "generated_outputs": [
+    "H16_W128_diagnostic.json",
+    "H16_W128_core_summary.json",
+    "six per-view H16_W128 daily CSV files",
+    "six per-view C1-at-confirmation H16/W128 CSV files"
+  ],
+  "scope": {
+    "views": ["1m_official", "5m_offset_0", "5m_offset_1", "5m_offset_2", "5m_offset_3", "5m_offset_4"],
+    "H": [8, 16, 32, 64],
+    "W": 128,
+    "data_role": "previously_used_development_material_2015_2020",
+    "recognizer_recalibrated": false,
+    "pnl_computed": false,
+    "fresh_oos": false,
+    "h1_opened": false,
+    "production_authority": false
+  },
+  "note": "The workflow executed the portable diagnostic source at 37bad824. Subsequent commits only updated documentation, continuation/evidence files, and corrected the preserved historical scratch-script snapshot; they did not change the portable diagnostic, C1 recognizer, market data, or workflow source used in this successful run."
+}
