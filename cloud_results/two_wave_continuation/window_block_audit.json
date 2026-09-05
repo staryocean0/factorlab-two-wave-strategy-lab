@@ -1,0 +1,1047 @@
+{
+  "schema_version": "two_wave_window_block_design_audit@1.0",
+  "status": "morphology_replication_not_yet_accepted",
+  "authority": "research_only_no_hypothesis_or_trading_promotion",
+  "run_scope": "Existing preselected baseline windows; calendar design only; no recognizer rerun or reference evaluation",
+  "actual_input_view_count": 6,
+  "actual_input_bar_rows": 18992,
+  "overlapping_product_rows_are_not_independent_observations": true,
+  "inputs": [
+    {
+      "view_id": "30m_offset_15",
+      "actual_export_frequency": "30m",
+      "bar_rows": 8765,
+      "window_count": 12,
+      "source_window_path": "/workspace/scratch/b287f9674e79/repo/cloud_results/two_wave_continuation/baseline_full_replay/30m_offset_15/reversal_0.01/preselected_review_windows.json",
+      "source_window_sha256": "dc53d2d5c4f74f2d9def4f1079977da2d04e6ee8b25e17a0cba5fa5295a4dae3",
+      "source_parquet_sha256": "0bf323c25d637e80ea5ff81a116f5c54f0f3b20679878212441f4ac9b894aa3b"
+    },
+    {
+      "view_id": "60m_offset_30",
+      "actual_export_frequency": "60m",
+      "bar_rows": 2923,
+      "window_count": 6,
+      "source_window_path": "/workspace/scratch/b287f9674e79/repo/cloud_results/two_wave_continuation/baseline_full_replay/60m_offset_30/reversal_0.01/preselected_review_windows.json",
+      "source_window_sha256": "f2d19931b9a02b8c2473256942c2c5d09ef63030892df4ed1efaea0a51d712b8",
+      "source_parquet_sha256": "7a754f7c802bb1eea7f6ad388650f7b9293f659c56c5a52a1717d28d46d4d00e"
+    },
+    {
+      "view_id": "60m_offset_45",
+      "actual_export_frequency": "60m",
+      "bar_rows": 2921,
+      "window_count": 6,
+      "source_window_path": "/workspace/scratch/b287f9674e79/repo/cloud_results/two_wave_continuation/baseline_full_replay/60m_offset_45/reversal_0.01/preselected_review_windows.json",
+      "source_window_sha256": "82e161fa9f621f080b51045329681b44088bc45701b266b3c60ecfcf3e7a459e",
+      "source_parquet_sha256": "192d6f2ba5e4c33cad71a32346af8af74257cc6d0c857f13238e4e0d2c2cb6d7"
+    },
+    {
+      "view_id": "daily_noon_close_1130",
+      "actual_export_frequency": "1d",
+      "bar_rows": 1462,
+      "window_count": 6,
+      "source_window_path": "/workspace/scratch/b287f9674e79/repo/cloud_results/two_wave_continuation/baseline_full_replay/daily_noon_close_1130/reversal_0.01/preselected_review_windows.json",
+      "source_window_sha256": "5f64168cbe7dd3c511108a3788ff3d6f39420aec00bb64b7034491f7523765be",
+      "source_parquet_sha256": "1389b655c846d2e4b9d4ccb6fbc3ba9fce92c4db60bb3d0cc91e17f5703b24ed"
+    },
+    {
+      "view_id": "daily_proxy_close_1400",
+      "actual_export_frequency": "60m",
+      "bar_rows": 1461,
+      "window_count": 6,
+      "source_window_path": "/workspace/scratch/b287f9674e79/repo/cloud_results/two_wave_continuation/baseline_full_replay/daily_proxy_close_1400/reversal_0.01/preselected_review_windows.json",
+      "source_window_sha256": "5d8c7c9ceaa37af04728069844c647073c9ae7f38fb2be6bff705e73210037cf",
+      "source_parquet_sha256": "92812f6fd31957779ddc0b34ea4d810d612751b4047e31737d01114de18237d0"
+    },
+    {
+      "view_id": "daily_proxy_close_1430",
+      "actual_export_frequency": "30m",
+      "bar_rows": 1460,
+      "window_count": 6,
+      "source_window_path": "/workspace/scratch/b287f9674e79/repo/cloud_results/two_wave_continuation/baseline_full_replay/daily_proxy_close_1430/reversal_0.01/preselected_review_windows.json",
+      "source_window_sha256": "4d7fcfadf42a304b3ba1f28f0fac16785bfffd7fc6216b05f9ba46dbe1a8211a",
+      "source_parquet_sha256": "f82888247b131553d747b15cad7682f7ed66e6da9a90a9ed93f83d145442c9dc"
+    }
+  ],
+  "frozen_protocol_sha256": "6b285582a5045e7eddd6a61c215d0987e667ea8d408f4a15f6874c74bf2abe28",
+  "source_files_sha256": {
+    "/workspace/scratch/b287f9674e79/repo/scripts/audit_two_wave_window_blocks.py": "cc4ff9e49b9111fcd51558d788a30fb34f83e29b316f89f8c8caa861fd61f730",
+    "/workspace/scratch/b287f9674e79/repo/src/factor_lab/visual_structure/two_wave/uncertainty.py": "e0de5d76e7a1c918f0a43bd5b1803f6a5bbdf5839b70c4271923d7e23e74bec9",
+    "/workspace/scratch/b287f9674e79/repo/docs/research/two_wave_recognition_spec_v0_1.md": "976647d46336eba5ebd678588be7326b837580bcd1749c9517ae9e7cde50efee",
+    "/workspace/scratch/b287f9674e79/repo/docs/research/two_wave_evaluation_protocol_v0_1.md": "6b285582a5045e7eddd6a61c215d0987e667ea8d408f4a15f6874c74bf2abe28",
+    "/workspace/scratch/b287f9674e79/repo/data/manifest.json": "b40b352a4940c7cf475150a63af135fb3e92bd2061f9d631c0fc2032b4294291"
+  },
+  "calendar_plan": {
+    "calendar_resolution": "Asia/Shanghai inclusive calendar days; no within-day independence assumed",
+    "input_window_count": 42,
+    "block_count": 6,
+    "blocks": [
+      {
+        "block_id": "calendar_2015-01-05_2015-12-31",
+        "start_day": "2015-01-05",
+        "end_day": "2015-12-31",
+        "window_ids": [
+          "cfg_0ffe6c2f8e2981bfd25e_2015_0",
+          "cfg_14f96f544148eea74db0_2015_0",
+          "cfg_56f375ddadd3c6890dc7_2015_0",
+          "cfg_5f2b59feaf7c48e6224c_2015_0",
+          "cfg_794338ea11d4ba9eb92e_2015_0",
+          "cfg_c71b9b6e2823e728eaec_2015_1073",
+          "cfg_c71b9b6e2823e728eaec_2015_723"
+        ],
+        "participation": [
+          [
+            "30m_offset_15|actual_export_frequency=30m",
+            "cfg_c71b9b6e2823e728eaec",
+            "scale_6e1872f616d8c90d9433",
+            2015
+          ],
+          [
+            "60m_offset_30|actual_export_frequency=60m",
+            "cfg_5f2b59feaf7c48e6224c",
+            "scale_6092000c0b5810f997ec",
+            2015
+          ],
+          [
+            "60m_offset_45|actual_export_frequency=60m",
+            "cfg_0ffe6c2f8e2981bfd25e",
+            "scale_8ba64e6c66d07026e480",
+            2015
+          ],
+          [
+            "daily_noon_close_1130|actual_export_frequency=1d",
+            "cfg_56f375ddadd3c6890dc7",
+            "scale_63d9ccb1a562a539b551",
+            2015
+          ],
+          [
+            "daily_proxy_close_1400|actual_export_frequency=60m",
+            "cfg_14f96f544148eea74db0",
+            "scale_64bec4e69c61e1733ac1",
+            2015
+          ],
+          [
+            "daily_proxy_close_1430|actual_export_frequency=30m",
+            "cfg_794338ea11d4ba9eb92e",
+            "scale_168232a08fb2ecf280f4",
+            2015
+          ]
+        ],
+        "product_count": 6,
+        "year_count": 1
+      },
+      {
+        "block_id": "calendar_2016-01-04_2016-12-30",
+        "start_day": "2016-01-04",
+        "end_day": "2016-12-30",
+        "window_ids": [
+          "cfg_0ffe6c2f8e2981bfd25e_2016_488",
+          "cfg_14f96f544148eea74db0_2016_244",
+          "cfg_56f375ddadd3c6890dc7_2016_244",
+          "cfg_5f2b59feaf7c48e6224c_2016_488",
+          "cfg_794338ea11d4ba9eb92e_2016_244",
+          "cfg_c71b9b6e2823e728eaec_2016_1759",
+          "cfg_c71b9b6e2823e728eaec_2016_2588"
+        ],
+        "participation": [
+          [
+            "30m_offset_15|actual_export_frequency=30m",
+            "cfg_c71b9b6e2823e728eaec",
+            "scale_6e1872f616d8c90d9433",
+            2016
+          ],
+          [
+            "60m_offset_30|actual_export_frequency=60m",
+            "cfg_5f2b59feaf7c48e6224c",
+            "scale_6092000c0b5810f997ec",
+            2016
+          ],
+          [
+            "60m_offset_45|actual_export_frequency=60m",
+            "cfg_0ffe6c2f8e2981bfd25e",
+            "scale_8ba64e6c66d07026e480",
+            2016
+          ],
+          [
+            "daily_noon_close_1130|actual_export_frequency=1d",
+            "cfg_56f375ddadd3c6890dc7",
+            "scale_63d9ccb1a562a539b551",
+            2016
+          ],
+          [
+            "daily_proxy_close_1400|actual_export_frequency=60m",
+            "cfg_14f96f544148eea74db0",
+            "scale_64bec4e69c61e1733ac1",
+            2016
+          ],
+          [
+            "daily_proxy_close_1430|actual_export_frequency=30m",
+            "cfg_794338ea11d4ba9eb92e",
+            "scale_168232a08fb2ecf280f4",
+            2016
+          ]
+        ],
+        "product_count": 6,
+        "year_count": 1
+      },
+      {
+        "block_id": "calendar_2017-01-03_2017-12-29",
+        "start_day": "2017-01-03",
+        "end_day": "2017-12-29",
+        "window_ids": [
+          "cfg_0ffe6c2f8e2981bfd25e_2017_973",
+          "cfg_14f96f544148eea74db0_2017_487",
+          "cfg_56f375ddadd3c6890dc7_2017_488",
+          "cfg_5f2b59feaf7c48e6224c_2017_975",
+          "cfg_794338ea11d4ba9eb92e_2017_486",
+          "cfg_c71b9b6e2823e728eaec_2017_3053",
+          "cfg_c71b9b6e2823e728eaec_2017_3407"
+        ],
+        "participation": [
+          [
+            "30m_offset_15|actual_export_frequency=30m",
+            "cfg_c71b9b6e2823e728eaec",
+            "scale_6e1872f616d8c90d9433",
+            2017
+          ],
+          [
+            "60m_offset_30|actual_export_frequency=60m",
+            "cfg_5f2b59feaf7c48e6224c",
+            "scale_6092000c0b5810f997ec",
+            2017
+          ],
+          [
+            "60m_offset_45|actual_export_frequency=60m",
+            "cfg_0ffe6c2f8e2981bfd25e",
+            "scale_8ba64e6c66d07026e480",
+            2017
+          ],
+          [
+            "daily_noon_close_1130|actual_export_frequency=1d",
+            "cfg_56f375ddadd3c6890dc7",
+            "scale_63d9ccb1a562a539b551",
+            2017
+          ],
+          [
+            "daily_proxy_close_1400|actual_export_frequency=60m",
+            "cfg_14f96f544148eea74db0",
+            "scale_64bec4e69c61e1733ac1",
+            2017
+          ],
+          [
+            "daily_proxy_close_1430|actual_export_frequency=30m",
+            "cfg_794338ea11d4ba9eb92e",
+            "scale_168232a08fb2ecf280f4",
+            2017
+          ]
+        ],
+        "product_count": 6,
+        "year_count": 1
+      },
+      {
+        "block_id": "calendar_2018-01-02_2018-12-28",
+        "start_day": "2018-01-02",
+        "end_day": "2018-12-28",
+        "window_ids": [
+          "cfg_0ffe6c2f8e2981bfd25e_2018_1461",
+          "cfg_14f96f544148eea74db0_2018_731",
+          "cfg_56f375ddadd3c6890dc7_2018_732",
+          "cfg_5f2b59feaf7c48e6224c_2018_1463",
+          "cfg_794338ea11d4ba9eb92e_2018_730",
+          "cfg_c71b9b6e2823e728eaec_2018_4484",
+          "cfg_c71b9b6e2823e728eaec_2018_5494"
+        ],
+        "participation": [
+          [
+            "30m_offset_15|actual_export_frequency=30m",
+            "cfg_c71b9b6e2823e728eaec",
+            "scale_6e1872f616d8c90d9433",
+            2018
+          ],
+          [
+            "60m_offset_30|actual_export_frequency=60m",
+            "cfg_5f2b59feaf7c48e6224c",
+            "scale_6092000c0b5810f997ec",
+            2018
+          ],
+          [
+            "60m_offset_45|actual_export_frequency=60m",
+            "cfg_0ffe6c2f8e2981bfd25e",
+            "scale_8ba64e6c66d07026e480",
+            2018
+          ],
+          [
+            "daily_noon_close_1130|actual_export_frequency=1d",
+            "cfg_56f375ddadd3c6890dc7",
+            "scale_63d9ccb1a562a539b551",
+            2018
+          ],
+          [
+            "daily_proxy_close_1400|actual_export_frequency=60m",
+            "cfg_14f96f544148eea74db0",
+            "scale_64bec4e69c61e1733ac1",
+            2018
+          ],
+          [
+            "daily_proxy_close_1430|actual_export_frequency=30m",
+            "cfg_794338ea11d4ba9eb92e",
+            "scale_168232a08fb2ecf280f4",
+            2018
+          ]
+        ],
+        "product_count": 6,
+        "year_count": 1
+      },
+      {
+        "block_id": "calendar_2019-01-02_2019-12-31",
+        "start_day": "2019-01-02",
+        "end_day": "2019-12-31",
+        "window_ids": [
+          "cfg_0ffe6c2f8e2981bfd25e_2019_1947",
+          "cfg_14f96f544148eea74db0_2019_974",
+          "cfg_56f375ddadd3c6890dc7_2019_975",
+          "cfg_5f2b59feaf7c48e6224c_2019_1949",
+          "cfg_794338ea11d4ba9eb92e_2019_973",
+          "cfg_c71b9b6e2823e728eaec_2019_6386",
+          "cfg_c71b9b6e2823e728eaec_2019_6929"
+        ],
+        "participation": [
+          [
+            "30m_offset_15|actual_export_frequency=30m",
+            "cfg_c71b9b6e2823e728eaec",
+            "scale_6e1872f616d8c90d9433",
+            2019
+          ],
+          [
+            "60m_offset_30|actual_export_frequency=60m",
+            "cfg_5f2b59feaf7c48e6224c",
+            "scale_6092000c0b5810f997ec",
+            2019
+          ],
+          [
+            "60m_offset_45|actual_export_frequency=60m",
+            "cfg_0ffe6c2f8e2981bfd25e",
+            "scale_8ba64e6c66d07026e480",
+            2019
+          ],
+          [
+            "daily_noon_close_1130|actual_export_frequency=1d",
+            "cfg_56f375ddadd3c6890dc7",
+            "scale_63d9ccb1a562a539b551",
+            2019
+          ],
+          [
+            "daily_proxy_close_1400|actual_export_frequency=60m",
+            "cfg_14f96f544148eea74db0",
+            "scale_64bec4e69c61e1733ac1",
+            2019
+          ],
+          [
+            "daily_proxy_close_1430|actual_export_frequency=30m",
+            "cfg_794338ea11d4ba9eb92e",
+            "scale_168232a08fb2ecf280f4",
+            2019
+          ]
+        ],
+        "product_count": 6,
+        "year_count": 1
+      },
+      {
+        "block_id": "calendar_2020-01-02_2020-12-31",
+        "start_day": "2020-01-02",
+        "end_day": "2020-12-31",
+        "window_ids": [
+          "cfg_0ffe6c2f8e2981bfd25e_2020_2435",
+          "cfg_14f96f544148eea74db0_2020_1218",
+          "cfg_56f375ddadd3c6890dc7_2020_1219",
+          "cfg_5f2b59feaf7c48e6224c_2020_2437",
+          "cfg_794338ea11d4ba9eb92e_2020_1217",
+          "cfg_c71b9b6e2823e728eaec_2020_7399",
+          "cfg_c71b9b6e2823e728eaec_2020_8487"
+        ],
+        "participation": [
+          [
+            "30m_offset_15|actual_export_frequency=30m",
+            "cfg_c71b9b6e2823e728eaec",
+            "scale_6e1872f616d8c90d9433",
+            2020
+          ],
+          [
+            "60m_offset_30|actual_export_frequency=60m",
+            "cfg_5f2b59feaf7c48e6224c",
+            "scale_6092000c0b5810f997ec",
+            2020
+          ],
+          [
+            "60m_offset_45|actual_export_frequency=60m",
+            "cfg_0ffe6c2f8e2981bfd25e",
+            "scale_8ba64e6c66d07026e480",
+            2020
+          ],
+          [
+            "daily_noon_close_1130|actual_export_frequency=1d",
+            "cfg_56f375ddadd3c6890dc7",
+            "scale_63d9ccb1a562a539b551",
+            2020
+          ],
+          [
+            "daily_proxy_close_1400|actual_export_frequency=60m",
+            "cfg_14f96f544148eea74db0",
+            "scale_64bec4e69c61e1733ac1",
+            2020
+          ],
+          [
+            "daily_proxy_close_1430|actual_export_frequency=30m",
+            "cfg_794338ea11d4ba9eb92e",
+            "scale_168232a08fb2ecf280f4",
+            2020
+          ]
+        ],
+        "product_count": 6,
+        "year_count": 1
+      }
+    ],
+    "window_to_block": {
+      "cfg_0ffe6c2f8e2981bfd25e_2015_0": "calendar_2015-01-05_2015-12-31",
+      "cfg_14f96f544148eea74db0_2015_0": "calendar_2015-01-05_2015-12-31",
+      "cfg_56f375ddadd3c6890dc7_2015_0": "calendar_2015-01-05_2015-12-31",
+      "cfg_5f2b59feaf7c48e6224c_2015_0": "calendar_2015-01-05_2015-12-31",
+      "cfg_794338ea11d4ba9eb92e_2015_0": "calendar_2015-01-05_2015-12-31",
+      "cfg_c71b9b6e2823e728eaec_2015_723": "calendar_2015-01-05_2015-12-31",
+      "cfg_c71b9b6e2823e728eaec_2015_1073": "calendar_2015-01-05_2015-12-31",
+      "cfg_0ffe6c2f8e2981bfd25e_2016_488": "calendar_2016-01-04_2016-12-30",
+      "cfg_14f96f544148eea74db0_2016_244": "calendar_2016-01-04_2016-12-30",
+      "cfg_56f375ddadd3c6890dc7_2016_244": "calendar_2016-01-04_2016-12-30",
+      "cfg_5f2b59feaf7c48e6224c_2016_488": "calendar_2016-01-04_2016-12-30",
+      "cfg_794338ea11d4ba9eb92e_2016_244": "calendar_2016-01-04_2016-12-30",
+      "cfg_c71b9b6e2823e728eaec_2016_1759": "calendar_2016-01-04_2016-12-30",
+      "cfg_c71b9b6e2823e728eaec_2016_2588": "calendar_2016-01-04_2016-12-30",
+      "cfg_0ffe6c2f8e2981bfd25e_2017_973": "calendar_2017-01-03_2017-12-29",
+      "cfg_14f96f544148eea74db0_2017_487": "calendar_2017-01-03_2017-12-29",
+      "cfg_56f375ddadd3c6890dc7_2017_488": "calendar_2017-01-03_2017-12-29",
+      "cfg_5f2b59feaf7c48e6224c_2017_975": "calendar_2017-01-03_2017-12-29",
+      "cfg_794338ea11d4ba9eb92e_2017_486": "calendar_2017-01-03_2017-12-29",
+      "cfg_c71b9b6e2823e728eaec_2017_3053": "calendar_2017-01-03_2017-12-29",
+      "cfg_c71b9b6e2823e728eaec_2017_3407": "calendar_2017-01-03_2017-12-29",
+      "cfg_0ffe6c2f8e2981bfd25e_2018_1461": "calendar_2018-01-02_2018-12-28",
+      "cfg_14f96f544148eea74db0_2018_731": "calendar_2018-01-02_2018-12-28",
+      "cfg_56f375ddadd3c6890dc7_2018_732": "calendar_2018-01-02_2018-12-28",
+      "cfg_5f2b59feaf7c48e6224c_2018_1463": "calendar_2018-01-02_2018-12-28",
+      "cfg_794338ea11d4ba9eb92e_2018_730": "calendar_2018-01-02_2018-12-28",
+      "cfg_c71b9b6e2823e728eaec_2018_4484": "calendar_2018-01-02_2018-12-28",
+      "cfg_c71b9b6e2823e728eaec_2018_5494": "calendar_2018-01-02_2018-12-28",
+      "cfg_0ffe6c2f8e2981bfd25e_2019_1947": "calendar_2019-01-02_2019-12-31",
+      "cfg_14f96f544148eea74db0_2019_974": "calendar_2019-01-02_2019-12-31",
+      "cfg_56f375ddadd3c6890dc7_2019_975": "calendar_2019-01-02_2019-12-31",
+      "cfg_5f2b59feaf7c48e6224c_2019_1949": "calendar_2019-01-02_2019-12-31",
+      "cfg_794338ea11d4ba9eb92e_2019_973": "calendar_2019-01-02_2019-12-31",
+      "cfg_c71b9b6e2823e728eaec_2019_6386": "calendar_2019-01-02_2019-12-31",
+      "cfg_c71b9b6e2823e728eaec_2019_6929": "calendar_2019-01-02_2019-12-31",
+      "cfg_0ffe6c2f8e2981bfd25e_2020_2435": "calendar_2020-01-02_2020-12-31",
+      "cfg_14f96f544148eea74db0_2020_1218": "calendar_2020-01-02_2020-12-31",
+      "cfg_56f375ddadd3c6890dc7_2020_1219": "calendar_2020-01-02_2020-12-31",
+      "cfg_5f2b59feaf7c48e6224c_2020_2437": "calendar_2020-01-02_2020-12-31",
+      "cfg_794338ea11d4ba9eb92e_2020_1217": "calendar_2020-01-02_2020-12-31",
+      "cfg_c71b9b6e2823e728eaec_2020_7399": "calendar_2020-01-02_2020-12-31",
+      "cfg_c71b9b6e2823e728eaec_2020_8487": "calendar_2020-01-02_2020-12-31"
+    },
+    "independence_note": "Disjoint calendar blocks are resampling units, not proof of temporal independence."
+  },
+  "joint_product_scale_year_sampling_strata": [
+    {
+      "participation": [
+        [
+          "30m_offset_15|actual_export_frequency=30m",
+          "cfg_c71b9b6e2823e728eaec",
+          "scale_6e1872f616d8c90d9433",
+          2015
+        ],
+        [
+          "60m_offset_30|actual_export_frequency=60m",
+          "cfg_5f2b59feaf7c48e6224c",
+          "scale_6092000c0b5810f997ec",
+          2015
+        ],
+        [
+          "60m_offset_45|actual_export_frequency=60m",
+          "cfg_0ffe6c2f8e2981bfd25e",
+          "scale_8ba64e6c66d07026e480",
+          2015
+        ],
+        [
+          "daily_noon_close_1130|actual_export_frequency=1d",
+          "cfg_56f375ddadd3c6890dc7",
+          "scale_63d9ccb1a562a539b551",
+          2015
+        ],
+        [
+          "daily_proxy_close_1400|actual_export_frequency=60m",
+          "cfg_14f96f544148eea74db0",
+          "scale_64bec4e69c61e1733ac1",
+          2015
+        ],
+        [
+          "daily_proxy_close_1430|actual_export_frequency=30m",
+          "cfg_794338ea11d4ba9eb92e",
+          "scale_168232a08fb2ecf280f4",
+          2015
+        ]
+      ],
+      "block_ids": [
+        "calendar_2015-01-05_2015-12-31"
+      ],
+      "block_count": 1
+    },
+    {
+      "participation": [
+        [
+          "30m_offset_15|actual_export_frequency=30m",
+          "cfg_c71b9b6e2823e728eaec",
+          "scale_6e1872f616d8c90d9433",
+          2016
+        ],
+        [
+          "60m_offset_30|actual_export_frequency=60m",
+          "cfg_5f2b59feaf7c48e6224c",
+          "scale_6092000c0b5810f997ec",
+          2016
+        ],
+        [
+          "60m_offset_45|actual_export_frequency=60m",
+          "cfg_0ffe6c2f8e2981bfd25e",
+          "scale_8ba64e6c66d07026e480",
+          2016
+        ],
+        [
+          "daily_noon_close_1130|actual_export_frequency=1d",
+          "cfg_56f375ddadd3c6890dc7",
+          "scale_63d9ccb1a562a539b551",
+          2016
+        ],
+        [
+          "daily_proxy_close_1400|actual_export_frequency=60m",
+          "cfg_14f96f544148eea74db0",
+          "scale_64bec4e69c61e1733ac1",
+          2016
+        ],
+        [
+          "daily_proxy_close_1430|actual_export_frequency=30m",
+          "cfg_794338ea11d4ba9eb92e",
+          "scale_168232a08fb2ecf280f4",
+          2016
+        ]
+      ],
+      "block_ids": [
+        "calendar_2016-01-04_2016-12-30"
+      ],
+      "block_count": 1
+    },
+    {
+      "participation": [
+        [
+          "30m_offset_15|actual_export_frequency=30m",
+          "cfg_c71b9b6e2823e728eaec",
+          "scale_6e1872f616d8c90d9433",
+          2017
+        ],
+        [
+          "60m_offset_30|actual_export_frequency=60m",
+          "cfg_5f2b59feaf7c48e6224c",
+          "scale_6092000c0b5810f997ec",
+          2017
+        ],
+        [
+          "60m_offset_45|actual_export_frequency=60m",
+          "cfg_0ffe6c2f8e2981bfd25e",
+          "scale_8ba64e6c66d07026e480",
+          2017
+        ],
+        [
+          "daily_noon_close_1130|actual_export_frequency=1d",
+          "cfg_56f375ddadd3c6890dc7",
+          "scale_63d9ccb1a562a539b551",
+          2017
+        ],
+        [
+          "daily_proxy_close_1400|actual_export_frequency=60m",
+          "cfg_14f96f544148eea74db0",
+          "scale_64bec4e69c61e1733ac1",
+          2017
+        ],
+        [
+          "daily_proxy_close_1430|actual_export_frequency=30m",
+          "cfg_794338ea11d4ba9eb92e",
+          "scale_168232a08fb2ecf280f4",
+          2017
+        ]
+      ],
+      "block_ids": [
+        "calendar_2017-01-03_2017-12-29"
+      ],
+      "block_count": 1
+    },
+    {
+      "participation": [
+        [
+          "30m_offset_15|actual_export_frequency=30m",
+          "cfg_c71b9b6e2823e728eaec",
+          "scale_6e1872f616d8c90d9433",
+          2018
+        ],
+        [
+          "60m_offset_30|actual_export_frequency=60m",
+          "cfg_5f2b59feaf7c48e6224c",
+          "scale_6092000c0b5810f997ec",
+          2018
+        ],
+        [
+          "60m_offset_45|actual_export_frequency=60m",
+          "cfg_0ffe6c2f8e2981bfd25e",
+          "scale_8ba64e6c66d07026e480",
+          2018
+        ],
+        [
+          "daily_noon_close_1130|actual_export_frequency=1d",
+          "cfg_56f375ddadd3c6890dc7",
+          "scale_63d9ccb1a562a539b551",
+          2018
+        ],
+        [
+          "daily_proxy_close_1400|actual_export_frequency=60m",
+          "cfg_14f96f544148eea74db0",
+          "scale_64bec4e69c61e1733ac1",
+          2018
+        ],
+        [
+          "daily_proxy_close_1430|actual_export_frequency=30m",
+          "cfg_794338ea11d4ba9eb92e",
+          "scale_168232a08fb2ecf280f4",
+          2018
+        ]
+      ],
+      "block_ids": [
+        "calendar_2018-01-02_2018-12-28"
+      ],
+      "block_count": 1
+    },
+    {
+      "participation": [
+        [
+          "30m_offset_15|actual_export_frequency=30m",
+          "cfg_c71b9b6e2823e728eaec",
+          "scale_6e1872f616d8c90d9433",
+          2019
+        ],
+        [
+          "60m_offset_30|actual_export_frequency=60m",
+          "cfg_5f2b59feaf7c48e6224c",
+          "scale_6092000c0b5810f997ec",
+          2019
+        ],
+        [
+          "60m_offset_45|actual_export_frequency=60m",
+          "cfg_0ffe6c2f8e2981bfd25e",
+          "scale_8ba64e6c66d07026e480",
+          2019
+        ],
+        [
+          "daily_noon_close_1130|actual_export_frequency=1d",
+          "cfg_56f375ddadd3c6890dc7",
+          "scale_63d9ccb1a562a539b551",
+          2019
+        ],
+        [
+          "daily_proxy_close_1400|actual_export_frequency=60m",
+          "cfg_14f96f544148eea74db0",
+          "scale_64bec4e69c61e1733ac1",
+          2019
+        ],
+        [
+          "daily_proxy_close_1430|actual_export_frequency=30m",
+          "cfg_794338ea11d4ba9eb92e",
+          "scale_168232a08fb2ecf280f4",
+          2019
+        ]
+      ],
+      "block_ids": [
+        "calendar_2019-01-02_2019-12-31"
+      ],
+      "block_count": 1
+    },
+    {
+      "participation": [
+        [
+          "30m_offset_15|actual_export_frequency=30m",
+          "cfg_c71b9b6e2823e728eaec",
+          "scale_6e1872f616d8c90d9433",
+          2020
+        ],
+        [
+          "60m_offset_30|actual_export_frequency=60m",
+          "cfg_5f2b59feaf7c48e6224c",
+          "scale_6092000c0b5810f997ec",
+          2020
+        ],
+        [
+          "60m_offset_45|actual_export_frequency=60m",
+          "cfg_0ffe6c2f8e2981bfd25e",
+          "scale_8ba64e6c66d07026e480",
+          2020
+        ],
+        [
+          "daily_noon_close_1130|actual_export_frequency=1d",
+          "cfg_56f375ddadd3c6890dc7",
+          "scale_63d9ccb1a562a539b551",
+          2020
+        ],
+        [
+          "daily_proxy_close_1400|actual_export_frequency=60m",
+          "cfg_14f96f544148eea74db0",
+          "scale_64bec4e69c61e1733ac1",
+          2020
+        ],
+        [
+          "daily_proxy_close_1430|actual_export_frequency=30m",
+          "cfg_794338ea11d4ba9eb92e",
+          "scale_168232a08fb2ecf280f4",
+          2020
+        ]
+      ],
+      "block_ids": [
+        "calendar_2020-01-02_2020-12-31"
+      ],
+      "block_count": 1
+    }
+  ],
+  "minimum_blocks_per_joint_stratum": 5,
+  "minimum_blocks_policy": "Supplementary conservative implementation assumption; not predeclared numeric protocol v0.1 threshold",
+  "sparse_joint_strata_count": 6,
+  "resampling_design_draws": 2000,
+  "resampling_design_seed": 20260905,
+  "resampling_weights_sha256": "4fa71f4711341fa3fd4ca5f3592c2023761fa3bd09705f43d9a17fd2dcd9bc25",
+  "by_product_year": [
+    {
+      "product_id": "30m_offset_15|actual_export_frequency=30m",
+      "year": 2015,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2015-01-05_2015-12-31"
+      ]
+    },
+    {
+      "product_id": "30m_offset_15|actual_export_frequency=30m",
+      "year": 2016,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2016-01-04_2016-12-30"
+      ]
+    },
+    {
+      "product_id": "30m_offset_15|actual_export_frequency=30m",
+      "year": 2017,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2017-01-03_2017-12-29"
+      ]
+    },
+    {
+      "product_id": "30m_offset_15|actual_export_frequency=30m",
+      "year": 2018,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2018-01-02_2018-12-28"
+      ]
+    },
+    {
+      "product_id": "30m_offset_15|actual_export_frequency=30m",
+      "year": 2019,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2019-01-02_2019-12-31"
+      ]
+    },
+    {
+      "product_id": "30m_offset_15|actual_export_frequency=30m",
+      "year": 2020,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2020-01-02_2020-12-31"
+      ]
+    },
+    {
+      "product_id": "60m_offset_30|actual_export_frequency=60m",
+      "year": 2015,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2015-01-05_2015-12-31"
+      ]
+    },
+    {
+      "product_id": "60m_offset_30|actual_export_frequency=60m",
+      "year": 2016,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2016-01-04_2016-12-30"
+      ]
+    },
+    {
+      "product_id": "60m_offset_30|actual_export_frequency=60m",
+      "year": 2017,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2017-01-03_2017-12-29"
+      ]
+    },
+    {
+      "product_id": "60m_offset_30|actual_export_frequency=60m",
+      "year": 2018,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2018-01-02_2018-12-28"
+      ]
+    },
+    {
+      "product_id": "60m_offset_30|actual_export_frequency=60m",
+      "year": 2019,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2019-01-02_2019-12-31"
+      ]
+    },
+    {
+      "product_id": "60m_offset_30|actual_export_frequency=60m",
+      "year": 2020,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2020-01-02_2020-12-31"
+      ]
+    },
+    {
+      "product_id": "60m_offset_45|actual_export_frequency=60m",
+      "year": 2015,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2015-01-05_2015-12-31"
+      ]
+    },
+    {
+      "product_id": "60m_offset_45|actual_export_frequency=60m",
+      "year": 2016,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2016-01-04_2016-12-30"
+      ]
+    },
+    {
+      "product_id": "60m_offset_45|actual_export_frequency=60m",
+      "year": 2017,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2017-01-03_2017-12-29"
+      ]
+    },
+    {
+      "product_id": "60m_offset_45|actual_export_frequency=60m",
+      "year": 2018,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2018-01-02_2018-12-28"
+      ]
+    },
+    {
+      "product_id": "60m_offset_45|actual_export_frequency=60m",
+      "year": 2019,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2019-01-02_2019-12-31"
+      ]
+    },
+    {
+      "product_id": "60m_offset_45|actual_export_frequency=60m",
+      "year": 2020,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2020-01-02_2020-12-31"
+      ]
+    },
+    {
+      "product_id": "daily_noon_close_1130|actual_export_frequency=1d",
+      "year": 2015,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2015-01-05_2015-12-31"
+      ]
+    },
+    {
+      "product_id": "daily_noon_close_1130|actual_export_frequency=1d",
+      "year": 2016,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2016-01-04_2016-12-30"
+      ]
+    },
+    {
+      "product_id": "daily_noon_close_1130|actual_export_frequency=1d",
+      "year": 2017,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2017-01-03_2017-12-29"
+      ]
+    },
+    {
+      "product_id": "daily_noon_close_1130|actual_export_frequency=1d",
+      "year": 2018,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2018-01-02_2018-12-28"
+      ]
+    },
+    {
+      "product_id": "daily_noon_close_1130|actual_export_frequency=1d",
+      "year": 2019,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2019-01-02_2019-12-31"
+      ]
+    },
+    {
+      "product_id": "daily_noon_close_1130|actual_export_frequency=1d",
+      "year": 2020,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2020-01-02_2020-12-31"
+      ]
+    },
+    {
+      "product_id": "daily_proxy_close_1400|actual_export_frequency=60m",
+      "year": 2015,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2015-01-05_2015-12-31"
+      ]
+    },
+    {
+      "product_id": "daily_proxy_close_1400|actual_export_frequency=60m",
+      "year": 2016,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2016-01-04_2016-12-30"
+      ]
+    },
+    {
+      "product_id": "daily_proxy_close_1400|actual_export_frequency=60m",
+      "year": 2017,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2017-01-03_2017-12-29"
+      ]
+    },
+    {
+      "product_id": "daily_proxy_close_1400|actual_export_frequency=60m",
+      "year": 2018,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2018-01-02_2018-12-28"
+      ]
+    },
+    {
+      "product_id": "daily_proxy_close_1400|actual_export_frequency=60m",
+      "year": 2019,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2019-01-02_2019-12-31"
+      ]
+    },
+    {
+      "product_id": "daily_proxy_close_1400|actual_export_frequency=60m",
+      "year": 2020,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2020-01-02_2020-12-31"
+      ]
+    },
+    {
+      "product_id": "daily_proxy_close_1430|actual_export_frequency=30m",
+      "year": 2015,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2015-01-05_2015-12-31"
+      ]
+    },
+    {
+      "product_id": "daily_proxy_close_1430|actual_export_frequency=30m",
+      "year": 2016,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2016-01-04_2016-12-30"
+      ]
+    },
+    {
+      "product_id": "daily_proxy_close_1430|actual_export_frequency=30m",
+      "year": 2017,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2017-01-03_2017-12-29"
+      ]
+    },
+    {
+      "product_id": "daily_proxy_close_1430|actual_export_frequency=30m",
+      "year": 2018,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2018-01-02_2018-12-28"
+      ]
+    },
+    {
+      "product_id": "daily_proxy_close_1430|actual_export_frequency=30m",
+      "year": 2019,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2019-01-02_2019-12-31"
+      ]
+    },
+    {
+      "product_id": "daily_proxy_close_1430|actual_export_frequency=30m",
+      "year": 2020,
+      "joint_calendar_block_count": 1,
+      "block_ids": [
+        "calendar_2020-01-02_2020-12-31"
+      ]
+    }
+  ],
+  "product_only_plans_descriptive": {
+    "30m_offset_15|actual_export_frequency=30m": {
+      "window_count": 12,
+      "within_product_block_count": 12
+    },
+    "60m_offset_30|actual_export_frequency=60m": {
+      "window_count": 6,
+      "within_product_block_count": 6
+    },
+    "60m_offset_45|actual_export_frequency=60m": {
+      "window_count": 6,
+      "within_product_block_count": 6
+    },
+    "daily_noon_close_1130|actual_export_frequency=1d": {
+      "window_count": 6,
+      "within_product_block_count": 6
+    },
+    "daily_proxy_close_1400|actual_export_frequency=60m": {
+      "window_count": 6,
+      "within_product_block_count": 6
+    },
+    "daily_proxy_close_1430|actual_export_frequency=30m": {
+      "window_count": 6,
+      "within_product_block_count": 6
+    }
+  },
+  "complete_reviewed_windows": 0,
+  "independent_reference_count": 0,
+  "bootstrap_metric_evaluation_run": false,
+  "confidence_intervals_95": null,
+  "ci_withheld_reasons": [
+    "no_independent_reference_labels",
+    "no_complete_reviewed_windows",
+    "sparse_joint_calendar_blocks"
+  ],
+  "interpretation": "When present, full-year daily cores connect all overlapping intraday cores of that year. Repeated products/frequencies do not create independent blocks. Removing daily products or shortening frozen cores solely to obtain intervals would change the evaluation design."
+}

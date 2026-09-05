@@ -1,0 +1,126 @@
+{
+  "status": "morphology_replication_not_yet_accepted",
+  "base_remote_commit": "0b7ca8f31bcea1d21d86caca143512ac38c4ef82",
+  "github_new_changes_written": false,
+  "github_write_status": "blocked_by_automatic_approval_review_after_read_only_authorization_checks",
+  "tests": {
+    "tests": 197,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "pytest_command": "PYTHONPATH=src python -m pytest -o addopts= -q --junitxml=cloud_results/two_wave_continuation/tests.xml",
+  "python": "Python 3.11.15",
+  "ruff_new_code_and_two_wave_modules": "passed",
+  "required_package_validator": {
+    "passed": false,
+    "first_error": "frozen source drifted: data/development/15m_offset_10.parquet",
+    "cause": "eight original source files not available in this sparse local checkout; not new data modifications"
+  },
+  "independent_frozen_asset_inventory": {
+    "manifest_entries": 473,
+    "matching_existing_entries": 465,
+    "missing": [
+      "data/development/15m_offset_10.parquet",
+      "data/development/15m_offset_5.parquet",
+      "data/development/1m_official.parquet",
+      "data/development/5m_offset_0.parquet",
+      "data/development/5m_offset_1.parquet",
+      "data/development/5m_offset_2.parquet",
+      "data/development/5m_offset_3.parquet",
+      "data/development/5m_offset_4.parquet"
+    ],
+    "hash_mismatches": [],
+    "not_a_substitute_for_full_package_validation": true
+  },
+  "reexecuted_baseline": {
+    "view_count": 6,
+    "source_rows": 18992,
+    "structures": 2736,
+    "prefix_checks_passed": 6,
+    "record_files_byte_identical_to_previous": [
+      "cloud_results/two_wave_continuation/baseline_full_replay/daily_noon_close_1130/reversal_0.01/events.jsonl",
+      "cloud_results/two_wave_continuation/baseline_full_replay/daily_noon_close_1130/reversal_0.01/cycles.jsonl",
+      "cloud_results/two_wave_continuation/baseline_full_replay/daily_noon_close_1130/reversal_0.01/structures.jsonl",
+      "cloud_results/two_wave_continuation/baseline_full_replay/daily_noon_close_1130/reversal_0.01/pivots.jsonl",
+      "cloud_results/two_wave_continuation/baseline_full_replay/daily_proxy_close_1400/reversal_0.01/events.jsonl",
+      "cloud_results/two_wave_continuation/baseline_full_replay/daily_proxy_close_1400/reversal_0.01/cycles.jsonl",
+      "cloud_results/two_wave_continuation/baseline_full_replay/daily_proxy_close_1400/reversal_0.01/structures.jsonl",
+      "cloud_results/two_wave_continuation/baseline_full_replay/daily_proxy_close_1400/reversal_0.01/pivots.jsonl",
+      "cloud_results/two_wave_continuation/baseline_full_replay/30m_offset_15/reversal_0.01/events.jsonl",
+      "cloud_results/two_wave_continuation/baseline_full_replay/30m_offset_15/reversal_0.01/cycles.jsonl",
+      "cloud_results/two_wave_continuation/baseline_full_replay/30m_offset_15/reversal_0.01/structures.jsonl",
+      "cloud_results/two_wave_continuation/baseline_full_replay/30m_offset_15/reversal_0.01/pivots.jsonl",
+      "cloud_results/two_wave_continuation/baseline_full_replay/daily_proxy_close_1430/reversal_0.01/events.jsonl",
+      "cloud_results/two_wave_continuation/baseline_full_replay/daily_proxy_close_1430/reversal_0.01/cycles.jsonl",
+      "cloud_results/two_wave_continuation/baseline_full_replay/daily_proxy_close_1430/reversal_0.01/structures.jsonl",
+      "cloud_results/two_wave_continuation/baseline_full_replay/daily_proxy_close_1430/reversal_0.01/pivots.jsonl",
+      "cloud_results/two_wave_continuation/baseline_full_replay/60m_offset_30/reversal_0.01/events.jsonl",
+      "cloud_results/two_wave_continuation/baseline_full_replay/60m_offset_30/reversal_0.01/cycles.jsonl",
+      "cloud_results/two_wave_continuation/baseline_full_replay/60m_offset_30/reversal_0.01/structures.jsonl",
+      "cloud_results/two_wave_continuation/baseline_full_replay/60m_offset_30/reversal_0.01/pivots.jsonl",
+      "cloud_results/two_wave_continuation/baseline_full_replay/60m_offset_45/reversal_0.01/events.jsonl",
+      "cloud_results/two_wave_continuation/baseline_full_replay/60m_offset_45/reversal_0.01/cycles.jsonl",
+      "cloud_results/two_wave_continuation/baseline_full_replay/60m_offset_45/reversal_0.01/structures.jsonl",
+      "cloud_results/two_wave_continuation/baseline_full_replay/60m_offset_45/reversal_0.01/pivots.jsonl"
+    ]
+  },
+  "html_checks": [
+    {
+      "path": "cloud_results/two_wave_continuation/blind_pilot/pilot_online_blind.html",
+      "scripts_checked": 1,
+      "passed": true
+    },
+    {
+      "path": "cloud_results/two_wave_continuation/blind_pilot/pilot_offline_blind.html",
+      "scripts_checked": 1,
+      "passed": true
+    },
+    {
+      "path": "cloud_results/two_wave_continuation/baseline_full_replay/replay.html",
+      "scripts_checked": 1,
+      "passed": true
+    }
+  ],
+  "browser_interaction_tested": false,
+  "blind_pilot_payload": {
+    "online_bar_count": 979,
+    "online_last_bar": 978,
+    "offline_bar_count": 1107,
+    "offline_last_bar": 1106,
+    "algorithm_records_embedded": 0,
+    "online_future_rows_embedded": 0
+  },
+  "diagnostic_png_visually_inspected": true,
+  "independent_human_labels": 0,
+  "core_and_definition_sha256": {
+    "docs/research/two_wave_recognition_spec_v0_1.md": "976647d46336eba5ebd678588be7326b837580bcd1749c9517ae9e7cde50efee",
+    "docs/research/two_wave_evaluation_protocol_v0_1.md": "6b285582a5045e7eddd6a61c215d0987e667ea8d408f4a15f6874c74bf2abe28",
+    "src/factor_lab/visual_structure/two_wave/engine.py": "2589f319dd1c90a2ef0a61e4ca7c564eff7f340cf08756f0351edda4bb72d46b",
+    "src/factor_lab/visual_structure/two_wave/geometry.py": "eea86d9994331b529392b2f72c64f783f6c9c24b1039b2aa44d3b70774d059a0",
+    "src/factor_lab/visual_structure/two_wave/models.py": "666b4bad19b453e0bde8057e0d820f6144c841744b89dc5fccbe643899ff94ce",
+    "src/factor_lab/visual_structure/two_wave/data.py": "b033cb73d14b851c636dec4c20f99c25b3979ebb37940d46b7f07490ce77bb3b",
+    "src/factor_lab/visual_structure/two_wave/annotations.py": "c153a3735a677f5d84220d2ca1e7aaa01ba583ca50c8b39ea6b1b63369e5f3aa",
+    "src/factor_lab/visual_structure/two_wave/replay.py": "d5a699431ea7d230820d04958cfaffc62605d05309194611196c6646e5ff5824"
+  },
+  "new_module_sha256": {
+    "src/factor_lab/visual_structure/two_wave/diagnostics.py": "3879a4c27b17a69b1b8e307477118ea3a6641b307366c06f526a454cb42980e3",
+    "src/factor_lab/visual_structure/two_wave/adjudication.py": "fb1fcd7080b04dda3dee44ba75161904384d089e4b5e913c04d7ba691fa35f19",
+    "src/factor_lab/visual_structure/two_wave/uncertainty.py": "e0de5d76e7a1c918f0a43bd5b1803f6a5bbdf5839b70c4271923d7e23e74bec9",
+    "scripts/audit_two_wave_window_blocks.py": "cc4ff9e49b9111fcd51558d788a30fb34f83e29b316f89f8c8caa861fd61f730",
+    "scripts/build_two_wave_blind_pilot.py": "29e9302fe9eace7f8bcffc36400516ccbfcf8bd5abb431411e2e847d394a0986",
+    "scripts/build_two_wave_diagnostic_figure.py": "824c8222f26e1da6d68c729b4e5529ea01287984f8f5aaaf5b199dee4ef4807e",
+    "scripts/build_two_wave_synthetic_gallery.py": "36189313c27504b14d09eec9d2d59f2ad5174c2dbf0a3045cd93d4e72ae94d75",
+    "scripts/check_two_wave_stability.py": "5fe8ccfbcae4fa089955a07e01b88425b0b63016435247ce60ec60178ace20bd",
+    "scripts/diagnose_two_wave_rejections.py": "71c7dfb852b7e0b4252c28410705c6e06245e13c97423ebeca53d041b104b4c3",
+    "scripts/evaluate_two_wave_reference_uncertainty.py": "84745158053d96298280ca12089da06e632aa6b00e31ddd8a3c2dec74765b809",
+    "scripts/reconcile_two_wave_annotations.py": "4be032e2c85fc58f87b9478ddd1eff8ea3ca0e7883d35aee40fb65435bac25db",
+    "scripts/run_two_wave_research.py": "655737e99b3de9e88e70e982a943720470f98958bdcfb995d34a1d486c0aca7b",
+    "scripts/summarize_two_wave_run.py": "5071293e6f45b3f2717fc04cdf24c1bfa838ba7868048ade51eae51e55f21d3a"
+  },
+  "h1_opened": false,
+  "pnl_computed": false,
+  "fresh_oos": false,
+  "patch_sha256": "28121dbf4e4daa2570831d04a1ab94d7555c35f58b667d24ea1bbe033f06ce3b",
+  "patch_apply_check_against_modified_baseline_files": true
+}

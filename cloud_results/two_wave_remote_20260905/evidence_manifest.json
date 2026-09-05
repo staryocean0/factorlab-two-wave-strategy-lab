@@ -1,0 +1,61 @@
+{
+  "schema_version": "two_wave_remote_evidence_manifest@1.0",
+  "research_code_commit": "828d13d14aaed4ac2e358c71b06e415d37f87efe",
+  "files": [
+    {
+      "path": "compact_remote_results.json",
+      "bytes": 3149,
+      "sha256": "050f08f754a4b07e9472da43f2271d993d11d5d940ab11ec181def02a9052351"
+    },
+    {
+      "path": "delivery_receipt.json",
+      "bytes": 1340,
+      "sha256": "788c2a014e2f0694b10adcceedbdb8200da6c7b1c8a59e9db7f49ea21100dd1e"
+    },
+    {
+      "path": "four_completed_runs.json",
+      "bytes": 1946,
+      "sha256": "63531cf4dfd1833ca88e89bbc3b15cf1045ceabc9e6bae07b4ee71d6f0282f47"
+    },
+    {
+      "path": "head_source_snapshot.json",
+      "bytes": 13905,
+      "sha256": "25ab794c074c268db68860ac84c2b9eb24e58eeea307f2f8e112bd0f1e6f073c"
+    },
+    {
+      "path": "job_101261220527.log",
+      "bytes": 769286,
+      "sha256": "90798d31a1e8e9b7e48d2a602814454adb9fe54a2263c6e983a6c3594f160a6c"
+    },
+    {
+      "path": "parsed_pr_job_summary.json",
+      "bytes": 1474387,
+      "sha256": "be837ca00a141a80dfed0e91c661da7c5193458460558b235ba04eefe452bcfb"
+    },
+    {
+      "path": "per_view_scale_runs.json",
+      "bytes": 45796,
+      "sha256": "423f22c42750d677a55022cd2b3df34ca576d6aa9b5ba268f56c44ae5f000a56"
+    },
+    {
+      "path": "workflow_artifacts.json",
+      "bytes": 933,
+      "sha256": "f6e007c9282a851be59b5234e5851b59b6acf3fb94e1f426a5e3bf627b34afcd"
+    },
+    {
+      "path": "workflow_job_steps_final.json",
+      "bytes": 2428,
+      "sha256": "701cb3926c4b1370c615af550c18f9c8a45fd5b0ddc9d62ba74739945bebff47"
+    },
+    {
+      "path": "workflow_run_final.json",
+      "bytes": 16637,
+      "sha256": "53b243357bd0f9deba469e65cba225da46c721d2fa0ac77a5a41a16e51c5d12e"
+    },
+    {
+      "path": "workflow_run_initial.json",
+      "bytes": 16634,
+      "sha256": "795fa78a28fbff40236e76393a0aec8a71f623ce85be0e488e0c92ca030b39f4"
+    }
+  ]
+}

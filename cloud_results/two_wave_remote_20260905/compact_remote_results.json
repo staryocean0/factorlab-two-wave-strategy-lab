@@ -1,0 +1,99 @@
+{
+  "status": "morphology_replication_not_yet_accepted",
+  "branch_head_sha": "828d13d14aaed4ac2e358c71b06e415d37f87efe",
+  "checkout_test_merge_sha": "e10e840865d08962c15bfa419868cbae31de4373",
+  "run_url": "https://github.com/staryocean0/factorlab-two-wave-strategy-lab/actions/runs/33949407076",
+  "job_url": "https://github.com/staryocean0/factorlab-two-wave-strategy-lab/actions/runs/33949407076/job/101261220527",
+  "workflow_conclusion": "success",
+  "validated_frozen_assets": 473,
+  "validated_data_products": 14,
+  "validated_source_rows": 749337,
+  "immutable_tools": 15,
+  "tests_passed": 197,
+  "view_count": 14,
+  "run_count": 42,
+  "prefix_checks_passed": 42,
+  "all_scales": {
+    "candidate_count": 43874,
+    "classification_counts": {
+      "downtrend": 751,
+      "range": 816,
+      "uncertain": 41687,
+      "uptrend": 620
+    },
+    "clear_count": 2187,
+    "clear_fraction": 0.049847289966722885,
+    "invalid_count": 0,
+    "counterfactual_clear_counts": {
+      "original": 2187,
+      "remove_uneven_phase_drift": 4604,
+      "remove_cycle_amplitude_change": 2365,
+      "remove_both": 5628
+    }
+  },
+  "baseline_0_01": {
+    "candidate_count": 14155,
+    "classification_counts": {
+      "downtrend": 244,
+      "range": 272,
+      "uncertain": 13435,
+      "uptrend": 204
+    },
+    "clear_count": 720,
+    "clear_fraction": 0.050865418580007066,
+    "counterfactual_clear_counts": {
+      "original": 720,
+      "uneven_phase_drift": 1478,
+      "cycle_amplitude_change": 776,
+      "local_drift_and_cycle_amplitude": 1809
+    }
+  },
+  "by_threshold": {
+    "0.008": {
+      "downtrend": 310,
+      "range": 309,
+      "uncertain": 17689,
+      "uptrend": 244
+    },
+    "0.01": {
+      "downtrend": 244,
+      "range": 272,
+      "uncertain": 13435,
+      "uptrend": 204
+    },
+    "0.012": {
+      "downtrend": 197,
+      "range": 235,
+      "uncertain": 10563,
+      "uptrend": 172
+    }
+  },
+  "window_audit": {
+    "views": 14,
+    "windows": 138,
+    "calendar_blocks": 6,
+    "sparse_joint_strata": 6,
+    "confidence_intervals_95": null
+  },
+  "perturbation_log_evidence": {
+    "baseline_structures": 14155,
+    "matched_structures_within_frozen_tolerance": 14047,
+    "baseline_matched_fraction": 0.992370187212999,
+    "not_a_reference_accuracy_metric": true,
+    "event_or_classification_change_details_in_native_logs": false
+  },
+  "E_reconstruction_max_absolute_error": 3.019806626980426e-13,
+  "source_hash_checks_passed": 13,
+  "raw_job_log_sha256": "90798d31a1e8e9b7e48d2a602814454adb9fe54a2263c6e983a6c3594f160a6c",
+  "raw_job_log_bytes": 769286,
+  "independent_reference_count": 0,
+  "h1_opened": false,
+  "pnl_computed": false,
+  "ci_computed": false,
+  "limitations": [
+    "All 2015-2020 products are development material.",
+    "Cross-product, cross-threshold and overlapping candidate counts are correlated.",
+    "Counterfactual counts remove stored rejection flags only; they are not improved recognition accuracy or alternative replay.",
+    "Native perturbation logs record structure matching counts; full event and classification transition details remain in the workflow artifact."
+  ]
+}

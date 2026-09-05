@@ -1,0 +1,54 @@
+{
+  "schema_version": "two_wave_completed_runs@1.0",
+  "research_code_commit": "828d13d14aaed4ac2e358c71b06e415d37f87efe",
+  "runs": [
+    {
+      "id": 33949407076,
+      "name": "two-wave-development-research",
+      "html_url": "https://github.com/staryocean0/factorlab-two-wave-strategy-lab/actions/runs/33949407076",
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "828d13d14aaed4ac2e358c71b06e415d37f87efe",
+      "created_at": "2026-09-05T06:17:25Z",
+      "updated_at": "2026-09-05T06:25:43Z",
+      "run_attempt": 1
+    },
+    {
+      "id": 33949405211,
+      "name": "two-wave-development-research",
+      "html_url": "https://github.com/staryocean0/factorlab-two-wave-strategy-lab/actions/runs/33949405211",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "828d13d14aaed4ac2e358c71b06e415d37f87efe",
+      "created_at": "2026-09-05T06:17:22Z",
+      "updated_at": "2026-09-05T06:25:32Z",
+      "run_attempt": 1
+    },
+    {
+      "id": 33949407079,
+      "name": "bounded-theme-validation",
+      "html_url": "https://github.com/staryocean0/factorlab-two-wave-strategy-lab/actions/runs/33949407079",
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "828d13d14aaed4ac2e358c71b06e415d37f87efe",
+      "created_at": "2026-09-05T06:17:25Z",
+      "updated_at": "2026-09-05T06:18:11Z",
+      "run_attempt": 1
+    },
+    {
+      "id": 33949405239,
+      "name": "bounded-theme-validation",
+      "html_url": "https://github.com/staryocean0/factorlab-two-wave-strategy-lab/actions/runs/33949405239",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "828d13d14aaed4ac2e358c71b06e415d37f87efe",
+      "created_at": "2026-09-05T06:17:22Z",
+      "updated_at": "2026-09-05T06:18:16Z",
+      "run_attempt": 1
+    }
+  ]
+}

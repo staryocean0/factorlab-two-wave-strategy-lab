@@ -1,0 +1,33 @@
+{
+  "schema_version": "two_wave_github_delivery_receipt@1.0",
+  "repository": "staryocean0/factorlab-two-wave-strategy-lab",
+  "branch": "codex/two-wave-phase1-20260905",
+  "pull_request": 1,
+  "user_explicitly_authorized_code_reports_review_archive_and_workflow": true,
+  "base_commit": "0b7ca8f31bcea1d21d86caca143512ac38c4ef82",
+  "research_code_commit": "828d13d14aaed4ac2e358c71b06e415d37f87efe",
+  "research_tree": "0458491d9abd42d6176562d340f4a92b2f45dd95",
+  "all_21_text_files_local_remote_blob_equal": true,
+  "archive": {
+    "path": "cloud_results/two_wave_continuation_20260905.zip",
+    "bytes": 8069191,
+    "entries": 100,
+    "blob_sha1": "ed8d75e6f643fa4d12099e4b9a3e2744141690be",
+    "sha256": "9c8f8c97d0089903291af723e60964c1bdadaf829f2ded9776b7d8654530fa99",
+    "local_remote_blob_equal": true,
+    "contains_original_parquet": false,
+    "scope": "six views local continuation review archive; includes private derived market records"
+  },
+  "research_run_ids": {
+    "pull_request": 33949407076,
+    "push": 33949405211
+  },
+  "required_validation_run_ids": {
+    "pull_request": 33949407079,
+    "push": 33949405239
+  },
+  "remote_run_result": "See separate run evidence; delivery verification does not assert research acceptance",
+  "morphology_accepted": false,
+  "h1_opened": false,
+  "trading_opened": false
+}
