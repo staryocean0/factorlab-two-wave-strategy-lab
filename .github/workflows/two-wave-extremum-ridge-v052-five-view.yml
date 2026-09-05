@@ -1,5 +1,6 @@
 name: two-wave-extremum-ridge-v052-five-view
 on:
+  workflow_dispatch:
   push:
     branches: ['codex/two-wave-phase1-20260905']
     paths:
