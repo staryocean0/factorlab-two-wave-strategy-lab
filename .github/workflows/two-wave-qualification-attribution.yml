@@ -1,0 +1,55 @@
+name: two-wave-qualification-attribution
+on:
+  push:
+    branches: ['codex/two-wave-phase1-20260905']
+    paths:
+      - 'scripts/run_two_wave_qualification_attribution.py'
+      - 'docs/research/two_wave_qualification_attribution_protocol.md'
+      - '.github/workflows/two-wave-qualification-attribution.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: two-wave-qualification-attribution-${{ github.ref }}
+  cancel-in-progress: false
+defaults:
+  run:
+    shell: bash
+jobs:
+  frozen-attribution:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: python -m pip install -e . editables==0.6
+      - name: Validate and regression
+        run: |
+          mkdir -p qualification_attribution_proof/source
+          python scripts/validate_theme_package.py | tee qualification_attribution_proof/package_validation.json
+          python -m pytest -q --junitxml=qualification_attribution_proof/tests.xml | tee qualification_attribution_proof/tests.log
+          git rev-parse HEAD > qualification_attribution_proof/commit.txt
+      - name: Run frozen rejection attribution
+        run: |
+          python scripts/run_two_wave_qualification_attribution.py | tee qualification_attribution_proof/research.log
+          git diff --exit-code -- data src tests scripts docs/research pyproject.toml
+      - name: Retain exact diagnostic source
+        if: always()
+        run: |
+          python -m pip freeze > qualification_attribution_proof/environment.txt
+          cp scripts/run_two_wave_qualification_attribution.py docs/research/two_wave_qualification_attribution_protocol.md qualification_attribution_proof/source/
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: two-wave-qualification-attribution-${{ github.sha }}
+          path: |
+            cloud_results/two_wave_qualification_attribution/
+            qualification_attribution_proof/
+          retention-days: 30
+          if-no-files-found: error
