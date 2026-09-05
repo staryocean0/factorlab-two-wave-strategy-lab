@@ -257,10 +257,28 @@ def test_chirp_prefix_replay_does_not_rewrite_confirmed_ridges_deaths_or_tuple_b
         assert _ridge_signature(prefix, cutoff) == _ridge_signature(full, cutoff)
 
 
-def test_single_jump_with_small_noise_cannot_become_qualified_parent_two_wave():
+def test_single_jump_with_small_noise_cannot_create_a_qualified_parent_that_uses_the_jump():
     n = 900
+    jump_bar = 450
     t = np.arange(n, dtype=float)
+    # The tiny sine deliberately contains genuine pre/post-jump raw reversals;
+    # those are allowed to form ordinary local range objects.  The safety gate
+    # is specifically that the isolated discontinuity itself cannot be used to
+    # manufacture a qualified parent wave across the jump.
     log_values = 5.0 + 0.00015 * np.sin(2 * np.pi * t / 13)
-    log_values[t >= 450] += 0.08
+    log_values[t >= jump_bar] += 0.08
     run = build_ridge_run(_bars_from_log(log_values))
-    assert run.ledger.selected == []
+
+    crossing = [
+        row
+        for row in run.evaluated_records
+        if row["start_bar"] < jump_bar <= row["end_bar"]
+    ]
+    assert crossing, "fixture must exercise at least one raw candidate spanning the jump"
+    assert all(not row["scale_qualified"] for row in crossing)
+    assert all("jump_dominated_leg" in row["scale_rejection_reasons"] for row in crossing)
+    assert not [
+        row
+        for row in run.ledger.selected
+        if row["start_bar"] < jump_bar <= row["end_bar"]
+    ]
