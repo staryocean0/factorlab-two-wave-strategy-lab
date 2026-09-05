@@ -1,3 +1,4 @@
+# execution-only parallel split; frozen research logic unchanged
 name: two-wave-cycle-scale-qualification-v054-1m-parallel
 on:
   push:
