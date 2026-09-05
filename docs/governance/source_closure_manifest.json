@@ -142,9 +142,9 @@
       "sha256": "587e68605305cfca272261be69a5f9fd69ba892188361b78ff9c4625c3e934c9"
     },
     {
-      "bytes": 1281,
+      "bytes": 1282,
       "path": "docs/governance/controller_validation.json",
-      "sha256": "5c56bad7cf4b34fd518ac191ab6bc8abbe98b4a7b47727edac70e869a032a0d4"
+      "sha256": "db5fbbf90444901c894afad8d9a5db58f0de9ed841ebefa975a5e456a56568f3"
     },
     {
       "bytes": 1262,
@@ -2320,5 +2320,5 @@
   "production_authority": false,
   "schema_id": "two_wave_cloud_theme_source_closure@1.0",
   "status": "frozen_before_cloud_strategy_results",
-  "total_bytes": 39970589
+  "total_bytes": 39970590
 }

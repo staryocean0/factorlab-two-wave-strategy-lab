@@ -1,8 +1,8 @@
 {
   "schema_id": "two_wave_cloud_theme_controller_validation@1.0",
   "status": "accepted_for_private_cloud_morphology_research",
-  "package_size_mib": 51,
-  "frozen_source_file_count": 462,
+  "git_payload_mib": 38.2,
+  "frozen_source_file_count": 463,
   "data_product_count": 14,
   "data_row_count": 749337,
   "data_file_size_mib": 30.75,
