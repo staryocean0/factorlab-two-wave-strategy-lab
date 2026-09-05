@@ -1,0 +1,63 @@
+{
+  "status": "five_minute_priority_C1_development_audit_completed",
+  "primary_view": "5m_offset_0",
+  "diagnostic_control": "1m_official",
+  "one_minute_not_an_acceptance_gate": true,
+  "data_interval": ["2015-01-05", "2020-12-31"],
+  "source_rows_six_views": 689443,
+  "distinct_trading_days": 1462,
+  "external_AI_formula_available": false,
+  "paired_within_day": [
+    {"n_5m_returns": 12, "pairs": 52573, "std_5m": 0.22028636918502495, "std_1m_same_endpoints": 0.1648110246498397, "std_1m_same_bar_count": 0.28964676601360007, "high_ER_fraction_5m": 0.13231126243509025, "high_ER_fraction_1m_same_endpoints": 0.027352443269358796},
+    {"n_5m_returns": 24, "pairs": 35041, "std_5m": 0.17400853964943339, "std_1m_same_endpoints": 0.13078938150835676, "std_1m_same_bar_count": 0.23521439911479414, "mixed_ER_fraction_5m": 0.4891127536314603, "mixed_ER_fraction_1m_same_endpoints": 0.36057760908649866}
+  ],
+  "aligned_nonoverlap_n12": {
+    "windows": 4382, "adjacent_pairs": 2921,
+    "same_state_5m": 0.4008901061280383,
+    "same_state_1m": 0.4833960972269771,
+    "excess_over_independent_marginals_5m": 0.008233593026732378,
+    "excess_over_independent_marginals_1m": 0.016989440406102008,
+    "supports_greater_5m_persistence": false
+  },
+  "primary_direction_001": {
+    "candidates": 1508,
+    "A_clear": 82,
+    "C0_clear": 574,
+    "C1_clear": 514,
+    "C1_counts": {"range": 67, "uptrend": 227, "downtrend": 220, "uncertain": 994},
+    "C0_range_demoted_by_C1": 60,
+    "A_uncertain_to_C1_clear": 435,
+    "A_clear_to_C1_uncertain": 3,
+    "C1_trends_with_A_fit_error_gt_point2": 182,
+    "C1_trends_total": 447,
+    "perturbation": {"original":1508,"perturbed":1508,"strict_matches":1488,"original_unmatched":20,"perturbed_unmatched":20,"matched_classification_changes":2,"matched_confirmation_bar_changes":5}
+  },
+  "C0": {
+    "commit": "94b9fb5bbd0ff120bd38bef98dda966bc9bb4d24",
+    "run": 33955238116, "conclusion": "success", "tests": 253,
+    "artifact": 9966164003, "artifact_bytes": 47096350,
+    "sha256_locally_verified": "6dde6a80ea6dfe9901d0a8325b4cc0ed1469d615f33b2d6f40608557ea54d9f0",
+    "view_scale_groups":18,"records":29308,"fixed_prefix_checks":72
+  },
+  "C1": {
+    "commit": "80f75a96ccdc8397c21cf561d708f01098959232",
+    "run": 33955675562, "conclusion": "success", "tests": 258,
+    "artifact": 9966321961, "artifact_bytes": 6383299,
+    "sha256_locally_verified": "d388d5563648b608c509c8ecc93e8d21e797892891a68ecc88da9e473dade1e9",
+    "view_scale_groups":18,"records":29308,"fixed_prefix_checks":72
+  },
+  "cross_environment": {
+    "official_python": "3.11.16", "supplementary_python": "3.13.5",
+    "C0_records_compared":29308,"C0_exact_records":29308,
+    "C1_records_compared":29308,"C1_exact_records":3406,
+    "C1_float_fields_differing":178119,
+    "C1_max_absolute_float_difference":2.095297269022467e-10,
+    "comparison_absolute_tolerance":1e-8,
+    "categorical_id_clock_differences":0,
+    "frequency_summary_exact_equal":true,"C1_summary_exact_equal":true
+  },
+  "graphs_inspected": {"frequency_and_price":8,"C0":16,"C1":16},
+  "not_accuracy":true,"independent_human_reference_count":0,
+  "fresh_oos":false,"resampling_performed":false,"pnl_computed":false,
+  "h1_opened":false,"production_authority":false,"ready_for_final_acceptance":false
+}
