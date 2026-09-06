@@ -1,0 +1,16 @@
+{
+  "efficiency": {
+    "pass->pass": 436182,
+    "fail->fail": 86542,
+    "pass->fail": 214380
+  },
+  "jump_share": {
+    "pass->pass": 463971,
+    "fail->pass": 258735,
+    "fail->fail": 14398
+  },
+  "flat_share": {
+    "pass->pass": 737089,
+    "pass->fail": 15
+  }
+}
