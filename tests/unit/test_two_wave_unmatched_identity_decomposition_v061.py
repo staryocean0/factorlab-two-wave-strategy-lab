@@ -89,7 +89,7 @@ def extrema_nodes(kinds_and_indices):
 
 def test_same_level_anchor_survival_requires_exactly_one_same_kind_node_per_anchor():
     bs = bars([90, 95, 100, 105, 110, 111])
-    main = [90, 95, 100, 105, 110]
+    main = [row["timestamp"] for row in bs[:5]]
     nodes = extrema_nodes(
         [("low", 0), ("high", 1), ("low", 2), ("high", 3), ("low", 4)]
     )
@@ -106,7 +106,9 @@ def test_any_level_survival_reports_all_qualifying_levels_without_choosing():
     nodes = extrema_nodes(
         [("low", 0), ("high", 1), ("low", 2), ("high", 3), ("low", 4)]
     )
-    out = any_level_anchor_survival([90, 95, 100, 105, 110], "low", [nodes, nodes], bs)
+    out = any_level_anchor_survival(
+        [row["timestamp"] for row in bs], "low", [nodes, nodes], bs
+    )
     assert out["all_unique_levels"] == [0, 1]
 
 
