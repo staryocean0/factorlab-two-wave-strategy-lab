@@ -6,6 +6,8 @@ Status: **FROZEN BEFORE ANY v0.6.4 FINANCIAL REPLAY OUTPUT IS READ**
 
 This protocol registers exactly one repair candidate from `two_wave_ordinal0_predecessor_support_preanalysis_v064.md`. It changes no ridge identity, tuple birth, qualification threshold, direction, packing, matcher, outcome, or trading logic.
 
+> Pre-run bookkeeping correction: before any v0.6.4 financial output was read, the v0.6.2 offset3/offset4 pair-control values copied into §9 were checked against the committed v0.6.2 summary and corrected to the exact frozen values shown below. No candidate result existed at correction time.
+
 ## 1. Candidate identity
 
 Candidate name:
@@ -121,8 +123,8 @@ Use supplied `1m_official` only as audit path. For each candidate absolute windo
 Before candidate interpretation reproduce:
 
 ```text
-v0.6.2 filtered mutual-unique pairs: 14784 / 12725 / 13984 / 15536
-v0.6.2 control raw displaced: 6975 / 7311 / 7445 / 7542
+v0.6.2 filtered mutual-unique pairs: 14784 / 12725 / 13412 / 16108
+v0.6.2 control raw displaced: 6975 / 7311 / 7534 / 7453
 v0.6.3 residual: 1578 / 1738 / 1806 / 1718
 v0.6.1 post-tuple displaced target: 191 / 194 / 193 / 209
 v0.6.3 target residual: 32 / 28 / 30 / 32
