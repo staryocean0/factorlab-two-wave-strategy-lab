@@ -1,4 +1,7 @@
+import pytest
+
 from factor_lab.visual_structure.two_wave.envelope_direction_v056 import (
+    NUMERIC_EPSILON,
     add_d2_to_record,
     d2_from_phase_steps,
 )
@@ -22,7 +25,7 @@ def test_both_parent_envelopes_low_translation_are_range_even_with_local_reversa
     # Local same-envelope path moves strongly up then down, but the complete
     # lower/upper parent envelopes do not translate over the two-wave window.
     out = d2_from_phase_steps([0.35, -0.30, 0.10], "low")
-    assert out["same_envelope_total_drift"] == 0.05
+    assert out["same_envelope_total_drift"] == pytest.approx(0.05)
     assert out["label"] == "range"
 
 
@@ -66,6 +69,13 @@ def test_exact_frozen_threshold_boundary_is_not_clear_translation():
     cfg = MaturityConfig()
     out = d2_from_phase_steps([0.10, 0.05, 0.15], "low", cfg)
     assert out["label"] == "range"
+    assert out["numeric_epsilon"] == NUMERIC_EPSILON
+
+
+def test_numeric_epsilon_does_not_materially_loosen_frozen_threshold():
+    cfg = MaturityConfig()
+    out = d2_from_phase_steps([0.10, 0.050001, 0.150001], "low", cfg)
+    assert out["label"] == "uptrend"
 
 
 def test_adding_d2_preserves_historical_d0_d1_and_record_id():
