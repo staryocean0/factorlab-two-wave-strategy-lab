@@ -172,6 +172,12 @@ Stage B 不接受任何新 classifier，但为下一步路线预先固定三种�
 
 若 A、B 都不满足，则不创建 classifier，继续做几何/endpoint attribution。
 
+### 路线优先级（结果前冻结）
+
+若 A 与 B 的数值条件理论上同时成立，**B 优先**。原因是 B 表示已经存在不可忽略的 large-margin endpoint instability；不能因为同时存在大量 near-boundary 样本，就用 confidence gate 掩盖远离边界的结构性风险。
+
+因此机械判定顺序固定为：`B -> A -> C`。
+
 这些门在真实 Stage B 数字产生之前冻结。
 
 ## 10. 输出与状态
