@@ -136,3 +136,35 @@ def test_local_envelope_diagnostic_reports_minimum_and_tie_not_winner():
     assert out["candidate_count"] == 2
     assert out["minimum_max_delta_minutes"] == 1
     assert out["minimum_tie_count"] == 2
+
+
+def test_indexed_edge_graph_matches_bruteforce_strict_definition():
+    a = [
+        event("low", [100, 110, 120, 130, 140]),
+        event("high", [200, 210, 220, 230, 240]),
+        event("low", [300, 310, 320, 330, 340]),
+    ]
+    b = [
+        event("low", [104, 114, 124, 134, 144]),
+        event("high", [196, 206, 216, 226, 236]),
+        event("low", [307, 317, 327, 337, 347]),
+        event("high", [100, 110, 120, 130, 140]),
+    ]
+    for require_phase in (True, False):
+        graph = build_edge_graph(
+            a, b, time_field="five_occurrence_times", require_phase=require_phase
+        )
+        expected_a = [[] for _ in a]
+        expected_b = [[] for _ in b]
+        for i, left in enumerate(a):
+            for j, right in enumerate(b):
+                if anchor_edge(
+                    left,
+                    right,
+                    time_field="five_occurrence_times",
+                    require_phase=require_phase,
+                ) is not None:
+                    expected_a[i].append(j)
+                    expected_b[j].append(i)
+        assert graph.a_edges == tuple(tuple(x) for x in expected_a)
+        assert graph.b_edges == tuple(tuple(x) for x in expected_b)
