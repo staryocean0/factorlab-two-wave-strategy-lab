@@ -1,0 +1,58 @@
+name: two-wave-d1-cross-offset-disagreement-v057a
+on:
+  push:
+    branches: ['codex/two-wave-phase1-20260905']
+    paths:
+      - 'docs/research/two_wave_d1_cross_offset_disagreement_protocol_v057a.md'
+      - 'scripts/run_two_wave_d1_cross_offset_disagreement_v057a.py'
+      - '.github/workflows/two-wave-d1-cross-offset-disagreement-v057a.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  attribute:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: python -m pip install -e . editables==0.6
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: v056-native5m-*-266bac6389098169598084667fcb46897a53ccf2
+          path: downloaded_v056_views
+          merge-multiple: false
+          github-token: ${{ github.token }}
+          run-id: 34009427027
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: two-wave-envelope-direction-v056-failure-diagnostic-407ba1ef0f0586022229ed8f9524d9c488571e73
+          path: downloaded_v056_failure
+          merge-multiple: false
+          github-token: ${{ github.token }}
+          run-id: 34009928175
+      - name: Run frozen read-only cross-offset disagreement attribution
+        run: |
+          set -o pipefail
+          mkdir -p v057a_attribution_proof/source
+          git rev-parse HEAD > v057a_attribution_proof/commit.txt
+          python scripts/run_two_wave_d1_cross_offset_disagreement_v057a.py --views-root downloaded_v056_views --failure-root downloaded_v056_failure | tee v057a_attribution_proof/research.log
+          cp docs/research/two_wave_d1_cross_offset_disagreement_protocol_v057a.md scripts/run_two_wave_d1_cross_offset_disagreement_v057a.py v057a_attribution_proof/source/
+          git diff --exit-code -- data src tests scripts docs/research pyproject.toml
+      - uses: actions/upload-artifact@v4
+        with:
+          name: two-wave-d1-cross-offset-disagreement-v057a-${{ github.sha }}
+          path: |
+            cloud_results/two_wave_d1_cross_offset_disagreement_v057a/
+            v057a_attribution_proof/
+          retention-days: 30
+          if-no-files-found: error
