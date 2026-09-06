@@ -1,10 +1,11 @@
 """v0.6.1 audit-only helpers for unmatched identity decomposition.
 
-These helpers do not alter the two-wave recognizer. They only trace a frozen
+These helpers do not alter the two-wave recognizer.  They only trace a frozen
 v0.6.0 unmatched identity through pre-existing v0.5.2/v0.5.4 layers.
 """
 from __future__ import annotations
 
+from bisect import bisect_left, bisect_right
 from collections import defaultdict
 from dataclasses import dataclass
 from datetime import datetime
@@ -164,19 +165,46 @@ def build_edge_graph(
     nominal_bar_minutes: float = NOMINAL_BAR_MINUTES,
     require_phase: bool = True,
 ) -> EdgeGraph:
+    """Build the exact strict-edge graph with a first-anchor locality index.
+
+    Any legal five-anchor edge must already satisfy |e0_a-e0_b| <= the nominal
+    bar width. Restricting candidate enumeration by that necessary condition is
+    exactly equivalent to the quadratic definition, while keeping the 36k--38k
+    evaluated/tuple layers tractable.
+    """
+    if nominal_bar_minutes <= 0:
+        raise ValueError("positive nominal bar width required")
+
+    a_vectors = []
+    for event in events_a:
+        values = event.get(time_field)
+        if values is None or len(values) != 5:
+            raise ValueError(f"five times required in {time_field}")
+        a_vectors.append(tuple(to_minutes(x) for x in values))
+    b_vectors = []
+    for event in events_b:
+        values = event.get(time_field)
+        if values is None or len(values) != 5:
+            raise ValueError(f"five times required in {time_field}")
+        b_vectors.append(tuple(to_minutes(x) for x in values))
+
+    ordered_b = sorted((vec[0], j) for j, vec in enumerate(b_vectors))
+    b_first = [row[0] for row in ordered_b]
     a_edges: list[list[int]] = [[] for _ in events_a]
     b_edges: list[list[int]] = [[] for _ in events_b]
-    for i, a in enumerate(events_a):
-        for j, b in enumerate(events_b):
-            if anchor_edge(
-                a,
-                b,
-                time_field=time_field,
-                nominal_bar_minutes=nominal_bar_minutes,
-                require_phase=require_phase,
-            ) is not None:
+
+    for i, (a, avec) in enumerate(zip(events_a, a_vectors)):
+        lo = bisect_left(b_first, avec[0] - nominal_bar_minutes)
+        hi = bisect_right(b_first, avec[0] + nominal_bar_minutes)
+        for _, j in ordered_b[lo:hi]:
+            b = events_b[j]
+            if require_phase and a["phase"] != b["phase"]:
+                continue
+            bvec = b_vectors[j]
+            if all(abs(x - y) <= nominal_bar_minutes for x, y in zip(avec, bvec)):
                 a_edges[i].append(j)
                 b_edges[j].append(i)
+
     matches = []
     for i, js in enumerate(a_edges):
         if len(js) == 1:
