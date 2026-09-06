@@ -1,0 +1,42 @@
+{
+  "control_repaired": {
+    "count": 3986,
+    "matrix": {"both_rejected": 3821, "main_rejected_other_qualified": 48, "main_qualified_other_rejected": 55, "both_qualified": 62},
+    "qualification_agreement_pairs": 3883,
+    "qualification_disagreement_pairs": 103,
+    "agreement_fraction": 0.9741595584545911,
+    "disagreement_fraction": 0.025840441545408932,
+    "union_qualified_pairs": 165,
+    "both_qualified_fraction_within_union": 0.37575757575757573
+  },
+  "v063_residual_repaired": {
+    "count": 2390,
+    "matrix": {"both_rejected": 2295, "main_qualified_other_rejected": 39, "both_qualified": 32, "main_rejected_other_qualified": 24},
+    "qualification_agreement_pairs": 2327,
+    "qualification_disagreement_pairs": 63,
+    "agreement_fraction": 0.9736401673640167,
+    "disagreement_fraction": 0.026359832635983262,
+    "union_qualified_pairs": 95,
+    "both_qualified_fraction_within_union": 0.3368421052631579
+  },
+  "v061_target_repaired": {
+    "count": 80,
+    "matrix": {"both_rejected": 29, "main_qualified_other_rejected": 23, "both_qualified": 27, "main_rejected_other_qualified": 1},
+    "qualification_agreement_pairs": 56,
+    "qualification_disagreement_pairs": 24,
+    "agreement_fraction": 0.7,
+    "disagreement_fraction": 0.3,
+    "union_qualified_pairs": 51,
+    "both_qualified_fraction_within_union": 0.5294117647058824
+  },
+  "v063_target_residual_repaired": {
+    "count": 50,
+    "matrix": {"both_rejected": 19, "main_qualified_other_rejected": 15, "both_qualified": 15, "main_rejected_other_qualified": 1},
+    "qualification_agreement_pairs": 34,
+    "qualification_disagreement_pairs": 16,
+    "agreement_fraction": 0.68,
+    "disagreement_fraction": 0.32,
+    "union_qualified_pairs": 31,
+    "both_qualified_fraction_within_union": 0.4838709677419355
+  }
+}
