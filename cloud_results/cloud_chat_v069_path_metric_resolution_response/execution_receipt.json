@@ -1,0 +1,50 @@
+{
+  "schema": "two_wave_v069_execution_receipt@1.0",
+  "status": "completed_cloud_chat_runtime",
+  "execution_surface": "ChatGPT web Chat cloud runtime",
+  "research_branch": "codex/two-wave-phase1-20260905",
+  "helper_git_blob_sha": "f7ee5dec71b2055c762f9be08fc22171b2a8b2c6",
+  "test_git_blob_sha": "6e60224aa766c42f2384d3b4ed3aecafe28f3d03",
+  "preanalysis_git_blob_sha": "3cf45f958f0d6866d8823180c0db95c825570c44",
+  "protocol_git_blob_sha": "c68bdbee92ac642162b38b4edb45269c0901016f",
+  "synthetic_tests": "7/7 PASS",
+  "native_metric_exact_equivalence": "500/500 PASS",
+  "pair_hard_controls": {
+    "published_pairs": {
+      "5m_offset_1": 8381,
+      "5m_offset_2": 5770,
+      "5m_offset_3": 6204,
+      "5m_offset_4": 9098
+    },
+    "both_qualified": 482,
+    "qualification_disagreements": 699,
+    "target_repaired": 80,
+    "target_repaired_disagreement": 24
+  },
+  "alignment_theorem": {
+    "aligned_legs": 736826,
+    "nonaligned_legs": 278,
+    "tv_violation": 0,
+    "eff_violation": 0,
+    "endpoint_nonexact": 34,
+    "common_close_mismatch_legs": 0,
+    "native_timestamp_missing_legs": 278
+  },
+  "execution_bookkeeping_correction": {
+    "description": "Initial runtime script incorrectly distributed the already-frozen aggregate v0.6.1 target-repaired disagreement count 24 across offsets as 9/6/4/5. Before formal v0.6.9 interpretation, upstream v0.6.7 pair evidence was reread and the exact counts 10/7/3/4 were restored. The frozen v0.6.9 protocol specified only aggregate 80 target-repaired / 24 disagreement and therefore required no protocol change.",
+    "upstream_exact_counts": {
+      "5m_offset_1": 10,
+      "5m_offset_2": 7,
+      "5m_offset_3": 3,
+      "5m_offset_4": 4
+    },
+    "aggregate": 24,
+    "research_math_changed": false
+  },
+  "runtime_execution_only_cache": true,
+  "github_actions_used": false,
+  "future_outcome_used": false,
+  "trade_authority": false,
+  "operational_baseline": "v0.4.3",
+  "morphology_status": "morphology_replication_not_yet_accepted"
+}
