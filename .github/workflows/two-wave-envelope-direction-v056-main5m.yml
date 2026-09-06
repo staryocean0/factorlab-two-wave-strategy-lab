@@ -1,0 +1,56 @@
+name: two-wave-envelope-direction-v056-main5m
+
+on:
+  push:
+    branches: ['codex/two-wave-phase1-20260905']
+    paths:
+      - 'src/factor_lab/visual_structure/two_wave/envelope_direction_v056.py'
+      - 'scripts/run_two_wave_envelope_direction_v056_main5m.py'
+      - 'tests/unit/test_two_wave_envelope_direction_v056.py'
+      - 'docs/research/two_wave_d1_envelope_translation_preanalysis_v056.md'
+      - 'docs/research/two_wave_d1_envelope_translation_protocol_v056.md'
+      - '.github/workflows/two-wave-envelope-direction-v056-main5m.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  formal-main5m-mechanism:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: python -m pip install -e . editables==0.6
+      - name: Validate bounded package and full regression
+        run: |
+          python scripts/validate_theme_package.py
+          python -m pytest -q
+      - name: Run frozen v0.5.6 D2 main5m mechanism audit
+        run: |
+          mkdir -p v056_d2_main5m_proof/source
+          git rev-parse HEAD > v056_d2_main5m_proof/commit.txt
+          python scripts/run_two_wave_envelope_direction_v056_main5m.py | tee v056_d2_main5m_proof/research.log
+          python -m pip freeze > v056_d2_main5m_proof/environment.txt
+          cp src/factor_lab/visual_structure/two_wave/envelope_direction_v056.py v056_d2_main5m_proof/source/
+          cp scripts/run_two_wave_envelope_direction_v056_main5m.py tests/unit/test_two_wave_envelope_direction_v056.py docs/research/two_wave_d1_envelope_translation_preanalysis_v056.md docs/research/two_wave_d1_envelope_translation_protocol_v056.md v056_d2_main5m_proof/source/
+          git diff --exit-code -- data src tests scripts docs/research pyproject.toml
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: two-wave-envelope-direction-v056-main5m-${{ github.sha }}
+          path: |
+            cloud_results/two_wave_envelope_direction_v056_main5m/
+            v056_d2_main5m_proof/
+          retention-days: 30
+          if-no-files-found: error
