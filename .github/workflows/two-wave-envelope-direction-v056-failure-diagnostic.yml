@@ -13,6 +13,9 @@ jobs:
   diagnose:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    defaults:
+      run:
+        shell: bash
     steps:
       - uses: actions/checkout@v4
         with:
@@ -31,6 +34,7 @@ jobs:
           run-id: 34009427027
       - name: Persist exact numbers behind the frozen formal failure
         run: |
+          set -o pipefail
           mkdir -p v056_failure_diagnostic_proof/source
           git rev-parse HEAD > v056_failure_diagnostic_proof/diagnostic_commit.txt
           echo 266bac6389098169598084667fcb46897a53ccf2 > v056_failure_diagnostic_proof/source_formal_commit.txt
