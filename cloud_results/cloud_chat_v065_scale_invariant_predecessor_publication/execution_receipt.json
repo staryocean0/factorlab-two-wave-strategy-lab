@@ -1,0 +1,20 @@
+{
+  "schema": "two_wave_v065_execution_receipt@1.0",
+  "execution_surface": "ChatGPT web Chat current cloud runtime",
+  "research_branch": "codex/two-wave-phase1-20260905",
+  "protocol_commit": "0d9fe992b14f69972339d54b93143ad71db5f09b",
+  "helper_commit": "1be7feb7b979d66afcb954fa460ba6e21a9c8ece",
+  "test_commit": "40b1cdd032774f9aca52951bb0f307025e3c3b6d",
+  "synthetic_tests": "9/9 PASS",
+  "financial_execution": "v0.6.4 verified candidate/control caches reused; publication semantics replayed over unchanged filtered pair universe",
+  "hard_controls_reproduced": true,
+  "actions_used": false,
+  "future_outcome_used": false,
+  "trade_authority": false,
+  "notes": [
+    "v0.6.5 does not recompute or change member-level v0.6.4 projection geometry",
+    "v0.6.4 earliest-valid representative was pre-registered before v0.6.5 financial output and is used as immutable publisher",
+    "five historical multi-valued groups each suppress exactly one later would-be rewrite",
+    "historical closure audit confirmation bars for offset3/4 were corrected after provenance recheck; publisher order and financial results were unchanged"
+  ]
+}
