@@ -205,6 +205,11 @@ def build_edge_graph(
                 a_edges[i].append(j)
                 b_edges[j].append(i)
 
+    for rows in a_edges:
+        rows.sort()
+    for rows in b_edges:
+        rows.sort()
+
     matches = []
     for i, js in enumerate(a_edges):
         if len(js) == 1:
