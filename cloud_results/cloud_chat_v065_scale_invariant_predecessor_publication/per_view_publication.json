@@ -1,0 +1,7 @@
+{
+  "5m_offset_0": {"canonical_filtered_tuple_groups": 38634, "publication_status": {"published_single_identity": 38176, "no_valid_published_projection": 458}, "suppressed_would_be_rewrite_count": 1},
+  "5m_offset_1": {"canonical_filtered_tuple_groups": 37175, "publication_status": {"published_single_identity": 36737, "no_valid_published_projection": 438}, "suppressed_would_be_rewrite_count": 1},
+  "5m_offset_2": {"canonical_filtered_tuple_groups": 37061, "publication_status": {"published_single_identity": 36619, "no_valid_published_projection": 442}, "suppressed_would_be_rewrite_count": 1},
+  "5m_offset_3": {"canonical_filtered_tuple_groups": 36935, "publication_status": {"published_single_identity": 36480, "no_valid_published_projection": 455}, "suppressed_would_be_rewrite_count": 1},
+  "5m_offset_4": {"canonical_filtered_tuple_groups": 36688, "publication_status": {"published_single_identity": 36264, "no_valid_published_projection": 424}, "suppressed_would_be_rewrite_count": 1}
+}
