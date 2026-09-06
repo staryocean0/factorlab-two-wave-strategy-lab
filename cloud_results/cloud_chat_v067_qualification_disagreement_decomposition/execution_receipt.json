@@ -1,0 +1,30 @@
+{
+  "schema": "two_wave_v067_execution_receipt@1.0",
+  "date": "2026-09-06",
+  "execution_surface": "ChatGPT web Chat current cloud runtime",
+  "protocol_commits": {"preanalysis":"3b9ee94d0e659a4eb548eaa453a07e87ca5392c6","protocol":"68acf2959f0379447961ee8aefab6ea997dd98e9"},
+  "helper": {"path":"src/factor_lab/visual_structure/two_wave/qualification_disagreement_v067.py","git_blob_sha":"6db7edd79d5e05d5efa4e40d0dfde0ad1794ab09"},
+  "tests": {"path":"tests/unit/test_two_wave_qualification_disagreement_v067.py","git_blob_sha":"6be4db7232dce98d122a99001517551d637e1b5e","result":"9/9 PASS"},
+  "input_caches": [
+    "v0.6.2 filtered-tuple/published-anchor audit cache previously hard-control validated",
+    "v0.6.4 predecessor candidate cache used only to reconstruct v0.6.5 published raw identities",
+    "v0.6.6 qualification cache generated from frozen v0.5.4 qualification; 500/500 exact-equivalence gate already passed"
+  ],
+  "runtime_script": "/mnt/data/v062ws/run_v067_cache.py (execution-only, not research source)",
+  "hard_controls": {
+    "published_strict_pairs": [8381,5770,6204,9098],
+    "qualification_disagreements": [179,158,187,175],
+    "aggregate_disagreements": 699,
+    "repaired_strata_denominators": [3986,2390,80,50],
+    "repaired_strata_disagreements": [103,63,24,16],
+    "rejected_reason_counts": {"jump_dominated_leg":368,"inefficient_leg":211,"short_leg":105,"confirmation_too_late":76,"short_cycle":54,"amplitude_mismatch":50,"cycle_duration_mismatch":37,"long_cycle":4},
+    "all_reproduced": true
+  },
+  "one_minute_path_diagnostic": {"jump_dominated_leg":"368/368 both_pass","inefficient_leg":"211/211 both_fail","resampling":false,"runtime_authority":false},
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "platform": "Linux-6.18.35-x86_64-with-glibc2.41",
+  "github_actions_used": false,
+  "future_outcome_used": false,
+  "trade_authority": false,
+  "morphology_status": "morphology_replication_not_yet_accepted"
+}
