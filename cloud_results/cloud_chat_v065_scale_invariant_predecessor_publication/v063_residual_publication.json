@@ -1,0 +1,6 @@
+{
+  "5m_offset_1": {"residual_count": 1578, "transition": {"newly_missing_publication": 5, "unchanged_displaced": 921, "repaired": 652}, "target_residual_count": 32, "target_residual_transition": {"repaired": 20, "unchanged_displaced": 12}},
+  "5m_offset_2": {"residual_count": 1738, "transition": {"newly_missing_publication": 5, "repaired": 540, "unchanged_displaced": 1193}, "target_residual_count": 28, "target_residual_transition": {"repaired": 12, "unchanged_displaced": 16}},
+  "5m_offset_3": {"residual_count": 1806, "transition": {"newly_missing_publication": 3, "unchanged_displaced": 1251, "repaired": 552}, "target_residual_count": 30, "target_residual_transition": {"unchanged_displaced": 24, "repaired": 6}},
+  "5m_offset_4": {"residual_count": 1718, "transition": {"newly_missing_publication": 4, "repaired": 646, "unchanged_displaced": 1068}, "target_residual_count": 32, "target_residual_transition": {"repaired": 12, "unchanged_displaced": 20}}
+}
