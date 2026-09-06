@@ -1,4 +1,4 @@
-# 两浪研究继续入口：v0.6.8 canonical fine-path POC 已闭合（2026-09-06）
+# 两浪研究继续入口：v0.6.9 path-metric resolution response 已闭合（2026-09-06）
 
 ## 当前安全状态
 
@@ -12,7 +12,7 @@
 
 PR #1 保持 Draft，不合并 main。Direction/D1/D2/PAWCT、H1/H2、第三浪、收益/P&L、fresh OOS、paper trading、production 全部继续冻结。
 
-## 已闭合链条
+## 已闭合关键链条
 
 - v0.6.0：financial identity / exclusive packing 解耦 = Route M；
 - v0.6.1：unmatched decomposition；
@@ -22,7 +22,8 @@ PR #1 保持 Draft，不合并 main。Direction/D1/D2/PAWCT、H1/H2、第三浪�
 - v0.6.5：first-valid causal append-only publication，消除 rewrite 并保留 strict-match gain；
 - v0.6.6：published strict identity 上 frozen v0.5.4 qualification = mixed stability；
 - v0.6.7：qualification disagreement decomposition = path sampling sensitivity dominant；
-- v0.6.8：canonical 1m path representation POC = **binary disagreement 下降，但主要来自 joint rejection inflation，不 promoted**。
+- v0.6.8：shared 1m path + 原 thresholds 主要制造 joint rejection，不 promoted；
+- v0.6.9：path-metric resolution-response audit = **efficiency 与 jump 具有相反的 resolution semantics，必须先重定义 underlying path property**。
 
 ## v0.6.5 immutable identity controls
 
@@ -36,7 +37,11 @@ offset4 9,098
 aggregate 29,453
 ```
 
-## v0.6.6 control qualification
+相对 frozen current projection 净增加 `+2,702` strict pairs。
+
+## v0.6.6 / v0.6.7 qualification frontier
+
+v0.6.6 strict same-event qualification matrix：
 
 ```text
 both_qualified                    482
@@ -45,132 +50,157 @@ main_qualified_other_rejected     352
 main_rejected_other_qualified     347
 ```
 
-Control disagreement = `699 / 29,453 = 2.3733%`。
+Binary agreement = 97.6267%，但 positive overlap = `482 / 1,181 = 40.8129%`。
 
-Control positive metrics：
-
-```text
-union-qualified 1,181
-both-qualified    482
-positive overlap 40.8129%
-main survival    57.79%
-other survival   58.14%
-```
-
-## v0.6.7 机制结论
-
-699 disagreements：
-
-```text
-path_metric_only          404
-mixed_multi_family        142
-duration_geometry_only     82
-confirmation_clock_only    46
-amplitude_only             25
-```
-
-Path family involved `538 / 699 = 76.97%`。
-
-Canonical 1m audit：
+v0.6.7：699 disagreements 中 path family involved `538/699 = 76.97%`；canonical 1m diagnostic：
 
 ```text
 jump_dominated_leg 368/368 -> both_pass
 inefficient_leg    211/211 -> both_fail
 ```
 
-因此 5m path gates materially sampling-lattice sensitive。
+## v0.6.8 已排除“直接统一到 1m + 原 0.5 thresholds”
 
-## v0.6.8 已正式闭合
-
-结果前：
-
-- `docs/research/two_wave_canonical_path_qualification_preanalysis_v068.md`
-- `docs/research/two_wave_canonical_path_qualification_protocol_v068.md`
-
-正式结果：
-
-- `docs/research/two_wave_canonical_path_qualification_results_v068.md`
-- `cloud_results/cloud_chat_v068_canonical_path_qualification/summary.json`
-- `cloud_results/cloud_chat_v068_canonical_path_qualification/execution_receipt.json`
-
-Helper blob：`5096e8b4806e216845164a6ce3079029a69e4281`。
-
-Synthetic tests：**8/8 PASS**。
-
-所有 hard controls 精确复现；supplied 1m canonical path 对所有 published identities 可用，未 resample / interpolate。
-
-## v0.6.8 candidate matrix
-
-Candidate 只在 supplied 1m path 上重算 frozen efficiency/jump/flat reasons，所有 non-path reasons 和 thresholds 不变。
+Candidate disagreement 从 699 降到 173，但：
 
 ```text
-both_qualified                    103
-both_rejected                  29,177
-main_qualified_other_rejected      81
-main_rejected_other_qualified      92
+union-qualified 1,181 -> 276
+both-qualified    482 -> 103
+positive overlap 40.81% -> 37.32%
 ```
 
-Binary disagreement：
-
-`173 / 29,453 = 0.5874%`
-
-虽然比 control 2.37% 低，但 positive state 变差：
-
-```text
-control union-qualified    1,181 -> candidate 276
-control both-qualified       482 -> candidate 103
-positive overlap          40.81% -> 37.32%
-main survival             57.79% -> 55.98%
-other survival            58.14% -> 52.82%
-```
-
-482 个 control both-qualified 中：
-
-```text
-candidate both-qualified  53
-candidate both-rejected  388
-candidate disagreement    41
-```
-
-699 个 control disagreement 中，574 个变成 candidate both-rejected，只有 38 个变成 both-qualified。
-
-因此正式裁决：
+正式裁决：
 
 `shared_fine_path_mainly_increases_joint_rejection_without_solving_positive_stability`
 
-## 数学含义
+## v0.6.9 已正式闭合
 
-简单把 path measurement 从 5m 换成 shared 1m，并保留原 5m thresholds，不是合法修复。
+结果前：
 
-更细 sampling 会系统性改变 path metrics：
+- `docs/research/two_wave_path_metric_resolution_response_preanalysis_v069.md`
+- `docs/research/two_wave_path_metric_resolution_response_protocol_v069.md`
 
-- observed total variation 通常增加；
-- efficiency 通常下降；
-- jump share 通常下降。
+正式结果：
 
-所以 `metric + threshold` 是一个 resolution-specific measurement system。v0.6.8 说明问题已经从“不同 slicing lattice”推进到“path metric 的 sampling-resolution semantics”。
+- `docs/research/two_wave_path_metric_resolution_response_results_v069.md`
+- `cloud_results/cloud_chat_v069_path_metric_resolution_response/summary.json`
+- `cloud_results/cloud_chat_v069_path_metric_resolution_response/per_view_response.json`
+- `cloud_results/cloud_chat_v069_path_metric_resolution_response/threshold_crossings.json`
+- `cloud_results/cloud_chat_v069_path_metric_resolution_response/identity_reason_transitions.json`
+- `cloud_results/cloud_chat_v069_path_metric_resolution_response/duration_overlay.json`
+- `cloud_results/cloud_chat_v069_path_metric_resolution_response/strict_pair_overlays.json`
+- `cloud_results/cloud_chat_v069_path_metric_resolution_response/data_identity.json`
+- `cloud_results/cloud_chat_v069_path_metric_resolution_response/execution_receipt.json`
+
+Helper blob：`f7ee5dec71b2055c762f9be08fc22171b2a8b2c6`。
+Synthetic tests：**7/7 PASS**。
+500 个真实 published identities native-path exact-equivalence：**500/500 PASS**。
+
+### Hard controls / theorem checks
+
+```text
+published identities = 184,276
+leg observations     = 737,104
+aligned nested legs  = 736,826
+non-aligned legs     = 278 (0.0377%)
+common close mismatch = 0
+TV refinement theorem violations = 0
+Efficiency non-increase violations = 0
+strict pairs = 29,453
+both-qualified control = 482
+qualification disagreements = 699
+target repaired = 80, target disagreement = 24
+```
+
+执行层曾错误把 aggregate 24 个 target-disagreement 分摊成 `9/6/4/5`；hard gate 在 interpretation 前拦截。重新读取 v0.6.7 正式 evidence 后恢复真实 `10/7/3/4 = 24`。Frozen v0.6.9 protocol 从未冻结错误逐-offset 数字，因此只修 runtime bookkeeping，research math 未变。
+
+## v0.6.9 resolution response
+
+5m → supplied 1m aggregate：
+
+```text
+TV1/TV5 median   = 1.4123
+E1-E5 median     = -0.2063
+J1-J5 median     = -0.2505
+```
+
+五个 harmless offsets 的 median 基本一致。
+
+Frozen 0.5 threshold 仅作诊断标签时：
+
+### Efficiency leg-level
+
+```text
+pass->pass 436,182
+pass->fail 214,380 = 29.08%
+fail->fail  86,542
+```
+
+Identity-level `inefficient_leg`：
+
+```text
+pass->fail 97,027 / 184,276 = 52.65%
+```
+
+### Jump leg-level
+
+```text
+pass->pass 463,971
+fail->pass 258,735 = 35.10%
+fail->fail  14,398
+```
+
+Identity-level `jump_dominated_leg`：
+
+```text
+fail->pass 126,196 / 184,276 = 68.48%
+```
+
+Flat-share 基本稳定。
+
+## Duration dependence
+
+Spearman：
+
+```text
+duration vs TV1/TV5   rho = 0.1755
+duration vs E1-E5     rho = 0.1251
+duration vs J1-J5     rho = 0.8838
+```
+
+Jump response 对 leg duration 强烈依赖，进一步否定简单全局 threshold 平移。
+
+## v0.6.9 正式裁决
+
+`metrics_have_opposed_resolution_semantics_requiring_property_redefinition`
+
+解释：
+
+1. observed TV 随 refinement 系统性增加；
+2. efficiency 在相同 endpoints 下必然下降/不升；
+3. jump share 在真实数据里大幅下降，但幅度强烈受 duration 调制且不存在同类 monotonic theorem；
+4. 因此 `efficiency >= 0.5` 与 `jump_share <= 0.5` 是 resolution-specific measurement + threshold，而不是两个 resolution-invariant morphology truths；
+5. 不允许用一个新的全局 threshold remap 解决本轮问题。
 
 ## 下一 formal research step
 
-只允许另开 **path-metric sampling-resolution semantics preanalysis**。
+只允许另开 **path-property redefinition preanalysis**。
 
 必须先回答：
 
-1. efficiency / jump share / flat share 随 sampling refinement 的数学行为与可识别性；
-2. 当前 hard gates 真正想表达的 morphology property 是什么，而不是直接继承某个 lattice 的数值；
-3. 是否存在 threshold-free / scale-normalized path representation；
-4. 若 1m 只做 audit oracle，5m runtime 能否构造有 invariance/error-bound 的代理；
-5. replacement metric 在任何 threshold 讨论前必须先证明 prefix causality、resolution semantics、cross-slicing stability 和 synthetic counterexamples。
-
-Duration-geometry 仍是独立 secondary workstream；不得在 path experiment 中顺手改 4/12/48/2 等 duration thresholds。
+1. efficiency 与 jump_share 是否是同一 underlying path irregularity 的不同 resolution 投影；
+2. 是否存在基于 multi-resolution response curve 的 threshold-free / scale-normalized descriptor；
+3. 若 runtime 只允许 native 5m，能否构造对 bar-origin 平移稳定、对 resolution 明确协变/可校正的 property；
+4. replacement property 必须先证明 prefix causality、harmless-slicer invariance 和 synthetic counterexamples，再讨论任何 threshold；
+5. duration-geometry 保持独立 secondary workstream，不得混入 path-property repair。
 
 禁止：
 
-- 直接采用 1m path + 原 0.5 threshold；
-- 根据 v0.6.8 拟合新的 path threshold；
+- 根据 v0.6.9 拟合新的 efficiency/jump thresholds；
+- 直接把 1m path promoted 为 production morphology input；
 - 修改 matcher / projection / publication；
 - 回 D1/D2/PAWCT；
 - 使用收益/outcome；
 - 进入第三浪或交易层。
 
-**当前下一步只允许 path-metric sampling-resolution semantics preanalysis；不得直接改 qualification threshold。**
+**当前下一步只允许 path-property redefinition preanalysis；不得直接改 qualification threshold。**
