@@ -37,7 +37,7 @@
     "phase": "low",
     "publishing_member_event_id": "tcss_exact_ridge_tuple_birth_v052_a9e0592487f9ffd71e28",
     "ordered_evidence": [
-      {"event_id": "tcss_exact_ridge_tuple_birth_v052_a9e0592487f9ffd71e28", "birth_level": 3, "birth_confirmation_bar": 28759, "disposition": "publishing_evidence"},
+      {"event_id": "tcss_exact_ridge_tuple_birth_v052_a9e0592487f9ffd71e28", "birth_level": 3, "birth_confirmation_bar": 28760, "disposition": "publishing_evidence"},
       {"event_id": "tcss_exact_ridge_tuple_birth_v052_7897bcf04ce5255814ac", "birth_level": 4, "birth_confirmation_bar": 28760, "disposition": "later_valid_would_rewrite_suppressed"}
     ],
     "suppressed_would_be_rewrite_count": 1,
@@ -48,7 +48,7 @@
     "phase": "low",
     "publishing_member_event_id": "tcss_exact_ridge_tuple_birth_v052_c685c22e5768b04b5ecb",
     "ordered_evidence": [
-      {"event_id": "tcss_exact_ridge_tuple_birth_v052_c685c22e5768b04b5ecb", "birth_level": 3, "birth_confirmation_bar": 28757, "disposition": "publishing_evidence"},
+      {"event_id": "tcss_exact_ridge_tuple_birth_v052_c685c22e5768b04b5ecb", "birth_level": 3, "birth_confirmation_bar": 28758, "disposition": "publishing_evidence"},
       {"event_id": "tcss_exact_ridge_tuple_birth_v052_d8a1f253404e371267e0", "birth_level": 4, "birth_confirmation_bar": 28758, "disposition": "later_valid_would_rewrite_suppressed"}
     ],
     "suppressed_would_be_rewrite_count": 1,
