@@ -16,6 +16,9 @@ from .same_scale_v043 import MaturityConfig
 
 SCHEMA = "two_wave_envelope_direction@0.5.6"
 HYPOTHESIS = "whole_parent_upper_lower_envelope_translation_defines_parent_direction"
+# Numerical comparison epsilon only.  This is not a research threshold and is
+# many orders of magnitude below the frozen 0.15 amplitude-unit boundary.
+NUMERIC_EPSILON = 1e-12
 
 
 @dataclass
@@ -44,13 +47,14 @@ def d2_from_phase_steps(
         raise ValueError("phase must be low or high")
 
     tol = c.phase_tolerance
-    if upper > tol and lower > tol:
+    eps = NUMERIC_EPSILON
+    if upper > tol + eps and lower > tol + eps:
         label = "uptrend"
         reason = "both_parent_envelopes_up"
-    elif upper < -tol and lower < -tol:
+    elif upper < -tol - eps and lower < -tol - eps:
         label = "downtrend"
         reason = "both_parent_envelopes_down"
-    elif abs(upper) <= tol and abs(lower) <= tol:
+    elif abs(upper) <= tol + eps and abs(lower) <= tol + eps:
         label = "range"
         reason = "both_parent_envelopes_low_translation"
     else:
@@ -65,6 +69,7 @@ def d2_from_phase_steps(
         "same_envelope_total_drift": net,
         "other_envelope_drift": s2,
         "phase_tolerance": tol,
+        "numeric_epsilon": eps,
     }
 
 
