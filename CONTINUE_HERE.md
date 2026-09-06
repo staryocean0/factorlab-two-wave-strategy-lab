@@ -1,4 +1,4 @@
-# 两浪研究继续入口：v0.6.1 unmatched-identity decomposition 已冻结，CL-003 待真实五视图 replay（2026-09-06）
+# 两浪研究继续入口：v0.6.1 decomposition 已闭合，下一步先审计 raw-projection identity（2026-09-06）
 
 ## 当前安全状态
 
@@ -6,189 +6,155 @@
 
 > **v0.5.2 TCSS exact-ridge parent identity + v0.5.4 full-cycle-scale qualification**
 
-v0.6.0 已正式裁决 **Route M**；操作基线仍为 **v0.4.3**。全局状态仍为：
+v0.6.0 正式裁决仍为 **Route M**。操作基线仍为 **v0.4.3**；全局状态仍是：
 
 `morphology_replication_not_yet_accepted`
 
-PR #1 保持 Draft，不合并 main。禁止进入 H1/H2、第三浪、收益/P&L、fresh OOS、paper trading 或 production；`trade_authority=false`。
+PR #1 保持 Draft，不合并 main。Direction/D1/D2/PAWCT、H1/H2、第三浪、收益/P&L、fresh OOS、paper trading、production 全部继续冻结。
 
 ## 当前研究链
 
-**v0.5.0 TCSS representation ✅ → v0.5.1 sliding family ❌ → v0.5.2 exact-ridge identity ✅ → v0.5.4 full-cycle qualification ✅ → v0.5.5 D1 attribution → v0.5.6 D2 multiview ❌ → v0.5.7b endpoint-D2 ❌ → v0.5.8 PAWCT selected-output R1 ❌ → v0.5.9 event-identity confound attribution → v0.6.0 financial identity / exclusive packing 解耦 → five-view replay = Route M → v0.6.1 unmatched-identity decomposition 已预分析、冻结并实现，等待 CL-003 真实五视图 replay。**
+**v0.5.0 TCSS representation ✅ → v0.5.1 sliding family ❌ → v0.5.2 exact-ridge identity ✅ → v0.5.4 full-cycle qualification ✅ → v0.5.5–v0.5.8 direction routes未通过 → v0.5.9 identity confound attribution → v0.6.0 financial identity / exclusive packing 解耦 = Route M → v0.6.1 unmatched-identity decomposition ✅ → 下一优先研究对象：filtered tuple → raw-price projection identity。**
 
-## v0.6.0 已闭合
+## v0.6.1 已正式闭合
 
-正式结果：`docs/research/two_wave_qualified_identity_results_v060.md`。
+结果前协议：
 
-硬证据：
+- `docs/research/two_wave_unmatched_identity_decomposition_preanalysis_v061.md`
+- `docs/research/two_wave_unmatched_identity_decomposition_protocol_v061.md`
 
-- raw qualified counts：`734 / 691 / 691 / 721 / 746`
-- canonical qualified identities：`712 / 673 / 678 / 700 / 728`
-- identity prefix：**15/15 PASS**，confirmed rewrite count `0`
-- all-qualified strict matches offset0 vs 1..4：`180 / 129 / 129 / 184`
-- main unmatched：`531 / 583 / 582 / 527`，约 74%–82%
-- ambiguity 极低：`1/1, 0/0, 1/0, 1/1`
-- strict qualified matches 被 legacy packing 隐藏：`60.56% / 58.14% / 57.36% / 56.52%`
-
-因此正式判定是 **Route M**：exclusive packing 是重大污染源并永久保持 downstream，但 qualified financial identity 自身在 harmless native-5m slicing 上仍 materially unstable。Direction/PAWCT 权限继续冻结。
-
-## v0.6.1 当前研究问题
-
-不修模型，先回答：
-
-> 对 offset0 中没有进入 v0.6.0 mutual-unique strict same-event match 的 canonical qualified identities，最早在哪个既有 upstream layer 丢失 harmless-offset counterpart？
-
-v0.6.1 是 attribution audit，不是 repair POC。
-
-预分析：`docs/research/two_wave_unmatched_identity_decomposition_preanalysis_v061.md`  
-冻结协议：`docs/research/two_wave_unmatched_identity_decomposition_protocol_v061.md`
-
-## v0.6.1 冻结 attribution order
-
-每个 v0.6.0 unmatched main identity 按下列顺序归因，**第一个满足项就是 primary attribution**：
-
-1. `qualified_strict_edge_nonmutual`
-2. `phase_mismatch_raw_evaluated`
-3. `qualification_survival_loss`
-4. `evaluated_identity_nonmutual`
-5. `phase_mismatch_filtered_tuple`
-6. `post_tuple_birth_loss`
-7. `tuple_identity_nonmutual`
-8. `tuple_topology_or_death_certification_mismatch`
-9. `birth_scale_path_shift`
-10. `birth_scale_path_ambiguous`
-11. `filtered_extremum_survival_mismatch`
-
-所有五锚比较仍冻结为 ordered position-wise、每个 absolute timestamp delta `<=5 minutes`。mutual-unique only，不 tie-break。phase-ignored relation 只允许诊断 phase mismatch。
-
-canonical identity 的 upstream representative 只能使用 causal `first_record_id`；不得挑最容易跨 view 匹配的 member。
-
-## v0.6.1 已完成实现
-
-冻结实现 commit：
+冻结实现：
 
 `bda82c29103080f69f36d7848b40216088895b3a`
 
-新增：
+正式结果：
 
-- `src/factor_lab/visual_structure/two_wave/unmatched_identity_decomposition_v061.py`
-- `scripts/run_two_wave_unmatched_identity_decomposition_v061.py`
-- `tests/unit/test_two_wave_unmatched_identity_decomposition_v061.py`
+`docs/research/two_wave_unmatched_identity_decomposition_results_v061.md`
 
-没有修改 v0.5.2 ridge linking、v0.5.4 qualification、v0.6.0 matcher、packing、D1/D2/PAWCT 或任何 outcome/trading 逻辑。
+可审计小产物：
 
-由于 v0.5.2 每个 native-5m view 约有 36k–38k evaluated records / tuple births，朴素全笛卡尔 strict-edge graph 不可接受。实现使用第一锚点 `±5m` 索引窗口加速；这是合法 strict edge 的必要条件，因此边集合与原定义完全等价，不是新 matcher。
+- `cloud_results/cloud_chat_v061_unmatched_identity_decomposition/summary.json`
+- `cloud_results/cloud_chat_v061_unmatched_identity_decomposition/data_identity.json`
+- `cloud_results/cloud_chat_v061_unmatched_identity_decomposition/execution_receipt.json`
 
-云端已完成：
+### 执行边界
 
-- 新增 Python 文件 `py_compile`：PASS
-- isolated helper unit tests：**9/9 PASS**
-- indexed graph vs brute-force exact edge definition：50 random seeds × phase-aware/phase-ignored = **100/100 PASS**
-- deterministic test 固化 indexed graph 与 brute-force edge graph 等价
+本轮最终由 ChatGPT 网页 Chat 当前 cloud runtime 实际完成。数据使用用户上传到当前 Chat 的仓库 main ZIP 中冻结 parquet；研究代码来自 GitHub frozen commit。
 
-这些不是正式五视图 replay 的替代。
+这不是完整 branch checkout 的字节级原样重放。当前 Chat 缺 `pyarrow` 且约 5.9GB RAM，因此使用了只属于 runtime 的 read-only Parquet bridge、两视图流式 orchestration 和等价的 filtered-extremum time index。它们均不提交 research source。
 
-## 当前真实执行阻断
+证据门槛：
 
-最新 `AGENTS.md` 已明确：repo 中 parquet 本身不缺失，不能再把“二进制无法文本预览”当作缺数据。
+- main governance focused tests：29/29 PASS
+- v0.6.0 + v0.6.1 helper tests：17/17 PASS
+- indexed survival vs original scan：100/100 random equivalence PASS
+- unchanged `validate_theme_package.py` 因当前 runtime 顶层缺 `pyarrow` package 未原样通过，保留 caveat，不伪装为 PASS
+- 原五视图同时常驻 runner：OOM exit 137
+- 两视图流式、同 frozen attribution/matcher 逻辑 replay：exit 0
 
-云端已按该规则真实尝试执行：
+最重要的是所有 frozen behavioral controls 精确复现。
 
-1. GitHub blob 直取 `5m_offset_0.parquet`：connector 报 `UnicodeDecodeError`，无法把二进制送入当前 Python runtime；
-2. 当前 container 直接 `git clone` public repo：exit `128`，`Could not resolve host: github.com`。
+## v0.6.0 controls 精确复现
 
-因此阻断是当前 runtime 的 **DNS/network + binary connector transport**，不是源数据缺失。已满足 `AGENTS.md` 允许本地 handoff 的“真实执行失败并记录错误”条件。
+Qualified：
 
-对应交接：`docs/ops/cloud_local_communication.md` → **CL-20260906-003**。
+`734 / 691 / 691 / 721 / 746`
 
-## CL-003 本地唯一任务
+Canonical：
 
-本地模型只执行冻结实现的真实 repo tests + five-view replay，不重新设计实验。
+`712 / 673 / 678 / 700 / 728`
 
-执行前必须证明 frozen implementation commit 之后研究文件无漂移：
+| pair | strict matches | ambiguous main/other | unmatched main/other |
+|---|---:|---:|---:|
+| offset0 vs 1 | 180 | 1 / 1 | 531 / 492 |
+| offset0 vs 2 | 129 | 0 / 0 | 583 / 549 |
+| offset0 vs 3 | 129 | 1 / 0 | 582 / 571 |
+| offset0 vs 4 | 184 | 1 / 1 | 527 / 543 |
 
-```bash
-git checkout codex/two-wave-phase1-20260905
-git pull --ff-only
+Offset0 独立重建也精确得到：
 
-git diff --exit-code \
-  bda82c29103080f69f36d7848b40216088895b3a..HEAD -- \
-  src tests scripts docs/research data pyproject.toml
-```
+`38,049 evaluated / 734 qualified / 404 legacy selected / 38,636 tuple births / 712 canonical`。
 
-最后一条必须 exit 0。
+## v0.6.1 primary attribution
 
-随后按 CL-003 跑 focused pytest 与：
+四组比较合计 **2,223 unmatched pair-observations**：
 
-```bash
-python scripts/run_two_wave_unmatched_identity_decomposition_v061.py \
-  --output cloud_results/local_v061_unmatched_identity_decomposition \
-  | tee cloud_results/local_v061_unmatched_identity_decomposition/run.log
-```
+| primary attribution | count | fraction |
+|---|---:|---:|
+| **post_tuple_birth_loss** | **789** | **35.49%** |
+| filtered_extremum_survival_mismatch | 496 | 22.31% |
+| qualification_survival_loss | 481 | 21.64% |
+| tuple_topology_or_death_certification_mismatch | 355 | 15.97% |
+| birth_scale_path_shift | 69 | 3.10% |
+| birth_scale_path_ambiguous | 27 | 1.21% |
+| qualified_strict_edge_nonmutual | 3 | 0.13% |
+| evaluated_identity_nonmutual | 2 | 0.09% |
+| tuple_identity_nonmutual | 1 | 0.04% |
 
-runner 内置 v0.6.0 hard control assertions：
+Raw-evaluated 与 filtered-tuple 两层的 phase mismatch 均为 **0**。
 
-```text
-qualified: 734 / 691 / 691 / 721 / 746
-main canonical: 712
-offset1: matches 180, ambiguity 1/1, unmatched 531/492
-offset2: matches 129, ambiguity 0/0, unmatched 583/549
-offset3: matches 129, ambiguity 1/0, unmatched 582/571
-offset4: matches 184, ambiguity 1/1, unmatched 527/543
-```
+因此大面积 unmatched 不是 tie-break、不是 phase flip，也不是简单 birth-scale shift 主导。
 
-任何 control drift 都不得继续解释 decomposition。
+## 最大单项：post-tuple loss 几乎全部是 raw projection displacement
 
-## v0.6.1 formal outputs
+`post_tuple_birth_loss` 的冻结语义是：
 
-应生成：
+> other view 中已经存在 same-phase、mutual-unique、五个 filtered anchors 全部 `<=5m` 的 exact-ridge tuple counterpart，但到 raw evaluated identity 层就失去了 strict counterpart。
 
-```text
-cloud_results/local_v061_unmatched_identity_decomposition/summary.json
-cloud_results/local_v061_unmatched_identity_decomposition/details_offset_1.json
-cloud_results/local_v061_unmatched_identity_decomposition/details_offset_2.json
-cloud_results/local_v061_unmatched_identity_decomposition/details_offset_3.json
-cloud_results/local_v061_unmatched_identity_decomposition/details_offset_4.json
-cloud_results/local_v061_unmatched_identity_decomposition/data_identity.json
-cloud_results/local_v061_unmatched_identity_decomposition/run.log
-```
+789 个案例中：
 
-结果必须满足每个 offset：
+- raw projection displacement：**787**
+- projection invalid：2
+- evaluate_pair invalid：0
 
-`strict matched + v0.6.0 ambiguous + exactly-one primary attribution = 712 main canonical identities`
+即 **99.75%** 的 post-tuple loss 是 filtered tuple 稳定存在、projection 也有效，但 sequential raw-price projection 把对应金融事件映射到相差超过一根 5m bar 的 raw anchors。
 
-本地不得根据 decomposition 数字直接改模型。云端收到 CL-003 反馈后才做正式 attribution adjudication；任何 repair 都必须另开新的 preanalysis/frozen protocol。
+所以目前最优先的下一层不是放宽 matcher，而是审计：
 
-## 允许的 diagnostics / 禁止的解释
+> **为什么同一个已经跨 slicing 稳定匹配的 filtered parent tuple，会被当前 raw projection 映射成不同的 raw financial identity？**
 
-允许：
+## 其他未解决层不能删除
 
-- qualification rejection-reason frequency；
-- tuple projection/evaluate diagnostics；
-- same-level / any-level filtered-extremum survival；
-- session-boundary prevalence overlay；
-- local-envelope candidate count 与 minimum max-anchor displacement overlay。
+即使 projection 是最大单项，仍有：
 
-禁止：
+- filtered-extremum survival mismatch：22.31%
+- tuple topology/death certification mismatch：15.97%
+- qualification survival loss：21.64%
 
-- 看完 near-miss distribution 后扩大 5-minute tolerance；
-- 根据 rejection reasons 调 v0.5.4 thresholds；
-- 根据 decomposition 重新链接 ridge；
-- 按哪个分类“结果最好”选择 causal member；
-- 回到 D1/D2/PAWCT；
-- 使用收益、outcome、P&L；
-- 进入 H1/H2 / third-wave / trading；
-- 使用 GitHub Actions。
+前两者合计 **38.28%**，说明 upstream filtered representation 自身仍 materially unstable。
+
+Qualification-survival 的 rejection reasons 中 `jump_dominated_leg` 最多，但 v0.6.1 不授权调 threshold。
+
+Session boundary unmatched prevalence 72.78%，strict-matched control 66.88%；只略有富集，不足以作为主体解释。Local-envelope overlapping candidate 子集的 minimum max-five-anchor displacement median 为 96/162/97/96 分钟，也不支持把 5m matcher 事后扩大一点作为解决办法。
+
+## 下一步允许做什么
+
+下一步先做新的 **raw-projection identity preanalysis/audit**，而不是直接替换 projection formula。
+
+新的结果前工作至少要回答：
+
+1. 当前 `sequential_raw_close_extreme_inside_filtered_phase_bounds` 对同一 strict-matched filtered tuple，raw anchor displacement 分别发生在哪几个 anchor position；
+2. displacement 是否来自 phase-bound interval 边界移动、同 interval 多个 raw extrema 的选择不唯一、极值 plateaus/ties、或 filtered endpoint 的小变化导致 raw argmax/argmin 跳转；
+3. 当前 raw projection 在单视图 prefix 下虽然 causal，是否还缺少跨 slicing 的 financial-identity invariance；
+4. 在不看 D1/收益/outcome 的情况下，什么数学性质才应约束一个合法 parent→raw projection；
+5. 在任何 replacement projection 提案出现前，先冻结 diagnostic relation 与 synthetic counterexamples。
+
+仍然禁止：
+
+- 事后放宽 5m matcher；
+- 调 v0.5.2 ridge linking / tuple birth 来救 projection；
+- 调 v0.5.4 qualification thresholds；
+- 根据 D1/D2/PAWCT 或收益选 projection；
+- 回到 direction 或第三浪；
+- 使用新的 GitHub Actions。
 
 ## 优先阅读
 
-1. `docs/ops/cloud_local_communication.md` — CL-003
-2. `docs/research/two_wave_unmatched_identity_decomposition_protocol_v061.md`
-3. `docs/research/two_wave_unmatched_identity_decomposition_preanalysis_v061.md`
-4. `scripts/run_two_wave_unmatched_identity_decomposition_v061.py`
-5. `src/factor_lab/visual_structure/two_wave/unmatched_identity_decomposition_v061.py`
-6. `tests/unit/test_two_wave_unmatched_identity_decomposition_v061.py`
-7. `docs/research/two_wave_qualified_identity_results_v060.md`
-8. `cloud_results/local_v060_qualified_identity_audit/summary.json`
+1. `docs/research/two_wave_unmatched_identity_decomposition_results_v061.md`
+2. `cloud_results/cloud_chat_v061_unmatched_identity_decomposition/summary.json`
+3. `cloud_results/cloud_chat_v061_unmatched_identity_decomposition/execution_receipt.json`
+4. `docs/research/two_wave_unmatched_identity_decomposition_protocol_v061.md`
+5. `src/factor_lab/visual_structure/two_wave/extremum_ridge_v052.py`
+6. `src/factor_lab/visual_structure/two_wave/characteristic_scale_v051.py` 中 frozen raw projection
 
-**当前唯一允许推进的 formal empirical step 是 CL-003。**
+**当前下一 formal research step：先冻结 raw-projection identity audit；不得直接修公式。**
