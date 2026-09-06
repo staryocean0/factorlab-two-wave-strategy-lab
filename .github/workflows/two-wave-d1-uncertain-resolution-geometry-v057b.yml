@@ -1,0 +1,65 @@
+name: two-wave-d1-uncertain-resolution-geometry-v057b
+on:
+  push:
+    branches: ['codex/two-wave-phase1-20260905']
+    paths:
+      - 'docs/research/two_wave_d1_uncertain_resolution_geometry_protocol_v057b.md'
+      - 'scripts/run_two_wave_d1_uncertain_resolution_geometry_v057b.py'
+      - '.github/workflows/two-wave-d1-uncertain-resolution-geometry-v057b.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  attribute:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: python -m pip install -e . editables==0.6
+      - name: Full regression before frozen Stage B attribution
+        run: python -m pytest -q
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: v056-native5m-*-266bac6389098169598084667fcb46897a53ccf2
+          path: downloaded_v056_views
+          merge-multiple: false
+          github-token: ${{ github.token }}
+          run-id: 34009427027
+          repository: staryocean0/factorlab-two-wave-strategy-lab
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: two-wave-d1-cross-offset-disagreement-v057a-f0762465c13259bb83cef037d143a1b0bdf0434b
+          path: downloaded_v057a
+          merge-multiple: false
+          github-token: ${{ github.token }}
+          run-id: 34010153423
+          repository: staryocean0/factorlab-two-wave-strategy-lab
+      - name: Run frozen read-only Stage B geometry attribution
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p v057b_attribution_proof/source
+          git rev-parse HEAD > v057b_attribution_proof/commit.txt
+          python scripts/run_two_wave_d1_uncertain_resolution_geometry_v057b.py \
+            --formal-root downloaded_v056_views \
+            --stage-a-root downloaded_v057a \
+            | tee v057b_attribution_proof/research.log
+          cp docs/research/two_wave_d1_uncertain_resolution_geometry_protocol_v057b.md \
+             scripts/run_two_wave_d1_uncertain_resolution_geometry_v057b.py \
+             v057b_attribution_proof/source/
+          git diff --exit-code -- data src tests scripts docs/research pyproject.toml
+      - uses: actions/upload-artifact@v4
+        with:
+          name: two-wave-d1-uncertain-resolution-geometry-v057b-${{ github.sha }}
+          path: |
+            cloud_results/two_wave_d1_uncertain_resolution_geometry_v057b/
+            v057b_attribution_proof/
+          retention-days: 30
+          if-no-files-found: error
