@@ -1,218 +1,191 @@
-# 两浪研究继续入口：v0.5.4 qualification 已正式通过，下一步独立研究 D1（2026-09-06）
+# 两浪研究继续入口：v0.5.6 D2 multiview 否定，下一步只读跨 offset 分歧归因（2026-09-06）
 
 ## 当前状态
 
-当前组合研究基线已经从旧 v0.4.3 升格为：
+冻结上游研究基线仍是：
 
 > **v0.5.2 TCSS exact-ridge parent identity + v0.5.4 full-cycle-scale qualification**
 
+方向/父状态层仍未验收。
+
 准确状态链：
 
-**v0.5.0 TCSS representation ✅ → v0.5.1 sliding five-extrema scale selector ❌ → v0.5.2 exact-ridge parent identity ✅ → qualification attribution ✅ → v0.5.3 birth-scale TCSS ER hypothesis ❌ → v0.5.4 full-cycle-scale qualification ✅ → D1 range/trend pending。**
+**v0.5.0 TCSS representation ✅ → v0.5.1 sliding five-extrema scale selector ❌ → v0.5.2 exact-ridge parent identity ✅ → qualification attribution ✅ → v0.5.3 birth-scale TCSS ER ❌ → v0.5.4 full-cycle-scale qualification ✅ → v0.5.5 D1 semantic attribution ✅ → v0.5.6 D2 whole-envelope main5m ✅ / multiview ❌ → cross-offset disagreement attribution pending。**
 
-这里的 baseline 升格只表示下一阶段研究的上游 parent + qualification 已冻结；**整个两浪 morphology 尚未验收**，因为 D1 仍是旧层。
-
-PR #1 继续 Draft，不合并 main；没有进入第三浪、收益、交易或生产。
+PR #1 继续 Draft，不合并 main。整个 morphology 尚未验收；不进入第三浪/H1/H2、收益、交易或生产。
 
 ## 优先阅读
 
-1. [v0.5.4 最终 multiview / causal adjudication](docs/research/two_wave_cycle_scale_qualification_results_v054.md)
-2. [v0.5.4 主 5m 机制审计](docs/research/two_wave_cycle_scale_qualification_results_v054_main5m.md)
-3. [v0.5.4 结果前协议](docs/research/two_wave_cycle_scale_qualification_protocol_v054.md)
-4. [v0.5.2 exact-ridge parent identity 正式结果](docs/research/two_wave_extremum_ridge_results_v052.md)
-5. [qualification attribution](docs/research/two_wave_qualification_attribution_results_v052.md)
-6. [v0.5.3 scale-aligned efficiency 否定结果](docs/research/two_wave_scale_aligned_qualification_results_v053.md)
-7. [v0.5.0 TCSS 表示层结果](docs/research/two_wave_multiscale_tcss_results_v050.md)
-8. [v0.5.1 自动尺度 selector 否定结果](docs/research/two_wave_characteristic_scale_results_v051.md)
+1. `docs/research/two_wave_d1_envelope_translation_results_v056.md` — v0.5.6 最终负向裁决
+2. `docs/research/two_wave_d1_envelope_translation_results_v056_main5m.md` — v0.5.6 主5m机制 PASS
+3. `docs/research/two_wave_d1_envelope_translation_protocol_v056.md` — v0.5.6 结果前协议
+4. `docs/research/two_wave_d1_envelope_translation_preanalysis_v056.md` — whole-envelope 金融/数学预分析
+5. `docs/research/two_wave_d1_semantic_attribution_results_v055.md` — v0.5.5 只读归因
+6. `docs/research/two_wave_cycle_scale_qualification_results_v054.md` — 当前 qualification 基线
+7. `docs/research/two_wave_extremum_ridge_results_v052.md` — 当前 parent identity 基线
 
 ## 金融合同不变
 
-目标仍是：在某个 K 线级别上，识别**连续、同尺度、完整的两个原价格 reversal waves**，然后根据这两个波的整体漂移、同相位端点迁移和包络迁移区分父状态：
+目标是在某个 K 线级别识别**连续、同尺度、完整的两个 raw-price reversal waves**，再用这两个波的父级几何区分：
 
 - range
 - uptrend
 - downtrend
 - uncertain
 
-生产语义仍是 raw-price reversal wave：
+低点起算 `L0 -> H1 -> L1 -> H2 -> L2`，高点起算对称。
 
-- 低点起算：`L0 -> H1 -> L1 -> H2 -> L2`；高点起算对称；
-- 两个周期共享中间同相位端点；
-- 严格单调 raw price 不得因为任何 detrended component 伪造 reversal；
-- 已确认结构追加未来后不得改写；
-- 计算确认时间和原数据 availability metadata 分开处理；
-- coverage 不等于 accuracy；direction 不等于 channel；H16 不等于两浪 span。
+必须继续满足：
 
-## 已冻结上游 A：v0.5.2 parent identity
+- raw-price reversal 语义；严格单调 raw price 不得被 detrended component 伪造出完整波；
+- append future 后 confirmed 结构/分类不得改写；
+- available_at 与计算确认时钟分离；
+- coverage ≠ accuracy；direction ≠ channel；IoU 只作切片稳定性；
+- 不按收益、第三浪或案例美观度选择公式/阈值。
 
-v0.5.2 已正式通过 `parent_identity_pass_qualification_pending`，其结论现在作为固定上游保留。
+## 冻结上游 A：v0.5.2 parent identity
 
-核心定义：
+v0.5.2 已通过并冻结：
 
-1. confirmed extremum 跨 TCSS scales 形成 immutable ridge identity；
-2. 五点 parent family 由 exact five ridge IDs 定义；
-3. child ridges death 后，exact tuple 首次成为连续五条 surviving ridges 的 scale 定义自然 birth；
-4. parent birth 不由 `12—48` 绝对 bar-count 决定；
-5. raw projection 回 exact raw-price extrema；
-6. append future 不得改写 ridge / death / tuple / raw projection。
+- confirmed extrema 跨 causal TCSS scales 形成 immutable ridge IDs；
+- parent family = exact five ridge IDs；
+- intervening child ridges 全部 causally certified dead 后才允许 tuple birth；
+- raw projection 回 exact raw-price extrema；
+- 18/18 prefix zero rewrite；
+- lineage anomaly = 0；
+- case_02 90/3 假结构未复活。
 
-正式证据：
+不得回头修改 ridge linking、ridge death、tuple identity、tuple birth 或 raw projection 来补方向分类。
 
-- five-view run `33976108720` success；artifact `9972596486`
-- 1m run `33976118420` success；artifact `9972464179`
-- 18/18 prefix replay 全部通过
-- native 5m offset IoU 相对 v0.4.3 四项全部改善
-- case_00 恢复能吸收多个微摆的 parent candidate identity
-- case_02 90/3 假结构未复活
+## 冻结上游 B：v0.5.4 qualification
 
-不得回头改 ridge linking / tuple birth 来修后续资格或 D1 问题。
+当前 same-scale qualification 的关键语义：
 
-## qualification attribution 与 v0.5.3 否定
+> **完整 reversal cycle 的总时间尺度定义 same-scale；对应半浪 duration allocation 只保留为 morphology diagnostic。**
 
-v0.5.2 后先做了 rejection attribution，没有直接调阈值。
+`corresponding_leg_duration_mismatch` 已从 hard rejection 降为 diagnostic；以下继续冻结：
 
-归因显示 `corresponding_leg_duration_mismatch` 存在大量 exclusive-only near-pass；与此同时 case_00 还混有 efficiency / jump 等其它拒绝，因此没有把所有资格问题偷换成一个阈值问题。
-
-v0.5.3 尝试把 raw leg ER 换成 birth-scale causal TCSS ER，阈值仍为 0.5。主 5m 机制结果正式否定：
-
-- v0.5.2 qualified 425 → v0.5.3 206
-- lost qualified 292
-- 2018 已通过的 24/29 父结构反而被 birth-scale ER 单独拒绝
-- case_00 没有改善
-
-所以 **birth-scale TCSS leg efficiency 不是当前资格语义的正确修复**，不得通过调低 0.5 复活该路线。
-
-## 已冻结上游 B：v0.5.4 full-cycle-scale qualification
-
-v0.5.4 的唯一语义变化：
-
-> `corresponding_leg_duration_mismatch` 从 same-scale hard rejection 降为 morphology diagnostic。
-
-理由：同尺度应优先约束两个**完整 reversal cycles** 的总时间尺度；对应半浪的时间占比可以因为 phase allocation、趋势漂移、局部速度不同而明显变化。
-
-未改变：
-
-- full-cycle `duration_ratio = 2.0`
-- min/max cycle
-- min/max pair
-- min leg
+- full-cycle duration ratio = 2.0
+- min/max cycle、pair、min leg
 - amplitude
-- raw path efficiency `>=0.5`
-- jump share `<=0.5`
+- raw path efficiency >= 0.5
+- jump share <= 0.5
 - flat / clock / confirmation
-- TCSS / ridge / tuple / raw projection
-- D1 / ledger
+- deterministic non-overlap ledger
 
-### 主 5m
+v0.5.4 正式 18/18 prefix zero rewrite，native 5m offset IoU 四项均较 v0.5.2 改善。
 
-正式 run `33984455043` success；artifact `9974744445`。
+## v0.5.5：D1 semantic attribution
 
-`5m_offset_0`：
+在不改现有 D1 的情况下，对主 `5m_offset_0` 的 v0.5.4 qualified records 做只读归因。
+
+主 5m：734 qualified：
+
+- D1 range 4
+- uncertain 371
+- uptrend 187
+- downtrend 172
+
+371 个 uncertain 的主要 subtype：
+
+- same_phase_reversal_conflict 243
+- strong_net_with_opposed_phase 40
+- coherent_but_subthreshold 36
+- opposite_envelope_conflict 18
+- single_phase_dominant 17
+- large_migration_without_coherent_direction 17
+
+318/371 属于明确几何冲突；185/371 的完整 upper/lower envelope 已经同向且两条均越过冻结 0.15。
+
+另外可代数证明：旧 D1 range 若三个 `|si|<=0.15`，则同相位三点最大 span<=0.30，另一 envelope span<=0.15，所以旧 `span<=0.5` 是冗余条件。range 稀少不能通过放松 `0.5` span gate 解决。
+
+## v0.5.6：whole-envelope D2
+
+结果前冻结：仍用相同 amplitude normalization 和 `phase_tolerance=0.15`，只把父级 hard vote 改为完整 upper/lower envelope 的总迁移。
+
+- `net=s0+s1`
+- low-start：`E_lower=net, E_upper=s2`
+- high-start：`E_upper=net, E_lower=s2`
+- 两条都 >0.15 -> uptrend
+- 两条都 <-0.15 -> downtrend
+- 两条都 |E|<=0.15 -> range
+- 其余 -> uncertain
+
+`s0/s1` 局部反号只作 morphology diagnostic。
+
+### Main 5m：机制 PASS
+
+run `34009093294` success，artifact `9981922969`。
 
 - evaluated 38,049
-- v0.5.2 qualified 425
-- v0.5.4 qualified 734
-- newly qualified 309
-- lost qualified 0
-- 新增集合严格等于事前冻结的 corresponding-leg duration-only 集合
+- qualified 734
+- selected 404
+- upstream candidate / qualification / selected IDs / intervals exact match
+- D1 qualified `4 / 371 / 187 / 172`（range/uncertain/up/down）
+- D2 qualified `22 / 185 / 280 / 247`
 
-数量增加不是接受理由；接受理由是单组件 attribution、完整周期 hard gate 保留及安全反例不退化。
+22 个 D2 range 中 21 个存在 `s0*s1<0`：主视图上 D2 能表达“父级边界总体不迁移但内部有大摆动”的 range 语义。
 
-### 五个 native 5m
+但数量更均衡不是接受理由。
 
-正式并行 run `33998425000` success。
+### Causality：18/18 PASS
 
-final artifact：
+Native five-view run `34009427027`：五个 view full + 25/50/75% 全部通过，**15/15 zero rewrite**。
 
-- id `9978815239`
-- SHA256 `0ef8ac22b4b69befd39d1b5e516b3c95bd3f396976cdbc5a7f0b8352515998cf`
+1m parallel run `34009436754`：25/50/75% 全部通过，**3/3 zero rewrite**；final artifact `9982103606`。
 
-五视图 full + 25/50/75%：**15/15 prefix zero rewrite**。
+所以 D2 没有未来改写问题。
 
-Offset IoU（仅边界稳定性）：
+### Multiview label stability：正式 FAIL
 
-| offset | v0.5.2 | v0.5.4 | delta |
+D1 与 D2 使用**完全相同 selected intervals**；boundary IoU 因此精确相同。只比较共同拥有区间的 label agreement。
+
+冻结 hard gate 规定：若 D2 在四个 native offset 上全部比 D1 差，则直接否定。
+
+实际结果：
+
+| offset | D1 same-label | D2 same-label | D2-D1 |
 |---|---:|---:|---:|
-| 1 | 31.53% | 36.79% | +5.26 pct |
-| 2 | 23.92% | 31.34% | +7.42 pct |
-| 3 | 27.51% | 31.21% | +3.71 pct |
-| 4 | 32.44% | 35.10% | +2.66 pct |
+| 1 | 78.0399% | 76.3050% | -1.7349pp |
+| 2 | 78.4855% | 73.6850% | -4.8005pp |
+| 3 | 76.4696% | 72.1744% | -4.2952pp |
+| 4 | 83.9950% | 82.1246% | -1.8704pp |
 
-`worse_count=0`，mean delta = +4.760 pct。
+`worse_count=4/4`，mean delta = **-3.1752pp**。
 
-### 1m official
+Failure diagnostic：run `34009928175` success，artifact `9982147148`，SHA256 `1968b70bef5053dcaf1979bbf399013d326f9c415a02645dd47c82581e294d0a`。
 
-单 job run `33998434083` 在 package validation 和 full regression 都成功后，于核心 full+prefix 计算阶段被取消，没有形成正式结果，因此不参与裁决。
+因此：
 
-只拆 CI 调度、不改研究实现后：
+> **v0.5.6_rejected_multiview_label_stability**
 
-- parallel run `33999025314` — success
-- execution commit `c4ad36e5707c8233ef3076c5d9e2c95d1b31216d`
-- final artifact `9979148052`
-- SHA256 `5104f4dac1432efa582f6a95e8ea38c2a5e58ee1c27395ca5c6c88461fe97949`
+不得调 `0.15`、修改 hard gate、挑案例或看收益把 D2 救回。
 
-1m 25% / 50% / 75% 三个 prefix：**3/3 zero rewrite**。
+## 下一安全停点：cross-offset disagreement attribution
 
-因此整个 v0.5.4：
+不要立即实现 v0.5.7。
 
-> **18/18 prefix zero rewrite，正式通过 multiview causal/stability adjudication。**
+下一轮先冻结一个**只读跨 offset 分歧归因协议**，只研究为什么 D2 比 D1 更容易受 native 5m slicing 影响。
 
-## v0.5.4 最终资格门
+必须至少拆解：
 
-冻结协议八项条件全部 PASS：
+1. disagreement 是否集中在 `0.15` 边界附近；
+2. `E_upper / E_lower` 哪条更容易在 offsets 间换符号或跨阈值；
+3. `s0/s1/s2` 各自的跨 offset 稳定性；
+4. `net=s0+s1` 是否放大 endpoint allocation / raw projection 误差；
+5. low-start / high-start 对称性；
+6. D2 range / trend / uncertain 哪类迁移最不稳定；
+7. birth scale、amplitude ratio、corresponding-leg duration diagnostic、cycle duration 与 disagreement 的关系；
+8. 大 margin disagreement 与 threshold-near disagreement 必须分开，避免错误归因成“阈值问题”。
 
-1. parent identity exact match；
-2. 非 corresponding-leg rejection 全冻结；
-3. 18/18 prefix zero rewrite；
-4. full-cycle scale hard rules 不退化；
-5. jump / short / efficiency / amplitude 不联动放松；
-6. case_02 90/3 pathology 不复活；
-7. native 5m offset stability 不恶化，实际 4/4 改善；
-8. 机制解释来自 scale / phase-allocation 解耦，而不是候选数量增加。
-
-所以后续不再使用 v0.5.2 的 corresponding-leg duration hard rejection 作为研究资格基线，也不回滚到 v0.4.3 parent construction。
-
-## 仍未解决：D1
-
-当前 qualification 通过不代表 D1 正确。
-
-现有输出仍表现出：
-
-- `uncertain` 较多；
-- `range` 极少；
-- direction 与 channel 语义仍需要拆分；
-- 对应半浪 duration diagnostic、中心漂移、同相位 extrema 迁移、upper/lower envelope 漂移、幅度变化之间的关系尚未独立归因。
-
-下一轮禁止直接调 `phase_tolerance` 或其它 D1 阈值。
-
-## 下一安全停点：D1 semantic attribution / preanalysis
-
-代码前先回答金融语义：
-
-> 在已经确认的两个完整、同尺度 reversal cycles 上，什么数学量真正对应“父级震荡 vs 上涨趋势 vs 下跌趋势”，哪些量只是波形不对称或速度差？
-
-建议下一轮先做**只读 D1 failure attribution**，冻结 parent + qualification，不修改输出：
-
-1. 分解现有 D1 的每个组成项及其冲突来源；
-2. 对 qualified records 统计 range/up/down/uncertain 形成路径；
-3. 分离 center drift、same-phase endpoint drift、upper-envelope drift、lower-envelope drift、amplitude drift、phase allocation；
-4. 审计 `uncertain` 是“信息不足”还是“规则互相冲突”；
-5. case_00 / 2018 / 2019 / 2020 与 case_02/11/14 只做固定审计，不用于选参数；
-6. 五个 native 5m 边界稳定性继续作为稳健性门，不当准确率；
-7. 先形成金融语义映射和数学预分析，再冻结一个单组件 D1 协议。
-
-若 D1 通过，才进入独立 morphology acceptance；**仍然不进入收益/交易。**
-
-正确顺序：
-
-**v0.5.2 parent identity ✅ → v0.5.4 qualification ✅ → D1 range/trend → independent morphology acceptance → H1/H2 → outcomes/trading。**
+只读 attribution 完成后，先做金融/数学 fit preanalysis，再决定是否存在 v0.5.7 单组件候选。没有机制证据就不实现新分类器。
 
 ## 不变边界
 
 - 只用仓库现有 2015—2020 development 行情；
-- 不新增 fresh OOS，不价格重采样；
-- 主目标 `000852.SH` 原生 `5m_offset_0`；其余 native 5m 只作边界稳健性，1m 只作诊断；
+- 主目标 `000852.SH` 原生 `5m_offset_0`；其余 native 5m 只作边界稳健性，1m 只作因果诊断；
+- 不价格重采样，不新增 fresh OOS；
 - `trade_authority=false`；
-- 不按收益选参；
 - 负向实验原样保留；
-- **PR #1 继续 Draft，不合并 main。**
+- PR #1 继续 Draft，不合并 main；
+- D1 通过后才进入 independent morphology acceptance；在那之前不进入 H1/H2 / outcomes / trading。
