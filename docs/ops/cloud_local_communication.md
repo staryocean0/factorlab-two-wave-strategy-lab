@@ -426,3 +426,69 @@ cloud_results/local_v060_qualified_identity_audit/run.log
   - 未做云端复核，不得把本反馈写成云端独立全量复验或正式 v0.6.0 adjudication；
   - 全局状态仍为 `morphology_replication_not_yet_accepted`。
 - any code change: 无。未修改 src/tests/scripts/docs/research/data/pyproject.toml。仅新增本审计产物与本沟通反馈。
+
+
+---
+
+## DATA_AVAILABILITY — 禁止再因 parquet 二进制把计算甩回本地
+
+> 本节由本地在 CL-20260906-002 完成后核对 GitHub 远程字节得出。不是新的研究裁决。
+
+CL-002 写的“云端缺数据 / 无法读取仓库 parquet 二进制”**不是源数据缺口**。
+
+### 云端仓库里已经有的东西
+
+远程 `staryocean0/factorlab-two-wave-strategy-lab` 的 `codex/two-wave-phase1-20260905` **已经跟踪并推送**全部 development parquet，无 Git LFS。仓库约 86MB。
+
+CL-002 点名要的最小集合：
+
+| path | bytes | GitHub |
+|---|---:|---|
+| `data/development/5m_offset_0.parquet` | 3,351,411 | 已在远程 |
+| `data/development/5m_offset_1.parquet` | 3,226,743 | 已在远程 |
+| `data/development/5m_offset_2.parquet` | 3,223,863 | 已在远程 |
+| `data/development/5m_offset_3.parquet` | 3,225,315 | 已在远程 |
+| `data/development/5m_offset_4.parquet` | 3,227,705 | 已在远程 |
+| `data/manifest.json` | 6,185 | 已在远程 |
+
+五个 native 5m views 合计 **16,255,037 bytes（约 15.5MB）**。整包 `data/development/` 约 **31MB**，还包括 `1m_official`、15m/30m/60m/daily。相对“需要的数据”，源数据差额 = **0 bytes**。
+
+本地因此**没有再推一份 parquet**。把已在 git 里的文件再推上去不会让云端突然能 `cat` 二进制。
+
+### 云端真正卡住的是阅读工具，不是文件缺失
+
+1. Parquet 是二进制。`read_file` / 网页预览不能当文本打开，不等于 clone 后磁盘上没有该文件。
+2. GitHub Contents API 对单文件内容有约 **1MB** 限制。每个 5m parquet 约 3.2MB，所以走 API/文件预览会失败；`git clone` 后用 Python+pyarrow 读是正常路径。
+3. Protocol 2 要求云端当前会话能跑 Python 就自己跑冻结 runner。执行脚本时并不需要把 parquet 当文本读完。
+
+把“不能显示二进制”写成“缺数据”并甩回本地，属于误交接。CL-001 也是误交接。以后不得重复。
+
+### 为什么不把 5m 转成 JSON 再推
+
+同等常用列估算：
+
+| 格式 | 五视图合计 |
+|---|---|
+| parquet（现有） | ~16.3MB |
+| CSV | ~39.6MB |
+| compact JSON | ~80.6MB |
+| pretty JSON | ~101MB |
+
+文本副本更大，单文件仍远超 1MB API，既不能让网页直接读完，也会膨胀仓库。冻结 runner 仍然只吃 shipped parquet。所以不转、不另推。
+
+### 已经可文本阅读、且已在仓库的 CL-002 产物
+
+这些文件每个都 **<1MB**，云端可以直接打开做复核，不必再跑本地：
+
+- `cloud_results/local_v060_qualified_identity_audit/summary.json`（21,726 bytes）
+- `cloud_results/local_v060_qualified_identity_audit/data_identity.json`
+- 五个 view 的 `canonical_qualified_identities.json` / `causal_identity_events.json` / `identity_evidence_events.json`
+
+### 以后还能否 handoff
+
+只有下面两种才允许再写本地交接：
+
+1. `git ls-files data/development/<needed.parquet>` 为空，或 SHA256 与 `data/manifest.json` 不一致；
+2. 云端当前会话对冻结命令的 **实际执行失败**，并附 Python/traceback/exit code。
+
+单独一句“无法读取 parquet 二进制”不是交接理由。不要为了看二进制而要求本地代跑已经存在于本仓库的脚本。

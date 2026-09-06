@@ -47,6 +47,13 @@ pointer, or promote a strategy.
   The source serialized Shanghai wall clock is retained separately for audit.
 - Use the supplied DataHub-built bar views. Do not resample new wall-clock
   frequencies locally.
+- The development Parquet files are already in this git repository under
+  `data/development/` (about 31MB total; the five native 5m views are about
+  16MB). A cloud session that cannot *display* a binary Parquet file still has
+  those files after clone. That is not missing data. Do not hand off to local
+  execution only because Parquet is binary; run Python with pyarrow against the
+  shipped files. Hand off only when a required path is actually absent or when
+  in-session execution fails with a captured traceback.
 
 ## Required research order
 
