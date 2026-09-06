@@ -1,0 +1,9 @@
+{
+  "aggregate": {"inefficient_leg": {"both_fail": 211}, "jump_dominated_leg": {"both_pass": 368}},
+  "pairs": {
+    "5m_offset_1": {"inefficient_leg": {"both_fail": 48}, "jump_dominated_leg": {"both_pass": 88}},
+    "5m_offset_2": {"inefficient_leg": {"both_fail": 50}, "jump_dominated_leg": {"both_pass": 93}},
+    "5m_offset_3": {"inefficient_leg": {"both_fail": 53}, "jump_dominated_leg": {"both_pass": 101}},
+    "5m_offset_4": {"inefficient_leg": {"both_fail": 60}, "jump_dominated_leg": {"both_pass": 86}}
+  }
+}
