@@ -1,0 +1,6 @@
+{
+  "control_repaired": {"n": 3986, "disagreement": 103, "family": {"mixed_multi_family": 32, "path_metric_only": 50, "confirmation_clock_only": 5, "duration_geometry_only": 15, "amplitude_only": 1}, "orientation": {"main_rejected_other_qualified": 48, "main_qualified_other_rejected": 55}},
+  "v063_residual_repaired": {"n": 2390, "disagreement": 63, "family": {"path_metric_only": 30, "mixed_multi_family": 21, "amplitude_only": 1, "duration_geometry_only": 10, "confirmation_clock_only": 1}, "orientation": {"main_qualified_other_rejected": 39, "main_rejected_other_qualified": 24}},
+  "v061_target_repaired": {"n": 80, "disagreement": 24, "family": {"path_metric_only": 12, "duration_geometry_only": 5, "mixed_multi_family": 7}, "orientation": {"main_qualified_other_rejected": 23, "main_rejected_other_qualified": 1}},
+  "v063_target_residual_repaired": {"n": 50, "disagreement": 16, "family": {"path_metric_only": 8, "duration_geometry_only": 4, "mixed_multi_family": 4}, "orientation": {"main_qualified_other_rejected": 15, "main_rejected_other_qualified": 1}}
+}
