@@ -1,0 +1,84 @@
+{
+  "schema": "two_wave_published_identity_qualification@0.6.6",
+  "status": "mixed_qualification_stability_requires_decomposition",
+  "published_raw_strict_pairs": 29453,
+  "qualification_matrix": {
+    "both_rejected": 28272,
+    "main_rejected_other_qualified": 347,
+    "both_qualified": 482,
+    "main_qualified_other_rejected": 352
+  },
+  "qualification_agreement_pairs": 28754,
+  "qualification_disagreement_pairs": 699,
+  "qualification_agreement_fraction": 0.9762672732828575,
+  "qualification_disagreement_fraction": 0.023732726717142567,
+  "main_qualified_pairs": 834,
+  "other_qualified_pairs": 829,
+  "union_qualified_pairs": 1181,
+  "both_qualified_pairs": 482,
+  "both_qualified_fraction_within_union": 0.40812870448772226,
+  "main_qualified_survival_to_other_fraction": 0.5779376498800959,
+  "other_qualified_survival_to_main_fraction": 0.5814234016887817,
+  "disagreement_rejected_side_hard_reason_counts": {
+    "inefficient_leg": 211,
+    "jump_dominated_leg": 368,
+    "confirmation_too_late": 76,
+    "short_cycle": 54,
+    "short_leg": 105,
+    "cycle_duration_mismatch": 37,
+    "amplitude_mismatch": 50,
+    "long_cycle": 4
+  },
+  "repaired_strata": {
+    "control_repaired": {
+      "count": 3986,
+      "matrix": {"both_rejected": 3821, "main_rejected_other_qualified": 48, "main_qualified_other_rejected": 55, "both_qualified": 62},
+      "qualification_agreement_pairs": 3883,
+      "qualification_disagreement_pairs": 103,
+      "agreement_fraction": 0.9741595584545911,
+      "disagreement_fraction": 0.025840441545408932,
+      "union_qualified_pairs": 165,
+      "both_qualified_fraction_within_union": 0.37575757575757573
+    },
+    "v063_residual_repaired": {
+      "count": 2390,
+      "matrix": {"both_rejected": 2295, "main_qualified_other_rejected": 39, "both_qualified": 32, "main_rejected_other_qualified": 24},
+      "qualification_agreement_pairs": 2327,
+      "qualification_disagreement_pairs": 63,
+      "agreement_fraction": 0.9736401673640167,
+      "disagreement_fraction": 0.026359832635983262,
+      "union_qualified_pairs": 95,
+      "both_qualified_fraction_within_union": 0.3368421052631579
+    },
+    "v061_target_repaired": {
+      "count": 80,
+      "matrix": {"both_rejected": 29, "main_qualified_other_rejected": 23, "both_qualified": 27, "main_rejected_other_qualified": 1},
+      "qualification_agreement_pairs": 56,
+      "qualification_disagreement_pairs": 24,
+      "agreement_fraction": 0.7,
+      "disagreement_fraction": 0.3,
+      "union_qualified_pairs": 51,
+      "both_qualified_fraction_within_union": 0.5294117647058824
+    },
+    "v063_target_residual_repaired": {
+      "count": 50,
+      "matrix": {"both_rejected": 19, "main_qualified_other_rejected": 15, "both_qualified": 15, "main_rejected_other_qualified": 1},
+      "qualification_agreement_pairs": 34,
+      "qualification_disagreement_pairs": 16,
+      "agreement_fraction": 0.68,
+      "disagreement_fraction": 0.32,
+      "union_qualified_pairs": 31,
+      "both_qualified_fraction_within_union": 0.4838709677419355
+    }
+  },
+  "interpretation": {
+    "overall_binary_state": "high agreement dominated by both-rejected pairs",
+    "positive_qualification_state": "materially unstable across harmless slicing",
+    "target_strata": "30-32% binary disagreement in pre-registered repaired target strata",
+    "adjudication": "mixed_qualification_stability_requires_decomposition"
+  },
+  "future_outcome_used": false,
+  "trade_authority": false,
+  "operational_baseline": "v0.4.3",
+  "morphology_status": "morphology_replication_not_yet_accepted"
+}
