@@ -1,0 +1,57 @@
+[
+  {
+    "view": "5m_offset_0",
+    "phase": "low",
+    "publishing_member_event_id": "tcss_exact_ridge_tuple_birth_v052_a415768e41a827a67dff",
+    "ordered_evidence": [
+      {"event_id": "tcss_exact_ridge_tuple_birth_v052_a415768e41a827a67dff", "birth_level": 3, "birth_confirmation_bar": 39577, "disposition": "publishing_evidence"},
+      {"event_id": "tcss_exact_ridge_tuple_birth_v052_93a5e28fb7febbbdd8c7", "birth_level": 4, "birth_confirmation_bar": 39577, "disposition": "later_valid_would_rewrite_suppressed"}
+    ],
+    "suppressed_would_be_rewrite_count": 1,
+    "publication_immutable_after_later_evidence": true
+  },
+  {
+    "view": "5m_offset_1",
+    "phase": "low",
+    "publishing_member_event_id": "tcss_exact_ridge_tuple_birth_v052_a4875b482ac8ce5ad8fc",
+    "ordered_evidence": [
+      {"event_id": "tcss_exact_ridge_tuple_birth_v052_a4875b482ac8ce5ad8fc", "birth_level": 4, "birth_confirmation_bar": 29548, "disposition": "publishing_evidence"},
+      {"event_id": "tcss_exact_ridge_tuple_birth_v052_4e7614cf0415cbd38757", "birth_level": 3, "birth_confirmation_bar": 29549, "disposition": "later_valid_would_rewrite_suppressed"}
+    ],
+    "suppressed_would_be_rewrite_count": 1,
+    "publication_immutable_after_later_evidence": true
+  },
+  {
+    "view": "5m_offset_2",
+    "phase": "high",
+    "publishing_member_event_id": "tcss_exact_ridge_tuple_birth_v052_d5c60f05d0551374cbd7",
+    "ordered_evidence": [
+      {"event_id": "tcss_exact_ridge_tuple_birth_v052_d5c60f05d0551374cbd7", "birth_level": 4, "birth_confirmation_bar": 46364, "disposition": "publishing_evidence"},
+      {"event_id": "tcss_exact_ridge_tuple_birth_v052_a47b771f82e341648f1d", "birth_level": 2, "birth_confirmation_bar": 46369, "disposition": "later_valid_would_rewrite_suppressed"}
+    ],
+    "suppressed_would_be_rewrite_count": 1,
+    "publication_immutable_after_later_evidence": true
+  },
+  {
+    "view": "5m_offset_3",
+    "phase": "low",
+    "publishing_member_event_id": "tcss_exact_ridge_tuple_birth_v052_a9e0592487f9ffd71e28",
+    "ordered_evidence": [
+      {"event_id": "tcss_exact_ridge_tuple_birth_v052_a9e0592487f9ffd71e28", "birth_level": 3, "birth_confirmation_bar": 28759, "disposition": "publishing_evidence"},
+      {"event_id": "tcss_exact_ridge_tuple_birth_v052_7897bcf04ce5255814ac", "birth_level": 4, "birth_confirmation_bar": 28760, "disposition": "later_valid_would_rewrite_suppressed"}
+    ],
+    "suppressed_would_be_rewrite_count": 1,
+    "publication_immutable_after_later_evidence": true
+  },
+  {
+    "view": "5m_offset_4",
+    "phase": "low",
+    "publishing_member_event_id": "tcss_exact_ridge_tuple_birth_v052_c685c22e5768b04b5ecb",
+    "ordered_evidence": [
+      {"event_id": "tcss_exact_ridge_tuple_birth_v052_c685c22e5768b04b5ecb", "birth_level": 3, "birth_confirmation_bar": 28757, "disposition": "publishing_evidence"},
+      {"event_id": "tcss_exact_ridge_tuple_birth_v052_d8a1f253404e371267e0", "birth_level": 4, "birth_confirmation_bar": 28758, "disposition": "later_valid_would_rewrite_suppressed"}
+    ],
+    "suppressed_would_be_rewrite_count": 1,
+    "publication_immutable_after_later_evidence": true
+  }
+]
