@@ -2,7 +2,7 @@
 
 > 本文按仓库 `AGENTS.md` 的“云端—本地交接协议”维护。当前协作协议已由用户明确启用。
 >
-> 执行优先级按 Protocol 2：云端当前会话可执行 → 本地大模型 → GitHub Actions。用户已明确告知 Actions 当前无可用额度，因此本记录中的本地任务不得改派、重跑或用 push 试探 Actions。
+> Protocol 2 当前执行优先级：云端当前会话可执行 → 本地大模型 → GitHub Actions。用户已明确告知 Actions 当前无可用额度，因此不得为本任务启动、重跑或用 push 试探 Actions。
 
 ---
 
@@ -10,46 +10,47 @@
 
 ### 状态
 
-- **SUPERSEDED / DO NOT EXECUTE**
-- 原因：云端曾误把历史 Actions run `33973525292` 当成当前研究断点。该 v0.5.2 六视图问题后来早已由拆分的 five-view + 1m 正式证据闭合，不是当前待执行任务。
-- 本任务不得在本地重跑，也不得据此回退当前研究前沿。
-- 保留此编号仅用于审计错误交接历史。
+**SUPERSEDED / DO NOT EXECUTE**
 
-当前真实研究前沿以 `CONTINUE_HERE.md`、`docs/research/two_wave_qualified_identity_audit_protocol_v060.md` 与下面 `CL-20260906-002` 为准。
+该任务由云端误把历史 run `33973525292` 当成当前断点而生成。v0.5.2 后来已由后续拆分证据闭合，不是当前待执行任务。保留编号仅用于审计，不得本地重跑或据此回退研究前沿。
 
 ---
 
-## CL-20260906-002 — v0.6.0 all-qualified 五视图 parent-identity 审计
+## CL-20260906-002 — v0.6.0 qualified financial identity 五视图本地正式审计
 
 ### 状态
 
 - 云端诊断：`handoff_required`
 - 本地执行：`WAITING_LOCAL_EXECUTION`
 - 云端复核：`pending`
-- 总体形态权限：仍为 `morphology_replication_not_yet_accepted`
-- 禁止事项：D3 调参、H1/H2、第三浪、收益/P&L、交易、OOS、paper trading、production 均不得开启。
+- 总体状态：`morphology_replication_not_yet_accepted`
+- operational baseline：仍为 `v0.4.3`
 
-### 任务目标
+### 当前真实研究问题
 
-在拥有完整冻结 development parquet 的本地环境，完成 **v0.6.0 minimal all-qualified five-view identity audit**。
+冻结上游仍是：
 
-需要回答的唯一研究问题：
+> **v0.5.2 exact-ridge parent identity + v0.5.4 full-cycle qualification**
 
-> v0.6.0 对 qualified-parent identity 的修复，在**整个 qualified universe**（不是 selected-only 子集）上，是否真的提高了 native 5m offsets 之间的稳定父结构对齐，并且这种提高不是靠把唯一匹配转化为 ambiguous multiple matches 获得？
+v0.5.9 已证明此前 direction/PAWCT 的大量跨 slicing disagreement 混入了**不同 selected financial events 被拿来互相比**的 identity confound。v0.6.0 因此先把 morphology identity 从 legacy exclusive packing 中拆开。
 
-本任务只解决 identity gate。**不要重跑 1m，不要重算或调整 D3，不要引入新的 recognizer。**
+本任务只回答：
+
+> 在五个 supplied native 5m views 上，**canonical qualified financial identities** 是否已经形成清晰、低歧义的 mutual-unique same-event 结构，并且相对 legacy selected-only identity 明显更完整？
+
+如果 qualified pool 本身稳定、而 legacy selected 丢掉大量 stable identities，则 packing 是主要污染源（Route Q）。如果 qualified pool 自身仍大面积 absent/ambiguous，则继续 upstream identity（Route U）。如果 packing 确实隐藏大量稳定 identity、但 qualified pool 仍有实质不稳定，则 Route M。
+
+**本任务不是 direction-model POC。禁止调 D1/D2/PAWCT，禁止 H1/H2、第三浪、收益/P&L、交易、OOS、paper trading 或 production。**
 
 ### 冻结研究身份
 
 - Repository：`staryocean0/factorlab-two-wave-strategy-lab`
 - Branch：`codex/two-wave-phase1-20260905`
-- 冻结研究实现 commit：`4643133f518299d6710f3c1cc01b6399b9482c31`
+- 冻结研究实现/当前 v0.6.0 partial-evidence commit：`4643133f518299d6710f3c1cc01b6399b9482c31`
 
-其后的已知提交只涉及 `AGENTS.md` 与云端—本地沟通文档，不应改变本任务的 `src/ tests/ scripts/ docs/research/ data/ pyproject.toml` 研究实现。
+后续已知提交仅涉及 `AGENTS.md` 与本沟通文档。执行前二选一：
 
-执行前必须采用下列两种方式之一。
-
-**方式 A：当前分支执行，但先证明研究实现未漂移**
+#### A. 当前分支执行，先证明研究文件未漂移
 
 ```bash
 git checkout codex/two-wave-phase1-20260905
@@ -61,66 +62,86 @@ git diff --exit-code \
   src tests scripts docs/research data pyproject.toml
 ```
 
-上述 `git diff --exit-code` 必须 exit 0。
+最后一条必须 exit 0。
 
-**方式 B：创建独立 worktree / detached worktree，直接在冻结 commit 执行**
+#### B. 使用冻结 worktree
 
 ```bash
 git worktree add ../two-wave-v060-local 4643133f518299d6710f3c1cc01b6399b9482c31
 cd ../two-wave-v060-local
 ```
 
-若发现 frozen research files 已发生实质变化，停止并报告，不自行选择“更合理”的版本。
+不得为了结果更好而修改 frozen research files。
 
-### 冻结协议与可复用实现
-
-必须先阅读：
+### 必须先读
 
 1. `AGENTS.md`
 2. `CONTINUE_HERE.md`
 3. `docs/research/two_wave_qualified_identity_audit_protocol_v060.md`
 4. `docs/research/two_wave_qualified_identity_partial_results_v060.md`
-5. `scripts/run_two_wave_qualified_identity_audit_v060.py`
-6. `src/factor_lab/visual_structure/two_wave/morphology_identity_v060.py`
+5. `src/factor_lab/visual_structure/two_wave/morphology_identity_v060.py`
+6. `scripts/run_two_wave_qualified_identity_audit_v060.py`
 7. `tests/unit/test_two_wave_morphology_identity_v060.py`
-8. `scripts/run_two_wave_identity_v060_selected_only.py`
 
-上游继续冻结：
+### 冻结 identity 定义
 
-- v0.5.2 exact-ridge parent identity
-- v0.5.4 full-cycle-scale qualification
-- v0.5.9 whole-curve direction
+单视图 canonical financial identity：
 
-本任务不得改这些定义。
+```text
+(start_phase, five raw occurrence bars)
+```
 
-### 云端已有证据
+同五 anchors 在不同 birth scale 出现，只是同一 identity 的后续 scale evidence；不得重复发布金融 identity，也不得改写首次发布事件。
 
-v0.6.0 formal run `34013160799` 的五个 native 5m full views 已经完成，已有 qualified 计数：
+Cross-view strict identity edge **只有以下三个条件**：
 
-| view | qualified | margin | range-like |
+1. start phase 相同；
+2. ordered five occurrence timestamps 逐位置比较；
+3. 五个绝对 timestamp delta 全部 `<= 5 minutes`（one nominal 5m bar）。
+
+然后只接受 **mutual-unique** edge。
+
+- 多匹配必须记 ambiguity；
+- 禁止 nearest/best post-hoc tie-break；
+- **没有** scale-class 条件；
+- **没有** span-ratio 条件；
+- interval IoU、D1、D2、PAWCT、amplitude、return、outcome 都不得参与 identity match。
+
+### 云端已确认的 partial evidence
+
+冻结 v0.5.4 qualified input 五视图统计：
+
+| view | qualified records | legacy selected | packing suppressed |
 |---|---:|---:|---:|
-| 5m_offset_0 | 734 | 727 | 7 |
-| 5m_offset_1 | 717 | 714 | 3 |
-| 5m_offset_2 | 708 | 706 | 2 |
-| 5m_offset_3 | 691 | 689 | 2 |
-| 5m_offset_4 | 688 | 683 | 5 |
+| 5m_offset_0 | 734 | 404 | 330 |
+| 5m_offset_1 | 691 | 371 | 320 |
+| 5m_offset_2 | 691 | 382 | 309 |
+| 5m_offset_3 | 721 | 392 | 329 |
+| 5m_offset_4 | 746 | 392 | 354 |
 
-五个 view 均应保持 `eligible_for_label_agreement=true`。
+平均约 45.81% qualified observations 被 legacy non-overlap packing 抑制。
 
-selected-only 已有证据：
+main `5m_offset_0` 已由真实 734 qualified records 直接复现：
 
-- total main-side comparison pairs：1259
-- v0.5.8：strict unique 57.665%；ambiguous 12.232%；only-main-owned 20.571%
-- v0.6.0：strict unique 61.239%；ambiguous 12.470%；only-main-owned 16.918%
-- selected-only delta：strict unique **+3.574pp**；only-main-owned **-3.653pp**；ambiguous **+0.238pp**
+- 734 qualified records → **712 canonical identities**；
+- 21 个 same-anchor duplicate-scale groups / 43 records；
+- 404 canonical identities 有 legacy-selected member；
+- **308（43.2584%）canonical qualified identities 被 legacy packing 完全隐藏**；
+- same-anchor D1 / direction geometry 冲突为 0。
 
-这些 selected-only 数字只说明改善方向，**不能替代 all-qualified verdict**。
+历史 v0.5.4 upstream native-5m prefix 已是 15/15 zero rewrite，但 v0.6.0 新 identity-event append-only stream 仍要求本地 runner 自己完成 15 个 prefix checks。
 
-当前云端阻断原因不是数学失败，而是：历史 artifacts 对 `5m_offset_1..4` 只保存了 qualified count/digest，没有保存完整 `qualified_records` bodies；云端当前又不能读取仓库内 parquet 二进制以重建这些 bodies。用户同时明确要求不再使用 Actions。因此依据 `AGENTS.md` Protocol 1/2，本任务必须转本地执行。
+selected-only strict same-event 诊断已有强信号，但不足以裁决 Route Q/U/M；缺口正是 offsets1..4 的完整 qualified bodies。
 
-### 最小数据要求
+### 阻断原因
 
-只允许使用仓库已供应的冻结 development material：
+当前云端会话无法读取仓库 parquet 二进制；历史 artifacts 又没有序列化 offset1..4 的完整 qualified record bodies。用户已要求不再消耗 Actions。
+
+所以本地模型需要做的不是重新设计算法，而是**直接执行仓库已有的冻结 local-only runner**。
+
+### 最小数据
+
+必须使用仓库已经供应的：
 
 ```text
 data/development/5m_offset_0.parquet
@@ -131,30 +152,29 @@ data/development/5m_offset_4.parquet
 data/manifest.json
 ```
 
-数据边界：
+边界：
 
-- 标的：`000852.SH` CSI1000 index signal data
-- 日期：2015-01-05 至 2020-12-31
-- 只用供应的 DataHub-built views
-- **禁止本地重新 resample wall-clock frequency**
-- 不需要 `1m_official`
-- 禁止下载、推断、补造 2021+ 数据
-- 禁止用外部市场数据替代缺失文件
+- `000852.SH` CSI1000 index signal data；
+- 2015-01-05 至 2020-12-31；
+- supplied DataHub-built views only；
+- 禁止本地重新 resample；
+- 不需要 `1m_official`；
+- 禁止下载/推断/补造 2021+ 数据。
 
-请记录最小数据身份：每个 view 的 bar count、最小/最大交易日；条件允许时记录文件 SHA256；记录 manifest validation 状态。大数据始终留在本地。
+大数据留在本地。建议记录每个 parquet 的 SHA256、bar count、min/max trading day 和 manifest validation 状态。
 
-### 本地执行步骤
+### 本地执行命令
 
-#### 1. 安装与边界校验
+#### 1. 安装与 package validation
 
 ```bash
 python -m pip install -e . editables==0.6
 python scripts/validate_theme_package.py
 ```
 
-记录两个命令的 exit code。
+记录 exit codes。
 
-#### 2. 运行 AGENTS.md 最低治理测试 + v0.6.0 identity 单测
+#### 2. AGENTS 最低治理测试 + v0.6.0 identity tests
 
 ```bash
 python -m pytest -q \
@@ -167,152 +187,118 @@ python -m pytest -q \
   tests/unit/test_two_wave_morphology_identity_v060.py
 ```
 
-如果本地资源足够，可以额外跑 full `pytest -q`，但不能用 full pytest 替代下方 decisive calculation。
+资源足够可附加 full `pytest -q`，但不是 decisive gate 的替代。
 
-#### 3. 构建五个 view 的 all-qualified record bodies
+#### 3. 直接执行冻结 v0.6.0 local-only runner
 
-如果仓库当前没有现成的 five-view all-qualified runner，可以新增一个**仅执行/导出层**本地脚本。它必须复用 `scripts/run_two_wave_qualified_identity_audit_v060.py` 中完全相同的函数、上游实现和冻结阈值，不能重新设计识别器。
+```bash
+mkdir -p cloud_results/local_v060_qualified_identity_audit
 
-对 `5m_offset_0..4` 每个 view：
-
-- 重建 v0.6.0 qualified candidates；
-- 持久化至少以下字段：
-
-```text
-record_id
-start_time
-end_time
-five_occurrence_times
-form
-scale_class
-D3
-migration_score
-margin_pass
-range_like
+python scripts/run_two_wave_qualified_identity_audit_v060.py \
+  --output cloud_results/local_v060_qualified_identity_audit \
+  | tee cloud_results/local_v060_qualified_identity_audit/run.log
 ```
 
-用于 decisive identity 的 5-field tuple 必须保持：
+**不要另写 matching 算法，除非该脚本本身存在真实执行 bug。** 若存在 bug，先停止并报告；不得静默改 protocol/threshold/matching relation。
+
+该 runner 已经会：
+
+- 加载 `5m_offset_0..4`；
+- 构建 frozen v0.5.4 qualified streams；
+- canonicalize qualified records；
+- 发布 causal immutable identity + append-only scale evidence；
+- 对五个 views 各跑 25%/50%/75% prefix，共 **15 checks**；
+- offset0 vs offset1..4 做 all-qualified mutual-unique strict matches；
+- 同时做 legacy-selected mutual-unique strict matches；
+- 输出 ambiguity / unmatched；
+- 统计 strict qualified matches 中有多少被 legacy packing 隐藏；
+- D1 agreement 只作为 strict-identity-match 后的 diagnostic，不参与 matching。
+
+### 必须先通过的 identity checkpoints
+
+runner 的 raw qualified counts 应复现：
 
 ```text
-(start_time, end_time, five_occurrence_times, form, scale_class)
+5m_offset_0: 734
+5m_offset_1: 691
+5m_offset_2: 691
+5m_offset_3: 721
+5m_offset_4: 746
 ```
 
-并同时保存 count + digest。
+main canonical count 应复现 **712**。
 
-**硬 identity checkpoint：**
+如果 raw counts 不一致：
 
-生成结果必须首先复现：
+- 不继续解释 Route Q/U/M；
+- 标记 `IDENTITY_INPUT_DRIFT`；
+- 报实际 commit、数据身份、counts 与日志；
+- 不调参数追预期。
+
+### 必须保留的输出
+
+runner 默认会生成：
 
 ```text
-qualified:  734 / 717 / 708 / 691 / 688
-margin:     727 / 714 / 706 / 689 / 683
-range-like:   7 /   3 /   2 /   2 /   5
+cloud_results/local_v060_qualified_identity_audit/summary.json
+cloud_results/local_v060_qualified_identity_audit/5m_offset_0/canonical_qualified_identities.json
+cloud_results/local_v060_qualified_identity_audit/5m_offset_0/causal_identity_events.json
+cloud_results/local_v060_qualified_identity_audit/5m_offset_0/identity_evidence_events.json
+... offsets1..4 同类文件
+cloud_results/local_v060_qualified_identity_audit/run.log
 ```
 
-只要任意 view 不匹配：
+请另外生成一个小型 `data_identity.json`（SHA256/bar count/date range/manifest status 即可）。
 
-- 停止 aggregate；
-- 输出 `IDENTITY_DRIFT_STOP`；
-- 报告实际 count/digest/commit/data identity；
-- **不得为了匹配预期改阈值或逻辑。**
+不要上传原始 parquet 或巨型中间数据。
 
-#### 4. 执行 frozen all-qualified cross-offset matching
+### 本地必须回报的 decisive metrics
 
-以 `5m_offset_0` 为 main，与 `5m_offset_1..4` 分别比较。
+从 `summary.json` 逐 offset（offset0 vs offset1..4）报告两套：
 
-必须严格使用 v0.6.0 protocol 已冻结的两个层级：
+#### canonical qualified identities
 
-**A. broad range-like ownership diagnostic**
+- main events / other events
+- mutual_unique_matches
+- main_match_fraction
+- other_match_fraction
+- ambiguous_main / ambiguous_other
+- unmatched_main / unmatched_other
+- matches_hidden_by_legacy_packing
+- hidden_match_fraction
+- D1_same_label_fraction_on_strict_identity_matches（仅 diagnostic）
 
-main 的 `start_time` 与 `end_time` 均落在 other qualified interval 范围内的 broad ownership 诊断。它只是 denominator / hidden-match diagnostic，不是 decisive identity。
+#### legacy selected identities
 
-**B. strict geometry identity（decisive）**
+- main events / other events
+- mutual_unique_matches
+- main_match_fraction
+- other_match_fraction
+- ambiguous_main / ambiguous_other
+- unmatched_main / unmatched_other
 
-候选 match 必须同时满足：
+另外必须报告：
 
-1. `form` 相同；
-2. 五个 extremum timestamps 每一个的差都不超过 **±1 个 native 5m bar**；
-3. pair span ratio 位于 **[0.8, 1.25]**；
-4. 如果存在多个合法 match：归类为 `ambiguous_multiple_match`；**禁止偷偷选择 nearest/best 一个。**
+- 五个 view 的 qualified record count；
+- canonical qualified identity count；
+- legacy selected identity count；
+- duplicate scale groups；
+- overlap-component diagnostics；
+- **15/15 identity prefix checks 是否全部 passed、confirmed_rewrite_count 是否为 0。**
 
-对每个 main qualified record 归类为：
+### Frozen route interpretation
 
-1. `only_main_owned`
-2. `broad_range_like`
-3. `strict_unique_geometry_match`
-4. `ambiguous_multiple_match`
+本 protocol **没有事后数值 cutoff**，不得执行后再发明百分比阈值。
 
-同时输出 `hidden_match_decomposition`，用于解释 broad ownership 中究竟有多少被 strict identity 捕获、多少仍无唯一几何身份、多少被 ambiguity 阻断。
+只按已冻结语义报告：
 
-#### 5. 与 v0.5.8 baseline 比较
+- **Route Q — qualified identity adequate**：canonical qualified identities 在四个 offsets 都显示清晰、低歧义的 mutual-unique local-match 结构，而且 materially stronger than legacy selected-only；packing 隐藏了大量 stable strict identities。然后才允许回到 strict same-event matched set 上做 direction adjudication。
+- **Route U — upstream identity still unstable**：canonical qualified identities 本身仍大面积 absent/ambiguous；此时禁止再碰 direction，应回到 ridge/qualification identity。
+- **Route M — mixed**：packing 确实隐藏 substantial stable identities，但 qualified identity 仍 materially unstable；packing 保持 downstream，同时继续 upstream identity research。
 
-输出 all-qualified v0.5.8 与 v0.6.0 的同口径 metrics 和 delta：
+本地模型可以给出 `Route Q/U/M candidate` 与理由，但**最终研究裁决由云端收到结果后复核**。
 
-- only-main-owned fraction
-- broad range-like fraction
-- strict unique geometry-match fraction
-- ambiguous multiple-match fraction
-- hidden-match decomposition
-
-必须分别给出 offset1..4 和 aggregate。
-
-如果现有仓库/本地环境**没有 v0.5.8 all-qualified record bodies**，且无法在不改变冻结定义的情况下从同一数据重建，则：
-
-- 如实标记 `INCOMPLETE_BASELINE_COMPARISON`；
-- 说明缺失的确切 baseline body/字段；
-- **不得把 selected-only v0.5.8 数字冒充 all-qualified baseline。**
-
-如果能通过冻结 v0.5.8 runner 本地重建，允许重建，但必须记录具体 script/function/commit 和同样的数据 identity。
-
-### 建议本地产物
-
-推荐保存在：
-
-```text
-cloud_results/local_v060_all_qualified_identity_audit/
-```
-
-至少包含：
-
-```text
-summary.json
-aggregate.json
-data_identity.json
-run.log
-per_view/5m_offset_0.json
-per_view/5m_offset_1.json
-per_view/5m_offset_2.json
-per_view/5m_offset_3.json
-per_view/5m_offset_4.json
-```
-
-如果新增了仅执行层 helper script，也保存其 patch / commit 信息。
-
-不要上传原始 parquet 或大体积中间数组。云端只需要小型 JSON / Markdown 摘要用于复核。
-
-### 冻结机械路由
-
-只有同时满足：
-
-A. v0.6.0 相对 v0.5.8 的 **all-qualified strict unique geometry-match gain survives**；
-
-B. **only-main-owned fraction materially falls**；
-
-C. unique-match gain **不是主要被 ambiguity 增加所替代**；
-
-才可以返回：
-
-`PASS_TO_D3_MATCHED_SET`
-
-否则返回：
-
-`REJECT_IDENTITY_HYPOTHESIS`
-
-如果因为缺失 v0.5.8 all-qualified baseline bodies无法诚实计算 delta，则返回：
-
-`INCOMPLETE_BASELINE_COMPARISON`
-
-无论哪种结果，总体仍维持 `morphology_replication_not_yet_accepted`，直到独立 morphology labels 验收。
+无论哪条 route，总体状态仍是 `morphology_replication_not_yet_accepted`。
 
 ### 本地反馈模板
 
@@ -320,62 +306,57 @@ C. unique-match gain **不是主要被 ambiguity 增加所替代**；
 #### 本地反馈 — CL-20260906-002
 
 - status: COMPLETED / FAILED / BLOCKED
-- route verdict: PASS_TO_D3_MATCHED_SET / REJECT_IDENTITY_HYPOTHESIS / INCOMPLETE_BASELINE_COMPARISON
-- 实际 branch / commit：
-- frozen research diff check 命令与 exit code：
-- Python / OS：
-- 工作区是否干净：
+- Route candidate: Q / U / M / UNDECIDABLE
+- actual branch / commit:
+- frozen research diff check + exit code:
+- Python / OS:
+- git status:
 
-- 数据文件：
-- 每 view bar count：
-- min/max trading day：
-- SHA256（如已记录）：
-- manifest validation：
+- data files + SHA256:
+- per-view bar count:
+- min/max trading date:
+- manifest validation:
 
-- package validation 命令与 exit code：
-- pytest 命令、测试数量与 exit code：
-- decisive audit 命令与 exit code：
+- package validation command + exit code:
+- pytest command + pass count + exit code:
+- v0.6.0 runner command + exit code:
 
-- v0.6.0 expected qualified count check：
-  - offset0:
-  - offset1:
-  - offset2:
-  - offset3:
-  - offset4:
-- margin / range-like check：
-- qualified_records digest（逐 view）：
+- raw qualified counts offset0..4:
+- canonical counts offset0..4:
+- legacy-selected identity counts offset0..4:
+- duplicate-scale groups offset0..4:
+- overlap components summary:
 
-- per-offset v0.5.8 metrics：
-- per-offset v0.6.0 metrics：
-- aggregate v0.5.8 metrics：
-- aggregate v0.6.0 metrics：
-- v0.5.8 → v0.6.0 deltas：
+- prefix checks: passed / 15:
+- confirmed rewrite count:
 
-- hidden-match decomposition：
-- ambiguity 是否解释了主要 gain：
-- only-main-owned 是否 materially falls：
-- strict-match gain 是否 survives：
+- offset0-vs-offset1 qualified metrics:
+- offset0-vs-offset1 legacy-selected metrics:
+- offset0-vs-offset2 qualified metrics:
+- offset0-vs-offset2 legacy-selected metrics:
+- offset0-vs-offset3 qualified metrics:
+- offset0-vs-offset3 legacy-selected metrics:
+- offset0-vs-offset4 qualified metrics:
+- offset0-vs-offset4 legacy-selected metrics:
 
-- 本地产物目录：
-- summary.json：
-- aggregate.json：
-- data_identity.json：
-- run.log：
+- strict matches hidden by packing / hidden fraction per offset:
+- ambiguity/unmatched interpretation:
+- Route candidate rationale:
 
-- 新增/修改的仅执行层代码：
-- 对冻结研究逻辑是否有任何修改：必须说明
-- 失败或未验证事项：
+- result directory:
+- summary.json:
+- data_identity.json:
+- run.log:
+- failures / unverified items:
+- any code change: 若有，附 diff/commit；不得把修改后的 protocol 当冻结 protocol
 ```
 
-### 云端收到反馈后的动作
+### 云端收到本地反馈后的动作
 
-云端收到 `CL-20260906-002` 本地结果后必须：
-
-1. 先标注“本地已反馈”，再独立做可执行范围内的云端复核；
-2. 复核 commit/data identity、五视图 expected-count checkpoints、strict matching 与 ambiguity 定义是否完全符合 protocol；
-3. 明确区分本地全量执行证据与云端仅对小型结果/代码的复核范围；
-4. 将 all-qualified 正式结论写入 v0.6.0 results / `CONTINUE_HERE.md`；
-5. 只有 route verdict 经复核为 `PASS_TO_D3_MATCHED_SET`，才允许下一步在 matched set 上重算 D3 label agreement；
-6. 若为 `REJECT_IDENTITY_HYPOTHESIS`，停止把 qualified identity repair 当作 D3 稳定性解决路径；
-7. 若为 `INCOMPLETE_BASELINE_COMPARISON`，只补缺失 baseline，禁止提前调 D3；
-8. PR 保持 Draft，不 merge main；不进入 H1/H2、收益或交易。
+1. 明确标记“本地已执行”与“云端已复核”的边界；
+2. 复核 code/data identity、raw qualified checkpoints、15/15 prefix、mutual-unique helper 口径与 summary；
+3. 按 frozen Q/U/M 语义完成正式 v0.6.0 adjudication；
+4. 更新 v0.6.0 results、`CONTINUE_HERE.md`、Issue/PR 前沿；
+5. 只有 Route Q 才回到 **strict same-event pairs** 上重新 adjudicate direction/PAWCT；
+6. Route U/M 均不得通过调 direction 来逃避 identity 问题；
+7. PR 保持 Draft，不 merge main；不进入 H1/H2、收益或交易。
