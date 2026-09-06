@@ -1,0 +1,6 @@
+{
+  "5m_offset_1": {"target_count": 191, "transition": {"repaired": 28, "unchanged_displaced": 163}},
+  "5m_offset_2": {"target_count": 194, "transition": {"repaired": 20, "unchanged_displaced": 174}},
+  "5m_offset_3": {"target_count": 193, "transition": {"unchanged_displaced": 181, "repaired": 12}},
+  "5m_offset_4": {"target_count": 209, "transition": {"unchanged_displaced": 189, "repaired": 20}}
+}
