@@ -1,0 +1,102 @@
+{
+  "schema": "two_wave_path_metric_resolution_response@0.6.9",
+  "status": "completed_cloud_adjudication",
+  "published_identities": {
+    "5m_offset_0": 38176,
+    "5m_offset_1": 36737,
+    "5m_offset_2": 36619,
+    "5m_offset_3": 36480,
+    "5m_offset_4": 36264
+  },
+  "total_published_identities": 184276,
+  "total_leg_observations": 737104,
+  "alignment_theorem": {
+    "aligned_legs": 736826,
+    "nonaligned_legs": 278,
+    "tv_violation": 0,
+    "eff_violation": 0,
+    "endpoint_nonexact": 34,
+    "common_close_mismatch_legs": 0,
+    "native_timestamp_missing_legs": 278
+  },
+  "aggregate_response": {
+    "tv_refinement_ratio": {
+      "count": 737104,
+      "min": 1.0,
+      "median": 1.4122840690979062,
+      "p90": 2.115727002967417,
+      "p99": 4.231707317073316,
+      "max": 839.0000000580258,
+      "mean": 1.5816995296238305
+    },
+    "efficiency_delta": {
+      "count": 737104,
+      "min": -0.9988081048868523,
+      "median": -0.2062818972394283,
+      "p90": -0.05211357812036821,
+      "p99": 0.0,
+      "max": 0.0,
+      "mean": -0.23978995575559897
+    },
+    "jump_share_delta": {
+      "count": 737104,
+      "min": -0.883172871583104,
+      "median": -0.25046126033203653,
+      "p90": -0.06537348695523901,
+      "p99": -0.0032551769135811953,
+      "max": 0.14584890966348107,
+      "mean": -0.28868102353640296
+    }
+  },
+  "threshold_crossings": {
+    "efficiency": {
+      "pass->pass": 436182,
+      "fail->fail": 86542,
+      "pass->fail": 214380
+    },
+    "jump_share": {
+      "pass->pass": 463971,
+      "fail->pass": 258735,
+      "fail->fail": 14398
+    },
+    "flat_share": {
+      "pass->pass": 737089,
+      "pass->fail": 15
+    }
+  },
+  "identity_reason_transitions": {
+    "inefficient_leg": {
+      "pass->pass": 38906,
+      "fail->fail": 48343,
+      "pass->fail": 97027
+    },
+    "jump_dominated_leg": {
+      "fail->pass": 126196,
+      "fail->fail": 13852,
+      "pass->pass": 44228
+    },
+    "flat_dominated_leg": {
+      "pass->pass": 184261,
+      "pass->fail": 15
+    }
+  },
+  "strict_pair_controls": {
+    "published_pairs": {
+      "5m_offset_1": 8381,
+      "5m_offset_2": 5770,
+      "5m_offset_3": 6204,
+      "5m_offset_4": 9098
+    },
+    "both_qualified": 482,
+    "qualification_disagreements": 699,
+    "target_repaired": 80,
+    "target_repaired_disagreement": 24
+  },
+  "future_outcome_used": false,
+  "trade_authority": false,
+  "operational_baseline": "v0.4.3",
+  "morphology_status": "morphology_replication_not_yet_accepted",
+  "cloud_adjudication": "metrics_have_opposed_resolution_semantics_requiring_property_redefinition",
+  "next_authorized_step": "separate preanalysis for path-property redefinition / resolution-normalized or threshold-free morphology representation; do not fit new thresholds; duration-geometry remains separate secondary workstream",
+  "execution_bookkeeping_correction": "runtime-only per-offset target-disagreement expected counts corrected from erroneous 9/6/4/5 to upstream v0.6.7 exact 10/7/3/4 before formal interpretation; frozen protocol aggregate 24 unchanged"
+}
