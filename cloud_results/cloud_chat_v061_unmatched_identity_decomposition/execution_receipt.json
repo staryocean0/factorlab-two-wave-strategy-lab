@@ -1,0 +1,61 @@
+{
+  "schema": "two_wave_v061_cloud_chat_execution_receipt@1.0",
+  "date": "2026-09-06",
+  "execution_surface": "ChatGPT_web_chat_cloud_runtime",
+  "repository": "staryocean0/factorlab-two-wave-strategy-lab",
+  "research_branch": "codex/two-wave-phase1-20260905",
+  "frozen_implementation_commit": "bda82c29103080f69f36d7848b40216088895b3a",
+  "new_github_actions_runs_used": false,
+  "local_model_result_used": false,
+  "data_transport": "user_uploaded_main_branch_zip_into_current_chat_runtime",
+  "data_manifest_verified": true,
+  "fresh_oos": false,
+  "local_resampling_performed": false,
+  "post_2020_rows_included": false,
+  "source_identity_notes": "Frozen research source was read from GitHub. Where historical source snapshots existed, their Git blob SHA was checked against the frozen commit before reuse. Runtime-minimal exact excerpts were used for a small set of dependency files because this Chat runtime was not a branch checkout; behavioral identity was then gated by frozen checkpoints.",
+  "runtime_bridges": {
+    "parquet_io": "read_only_minimal_parquet_bridge_for_shipped_flat_pyarrow_zstd_dictionary_files",
+    "orchestration": "offset0_resident_plus_one_other_view_at_a_time",
+    "filtered_extremum_lookup": "indexed_time_window_equivalent_to_original_full_scan"
+  },
+  "runtime_bridge_validation": {
+    "offset0_evaluated": 38049,
+    "offset0_qualified": 734,
+    "offset0_legacy_selected": 404,
+    "offset0_tuple_births": 38636,
+    "offset0_canonical": 712,
+    "indexed_survival_vs_original_random_equivalence": "100/100 PASS"
+  },
+  "tests": {
+    "focused_governance": "29/29 PASS",
+    "v060_plus_v061_helpers": "17/17 PASS",
+    "validate_theme_package": "NOT_PASS_current_chat_runtime_missing_pyarrow_package_at_top_level_import"
+  },
+  "original_five_view_runner_attempt": {
+    "status": "FAILED_RESOURCE_ONLY",
+    "exit_code": 137,
+    "reason": "OOM in approximately 5.9GB Chat sandbox while retaining all five full reconstructed views"
+  },
+  "streaming_replay": {
+    "status": "COMPLETED",
+    "exit_code": 0,
+    "v060_controls_reproduced": true,
+    "qualified_counts": [734, 691, 691, 721, 746],
+    "canonical_counts": [712, 673, 678, 700, 728]
+  },
+  "local_generated_output_digests": {
+    "summary.json": "sha256:4700b450dae7e3f1c85f17f501bfa565f79d735c5ef03698cdd4c5f3a3ef5e7f",
+    "data_identity.json": "sha256:f7ac0eb6d9a2ef9d79725e193799b51707560149c21edec57b739657f86ff563",
+    "details_offset_1.json": "sha256:01c59cf1114c729092e32ffedd749fa27e8638295c774c1184d9ebce393df65a",
+    "details_offset_2.json": "sha256:4a56dab93148615717e6380b7212bacadd81646d44351be74331c0e1ace34b09",
+    "details_offset_3.json": "sha256:8f84242e3e54f4c558967445e46e0ea684f872af336c782eba486660e6ab745a",
+    "details_offset_4.json": "sha256:9b4f2d0edefc9f2198f9ecc0c2edd2c0327ccdb4b27472e53e50fb68a9c4bace",
+    "run.log": "sha256:c718c71a940977181e3525608220b1f023c39777bb7140e07b8b31812f63e757"
+  },
+  "authority": {
+    "morphology_status": "morphology_replication_not_yet_accepted",
+    "operational_baseline": "v0.4.3",
+    "trade_authority": false,
+    "direction_reopened": false
+  }
+}
