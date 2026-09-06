@@ -1,0 +1,53 @@
+{
+  "schema": "two_wave_scale_invariant_predecessor_publication@0.6.5",
+  "status": "publication_candidate_generated_pending_cloud_adjudication",
+  "filtered_mutual_unique_pairs": 57029,
+  "control_raw_strict": 26751,
+  "control_raw_displaced": 29273,
+  "v064_candidate_strict": 29453,
+  "published_raw_strict": 29453,
+  "v063_residual_count": 6840,
+  "v061_target_count": 787,
+  "v063_target_residual_count": 122,
+  "publication_pair_status": {
+    "published_projection_missing_pair": 714,
+    "published_raw_displaced": 26862,
+    "published_raw_strict_match": 29453
+  },
+  "control_transition": {
+    "control_invalid_to_published_displaced": 223,
+    "control_invalid_to_published_strict": 139,
+    "newly_broken": 1401,
+    "newly_missing_publication": 714,
+    "repaired": 3986,
+    "retained_strict": 25328,
+    "unchanged_displaced": 25238
+  },
+  "v064_transition": {
+    "v064_displaced_retained": 26857,
+    "v064_invalid_to_missing": 714,
+    "v064_multi_to_displaced": 5,
+    "v064_strict_retained": 29453
+  },
+  "v063_residual_transition": {
+    "newly_missing_publication": 17,
+    "repaired": 2390,
+    "unchanged_displaced": 4433
+  },
+  "v061_target_transition": {
+    "repaired": 80,
+    "unchanged_displaced": 707
+  },
+  "v063_target_residual_transition": {
+    "repaired": 50,
+    "unchanged_displaced": 72
+  },
+  "historical_multivalued_groups_closed": 5,
+  "historical_multivalued_suppressed_would_be_rewrites": 5,
+  "published_strict_delta_vs_control": 2702,
+  "published_strict_delta_vs_v064": 0,
+  "future_outcome_used": false,
+  "trade_authority": false,
+  "operational_baseline": "v0.4.3",
+  "morphology_status": "morphology_replication_not_yet_accepted"
+}
