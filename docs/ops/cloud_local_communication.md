@@ -23,7 +23,7 @@
 - 云端诊断：`handoff_required`
 - 本地执行：`COMPLETED`
 - 本地 Route candidate：`M`（非正式裁决；最终 Q/U/M 由云端复核）
-- 云端复核：`pending`
+- 云端复核：`COMPLETED — Route M`
 - 总体状态：`morphology_replication_not_yet_accepted`
 - operational baseline：仍为 `v0.4.3`
 
@@ -134,11 +134,9 @@ main `5m_offset_0` 已由真实 734 qualified records 直接复现：
 
 selected-only strict same-event 诊断已有强信号，但不足以裁决 Route Q/U/M；缺口正是 offsets1..4 的完整 qualified bodies。
 
-### 阻断原因
+### 阻断原因（历史记录）
 
-当前云端会话无法读取仓库 parquet 二进制；历史 artifacts 又没有序列化 offset1..4 的完整 qualified record bodies。用户已要求不再消耗 Actions。
-
-所以本地模型需要做的不是重新设计算法，而是**直接执行仓库已有的冻结 local-only runner**。
+CL-002 当时按“connector 无法直接读取 parquet 二进制”交接。该表述后来由 DATA_AVAILABILITY 节修正：源数据并不缺失，真正问题是当时当前云端执行通道无法把二进制文件送入 Python runtime。
 
 ### 最小数据
 
@@ -162,22 +160,11 @@ data/manifest.json
 - 不需要 `1m_official`；
 - 禁止下载/推断/补造 2021+ 数据。
 
-大数据留在本地。建议记录每个 parquet 的 SHA256、bar count、min/max trading day 和 manifest validation 状态。
-
-### 本地执行命令
-
-#### 1. 安装与 package validation
+### 本地执行命令（历史）
 
 ```bash
 python -m pip install -e . editables==0.6
 python scripts/validate_theme_package.py
-```
-
-记录 exit codes。
-
-#### 2. AGENTS 最低治理测试 + v0.6.0 identity tests
-
-```bash
 python -m pytest -q \
   tests/unit/test_market_state_tool_registry_v1_5.py \
   tests/unit/test_timing_infrastructure_four_layer_inventory.py \
@@ -186,247 +173,36 @@ python -m pytest -q \
   tests/unit/test_timing_layer3_orchestration.py \
   tests/unit/test_timing_strategy_identity_registry.py \
   tests/unit/test_two_wave_morphology_identity_v060.py
-```
-
-资源足够可附加 full `pytest -q`，但不是 decisive gate 的替代。
-
-#### 3. 直接执行冻结 v0.6.0 local-only runner
-
-```bash
 mkdir -p cloud_results/local_v060_qualified_identity_audit
-
 python scripts/run_two_wave_qualified_identity_audit_v060.py \
   --output cloud_results/local_v060_qualified_identity_audit \
   | tee cloud_results/local_v060_qualified_identity_audit/run.log
 ```
 
-**不要另写 matching 算法，除非该脚本本身存在真实执行 bug。** 若存在 bug，先停止并报告；不得静默改 protocol/threshold/matching relation。
+### 本地已执行反馈（2026-09-06）
 
-该 runner 已经会：
-
-- 加载 `5m_offset_0..4`；
-- 构建 frozen v0.5.4 qualified streams；
-- canonicalize qualified records；
-- 发布 causal immutable identity + append-only scale evidence；
-- 对五个 views 各跑 25%/50%/75% prefix，共 **15 checks**；
-- offset0 vs offset1..4 做 all-qualified mutual-unique strict matches；
-- 同时做 legacy-selected mutual-unique strict matches；
-- 输出 ambiguity / unmatched；
-- 统计 strict qualified matches 中有多少被 legacy packing 隐藏；
-- D1 agreement 只作为 strict-identity-match 后的 diagnostic，不参与 matching。
-
-### 必须先通过的 identity checkpoints
-
-runner 的 raw qualified counts 应复现：
-
-```text
-5m_offset_0: 734
-5m_offset_1: 691
-5m_offset_2: 691
-5m_offset_3: 721
-5m_offset_4: 746
-```
-
-main canonical count 应复现 **712**。
-
-如果 raw counts 不一致：
-
-- 不继续解释 Route Q/U/M；
-- 标记 `IDENTITY_INPUT_DRIFT`；
-- 报实际 commit、数据身份、counts 与日志；
-- 不调参数追预期。
-
-### 必须保留的输出
-
-runner 默认会生成：
-
-```text
-cloud_results/local_v060_qualified_identity_audit/summary.json
-cloud_results/local_v060_qualified_identity_audit/5m_offset_0/canonical_qualified_identities.json
-cloud_results/local_v060_qualified_identity_audit/5m_offset_0/causal_identity_events.json
-cloud_results/local_v060_qualified_identity_audit/5m_offset_0/identity_evidence_events.json
-... offsets1..4 同类文件
-cloud_results/local_v060_qualified_identity_audit/run.log
-```
-
-请另外生成一个小型 `data_identity.json`（SHA256/bar count/date range/manifest status 即可）。
-
-不要上传原始 parquet 或巨型中间数据。
-
-### 本地必须回报的 decisive metrics
-
-从 `summary.json` 逐 offset（offset0 vs offset1..4）报告两套：
-
-#### canonical qualified identities
-
-- main events / other events
-- mutual_unique_matches
-- main_match_fraction
-- other_match_fraction
-- ambiguous_main / ambiguous_other
-- unmatched_main / unmatched_other
-- matches_hidden_by_legacy_packing
-- hidden_match_fraction
-- D1_same_label_fraction_on_strict_identity_matches（仅 diagnostic）
-
-#### legacy selected identities
-
-- main events / other events
-- mutual_unique_matches
-- main_match_fraction
-- other_match_fraction
-- ambiguous_main / ambiguous_other
-- unmatched_main / unmatched_other
-
-另外必须报告：
-
-- 五个 view 的 qualified record count；
-- canonical qualified identity count；
-- legacy selected identity count；
-- duplicate scale groups；
-- overlap-component diagnostics；
-- **15/15 identity prefix checks 是否全部 passed、confirmed_rewrite_count 是否为 0。**
-
-### Frozen route interpretation
-
-本 protocol **没有事后数值 cutoff**，不得执行后再发明百分比阈值。
-
-只按已冻结语义报告：
-
-- **Route Q — qualified identity adequate**：canonical qualified identities 在四个 offsets 都显示清晰、低歧义的 mutual-unique local-match 结构，而且 materially stronger than legacy selected-only；packing 隐藏了大量 stable strict identities。然后才允许回到 strict same-event matched set 上做 direction adjudication。
-- **Route U — upstream identity still unstable**：canonical qualified identities 本身仍大面积 absent/ambiguous；此时禁止再碰 direction，应回到 ridge/qualification identity。
-- **Route M — mixed**：packing 确实隐藏 substantial stable identities，但 qualified identity 仍 materially unstable；packing 保持 downstream，同时继续 upstream identity research。
-
-本地模型可以给出 `Route Q/U/M candidate` 与理由，但**最终研究裁决由云端收到结果后复核**。
-
-无论哪条 route，总体状态仍是 `morphology_replication_not_yet_accepted`。
-
-### 本地反馈模板
-
-```markdown
-#### 本地反馈 — CL-20260906-002
-
-- status: COMPLETED / FAILED / BLOCKED
-- Route candidate: Q / U / M / UNDECIDABLE
-- actual branch / commit:
-- frozen research diff check + exit code:
-- Python / OS:
-- git status:
-
-- data files + SHA256:
-- per-view bar count:
-- min/max trading date:
-- manifest validation:
-
-- package validation command + exit code:
-- pytest command + pass count + exit code:
-- v0.6.0 runner command + exit code:
-
-- raw qualified counts offset0..4:
-- canonical counts offset0..4:
-- legacy-selected identity counts offset0..4:
-- duplicate-scale groups offset0..4:
-- overlap components summary:
-
-- prefix checks: passed / 15:
-- confirmed rewrite count:
-
-- offset0-vs-offset1 qualified metrics:
-- offset0-vs-offset1 legacy-selected metrics:
-- offset0-vs-offset2 qualified metrics:
-- offset0-vs-offset2 legacy-selected metrics:
-- offset0-vs-offset3 qualified metrics:
-- offset0-vs-offset3 legacy-selected metrics:
-- offset0-vs-offset4 qualified metrics:
-- offset0-vs-offset4 legacy-selected metrics:
-
-- strict matches hidden by packing / hidden fraction per offset:
-- ambiguity/unmatched interpretation:
-- Route candidate rationale:
-
-- result directory:
-- summary.json:
-- data_identity.json:
-- run.log:
-- failures / unverified items:
-- any code change: 若有，附 diff/commit；不得把修改后的 protocol 当冻结 protocol
-```
-
-### 云端收到本地反馈后的动作
-
-1. 明确标记“本地已执行”与“云端已复核”的边界；
-2. 复核 code/data identity、raw qualified checkpoints、15/15 prefix、mutual-unique helper 口径与 summary；
-3. 按 frozen Q/U/M 语义完成正式 v0.6.0 adjudication；
-4. 更新 v0.6.0 results、`CONTINUE_HERE.md`、Issue/PR 前沿；
-5. 只有 Route Q 才回到 **strict same-event pairs** 上重新 adjudicate direction/PAWCT；
-6. Route U/M 均不得通过调 direction 来逃避 identity 问题；
-7. PR 保持 Draft，不 merge main；不进入 H1/H2、收益或交易。
-
-
-### 本地已执行反馈（2026-09-06，填写 CL-002 模板）
-
-#### 本地反馈 — CL-20260906-002
-
-- status: COMPLETED
-- Route candidate: M
+- status: `COMPLETED`
+- Route candidate: `M`
 - actual branch / commit: `codex/two-wave-phase1-20260905` / `a45a3a986df80228daa500af3c95e67c7f475ff5`
-- frozen research diff check + exit code: `git diff --exit-code 4643133f518299d6710f3c1cc01b6399b9482c31..HEAD -- src tests scripts docs/research data pyproject.toml` → exit 0。该区间仅有 `AGENTS.md` 与 `docs/ops/cloud_local_communication.md`。
+- frozen research diff check: exit 0；该区间仅有 `AGENTS.md` 与 `docs/ops/cloud_local_communication.md`
 - Python / OS: Python 3.11.11 / Linux debian 7.1.8+deb13-amd64 x86_64 GNU/Linux
-- git status: 执行时干净；本反馈提交前仅新增 `cloud_results/local_v060_qualified_identity_audit/` 与本段沟通记录。
-
-- data files + SHA256:
-  - `data/development/5m_offset_0.parquet` 3351411 `bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48`
-  - `data/development/5m_offset_1.parquet` 3226743 `4523615193c177dda2f63a69dd32a2d21e2b15c78283de2d242dd6cd695fc284`
-  - `data/development/5m_offset_2.parquet` 3223863 `737548b04ca93fdbfafda806c5f98051b0521e868d71bcab00f23c062ef8ee82`
-  - `data/development/5m_offset_3.parquet` 3225315 `20a8a4aba19f60946e5781947f658d0b16a2d8758e6318b43c0a0ececdd09282`
-  - `data/development/5m_offset_4.parquet` 3227705 `ceba69dce07223ba92204dc4994991eeabcaf62aacfb9869fd9403da43694b1b`
-  - `data/manifest.json` 6185 `b40b352a4940c7cf475150a63af135fb3e92bd2061f9d631c0fc2032b4294291`
-- per-view bar count: 70114 / 67192 / 67192 / 67193 / 67191
-- min/max trading date: 2015-01-05 / 2020-12-31（五视图一致）
-- manifest validation: 五个 native 5m views 的 SHA256、bytes、row_count、日期全部匹配 `data/manifest.json`。runner 内 `manifest_verified=true`。未使用 `1m_official`，未本地 resample，无 2021+ 行。
-
-- package validation command + exit code: `.venv/bin/python scripts/validate_theme_package.py` → exit 1。失败原因仅 `frozen source drifted: AGENTS.md`（handoff 协议后续提交）。研究文件相对冻结 commit `4643133` 无漂移。**不是** `IDENTITY_INPUT_DRIFT`。
-- pytest command + pass count + exit code: `.venv/bin/python -m pytest -q tests/unit/test_market_state_tool_registry_v1_5.py tests/unit/test_timing_infrastructure_four_layer_inventory.py tests/unit/test_timing_layer2_measurement_boundary.py tests/unit/test_timing_layer3_strategy_boundary.py tests/unit/test_timing_layer3_orchestration.py tests/unit/test_timing_strategy_identity_registry.py tests/unit/test_two_wave_morphology_identity_v060.py` → **37 passed**, exit 0。
-- v0.6.0 runner command + exit code: `.venv/bin/python scripts/run_two_wave_qualified_identity_audit_v060.py --output cloud_results/local_v060_qualified_identity_audit | tee cloud_results/local_v060_qualified_identity_audit/run.log` → exit 0。未改 runner / matching relation / threshold / offset。未开 v0.6.1。
-
-- raw qualified counts offset0..4: **734 / 691 / 691 / 721 / 746**（与冻结 checkpoint 完全一致）
-- canonical counts offset0..4: **712 / 673 / 678 / 700 / 728**（main canonical **712** 复现）
-- legacy-selected identity counts offset0..4: **404 / 371 / 382 / 392 / 392**
-- duplicate-scale groups offset0..4: **21 / 17 / 13 / 21 / 18**
-- overlap components summary:
-  - offset0: components=356, nontrivial=176, size median/p90/p95/p99/max=1/4/5/7/10, span median/p90/max bars=48/96/166
-  - offset1: components=328, nontrivial=164, size 2/4/5/7/9, span 50/93/186
-  - offset2: components=338, nontrivial=164, size 1/4/5/7/8, span 49/93/207
-  - offset3: components=344, nontrivial=173, size 2/4/5/7/8, span 49/99/159
-  - offset4: components=338, nontrivial=177, size 2/4/5/7/12, span 52/96/202
-
-- prefix checks: **15 / 15 passed**
-- confirmed rewrite count: **0**（全部 15 项均为 0；`prefix_zero_rewrite_count=15`）
-
-- offset0-vs-offset1 qualified metrics: main/other events 712/673; mutual_unique_matches 180; main_match_fraction 0.25280898876404495; other_match_fraction 0.2674591381872214; ambiguous_main/other 1/1; unmatched_main/other 531/492; matches_hidden_by_legacy_packing 109; hidden_match_fraction 0.6055555555555555; D1_same_label_fraction_on_strict_identity_matches 0.9666666666666667（diagnostic only）
-- offset0-vs-offset1 legacy-selected metrics: main/other 404/371; mutual_unique_matches 72; main_match_fraction 0.1782178217821782; other_match_fraction 0.1940700808625337; ambiguous 0/0; unmatched 332/299
-- offset0-vs-offset2 qualified metrics: 712/678; matches 129; main 0.18117977528089887; other 0.1902654867256637; ambiguous 0/0; unmatched 583/549; hidden 75; hidden_fraction 0.5813953488372093; D1 0.9689922480620154
-- offset0-vs-offset2 legacy-selected metrics: 404/382; matches 54; main 0.13366336633663367; other 0.14136125654450263; ambiguous 0/0; unmatched 350/328
-- offset0-vs-offset3 qualified metrics: 712/700; matches 129; main 0.18117977528089887; other 0.18428571428571427; ambiguous 1/0; unmatched 582/571; hidden 74; hidden_fraction 0.5736434108527132; D1 0.9612403100775194
-- offset0-vs-offset3 legacy-selected metrics: 404/392; matches 55; main 0.13613861386138615; other 0.14030612244897958; ambiguous 0/0; unmatched 349/337
-- offset0-vs-offset4 qualified metrics: 712/728; matches 184; main 0.25842696629213485; other 0.25274725274725274; ambiguous 1/1; unmatched 527/543; hidden 104; hidden_fraction 0.5652173913043478; D1 0.9510869565217391
-- offset0-vs-offset4 legacy-selected metrics: 404/392; matches 81; main 0.2004950495049505; other 0.2066326530612245; ambiguous 0/0; unmatched 323/311
-
-- strict matches hidden by packing / hidden fraction per offset: 109 / 0.6055555555555555; 75 / 0.5813953488372093; 74 / 0.5736434108527132; 104 / 0.5652173913043478
-- ambiguity/unmatched interpretation: 歧义几乎不存在（每对最多 1 个 ambiguous identity），失败模式不是 multi-match tie。四个 offset 上 mutual-unique matches 都存在，且都明显多于 legacy selected-only（180/129/129/184 vs 72/54/55/81）。但 unmatched 在四个 offset 都是主体（main unmatched 531/583/582/527）。因此 qualified pool 并没有形成“清晰覆盖”的 same-event 结构。packing 同时把已经存在的 strict matches 隐藏了一半以上。未发明事后百分比 cutoff，也未挑选“最好”的 offset。
-- Route candidate rationale: 按冻结语义报 **Route M**。packing 确实隐藏了大量已经形成的 strict same-event identities，应保持 downstream；但 canonical qualified identities 在四个 harmless native 5m offset 上仍大面积 unmatched，不能称为 Route Q 所要求的清晰低歧义覆盖，也不应把问题收缩成只改 packing 后立刻回到 direction。本地不裁决、不重开 v0.5.2/v0.5.4、不调 D1/D2/PAWCT、不开 v0.6.1。最终 Q/U/M 由云端复核。
-
+- five native 5m SHA256/bytes/row_count/date 全部匹配 manifest；未 resample；无 2021+
+- `validate_theme_package.py`: exit 1，仅 `AGENTS.md` source-closure drift，不是 `IDENTITY_INPUT_DRIFT`
+- focused pytest: **37 passed**, exit 0
+- v0.6.0 runner: exit 0
+- raw qualified counts: **734 / 691 / 691 / 721 / 746**
+- canonical counts: **712 / 673 / 678 / 700 / 728**
+- legacy-selected identities: **404 / 371 / 382 / 392 / 392**
+- prefix checks: **15/15 passed**, confirmed rewrite count **0**
+- all-qualified strict matches offset1..4: **180 / 129 / 129 / 184**
+- main unmatched: **531 / 583 / 582 / 527**
+- strict matches hidden by packing fraction: **60.56% / 58.14% / 57.36% / 56.52%**
 - result directory: `cloud_results/local_v060_qualified_identity_audit/`
-- summary.json: `cloud_results/local_v060_qualified_identity_audit/summary.json` SHA256 `04fe6fd51eb0168414624c5b8d69925f12e64bc92c43ef6849d4b68a47f127ba`
-- data_identity.json: `cloud_results/local_v060_qualified_identity_audit/data_identity.json`
-- run.log: `cloud_results/local_v060_qualified_identity_audit/run.log`（与 summary.json 字节相同；因 `*.log` gitignore，提交时 `git add -f`）
-- failures / unverified items:
-  - `scripts/validate_theme_package.py` exit 1，仅 AGENTS.md source-closure drift；
-  - 未跑 full `pytest -q`（协议写明不是 decisive gate 替代）；
-  - 未做云端复核，不得把本反馈写成云端独立全量复验或正式 v0.6.0 adjudication；
-  - 全局状态仍为 `morphology_replication_not_yet_accepted`。
-- any code change: 无。未修改 src/tests/scripts/docs/research/data/pyproject.toml。仅新增本审计产物与本沟通反馈。
+- any code change: none
 
+### 云端正式复核
+
+云端已完成 CL-002 复核并正式裁决 **Route M**：exclusive packing 必须保持 downstream，但 qualified financial identity 自身在 harmless 5m slicing 上仍 materially unstable。正式报告：`docs/research/two_wave_qualified_identity_results_v060.md`。
 
 ---
 
@@ -434,61 +210,229 @@ cloud_results/local_v060_qualified_identity_audit/run.log
 
 > 本节由本地在 CL-20260906-002 完成后核对 GitHub 远程字节得出。不是新的研究裁决。
 
-CL-002 写的“云端缺数据 / 无法读取仓库 parquet 二进制”**不是源数据缺口**。
+远程 `staryocean0/factorlab-two-wave-strategy-lab` 的 `codex/two-wave-phase1-20260905` 已经跟踪全部 development parquet，无 Git LFS。CL-002 所需五个 native 5m views 合计约 16.3MB，源数据差额为 0 bytes。
 
-### 云端仓库里已经有的东西
+云端不得再把“不能文本预览 parquet”本身写成缺数据。允许 handoff 只有：
 
-远程 `staryocean0/factorlab-two-wave-strategy-lab` 的 `codex/two-wave-phase1-20260905` **已经跟踪并推送**全部 development parquet，无 Git LFS。仓库约 86MB。
+1. 所需 repo path 实际缺失 / hash 不一致；或
+2. 当前云端会话对冻结命令发生了**真实执行失败**，并记录 traceback / exit code。
 
-CL-002 点名要的最小集合：
+---
 
-| path | bytes | GitHub |
-|---|---:|---|
-| `data/development/5m_offset_0.parquet` | 3,351,411 | 已在远程 |
-| `data/development/5m_offset_1.parquet` | 3,226,743 | 已在远程 |
-| `data/development/5m_offset_2.parquet` | 3,223,863 | 已在远程 |
-| `data/development/5m_offset_3.parquet` | 3,225,315 | 已在远程 |
-| `data/development/5m_offset_4.parquet` | 3,227,705 | 已在远程 |
-| `data/manifest.json` | 6,185 | 已在远程 |
+## CL-20260906-003 — v0.6.1 unmatched-identity decomposition 五视图正式审计
 
-五个 native 5m views 合计 **16,255,037 bytes（约 15.5MB）**。整包 `data/development/` 约 **31MB**，还包括 `1m_official`、15m/30m/60m/daily。相对“需要的数据”，源数据差额 = **0 bytes**。
+### 状态
 
-本地因此**没有再推一份 parquet**。把已在 git 里的文件再推上去不会让云端突然能 `cat` 二进制。
+- 云端预分析：`COMPLETED`
+- 冻结协议：`COMPLETED`
+- evaluator 实现：`COMPLETED`
+- 云端 helper 级验证：`COMPLETED`
+- 云端真实 repo/parquet replay：`BLOCKED_BY_RUNTIME_NETWORK`
+- 本地执行：`WAITING_LOCAL_EXECUTION`
+- 云端结果复核：`pending`
+- 总体状态：`morphology_replication_not_yet_accepted`
+- operational baseline：仍为 `v0.4.3`
 
-### 云端真正卡住的是阅读工具，不是文件缺失
+### 任务目标
 
-1. Parquet 是二进制。`read_file` / 网页预览不能当文本打开，不等于 clone 后磁盘上没有该文件。
-2. GitHub Contents API 对单文件内容有约 **1MB** 限制。每个 5m parquet 约 3.2MB，所以走 API/文件预览会失败；`git clone` 后用 Python+pyarrow 读是正常路径。
-3. Protocol 2 要求云端当前会话能跑 Python 就自己跑冻结 runner。执行脚本时并不需要把 parquet 当文本读完。
+v0.6.0 Route M 已证明 packing 不是唯一问题。本任务不修模型，只回答：
 
-把“不能显示二进制”写成“缺数据”并甩回本地，属于误交接。CL-001 也是误交接。以后不得重复。
+> 对 offset0 中未进入 v0.6.0 mutual-unique strict match 的 qualified financial identities，最早在哪个既有 upstream layer 丢失 harmless-offset counterpart？
 
-### 为什么不把 5m 转成 JSON 再推
+按冻结层级依次检查：
 
-同等常用列估算：
+1. qualified strict edge 存在但非 mutual-unique；
+2. all-evaluated raw identity 的 phase mismatch / qualification survival；
+3. filtered exact-ridge tuple birth；
+4. same birth-level 五个 filtered extrema 是否全部唯一存活；
+5. 是否仅 birth-scale path 迁移；
+6. filtered extrema 本身是否无法稳定存活。
 
-| 格式 | 五视图合计 |
-|---|---|
-| parquet（现有） | ~16.3MB |
-| CSV | ~39.6MB |
-| compact JSON | ~80.6MB |
-| pretty JSON | ~101MB |
+session boundary 与 local-envelope nearest displacement 都只作 overlay diagnostic，绝不改变 matcher。
 
-文本副本更大，单文件仍远超 1MB API，既不能让网页直接读完，也会膨胀仓库。冻结 runner 仍然只吃 shipped parquet。所以不转、不另推。
+### 冻结研究身份
 
-### 已经可文本阅读、且已在仓库的 CL-002 产物
+- Repository: `staryocean0/factorlab-two-wave-strategy-lab`
+- Branch: `codex/two-wave-phase1-20260905`
+- v0.6.1 frozen implementation commit: **`bda82c29103080f69f36d7848b40216088895b3a`**
+- 后续如只有本沟通文档/PR/CONTINUE_HERE 变化，不视为研究实现漂移。
 
-这些文件每个都 **<1MB**，云端可以直接打开做复核，不必再跑本地：
+必须先读：
 
-- `cloud_results/local_v060_qualified_identity_audit/summary.json`（21,726 bytes）
-- `cloud_results/local_v060_qualified_identity_audit/data_identity.json`
-- 五个 view 的 `canonical_qualified_identities.json` / `causal_identity_events.json` / `identity_evidence_events.json`
+1. `docs/research/two_wave_unmatched_identity_decomposition_preanalysis_v061.md`
+2. `docs/research/two_wave_unmatched_identity_decomposition_protocol_v061.md`
+3. `src/factor_lab/visual_structure/two_wave/unmatched_identity_decomposition_v061.py`
+4. `scripts/run_two_wave_unmatched_identity_decomposition_v061.py`
+5. `tests/unit/test_two_wave_unmatched_identity_decomposition_v061.py`
+6. `docs/research/two_wave_qualified_identity_results_v060.md`
 
-### 以后还能否 handoff
+### 云端已完成事项
 
-只有下面两种才允许再写本地交接：
+云端在看到任何 v0.6.1 decomposition 数字前已经：
 
-1. `git ls-files data/development/<needed.parquet>` 为空，或 SHA256 与 `data/manifest.json` 不一致；
-2. 云端当前会话对冻结命令的 **实际执行失败**，并附 Python/traceback/exit code。
+- 写完 v0.6.1 preanalysis；
+- 冻结 attribution order 和所有 stage 定义；
+- 实现 evaluator-only helper / runner；
+- 未改 v0.5.2 ridge linking、v0.5.4 qualification、v0.6.0 matcher、D1/D2/PAWCT、packing 或 outcome；
+- 对新增 Python 文件完成 `py_compile`；
+- 在隔离 synthetic package 上跑新增 helper tests：**9/9 PASS**；
+- 对 indexed edge graph 做 50 random seeds × phase-aware/phase-ignored = **100/100** 与 brute-force strict definition 逐边等价检查；
+- 发现 v0.5.2 每视图约 36k–38k evaluated/tuple births 后，将 evaluator 的边枚举改为第一锚点 `±5m` 索引窗口。该索引只利用合法 strict edge 的必要条件，因此不改变边集合；确定性单测已固定其与 brute-force 定义一致。
 
-单独一句“无法读取 parquet 二进制”不是交接理由。不要为了看二进制而要求本地代跑已经存在于本仓库的脚本。
+### 云端真实执行失败证据
+
+这次 handoff **不是**因为“parquet 是二进制”。云端已经按最新 `AGENTS.md` 真正尝试执行：
+
+1. GitHub blob 直取 `5m_offset_0.parquet`：失败，connector 抛出
+
+```text
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xb5 in position 19
+```
+
+2. 当前 container 直接 clone public repo：
+
+```bash
+git clone --branch codex/two-wave-phase1-20260905 --single-branch \
+  https://github.com/staryocean0/factorlab-two-wave-strategy-lab.git \
+  /tmp/factorlab-two-wave-strategy-lab
+```
+
+实际结果：exit **128**
+
+```text
+fatal: unable to access 'https://github.com/staryocean0/factorlab-two-wave-strategy-lab.git/':
+Could not resolve host: github.com
+```
+
+因此当前 cloud runtime 的阻断是**网络/DNS + binary connector transport**，不是 repo 源数据缺失。符合 DATA_AVAILABILITY 允许本地 handoff 的第 2 条。
+
+### 本地不得改变的冻结口径
+
+- five raw/filtered anchors 全部位置对应；
+- 每个绝对 timestamp delta `<= 5 minutes`；
+- mutual-unique only；
+- phase-ignored relation 只用于诊断 phase mismatch；
+- 不允许 nearest/best tie-break；
+- `first_record_id` 是 canonical identity 唯一允许的 causal upstream representative；
+- 不改 sigma schedule、ridge linking、tuple-birth death certification、qualification thresholds、packing；
+- 不用 D1/D2/PAWCT/return/outcome 做 matching 或 category selection；
+- 不新增 2021+、不 resample。
+
+### 本地执行前 research diff 检查
+
+允许当前分支 HEAD 高于 frozen implementation commit，但必须证明此后研究文件没有被改动：
+
+```bash
+git checkout codex/two-wave-phase1-20260905
+git pull --ff-only
+git rev-parse HEAD
+git status --short
+
+git diff --exit-code \
+  bda82c29103080f69f36d7848b40216088895b3a..HEAD -- \
+  src tests scripts docs/research data pyproject.toml
+```
+
+最后一条必须 exit 0。如果非 0，停止并报告，不在漂移版本上跑 formal replay。
+
+### 测试
+
+```bash
+python -m pip install -e . editables==0.6
+python scripts/validate_theme_package.py
+
+python -m pytest -q \
+  tests/unit/test_market_state_tool_registry_v1_5.py \
+  tests/unit/test_timing_infrastructure_four_layer_inventory.py \
+  tests/unit/test_timing_layer2_measurement_boundary.py \
+  tests/unit/test_timing_layer3_strategy_boundary.py \
+  tests/unit/test_timing_layer3_orchestration.py \
+  tests/unit/test_timing_strategy_identity_registry.py \
+  tests/unit/test_two_wave_morphology_identity_v060.py \
+  tests/unit/test_two_wave_unmatched_identity_decomposition_v061.py
+```
+
+记录 package-validation 的真实结果。若仍只因 `AGENTS.md` source closure drift 而 exit 1，可记录但不得伪装为 pass；decisive gate 是 research diff、tests、v0.6.0 controls 与 v0.6.1 accounting 全部闭合。
+
+### 正式 runner
+
+```bash
+mkdir -p cloud_results/local_v061_unmatched_identity_decomposition
+
+python scripts/run_two_wave_unmatched_identity_decomposition_v061.py \
+  --output cloud_results/local_v061_unmatched_identity_decomposition \
+  | tee cloud_results/local_v061_unmatched_identity_decomposition/run.log
+```
+
+若 runner 存在真实机械 bug：
+
+- 先保存 traceback/exit code；
+- 不改 frozen protocol/category order/tolerance；
+- 只有当修复行为由冻结 protocol 唯一决定时，才允许做最小实现修复并加测试，同时单独提交；
+- 否则停止并反馈云端，不自行重新设计实验。
+
+### 必须复现的硬 checkpoints
+
+raw qualified counts：
+
+```text
+734 / 691 / 691 / 721 / 746
+```
+
+main canonical qualified count：`712`
+
+v0.6.0 controls：
+
+```text
+offset1: matches=180, ambiguous_main/other=1/1, unmatched_main/other=531/492
+offset2: matches=129, ambiguous_main/other=0/0, unmatched_main/other=583/549
+offset3: matches=129, ambiguous_main/other=1/0, unmatched_main/other=582/571
+offset4: matches=184, ambiguous_main/other=1/1, unmatched_main/other=527/543
+```
+
+runner 已内置断言。任何一项不一致，视为 `IDENTITY_INPUT_DRIFT` 或 implementation drift，不解释 decomposition。
+
+### 必须生成的产物
+
+```text
+cloud_results/local_v061_unmatched_identity_decomposition/summary.json
+cloud_results/local_v061_unmatched_identity_decomposition/details_offset_1.json
+cloud_results/local_v061_unmatched_identity_decomposition/details_offset_2.json
+cloud_results/local_v061_unmatched_identity_decomposition/details_offset_3.json
+cloud_results/local_v061_unmatched_identity_decomposition/details_offset_4.json
+cloud_results/local_v061_unmatched_identity_decomposition/data_identity.json
+cloud_results/local_v061_unmatched_identity_decomposition/run.log
+```
+
+不要重复上传 parquet。
+
+### 本地必须回报
+
+#### 本地反馈 — CL-20260906-003
+
+- status: COMPLETED / FAILED / BLOCKED
+- actual branch / commit:
+- frozen research diff exit code:
+- Python / OS:
+- git status:
+- package validation result:
+- pytest pass count / exit code:
+- runner exit code:
+- data SHA / rows / date / manifest status:
+- qualified counts offset0..4:
+- canonical counts offset0..4:
+- v0.6.0 controls reproduced: yes/no
+- attribution denominator per offset:
+- attribution counts/fractions per offset:
+- `qualification_survival_loss` rejection reason counts:
+- `post_tuple_birth_loss` projection/evaluate diagnostics:
+- same-level unique-anchor-count distributions:
+- max-any-level unique-anchor-count distributions:
+- session-boundary prevalence by category + strict matched control:
+- local-envelope candidate-count / min-max-delta distributions:
+- accounting closure: matched + ambiguous + exactly-one attribution = main canonical count, per offset yes/no
+- result directory / summary / details / data_identity / run.log:
+- failures / unverified items:
+- any code change + commit (if any):
+
+本地**不要**根据 attribution 数字直接修改 ridge/qualification/matcher。最终“下一层该修哪里”由云端复核后再单独冻结 repair experiment。
