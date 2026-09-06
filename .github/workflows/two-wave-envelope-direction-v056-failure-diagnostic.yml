@@ -1,0 +1,47 @@
+name: two-wave-envelope-direction-v056-failure-diagnostic
+on:
+  push:
+    branches: ['codex/two-wave-phase1-20260905']
+    paths:
+      - 'scripts/diagnose_two_wave_envelope_direction_v056_failed_aggregate.py'
+      - '.github/workflows/two-wave-envelope-direction-v056-failure-diagnostic.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: python -m pip install -e . editables==0.6
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: v056-native5m-*-266bac6389098169598084667fcb46897a53ccf2
+          path: downloaded_v056_views
+          merge-multiple: false
+          github-token: ${{ github.token }}
+          run-id: 34009427027
+      - name: Persist exact numbers behind the frozen formal failure
+        run: |
+          mkdir -p v056_failure_diagnostic_proof/source
+          git rev-parse HEAD > v056_failure_diagnostic_proof/diagnostic_commit.txt
+          echo 266bac6389098169598084667fcb46897a53ccf2 > v056_failure_diagnostic_proof/source_formal_commit.txt
+          echo 34009427027 > v056_failure_diagnostic_proof/source_formal_run.txt
+          python scripts/diagnose_two_wave_envelope_direction_v056_failed_aggregate.py --input-root downloaded_v056_views | tee v056_failure_diagnostic_proof/diagnostic.log
+          cp scripts/diagnose_two_wave_envelope_direction_v056_failed_aggregate.py v056_failure_diagnostic_proof/source/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: two-wave-envelope-direction-v056-failure-diagnostic-${{ github.sha }}
+          path: |
+            cloud_results/two_wave_envelope_direction_v056_failure_diagnostic/
+            v056_failure_diagnostic_proof/
+          retention-days: 30
+          if-no-files-found: error
