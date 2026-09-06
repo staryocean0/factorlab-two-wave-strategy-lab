@@ -1,191 +1,128 @@
-# 两浪研究继续入口：v0.5.6 D2 multiview 否定，下一步只读跨 offset 分歧归因（2026-09-06）
+# 两浪研究继续入口：v0.5.8 direction 失败已被 identity confound 重解释，进入 v0.6.0 morphology identity audit（2026-09-06）
 
-## 当前状态
+## 当前安全状态
 
-冻结上游研究基线仍是：
+冻结上游仍是：
 
 > **v0.5.2 TCSS exact-ridge parent identity + v0.5.4 full-cycle-scale qualification**
 
-方向/父状态层仍未验收。
+操作基线仍是 **v0.4.3**；全局状态仍为 `morphology_replication_not_yet_accepted`。PR #1 保持 Draft，不合并 main。不进入第三浪/H1/H2、收益、交易、OOS 或生产。
 
-准确状态链：
+当前研究链：
 
-**v0.5.0 TCSS representation ✅ → v0.5.1 sliding five-extrema scale selector ❌ → v0.5.2 exact-ridge parent identity ✅ → qualification attribution ✅ → v0.5.3 birth-scale TCSS ER ❌ → v0.5.4 full-cycle-scale qualification ✅ → v0.5.5 D1 semantic attribution ✅ → v0.5.6 D2 whole-envelope main5m ✅ / multiview ❌ → cross-offset disagreement attribution pending。**
+**v0.5.0 TCSS representation ✅ → v0.5.1 sliding family ❌ → v0.5.2 exact-ridge identity ✅ → v0.5.4 full-cycle qualification ✅ → v0.5.5 D1 attribution → v0.5.6 D2 multiview ❌ → v0.5.7b endpoint-D2 route ❌ → v0.5.8 PAWCT selected-output R1 ❌ → v0.5.9 identity attribution ⇒ direction adjudication 被 event-identity confound → v0.6.0 qualified morphology identity audit pending local five-view replay。**
 
-PR #1 继续 Draft，不合并 main。整个 morphology 尚未验收；不进入第三浪/H1/H2、收益、交易或生产。
+## 最重要的新结论
 
-## 优先阅读
+v0.5.8 正式 run `34011528190` / artifact `9982711773` 的 frozen verdict `PAWCT_representation_candidate_fail` **历史上仍成立**，但只能解释为：
 
-1. `docs/research/two_wave_d1_envelope_translation_results_v056.md` — v0.5.6 最终负向裁决
-2. `docs/research/two_wave_d1_envelope_translation_results_v056_main5m.md` — v0.5.6 主5m机制 PASS
-3. `docs/research/two_wave_d1_envelope_translation_protocol_v056.md` — v0.5.6 结果前协议
-4. `docs/research/two_wave_d1_envelope_translation_preanalysis_v056.md` — whole-envelope 金融/数学预分析
-5. `docs/research/two_wave_d1_semantic_attribution_results_v055.md` — v0.5.5 只读归因
-6. `docs/research/two_wave_cycle_scale_qualification_results_v054.md` — 当前 qualification 基线
-7. `docs/research/two_wave_extremum_ridge_results_v052.md` — 当前 parent identity 基线
+> **exclusive selected-record timeline 输出的跨 slicing 稳定性失败。**
 
-## 金融合同不变
+它不能继续被解释为“PAWCT 对同一个金融两浪事件的 parent translation 已被证伪”。
 
-目标是在某个 K 线级别识别**连续、同尺度、完整的两个 raw-price reversal waves**，再用这两个波的父级几何区分：
+原因来自只读 v0.5.9 attribution：
 
-- range
-- uptrend
-- downtrend
-- uncertain
+- v0.5.8 全部 82 个 PAWCT large-margin sign-flip pair / 5,596 bars 中，五锚点最大 occurrence-time 差的**最小值就是 1,163 分钟**；
+- target `D1=uncertain + D2_harm` 的 22 个 large-margin flip pair / 1,566 bars 同样从 **1,163 分钟**起步；
+- 所以没有任何 large-margin failure 是“同一两浪只差一根/几根 5m K线”的情形；
+- 1m—480m 的完整 locality sweep 中，locally aligned 子集始终 **0 large-margin PAWCT flip**；
+- 用一根 nominal 5m bar 的严格 audit-locality（五个 anchor 全部 <=5m）看，262 selected pairs / 54,722 bars：phase match=100%，D1 label agreement=96.4493%，D2=93.8014%，PAWCT large-margin flip=0。
 
-低点起算 `L0 -> H1 -> L1 -> H2 -> L2`，高点起算对称。
+因此下一步必须先修正/审计**金融事件 identity 与 selected packing 的混合**，不是再发明一个方向公式。
 
-必须继续满足：
+## 现行 exclusive ledger 的结构性问题
 
-- raw-price reversal 语义；严格单调 raw price 不得被 detrended component 伪造出完整波；
-- append future 后 confirmed 结构/分类不得改写；
-- available_at 与计算确认时钟分离；
-- coverage ≠ accuracy；direction ≠ channel；IoU 只作切片稳定性；
-- 不按收益、第三浪或案例美观度选择公式/阈值。
+v0.5.4 仍复用 v0.5.1 `CharacteristicExclusiveLedger`：
 
-## 冻结上游 A：v0.5.2 parent identity
+priority 首先按 `confirmation_bar`，然后 scale level/start/end/id；qualified tuple 只有 `start_bar >= current_selected_end` 才 selected，否则被 overlap-suppressed。
 
-v0.5.2 已通过并冻结：
+本地用 artifact 中**原 class 源码**执行的最小反例已经证明：
 
-- confirmed extrema 跨 causal TCSS scales 形成 immutable ridge IDs；
-- parent family = exact five ridge IDs；
-- intervening child ridges 全部 causally certified dead 后才允许 tuple birth；
-- raw projection 回 exact raw-price extrema；
-- 18/18 prefix zero rewrite；
-- lineage anomaly = 0；
-- case_02 90/3 假结构未复活。
+- A `[20,80]`、B `[30,90]`，几何/资格/尺度不变；
+- A confirm=60, B=61 → A winner；
+- 只把 A confirm 改成62 → B winner；
+- 即 1-bar confirmation jitter 足以更换整组五 extrema identity。
 
-不得回头修改 ridge linking、ridge death、tuple identity、tuple birth 或 raw projection 来补方向分类。
+更重要的金融语义反例：七个连续 alternating extrema 形成三条完整 wave 时，`(W1,W2)` 与 `(W2,W3)` 都是合法的两浪观察；exclusive packing 却会因为 overlap 抑制后者。**non-overlap 不是原始 morphology 需求。**
 
-## 冻结上游 B：v0.5.4 qualification
+主 5m frozen v0.5.5 qualified evidence：
 
-当前 same-scale qualification 的关键语义：
+- 734 qualified records；
+- legacy selected 404；
+- 330（44.96%）被 packing 抑制；
+- 356 个 strict overlap components 中 178 个非平凡；最大 component 11 records；
+- 按 `(phase, five raw occurrence bars)` 合并同一金融 identity 的多尺度重复后，734 → **712 canonical identities**；
+- 21 个 duplicate-scale groups / 43 records，所有组 D1/三相几何一致；
+- 712 个 canonical qualified identities 里只有 404 个有 legacy selected member，**308（43.26%）合法 identity 被 exclusive packing 完全隐藏**。
 
-> **完整 reversal cycle 的总时间尺度定义 same-scale；对应半浪 duration allocation 只保留为 morphology diagnostic。**
+## v0.6.0 语义修正
 
-`corresponding_leg_duration_mismatch` 已从 hard rejection 降为 diagnostic；以下继续冻结：
+Morphology 层正式区分：
 
-- full-cycle duration ratio = 2.0
-- min/max cycle、pair、min leg
-- amplitude
-- raw path efficiency >= 0.5
-- jump share <= 0.5
-- flat / clock / confirmation
-- deterministic non-overlap ledger
+1. **qualified financial identity**：`(start_phase, e0,e1,e2,e3,e4)`；
+2. **scale evidence**：同五 raw anchors 在不同 birth scale 的后续证据；
+3. **exclusive packing**：仅作为 downstream/legacy diagnostic，不再有权定义“这个两浪事件是否存在”。
 
-v0.5.4 正式 18/18 prefix zero rewrite，native 5m offset IoU 四项均较 v0.5.2 改善。
+因果发布规则：
 
-## v0.5.5：D1 semantic attribution
+- 第一个 qualified member 确认时，发布 immutable identity event；
+- 后续 same-anchor 更粗/更细 scale member 只能 append evidence；
+- 不回写原 identity 的 member_count/member_ids/confirmation；
+- 不 suppression rolling two-wave windows；
+- 不救 rejected candidate；
+- 不用 cross-view、direction、outcome 或收益选择 identity。
 
-在不改现有 D1 的情况下，对主 `5m_offset_0` 的 v0.5.4 qualified records 做只读归因。
+本地 v0.6.0 helper 单测 **8/8 PASS**，包括 later-scale evidence 的 exact append-only prefix 语义。
 
-主 5m：734 qualified：
+## v0.6.0 冻结 cross-view audit
 
-- D1 range 4
-- uncertain 371
-- uptrend 187
-- downtrend 172
+只用于 evaluator，不进入单视图 recognizer：
 
-371 个 uncertain 的主要 subtype：
+- offset0 vs offset1..4；
+- same start phase；
+- 五个 occurrence timestamps 位置对应；
+- 每个 delta <= **一根 nominal 5m bar**；
+- 只接受 mutual-unique edge；
+- 多匹配直接记 ambiguous，不 post-hoc tie-break；
+- interval IoU / D1 / D2 / PAWCT / outcome 都不参与 identity matching。
 
-- same_phase_reversal_conflict 243
-- strong_net_with_opposed_phase 40
-- coherent_but_subthreshold 36
-- opposite_envelope_conflict 18
-- single_phase_dominant 17
-- large_migration_without_coherent_direction 17
+要比较两套输出：
 
-318/371 属于明确几何冲突；185/371 的完整 upper/lower envelope 已经同向且两条均越过冻结 0.15。
+- all canonical qualified identities；
+- legacy selected identities。
 
-另外可代数证明：旧 D1 range 若三个 `|si|<=0.15`，则同相位三点最大 span<=0.30，另一 envelope span<=0.15，所以旧 `span<=0.5` 是冗余条件。range 稀少不能通过放松 `0.5` span gate 解决。
+如果 qualified pool 已有清晰同事件结构而 selected 丢失它们，packing 是主要污染源；如果 qualified pool 自身仍大面积 absent/ambiguous，就继续 upstream ridge/qualification identity，不碰 direction。
 
-## v0.5.6：whole-envelope D2
+## 当前执行限制
 
-结果前冻结：仍用相同 amplitude normalization 和 `phase_tolerance=0.15`，只把父级 hard vote 改为完整 upper/lower envelope 的总迁移。
-
-- `net=s0+s1`
-- low-start：`E_lower=net, E_upper=s2`
-- high-start：`E_upper=net, E_lower=s2`
-- 两条都 >0.15 -> uptrend
-- 两条都 <-0.15 -> downtrend
-- 两条都 |E|<=0.15 -> range
-- 其余 -> uncertain
-
-`s0/s1` 局部反号只作 morphology diagnostic。
-
-### Main 5m：机制 PASS
-
-run `34009093294` success，artifact `9981922969`。
-
-- evaluated 38,049
-- qualified 734
-- selected 404
-- upstream candidate / qualification / selected IDs / intervals exact match
-- D1 qualified `4 / 371 / 187 / 172`（range/uncertain/up/down）
-- D2 qualified `22 / 185 / 280 / 247`
-
-22 个 D2 range 中 21 个存在 `s0*s1<0`：主视图上 D2 能表达“父级边界总体不迁移但内部有大摆动”的 range 语义。
-
-但数量更均衡不是接受理由。
-
-### Causality：18/18 PASS
-
-Native five-view run `34009427027`：五个 view full + 25/50/75% 全部通过，**15/15 zero rewrite**。
-
-1m parallel run `34009436754`：25/50/75% 全部通过，**3/3 zero rewrite**；final artifact `9982103606`。
-
-所以 D2 没有未来改写问题。
-
-### Multiview label stability：正式 FAIL
-
-D1 与 D2 使用**完全相同 selected intervals**；boundary IoU 因此精确相同。只比较共同拥有区间的 label agreement。
-
-冻结 hard gate 规定：若 D2 在四个 native offset 上全部比 D1 差，则直接否定。
-
-实际结果：
-
-| offset | D1 same-label | D2 same-label | D2-D1 |
-|---|---:|---:|---:|
-| 1 | 78.0399% | 76.3050% | -1.7349pp |
-| 2 | 78.4855% | 73.6850% | -4.8005pp |
-| 3 | 76.4696% | 72.1744% | -4.2952pp |
-| 4 | 83.9950% | 82.1246% | -1.8704pp |
-
-`worse_count=4/4`，mean delta = **-3.1752pp**。
-
-Failure diagnostic：run `34009928175` success，artifact `9982147148`，SHA256 `1968b70bef5053dcaf1979bbf399013d326f9c415a02645dd47c82581e294d0a`。
+用户已明确：**GitHub Actions 没额度，后续该自己算的自己算。**
 
 因此：
 
-> **v0.5.6_rejected_multiview_label_stability**
+- 不启动/重跑任何 Action；
+- 已完成的历史 run/artifact 允许只读下载；
+- 新 POC/统计/测试优先当前本地 runtime；
+- Git 提交使用 `[skip ci]`，不依赖 CI；
+- 当前 runtime 尚无法取得 repo 中 parquet 二进制（GitHub connector UTF-8 限制，container 无公网 DNS）；不能用端点近似 raw path，也不能伪造数据。
 
-不得调 `0.15`、修改 hard gate、挑案例或看收益把 D2 救回。
+本地五视图 runner 已准备：`scripts/run_two_wave_qualified_identity_audit_v060.py`。一旦 active runtime 能看到仓库 frozen parquet，就执行 full five-view + 25/50/75 prefix，共 15 个 prefix checks，并输出 qualified-vs-selected identity decomposition。
 
-## 下一安全停点：cross-offset disagreement attribution
+## 优先阅读
 
-不要立即实现 v0.5.7。
+1. `docs/research/two_wave_cross_slicer_identity_attribution_v059.md`
+2. `docs/research/two_wave_morphology_identity_layer_preanalysis_v060.md`
+3. `docs/research/two_wave_qualified_identity_audit_protocol_v060.md`
+4. `src/factor_lab/visual_structure/two_wave/morphology_identity_v060.py`
+5. `scripts/run_two_wave_qualified_identity_audit_v060.py`
+6. `docs/research/two_wave_d1_phase_aligned_translation_protocol_v058.md` / v0.5.8 PAWCT result artifacts
+7. `docs/research/two_wave_cycle_scale_qualification_results_v054.md`
+8. `docs/research/two_wave_extremum_ridge_results_v052.md`
 
-下一轮先冻结一个**只读跨 offset 分歧归因协议**，只研究为什么 D2 比 D1 更容易受 native 5m slicing 影响。
+## 禁止事项不变
 
-必须至少拆解：
-
-1. disagreement 是否集中在 `0.15` 边界附近；
-2. `E_upper / E_lower` 哪条更容易在 offsets 间换符号或跨阈值；
-3. `s0/s1/s2` 各自的跨 offset 稳定性；
-4. `net=s0+s1` 是否放大 endpoint allocation / raw projection 误差；
-5. low-start / high-start 对称性；
-6. D2 range / trend / uncertain 哪类迁移最不稳定；
-7. birth scale、amplitude ratio、corresponding-leg duration diagnostic、cycle duration 与 disagreement 的关系；
-8. 大 margin disagreement 与 threshold-near disagreement 必须分开，避免错误归因成“阈值问题”。
-
-只读 attribution 完成后，先做金融/数学 fit preanalysis，再决定是否存在 v0.5.7 单组件候选。没有机制证据就不实现新分类器。
-
-## 不变边界
-
-- 只用仓库现有 2015—2020 development 行情；
-- 主目标 `000852.SH` 原生 `5m_offset_0`；其余 native 5m 只作边界稳健性，1m 只作因果诊断；
-- 不价格重采样，不新增 fresh OOS；
-- `trade_authority=false`；
-- 负向实验原样保留；
-- PR #1 继续 Draft，不合并 main；
-- D1 通过后才进入 independent morphology acceptance；在那之前不进入 H1/H2 / outcomes / trading。
+- 不改 v0.5.2 ridge linking/death/birth 来补方向；
+- 不重新调 v0.5.4 qualification threshold；
+- 不按 coverage 数量、label balance、案例美观或收益选模型；
+- 不把 v0.5.9 post-hoc attribution 冒充 independent morphology acceptance；
+- 不因 identity confound 自动“复活/通过” PAWCT；它必须等 strict same-event replay 后再 adjudicate；
+- 不进入 H1/H2 / 第三浪 / outcomes / trading。
