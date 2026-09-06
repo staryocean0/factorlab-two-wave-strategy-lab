@@ -19,8 +19,8 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT / "scripts"))
 
+from aggregate_two_wave_envelope_direction_v056_five_view import load_payloads
 from factor_lab.visual_structure.two_wave.data import load_development_bars
-from run_two_wave_envelope_direction_v056_five_view import load_payloads
 from run_two_wave_extremum_ridge_v052 import coverage_and_labels, cross_offset_metrics, save
 
 VIEWS = [f"5m_offset_{i}" for i in range(5)]
