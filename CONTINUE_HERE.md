@@ -1,221 +1,218 @@
-# 两浪研究继续入口：v0.5.1 自动尺度选择真实验证失败，下一步转 extremum trajectories（2026-09-05）
+# 两浪研究继续入口：v0.5.4 qualification 已正式通过，下一步独立研究 D1（2026-09-06）
 
 ## 当前状态
 
-**操作研究基线继续是 v0.4.3。**
+当前组合研究基线已经从旧 v0.4.3 升格为：
 
-当前已经得到两层不同结论：
+> **v0.5.2 TCSS exact-ridge parent identity + v0.5.4 full-cycle-scale qualification**
 
-- v0.5.0 TCSS：`promotable_raw_reversal_representation_candidate` —— 表示层证明可以因果地随尺度吞掉微摆；
-- v0.5.1 candidate-family characteristic-scale：`synthetic_scale_selection_pass_real_parent_recognizer_fail` —— 合成尺度选择成立，但真实金融父级识别失败，不能升级 recognizer。
+准确状态链：
+
+**v0.5.0 TCSS representation ✅ → v0.5.1 sliding five-extrema scale selector ❌ → v0.5.2 exact-ridge parent identity ✅ → qualification attribution ✅ → v0.5.3 birth-scale TCSS ER hypothesis ❌ → v0.5.4 full-cycle-scale qualification ✅ → D1 range/trend pending。**
+
+这里的 baseline 升格只表示下一阶段研究的上游 parent + qualification 已冻结；**整个两浪 morphology 尚未验收**，因为 D1 仍是旧层。
 
 PR #1 继续 Draft，不合并 main；没有进入第三浪、收益、交易或生产。
 
-优先阅读：
+## 优先阅读
 
-1. [v0.5.1 自动尺度实验正式结果与否定归因](docs/research/two_wave_characteristic_scale_results_v051.md)
-2. [v0.5.1 结果前协议](docs/research/two_wave_characteristic_scale_protocol_v051.md)
-3. [v0.5.0 TCSS 正式表示层结果](docs/research/two_wave_multiscale_tcss_results_v050.md)
-4. [v0.5 跨学科数学预研究](docs/research/two_wave_multiscale_pre_research_v050.md)
-5. [v0.4.3 当前操作基线结果](docs/research/two_wave_confirmation_ablation_results_v043.md)
-6. [v0.4.4 绝对周期父级定义否定结论](docs/research/two_wave_hierarchy_results_v044.md)
+1. [v0.5.4 最终 multiview / causal adjudication](docs/research/two_wave_cycle_scale_qualification_results_v054.md)
+2. [v0.5.4 主 5m 机制审计](docs/research/two_wave_cycle_scale_qualification_results_v054_main5m.md)
+3. [v0.5.4 结果前协议](docs/research/two_wave_cycle_scale_qualification_protocol_v054.md)
+4. [v0.5.2 exact-ridge parent identity 正式结果](docs/research/two_wave_extremum_ridge_results_v052.md)
+5. [qualification attribution](docs/research/two_wave_qualification_attribution_results_v052.md)
+6. [v0.5.3 scale-aligned efficiency 否定结果](docs/research/two_wave_scale_aligned_qualification_results_v053.md)
+7. [v0.5.0 TCSS 表示层结果](docs/research/two_wave_multiscale_tcss_results_v050.md)
+8. [v0.5.1 自动尺度 selector 否定结果](docs/research/two_wave_characteristic_scale_results_v051.md)
 
-`docs/research/two_wave_qualification_preanalysis_v052.md` 仅是**条件预分析**；由于 v0.5.1 未通过真实 parent-recognizer 门，当前不得启动其中的资格实验。
+## 金融合同不变
 
-## 金融合同没有改变
+目标仍是：在某个 K 线级别上，识别**连续、同尺度、完整的两个原价格 reversal waves**，然后根据这两个波的整体漂移、同相位端点迁移和包络迁移区分父状态：
 
-目标仍是：在某个 K 线级别上，识别**连续、同尺度、完整的两个原价格反转波形**，然后才根据这两个波的整体漂移/上下相位迁移区分父状态：震荡、上涨趋势、下跌趋势或不确定。
+- range
+- uptrend
+- downtrend
+- uncertain
 
-生产语义继续是 `raw-price reversal wave`：
+生产语义仍是 raw-price reversal wave：
 
 - 低点起算：`L0 -> H1 -> L1 -> H2 -> L2`；高点起算对称；
 - 两个周期共享中间同相位端点；
-- 严格单调 raw price 不得因为 IMF/RC/wavelet detail 中存在 detrended cycle 而伪造 raw reversal；
-- 计算确认时间和 raw `available_at` 必须分开；
-- 已确认历史追加未来后不得重写。
+- 严格单调 raw price 不得因为任何 detrended component 伪造 reversal；
+- 已确认结构追加未来后不得改写；
+- 计算确认时间和原数据 availability metadata 分开处理；
+- coverage 不等于 accuracy；direction 不等于 channel；H16 不等于两浪 span。
 
-旧 `12—48` 继续只能作为**自然层级候选形成后的目标周期资格/诊断带**，不得定义 parent birth/death、不得选择 characteristic scale。
+## 已冻结上游 A：v0.5.2 parent identity
 
-## v0.5.0 已经确认的正结论仍有效
+v0.5.2 已正式通过 `parent_identity_pass_qualification_pending`，其结论现在作为固定上游保留。
 
-正式 TCSS run `33966220967`：371 tests、18 次 prefix replay 全部通过。
+核心定义：
 
-主 5m 14 层 extrema 数从约 28.7k 严格粗化到 427；一个 TCSS 两浪内部额外吸收的 v0.4.3 微 extrema 中位数在 sigma 5.657 起变为 1，sigma 8 为 4，sigma 11.314 为 7。
+1. confirmed extremum 跨 TCSS scales 形成 immutable ridge identity；
+2. 五点 parent family 由 exact five ridge IDs 定义；
+3. child ridges death 后，exact tuple 首次成为连续五条 surviving ridges 的 scale 定义自然 birth；
+4. parent birth 不由 `12—48` 绝对 bar-count 决定；
+5. raw projection 回 exact raw-price extrema；
+6. append future 不得改写 ridge / death / tuple / raw projection。
 
-case_00 随尺度出现：
+正式证据：
 
-`13/6 -> 13/14 -> 19/21 -> 20/21 -> 22/43 -> 34/43 -> 35/42 -> 37/51`
+- five-view run `33976108720` success；artifact `9972596486`
+- 1m run `33976118420` success；artifact `9972464179`
+- 18/18 prefix replay 全部通过
+- native 5m offset IoU 相对 v0.4.3 四项全部改善
+- case_00 恢复能吸收多个微摆的 parent candidate identity
+- case_02 90/3 假结构未复活
 
-2018 / 2019 / 2020 固定窗口也在中尺度出现规整父级结构。
+不得回头改 ridge linking / tuple birth 来修后续资格或 D1 问题。
 
-所以目前**不要否定 TCSS 表示本身**。它确实做到了 v0.4.4 做不到的“父层吞掉子摆”。
+## qualification attribution 与 v0.5.3 否定
 
-## v0.5.1 正式证据
+v0.5.2 后先做了 rejection attribution，没有直接调阈值。
 
-正式执行 HEAD：`8ee854b9a40c1eebacd92c9ce9a8c53837963dfd`
+归因显示 `corresponding_leg_duration_mismatch` 存在大量 exclusive-only near-pass；与此同时 case_00 还混有 efficiency / jump 等其它拒绝，因此没有把所有资格问题偷换成一个阈值问题。
 
-正式 GitHub Actions：**run `33969298881` success**。
+v0.5.3 尝试把 raw leg ER 换成 birth-scale causal TCSS ER，阈值仍为 0.5。主 5m 机制结果正式否定：
 
-正式 artifact：
+- v0.5.2 qualified 425 → v0.5.3 206
+- lost qualified 292
+- 2018 已通过的 24/29 父结构反而被 birth-scale ER 单独拒绝
+- case_00 没有改善
 
-- id `9970661191`
-- bytes `46,225`
-- SHA256 `28756eb1c07db3c2a8b45f52bfdc416f8c062554735d8ac16059972de66273c0`
-- expires `2026-10-05T13:51:59Z`
+所以 **birth-scale TCSS leg efficiency 不是当前资格语义的正确修复**，不得通过调低 0.5 复活该路线。
 
-**379 tests / 0 failures / 0 errors / 0 skipped。**
+## 已冻结上游 B：v0.5.4 full-cycle-scale qualification
 
-六视图 × 25%/50%/75% = **18 次固定前缀重放全部通过。**
+v0.5.4 的唯一语义变化：
 
-主 `5m_offset_0`：
+> `corresponding_leg_duration_mismatch` 从 same-scale hard rejection 降为 morphology diagnostic。
 
-- characteristic events：3,121
-- valid raw projection：2,945
-- evaluated raw pairs：2,945
-- 冻结 v0.4.3 资格通过：57
-- 互斥发布：45
-- labels：up 11 / down 10 / uncertain 24 / range 0
+理由：同尺度应优先约束两个**完整 reversal cycles** 的总时间尺度；对应半浪的时间占比可以因为 phase allocation、趋势漂移、局部速度不同而明显变化。
 
-发布数量与覆盖率不作为准确率。
+未改变：
 
-## v0.5.1 为什么被否定
+- full-cycle `duration_ratio = 2.0`
+- min/max cycle
+- min/max pair
+- min leg
+- amplitude
+- raw path efficiency `>=0.5`
+- jump share `<=0.5`
+- flat / clock / confirmation
+- TCSS / ridge / tuple / raw projection
+- D1 / ledger
 
-### 1. 父级微摆吸收没有传递到最终发布
+### 主 5m
 
-45 个 selected 中：
+正式 run `33984455043` success；artifact `9974744445`。
 
-- `excess v0.4.3 local pivots beyond five` median = **0**
-- p90 = **0**
-- max = 2
-- 只有 **4 / 45** 真正吸收任何额外 v0.4.3 微摆。
+`5m_offset_0`：
 
-这与 v0.5.0 中尺度层明确能吸收多个微摆形成强烈反差。
+- evaluated 38,049
+- v0.5.2 qualified 425
+- v0.5.4 qualified 734
+- newly qualified 309
+- lost qualified 0
+- 新增集合严格等于事前冻结的 corresponding-leg duration-only 集合
 
-### 2. 五个原生 5m offset 边界稳定性四项全部恶化
+数量增加不是接受理由；接受理由是单组件 attribution、完整周期 hard gate 保留及安全反例不退化。
 
-| offset | v0.4.3 | v0.5.1 |
-|---|---:|---:|
-| 1 | 26.42% | **15.56%** |
-| 2 | 20.27% | **8.32%** |
-| 3 | 22.86% | **14.37%** |
-| 4 | 28.00% | **24.09%** |
+### 五个 native 5m
 
-所以自动 selector 没有把 underlying parent structure 变得更稳定。
+正式并行 run `33998425000` success。
 
-### 3. case_00 仍然 0 qualified / 0 selected
+final artifact：
 
-v0.5.0 在 sigma 4 曾出现约 `34/43` 的目标粗结构；v0.5.1 在同一个 sigma 4 选出的却是另一组滑动五点，例如 raw `52/5/5/25`、cycle `57/30`。
+- id `9978815239`
+- SHA256 `0ef8ac22b4b69befd39d1b5e516b3c95bd3f396976cdbc5a7f0b8352515998cf`
 
-**问题不是“sigma 4 不存在”，而是 candidate family 在尺度间换了五点成员。**
+五视图 full + 25/50/75%：**15/15 prefix zero rewrite**。
 
-### 4. 2018 / 2019 同样证明 selector 先于资格层错位
+Offset IoU（仅边界稳定性）：
 
-v0.5.0 的中尺度规整结构存在；v0.5.1 characteristic family 却常跳到另一组局部窗口或过粗尺度，因此没有把正确对象送进冻结资格层。
+| offset | v0.5.2 | v0.5.4 | delta |
+|---|---:|---:|---:|
+| 1 | 31.53% | 36.79% | +5.26 pct |
+| 2 | 23.92% | 31.34% | +7.42 pct |
+| 3 | 27.51% | 31.21% | +3.71 pct |
+| 4 | 32.44% | 35.10% | +2.66 pct |
 
-2020 / case_10 又说明资格边界未来仍值得独立研究，但当前不能用调资格去掩盖 selector 错位。
+`worse_count=0`，mean delta = +4.760 pct。
 
-## v0.5.1 失败的数学根因
+### 1m official
 
-v0.5.1 把**连续五个 extrema 的 candidate window**当作跨尺度 feature，然后按 corrected center / phase 连接 candidate families。
+单 job run `33998434083` 在 package validation 和 full regression 都成功后，于核心 full+prefix 计算阶段被取消，没有形成正式结果，因此不参与裁决。
 
-但尺度增加时，细 extrema 会漂移并发生 annihilation；一个成员消失后，“连续五点窗口”天然会滑到邻近的新成员。
+只拆 CI 调度、不改研究实现后：
 
-因此一个 family 在数学上可能变成：
+- parallel run `33999025314` — success
+- execution commit `c4ad36e5707c8233ef3076c5d9e2c95d1b31216d`
+- final artifact `9979148052`
+- SHA256 `5104f4dac1432efa582f6a95e8ea38c2a5e58ee1c27395ca5c6c88461fe97949`
 
-`[e1,e2,e3,e4,e5] -> [e1,e2,e5,e6,e7]`
+1m 25% / 50% / 75% 三个 prefix：**3/3 zero rewrite**。
 
-随后即使 `scale-normalized second derivative` 的 local maximum 完全合法，它最大化的也已经不是**同一五个父级 extrema**。
+因此整个 v0.5.4：
 
-所以：
+> **18/18 prefix zero rewrite，正式通过 multiview causal/stability adjudication。**
 
-> **automatic scale-selection 原理没有被否定；把它施加在会滑窗换身份的 five-extrema candidate family 上被否定。**
+## v0.5.4 最终资格门
 
-## 最新跨学科复核
+冻结协议八项条件全部 PASS：
 
-Scale-space 经典路线与当前失败归因一致：
+1. parent identity exact match；
+2. 非 corresponding-leg rejection 全冻结；
+3. 18/18 prefix zero rewrite；
+4. full-cycle scale hard rules 不退化；
+5. jump / short / efficiency / amplitude 不联动放松；
+6. case_02 90/3 pathology 不复活；
+7. native 5m offset stability 不恶化，实际 4/4 改善；
+8. 机制解释来自 scale / phase-allocation 解耦，而不是候选数量增加。
 
-- local extrema / critical points 应先跨尺度连接成 **feature trajectories / extremum paths**；
-- 显式记录 extrema drift 与 bifurcation（特别是 annihilation）；
-- scale-space primal sketch 的用途正是把“不同尺度上的结构关系”从隐式变成显式；
-- 然后才从 linked structures 提取稳定尺度和更高层结构。
+所以后续不再使用 v0.5.2 的 corresponding-leg duration hard rejection 作为研究资格基线，也不回滚到 v0.4.3 parent construction。
 
-核心参考：
+## 仍未解决：D1
 
-- Lindeberg, *Scale-Space Behaviour of Local Extrema and Blobs*, JMIV 1992, DOI `10.1007/BF00135225`
-- Lindeberg & Eklundh, *On the computation of a scale-space primal sketch*, JVCIR 1991, DOI `10.1016/1047-3203(91)90035-E`
-- Lindeberg, *Detecting Salient Blob-Like Image Structures and Their Scales with a Scale-Space Primal Sketch*, IJCV 1993, DOI `10.1007/BF01469346`
-- Lindeberg, *Temporal Scale Selection in Time-Causal Scale Space*, JMIV 2017, DOI `10.1007/s10851-016-0691-3`
+当前 qualification 通过不代表 D1 正确。
 
-一维 topological persistence 可作为“extrema 稳定性/显著性”的独立数学 oracle，但标准实现可能用全域信息，未证明 prefix-native 前不能产生生产事件。
+现有输出仍表现出：
 
-## 下一安全停点：先做 extremum-level ridge / persistence skeleton
+- `uncertain` 较多；
+- `range` 极少；
+- direction 与 channel 语义仍需要拆分；
+- 对应半浪 duration diagnostic、中心漂移、同相位 extrema 迁移、upper/lower envelope 漂移、幅度变化之间的关系尚未独立归因。
 
-下一版**不叫资格 v0.5.2**。先冻结一个新的层级关系实验：
+下一轮禁止直接调 `phase_tolerance` 或其它 D1 阈值。
 
-### A. 原子从“五点窗口”下沉到“单个 extremum trajectory”
+## 下一安全停点：D1 semantic attribution / preanalysis
 
-每个 high/low extremum 在相邻 TCSS scales 上按：
+代码前先回答金融语义：
 
-- same phase；
-- temporal order preserved；
-- no future confirmation；
-- one-to-one lineage；
+> 在已经确认的两个完整、同尺度 reversal cycles 上，什么数学量真正对应“父级震荡 vs 上涨趋势 vs 下跌趋势”，哪些量只是波形不对称或速度差？
 
-形成 immutable ridge ID。
+建议下一轮先做**只读 D1 failure attribution**，冻结 parent + qualification，不修改输出：
 
-### B. 显式记录 ridge 生存区间与 annihilation
+1. 分解现有 D1 的每个组成项及其冲突来源；
+2. 对 qualified records 统计 range/up/down/uncertain 形成路径；
+3. 分离 center drift、same-phase endpoint drift、upper-envelope drift、lower-envelope drift、amplitude drift、phase allocation；
+4. 审计 `uncertain` 是“信息不足”还是“规则互相冲突”；
+5. case_00 / 2018 / 2019 / 2020 与 case_02/11/14 只做固定审计，不用于选参数；
+6. 五个 native 5m 边界稳定性继续作为稳健性门，不当准确率；
+7. 先形成金融语义映射和数学预分析，再冻结一个单组件 D1 协议。
 
-不能只看某一层中心距离；要知道一个 fine extremum 如何随尺度漂移、何时被更粗尺度真正吞掉。
+若 D1 通过，才进入独立 morphology acceptance；**仍然不进入收益/交易。**
 
-### C. 五点 parent identity 由五个 ridge IDs 定义
+正确顺序：
 
-只有五条 ridge 在同一个 scale interval 内同时存在、交替且相邻时，才能组成一个 two-wave structural family。
-
-成员一旦固定，就不允许在后续尺度把邻近的第六、第七个 extremum 滑进来冒充同一 family。
-
-### D. characteristic / structural scale 只能在 exact-ridge tuple 的生存区间内选
-
-可以研究：
-
-- exact tuple 的 log-scale persistence；
-- scale-normalized response 在 tuple lifetime 内的局部最大；
-- ridge death / child-annihilation 后首次形成的自然 parent level；
-
-但必须在结果前冻结，不能看 case_00 选法。
-
-### E. raw projection、资格、D1、互斥发布继续冻结
-
-特别是不要启动 `two_wave_qualification_preanalysis_v052.md`。只有新 ridge-level selector 首先把 v0.5.0 的好父级结构稳定送到 raw candidate 层，资格研究才重新排回下一位。
-
-## 下一轮的硬门
-
-代码前先冻结：
-
-1. synthetic nested parent/child waves：child extrema 应在 scale 增大时终止，parent ridge IDs 继续存活；
-2. exact five-ridge tuple 不得因一个 child death 滑成另一组五点；
-3. monotonic / jump / chirp / intermittent oscillation 安全门；
-4. 追加未来后，已 confirmed ridge IDs、death events、tuple IDs 不得改写；
-5. case_00 / 2018 / 2019：只能检验 v0.5.0 已知父级结构是否由**事前规则**自然传入，不用于选参数；
-6. case_02 / 11 / 14 不退化；
-7. 五个原生 5m offset 边界稳定性不得再次系统性恶化；
-8. 延迟、覆盖、ridge survival 分布全部显式报告。
-
-若 extremum-ridge / primal-sketch 路线仍然失败，再正式让 tSSA / causal wavelet-filter bank 与 TCSS 竞争，而不是继续修 candidate selector。
-
-## 资格与 D1 的排队状态
-
-资格层的 scale-aligned path efficiency 预分析已经写入仓库，但**inactive**。
-
-D1 的 `range=0` 仍是后续独立问题；不能把中心漂移、上下包络迁移、相位冲突继续混成一个阈值后直接调 `phase_tolerance`。
-
-正确顺序现在是：
-
-**extremum trajectory / parent identity → 资格硬边界 → D1 range/trend → 独立 morphology 验收 → H1/H2。**
+**v0.5.2 parent identity ✅ → v0.5.4 qualification ✅ → D1 range/trend → independent morphology acceptance → H1/H2 → outcomes/trading。**
 
 ## 不变边界
 
-只用现有 2015—2020 development 行情，不新增、不重采样。主目标仍为 `000852.SH` 原生 `5m_offset_0`；四个其他原生 5m 仅稳健性，1m 仅诊断。
-
-负向实验原样保留；不按收益选参；不开放 trade authority。
-
-**PR #1 继续 Draft，不合并 main。**
+- 只用仓库现有 2015—2020 development 行情；
+- 不新增 fresh OOS，不价格重采样；
+- 主目标 `000852.SH` 原生 `5m_offset_0`；其余 native 5m 只作边界稳健性，1m 只作诊断；
+- `trade_authority=false`；
+- 不按收益选参；
+- 负向实验原样保留；
+- **PR #1 继续 Draft，不合并 main。**
