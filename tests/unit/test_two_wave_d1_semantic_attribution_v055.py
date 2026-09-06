@@ -62,15 +62,17 @@ def test_uncertain_subtypes_are_explanations_not_relabels():
         assert row["uncertain_subtype"] == expected
 
 
-def test_weak_mixed_bucket_only_catches_range_span_inconsistency_edge_case():
-    # Algebraically impossible for genuine five-point geometry under the frozen
-    # thresholds, but retained as an audit bucket so malformed/inconsistent
-    # records cannot silently masquerade as range.
+def test_inconsistent_all_small_steps_are_flagged_as_large_migration_not_range():
+    # This span is algebraically impossible for a genuine five-point record
+    # whose three frozen phase steps are all within +/-0.15.  The diagnostic
+    # should surface the inconsistency as large migration rather than forcing
+    # it into range.  This test guards attribution semantics only; it does not
+    # modify the frozen D1 classifier.
     row = diagnose_with_subtype(_record([0.10, -0.10, 0.10], spans=[0.60, 0.10]))
     assert row["D1"] == "uncertain"
     assert row["range_all_steps_small"] is True
     assert row["range_span_gate_pass"] is False
-    assert row["uncertain_subtype"] == "weak_mixed_migration"
+    assert row["uncertain_subtype"] == "large_migration_without_coherent_direction"
 
 
 def test_diagnostics_do_not_change_frozen_direction_label():
