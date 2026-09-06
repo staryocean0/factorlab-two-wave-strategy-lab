@@ -1,4 +1,4 @@
-# 两浪研究继续入口：v0.6.7 qualification disagreement decomposition 已闭合（2026-09-06）
+# 两浪研究继续入口：v0.6.8 canonical fine-path POC 已闭合（2026-09-06）
 
 ## 当前安全状态
 
@@ -15,13 +15,14 @@ PR #1 保持 Draft，不合并 main。Direction/D1/D2/PAWCT、H1/H2、第三浪�
 ## 已闭合链条
 
 - v0.6.0：financial identity / exclusive packing 解耦 = Route M；
-- v0.6.1：unmatched decomposition，定位 filtered tuple → raw projection displacement 与 upstream filtered instability；
-- v0.6.2：raw projection identity audit，证明大量 5m displacement 属 sampling-lattice aliasing；
-- v0.6.3：canonical-1m residual audit，ordinal0 extrapolated left support 为主导 residual；
-- v0.6.4：real predecessor POC 四 offset 净改善，但 birth-scale evidence 导致 5 个 multi-valued groups，candidate 不 promoted；
-- v0.6.5：first-valid causal append-only publication，消除 rewrite 并保留全部 strict-match gain；
+- v0.6.1：unmatched decomposition；
+- v0.6.2：raw projection identity audit；
+- v0.6.3：ordinal0 left-support residual 定位；
+- v0.6.4：birth-scale predecessor POC，机制有效但 identity 多值，不 promoted；
+- v0.6.5：first-valid causal append-only publication，消除 rewrite 并保留 strict-match gain；
 - v0.6.6：published strict identity 上 frozen v0.5.4 qualification = mixed stability；
-- v0.6.7：qualification disagreement decomposition = **path sampling sensitivity dominant，duration boundary secondary**。
+- v0.6.7：qualification disagreement decomposition = path sampling sensitivity dominant；
+- v0.6.8：canonical 1m path representation POC = **binary disagreement 下降，但主要来自 joint rejection inflation，不 promoted**。
 
 ## v0.6.5 immutable identity controls
 
@@ -35,11 +36,7 @@ offset4 9,098
 aggregate 29,453
 ```
 
-相对 frozen current projection 净增加 `+2,702` strict pairs。
-
-## v0.6.6 qualification matrix
-
-29,453 strict same-event pairs：
+## v0.6.6 control qualification
 
 ```text
 both_qualified                    482
@@ -48,108 +45,132 @@ main_qualified_other_rejected     352
 main_rejected_other_qualified     347
 ```
 
-Binary agreement = **97.6267%**，但 positive qualification overlap 只有：
+Control disagreement = `699 / 29,453 = 2.3733%`。
 
-`482 / 1,181 = 40.8129%`。
+Control positive metrics：
 
-预注册 target repaired strata 的 disagreement 为 `24/80 = 30%` 与 `16/50 = 32%`，因此 v0.6.6 正式裁决：
+```text
+union-qualified 1,181
+both-qualified    482
+positive overlap 40.8129%
+main survival    57.79%
+other survival   58.14%
+```
 
-`mixed_qualification_stability_requires_decomposition`。
+## v0.6.7 机制结论
 
-## v0.6.7 已正式闭合
+699 disagreements：
 
-结果前文件：
+```text
+path_metric_only          404
+mixed_multi_family        142
+duration_geometry_only     82
+confirmation_clock_only    46
+amplitude_only             25
+```
 
-- `docs/research/two_wave_qualification_disagreement_preanalysis_v067.md`
-- `docs/research/two_wave_qualification_disagreement_protocol_v067.md`
+Path family involved `538 / 699 = 76.97%`。
+
+Canonical 1m audit：
+
+```text
+jump_dominated_leg 368/368 -> both_pass
+inefficient_leg    211/211 -> both_fail
+```
+
+因此 5m path gates materially sampling-lattice sensitive。
+
+## v0.6.8 已正式闭合
+
+结果前：
+
+- `docs/research/two_wave_canonical_path_qualification_preanalysis_v068.md`
+- `docs/research/two_wave_canonical_path_qualification_protocol_v068.md`
 
 正式结果：
 
-- `docs/research/two_wave_qualification_disagreement_results_v067.md`
-- `cloud_results/cloud_chat_v067_qualification_disagreement_decomposition/summary.json`
-- `cloud_results/cloud_chat_v067_qualification_disagreement_decomposition/one_minute_path_diagnostics.json`
-- `cloud_results/cloud_chat_v067_qualification_disagreement_decomposition/execution_receipt.json`
+- `docs/research/two_wave_canonical_path_qualification_results_v068.md`
+- `cloud_results/cloud_chat_v068_canonical_path_qualification/summary.json`
+- `cloud_results/cloud_chat_v068_canonical_path_qualification/execution_receipt.json`
 
-Helper blob：`6db7edd79d5e05d5efa4e40d0dfde0ad1794ab09`。
+Helper blob：`5096e8b4806e216845164a6ce3079029a69e4281`。
 
-Synthetic tests：**9/9 PASS**。
+Synthetic tests：**8/8 PASS**。
 
-Hard controls 全部精确复现：
+所有 hard controls 精确复现；supplied 1m canonical path 对所有 published identities 可用，未 resample / interpolate。
 
-```text
-qualification disagreements: 179 / 158 / 187 / 175 = 699
-control repaired disagreement:       103 / 3,986
-v0.6.3 residual repaired:             63 / 2,390
-v0.6.1 target repaired:               24 / 80
-v0.6.3 target-residual repaired:      16 / 50
-```
+## v0.6.8 candidate matrix
 
-Rejected-side reason counts 也精确复现。
-
-## v0.6.7 primary decomposition
+Candidate 只在 supplied 1m path 上重算 frozen efficiency/jump/flat reasons，所有 non-path reasons 和 thresholds 不变。
 
 ```text
-path_metric_only          404 / 699 = 57.80%
-mixed_multi_family        142 / 699 = 20.31%
-duration_geometry_only     82 / 699 = 11.73%
-confirmation_clock_only    46 / 699 =  6.58%
-amplitude_only             25 / 699 =  3.58%
+both_qualified                    103
+both_rejected                  29,177
+main_qualified_other_rejected      81
+main_rejected_other_qualified      92
 ```
 
-若统计 mixed 中 family involvement：
+Binary disagreement：
+
+`173 / 29,453 = 0.5874%`
+
+虽然比 control 2.37% 低，但 positive state 变差：
 
 ```text
-path metric          538 / 699 = 76.97%
-duration geometry    188 / 699 = 26.90%
-confirmation clock    76 / 699 = 10.87%
-amplitude             50 / 699 =  7.15%
+control union-qualified    1,181 -> candidate 276
+control both-qualified       482 -> candidate 103
+positive overlap          40.81% -> 37.32%
+main survival             57.79% -> 55.98%
+other survival            58.14% -> 52.82%
 ```
 
-## 决定性 canonical-1m path 证据
-
-仅使用 supplied `1m_official` 作为 audit path，不作为 runtime input：
+482 个 control both-qualified 中：
 
 ```text
-jump_dominated_leg: 368 / 368 -> both_pass on canonical 1m
-inefficient_leg:    211 / 211 -> both_fail on canonical 1m
+candidate both-qualified  53
+candidate both-rejected  388
+candidate disagreement    41
 ```
 
-即 path-reason 的 5m qualification 分叉在 canonical fine path 上 **579/579 全部收敛**：
-
-- jump disagreement 是某个 5m slicing 压缩路径后产生的 false rejection；
-- efficiency disagreement 是某个 5m slicing 压掉曲折度后产生的 false pass。
+699 个 control disagreement 中，574 个变成 candidate both-rejected，只有 38 个变成 both-qualified。
 
 因此正式裁决：
 
-`path_sampling_sensitivity_dominant_duration_boundary_secondary_target_orientation_persists`
+`shared_fine_path_mainly_increases_joint_rejection_without_solving_positive_stability`
 
-Duration geometry 是第二 workstream：short-leg / short-cycle 等多为 1-bar 级离散边界变化，但 v0.6.7 不授权改 4/12/48/2 等 threshold。
+## 数学含义
 
-v0.6.1 target repaired 的 qualification disagreement 仍强烈偏向：
+简单把 path measurement 从 5m 换成 shared 1m，并保留原 5m thresholds，不是合法修复。
 
-`main_qualified_other_rejected = 23/24`，target-residual 为 `15/16`。
+更细 sampling 会系统性改变 path metrics：
+
+- observed total variation 通常增加；
+- efficiency 通常下降；
+- jump share 通常下降。
+
+所以 `metric + threshold` 是一个 resolution-specific measurement system。v0.6.8 说明问题已经从“不同 slicing lattice”推进到“path metric 的 sampling-resolution semantics”。
 
 ## 下一 formal research step
 
-只允许另开 **slicing-invariant path qualification representation** 的 preanalysis + frozen protocol。
+只允许另开 **path-metric sampling-resolution semantics preanalysis**。
 
 必须先回答：
 
-1. qualification 的 path property 应定义在哪个 sampling-invariant path representation 上；
-2. `1m_official` 继续只做 audit oracle，还是具备成为 morphology input 的数据/时钟资格；
-3. 若 runtime 不能依赖 1m，如何让 path length / jump concentration / efficiency 在不同 5m slicings 下表达同一底层路径属性；
-4. jump 与 efficiency 是否是两个独立 hard properties，还是同一 underlying path irregularity 的不同采样投影；
-5. replacement representation 必须先证明 prefix causality、same-event slicing invariance 与 synthetic counterexamples，再讨论任何 threshold。
+1. efficiency / jump share / flat share 随 sampling refinement 的数学行为与可识别性；
+2. 当前 hard gates 真正想表达的 morphology property 是什么，而不是直接继承某个 lattice 的数值；
+3. 是否存在 threshold-free / scale-normalized path representation；
+4. 若 1m 只做 audit oracle，5m runtime 能否构造有 invariance/error-bound 的代理；
+5. replacement metric 在任何 threshold 讨论前必须先证明 prefix causality、resolution semantics、cross-slicing stability 和 synthetic counterexamples。
 
-Duration-geometry 作为独立 secondary workstream，不得在同一个 repair experiment 中顺手修改 duration thresholds。
+Duration-geometry 仍是独立 secondary workstream；不得在 path experiment 中顺手改 4/12/48/2 等 duration thresholds。
 
 禁止：
 
-- 调 v0.5.4 path/duration threshold；
-- 把 1m audit 结果直接当新 qualification rule；
-- 修改 matcher / projection evidence / publication；
+- 直接采用 1m path + 原 0.5 threshold；
+- 根据 v0.6.8 拟合新的 path threshold；
+- 修改 matcher / projection / publication；
 - 回 D1/D2/PAWCT；
 - 使用收益/outcome；
 - 进入第三浪或交易层。
 
-**当前下一步只允许 slicing-invariant path qualification representation preanalysis；不得直接修 qualification。**
+**当前下一步只允许 path-metric sampling-resolution semantics preanalysis；不得直接改 qualification threshold。**
