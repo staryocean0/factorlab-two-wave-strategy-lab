@@ -1,0 +1,16 @@
+{
+  "schema": "two_wave_v067_data_identity@1.0",
+  "instrument": "000852.SH",
+  "views": [
+    {"path":"data/development/5m_offset_0.parquet","sha256":"bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48","sha256_matches_manifest":true,"file_bytes":3351411,"file_bytes_matches_manifest":true,"row_count_manifest":70114,"minimum_trading_day":"2015-01-05","maximum_trading_day":"2020-12-31"},
+    {"path":"data/development/5m_offset_1.parquet","sha256":"4523615193c177dda2f63a69dd32a2d21e2b15c78283de2d242dd6cd695fc284","sha256_matches_manifest":true,"file_bytes":3226743,"file_bytes_matches_manifest":true,"row_count_manifest":67192,"minimum_trading_day":"2015-01-05","maximum_trading_day":"2020-12-31"},
+    {"path":"data/development/5m_offset_2.parquet","sha256":"737548b04ca93fdbfafda806c5f98051b0521e868d71bcab00f23c062ef8ee82","sha256_matches_manifest":true,"file_bytes":3223863,"file_bytes_matches_manifest":true,"row_count_manifest":67192,"minimum_trading_day":"2015-01-05","maximum_trading_day":"2020-12-31"},
+    {"path":"data/development/5m_offset_3.parquet","sha256":"20a8a4aba19f60946e5781947f658d0b16a2d8758e6318b43c0a0ececdd09282","sha256_matches_manifest":true,"file_bytes":3225315,"file_bytes_matches_manifest":true,"row_count_manifest":67193,"minimum_trading_day":"2015-01-05","maximum_trading_day":"2020-12-31"},
+    {"path":"data/development/5m_offset_4.parquet","sha256":"ceba69dce07223ba92204dc4994991eeabcaf62aacfb9869fd9403da43694b1b","sha256_matches_manifest":true,"file_bytes":3227705,"file_bytes_matches_manifest":true,"row_count_manifest":67191,"minimum_trading_day":"2015-01-05","maximum_trading_day":"2020-12-31"},
+    {"path":"data/development/1m_official.parquet","sha256":"755217afce9dec383e48cd46d591402fa90dc50897abeb3dc7097c9a18a109d4","sha256_matches_manifest":true,"file_bytes":12842573,"file_bytes_matches_manifest":true,"row_count_manifest":350561,"minimum_trading_day":"2015-01-05","maximum_trading_day":"2020-12-31"}
+  ],
+  "all_manifest_match": true,
+  "fresh_oos": false,
+  "local_resampling_performed": false,
+  "post_2020_rows_included": false
+}
