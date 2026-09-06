@@ -1,10 +1,22 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -Eeuo pipefail
+trap 'code=$?; echo "[codex-cloud] VERIFY ERROR line=${LINENO} exit=${code} command=${BASH_COMMAND}" >&2; exit "$code"' ERR
 
 ROOT="$(git rev-parse --show-toplevel)"
 cd "$ROOT"
 
-python - <<'PY'
+VENV="$HOME/.cache/factorlab-two-wave-py311"
+if [[ -x "$VENV/bin/python" ]]; then
+  PYTHON="$VENV/bin/python"
+elif command -v python3.11 >/dev/null 2>&1; then
+  PYTHON="$(command -v python3.11)"
+else
+  PYTHON="$(command -v python)"
+fi
+
+echo "[codex-cloud] verify python: $($PYTHON --version 2>&1)"
+
+"$PYTHON" - <<'PY'
 from __future__ import annotations
 
 import hashlib
@@ -23,6 +35,8 @@ import pyarrow.parquet as pq
 
 root = Path.cwd()
 manifest_path = root / "data/manifest.json"
+if not manifest_path.is_file():
+    raise SystemExit("data/manifest.json missing from checkout")
 manifest = json.loads(manifest_path.read_text())
 products = {row["path"]: row for row in manifest["products"]}
 required = [f"data/development/5m_offset_{i}.parquet" for i in range(5)]
