@@ -1,0 +1,118 @@
+name: two-wave-envelope-direction-v056-five-view
+on:
+  push:
+    branches: ['codex/two-wave-phase1-20260905']
+    paths:
+      - 'src/factor_lab/visual_structure/two_wave/envelope_direction_v056.py'
+      - 'tests/unit/test_two_wave_envelope_direction_v056.py'
+      - 'scripts/run_two_wave_envelope_direction_v056_view.py'
+      - 'scripts/aggregate_two_wave_envelope_direction_v056_five_view.py'
+      - 'docs/research/two_wave_d1_envelope_translation_protocol_v056.md'
+      - '.github/workflows/two-wave-envelope-direction-v056-five-view.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: two-wave-envelope-direction-v056-five-view-${{ github.ref }}
+  cancel-in-progress: false
+defaults:
+  run:
+    shell: bash
+jobs:
+  precheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: python -m pip install -e . editables==0.6
+      - name: Validate bounded package and full regression once
+        run: |
+          mkdir -p v056_five_view_precheck
+          python scripts/validate_theme_package.py | tee v056_five_view_precheck/package_validation.json
+          python -m pytest -q --junitxml=v056_five_view_precheck/tests.xml | tee v056_five_view_precheck/tests.log
+          git rev-parse HEAD > v056_five_view_precheck/commit.txt
+          git diff --exit-code -- data src tests scripts docs/research pyproject.toml
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v056-five-view-precheck-${{ github.sha }}
+          path: v056_five_view_precheck/
+          retention-days: 30
+
+  native-view:
+    needs: precheck
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        view: [5m_offset_0, 5m_offset_1, 5m_offset_2, 5m_offset_3, 5m_offset_4]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: python -m pip install -e . editables==0.6
+      - name: Run frozen D2 full plus three prefixes for one native view
+        run: |
+          mkdir -p v056_view_proof/${{ matrix.view }}/source
+          git rev-parse HEAD > v056_view_proof/${{ matrix.view }}/commit.txt
+          python scripts/run_two_wave_envelope_direction_v056_view.py --view ${{ matrix.view }} | tee v056_view_proof/${{ matrix.view }}/research.log
+          python -m pip freeze > v056_view_proof/${{ matrix.view }}/environment.txt
+          cp src/factor_lab/visual_structure/two_wave/envelope_direction_v056.py v056_view_proof/${{ matrix.view }}/source/
+          cp scripts/run_two_wave_envelope_direction_v056_view.py scripts/aggregate_two_wave_envelope_direction_v056_five_view.py docs/research/two_wave_d1_envelope_translation_protocol_v056.md v056_view_proof/${{ matrix.view }}/source/
+          git diff --exit-code -- data src tests scripts docs/research pyproject.toml
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v056-native5m-${{ matrix.view }}-${{ github.sha }}
+          path: |
+            cloud_results/two_wave_envelope_direction_v056_views/${{ matrix.view }}/
+            v056_view_proof/${{ matrix.view }}/
+          retention-days: 30
+          if-no-files-found: error
+
+  aggregate:
+    needs: native-view
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: python -m pip install -e . editables==0.6
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: v056-native5m-*-${{ github.sha }}
+          path: downloaded_v056_views
+          merge-multiple: false
+      - name: Aggregate frozen D2 native-5m results without re-running models
+        run: |
+          mkdir -p v056_five_view_final_proof/source
+          git rev-parse HEAD > v056_five_view_final_proof/commit.txt
+          python scripts/aggregate_two_wave_envelope_direction_v056_five_view.py --input-root downloaded_v056_views | tee v056_five_view_final_proof/aggregate.log
+          python -m pip freeze > v056_five_view_final_proof/environment.txt
+          cp scripts/aggregate_two_wave_envelope_direction_v056_five_view.py docs/research/two_wave_d1_envelope_translation_protocol_v056.md v056_five_view_final_proof/source/
+          git diff --exit-code -- data src tests scripts docs/research pyproject.toml
+      - uses: actions/upload-artifact@v4
+        with:
+          name: two-wave-envelope-direction-v056-five-view-final-${{ github.sha }}
+          path: |
+            cloud_results/two_wave_envelope_direction_v056_five_view/
+            v056_five_view_final_proof/
+            downloaded_v056_views/
+          retention-days: 30
+          if-no-files-found: error
