@@ -1,0 +1,17 @@
+{
+  "schema": "two_wave_v065_data_identity@1.0",
+  "instrument": "000852.SH",
+  "source": "v0.6.4 verified frozen input and candidate caches reused; v0.6.5 changes publication semantics only",
+  "views": [
+    {"path":"data/development/5m_offset_0.parquet","sha256":"bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48","file_bytes":3351411,"row_count_manifest":70114,"minimum_trading_day":"2015-01-05","maximum_trading_day":"2020-12-31","manifest_verified":true},
+    {"path":"data/development/5m_offset_1.parquet","sha256":"4523615193c177dda2f63a69dd32a2d21e2b15c78283de2d242dd6cd695fc284","file_bytes":3226743,"row_count_manifest":67192,"minimum_trading_day":"2015-01-05","maximum_trading_day":"2020-12-31","manifest_verified":true},
+    {"path":"data/development/5m_offset_2.parquet","sha256":"737548b04ca93fdbfafda806c5f98051b0521e868d71bcab00f23c062ef8ee82","file_bytes":3223863,"row_count_manifest":67192,"minimum_trading_day":"2015-01-05","maximum_trading_day":"2020-12-31","manifest_verified":true},
+    {"path":"data/development/5m_offset_3.parquet","sha256":"20a8a4aba19f60946e5781947f658d0b16a2d8758e6318b43c0a0ececdd09282","file_bytes":3225315,"row_count_manifest":67193,"minimum_trading_day":"2015-01-05","maximum_trading_day":"2020-12-31","manifest_verified":true},
+    {"path":"data/development/5m_offset_4.parquet","sha256":"ceba69dce07223ba92204dc4994991eeabcaf62aacfb9869fd9403da43694b1b","file_bytes":3227705,"row_count_manifest":67191,"minimum_trading_day":"2015-01-05","maximum_trading_day":"2020-12-31","manifest_verified":true},
+    {"path":"data/development/1m_official.parquet","sha256":"755217afce9dec383e48cd46d591402fa90dc50897abeb3dc7097c9a18a109d4","file_bytes":12842573,"row_count_manifest":350561,"minimum_trading_day":"2015-01-05","maximum_trading_day":"2020-12-31","manifest_verified":true}
+  ],
+  "all_sha256_and_bytes_match_manifest": true,
+  "fresh_oos": false,
+  "local_resampling_performed": false,
+  "post_2020_rows_included": false
+}
