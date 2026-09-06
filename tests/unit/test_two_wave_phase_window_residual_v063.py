@@ -61,6 +61,7 @@ def test_predecessor_upper_exclusion_at_middle_ordinal():
 
 def test_sequential_lower_exclusion_at_middle_ordinal():
     a, b = wins()
+    a[2]["upper_time"] = 30
     b[2]["lower_time"] = 20
     b[2]["upper_time"] = 40
     out = classify_residual_pair(a, b, one([0, 5, 10, 15, 20]), one([0, 5, 25, 15, 20]))
