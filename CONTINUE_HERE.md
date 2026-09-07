@@ -1,4 +1,4 @@
-# 两浪研究继续入口：v0.6.12 native concentration proxy audit 已闭合（2026-09-07）
+# 两浪研究继续入口：v0.6.13 step-count normalized concentration audit 已闭合（2026-09-07）
 
 当前全局状态：`morphology_replication_not_yet_accepted`；操作基线仍为 **v0.4.3**；PR #1 保持 Draft。Direction/D1/D2/PAWCT、H1/H2、第三浪、收益/P&L、fresh OOS、paper trading、production 全部继续冻结。
 
@@ -8,86 +8,95 @@
 - v0.6.6–v0.6.9：qualification instability 主要来自 path sampling / resolution semantics；
 - v0.6.10：fine concentration / origin ensemble 显著降低 jump bar-origin aliasing；fine roughness endpoint-sensitive；
 - v0.6.11：固定 25-cell inward erosion roughness ensemble materially reduces endpoint sensitivity；
-- v0.6.12：native true-range concentration 有局部改善，但**不能可靠代理 fine concentration / origin uncertainty**。
+- v0.6.12：native true-range concentration 有局部改善，但不能可靠代理 fine concentration；
+- v0.6.13：Rényi/KL-to-uniform step-count normalization **显著削弱 raw max-share 的 duration bias，但仍不能消除 native→fine cross-resolution gap**。
 
-## v0.6.12 正式证据
+## v0.6.13 正式证据
 
 结果前：
 
-- `docs/research/two_wave_concentration_deployable_proxy_preanalysis_v0612.md`
-- `docs/research/two_wave_concentration_deployable_proxy_protocol_v0612.md`
+- `docs/research/two_wave_step_count_normalized_concentration_preanalysis_v0613.md`
+- `docs/research/two_wave_step_count_normalized_concentration_protocol_v0613.md`
 
 正式结果：
 
-- `docs/research/two_wave_concentration_deployable_proxy_results_v0612.md`
-- `cloud_results/cloud_chat_v0612_concentration_deployable_proxy/summary.json`
-- `per_view_proxy.json`
-- `oracle_error.json`
-- `cross_slicer_proxy.json`
-- `empirical_bracket.json`
-- `aliasing_uncertainty.json`
-- `duration_overlay.json`
+- `docs/research/two_wave_step_count_normalized_concentration_results_v0613.md`
+- `cloud_results/cloud_chat_v0613_step_count_normalized_concentration/summary.json`
+- `cross_resolution_profile.json`
+- `step_count_overlay.json`
+- `cross_slicer_profile.json`
+- `origin_refinement.json`
+- `component_associations.json`
 - `strata_overlays.json`
 - `data_identity.json`
 - `execution_receipt.json`
 
-Helper blob `49903c1e14fc2ea3a5458dfdcce1dd90cfa13843`；test blob `2e2d78e3e4c424420e2e7c39381af5d920191512`；synthetic tests **9/9 PASS**。
+Helper blob `21160853e418b1b05199b8735613b3ab2d2c5350`；test blob `a177c193576a739f2b5500b55a0f65b894da2761`；synthetic tests **9/9 PASS**。
 
 Hard controls：
 
 ```text
 publications = 38,176 / 36,737 / 36,619 / 36,480 / 36,264
 published raw strict = 8,381 / 5,770 / 6,204 / 9,098 = 29,453
-qualification matrix = 482 / 28,272 / 352 / 347
+both-qualified = 482
+qualification disagreements = 699
 target repaired = 80 = 56 agreement + 24 disagreement
-oracle-comparable pair-leg universe = 117,805
+v0.6.10 oracle-comparable pair-leg universe = 117,805
 ```
 
-## v0.6.12 result
+## v0.6.13 result
 
-Primary registered runtime proxy：
+Registered profile：
 
 ```text
-J_TR = max(native true range) / sum(native true range)
+C_inf = log(n * max w)
+C_1   = log(n) - ShannonEntropy(w)
+C_2   = log(n * sum(w^2))
 ```
 
-它比 close-only J5 有部分改善：
+三者对 uniform k-fold subdivision 严格不变。
+
+Step-count bias 明显下降：
 
 ```text
-cross-slicer median abs diff
-J_close 0.053933
-J_TR    0.039807
-
-|proxy-J1| median
-J_close 0.258232
-J_TR    0.215079
+abs-gap vs native step-count Spearman
+raw |J5-J1|  -0.884
+C_inf          0.174
+C_1           -0.223
+C_2           -0.036
 ```
 
-但不能 promotion：
+但 cross-resolution gap 仍在：
 
-- fixed native bracket 对 fine J1 coverage 只有 **4.51%**；J1 几乎总在 native concentration bracket 下方；
-- 对 origin-jump median，J_TR paired side-leg 更优 / 相同 / 更差 = `103,693 / 20,298 / 111,626`，没有稳定胜过 Jclose；
-- `proxy_spread` vs actual `origin_jump_range` Spearman 仅 **0.075**；
-- `|J_TR-J1|` median 随 native step count 强烈变化：`0.399 / 0.238 / 0.155 / 0.090 / 0.041`（1-3 / 4-5 / 6-11 / 12-23 / 24+ bars）。
+```text
+native/fine Spearman     abs-gap median    signed native-fine median
+C_inf 0.714              0.5185            -0.5185
+C_1   0.437              0.1247            -0.1013
+C_2   0.514              0.2047            -0.1833
+```
+
+Fine profile 跨 slicer 较稳定：median abs diff `C_inf/C_1/C_2 = 0.0360 / 0.0176 / 0.0267`；native profile 对应为 `0.1659 / 0.0922 / 0.1293`。
+
+三维 profile 还高度相关，尤其 `C_1↔C_2` Spearman native/fine 都约 `0.98`。Profile 的 native availability 也只有 `664,001 / 737,104` published legs，因为事前定义要求至少两个 native increments。
 
 正式裁决：
 
-> **`native_ohlc_proxies_do_not_reliably_track_fine_concentration`**
+> **`step_count_normalization_reduces_duration_bias_but_not_cross_resolution_gap`**
 
-含义：问题不是缺一个更聪明的 native OHLC scalar，而是 max-share concentration 本身受到 number-of-increments / resolution 强烈调制。v0.6.12 不 promoted J_TR，也不拟合 duration correction。
+因此 v0.6.13 不允许 property promotion，也不允许拟合 duration correction。
 
 ## 下一 formal research step
 
-只允许结果前开启 **step-count / resolution-normalized concentration property preanalysis**。
+只允许另开 results-blind **native multiscale/refinement-aware concentration representation preanalysis**。
 
-下一版应研究 concentration weight distribution 本身，而不是继续拟合 OHLC→J1。可以事前注册一个固定、无权重选择的 concentration profile，显式包含 step count，例如 normalized max-share、normalized Shannon concentration、effective-step concentration，并分别在 native close / native true-range / supplied-1m close movement weights 上审计 resolution semantics 和 cross-slicer stability。
+目标不是继续拟合一个 native scalar 到 J1，而是研究：仅使用 native causal data，能否构造多个固定 sub-partitions / scale-response coordinates，把真实 refinement uncertainty 显式表示出来，并在 supplied 1m audit oracle 上验证其结构关系。
 
 下一轮仍必须：
 
 - 不拟合 duration correction 或 qualification threshold；
-- 不从多个 descriptor 中事后挑 winner；
-- 不把 supplied 1m 直接设为 production input；
-- roughness erosion candidate 保持冻结，不混合优化；
+- 不事后选择最优 partition / descriptor；
+- 不把 supplied 1m 设为 production input；
+- roughness erosion candidate 保持冻结；
 - 不改 matcher / projection / publication；
 - 不使用 direction / outcome / P&L；
 - 不进入第三浪、fresh OOS、paper trading 或 production。
