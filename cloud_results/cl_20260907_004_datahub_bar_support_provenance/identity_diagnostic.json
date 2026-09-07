@@ -1,0 +1,195 @@
+{
+  "generated_at_utc": "2026-09-07T08:00:58.638492+00:00",
+  "route": "A_plus_C_with_identity_diagnostic_not_replacement_export",
+  "period_minutes": 5,
+  "construction_contract_id": "cn_a_session_wall_clock_offset_v1",
+  "source_identity": {
+    "symbol": "000852.SH",
+    "role": "development_material_source_only",
+    "date_range": [
+      "2015-01-05",
+      "2020-12-31"
+    ],
+    "dataset_version_filter": "bars_cn_index_1m_raw_canonical_market_index_baidu_3s_20000714_20260821_factorlab_unified_missing_day_repaired_v8_20260824",
+    "lake_path": "/home/starryocean/桌面/量化/unified_datahub/.runtime/live/lake/bars/dataset_version=bars_cn_index_1m_raw_canonical_market_index_baidu_3s_20000714_20260821_factorlab_unified_missing_day_repaired_v8_20260824/instrument_type=market_index",
+    "source_rows": 349923,
+    "source_kind_values": [
+      "market_index_transaction_derived_1m"
+    ],
+    "dataset_version_values": [
+      "bars_cn_index_1m_raw_canonical_market_index_baidu_3s_20000714_20260821_factorlab_unified_missing_day_repaired_v8_20260824"
+    ],
+    "min_timestamp": "2015-01-05T09:31:00Z",
+    "max_timestamp": "2020-12-31T15:00:00Z",
+    "unique_trading_days": 1462,
+    "future_2021_plus_rows_loaded": 0
+  },
+  "view_stats": {
+    "5m_offset_0": {
+      "frozen_rows": 70114,
+      "frozen_expected_rows": 70114,
+      "frozen_row_count_match": true,
+      "derived_nonzero_occupancy_labels": 70114,
+      "labels_only_in_frozen": [],
+      "labels_only_in_derived": [],
+      "n_labels_only_in_frozen": 0,
+      "n_labels_only_in_derived": 0,
+      "occupancy_min": 1,
+      "occupancy_max": 5,
+      "occupancy_mean": 4.990772171035742,
+      "full_intended_occupancy_6_or_5": {
+        "n_bars": 70114,
+        "n_with_6": 0,
+        "n_with_5": 69487,
+        "n_other": 627
+      },
+      "ohlc_compared_matching_labels": 70114,
+      "ohlc_mismatch_matching_labels": 0,
+      "frozen_data_contract": [
+        "cn_a_session_wall_clock_offset_v1"
+      ],
+      "frozen_source_kind": [
+        "market_index_transaction_derived_1m"
+      ],
+      "frozen_dataset_version": [
+        "bars_cn_index_1m_raw_canonical_market_index_baidu_3s_20000714_20260821_factorlab_unified_missing_day_repaired_v8_20260824"
+      ],
+      "frozen_source_minute_count_all_null": true,
+      "frozen_sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48"
+    },
+    "5m_offset_1": {
+      "frozen_rows": 67192,
+      "frozen_expected_rows": 67192,
+      "frozen_row_count_match": true,
+      "derived_nonzero_occupancy_labels": 67192,
+      "labels_only_in_frozen": [],
+      "labels_only_in_derived": [],
+      "n_labels_only_in_frozen": 0,
+      "n_labels_only_in_derived": 0,
+      "occupancy_min": 1,
+      "occupancy_max": 6,
+      "occupancy_mean": 5.042460411953804,
+      "full_intended_occupancy_6_or_5": {
+        "n_bars": 67192,
+        "n_with_6": 2920,
+        "n_with_5": 64221,
+        "n_other": 51
+      },
+      "ohlc_compared_matching_labels": 67192,
+      "ohlc_mismatch_matching_labels": 0,
+      "frozen_data_contract": [
+        "cn_a_session_wall_clock_offset_v1"
+      ],
+      "frozen_source_kind": [
+        "market_index_transaction_derived_1m"
+      ],
+      "frozen_dataset_version": [
+        "bars_cn_index_1m_raw_canonical_market_index_baidu_3s_20000714_20260821_factorlab_unified_missing_day_repaired_v8_20260824"
+      ],
+      "frozen_source_minute_count_all_null": true,
+      "frozen_sha256": "4523615193c177dda2f63a69dd32a2d21e2b15c78283de2d242dd6cd695fc284"
+    },
+    "5m_offset_2": {
+      "frozen_rows": 67192,
+      "frozen_expected_rows": 67192,
+      "frozen_row_count_match": true,
+      "derived_nonzero_occupancy_labels": 67192,
+      "labels_only_in_frozen": [],
+      "labels_only_in_derived": [],
+      "n_labels_only_in_frozen": 0,
+      "n_labels_only_in_derived": 0,
+      "occupancy_min": 1,
+      "occupancy_max": 6,
+      "occupancy_mean": 5.042445529229671,
+      "full_intended_occupancy_6_or_5": {
+        "n_bars": 67192,
+        "n_with_6": 2920,
+        "n_with_5": 64224,
+        "n_other": 48
+      },
+      "ohlc_compared_matching_labels": 67192,
+      "ohlc_mismatch_matching_labels": 0,
+      "frozen_data_contract": [
+        "cn_a_session_wall_clock_offset_v1"
+      ],
+      "frozen_source_kind": [
+        "market_index_transaction_derived_1m"
+      ],
+      "frozen_dataset_version": [
+        "bars_cn_index_1m_raw_canonical_market_index_baidu_3s_20000714_20260821_factorlab_unified_missing_day_repaired_v8_20260824"
+      ],
+      "frozen_source_minute_count_all_null": true,
+      "frozen_sha256": "737548b04ca93fdbfafda806c5f98051b0521e868d71bcab00f23c062ef8ee82"
+    },
+    "5m_offset_3": {
+      "frozen_rows": 67193,
+      "frozen_expected_rows": 67193,
+      "frozen_row_count_match": true,
+      "derived_nonzero_occupancy_labels": 67193,
+      "labels_only_in_frozen": [],
+      "labels_only_in_derived": [],
+      "n_labels_only_in_frozen": 0,
+      "n_labels_only_in_derived": 0,
+      "occupancy_min": 1,
+      "occupancy_max": 6,
+      "occupancy_mean": 5.042370485020761,
+      "full_intended_occupancy_6_or_5": {
+        "n_bars": 67193,
+        "n_with_6": 2921,
+        "n_with_5": 64222,
+        "n_other": 50
+      },
+      "ohlc_compared_matching_labels": 67193,
+      "ohlc_mismatch_matching_labels": 0,
+      "frozen_data_contract": [
+        "cn_a_session_wall_clock_offset_v1"
+      ],
+      "frozen_source_kind": [
+        "market_index_transaction_derived_1m"
+      ],
+      "frozen_dataset_version": [
+        "bars_cn_index_1m_raw_canonical_market_index_baidu_3s_20000714_20260821_factorlab_unified_missing_day_repaired_v8_20260824"
+      ],
+      "frozen_source_minute_count_all_null": true,
+      "frozen_sha256": "20a8a4aba19f60946e5781947f658d0b16a2d8758e6318b43c0a0ececdd09282"
+    },
+    "5m_offset_4": {
+      "frozen_rows": 67191,
+      "frozen_expected_rows": 67191,
+      "frozen_row_count_match": true,
+      "derived_nonzero_occupancy_labels": 67191,
+      "labels_only_in_frozen": [],
+      "labels_only_in_derived": [],
+      "n_labels_only_in_frozen": 0,
+      "n_labels_only_in_derived": 0,
+      "occupancy_min": 1,
+      "occupancy_max": 6,
+      "occupancy_mean": 5.033933116042327,
+      "full_intended_occupancy_6_or_5": {
+        "n_bars": 67191,
+        "n_with_6": 2921,
+        "n_with_5": 63646,
+        "n_other": 624
+      },
+      "ohlc_compared_matching_labels": 67191,
+      "ohlc_mismatch_matching_labels": 0,
+      "frozen_data_contract": [
+        "cn_a_session_wall_clock_offset_v1"
+      ],
+      "frozen_source_kind": [
+        "market_index_transaction_derived_1m"
+      ],
+      "frozen_dataset_version": [
+        "bars_cn_index_1m_raw_canonical_market_index_baidu_3s_20000714_20260821_factorlab_unified_missing_day_repaired_v8_20260824"
+      ],
+      "frozen_source_minute_count_all_null": true,
+      "frozen_sha256": "ceba69dce07223ba92204dc4994991eeabcaf62aacfb9869fd9403da43694b1b"
+    }
+  },
+  "prohibited_actions_not_done": [
+    "no_morphology_version",
+    "no_1m_official_local_resample_replacement_5m",
+    "no_2021_plus_read_into_diagnostic_frame",
+    "no_H_end_5_promotion"
+  ]
+}

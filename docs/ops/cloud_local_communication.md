@@ -43,7 +43,7 @@
 
 # CL-20260907-004 — 获取 authoritative DataHub 5m bar-support provenance
 
-**状态：OPEN / LOCAL EXECUTION REQUIRED / CLOUD REVIEW PENDING**
+**状态：本地已反馈 / 云端已复核尚未发生**
 
 **云端阻断原因：** 当前 Chat 已重新枚举 linked GitHub installation；可访问面只有现有 FactorLab 相关仓库，没有 `unified_datahub` / `datahub` repository。当前 frozen 5m artifacts 的 `source_minute_count` 仍逐行为空，且没有 exact `support_start/support_end/source_row_ids`。因此云端无法从当前 surface 获得 DataHub 产品真源，也不得用 `H_end_5` 或本地 1m 重采样替代。
 
@@ -174,6 +174,90 @@ source_kind = market_index_transaction_derived_1m
 **results-blind session-aware information-set bounds preanalysis → frozen protocol → real replay**。
 
 本地“已经找到文件/跑完脚本”本身不等于云端已复核通过。
+
+---
+
+## 本地反馈（2026-09-07，本地大模型）
+
+**本地状态：已反馈。云端复核：尚未发生。本地不得代填“云端已复核”。**
+
+执行仓库：`staryocean0/factorlab-two-wave-strategy-lab` 分支 `codex/two-wave-phase1-20260905`。
+未改其他 5 个云端主题仓，未改 DataHub git，未开 morphology，未写 replacement 5m。
+
+### 1. 实际代码/合同身份
+
+- DataHub 本地路径：`/home/starryocean/桌面/量化/unified_datahub`
+- GitHub remote：**无**。这与云端搜不到 `unified_datahub` 一致。
+- branch：`main`
+- HEAD：`ba780790acd8e9a558e4e01f9474b6e79265d818`
+- session-offset 实现提交：`2c7b070f38f061378e89c19d183da9ccef9a6c88`
+- 白皮书最后触及提交：`d31b140e35132911aa6ab164deaa9afcbb02b0ff`
+- 权威绑定：**HEAD 已提交 blob**。脏工作区里的分工说明 / `session_clock_continuous` fail-closed 未当作权威。
+- 关键文件 sha256 与 git blob SHA1 见 `cloud_results/cl_20260907_004_datahub_bar_support_provenance/SOURCE_IDENTITY.json` 和 `archive/`。
+
+### 2. 实际数据身份
+
+- 未做 Class B 新产品 re-export。
+- 诊断源：湖中冻结声明的 1m `dataset_version=bars_cn_index_1m_raw_canonical_market_index_baidu_3s_20000714_20260821_factorlab_unified_missing_day_repaired_v8_20260824`
+- symbol=`000852.SH`，role=`development_material`，区间 `2015-01-05..2020-12-31`，**未读 2021+**
+- 1m 源行 349923；`source_kind=market_index_transaction_derived_1m`
+- 冻结 5m 行数仍为 70114 / 67192 / 67192 / 67193 / 67191
+- 用 DataHub `assign_intraday_bucket_minute` 回放：五视图 label 差集为 0，对齐 label 的 OHLC mismatch=0
+- 冻结 5m 的 `source_minute_count` 仍全 null，文件未被改写
+
+### 3. 实际执行命令与退出码
+
+```bash
+# DataHub 合同测试
+cd /home/starryocean/桌面/量化/unified_datahub
+PYTHONPATH=src .venv/bin/python -m pytest   tests/unit/storage/test_session_offset_contract.py   tests/unit/storage/test_bars_deriver.py -q --tb=short
+# exit 0 ; 33 passed in 0.81s
+
+# 只读身份诊断（不写 data/development）
+PYTHONPATH=/home/starryocean/桌面/量化/unified_datahub/src   /home/starryocean/桌面/量化/unified_datahub/.venv/bin/python   cloud_results/cl_20260907_004_datahub_bar_support_provenance/run_identity_diagnostic.py
+# exit 0
+```
+
+从 HEAD 提取白皮书/实现/测试副本的命令见反馈包 `archive/`。
+
+### 4. 九个合同问题
+
+完整答案：`cloud_results/cl_20260907_004_datahub_bar_support_provenance/contract_answers.md`
+
+最短结论：
+
+1. 上下午独立窗口，5m 由 `assign_intraday_bucket_minute(period=5, offset=k)` 定义。
+2. 每个 1m 端标签最多进一个桶；wall-clock 第一桶含 6 个 1m，后续完整桶 5 个；`bar_open_ts` ≠ exact support_start。
+3. label 是墙上时钟 end-label；产品无 support_start/end 列；冻结 `available_at=15:30+08:00` 不是 `first_tradable_slot`。
+4. 不跨午休；禁止独立 13:00 bar。
+5. 无隔夜会话，不跨日聚合。
+6. offset>0 丢网格前缀和不完整尾桶；offset0 official 保留 cap 在 session_end 的最后一桶。
+7. offset0 走 official v2 路径；offset1–4 走 wall-clock v1。冻结五视图却都标 `cn_a_session_wall_clock_offset_v1`。
+8. DataHub 序列化 `T09:35:00Z` 表示上海墙上时钟，不是 UTC 01:35。
+9. intended support 可由合同唯一确定；exact actual source set 不能从冻结 5m 单独恢复。同源 1m + 合同函数可恢复，且与冻结 OHLC/label 一致。
+
+### 5. 输出位置
+
+主题仓内（可 push 给云端）：
+
+`cloud_results/cl_20260907_004_datahub_bar_support_provenance/`
+
+1m 湖大数据仍留本地 DataHub lake，未搬进 GitHub。
+
+### 6. 失败 / 未验证项
+
+- DataHub 无 GitHub remote，云端仍不能自己 clone 原仓；只能读本包 archive。
+- Route B 未产出带 `source_minute_count/support_start/support_end` 的新 5m 产品；公开 API 对钉死 `dataset_version`+offset fail-closed。
+- 未验证 `1m_official.parquet`（350561 行）与湖中 2015–2020 1m（349923 行）的差异；禁止用它重采样 5m。
+- 未把脏工作区未提交合同改动当作权威。
+- 未关闭 issue #4，未宣称 intake gate 已通过。
+
+### 7. Compact manifest / session-boundary sample
+
+- 摘要：`identity_diagnostic.json`
+- 样例：`session_boundary_samples.json`（2015-01-05 与 2020-12-31，offset0–4，早盘第一根/午休前后/下午最后一根/隔夜过渡）
+
+2015-01-05 offset0 第一根：label `09:35`，intended `09:30..09:35`，actual 缺 `09:30`，实际从 `09:31` 起。
 
 ---
 

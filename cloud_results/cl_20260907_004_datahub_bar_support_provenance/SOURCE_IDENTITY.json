@@ -1,0 +1,83 @@
+{
+  "task": "CL-20260907-004",
+  "local_status": "local_feedback_ready_cloud_review_pending",
+  "routes_executed": [
+    "A",
+    "C"
+  ],
+  "route_B_status": "not_produced_as_new_product",
+  "datahub_repository": {
+    "local_path": "/home/starryocean/桌面/量化/unified_datahub",
+    "github_remote": null,
+    "note": "Local-only git repository. No git remote is configured, which matches the cloud finding that unified_datahub is not in the linked GitHub installation.",
+    "branch": "main",
+    "head_commit": "ba780790acd8e9a558e4e01f9474b6e79265d818",
+    "head_subject": "docs(history): index MO seller-margin in progressive disclosure maps",
+    "implementation_commit_for_session_offset": {
+      "sha": "2c7b070f38f061378e89c19d183da9ccef9a6c88",
+      "subject": "Keep alternative session clocks additive to canonical bars",
+      "ancestor_of_head": true
+    },
+    "last_commit_touching_whitepaper": {
+      "sha": "d31b140e35132911aa6ab164deaa9afcbb02b0ff",
+      "subject": "feat: add T0 unified index kline V3",
+      "date": "2026-08-24 19:28:59 +0800",
+      "ancestor_of_head": true
+    },
+    "working_tree_dirty": true,
+    "authority_binding": "HEAD committed blobs only. Uncommitted whitepaper/workflow/contract edits and untracked factorlab_timing_layer1_clock.v1.json were not used as authority."
+  },
+  "archived_files": [
+    {
+      "source_path": "docs/modules/history/session-offset-bars-whitepaper.md",
+      "archive_path": "archive/session-offset-bars-whitepaper.md",
+      "sha256": "7bcaefcad99965aaecb419d9461f7837ca48e8927d985a1c5862b990f61c2706",
+      "bytes": 5722
+    },
+    {
+      "source_path": "docs/modules/history/session-offset-bars-workflow.md",
+      "archive_path": "archive/session-offset-bars-workflow.md",
+      "sha256": "c068503708d90c8e6992b809045009b28542aee8265ee23286f8e2a94717e973",
+      "bytes": 1740
+    },
+    {
+      "source_path": "src/datahub/storage/query/session_offset_contract.py",
+      "archive_path": "archive/session_offset_contract.py",
+      "sha256": "b84f999a73b3f38a335aacfea0e445c31e07135c101cd3f22dabad5e477ca482",
+      "bytes": 10597
+    },
+    {
+      "source_path": "src/datahub/storage/query/bars_deriver.py",
+      "archive_path": "archive/bars_deriver.py",
+      "sha256": "6c8a317fc0dc4b546ff869618ff69213d439fd47255c1b33bb776a2f3498a072",
+      "bytes": 30455
+    },
+    {
+      "source_path": "src/datahub/storage/query/bars_query.py",
+      "archive_path": "archive/bars_query.py",
+      "sha256": "a971ac30bf79cdf53f890105e916861580182205fcdba4d91a068e17677b4e92",
+      "bytes": 17024
+    },
+    {
+      "source_path": "tests/unit/storage/test_session_offset_contract.py",
+      "archive_path": "archive/test_session_offset_contract.py",
+      "sha256": "e1ac8411eb8071bfc45398614f2a3e2df31362353abc9c79314d517a1015828e",
+      "bytes": 4894
+    },
+    {
+      "source_path": "tests/unit/storage/test_bars_deriver.py",
+      "archive_path": "archive/test_bars_deriver.py",
+      "sha256": "23c8fa5cad09e79857e4c1afc4dc0d14885306766519016437807f42d604891e",
+      "bytes": 28238
+    }
+  ],
+  "git_blob_sha1_at_head": {
+    "docs/modules/history/session-offset-bars-whitepaper.md": "b9f5096e7f5a9c77bd8fed1aaab8a0e5a39e1c0a",
+    "docs/modules/history/session-offset-bars-workflow.md": "1c5f40a75d171664365052b0b74c056d66180756",
+    "src/datahub/storage/query/session_offset_contract.py": "accb183f695880c5524f7263bfdfae1debe006a0",
+    "src/datahub/storage/query/bars_deriver.py": "e708f6546263df5981d43ec305af1b18ac2e9286",
+    "src/datahub/storage/query/bars_query.py": "05a6ce7382300141eef39d23ed3bca146c9fbae5",
+    "tests/unit/storage/test_session_offset_contract.py": "719eec84394c1437377906781aa8e04256c58696",
+    "tests/unit/storage/test_bars_deriver.py": "e3f4956c3b20a647c080c01d544e588802491bcb"
+  }
+}

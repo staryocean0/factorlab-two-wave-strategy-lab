@@ -1,0 +1,7 @@
+{
+  "command": "PYTHONPATH=src .venv/bin/python -m pytest tests/unit/storage/test_session_offset_contract.py tests/unit/storage/test_bars_deriver.py -q --tb=short",
+  "cwd": "/home/starryocean/桌面/量化/unified_datahub",
+  "exit_code": 0,
+  "result": "33 passed in 0.81s",
+  "note": "Ran against the local DataHub working tree. assign_intraday_bucket_minute / official 5m bucketing were not part of the uncommitted diff. Uncommitted diff only adds FactorLab continuous-clock fail-closed messaging."
+}

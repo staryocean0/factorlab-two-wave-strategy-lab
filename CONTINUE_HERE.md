@@ -52,6 +52,8 @@ source_kind = market_index_transaction_derived_1m
 
 **`CL-20260907-004 — 获取 authoritative DataHub 5m bar-support provenance`**
 
+本地已于 2026-09-07 反馈 Route A/C 档案与只读身份诊断，记录在 `docs/ops/cloud_local_communication.md` 同一 CL-004 条目和 `cloud_results/cl_20260907_004_datahub_bar_support_provenance/`。**云端尚未复核，issue #4 仍开，morphology 仍冻结。** 本地没有设计下一步研究，也没有改 morphology。
+
 位置：
 
 `docs/ops/cloud_local_communication.md`
