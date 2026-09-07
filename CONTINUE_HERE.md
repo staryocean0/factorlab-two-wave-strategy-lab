@@ -40,18 +40,25 @@ source_kind = market_index_transaction_derived_1m
 
 检查结果：
 
-1. linked GitHub installation：完整分页搜索后没有可访问的项目 `unified_datahub` repository；
-2. public GitHub：没有可见的 `staryocean0/unified_datahub`；
-3. public web：没有找到权威 `session-offset-bars-whitepaper.md` / `cn_a_session_wall_clock_offset_v1` 项目来源；无关公共同名 DataHub 没有被替代使用；
-4. FactorLab branch/archive：只有指向 DataHub 真源的 workflow/whitepaper/reference，没有 vendored authoritative implementation/contract；
-5. ChatGPT File Library：没有找到此前上传的 `unified_datahub` archive、session-offset-bars contract 或 provenance-rich re-export；
-6. frozen artifacts：仍不包含逐 bar exact support provenance。
+1. linked GitHub installation：完整搜索后没有可访问的 `unified_datahub` / `datahub` repository；
+2. owner-level repository enumeration：`staryocean0` 当前可访问 surface 只有 FactorLab 相关 repositories，没有改名后的 DataHub 候选；
+3. public GitHub：没有可见的 `staryocean0/unified_datahub`；
+4. public web：没有找到权威 `session-offset-bars-whitepaper.md` / `cn_a_session_wall_clock_offset_v1` 项目来源；无关公共同名 DataHub 没有被替代使用；
+5. FactorLab branch/archive：只有指向 DataHub 真源的 workflow/whitepaper/reference，没有 vendored authoritative implementation/contract；
+6. ChatGPT File Library：再次搜索后仍没有 `unified_datahub` archive、session-offset-bars contract 或 provenance-rich re-export；
+7. frozen artifacts：仍不包含逐 bar exact support provenance。
 
 正式 acquisition 状态：
 
 `authoritative_datahub_bar_support_evidence_unavailable_in_current_surfaces`
 
 这意味着当前研究已经到达**外部数据合同依赖点**，不是继续发明 proxy/threshold 可以解决的问题。
+
+## Unblock tracking issue
+
+已创建 GitHub issue **#4 — `Unblock morphology research: provide authoritative DataHub 5m bar-support provenance`**。
+
+Issue #4 是当前唯一 unblock 工单。它不是用来授权降级假设；只有在下述任一权威证据条件真正满足后，研究才恢复。
 
 ## 最小解锁条件
 
