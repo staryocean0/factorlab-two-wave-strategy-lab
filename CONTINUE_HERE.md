@@ -1,4 +1,4 @@
-# 两浪研究继续入口：v0.6.16 已闭合，DataHub provenance acquisition 已穷尽当前可用 surface（2026-09-07）
+# 两浪研究继续入口：v0.6.16 已闭合，DataHub provenance acquisition 已进入 cloud↔local unblock（2026-09-07）
 
 当前全局状态：`morphology_replication_not_yet_accepted`；操作基线仍为 **v0.4.3**；PR #1 保持 Draft。Direction/D1/D2/PAWCT、第三浪、收益/P&L、fresh OOS、paper trading、production 全部继续冻结。
 
@@ -32,37 +32,51 @@ source_kind = market_index_transaction_derived_1m
 
 但 `source_minute_count` 逐行全 null，且没有 exact `support_start/support_end/source_row_ids`。`H_end_5` 虽在五个 views 上给出 100% close-label agreement、>99.98% envelope consistency，但它仍只能作为 plausibility/falsification evidence，不能替代 DataHub product contract。
 
-## 2026-09-07 provenance acquisition attempt 已完成
+## 当前 provenance acquisition 状态
 
-本轮已把当前 Chat 能自主访问的 evidence surface 全部检查完，并记录在：
+本轮已把当前 Chat 能自主访问的 evidence surface 再次检查完，并记录在：
 
 `docs/ops/datahub_bar_support_provenance_acquisition_status_20260907.md`
 
-检查结果：
+当前 linked GitHub installation 的完整 repository enumeration 仍只有现有 FactorLab 相关 repositories；搜索 `unified_datahub` / `datahub` 没有命中。当前 artifact 也没有新出现逐 bar exact support provenance。
 
-1. linked GitHub installation：完整搜索后没有可访问的 `unified_datahub` / `datahub` repository；
-2. owner-level repository enumeration：`staryocean0` 当前可访问 surface 只有 FactorLab 相关 repositories，没有改名后的 DataHub 候选；
-3. public GitHub：没有可见的 `staryocean0/unified_datahub`；
-4. public web：没有找到权威 `session-offset-bars-whitepaper.md` / `cn_a_session_wall_clock_offset_v1` 项目来源；无关公共同名 DataHub 没有被替代使用；
-5. FactorLab branch/archive：只有指向 DataHub 真源的 workflow/whitepaper/reference，没有 vendored authoritative implementation/contract；
-6. ChatGPT File Library：再次搜索后仍没有 `unified_datahub` archive、session-offset-bars contract 或 provenance-rich re-export；
-7. frozen artifacts：仍不包含逐 bar exact support provenance。
-
-正式 acquisition 状态：
+正式 acquisition 状态保持：
 
 `authoritative_datahub_bar_support_evidence_unavailable_in_current_surfaces`
 
-这意味着当前研究已经到达**外部数据合同依赖点**，不是继续发明 proxy/threshold 可以解决的问题。
+这意味着当前研究到达的是**外部数据合同依赖点**，不是继续发明 proxy/threshold 可以解决的问题。
+
+## Cloud↔local unblock 已激活
+
+按 `AGENTS.md` 协作协议，当前外部依赖已经转成一个可执行本地任务：
+
+**`CL-20260907-004 — 获取 authoritative DataHub 5m bar-support provenance`**
+
+位置：
+
+`docs/ops/cloud_local_communication.md`
+
+本地任务可走任一条 route：
+
+1. 实际 DataHub whitepaper + implementation/tests，绑定 immutable revision；
+2. DataHub authoritative provenance-rich 5m re-export；
+3. 带 source revision/hash 的 authoritative contract/implementation archive/copy。
+
+云端在任何新证据到来前，已经冻结了独立 intake gate：
+
+`docs/ops/datahub_bar_support_provenance_intake_protocol_20260907.md`
+
+该 gate 只验 authority / data identity / session semantics / provenance completeness，不是新的 morphology 版本，也不允许根据未来 morphology 结果改变证据验收标准。
 
 ## Unblock tracking issue
 
-已创建 GitHub issue **#4 — `Unblock morphology research: provide authoritative DataHub 5m bar-support provenance`**。
+GitHub issue **#4 — `Unblock morphology research: provide authoritative DataHub 5m bar-support provenance`** 是当前唯一 unblock 工单。
 
-Issue #4 是当前唯一 unblock 工单。它不是用来授权降级假设；只有在下述任一权威证据条件真正满足后，研究才恢复。
+Issue #4 不是用来授权降级假设；只有在下述任一权威证据条件真正满足并通过 frozen intake gate 后，研究才恢复。
 
 ## 最小解锁条件
 
-满足任意一项即可恢复研究：
+满足任意一项即可进入云端 provenance 复核：
 
 1. 连接/授权实际项目 `unified_datahub` GitHub repository，使当前 Chat 至少能读取 `docs/modules/history/session-offset-bars-whitepaper.md`，最好同时可读构造实现与 tests；或
 2. 上传/提供 authoritative DataHub contract/implementation 的 archive/copy；或
@@ -74,17 +88,30 @@ Issue #4 是当前唯一 unblock 工单。它不是用来授权降级假设；�
 
 ## 解锁前禁止事项
 
-在权威 provenance 到位前，不允许：
+在权威 provenance 到位并通过 intake gate 前，不允许：
 
 - 把 `H_end_5` 冻结成 authoritative support truth；
 - 本地重采样 `1m_official` 重新定义 5m support；
 - 删除 lunch/overnight/session-boundary legs 后继续 deterministic bounds；
 - 从相邻 native closes 推导 guarantee-style hidden-path support；
 - 回到 point-estimate concentration proxy 代替 provenance；
+- 开启新的 morphology 算法版本；
 - 恢复 direction、第三浪、outcome/P&L、fresh OOS 或交易。
 
 ## 一旦解锁，唯一下一 formal research action
 
-取得权威 support provenance 后，**另开 results-blind session-aware information-set bounds preanalysis + frozen protocol**。新协议必须直接消费 recovered contract/provenance；此前 H_end_5 的 best-fit relation 不自动继承为真值。
+取得权威 support provenance、并由云端按 frozen intake gate 复核通过后，**另开 results-blind session-aware information-set bounds preanalysis + frozen protocol**。新协议必须直接消费 recovered contract/provenance；此前 H_end_5 的 best-fit relation 不自动继承为真值。
+
+随后才允许真实 replay。intake acceptance 只解除 provenance blocker，**不等于 morphology acceptance**。
+
+## 下一位执行者读取顺序
+
+1. `CONTINUE_HERE.md`
+2. `docs/research/two_wave_bar_support_semantics_results_v0616.md`
+3. `docs/ops/datahub_bar_support_provenance_acquisition_status_20260907.md`
+4. `docs/ops/datahub_bar_support_provenance_intake_protocol_20260907.md`
+5. `docs/ops/cloud_local_communication.md` 中 `CL-20260907-004`
+6. issue #4
+7. PR #1
 
 **在解锁前，不再开启新的 morphology 算法版本。**
