@@ -1,0 +1,513 @@
+{
+  "schema": "frozen_research_cache_v065_v0613@1.0",
+  "source_branch": "codex/two-wave-phase1-20260905",
+  "source_commit": "835edab13b3b321fe15d7c33c5f5799817059630",
+  "source_repository": "https://github.com/staryocean0/factorlab-two-wave-strategy-lab",
+  "created_by": "Codex local mechanical export",
+  "created_at": "2026-09-07T05:11:43.732324+00:00",
+  "no_research_interpretation": true,
+  "no_resampling": true,
+  "fresh_oos": false,
+  "post_2020_rows": false,
+  "instrument": "000852.SH",
+  "data_role": "development_material",
+  "view_order": [
+    "5m_offset_0",
+    "5m_offset_1",
+    "5m_offset_2",
+    "5m_offset_3",
+    "5m_offset_4"
+  ],
+  "other_view_order": [
+    "5m_offset_1",
+    "5m_offset_2",
+    "5m_offset_3",
+    "5m_offset_4"
+  ],
+  "expected_controls": {
+    "published_identities": [
+      38176,
+      36737,
+      36619,
+      36480,
+      36264
+    ],
+    "strict_pairs": [
+      8381,
+      5770,
+      6204,
+      9098
+    ],
+    "aggregate_strict": 29453,
+    "both_qualified": 482,
+    "qualification_disagreement": 699,
+    "target_repaired": 80,
+    "target_agreement": 56,
+    "target_disagreement": 24
+  },
+  "observed_controls": {
+    "published_identities": [
+      38176,
+      36737,
+      36619,
+      36480,
+      36264
+    ],
+    "strict_pairs": [
+      8381,
+      5770,
+      6204,
+      9098
+    ],
+    "aggregate_strict": 29453,
+    "both_qualified": 482,
+    "qualification_disagreement": 699,
+    "target_repaired": 80,
+    "target_agreement": 56,
+    "target_disagreement": 24
+  },
+  "row_counts": {
+    "published_identities_v065": 184276,
+    "strict_pairs_v065": 29453,
+    "strict_pair_leg_paths_1m": 235624,
+    "strict_pair_leg_native_5m": 235624,
+    "one_minute_source_rows_with_pair_leg_repetition": 10530082,
+    "native_5m_source_rows_with_pair_leg_repetition": 2251872
+  },
+  "files": [
+    {
+      "path": "published_identities_v065.parquet",
+      "rows": 184276,
+      "bytes": 11622568,
+      "sha256": "8596622924e92182756162b7bdf0959f6d8ddc2222d6dbc9b4e4379cada9974c"
+    },
+    {
+      "path": "strict_pair_leg_native_5m_part00.jsonl.zst",
+      "rows": 14720,
+      "bytes": 617905,
+      "sha256": "6eaab03672a2714b67486670b5784f62f209e49d679a794605e61ae4cc84d39e",
+      "pair_count": 1840,
+      "first_pair_id": "strict_pair_v065_2ecd24d9b95c567d5e6e2378b0720458744298365ebd69737c7d92dec1df3489",
+      "last_pair_id": "strict_pair_v065_5d7018191e68bb6d8ce1c840fa89215022d0fe8962ccf7fac9da7f2149e38681"
+    },
+    {
+      "path": "strict_pair_leg_native_5m_part01.jsonl.zst",
+      "rows": 14728,
+      "bytes": 572018,
+      "sha256": "eee844f866c1b47d646a544ab7c83610b44ec0029170856a1f8bf59fcb8f2bde",
+      "pair_count": 1841,
+      "first_pair_id": "strict_pair_v065_042f425b75cb4e51ad9f1a1ea3029eaf6243409c2a6c38450a55792c89dc1dc9",
+      "last_pair_id": "strict_pair_v065_1996c75c0d309666dca7d7bf1e6fcb6f9044f8370fe83c1d413bbae4d4c1474c"
+    },
+    {
+      "path": "strict_pair_leg_native_5m_part02.jsonl.zst",
+      "rows": 14728,
+      "bytes": 569845,
+      "sha256": "1fa464e294ca609dc0cf591e8cc22e781bfee86d07c36f0a7372e69eff4ef548",
+      "pair_count": 1841,
+      "first_pair_id": "strict_pair_v065_8a411d1f4ceef5f1500b0fd28069ddbf196d432a09caee2d6e5db45461b94f3e",
+      "last_pair_id": "strict_pair_v065_bb98bfb72a63353d00d9093d772d1caba1fc9fec5754c2ee4b433fe8cdc089e1"
+    },
+    {
+      "path": "strict_pair_leg_native_5m_part03.jsonl.zst",
+      "rows": 14728,
+      "bytes": 621092,
+      "sha256": "a2d8271d9de4d1678e276f6983ca2ba0cc7a7cb25dea8f421306cf1385f28b54",
+      "pair_count": 1841,
+      "first_pair_id": "strict_pair_v065_1227101943cde239ae045061f28a9d1c987ccdfe4b02bc99b48afe7c469daf50",
+      "last_pair_id": "strict_pair_v065_d5ae10abe4dd9f9162a4ecc4119f21be8c19841b8db6083220b44fc7384ea3d9"
+    },
+    {
+      "path": "strict_pair_leg_native_5m_part04.jsonl.zst",
+      "rows": 14728,
+      "bytes": 698181,
+      "sha256": "44ae7cbac466b05191ee89e6e23bfb609efbfdeb461fb3ceeab31e0e79ae50b1",
+      "pair_count": 1841,
+      "first_pair_id": "strict_pair_v065_6c3d444bf7fcae9cae0f1c127443ffe862106aa8e7917b7c89f124e3194d2683",
+      "last_pair_id": "strict_pair_v065_4a1fc2fd44cc6d523b353781a01b940ac9c6df658cccfe975c194ba0d616c16a"
+    },
+    {
+      "path": "strict_pair_leg_native_5m_part05.jsonl.zst",
+      "rows": 14720,
+      "bytes": 675235,
+      "sha256": "26b1e62a00dd2d02f75dc9de3e6a7d0bca6ea9c714dcf08355b05575d5935bb1",
+      "pair_count": 1840,
+      "first_pair_id": "strict_pair_v065_c6d40803b8c069eb24937006b61e2506b342eddadbc9cb05003bea8878c75fa5",
+      "last_pair_id": "strict_pair_v065_c6c7354cbe62cac66023e50bba71e3c761417412268e485ab3e391d095e842d6"
+    },
+    {
+      "path": "strict_pair_leg_native_5m_part06.jsonl.zst",
+      "rows": 14728,
+      "bytes": 693772,
+      "sha256": "5d4dec658190ba865a4e4d70351986b210f1dae4e0e62782defd103fbb6a1d4f",
+      "pair_count": 1841,
+      "first_pair_id": "strict_pair_v065_180b713bfbc719a2424d63907d9a9aa2786515a0b67da0582f43163831e7ca9f",
+      "last_pair_id": "strict_pair_v065_36eb9f46ade076fe5bb0b8eaf0b220c51b4af7672ae2136ddec1d7ef016d8da0"
+    },
+    {
+      "path": "strict_pair_leg_native_5m_part07.jsonl.zst",
+      "rows": 14728,
+      "bytes": 772020,
+      "sha256": "ce4d36534d9ba57885c46491f157be53186ba32d250a9a6f536d3ec77c1d013c",
+      "pair_count": 1841,
+      "first_pair_id": "strict_pair_v065_9bea107ccd371e312d9d7a38b394278817947272de0f328cb4194a654317bdfe",
+      "last_pair_id": "strict_pair_v065_d3b65791d638a93e39aec3155fd9cd73f93b179ff85271539e813fd2c91a19db"
+    },
+    {
+      "path": "strict_pair_leg_native_5m_part08.jsonl.zst",
+      "rows": 14728,
+      "bytes": 720198,
+      "sha256": "9f2c8bc8567849c23052d95fbfc48941cb5f7fd7adb3c11ef15f4c7d7c66bba0",
+      "pair_count": 1841,
+      "first_pair_id": "strict_pair_v065_a279c017bb83bf404680fdd933ca0be63a7accbcf4a1bf34618eb73d668c7aa6",
+      "last_pair_id": "strict_pair_v065_22ff41ac25dac617c60791c75b29b712f2bc9df4536d8435494a9d5b1514413c"
+    },
+    {
+      "path": "strict_pair_leg_native_5m_part09.jsonl.zst",
+      "rows": 14728,
+      "bytes": 691512,
+      "sha256": "3da6c5ca17019932c7af4ee0f3efc27032fa2418fff9c8d9066fb1ddc1a2bf6b",
+      "pair_count": 1841,
+      "first_pair_id": "strict_pair_v065_a392de3db39e6bbe4f2c654be320cb7de52673f290deb560a1784956b6538134",
+      "last_pair_id": "strict_pair_v065_a7226c3841ced0770ebfc7e4543d31f055a65698e8fc5cb2dfd0afbfe57f155b"
+    },
+    {
+      "path": "strict_pair_leg_native_5m_part10.jsonl.zst",
+      "rows": 14720,
+      "bytes": 761406,
+      "sha256": "9257fb868c038a05753e7e81b6f6332c4a5d80aaeb6c9b1ea25b36f470909f71",
+      "pair_count": 1840,
+      "first_pair_id": "strict_pair_v065_5dc48accc11f2198b7ab34eb6614994090a926ec7bd3f59b67b9c048279cd81b",
+      "last_pair_id": "strict_pair_v065_f6348f221047e8e32a5bfada89cef186da32a7853797d428ff49fc71d37832fd"
+    },
+    {
+      "path": "strict_pair_leg_native_5m_part11.jsonl.zst",
+      "rows": 14728,
+      "bytes": 641642,
+      "sha256": "723a8963a2fa2abdfd7db6951c4fdd5ae136f4e0a33b9313c743742b1bb74ce1",
+      "pair_count": 1841,
+      "first_pair_id": "strict_pair_v065_04a979de6e6f8b3d4474f168ffafda244eb56cc55fc62f50d9526776c9c6aee0",
+      "last_pair_id": "strict_pair_v065_b78690b0f352008844a4e8ab0ac53f7c104579bbf219b5ade93dbd78f204c70a"
+    },
+    {
+      "path": "strict_pair_leg_native_5m_part12.jsonl.zst",
+      "rows": 14728,
+      "bytes": 584912,
+      "sha256": "ec80809c9cbc123caecf2c8e5e8754e493851a433303b486c626db0781fb3600",
+      "pair_count": 1841,
+      "first_pair_id": "strict_pair_v065_0445f148a8a97ab0243df225b08c9399b0c594721f766d8b8be5f9c546cd3f76",
+      "last_pair_id": "strict_pair_v065_31d74c1ab29c7673d7f2f860b0bdaf31759346de3fd362ee65a79cd702509ab0"
+    },
+    {
+      "path": "strict_pair_leg_native_5m_part13.jsonl.zst",
+      "rows": 14728,
+      "bytes": 578882,
+      "sha256": "b0a5a7eafb1f642185c9c1a0fa0106030dafde8d7e0d6b410248f49f6629a218",
+      "pair_count": 1841,
+      "first_pair_id": "strict_pair_v065_0b63805c096dcdf1e49e3ab2fd0bb081f356750bea344e530bc68b0fda56321f",
+      "last_pair_id": "strict_pair_v065_caf4e5c01bdd98f8517b0930ada0c1b15a818b1c12192a48c61be148fd2421c0"
+    },
+    {
+      "path": "strict_pair_leg_native_5m_part14.jsonl.zst",
+      "rows": 14728,
+      "bytes": 636838,
+      "sha256": "f4cfc39ae6da0be69d79cf8590c5571870eee1881899d71fad7e0d5a64deb3ca",
+      "pair_count": 1841,
+      "first_pair_id": "strict_pair_v065_14e3becf2078a8da0f544ff3d782c5ed51913deab4755dff0a170c76ba211451",
+      "last_pair_id": "strict_pair_v065_5f692321024f9f96c2eb473abb76b02143f5dc06d41fdb5b484f5ff90ad8f6c4"
+    },
+    {
+      "path": "strict_pair_leg_native_5m_part15.jsonl.zst",
+      "rows": 14728,
+      "bytes": 668441,
+      "sha256": "9ed3eb32892f9b8d33e1f8d67f654f6038a684e424dad55bbd495fa46379a58f",
+      "pair_count": 1841,
+      "first_pair_id": "strict_pair_v065_72a4bec8c0b9bfad9cb704ed193232f97e9922972e99fe47b2aac7af339ce18d",
+      "last_pair_id": "strict_pair_v065_d7cf36a135a4662bb48074b485a55cfc1f66366ec90214e1e91f6a948546d38c"
+    },
+    {
+      "path": "strict_pair_leg_paths_1m_part00.jsonl.zst",
+      "rows": 14720,
+      "bytes": 622616,
+      "sha256": "d6d5aacdc88137b904436930cd5ef7a8d8e71f859cae0f83e38d9ceb5e67ed3c",
+      "pair_count": 1840,
+      "first_pair_id": "strict_pair_v065_2ecd24d9b95c567d5e6e2378b0720458744298365ebd69737c7d92dec1df3489",
+      "last_pair_id": "strict_pair_v065_5d7018191e68bb6d8ce1c840fa89215022d0fe8962ccf7fac9da7f2149e38681"
+    },
+    {
+      "path": "strict_pair_leg_paths_1m_part01.jsonl.zst",
+      "rows": 14728,
+      "bytes": 567826,
+      "sha256": "07e819d90ea7854dfacc360b883ded6a90d4dacde4e310d2cd2d26a0600a2f0f",
+      "pair_count": 1841,
+      "first_pair_id": "strict_pair_v065_042f425b75cb4e51ad9f1a1ea3029eaf6243409c2a6c38450a55792c89dc1dc9",
+      "last_pair_id": "strict_pair_v065_1996c75c0d309666dca7d7bf1e6fcb6f9044f8370fe83c1d413bbae4d4c1474c"
+    },
+    {
+      "path": "strict_pair_leg_paths_1m_part02.jsonl.zst",
+      "rows": 14728,
+      "bytes": 561272,
+      "sha256": "4fbcc3eba85e15dfffd4b9f25bb6b18623cea9f6e4089832cdf6a94fcde33028",
+      "pair_count": 1841,
+      "first_pair_id": "strict_pair_v065_8a411d1f4ceef5f1500b0fd28069ddbf196d432a09caee2d6e5db45461b94f3e",
+      "last_pair_id": "strict_pair_v065_bb98bfb72a63353d00d9093d772d1caba1fc9fec5754c2ee4b433fe8cdc089e1"
+    },
+    {
+      "path": "strict_pair_leg_paths_1m_part03.jsonl.zst",
+      "rows": 14728,
+      "bytes": 617255,
+      "sha256": "8e4acb99e0c5cddfab17efb4e08bf221822a6c01aab577808fda12c826e3b33a",
+      "pair_count": 1841,
+      "first_pair_id": "strict_pair_v065_1227101943cde239ae045061f28a9d1c987ccdfe4b02bc99b48afe7c469daf50",
+      "last_pair_id": "strict_pair_v065_d5ae10abe4dd9f9162a4ecc4119f21be8c19841b8db6083220b44fc7384ea3d9"
+    },
+    {
+      "path": "strict_pair_leg_paths_1m_part04.jsonl.zst",
+      "rows": 14728,
+      "bytes": 693466,
+      "sha256": "43d6d038eff4f8b43b7fe49871e83e9f7fb6630a8713cc141192b183d5e20a17",
+      "pair_count": 1841,
+      "first_pair_id": "strict_pair_v065_6c3d444bf7fcae9cae0f1c127443ffe862106aa8e7917b7c89f124e3194d2683",
+      "last_pair_id": "strict_pair_v065_4a1fc2fd44cc6d523b353781a01b940ac9c6df658cccfe975c194ba0d616c16a"
+    },
+    {
+      "path": "strict_pair_leg_paths_1m_part05.jsonl.zst",
+      "rows": 14720,
+      "bytes": 666226,
+      "sha256": "a5674285bb26a925c526c47637299333e06b25d949c7e11919ba6cded872c947",
+      "pair_count": 1840,
+      "first_pair_id": "strict_pair_v065_c6d40803b8c069eb24937006b61e2506b342eddadbc9cb05003bea8878c75fa5",
+      "last_pair_id": "strict_pair_v065_c6c7354cbe62cac66023e50bba71e3c761417412268e485ab3e391d095e842d6"
+    },
+    {
+      "path": "strict_pair_leg_paths_1m_part06.jsonl.zst",
+      "rows": 14728,
+      "bytes": 679173,
+      "sha256": "51f2327de262ce8f9bdc8e339ec7e42a1da6f24db373692b3d20ed7d680651d7",
+      "pair_count": 1841,
+      "first_pair_id": "strict_pair_v065_180b713bfbc719a2424d63907d9a9aa2786515a0b67da0582f43163831e7ca9f",
+      "last_pair_id": "strict_pair_v065_36eb9f46ade076fe5bb0b8eaf0b220c51b4af7672ae2136ddec1d7ef016d8da0"
+    },
+    {
+      "path": "strict_pair_leg_paths_1m_part07.jsonl.zst",
+      "rows": 14728,
+      "bytes": 760646,
+      "sha256": "113789a58b8767be5459c92e57a39d413e4152a8a1c294cbc93990ee5b4f27d1",
+      "pair_count": 1841,
+      "first_pair_id": "strict_pair_v065_9bea107ccd371e312d9d7a38b394278817947272de0f328cb4194a654317bdfe",
+      "last_pair_id": "strict_pair_v065_d3b65791d638a93e39aec3155fd9cd73f93b179ff85271539e813fd2c91a19db"
+    },
+    {
+      "path": "strict_pair_leg_paths_1m_part08.jsonl.zst",
+      "rows": 14728,
+      "bytes": 710889,
+      "sha256": "bdebc7f11498cb3c347314abef62cf2e9ea386a2a62af581f375d110455ee6dc",
+      "pair_count": 1841,
+      "first_pair_id": "strict_pair_v065_a279c017bb83bf404680fdd933ca0be63a7accbcf4a1bf34618eb73d668c7aa6",
+      "last_pair_id": "strict_pair_v065_22ff41ac25dac617c60791c75b29b712f2bc9df4536d8435494a9d5b1514413c"
+    },
+    {
+      "path": "strict_pair_leg_paths_1m_part09.jsonl.zst",
+      "rows": 14728,
+      "bytes": 674018,
+      "sha256": "5f5416f49b1778af49c6b00c6048681ff34403ee4dd82a2db1ed14a5d22a870e",
+      "pair_count": 1841,
+      "first_pair_id": "strict_pair_v065_a392de3db39e6bbe4f2c654be320cb7de52673f290deb560a1784956b6538134",
+      "last_pair_id": "strict_pair_v065_a7226c3841ced0770ebfc7e4543d31f055a65698e8fc5cb2dfd0afbfe57f155b"
+    },
+    {
+      "path": "strict_pair_leg_paths_1m_part10.jsonl.zst",
+      "rows": 14720,
+      "bytes": 744318,
+      "sha256": "9d83fe7d402d5a8ac34c839e5f4d38cf328759436488b1d4688a308ad7afdcf0",
+      "pair_count": 1840,
+      "first_pair_id": "strict_pair_v065_5dc48accc11f2198b7ab34eb6614994090a926ec7bd3f59b67b9c048279cd81b",
+      "last_pair_id": "strict_pair_v065_f6348f221047e8e32a5bfada89cef186da32a7853797d428ff49fc71d37832fd"
+    },
+    {
+      "path": "strict_pair_leg_paths_1m_part11.jsonl.zst",
+      "rows": 14728,
+      "bytes": 639295,
+      "sha256": "307ce0bb623b370e14fa806db33846964d3b57fff4dac8e21372a4488a8fa6a6",
+      "pair_count": 1841,
+      "first_pair_id": "strict_pair_v065_04a979de6e6f8b3d4474f168ffafda244eb56cc55fc62f50d9526776c9c6aee0",
+      "last_pair_id": "strict_pair_v065_b78690b0f352008844a4e8ab0ac53f7c104579bbf219b5ade93dbd78f204c70a"
+    },
+    {
+      "path": "strict_pair_leg_paths_1m_part12.jsonl.zst",
+      "rows": 14728,
+      "bytes": 577115,
+      "sha256": "2d2d356cd16742e2df25e36e37bc5cbf797be69bebaa3438dd314f6e36fc5d52",
+      "pair_count": 1841,
+      "first_pair_id": "strict_pair_v065_0445f148a8a97ab0243df225b08c9399b0c594721f766d8b8be5f9c546cd3f76",
+      "last_pair_id": "strict_pair_v065_31d74c1ab29c7673d7f2f860b0bdaf31759346de3fd362ee65a79cd702509ab0"
+    },
+    {
+      "path": "strict_pair_leg_paths_1m_part13.jsonl.zst",
+      "rows": 14728,
+      "bytes": 567188,
+      "sha256": "88d79616e273596dd1812d731b937adfcc2e1b9d80aadf2dc89df6c35737e089",
+      "pair_count": 1841,
+      "first_pair_id": "strict_pair_v065_0b63805c096dcdf1e49e3ab2fd0bb081f356750bea344e530bc68b0fda56321f",
+      "last_pair_id": "strict_pair_v065_caf4e5c01bdd98f8517b0930ada0c1b15a818b1c12192a48c61be148fd2421c0"
+    },
+    {
+      "path": "strict_pair_leg_paths_1m_part14.jsonl.zst",
+      "rows": 14728,
+      "bytes": 626480,
+      "sha256": "ca5e12770adfd6ffed26ef3148160760a51b7e3003fb8e0e76467498870ba944",
+      "pair_count": 1841,
+      "first_pair_id": "strict_pair_v065_14e3becf2078a8da0f544ff3d782c5ed51913deab4755dff0a170c76ba211451",
+      "last_pair_id": "strict_pair_v065_5f692321024f9f96c2eb473abb76b02143f5dc06d41fdb5b484f5ff90ad8f6c4"
+    },
+    {
+      "path": "strict_pair_leg_paths_1m_part15.jsonl.zst",
+      "rows": 14728,
+      "bytes": 657269,
+      "sha256": "01be017c3ecea0191c1ed5a8dee359a41b1d580510b0661dbc063054a620fc65",
+      "pair_count": 1841,
+      "first_pair_id": "strict_pair_v065_72a4bec8c0b9bfad9cb704ed193232f97e9922972e99fe47b2aac7af339ce18d",
+      "last_pair_id": "strict_pair_v065_d7cf36a135a4662bb48074b485a55cfc1f66366ec90214e1e91f6a948546d38c"
+    },
+    {
+      "path": "strict_pairs_v065.parquet",
+      "rows": 29453,
+      "bytes": 2166580,
+      "sha256": "8b3b9477bfb26a591566d19b8571d57dd6e2b2cbe004c38c92e857daadaf8158"
+    }
+  ],
+  "sha256_scope": "Every cache data file is listed; the manifest cannot contain its own SHA256.",
+  "input_products": {
+    "1m_official": {
+      "path": "data/development/1m_official.parquet",
+      "sha256": "755217afce9dec383e48cd46d591402fa90dc50897abeb3dc7097c9a18a109d4",
+      "file_bytes": 12842573,
+      "rows": 350561,
+      "minimum_trading_day": "2015-01-05",
+      "maximum_trading_day": "2020-12-31"
+    },
+    "5m_offset_0": {
+      "path": "data/development/5m_offset_0.parquet",
+      "sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48",
+      "file_bytes": 3351411,
+      "rows": 70114,
+      "minimum_trading_day": "2015-01-05",
+      "maximum_trading_day": "2020-12-31"
+    },
+    "5m_offset_1": {
+      "path": "data/development/5m_offset_1.parquet",
+      "sha256": "4523615193c177dda2f63a69dd32a2d21e2b15c78283de2d242dd6cd695fc284",
+      "file_bytes": 3226743,
+      "rows": 67192,
+      "minimum_trading_day": "2015-01-05",
+      "maximum_trading_day": "2020-12-31"
+    },
+    "5m_offset_2": {
+      "path": "data/development/5m_offset_2.parquet",
+      "sha256": "737548b04ca93fdbfafda806c5f98051b0521e868d71bcab00f23c062ef8ee82",
+      "file_bytes": 3223863,
+      "rows": 67192,
+      "minimum_trading_day": "2015-01-05",
+      "maximum_trading_day": "2020-12-31"
+    },
+    "5m_offset_3": {
+      "path": "data/development/5m_offset_3.parquet",
+      "sha256": "20a8a4aba19f60946e5781947f658d0b16a2d8758e6318b43c0a0ececdd09282",
+      "file_bytes": 3225315,
+      "rows": 67193,
+      "minimum_trading_day": "2015-01-05",
+      "maximum_trading_day": "2020-12-31"
+    },
+    "5m_offset_4": {
+      "path": "data/development/5m_offset_4.parquet",
+      "sha256": "ceba69dce07223ba92204dc4994991eeabcaf62aacfb9869fd9403da43694b1b",
+      "file_bytes": 3227705,
+      "rows": 67191,
+      "minimum_trading_day": "2015-01-05",
+      "maximum_trading_day": "2020-12-31"
+    }
+  },
+  "timestamp_encoding": "ISO 8601 absolute UTC bar-end timestamps with +00:00; Parquet list<string> and JSON arrays retain supplied instants.",
+  "bar_index_semantics": "Zero-based original native-view row index, no reindexing.",
+  "identity_join_key": [
+    "view",
+    "publication_event_id"
+  ],
+  "canonical_identity_join_key": [
+    "view",
+    "canonical_filtered_identity_id"
+  ],
+  "pair_id_definition": "strict_pair_v065_ + SHA256(UTF-8 compact JSON array [main_view,other_view,main_publication_event_id,other_publication_event_id]); full 64 hex digest.",
+  "side_leg_join_key": [
+    "pair_id",
+    "side",
+    "leg_ordinal"
+  ],
+  "one_minute_selection": "All original supplied 1m_official rows with start_time <= timestamp <= end_time, original order and exact closes. No resampling, interpolation, fill, nearest timestamp, or synthetic prices.",
+  "native_5m_selection": "All original view OHLC rows from published start-anchor bar through end-anchor bar, inclusive and in original order.",
+  "shared_anchor_policy": "Adjacent legs each include their common anchor; repeated source rows across pairs and legs are intentional.",
+  "empty_one_minute_paths": 0,
+  "qualification_source": "Unchanged qualify_published_raw_identity from published_identity_qualification_v066.py with MaturityConfig(timeframe=view); original per-leg arithmetic and frozen v054 hard reasons.",
+  "qualification_column_type": "boolean",
+  "target_flag_definition": "v061_target_agreement/disagreement are v061_target_repaired AND (qualification_main ==/!= qualification_other), not v068 or later candidate qualification.",
+  "pair_universe": "Unchanged v065: mutual-unique same-phase five-filtered-anchor <=5m pairs, retained only if both first-valid publications exist and all five published raw timestamp deltas <=5m. No new matching or tie-break.",
+  "additional_strata_counts": {
+    "control_repaired": 3986,
+    "v063_residual_repaired": 2390,
+    "v063_target_residual_repaired": 50
+  },
+  "local_export_scripts_sha256": {
+    "replay_view.py": "129ac58707d2d5598258da22b2215e1d5090e8ff56ef6d309a831d83aa3aabbb",
+    "assemble_pairs.py": "a03a49e7404337a10f81708645e55b187e23c59313d5a825a025f7797f00d89a",
+    "export_paths.py": "567ba937ef2951ba820f25a073df7f4eb8436e4f8f41f2fc653366c995176624",
+    "verify_cache.py": "c193289fe5d0da32f7e60c2ea94092cdd1a9102a500b2594f4f6f8d79724637d",
+    "finalize_bundle.py": "9c9346b82b66985e48d207da3ab25536a7a749d88a8ed615bc956c401331c6e1"
+  },
+  "execution": {
+    "surface": "local CPU",
+    "source_functions_modified": false,
+    "publication_replayed_once_for_this_export": true,
+    "github_actions_used": false
+  },
+  "validation": {
+    "status": "PASS",
+    "published_identities_checked": 184276,
+    "strict_pairs_checked": 29453,
+    "unique_published_qualifications_checked": 45675,
+    "one_minute_side_leg_records_checked": 235624,
+    "native_5m_side_leg_records_checked": 235624,
+    "all_exported_path_values_equal_original_parquet": true,
+    "all_identity_anchor_times_equal_original_parquet": true,
+    "all_file_sha256_verified": true,
+    "duplicate_or_missing_side_legs": 0,
+    "source_rows_checked": {
+      "native_5m_source_rows_with_pair_leg_repetition": 2251872,
+      "one_minute_source_rows_with_pair_leg_repetition": 10530082
+    },
+    "focused_and_governance_tests_passed": 52,
+    "theme_package_validator": {
+      "status": "preexisting_failure",
+      "error": "RuntimeError: frozen source drifted: AGENTS.md",
+      "observed_before_cache_files_were_added": true,
+      "source_closure_manifest_modified": false
+    },
+    "git_scope_check": {
+      "gitnexus": "Research repository is not indexed; detect_changes returned repository not found.",
+      "fallback": "Git diff scope and committed blobs checked; only the new cache directory is staged; no existing research symbol is modified."
+    }
+  },
+  "runtime_versions": {
+    "python": "3.11.11",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "pyarrow": "19.0.1",
+    "zstd": "*** Zstandard CLI (64-bit) v1.5.7, by Yann Collet ***"
+  },
+  "frozen_helper_git_blobs": {
+    "src/factor_lab/visual_structure/two_wave/published_identity_qualification_v066.py": "538860bc070efaf6d5f3fe8bbdc5bb47e8773495",
+    "src/factor_lab/visual_structure/two_wave/ordinal0_predecessor_support_v064.py": "3a8c80e2f9cbe55cf743108ee6028c022dec5d63",
+    "src/factor_lab/visual_structure/two_wave/raw_projection_identity_v062.py": "b076e31036601278499ee3a4b699658db2ae9bc9",
+    "src/factor_lab/visual_structure/two_wave/unmatched_identity_decomposition_v061.py": "cfdd20e82ccdd6d3ab75f676fda8575c32a4f5d2",
+    "src/factor_lab/visual_structure/two_wave/scale_invariant_predecessor_publication_v065.py": "a0346c5a5432c9a0a20788e462216f564ed842e1"
+  }
+}
