@@ -1,4 +1,4 @@
-# 两浪研究继续入口：v0.6.9 path-metric resolution response 已闭合（2026-09-06）
+# 两浪研究继续入口：v0.6.10 threshold-free path-property audit 已闭合（2026-09-07）
 
 当前全局状态：`morphology_replication_not_yet_accepted`；操作基线仍为 v0.4.3；PR #1 保持 Draft。Direction/D1/D2/PAWCT、H1/H2、第三浪、收益/P&L、fresh OOS、paper trading、production 全部继续冻结。
 
@@ -13,39 +13,66 @@
 - v0.6.6：published strict identity 上 frozen v0.5.4 qualification = mixed stability；
 - v0.6.7：qualification disagreement decomposition = path sampling sensitivity dominant；
 - v0.6.8：shared 1m path + 原 thresholds 主要制造 joint rejection，不 promoted；
-- v0.6.9：path-metric resolution-response audit = efficiency 与 jump 具有相反的 resolution semantics，需要先重定义 underlying path property。
+- v0.6.9：efficiency / jump 的 resolution semantics 相反，禁止简单 threshold remap；
+- v0.6.10：threshold-free roughness / hidden variation / concentration / origin-ensemble property audit = **origin ensemble 明显削弱 jump 的 bar-origin aliasing，但 fine roughness 仍对 published leg endpoint 轻微错位敏感**。
 
-## v0.6.9 正式证据
+## v0.6.10 正式证据
 
 结果前：
-- `docs/research/two_wave_path_metric_resolution_response_preanalysis_v069.md`
-- `docs/research/two_wave_path_metric_resolution_response_protocol_v069.md`
+- `docs/research/two_wave_path_property_redefinition_preanalysis_v0610.md`
+- `docs/research/two_wave_path_property_redefinition_protocol_v0610.md`
 
 正式结果：
-- `docs/research/two_wave_path_metric_resolution_response_results_v069.md`
-- `cloud_results/cloud_chat_v069_path_metric_resolution_response/summary.json`
-- `cloud_results/cloud_chat_v069_path_metric_resolution_response/per_view_response.json`
-- `cloud_results/cloud_chat_v069_path_metric_resolution_response/threshold_crossings.json`
-- `cloud_results/cloud_chat_v069_path_metric_resolution_response/identity_reason_transitions.json`
-- `cloud_results/cloud_chat_v069_path_metric_resolution_response/duration_overlay.json`
-- `cloud_results/cloud_chat_v069_path_metric_resolution_response/strict_pair_overlays.json`
-- `cloud_results/cloud_chat_v069_path_metric_resolution_response/data_identity.json`
-- `cloud_results/cloud_chat_v069_path_metric_resolution_response/execution_receipt.json`
+- `docs/research/two_wave_path_property_redefinition_results_v0610.md`
+- `cloud_results/cloud_chat_v0610_path_property_redefinition/summary.json`
+- `cloud_results/cloud_chat_v0610_path_property_redefinition/per_view_property_response.json`
+- `cloud_results/cloud_chat_v0610_path_property_redefinition/cross_slicer_descriptor_differences.json`
+- `cloud_results/cloud_chat_v0610_path_property_redefinition/origin_ensemble.json`
+- `cloud_results/cloud_chat_v0610_path_property_redefinition/component_associations.json`
+- `cloud_results/cloud_chat_v0610_path_property_redefinition/strata_overlays.json`
+- `cloud_results/cloud_chat_v0610_path_property_redefinition/data_identity.json`
+- `cloud_results/cloud_chat_v0610_path_property_redefinition/execution_receipt.json`
 
-Helper blob `f7ee5dec71b2055c762f9be08fc22171b2a8b2c6`；synthetic tests 7/7 PASS；500 个真实 published identities native-path exact-equivalence 500/500 PASS。
+Helper blob `a1c3bcf5e3c51d30729bb333c0ea31a38cf0d834`；test blob `ca4d8bf0f2f281a68bd11fa2e815596a5a6af8d2`；synthetic tests 9/9 PASS。
 
-Hard controls：184,276 published identities；737,104 legs；736,826 aligned nested legs；278 non-aligned；close mismatch 0；TV theorem violation 0；efficiency theorem violation 0；29,453 strict pairs；482 both-qualified；699 qualification disagreements；80 target repaired / 24 disagreement。
+Hard controls：tuple births `38,636 / 37,176 / 37,062 / 36,937 / 36,689`；published identities `38,176 / 36,737 / 36,619 / 36,480 / 36,264`；filtered mutual-unique pairs `14,784 / 12,725 / 13,412 / 16,108`；published raw strict pairs `8,381 / 5,770 / 6,204 / 9,098 = 29,453`；v0.6.6 matrix `482 / 28,272 / 352 / 347`；target repaired `80`，其中 disagreement `24`。
 
-5m→1m aggregate：TV1/TV5 median 1.4123；E1-E5 median -0.2063；J1-J5 median -0.2505。
+737,104 published legs 中 descriptor 可用 737,070，仅 34 unavailable。Efficiency / jump algebraic identity 最大误差均 <9e-16。Numba origin-ensemble execution accelerator 与 frozen Python helper 在 100 条随机真实腿上 100/100 exact-equivalence PASS。
 
-Frozen 0.5 仅作诊断标签：efficiency leg pass→fail 214,380/737,104=29.08%；identity inefficient pass→fail 97,027/184,276=52.65%；jump leg fail→pass 258,735/737,104=35.10%；identity jump fail→pass 126,196/184,276=68.48%；flat-share 基本稳定。Duration vs jump response Spearman rho=0.8838。
+## v0.6.10 关键结论
 
-正式裁决：`metrics_have_opposed_resolution_semantics_requiring_property_redefinition`。
+在 117,805 个 strict pair-leg observations 上：
 
-执行层曾把 aggregate 24 个 target disagreements 错误分摊成 9/6/4/5；hard gate 在 interpretation 前拦截。读取 v0.6.7 正式 evidence 后恢复真实 10/7/3/4=24。Frozen protocol 未冻结错误逐-offset 数字，research math 未变。
+- native `J5` abs-diff median `0.053931`, p90 `0.220604`；
+- `fine_concentration=J1` median `0.006474`, p90 `0.059680`，86.46% pair-leg 比 native J5 更稳定；
+- `origin_jump_median` median `0.016958`, p90 `0.094801`，78.15% pair-leg 比 native J5 更稳定；
+- `origin_jump_range` 与 native-origin 对 ensemble median 的绝对误差 Spearman `0.582`；TV-origin range 对应关系 `0.617`。
+
+但是：
+
+- native roughness `-log(E5)` abs-diff median `0.021658`, p90 `0.181079`；
+- `fine_roughness=log(TV1/D)` median `0.083145`, p90 `0.392796`；63.99% pair-leg 上 fine roughness 更不稳定。
+
+所以正式裁决：
+
+`origin_ensemble_reduces_origin_aliasing_but_fine_property_remains_interval_sensitive`
+
+含义：concentration/origin-ensemble 是有结构价值的 continuous property，但 roughness 仍被 <=5m published endpoint displacement materially 影响，整个 path property 还不能 promotion，也不能开新 threshold。
+
+## Compact-evidence caveat
+
+v0.6.10 正式裁决后 runtime 曾重置；aggregate exact distributions / paired-sign counts / hard controls 均已保留。少量未在 reset 前落盘的 per-offset/stratum quantiles 没有事后猜测重建，compact files 中已明确标记。这不改变 formal adjudication，但后续如需要逐 offset quantile 作为新 hard control，应单独 replay 后再冻结。
 
 ## 下一 formal research step
 
-只允许另开 **path-property redefinition preanalysis**：研究 efficiency/jump 是否为同一 underlying path irregularity 的不同 resolution 投影，是否存在 multi-resolution / scale-normalized / threshold-free descriptor，以及 native-5m runtime 如何获得明确协变或误差界的 property。任何 replacement 必须先证明 prefix causality、harmless-slicer invariance 与 synthetic counterexamples，再讨论 threshold。
+**先只开 interval-sensitivity workstream，不与 deployable concentration proxy 混在同一实验。**
 
-Duration-geometry 保持独立 secondary workstream。不得拟合新 path thresholds、不得把 1m 直接 promoted 为 production input、不得修改 matcher/projection/publication、不得回 direction/outcome/trading。
+下一版优先研究：为什么 fine roughness 对 <=5m endpoint displacement 敏感，以及是否存在不改变 financial identity、保持 prefix causality 的 endpoint-robust / inward-erosion ensemble roughness representation。
+
+已经较稳定的 fine concentration / origin-ensemble concentration 的 native-5m deployable proxy 留作后续独立版本；避免一轮同时修改两个 property family。
+
+下一轮仍不得：
+- 拟合任何 qualification threshold；
+- 改 matcher / projection / publication；
+- 使用 direction / outcome / P&L；
+- 进入第三浪、fresh OOS、paper trading 或 production。
