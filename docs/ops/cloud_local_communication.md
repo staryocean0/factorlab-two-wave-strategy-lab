@@ -2,175 +2,190 @@
 
 > 本文按仓库 `AGENTS.md` 的云端—本地交接协议维护。当前协作协议已由用户明确启用。
 >
-> 执行优先级仍为：当前云端会话可执行 → 本地大模型 → GitHub Actions。用户已明确 Actions 当前无可用额度，因此不得为研究任务启动、重跑或用 push 试探 Actions。
+> 执行优先级：当前云端会话可执行 → 本地大模型 → GitHub Actions。当前任务不需要、也不授权用 GitHub Actions 绕过 DataHub provenance 阻断；保存本文档使用 `[skip ci]`。
 
 ---
 
-## CL-20260906-001 — 历史误交接：v0.5.2 formal six-view
+## 历史任务索引
+
+### CL-20260906-001 — v0.5.2 formal six-view
 
 **状态：SUPERSEDED / DO NOT EXECUTE**
 
-该任务曾误把历史 v0.5.2 run 当成当前断点。后续证据已闭合 v0.5.2，不得据此回退或重跑。
+历史误交接，后续证据已经闭合 v0.5.2，不得回退或重跑。
 
----
-
-## CL-20260906-002 — v0.6.0 qualified financial identity 五视图审计
+### CL-20260906-002 — v0.6.0 qualified financial identity 五视图审计
 
 **状态：COMPLETED / CLOUD REVIEWED — Route M**
 
-冻结上游：`v0.5.2 exact-ridge + v0.5.4 full-cycle qualification`。
-
-本地曾执行正式五视图 replay，云端随后验收并裁决 Route M：exclusive packing 必须永久保持 downstream，但 canonical qualified identity 自身在 harmless 5m slicing 上仍 materially unstable。
-
-关键 controls：
-
-- qualified: `734 / 691 / 691 / 721 / 746`
-- canonical: `712 / 673 / 678 / 700 / 728`
-- strict matches offset0 vs1..4: `180 / 129 / 129 / 184`
-- main unmatched: `531 / 583 / 582 / 527`
-- ambiguity: `1/1, 0/0, 1/0, 1/1`
-- v0.6.0 identity prefix: 15/15 PASS, rewrite 0
-
 正式结果：`docs/research/two_wave_qualified_identity_results_v060.md`。
 
----
+### CL-20260906-003 — v0.6.1 unmatched-identity decomposition 五视图正式审计
 
-## DATA_AVAILABILITY — 现行规则
+**状态：COMPLETED IN CLOUD / LOCAL HANDOFF CANCELLED / DO NOT EXECUTE**
 
-仓库已经跟踪全部 development parquet；“GitHub connector 不能文本预览 parquet”**不是缺数据**。
+本地任务曾因 binary transport/runtime 限制建立；用户随后把 frozen parquet 直接提供给当前 Chat，云端完成真实 replay 与复核，原 handoff 因而取消。正式结果：`docs/research/two_wave_unmatched_identity_decomposition_results_v061.md`。
 
-只有两种情况可以因执行问题 handoff：
-
-1. required repo path 实际不存在 / hash 不一致；或
-2. 当前云端会话对冻结步骤发生真实执行失败，并记录 traceback / exit code。
-
-2026-09-06 后续已证明，普通 Chat 的 shell 与 GitHub connector 是不同执行面：GitHub connector 可正常读取研究源码，但 shell 无 GitHub outbound TCP；二进制数据可由用户作为 Chat 文件输入进入当前 runtime。以后应区分“代码访问”“binary transport”“runtime dependency/内存”三个问题，不得混称为 GitHub 不可达。
+> 上述历史任务的详细旧版记录仍保存在 Git 历史中；当前文档只保留执行状态与有效入口，避免让已经闭合的旧任务遮蔽当前唯一阻断。
 
 ---
 
-## CL-20260906-003 — v0.6.1 unmatched-identity decomposition 五视图正式审计
+## DATA_AVAILABILITY / HANDOFF 现行规则
 
-### 最终状态
+仓库已跟踪的 development parquet 与外部 DataHub 产品合同是两类不同依赖：
 
-- 云端预分析：`COMPLETED`
-- 冻结协议：`COMPLETED`
-- evaluator 实现：`COMPLETED`
-- frozen implementation commit：`bda82c29103080f69f36d7848b40216088895b3a`
-- 原始 handoff：`CANCELLED — cloud execution became possible after user supplied binary data to Chat`
-- 本地执行：`NOT REQUIRED / DO NOT EXECUTE`
-- 云端真实 replay：`COMPLETED`
-- 云端 decomposition review：`COMPLETED`
-- overall morphology：`morphology_replication_not_yet_accepted`
-- operational baseline：`v0.4.3`
+- GitHub connector 不能直接把 parquet 作为 Python runtime 输入，**不等于**仓库数据不存在；
+- 但当研究正式要求一个不在当前授权面中的 authoritative 外部 repo/contract/provenance，而当前 artifact 又无法自描述该事实时，这属于真实的外部输入阻断，可以按 Protocol 1 交给本地大模型取证。
 
-### 为什么原 handoff 被取消
+任何 handoff 都不得扩大研究权限：不得下载/构造 2021+ fresh OOS，不得把 index signal data 当成可成交收益，不得绕过 morphology gate 进入 direction、third-wave、P&L、paper trading 或 production。
 
-CL-003 最初因为当前 Chat shell 无 GitHub TCP、GitHub connector 又不能把 parquet binary 放入 Python runtime，而被标记等待本地执行。
+---
 
-用户随后直接把仓库 main ZIP 上传到当前 Chat。五个 frozen native-5m parquet 因而进入当前 runtime；研究源码则直接从 GitHub frozen research commit 读取。用户指出“代码并没有丢，GitHub 研究分支仍可读”，该纠正成立。
+# CL-20260907-004 — 获取 authoritative DataHub 5m bar-support provenance
 
-因此 Protocol 2 的最高优先级“当前云端会话直接执行”重新变得可行，本地 handoff 自动撤销。**本地模型不得再执行 CL-003。**
+**状态：OPEN / LOCAL EXECUTION REQUIRED / CLOUD REVIEW PENDING**
 
-### 执行证据边界
+**云端阻断原因：** 当前 Chat 已重新枚举 linked GitHub installation；可访问面只有现有 FactorLab 相关仓库，没有 `unified_datahub` / `datahub` repository。当前 frozen 5m artifacts 的 `source_minute_count` 仍逐行为空，且没有 exact `support_start/support_end/source_row_ids`。因此云端无法从当前 surface 获得 DataHub 产品真源，也不得用 `H_end_5` 或本地 1m 重采样替代。
 
-本轮由 ChatGPT 网页 Chat 当前 cloud runtime 实际执行；没有新 GitHub Actions，也没有采用本地模型的结果。
+**对应 unblock issue：** GitHub issue #4 — `Unblock morphology research: provide authoritative DataHub 5m bar-support provenance`
 
-数据：用户上传 ZIP 中的 frozen parquet；五个 SHA256 / rows / 2015-01-05—2020-12-31 date range 全部与 `data/manifest.json` 一致；无 resample、无 2021+、fresh OOS=false。
+**云端已冻结的 intake gate：**
 
-研究代码：来自 frozen commit `bda82c29103080f69f36d7848b40216088895b3a`。历史 artifact 已含源码快照的核心文件，先以 Git blob SHA 对 frozen commit 做逐文件验证再复用；v0.6.0/v0.6.1 evaluator 直接读取 frozen commit。
+`docs/ops/datahub_bar_support_provenance_intake_protocol_20260907.md`
 
-当前 Chat 不是完整 branch checkout，且 Python 3.13 无 `pyarrow` package，所以该执行**不是整仓字节级原样重放**。只属于 runtime 的 execution bridges：
+该 gate 是 operations/provenance 验收协议，不是 v0.6.17 morphology 版本。
 
-1. read-only minimal Parquet reader for shipped flat PyArrow/ZSTD/dictionary files；
-2. 原 runner 同时持有五个 full reconstructed views 时 OOM，真实 exit `137`；之后使用 offset0 常驻、offset1..4 逐个 build/audit/save/release 的两视图 streaming orchestration；
-3. filtered-extremum survival 的全节点扫描替换为同定义的 `(level, kind, time)` 索引 + ±5m bisect；使用前原扫描 vs 索引版 100 组 random equivalence **100/100 PASS**。
+## 任务目标
 
-以上 bridge 均未提交 research source，未改变 attribution order、5m tolerance、mutual-unique relation、ridge linking、tuple-birth death certification、qualification、direction 或 outcome logic。
+请本地大模型在其能访问实际 FactorLab/DataHub 工程与数据环境的前提下，取得足以回答 **DataHub 对 `cn_a_session_wall_clock_offset_v1` 的每根 5m bar 到底使用哪些 source minutes** 的权威证据，并把证据身份、实际执行步骤和输出反馈回来。
 
-### 测试 / controls
+满足下面任一 evidence route 即可，不需要三条都做。
 
-- focused governance tests：**29/29 PASS**
-- v0.6.0 + v0.6.1 helper tests：**17/17 PASS**
-- unchanged `scripts/validate_theme_package.py`：当前 Chat 因顶层缺 `pyarrow.parquet` package 未原样 PASS；保留 runtime caveat，不得写成 PASS
-- offset0 behavioral identity checkpoint：`38,049 evaluated / 734 qualified / 404 legacy selected / 38,636 tuple births / 712 canonical`
-- streaming v0.6.1 replay：exit **0**
+### Route A — DataHub 真源合同/实现
 
-Frozen five-view controls 全部精确复现：
+取得实际项目 `unified_datahub`，记录：
 
-```text
-qualified: 734 / 691 / 691 / 721 / 746
-canonical: 712 / 673 / 678 / 700 / 728
-offset1: matches 180, ambiguity 1/1, unmatched 531/492
-offset2: matches 129, ambiguity 0/0, unmatched 583/549
-offset3: matches 129, ambiguity 1/0, unmatched 582/571
-offset4: matches 184, ambiguity 1/1, unmatched 527/543
-```
+1. repository remote / repository identity；
+2. branch/tag（如有）；
+3. exact commit SHA / immutable revision；
+4. `docs/modules/history/session-offset-bars-whitepaper.md`；
+5. 对应 bar-construction implementation；
+6. preferably matching tests/fixtures。
 
-### v0.6.1 正式 decomposition
+如果 whitepaper 本身已经完全、无歧义地定义每根 bar 的 source support，也仍应报告 implementation/test 路径是否存在；不要自行补写合同里没有的规则。
 
-四组 comparisons 共 `2,223` unmatched pair-observations：
+### Route B — provenance-rich DataHub 5m re-export
 
-| primary attribution | count | fraction |
-|---|---:|---:|
-| **post_tuple_birth_loss** | **789** | **35.49%** |
-| filtered_extremum_survival_mismatch | 496 | 22.31% |
-| qualification_survival_loss | 481 | 21.64% |
-| tuple_topology_or_death_certification_mismatch | 355 | 15.97% |
-| birth_scale_path_shift | 69 | 3.10% |
-| birth_scale_path_ambiguous | 27 | 1.21% |
-| qualified_strict_edge_nonmutual | 3 | 0.13% |
-| evaluated_identity_nonmutual | 2 | 0.09% |
-| tuple_identity_nonmutual | 1 | 0.04% |
+如果本地 DataHub 能重新导出当前研究所需 5m products，请只通过 DataHub 的正式构造逻辑执行，不要在 FactorLab/local notebook 中用 1m 重采样重新定义 5m。
 
-raw-evaluated / filtered-tuple phase mismatch 都是 0。
+每根 bar 至少需要：
 
-### 最大单项的内部定位
+- view / offset identity；
+- native bar label/end timestamp；
+- `source_minute_count`；
+- exact `support_start`；
+- exact `support_end`；
+- `data_contract`；
+- source dataset/version identity。
 
-789 个 `post_tuple_birth_loss`：
+优先同时保留：
 
-- raw projection displacement = **787**
-- projection invalid = 2
-- evaluate_pair invalid = 0
+- exact source-row IDs；和/或
+- exact source timestamps；
+- DataHub build commit；
+- export command/config/build receipt。
 
-即 **99.75%** 是：已经存在 strict-matched filtered exact-ridge tuple counterpart，但当前 `sequential_raw_close_extreme_inside_filtered_phase_bounds` 投影回 raw price 后，对应五个 raw anchors 的 financial identity displacement 超过一根 nominal 5m bar。
+### Route C — authoritative archive/copy
 
-这不授权放宽 matcher。下一步应先审计 projection identity 本身。
+如果实际 DataHub repo 无法直接授权给当前 Chat，可提供其 authoritative contract + implementation + tests 的 archive/copy，但必须记录 source revision 与文件 hash，保证它能追溯回真正项目 DataHub，而不是无来源的手工摘录。
 
-同时 `filtered_extremum_survival_mismatch + tuple_topology_or_death_certification_mismatch = 38.28%`，qualification survival 也有 21.64%，所以不能把全部 instability 宣称为一个 projection bug。
+## 本地必须回答的合同问题
 
-### 结果入口
+请从 authoritative source 中逐项回答，不要从当前 v0.6.16 的 best-fit 指标反推：
 
-正式报告：
+1. 5m support interval 在上午/下午 session 内如何定义？
+2. support 起止端点的 inclusive/exclusive 规则是什么？
+3. bar label、availability time、support_start、support_end 的精确关系是什么？
+4. 午休如何切分，是否跨午休聚合？
+5. overnight 如何处理？
+6. session-edge partial bars 如何处理/丢弃/标记？
+7. offset0 与 offset1–4 是否完全同一 support rule，还是存在分别定义？
+8. serialized timestamp 与 source support 的 authoritative timezone/clock convention 是什么？
+9. 是否能对当前 frozen development 5m rows 唯一确定 exact source support set？如果不能，具体还缺哪项 provenance？
 
-`docs/research/two_wave_unmatched_identity_decomposition_results_v061.md`
+## Frozen identity controls
 
-可审计小产物：
+如果执行 Route B，先验证数据身份，不要在 mismatch 时自动修复。
+
+当前冻结 row counts：
 
 ```text
-cloud_results/cloud_chat_v061_unmatched_identity_decomposition/summary.json
-cloud_results/cloud_chat_v061_unmatched_identity_decomposition/data_identity.json
-cloud_results/cloud_chat_v061_unmatched_identity_decomposition/execution_receipt.json
+5m_offset_0 = 70,114
+5m_offset_1 = 67,192
+5m_offset_2 = 67,192
+5m_offset_3 = 67,193
+5m_offset_4 = 67,191
 ```
 
-当前 Chat 生成过四份 full detail JSON 和 run.log；其 SHA256 已写入 execution receipt。大 detail 不重复搬入 GitHub。
+当前 frozen products 声明：
 
-### 云端裁决
+```text
+data_contract = cn_a_session_wall_clock_offset_v1
+source_kind = market_index_transaction_derived_1m
+```
 
-v0.6.1 decomposition gate 已闭合。
+如 DataHub re-export 在 rows / timestamps / OHLC / dataset_version / contract 上与 frozen products 不一致：
 
-下一 formal research step 不是 repair，而是**先冻结 raw-projection identity preanalysis/audit**，诊断同一 strict-matched filtered tuple 为什么被映射成不同 raw financial identity。
+- 不要偷偷重排、删样本、改标签或重新 resample 让它“对上”；
+- 把 mismatch 单独报告，并给出 DataHub build identity 与差异摘要；
+- 该 mismatch 需要云端另行裁决，不能自动算作 unlock。
 
-任何 replacement projection、matcher tolerance、qualification threshold、ridge linking、direction 或 trading 改动，都必须等新的结果前 protocol；v0.6.1 数字本身不授权修改。
+## 禁止事项
+
+本地任务只做 **provenance acquisition / contract verification**。不要：
+
+- 开 v0.6.17 morphology 算法；
+- 把 `H_end_5` 当 authoritative truth；
+- 从 `1m_official` 本地重采样创造 replacement 5m；
+- 删除 lunch/overnight/session-boundary legs；
+- 发明新的 concentration/support proxy；
+- 读取或优化 direction、第三浪、outcome/P&L、fresh OOS、paper trading、production。
+
+## 期望反馈
+
+请在同一 CL-20260907-004 记录下反馈，或提供一份可由用户转交给云端的小报告。至少包含：
+
+1. **实际代码/合同身份**：repo、commit、文件路径、必要 hash；
+2. **实际数据身份**（若有 re-export）：symbol/role/date range、dataset_version、view row counts；
+3. **实际执行命令/步骤与退出码**；
+4. **上述 9 个合同问题的答案**，每个答案对应 source file/code/test 证据位置；
+5. **输出位置**：contract/archive/report/provenance export 的本地路径或可访问位置；
+6. **失败/未验证项**；
+7. 若大数据留在本地，给一个 compact manifest + deterministic session-boundary sample；不要为了反馈把全部大文件无必要搬进 GitHub。
+
+## 验收条件
+
+云端收到反馈后，将按：
+
+`docs/ops/datahub_bar_support_provenance_intake_protocol_20260907.md`
+
+执行独立复核。只有 authoritative lineage + support semantics/completeness 真正通过，才会把 issue #4 视为可关闭，并进入：
+
+**results-blind session-aware information-set bounds preanalysis → frozen protocol → real replay**。
+
+本地“已经找到文件/跑完脚本”本身不等于云端已复核通过。
 
 ---
 
 ## 当前唯一有效断点
 
-读取：
+读取顺序：
 
 1. `CONTINUE_HERE.md`
-2. `docs/research/two_wave_unmatched_identity_decomposition_results_v061.md`
-3. `cloud_results/cloud_chat_v061_unmatched_identity_decomposition/summary.json`
-4. `cloud_results/cloud_chat_v061_unmatched_identity_decomposition/execution_receipt.json`
+2. `docs/research/two_wave_bar_support_semantics_results_v0616.md`
+3. `docs/ops/datahub_bar_support_provenance_acquisition_status_20260907.md`
+4. `docs/ops/datahub_bar_support_provenance_intake_protocol_20260907.md`
+5. issue #4
+6. 本文 `CL-20260907-004`
 
-**CL-001/CL-003 都不得再执行；CL-002 已闭合。新的本地任务只有未来云端出现新的真实执行阻断时才另编号。**
+当前全局状态保持：`morphology_replication_not_yet_accepted`。
