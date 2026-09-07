@@ -64,6 +64,21 @@ v0.6.16 already established that the frozen 5m products are provenance-incomplet
 
 Empirical `H_end_5` agreement remains **plausibility/falsification evidence only**. It is not promoted to a product contract.
 
+## Recheck after repository advanced to v0.6.16
+
+A second autonomous recheck was completed on 2026-09-07 after the research branch had already advanced beyond v0.6.13:
+
+- linked-installation search for `unified_datahub`: no result;
+- linked-installation search for generic `datahub`: no result;
+- owner-level enumeration for `staryocean0`: only the currently accessible FactorLab-related repositories were returned; no renamed DataHub candidate exists in the accessible owner surface;
+- public `staryocean0` repository search for `unified_datahub`: no result;
+- File Library exact-term recheck: no authoritative DataHub archive/contract/provenance-rich export found;
+- current repository issue search: no pre-existing unblock issue.
+
+The dependency has therefore been converted into tracked GitHub issue **#4 — `Unblock morphology research: provide authoritative DataHub 5m bar-support provenance`**.
+
+Issue #4 is the operational unblock surface. Closing it requires one of the minimum evidence conditions below; closing it without supplying authoritative provenance is not sufficient.
+
 ## Final acquisition status
 
 `authoritative_datahub_bar_support_evidence_unavailable_in_current_surfaces`
