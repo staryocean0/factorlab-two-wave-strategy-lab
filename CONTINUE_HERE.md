@@ -2,34 +2,23 @@
 
 当前全局状态：`morphology_replication_not_yet_accepted`；操作基线仍为 **v0.4.3**；PR #1 保持 Draft。Direction/D1/D2/PAWCT、H1/H2、第三浪、收益/P&L、fresh OOS、paper trading、production 全部继续冻结。
 
-## 已闭合关键链条
+## v0.6.13
 
-- v0.6.0–v0.6.5：financial identity 解耦、projection repair、first-valid append-only publication；
-- v0.6.6–v0.6.9：qualification instability 主要来自 path sampling / resolution semantics；
-- v0.6.10：fine concentration / origin ensemble 显著降低 jump bar-origin aliasing；fine roughness endpoint-sensitive；
-- v0.6.11：固定 25-cell inward erosion roughness ensemble materially reduces endpoint sensitivity；
-- v0.6.12：native true-range concentration 有局部改善，但不能可靠代理 fine concentration；
-- v0.6.13：Rényi/KL-to-uniform step-count normalization 显著削弱 raw max-share duration bias，但仍不能消除 native→fine cross-resolution gap。
+正式结果：`step_count_normalization_reduces_duration_bias_but_not_cross_resolution_gap`。
 
-## v0.6.13 正式证据
-
-结果前：`docs/research/two_wave_step_count_normalized_concentration_preanalysis_v0613.md`、`docs/research/two_wave_step_count_normalized_concentration_protocol_v0613.md`。
-
-正式结果：`docs/research/two_wave_step_count_normalized_concentration_results_v0613.md` 及 `cloud_results/cloud_chat_v0613_step_count_normalized_concentration/` 下 9 个 protocol-required compact files。
-
-Helper blob `21160853e418b1b05199b8735613b3ab2d2c5350`；test blob `a177c193576a739f2b5500b55a0f65b894da2761`；synthetic tests 9/9 PASS。
-
-Hard controls：publications `38,176 / 36,737 / 36,619 / 36,480 / 36,264`；published raw strict `8,381 / 5,770 / 6,204 / 9,098 = 29,453`；both-qualified `482`；qualification disagreements `699`；target repaired `80 = 56+24`；v0.6.10 oracle-comparable pair-leg universe `117,805`。
+关键 hard controls：publications `38,176 / 36,737 / 36,619 / 36,480 / 36,264`；published raw strict `8,381 / 5,770 / 6,204 / 9,098 = 29,453`；both-qualified `482`；qualification disagreements `699`；target repaired `80 = 56+24`；v0.6.10 oracle-comparable pair-leg universe `117,805`。
 
 Registered profile：`C_inf = log(n*max w)`、`C_1 = log(n)-H(w)`、`C_2 = log(n*sum(w^2))`。三者对 uniform k-fold subdivision 严格不变。
 
-Step-count bias：raw `|J5-J1|` gap vs native step-count Spearman `-0.884`；normalized `C_inf/C_1/C_2` 为 `0.174 / -0.223 / -0.036`。
+Raw `|J5-J1|` gap vs native step-count Spearman `-0.884`；normalized `C_inf/C_1/C_2` 为 `0.174 / -0.223 / -0.036`，说明纯 step-count bias 大幅下降。
 
-但 native/fine profile 仍有明显 gap：Spearman `0.714 / 0.437 / 0.514`；signed native-fine median `-0.5185 / -0.1013 / -0.1833`。
+但 native/fine profile 仍存在系统 cross-resolution gap：Spearman `0.714 / 0.437 / 0.514`；signed native-fine median `-0.5185 / -0.1013 / -0.1833`。Fine profile 跨 slicer median abs diff `0.0360 / 0.0176 / 0.0267`，native profile 为 `0.1659 / 0.0922 / 0.1293`。C1/C2 Spearman native/fine 都约 `0.98`，且 native profile availability 仅 `664,001 / 737,104` published legs。
 
-Fine profile 跨 slicer median abs diff `0.0360 / 0.0176 / 0.0267`，native profile 为 `0.1659 / 0.0922 / 0.1293`。C1/C2 Spearman native/fine 都约 `0.98`，且 native profile availability 仅 `664,001 / 737,104` published legs。
-
-正式裁决：`step_count_normalization_reduces_duration_bias_but_not_cross_resolution_gap`。
+证据入口：
+- `docs/research/two_wave_step_count_normalized_concentration_preanalysis_v0613.md`
+- `docs/research/two_wave_step_count_normalized_concentration_protocol_v0613.md`
+- `docs/research/two_wave_step_count_normalized_concentration_results_v0613.md`
+- `cloud_results/cloud_chat_v0613_step_count_normalized_concentration/`
 
 ## 下一 formal research step
 
