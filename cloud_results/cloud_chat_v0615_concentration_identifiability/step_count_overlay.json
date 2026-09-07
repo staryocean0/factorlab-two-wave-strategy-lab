@@ -1,0 +1,1 @@
+{"schema":"two_wave_fine_concentration_identifiability@0.6.15","status":"not_interpreted_due_data_consistency_failure","reason":"material data-consistency violation under frozen hidden-path model; protocol requires stop before bound tightness interpretation","formal_adjudication":"structural_bounds_fail_data_consistency_or_oracle_coverage"}
