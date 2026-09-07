@@ -37,10 +37,6 @@ def validate_source_identity(identity: Mapping[str, object]) -> None:
         if identity.get(key) != value:
             raise ValueError(f"source identity mismatch for {key}")
     date_range = identity.get("date_range")
-    if tuple(date_range) if isinstance(date_range, (list, tuple)) else date_range != EXPECTED_DATE_RANGE:
-        # The conditional expression above is intentionally not relied upon for equality;
-        # normalize explicitly below for readability and fail-closed behavior.
-        pass
     normalized_range = tuple(date_range) if isinstance(date_range, (list, tuple)) else None
     if normalized_range != EXPECTED_DATE_RANGE:
         raise ValueError("source identity mismatch for date_range")
