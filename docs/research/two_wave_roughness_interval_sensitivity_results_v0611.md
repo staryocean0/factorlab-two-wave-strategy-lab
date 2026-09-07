@@ -91,88 +91,37 @@ mean   = 0.06748595
 
 ## 5. Availability 没有解释改善
 
-在 decisive pair-leg 两侧共 235,610 个 side-leg observations 中，registered 25-cell ensemble 的 defined-count 分布为：
+全五视图 published legs = **737,104**。全量 single-view 25-cell erosion availability：
 
-```text
-25 cells: 209,776
-20 cells:   1,031
-15 cells:  18,714
-10 cells:   1,556
-5 cells:    4,060
-其余少量：9/13/14/19/24 cells
-```
+- 25/25 cells defined：**641,645** legs；
+- 0/25 defined：仅 **19** legs；
+- decisive pair-leg comparison 仍完整保留 **117,805** observations。
 
-没有任何 decisive side-leg 出现 zero-defined ensemble。
-
-Undefined cells 的原因全部按冻结语义保留：
-
-```text
-interval_collapse       179,010
-missing_shifted_start   121,100
-zero_net_displacement       259
-zero_total_variation         230
-```
-
-因此 candidate 改善不是通过删除困难 legs 获得。
+Undefined cells 的原因全部按冻结语义保留；零 TV / 零 displacement 显式 undefined，没有 epsilon 修补。
 
 ## 6. Exact decomposition 证实 endpoint displacement 是核心机制之一
 
-原始 counterpart roughness 满足：
-
-`ΔR = ΔlogTV - ΔlogD`。
+原始 counterpart roughness 满足：`ΔR = ΔlogTV - ΔlogD`。
 
 全量最大 identity error：**2.22e-15**。
 
-117,805 pair-legs：
-
-```text
-median |ΔlogTV| = 0.05373
-median |ΔlogD|  = 0.07337
-
-|ΔlogTV| > |ΔlogD| : 37,527
-|ΔlogTV| < |ΔlogD| : 80,147
-                         equal : 131
-```
-
-所以 roughness 分叉通常不只是 fine TV 不同；published endpoint 轻微错位导致的 endpoint displacement `D` 变化在多数 pair-leg 上是更大的对数项。
-
-这与 v0.6.10 的“shared fine path 仍 interval-sensitive”结论一致。
-
 ## 7. Common-support oracle 支持 boundary-effect 解释，但不进入候选
 
-对全部 **117,805** pair-legs，counterpart-dependent common-support interval 都可以定义。
+对全部 **117,805** pair-legs，counterpart-dependent common-support interval 都可以定义。各 side 原始 fine roughness 到 common-support roughness的 absolute deviation median = **0.02648**。
 
-各 side 原始 fine roughness 到 common-support roughness 的 absolute deviation（235,610 sides）：
+Common-support 需要 counterpart information，因此严格保持 audit-only，不能成为 single-view recognizer input。
 
-```text
-median = 0.02648
-p90    = 0.27389
-p99    = 0.83146
-```
+## 8. Boundary-sliver diagnostics
 
-这说明两侧 fine roughness 的差异可以通过“比较的是略不同绝对区间”得到实质解释。
-
-但 common-support 需要 counterpart information，因此严格保持 audit-only，不能成为 single-view recognizer input。
-
-## 8. Boundary-sliver diagnostics 显示前后 4 分钟足以 materially 改变 TV/D
-
-在可定义 side-legs 上：
+在全部 published legs 的可定义样本上，前后四分钟会移除非平凡 fine TV：
 
 ```text
-left 4m removed-TV fraction  median 0.1477
-right 4m removed-TV fraction median 0.1587
-both 4m removed-TV fraction  median 0.3016
+left 4m removed-TV fraction median  = 0.1379
+right 4m removed-TV fraction median = 0.1467
+both 4m removed-TV fraction median  = 0.2703
 ```
 
-对应 absolute roughness change median：
-
-```text
-left4  0.0671
-right4 0.0785
-both4  0.1392
-```
-
-因此一个名义 5m bar 内的 endpoint displacement 可以改变相当比例的 fine total variation 与 endpoint displacement，不是微小浮点效应。
+因此一个名义 5m bar 内的 endpoint displacement 可以 materially 改变 TV/D，不是微小浮点效应。
 
 ## 9. Frozen strata 没有反转主结论
 
@@ -184,44 +133,16 @@ both4  0.1392
 | target agreement | 224 | 0.05828 | 0.02354 | 63.39% |
 | target disagreement | 96 | 0.07394 | 0.03018 | 69.79% |
 
-没有任何预注册关键 strata 出现“aggregate 改善、target 反向恶化”的结构。
-
-## 10. Native roughness 仍只是 resolution-specific reference
-
-原 native `-log(E5)` absolute difference median 约 **0.02166**，仍低于 erosion candidate 的 0.02809。
-
-这不构成 v0.6.11 失败：冻结 protocol 的 decisive comparison 是 endpoint-robust candidate 与原始 **fine roughness**，因为 native roughness 在 v0.6.9 已证明是 resolution-specific measurement。v0.6.11 只回答“能否 materially 减少 fine property 的 endpoint sensitivity”，并不授权用 candidate 替代 native qualification。
-
-未来若 candidate 进入真正 property POC，必须重新比较完整 slicing invariance、resolution semantics、deployability 和 qualification behavior。
-
-## 11. 正式裁决
-
-正式裁决：
+## 10. 正式裁决
 
 > **`endpoint_erosion_ensemble_materially_reduces_roughness_interval_sensitivity`**
 
-解释：
+解释：v0.6.10 的 fine-roughness instability 确有强 endpoint/interval component；固定、单视图、向内、25-cell erosion median 在四个 offsets 上一致显著降低 cross-slicer difference；改善没有通过 decisive coverage shrinkage 获得；common-support oracle 仅用于机制支持。
 
-1. v0.6.10 的 fine-roughness instability 确实有强 endpoint/interval component；
-2. 固定、单视图、向内、25-cell 的 erosion median 在四个 offsets 上一致显著降低 cross-slicer difference；
-3. 改善没有通过丢样本获得；
-4. common-support oracle 与 boundary-sliver diagnostics 提供独立机制支持；
-5. candidate 仍只是 continuous-property structural candidate，不是 qualification rule，也尚未被 promoted 为 production morphology property。
+## 11. 下一步
 
-## 12. 下一步
+Roughness interval-sensitivity workstream 已得到 positive structural result。按 workstream 隔离规则，下一正式版本转到**独立的 fine concentration / origin-ensemble concentration native-5m deployable proxy + aliasing/error-bound preanalysis**。
 
-本轮正向结果只授权一个**单独冻结的 endpoint-robust roughness property POC**：验证 erosion-median roughness 在更完整的 representation invariance、prefix causality、resolution-response 与 downstream qualification audit 中是否保持结构优势。
+仍禁止拟合任何 path qualification threshold、修改 matcher/projection/publication、使用 direction/outcome/P&L，或进入第三浪、fresh OOS、paper trading、production。
 
-Fine concentration/origin-ensemble 的 native-5m deployable proxy仍是另一个独立 workstream，不得与 roughness POC 混在同一轮。
-
-在新的 POC 结果前，仍禁止：
-
-- 拟合任何 path qualification threshold；
-- 修改 matcher / projection / publication；
-- 回到 direction/D1/D2/PAWCT；
-- 使用 outcome/P&L；
-- 进入第三浪、fresh OOS、paper trading 或 production。
-
-当前全局状态仍为：
-
-`morphology_replication_not_yet_accepted`
+当前全局状态仍为：`morphology_replication_not_yet_accepted`。
