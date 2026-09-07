@@ -1,62 +1,75 @@
-# 两浪研究继续入口：v0.6.15 identifiability bound audit 被 data-consistency gate 拦截（2026-09-07）
+# 两浪研究继续入口：v0.6.16 bar-support semantics audit 已闭合（2026-09-07）
 
 当前全局状态：`morphology_replication_not_yet_accepted`；操作基线仍为 **v0.4.3**；PR #1 保持 Draft。Direction/D1/D2/PAWCT、第三浪、收益/P&L、fresh OOS、paper trading、production 全部继续冻结。
 
 ## 最近闭合链条
 
-- v0.6.13：Rényi/KL-to-uniform step-count normalization 显著削弱 raw-J duration bias，但 native→fine concentration gap 仍 materially 存在；裁决 `step_count_normalization_reduces_duration_bias_but_not_cross_resolution_gap`。
-- v0.6.14：native close-only deterministic coarsening response 跨 slicer 较稳定，但几乎不追踪真实 fine-refinement uncertainty；裁决 `native_multiscale_response_is_stable_but_not_informative_of_fine_refinement`。
-- v0.6.15：首次停止 point-estimate proxy，改做 native-5m OHLC 对 hidden 1m concentration 的保证型 structural bounds；但 frozen hidden-path information-set assumption 在 offset session boundaries 上发生 material data-consistency failure，因此 tightness 未被解释。
+- v0.6.13：step-count normalization 显著削弱 raw-J duration bias，但 native→fine concentration gap 仍 materially 存在；
+- v0.6.14：native close-only coarsening response 较稳定但不追踪 hidden fine refinement；
+- v0.6.15：native-OHLC structural bounds 的 hidden-path model 被 session/data-consistency gate 拦截；
+- v0.6.16：先审计 native 5m bar-support contract，而不是继续猜 session-aware bounds。
 
-## v0.6.15 正式证据
+## v0.6.16 正式结果
 
 结果前：
-- `docs/research/two_wave_fine_concentration_identifiability_preanalysis_v0615.md`
-- `docs/research/two_wave_fine_concentration_identifiability_protocol_v0615.md`
+- `docs/research/two_wave_bar_support_semantics_preanalysis_v0616.md`
+- `docs/research/two_wave_bar_support_semantics_protocol_v0616.md`
 
 正式结果：
-- `docs/research/two_wave_fine_concentration_identifiability_results_v0615.md`
-- `cloud_results/cloud_chat_v0615_concentration_identifiability/` 下 8 个 protocol-required compact files
-
-Helper blob `03a534f072e7cd11753e7bbf54dc6333995cb9cb`；test blob `53ce8c4d6b3612e6655410b3ffd43cba2853b3a9`；synthetic tests **8/8 PASS**。
-
-Hard controls：publications `38,176 / 36,737 / 36,619 / 36,480 / 36,264`；strict pairs `29,453`；both-qualified `482`；qualification disagreements `699`；target repaired `80=56+24`；fine profile defined `737,070`；oracle-comparable pair-legs `117,805`。
-
-## v0.6.15 data-consistency failure
-
-Frozen model 假设每个相邻 native close transition 都对应恰好五个 hidden supplied-1m close increments，并且 hidden minute closes 受当前 native bar `[low,high]` 包络。
-
-真实 offset1–4 在午休/隔夜边界会系统出现 `fine index difference = 10`：offset slicer 为维持 origin 会丢弃 session 边界 partial bars，所以相邻 native closes 之间并不总是一个完整 5m bar的信息集。
-
-Published legs 至少包含一个违反 frozen model 的 transition：
-
-```text
-offset0    335 / 152,704 = 0.22%
-offset1 50,729 / 146,948 = 34.52%
-offset2 50,761 / 146,476 = 34.65%
-offset3 50,691 / 145,920 = 34.74%
-offset4 50,630 / 145,056 = 34.90%
-```
-
-在冻结的 117,805 oracle-comparable strict pair-leg 中，**35,905 = 30.48%** 至少一侧违反该 information-set assumption。
-
-因此按 frozen protocol，tightness / coverage interpretation 在此停止；没有删除 session-boundary legs 后继续，也没有经验缩窄 bounds。
+- `docs/research/two_wave_bar_support_semantics_results_v0616.md`
+- `cloud_results/cloud_chat_v0616_bar_support_semantics/` 下 7 个 protocol-required compact files
 
 正式裁决：
 
-> **`structural_bounds_fail_data_consistency_or_oracle_coverage`**
+> **`bar_support_contract_not_recoverable_from_available_artifacts`**
 
-这里首先是 information-set / data-clock model failure，不是 synthetic outer-bound 数学被推翻。
+### 权威来源链
 
-## 下一 formal research step
+FactorLab 明确声明 wall-clock bars 由 **DataHub** 构造，`session_offset_defaults.py` 只选择 clocks/menu，不拥有 bar construction。FactorLab 白皮书又把产品真源指向：
 
-只允许 results-blind **session-aware native information-set / structural-bounds preanalysis**。
+`../../unified_datahub/docs/modules/history/session-offset-bars-whitepaper.md`
 
-下一版必须显式区分：
+但当前 linked GitHub installation 不包含项目 `unified_datahub` repository；没有用无关公共同名仓库替代。
 
-1. complete native 5m bars；
-2. offset slicer 丢弃的 session-boundary partial-bar trading minutes；
-3. 午休 / 隔夜 gap transition；
-4. 每一段真正可用的 native OHLC envelope 与 hidden fine-step count。
+### Frozen artifact provenance 不完整
 
-不得通过删除边界 legs、改变 same-event matcher、经验 shrink bounds 或回到 point-estimate proxy 来绕过 v0.6.15 failure。只有 session-aware information-set model 先通过 data-consistency / oracle-coverage gates，才允许再次讨论 identifiability/tightness。
+五个 5m 产品都声明：
+
+```text
+data_contract = cn_a_session_wall_clock_offset_v1
+source_kind = market_index_transaction_derived_1m
+```
+
+但 `source_minute_count` 逐行全 null：
+
+```text
+offset0 0 / 70,114 non-null
+offset1 0 / 67,192
+offset2 0 / 67,192
+offset3 0 / 67,193
+offset4 0 / 67,191
+```
+
+导出 schema 也没有 `support_start/support_end/source_row_ids` 等逐 bar support provenance。
+
+### Fixed hypotheses 只做 falsification
+
+`H_end_5`（五个 official 1m labels ending at native label）在五个 views 上 native close **100% 等于候选最后 1m close**；all candidate closes inside native `[low,high]` 也 >99.98%。`H_start_5` 明显被证伪。
+
+但 frozen protocol 禁止把 best-fit relation 当成 DataHub product contract，因此 H_end_5 只记录为 strong plausibility，不得据此修 v0.6.15 guarantee-style bounds。
+
+Offset1–4 相邻 native labels 仍系统包含约 `2,920–2,921` 个 fine-index gap=10 transitions，几乎全部是 lunch/overnight session boundaries；这说明“相邻 native close = 一个 5m source bucket”不能普遍成立。
+
+## 下一 formal action
+
+在继续 deterministic structural bounds 前，必须先取得**权威 bar-support provenance**，至少满足其一：
+
+1. 获取项目 DataHub `session-offset-bars` product contract / implementation；或
+2. 由 DataHub 重导出 provenance-rich bars，每根 bar 至少带：
+   - `source_minute_count`
+   - exact `support_start/support_end`
+   - 最好再带 source-row IDs / source timestamps。
+
+未经该证据，不允许本地按 H_end_5 重采样或冻结 support，也不允许删除 session-boundary legs 后继续 bounds。
+
+当前研究数学在这里进入**数据合同依赖点**，不是再造一个 proxy 的问题。
