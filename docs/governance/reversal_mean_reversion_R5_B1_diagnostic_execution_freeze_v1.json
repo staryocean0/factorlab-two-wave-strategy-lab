@@ -1,0 +1,54 @@
+{
+  "schema_id": "factorlab_broad_rmr_R5_B1_diagnostic_execution_freeze@1.0",
+  "session_date": "2026-09-08",
+  "diagnostic_identity": "R5_B1_stability_shape_diagnostic_v1",
+  "parent_identity": "R5_multiscale_serial_dependence_state_v1",
+  "freeze_parent_commit": "be1fe6b61db63dfc46beaebb9ff917dc54ab3fb0",
+  "frozen_artifacts": {
+    "preanalysis": {
+      "path": "docs/research/reversal_mean_reversion_R5_B1_stability_diagnostic_preanalysis_20260908.md",
+      "blob_sha": "6407af17c2815685677cd261deebe1606d340cd3"
+    },
+    "protocol": {
+      "path": "docs/governance/reversal_mean_reversion_R5_B1_stability_diagnostic_protocol_v1.json",
+      "blob_sha": "34ae31a18a3e470f6374d1490a0826c98cd46bc1"
+    },
+    "runner": {
+      "path": "scripts/diagnose_broad_rmr_R5_B1_stability_shape.py",
+      "blob_sha": "a5f1f4dea7fb46a6d42c7d91f3404b1ec8022f28"
+    },
+    "tests": {
+      "path": "tests/unit/test_broad_rmr_R5_B1_stability_shape.py",
+      "blob_sha": "221d08e87894b2947848259af4f1b5d31b41f000"
+    }
+  },
+  "parent_CL007": {
+    "local_feedback_commit": "abf95c1c0dacfee487bf2c6ecaa920c697cbfaec",
+    "cloud_review": "docs/research/reversal_mean_reversion_R5_multiscale_serial_dependence_cloud_review_20260908.md",
+    "accepted_parent_adjudication": "R5_partial_support_keep_researching_on_TRAIN_VALIDATION",
+    "B1_validation_MSE_B0": 1.011653266505294,
+    "B1_validation_MSE_B1": 1.0101116108135515,
+    "B1_interaction_coefficient": -1.069228621037033
+  },
+  "source_identity": {
+    "path": "data/development/5m_offset_0.parquet",
+    "sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48",
+    "rows_expected": 70114,
+    "instrument": "000852.SH",
+    "maximum_day": "2020-12-31"
+  },
+  "required_test_command": "pytest -q tests/unit/test_broad_rmr_R5_B1_stability_shape.py",
+  "expected_test_count": 4,
+  "required_run_command": "python scripts/diagnose_broad_rmr_R5_B1_stability_shape.py --output docs/research/local_broad_rmr_R5_B1_stability_shape_diagnostic_receipt_v1.json",
+  "required_receipt": "docs/research/local_broad_rmr_R5_B1_stability_shape_diagnostic_receipt_v1.json",
+  "data_policy": {
+    "TRAIN_reusable": true,
+    "VALIDATION_reusable_and_diagnosable": true,
+    "BLACKBOX_assigned": false,
+    "BLACKBOX_read_authorized": false,
+    "post_2020_read_authorized": false,
+    "fresh_OOS_claim_authorized": false
+  },
+  "github_actions_authorized": false,
+  "production_authority": false
+}
