@@ -1,0 +1,19 @@
+{
+  "schema_id": "factorlab_broad_rmr_stage1_partition_censor@1.0",
+  "session_date": "2026-09-08",
+  "program_identity": "broad_reversal_mean_reversion_discovery_program_v1",
+  "stage": "results_blind_evidence_partition_censor_freeze",
+  "applies_to": ["R1_cross_scale_pullback_stage1_v1","R2_range_boundary_reversion_stage1_v1","R3_structural_exhaustion_transition_stage1_v1"],
+  "rule": "first_passage_outcome_must_censor_at_the_last_bar_of_the_event_calendar_year_even_if_the_structural_or_96_bar_horizon_extends_further",
+  "BUILD": {
+    "event_years": [2015,2016,2017,2018],
+    "no_outcome_row_from_2019_or_later_may_label_BUILD_event": true
+  },
+  "CHECK": {
+    "2019_event_outcomes_must_not_use_2020_rows": true,
+    "2020_event_outcomes_must_not_use_post_2020_rows": true
+  },
+  "reason": "prevent_evidence_role_bleed_across_build_and_chronological_check_and_keep_annual_stability_metrics_year_local",
+  "future_price_outcomes_read_for_rule_design": false,
+  "production_authority": false
+}
