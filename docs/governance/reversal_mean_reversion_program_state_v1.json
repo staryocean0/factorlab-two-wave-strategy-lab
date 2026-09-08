@@ -1,0 +1,48 @@
+{
+  "schema_id": "factorlab_broad_reversal_mean_reversion_program_state@1.0",
+  "session_date": "2026-09-08",
+  "program_identity": "broad_reversal_mean_reversion_discovery_program_v1",
+  "current_status": "authority_reset_in_progress_then_M0_preserved_and_R1_R2_R3_shallow_preanalysis",
+  "active_branch": "codex/two-wave-phase1-20260905",
+  "repository_wide_mainline": "broad_reversal_mean_reversion_mechanism_discovery",
+  "M0_two_wave_foundation": {
+    "status": "advanced_measurement_research_preserved",
+    "current_frontier": "v0617_authoritative_source_formal_replay_pending",
+    "morphology_replication_status": "not_yet_accepted",
+    "formal_replay_task": "CL-20260908-005",
+    "blocks_R1_R2_R3_results_blind_preanalysis": false,
+    "blocks_morphology_dependent_strategy_claims": true
+  },
+  "active_primary_lanes": [
+    "R1_cross_scale_pullback",
+    "R2_range_boundary_reversion",
+    "R3_structural_exhaustion_transition"
+  ],
+  "secondary_lanes": [
+    "R4_statistical_state_extremes",
+    "R5_relative_value_or_overnight_delegated"
+  ],
+  "stage": "stage0_authority_reset_and_stage1_parallel_shallow_design",
+  "deep_strategy_optimization_authorized": false,
+  "single_lane_full_backtest_authorized": false,
+  "third_wave_hypothesis_authorized_repository_wide": false,
+  "trading_PnL_authorized": false,
+  "production_authority": false,
+  "next_actions_in_order": [
+    "rewrite_repository_entry_authority_to_broad_program",
+    "freeze_common_scale_parent_state_deviation_recovery_vocabulary_using_two_wave_language_as_measurement_not_strategy",
+    "write_bounded_results_blind_preanalysis_for_R1_R2_R3",
+    "inventory_existing_2015_2020_data_and_existing_causal_two_wave_outputs_for_comparable_shallow_screen",
+    "execute_equal_budget_low_capacity_probes_without_claiming_fresh_OOS",
+    "compare_lanes_before_any_deep_promotion",
+    "continue_v0617_formal_replay_in_parallel_for_M0_identity_when_local_authoritative_source_execution_returns"
+  ],
+  "lane_budget_rule": "do_not_spend_many_iterations_on_one_lane_while_other_primary_lanes_have_not_received_comparable_shallow_probe",
+  "legacy_or_specialist_next_action_rule": "an_unfinished_M0_or_other_specialist_next_action_does_not_control_repository_wide_direction_unless_explicitly_promoted_by_program_state",
+  "authority_files": [
+    "CONTINUE_HERE.md",
+    "docs/governance/reversal_mean_reversion_program_charter_v1.json",
+    "docs/governance/reversal_mean_reversion_program_state_v1.json",
+    "docs/research/reversal_mean_reversion_program_whitepaper_v1.md"
+  ]
+}
