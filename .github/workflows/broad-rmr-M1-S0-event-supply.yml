@@ -1,0 +1,63 @@
+name: broad-rmr-M1-S0-event-supply
+
+on:
+  push:
+    branches:
+      - codex/broad-reversal-authority-reset-20260908
+    paths:
+      - 'scripts/inventory_broad_rmr_M1_event_supply.py'
+      - 'tests/unit/test_broad_rmr_M1_event_supply.py'
+      - 'docs/governance/reversal_mean_reversion_M1_single_shock_event_adapter_v1.json'
+      - 'docs/governance/reversal_mean_reversion_M1_S0_supply_execution_freeze_v1.json'
+      - '.github/workflows/broad-rmr-M1-S0-event-supply.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  supply-only:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install frozen dependencies
+        run: python -m pip install pytest numpy pandas pyarrow scikit-learn
+      - name: Verify frozen blob identities
+        run: |
+          test "$(git hash-object docs/governance/reversal_mean_reversion_M1_single_shock_event_adapter_v1.json)" = "f7f979a8afb2c07f41400e94c713f6714935544f"
+          test "$(git hash-object scripts/inventory_broad_rmr_M1_event_supply.py)" = "44802028ff784f6ac3bfc0937259875a9d8cf390"
+          test "$(git hash-object tests/unit/test_broad_rmr_M1_event_supply.py)" = "47f7637e0ac937c32fbc5158b8009dd7ab6bd411"
+          test "$(git hash-object scripts/run_broad_rmr_stage1_R1_R2_R3.py)" = "f5302a448f3acd2d0c784756a8240748f41418ba"
+          test "$(git hash-object docs/governance/reversal_mean_reversion_stage1_event_adapter_v1.json)" = "a69cfb807d6b6788e9fa3d9860d4933316bdb891"
+          test "$(git hash-object docs/governance/reversal_mean_reversion_stage1_partition_censor_v1.json)" = "df50cf952b7ee3302ec202eed4851d24c94bebc3"
+          test "$(git hash-object docs/research/cloud_session_20260908_broad_rmr_stage1_scale_supply_receipt_v2.json)" = "230e9558fe40a23dcb64b82f194507e83d7e9ee7"
+      - name: Run M1 supply-only synthetic tests
+        run: python -m pytest -q tests/unit/test_broad_rmr_M1_event_supply.py
+      - name: Execute M1 supply-only inventory
+        run: python scripts/inventory_broad_rmr_M1_event_supply.py --output /tmp/M1_supply.json
+      - name: Verify no post-trigger outcome access
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path('/tmp/M1_supply.json').read_text())
+          assert x['research_role']=='event_supply_only_no_post_event_outcome'
+          assert x['post_event_outcomes_read'] is False
+          assert x['post_2020_rows_read'] is False
+          assert x['R1']['shock_fraction']==0.5
+          assert x['R2']['additional_excursion_threshold'] is None
+          assert x['scientifically_fresh'] is False
+          assert x['trading_PnL_used'] is False
+          assert x['production_authority'] is False
+          print('M1 S0 supply-only boundary preserved')
+          PY
+      - name: Upload supply-only receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: broad-rmr-M1-S0-event-supply
+          path: /tmp/M1_supply.json
+          if-no-files-found: error
