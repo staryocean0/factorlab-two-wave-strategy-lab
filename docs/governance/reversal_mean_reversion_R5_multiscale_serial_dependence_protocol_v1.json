@@ -1,0 +1,107 @@
+{
+  "schema_id": "factorlab_broad_rmr_R5_multiscale_serial_dependence_protocol@1.0",
+  "session_date": "2026-09-08",
+  "research_identity": "R5_multiscale_serial_dependence_state_v1",
+  "status": "results_blind_protocol_frozen_before_R5_execution",
+  "preanalysis": "docs/research/reversal_mean_reversion_R5_multiscale_serial_dependence_preanalysis_20260908.md",
+  "data_roles": {
+    "TRAIN": "2015-01-05..2018-12-31_reusable_research_training",
+    "VALIDATION": "2019-01-01..2020-12-31_reusable_diagnosable_validation",
+    "BLACKBOX": null,
+    "blackbox_read_authorized": false
+  },
+  "source": {
+    "instrument": "000852.SH",
+    "path": "data/development/5m_offset_0.parquet",
+    "sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48",
+    "rows_expected": 70114,
+    "maximum_day": "2020-12-31",
+    "required_columns": ["symbol", "trading_day", "close", "bar_end_shanghai"]
+  },
+  "return_contract": {
+    "return": "log_close_to_close",
+    "valid_transition": "same_trading_day_and_exactly_5_minutes_between_native_bar_ends",
+    "gap_or_session_boundary_fill": false,
+    "continuous_segment_required_for_lag_pairs": true,
+    "continuous_segment_required_for_parent_drift": true,
+    "continuous_segment_required_for_future_recovery": true
+  },
+  "causal_normalization": {
+    "volatility_history_valid_returns": 240,
+    "scale": "sqrt_mean_squared_return_no_centering",
+    "current_return_excluded_from_own_scale": true
+  },
+  "memory_state": {
+    "reference_valid_z_rows": 960,
+    "short_lags": [1, 2, 3],
+    "long_lags": [12, 13, 14, 15, 16, 17, 18],
+    "minimum_pairs_each_lag": 100,
+    "lag_pairs_must_share_continuous_segment": true,
+    "rho_definition": "mean(z_i*z_i_minus_k)/mean(z_i^2)_using_only_past_rows",
+    "short_memory": "mean_rho_lags_1_3",
+    "long_memory": "mean_rho_lags_12_18",
+    "anti_persistence": "negative_short_memory",
+    "mixed_state": "short_memory_lt_0_and_long_memory_gt_0",
+    "lag_window_search": false
+  },
+  "R5_A": {
+    "purpose": "phenomenon_and_supply_only",
+    "minimum_mixed_state_TRAIN": 500,
+    "minimum_mixed_state_VALIDATION": 200,
+    "outputs": ["counts", "fractions", "short_long_state_summary", "mixed_state_run_length_summary"],
+    "if_fail": "R5_state_supply_insufficient_and_skip_B_C"
+  },
+  "R5_B": {
+    "target": "next_z_within_same_continuous_segment",
+    "baseline_B0": ["intercept", "z_t"],
+    "candidate_B1": ["intercept", "z_t", "z_t_times_anti_persistence"],
+    "B1_direction": "coefficient_z_times_anti_persistence_lt_0",
+    "candidate_B2": ["intercept", "z_t", "z_t_times_anti_persistence", "z_t_times_long_memory", "z_t_times_anti_persistence_times_long_memory"],
+    "B2_only_if_B1_supported": true,
+    "fit": "OLS_on_TRAIN_only",
+    "primary_validation_metric": "pooled_MSE",
+    "diagnostics": ["2019_MSE", "2020_MSE", "prediction_correlation"],
+    "B1_supported": "validation_MSE_B1_lt_B0_and_TRAIN_interaction_coefficient_lt_0"
+  },
+  "R5_C": {
+    "parent_direction": "sum_previous_12_z_within_same_segment_before_current_return",
+    "shock_severity": "abs_z_t",
+    "shock_threshold": "TRAIN_80_percentile_abs_z_fixed_without_outcome",
+    "countertrend": "shock_sign_opposite_parent_drift_sign",
+    "future_horizon": "next_3_exact_5m_z_within_same_segment",
+    "target": "sign_parent_drift_times_sum_next_3_z",
+    "baseline_C0": ["intercept", "abs_z_t"],
+    "candidate_C1": ["intercept", "abs_z_t", "long_memory", "anti_persistence"],
+    "directions": {
+      "long_memory_coefficient": "gt_0",
+      "anti_persistence_coefficient": "gt_0"
+    },
+    "fit": "OLS_on_TRAIN_resolved_events_only",
+    "primary_validation_metric": "pooled_MSE",
+    "minimum_resolved_TRAIN": 150,
+    "minimum_resolved_VALIDATION": 100,
+    "per_year_minimum_is_gate": false,
+    "diagnostics": ["event_counts_by_year", "mean_recovery", "positive_recovery_fraction", "2019_MSE", "2020_MSE"],
+    "C1_supported": "supply_pass_and_validation_MSE_C1_lt_C0_and_both_TRAIN_state_coefficients_gt_0"
+  },
+  "overall_adjudication": {
+    "if_A_fails": "R5_state_supply_insufficient",
+    "if_B1_and_C1_support": "R5_multiscale_serial_dependence_supported_for_deeper_validation",
+    "if_exactly_one_of_B1_C1_supports": "R5_partial_support_keep_researching_on_TRAIN_VALIDATION",
+    "if_neither_supports": "R5_low_capacity_mechanisms_not_supported",
+    "B2_cannot_rescue_failed_B1": true
+  },
+  "forbidden": [
+    "BLACKBOX_read",
+    "post_2020_read",
+    "PnL_or_Sharpe",
+    "lag_band_search",
+    "state_window_search",
+    "volatility_window_search",
+    "shock_quantile_search",
+    "favorable_sign_year_time_filter",
+    "HMM_rSLDS_Koopman_upgrade_to_rescue_failed_low_capacity_mechanism",
+    "rewrite_historical_R1_R2_R3_R4_T1_conclusions"
+  ],
+  "production_authority": false
+}
