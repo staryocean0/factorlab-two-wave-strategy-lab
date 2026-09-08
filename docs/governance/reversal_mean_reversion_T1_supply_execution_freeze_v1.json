@@ -1,0 +1,48 @@
+{
+  "schema_id": "factorlab_broad_rmr_T1_supply_execution_freeze@1.0",
+  "session_date": "2026-09-08",
+  "research_identity": "T1_transitory_component_after_extreme_intraday_shock_v1",
+  "execution_scope": "supply_and_alignment_only_no_post_event_outcomes",
+  "frozen_artifacts": {
+    "theory_intake": {
+      "path": "docs/research/reversal_mean_reversion_round2_transitory_shock_theory_intake_20260908.md",
+      "blob_sha": "792e768ed8d7fb1808583a49f16d42b9c7438f97"
+    },
+    "supply_protocol": {
+      "path": "docs/governance/reversal_mean_reversion_T1_transitory_shock_supply_protocol_v1.json",
+      "blob_sha": "49615926077f1f2e45e08f427f745363581e2e26"
+    },
+    "runner": {
+      "path": "scripts/audit_broad_rmr_T1_transitory_shock_supply.py",
+      "blob_sha": "9bc4533dacb5914ee63b5d9d82a745694031b917"
+    },
+    "tests": {
+      "path": "tests/unit/test_broad_rmr_T1_transitory_shock_supply.py",
+      "blob_sha": "e6acd417a74e4164e77f195db739b5328b8e0542"
+    }
+  },
+  "source_identity": {
+    "five_minute_path": "data/development/5m_offset_0.parquet",
+    "five_minute_sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48",
+    "five_minute_rows_expected": 70114,
+    "one_minute_path": "data/development/1m_official.parquet",
+    "one_minute_sha256": "755217afce9dec383e48cd46d591402fa90dc50897abeb3dc7097c9a18a109d4",
+    "one_minute_rows_expected": 350561,
+    "instrument": "000852.SH",
+    "maximum_day": "2020-12-31"
+  },
+  "frozen_parameters": {
+    "reference_bars": 960,
+    "extreme_abs_robust_z": 5.0,
+    "expected_1m_support_count": 5,
+    "minimum_aligned_BUILD": 150,
+    "minimum_aligned_2019": 50,
+    "minimum_aligned_2020": 50
+  },
+  "required_test_command": "pytest -q tests/unit/test_broad_rmr_T1_transitory_shock_supply.py",
+  "required_audit_command": "python scripts/audit_broad_rmr_T1_transitory_shock_supply.py --output docs/research/local_broad_rmr_T1_transitory_shock_supply_receipt_v1.json",
+  "required_receipt": "docs/research/local_broad_rmr_T1_transitory_shock_supply_receipt_v1.json",
+  "outcome_execution_authorized": false,
+  "GitHub_Actions_authorized_for_this_task": false,
+  "production_authority": false
+}
