@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import inspect
 import itertools
 
 import numpy as np
@@ -121,6 +122,31 @@ def test_transition_topology_rejects_overlap_and_duplicates():
         validate_transition_topology(["a", "a"], [])
 
 
+def test_transition_topology_exact_partition_rejects_missing_or_unexpected_rows():
+    expected = ["2020-01-02T09:31:00Z", "2020-01-02T09:32:00Z", "2020-01-02T09:33:00Z"]
+    topo = validate_transition_topology(
+        ["2020-01-02T09:32:00Z", "2020-01-02T09:33:00Z"],
+        ["2020-01-02T09:31:00Z"],
+        expected,
+    )
+    assert topo["support_source_count"] == 2
+    assert topo["gap_source_count"] == 1
+
+    with pytest.raises(ValueError, match="not an exact source-row partition"):
+        validate_transition_topology(
+            ["2020-01-02T09:32:00Z", "2020-01-02T09:33:00Z"],
+            [],
+            expected,
+        )
+
+    with pytest.raises(ValueError, match="not an exact source-row partition"):
+        validate_transition_topology(
+            ["2020-01-02T09:32:00Z", "2020-01-02T09:33:00Z", "2020-01-02T09:34:00Z"],
+            ["2020-01-02T09:31:00Z"],
+            expected,
+        )
+
+
 def test_positive_price_scaling_preserves_dimensionless_bounds():
     args = ([10.0, 13.0, 15.0], [9.0, 8.0, 10.0], [10.0, 11.0, 14.0], [6, 5], [0, 0])
     a = session_aware_concentration_bounds(*args)
@@ -185,3 +211,16 @@ def test_closed_leg_prefix_locality_and_no_outcome_authority():
     assert "direction" not in text
     assert a["future_outcome_used"] is False
     assert a["trade_authority"] is False
+
+
+def test_bound_api_signature_excludes_forbidden_fine_or_outcome_inputs():
+    params = set(inspect.signature(session_aware_concentration_bounds).parameters)
+    assert params == {
+        "highs",
+        "lows",
+        "closes",
+        "support_source_counts",
+        "gap_source_counts",
+    }
+    forbidden = {"source_prices", "fine_prices", "oracle", "counterpart", "direction", "outcome", "pnl"}
+    assert params.isdisjoint(forbidden)
