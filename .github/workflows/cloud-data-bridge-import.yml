@@ -120,12 +120,12 @@ jobs:
 
           def canonical_source(frame: pd.DataFrame) -> pd.DataFrame:
               out = canonical_common(frame)
-              ts = pd.to_datetime(out['bar_end_shanghai'], errors='raise')
-              if ts.dt.tz is None:
-                  ts = ts.dt.tz_localize('Asia/Shanghai')
-              else:
-                  ts = ts.dt.tz_convert('Asia/Shanghai')
-              out['bar_end_shanghai'] = ts.dt.tz_convert('UTC')
+              # Source contract in factorlab-star50-filter-lab explicitly states:
+              # "source Z strings encode Shanghai wall clock; use first19 characters
+              # localised Asia/Shanghai, not UTC conversion".
+              wall = out['bar_end_shanghai'].astype(str).str.slice(0, 19)
+              ts = pd.to_datetime(wall, errors='raise').dt.tz_localize('Asia/Shanghai').dt.tz_convert('UTC')
+              out['bar_end_shanghai'] = ts
               return out.sort_values(['bar_end_shanghai', 'symbol'], kind='stable').reset_index(drop=True)
 
           def canonical_target(frame: pd.DataFrame) -> pd.DataFrame:
@@ -165,9 +165,10 @@ jobs:
               'source_ref': expected_source_commit,
               'source_commit': source_commit,
               'source_time_field': 'timestamp',
-              'source_time_semantics': 'Asia/Shanghai wall clock',
+              'source_time_semantics': 'source Z strings encode Shanghai wall clock',
+              'source_timezone_policy_origin': 'factorlab-star50-filter-lab/data/cross_index_risk_gate_v1/manifest.json',
+              'time_field_adapter': 'first19 characters parsed as Asia/Shanghai wall clock then converted to UTC for exact comparison',
               'target_time_field': 'bar_end_shanghai',
-              'time_field_adapter': 'source timestamp localized as Asia/Shanghai then converted to UTC for exact comparison',
               'source_files': source_files,
               'pooled_rows': int(len(source)),
               'R5_required_columns': ['symbol', 'trading_day', 'close', 'bar_end_shanghai'],
