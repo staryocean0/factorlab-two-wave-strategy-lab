@@ -1,0 +1,49 @@
+name: broad-rmr-stage1-cache-schema
+
+on:
+  push:
+    branches:
+      - codex/broad-reversal-authority-reset-20260908
+    paths:
+      - 'scripts/inventory_broad_rmr_stage1_cache_schema.py'
+      - 'docs/governance/reversal_mean_reversion_common_measurement_contract_v1.json'
+      - 'docs/governance/reversal_mean_reversion_stage1_screening_plan_v1.json'
+      - '.github/workflows/broad-rmr-stage1-cache-schema.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  metadata-only-inventory:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install metadata dependency
+        run: python -m pip install pyarrow
+      - name: Inventory frozen cache schemas without row reads
+        run: |
+          python scripts/inventory_broad_rmr_stage1_cache_schema.py \
+            --output /tmp/broad_rmr_stage1_cache_schema.json
+      - name: Verify results-blind boundary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x = json.loads(Path('/tmp/broad_rmr_stage1_cache_schema.json').read_text())
+          assert x['row_values_read'] is False
+          assert x['files']['published_identities_v065.parquet']['num_rows'] == 184276
+          assert x['files']['strict_pairs_v065.parquet']['num_rows'] == 29453
+          assert all(v['row_values_read'] is False for v in x['files'].values())
+          print('metadata-only inventory preserved')
+          PY
+      - name: Upload metadata-only schema receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: broad-rmr-stage1-cache-schema
+          path: /tmp/broad_rmr_stage1_cache_schema.json
+          if-no-files-found: error
