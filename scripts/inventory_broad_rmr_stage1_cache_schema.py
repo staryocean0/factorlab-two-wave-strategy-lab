@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CACHE = ROOT / "cloud_inputs/frozen_research_cache_v065_v0613"
 EXPECTED = {
     "published_identities_v065.parquet": "8596622924e92182756162b7bdf0959f6d8ddc2222d6dbc9b4e4379cada9974c",
-    "strict_pairs_v065.parquet": None,
+    "strict_pairs_v065.parquet": "8b3b9477bfb26a591566d19b8571d57dd6e2b2cbe004c38c92e857daadaf8158",
 }
 
 
@@ -42,7 +42,7 @@ def inventory(path: Path) -> dict:
             {"name": field.name, "type": str(field.type), "nullable": bool(field.nullable)}
             for field in schema
         ],
-        "metadata_keys": sorted((schema.metadata or {}).keys().__str__() for _ in []) if False else [
+        "metadata_keys": [
             k.decode("utf-8", "replace") if isinstance(k, bytes) else str(k)
             for k in sorted((schema.metadata or {}).keys())
         ],
@@ -63,12 +63,12 @@ def main() -> int:
         "row_values_read": False,
         "files": {},
     }
-    for name in EXPECTED:
+    for name, expected_sha in EXPECTED.items():
         p = cache / name
         if not p.exists():
             raise FileNotFoundError(p)
         info = inventory(p)
-        if EXPECTED[name] is not None and info["sha256"] != EXPECTED[name]:
+        if info["sha256"] != expected_sha:
             raise RuntimeError(f"SHA mismatch for {name}: {info['sha256']}")
         payload["files"][name] = info
 
