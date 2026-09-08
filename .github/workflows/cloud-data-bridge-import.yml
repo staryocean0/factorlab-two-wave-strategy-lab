@@ -96,8 +96,6 @@ jobs:
               f = pd.read_parquet(p, columns=['symbol', 'trading_day', 'close', 'timestamp'])
               if len(f) != expected_rows[year]:
                   raise SystemExit(f'{year} row mismatch: {len(f)} != {expected_rows[year]}')
-              # The cross-index catalog exposes the same bar-end information as `timestamp`.
-              # Normalize only the field name for comparison with the frozen R5 view.
               f = f.rename(columns={'timestamp': 'bar_end_shanghai'})
               years.append(f)
               source_files.append({
@@ -113,16 +111,30 @@ jobs:
           if len(source) != 70114 or len(original) != 70114:
               raise SystemExit(f'pooled row mismatch source={len(source)} target={len(original)}')
 
-          def canonical(frame: pd.DataFrame) -> pd.DataFrame:
+          def canonical_common(frame: pd.DataFrame) -> pd.DataFrame:
               out = frame.copy()
               out['symbol'] = out['symbol'].astype(str)
               out['trading_day'] = out['trading_day'].astype(str)
               out['close'] = pd.to_numeric(out['close'], errors='raise').astype('float64')
+              return out
+
+          def canonical_source(frame: pd.DataFrame) -> pd.DataFrame:
+              out = canonical_common(frame)
+              ts = pd.to_datetime(out['bar_end_shanghai'], errors='raise')
+              if ts.dt.tz is None:
+                  ts = ts.dt.tz_localize('Asia/Shanghai')
+              else:
+                  ts = ts.dt.tz_convert('Asia/Shanghai')
+              out['bar_end_shanghai'] = ts.dt.tz_convert('UTC')
+              return out.sort_values(['bar_end_shanghai', 'symbol'], kind='stable').reset_index(drop=True)
+
+          def canonical_target(frame: pd.DataFrame) -> pd.DataFrame:
+              out = canonical_common(frame)
               out['bar_end_shanghai'] = pd.to_datetime(out['bar_end_shanghai'], errors='raise', utc=True)
               return out.sort_values(['bar_end_shanghai', 'symbol'], kind='stable').reset_index(drop=True)
 
-          a = canonical(source)
-          b = canonical(original)
+          a = canonical_source(source)
+          b = canonical_target(original)
           checks = {
               'symbol_exact': bool(np.array_equal(a['symbol'].to_numpy(), b['symbol'].to_numpy())),
               'trading_day_exact': bool(np.array_equal(a['trading_day'].to_numpy(), b['trading_day'].to_numpy())),
@@ -131,10 +143,10 @@ jobs:
           }
           if not all(checks.values()):
               sample = {
-                  'source_first_timestamp': str(a['bar_end_shanghai'].iloc[0]),
-                  'target_first_timestamp': str(b['bar_end_shanghai'].iloc[0]),
-                  'source_last_timestamp': str(a['bar_end_shanghai'].iloc[-1]),
-                  'target_last_timestamp': str(b['bar_end_shanghai'].iloc[-1]),
+                  'source_first_timestamp_utc': str(a['bar_end_shanghai'].iloc[0]),
+                  'target_first_timestamp_utc': str(b['bar_end_shanghai'].iloc[0]),
+                  'source_last_timestamp_utc': str(a['bar_end_shanghai'].iloc[-1]),
+                  'target_last_timestamp_utc': str(b['bar_end_shanghai'].iloc[-1]),
               }
               raise SystemExit(f'R5 required-column equivalence failed: {checks}; timestamp_sample={sample}')
 
@@ -153,8 +165,9 @@ jobs:
               'source_ref': expected_source_commit,
               'source_commit': source_commit,
               'source_time_field': 'timestamp',
+              'source_time_semantics': 'Asia/Shanghai wall clock',
               'target_time_field': 'bar_end_shanghai',
-              'time_field_adapter': 'rename_only_then_parse_utc_for_exact_comparison',
+              'time_field_adapter': 'source timestamp localized as Asia/Shanghai then converted to UTC for exact comparison',
               'source_files': source_files,
               'pooled_rows': int(len(source)),
               'R5_required_columns': ['symbol', 'trading_day', 'close', 'bar_end_shanghai'],
