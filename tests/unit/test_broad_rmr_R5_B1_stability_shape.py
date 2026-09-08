@@ -69,9 +69,13 @@ def _shape_frame(years: np.ndarray, anti: np.ndarray) -> pd.DataFrame:
 def test_D2_detects_decreasing_empirical_slope_shape() -> None:
     anti_train = np.linspace(-0.5, 1.0, 2000)
     train = _shape_frame(np.full(2000, 2018), anti_train)
-    anti_val = np.linspace(-0.5, 1.0, 2000)
+
+    # Each validation year independently spans the complete TRAIN anti range.
+    anti_one_year = np.linspace(-0.5, 1.0, 1000)
+    anti_val = np.concatenate([anti_one_year, anti_one_year])
     years = np.array([2019] * 1000 + [2020] * 1000)
     validation = _shape_frame(years, anti_val)
+
     result = diag.evaluate_D2(train, validation)
     assert result["D2_shape_supported"] is True
     assert result["VALIDATION"]["shape_trend"] < 0.0
