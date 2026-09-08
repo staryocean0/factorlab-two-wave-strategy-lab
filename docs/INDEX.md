@@ -9,47 +9,58 @@
 5. `docs/research/reversal_mean_reversion_program_whitepaper_v2.md`
 6. `AGENTS.md`
 
-## Current data roles
+## Data roles
 
 - TRAIN: 2015-01-05..2018-12-31 — reusable research/training corpus.
-- VALIDATION: 2019-01-01..2020-12-31 — reusable, diagnosable validation corpus.
+- VALIDATION: 2019-01-01..2020-12-31 — reusable and diagnosable validation corpus.
 - BLACKBOX: none currently assigned.
 
 Data is reusable; only never-seen BLACKBOX qualification is consumable.
 
-## Active broad research
+## Current broad research — R5
 
-### R5 — multiscale serial dependence
+### Parent R5 execution
 
 Identity: `R5_multiscale_serial_dependence_state_v1`
 
-- preanalysis: `docs/research/reversal_mean_reversion_R5_multiscale_serial_dependence_preanalysis_20260908.md`
-- protocol: `docs/governance/reversal_mean_reversion_R5_multiscale_serial_dependence_protocol_v1.json`
-- execution freeze: `docs/governance/reversal_mean_reversion_R5_execution_freeze_v1.json`
-- runner: `scripts/run_broad_rmr_R5_multiscale_serial_dependence.py`
-- tests: `tests/unit/test_broad_rmr_R5_multiscale_serial_dependence.py`
-- local task: `CL-20260908-007`
-- handoff: `docs/ops/cl_20260908_007_R5_multiscale_serial_dependence_handoff.md`
-- expected receipt: `docs/research/local_broad_rmr_R5_multiscale_serial_dependence_receipt_v1.json`
+- CL-007 local feedback: `abf95c1c0dacfee487bf2c6ecaa920c697cbfaec`
+- cloud review: `docs/research/reversal_mean_reversion_R5_multiscale_serial_dependence_cloud_review_20260908.md`
+- adjudication: `R5_partial_support_keep_researching_on_TRAIN_VALIDATION`
 
-R5 uses TRAIN and VALIDATION only. No BLACKBOX / fresh-OOS / PnL authority.
+Key status:
+
+- R5-A: supply pass, but discrete mixed-state prevalence shifts materially between TRAIN and VALIDATION.
+- R5-B1: small, direction-correct, 2019/2020-consistent MSE increment; one bounded diagnostic authorized.
+- R5-B2: more complex slow-memory upgrade not promoted.
+- R5-C: current low-capacity counter-trend 15m recovery mechanism not supported.
+
+### Active R5-B1 diagnostic
+
+Identity: `R5_B1_stability_shape_diagnostic_v1`
+
+- preanalysis: `docs/research/reversal_mean_reversion_R5_B1_stability_diagnostic_preanalysis_20260908.md`
+- protocol: `docs/governance/reversal_mean_reversion_R5_B1_stability_diagnostic_protocol_v1.json`
+- execution freeze: `docs/governance/reversal_mean_reversion_R5_B1_diagnostic_execution_freeze_v1.json`
+- runner: `scripts/diagnose_broad_rmr_R5_B1_stability_shape.py`
+- tests: `tests/unit/test_broad_rmr_R5_B1_stability_shape.py`
+- local task: `CL-20260908-008`
+- handoff: `docs/ops/cl_20260908_008_R5_B1_stability_shape_diagnostic_handoff.md`
+- expected receipt: `docs/research/local_broad_rmr_R5_B1_stability_shape_diagnostic_receipt_v1.json`
+
+Only D1(day breadth) + D2(mechanism shape) both supported can authorize specialist research. No BLACKBOX / HMM / rSLDS / Koopman / PnL authority.
 
 ## M0 measurement foundation
 
-- M0 role: `M0_two_wave_structure_measurement_foundation`
+- role: `M0_two_wave_structure_measurement_foundation`
 - operational baseline: v0.4.3
 - morphology: `morphology_replication_not_yet_accepted`
 - CL-005 v0.6.17: cloud-reviewed completed
 - accepted capability: interval-valued session-aware path-information bounds
-- cloud review: `docs/research/two_wave_session_aware_information_set_bounds_cloud_review_20260908.md`
-- capability admission: `docs/governance/reversal_mean_reversion_v0617_measurement_capability_admission_v1.json`
 
 ## Historical broad evidence
 
-- R1 cross-scale pullback: historical identity unresolved, not rejected; research may continue under reusable TRAIN/VALIDATION.
-- R2 range-boundary M1: historical low-capacity identity closed.
-- R3 structural exhaustion v1: historical preregistered direction falsified.
-- R4 statistical-state extremes v1: historical candidates did not qualify.
-- T1 5-sigma/960-bar transitory-shock identity: historical supply-gate close before outcome; CL-006 cloud-reviewed.
-
-Historical receipts and adjudications remain authoritative for their exact identities; they do not make the underlying data unusable.
+- R1 historical identity: unresolved, not rejected; new research may continue on TRAIN/VALIDATION.
+- R2 historical M1: closed.
+- R3 historical v1: preregistered direction falsified.
+- R4 historical v1: no candidate qualified.
+- T1 historical 5-sigma/960-bar identity: closed before outcome on its historical gate.
