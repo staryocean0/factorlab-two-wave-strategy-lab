@@ -1,0 +1,42 @@
+{
+  "schema_id": "factorlab_broad_rmr_stage1_scale_supply_receipt@2.0",
+  "session_date": "2026-09-08",
+  "program_identity": "broad_reversal_mean_reversion_discovery_program_v1",
+  "execution_location": "GitHub_Actions_after_direct_cloud_clone_DNS_failure_and_no_direct_local_model_tool",
+  "github_actions_run_id": 34188178251,
+  "head_sha": "5187347c6360e83f3b9f4aa2ddb6484c32e867b2",
+  "workflow_conclusion": "success",
+  "artifact_id": 10041241737,
+  "artifact_digest": "sha256:b8c5435589848ac9b1b27c7304b1a4986e52f4290e20416d15f8fc5569c24607",
+  "research_role": "structural_supply_only_results_blind",
+  "OHLC_or_price_values_read": false,
+  "future_price_outcomes_read": false,
+  "primary_view": "5m_offset_0",
+  "temporal_maturity": {
+    "minimum_each_cycle_bars": 12,
+    "maximum_each_cycle_bars": 48,
+    "maximum_pair_span_bars": 96
+  },
+  "scale_relation": "one_octave_parent_L_finer_L_minus_2",
+  "selected_parent_level": 5,
+  "selected_parent_sigma_bars": 2.828427124746191,
+  "selected_finer_level": 3,
+  "selected_finer_sigma_bars": 1.4142135623730954,
+  "selected_supply": {
+    "parent_level_5_mature": {
+      "BUILD_2015_2018": 1520,
+      "CHECK_2019": 341,
+      "CHECK_2020": 340
+    },
+    "finer_level_3_mature": {
+      "BUILD_2015_2018": 745,
+      "CHECK_2019": 196,
+      "CHECK_2020": 182
+    }
+  },
+  "selection_rule": "smallest_parent_level_meeting_temporal_maturity_supply_for_parent_and_one_octave_finer_level",
+  "scale_search_after_this_receipt_for_R1_R2_R3_stage1": false,
+  "scientifically_fresh": false,
+  "morphology_replication_accepted": false,
+  "production_authority": false
+}
