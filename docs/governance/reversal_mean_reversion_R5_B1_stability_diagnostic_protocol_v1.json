@@ -1,0 +1,61 @@
+{
+  "schema_id": "factorlab_broad_rmr_R5_B1_stability_shape_diagnostic_protocol@1.0",
+  "session_date": "2026-09-08",
+  "diagnostic_identity": "R5_B1_stability_shape_diagnostic_v1",
+  "parent_identity": "R5_multiscale_serial_dependence_state_v1",
+  "status": "post_R5_reusable_validation_diagnostic_frozen_before_execution",
+  "parent_cloud_review": "docs/research/reversal_mean_reversion_R5_multiscale_serial_dependence_cloud_review_20260908.md",
+  "preanalysis": "docs/research/reversal_mean_reversion_R5_B1_stability_diagnostic_preanalysis_20260908.md",
+  "data_roles": {
+    "TRAIN": "2015-01-05..2018-12-31_reusable",
+    "VALIDATION": "2019-01-01..2020-12-31_reusable_diagnosable",
+    "BLACKBOX": null
+  },
+  "entry_reproduction": {
+    "required": true,
+    "TRAIN_rows": 41685,
+    "VALIDATION_rows": 21428,
+    "B0_beta": [0.005567078395256155, 0.03487451881755519],
+    "B1_beta": [0.004947147092300985, 0.01303609638446463, -1.069228621037033],
+    "B0_validation_mse": 1.011653266505294,
+    "B1_validation_mse": 1.0101116108135515,
+    "absolute_tolerance": 1e-12,
+    "if_fail": "stop_as_R5_B1_diagnostic_execution_drift_or_insufficient"
+  },
+  "D1_day_breadth": {
+    "prediction_models": "fixed_TRAIN_fit_B0_and_B1",
+    "unit": "VALIDATION_trading_day",
+    "day_improvement": "MSE_B0_day_minus_MSE_B1_day",
+    "outputs": ["days", "mean", "median", "p10", "p90", "fraction_B1_better", "weighted_MSE_B0", "weighted_MSE_B1"],
+    "support_rule": "for_both_2019_and_2020_fraction_B1_better_gt_0.50_and_median_day_improvement_gt_0"
+  },
+  "D2_shape": {
+    "quintile_edges": "TRAIN_anti_persistence_20_40_60_80_percentiles_feature_only",
+    "edges_reused_on_VALIDATION": true,
+    "within_bin_relation": "next_z_equals_alpha_plus_slope_times_z",
+    "bin_outputs": ["n", "mean_anti_persistence", "slope", "MSE"],
+    "groups": ["TRAIN", "VALIDATION", "2019", "2020"],
+    "group_shape_rule": "top_quintile_slope_lt_bottom_quintile_slope_and_linear_trend_of_bin_slopes_vs_mean_anti_lt_0",
+    "support_rule": "VALIDATION_and_2019_and_2020_all_group_shape_rule_true"
+  },
+  "adjudications": [
+    "R5_B1_diagnostic_supported_for_specialist_research",
+    "R5_B1_mechanism_shape_supported_but_day_breadth_weak",
+    "R5_B1_day_breadth_supported_but_shape_weak",
+    "R5_B1_small_gain_not_robust_enough_to_specialize",
+    "R5_B1_diagnostic_execution_drift_or_insufficient"
+  ],
+  "specialist_handoff_authorized_only_if": "D1_true_and_D2_true",
+  "forbidden": [
+    "change_R5_B1_model",
+    "lag_or_window_search",
+    "favorable_day_month_sign_time_filter",
+    "new_features",
+    "HMM_rSLDS_Koopman",
+    "BLACKBOX_read",
+    "post_2020_read",
+    "PnL_or_Sharpe",
+    "fresh_OOS_claim"
+  ],
+  "production_authority": false
+}
