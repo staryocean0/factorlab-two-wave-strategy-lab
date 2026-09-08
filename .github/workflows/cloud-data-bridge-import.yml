@@ -1,0 +1,163 @@
+name: cloud-data-bridge-import
+
+on:
+  push:
+    branches:
+      - codex/two-wave-phase1-20260905
+    paths:
+      - .github/workflows/cloud-data-bridge-import.yml
+
+permissions:
+  contents: write
+
+jobs:
+  import-bridge:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout target research branch
+        uses: actions/checkout@v4
+        with:
+          ref: codex/two-wave-phase1-20260905
+          fetch-depth: 0
+
+      - name: Checkout public source repository
+        run: |
+          git clone --depth 1 https://github.com/staryocean0/factorlab-trend-reversion-regime-lab.git /tmp/trend-regime
+
+      - name: Install parquet dependencies
+        run: |
+          python -m pip install --disable-pip-version-check pandas pyarrow numpy
+
+      - name: Verify equivalence and stage annual cloud bridge
+        shell: bash
+        run: |
+          python - <<'PY'
+          from __future__ import annotations
+          import hashlib
+          import json
+          import shutil
+          import subprocess
+          from pathlib import Path
+
+          import numpy as np
+          import pandas as pd
+
+          target = Path('data/development/5m_offset_0.parquet')
+          source_root = Path('/tmp/trend-regime/data/market/5m/000852.SH')
+          bridge = Path('data/cloud_bridge/5m_000852_SH_2015_2020')
+          bridge.mkdir(parents=True, exist_ok=True)
+
+          expected_target_sha256 = 'bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48'
+          expected_rows = {
+              2015: 11712,
+              2016: 11651,
+              2017: 11711,
+              2018: 11664,
+              2019: 11712,
+              2020: 11664,
+          }
+          expected_source_sha256 = {
+              2015: '248fd11da64e2fd5ce54aa3c7e2304160fb05d240d2354f5a166b8b0b41e52d5',
+              2016: '7be897d36b7409e9fb418c5248212ae602f943a9e3cd842cff939260f25ac7cb',
+              2017: 'c45ddf93d2f3990289c850cf2593b2fb5a4ff4e5e303b4b2f4b8ac688d57fbf3',
+              2018: '5d80227709680fa281ff01b7c8065fe86629041128e8901423236401c44e8379',
+              2019: '3875530574451332725fdb03c5eddd350804189f993b72d66f6f4db24c47acaf',
+              2020: '69ca16a4a7d0a788944f357a49fd797a42d79fdd19284bd4db397e073cbbf207',
+          }
+
+          def sha256(path: Path) -> str:
+              h = hashlib.sha256()
+              with path.open('rb') as f:
+                  for block in iter(lambda: f.read(1024 * 1024), b''):
+                      h.update(block)
+              return h.hexdigest()
+
+          actual_target_sha = sha256(target)
+          if actual_target_sha != expected_target_sha256:
+              raise SystemExit(f'target SHA mismatch: {actual_target_sha}')
+
+          years = []
+          source_files = []
+          for year in range(2015, 2021):
+              p = source_root / f'{year}.parquet'
+              if not p.is_file():
+                  raise SystemExit(f'missing source file: {p}')
+              actual_sha = sha256(p)
+              expected_sha = expected_source_sha256[year]
+              if actual_sha != expected_sha:
+                  raise SystemExit(f'{year} source SHA mismatch: {actual_sha} != {expected_sha}')
+              f = pd.read_parquet(p, columns=['symbol', 'trading_day', 'close', 'bar_end_shanghai'])
+              if len(f) != expected_rows[year]:
+                  raise SystemExit(f'{year} row mismatch: {len(f)} != {expected_rows[year]}')
+              years.append(f)
+              source_files.append({
+                  'year': year,
+                  'rows': int(len(f)),
+                  'sha256': actual_sha,
+                  'bytes': p.stat().st_size,
+                  'source_path': f'data/market/5m/000852.SH/{year}.parquet',
+              })
+
+          source = pd.concat(years, ignore_index=True)
+          original = pd.read_parquet(target, columns=['symbol', 'trading_day', 'close', 'bar_end_shanghai'])
+          if len(source) != 70114 or len(original) != 70114:
+              raise SystemExit(f'pooled row mismatch source={len(source)} target={len(original)}')
+
+          def canonical(frame: pd.DataFrame) -> pd.DataFrame:
+              out = frame.copy()
+              out['symbol'] = out['symbol'].astype(str)
+              out['trading_day'] = out['trading_day'].astype(str)
+              out['close'] = pd.to_numeric(out['close'], errors='raise').astype('float64')
+              out['bar_end_shanghai'] = pd.to_datetime(out['bar_end_shanghai'], errors='raise', utc=True)
+              return out.sort_values(['bar_end_shanghai', 'symbol'], kind='stable').reset_index(drop=True)
+
+          a = canonical(source)
+          b = canonical(original)
+          checks = {
+              'symbol_exact': bool(np.array_equal(a['symbol'].to_numpy(), b['symbol'].to_numpy())),
+              'trading_day_exact': bool(np.array_equal(a['trading_day'].to_numpy(), b['trading_day'].to_numpy())),
+              'close_float64_exact': bool(np.array_equal(a['close'].to_numpy(dtype='float64'), b['close'].to_numpy(dtype='float64'))),
+              'bar_end_shanghai_exact': bool(np.array_equal(a['bar_end_shanghai'].view('int64').to_numpy(), b['bar_end_shanghai'].view('int64').to_numpy())),
+          }
+          if not all(checks.values()):
+              raise SystemExit(f'R5 required-column equivalence failed: {checks}')
+
+          for year in range(2015, 2021):
+              shutil.copy2(source_root / f'{year}.parquet', bridge / f'{year}.parquet')
+
+          source_commit = subprocess.check_output(['git', '-C', '/tmp/trend-regime', 'rev-parse', 'HEAD'], text=True).strip()
+          manifest = {
+              'schema_id': 'two_wave_cloud_bridge_5m_000852@1.0',
+              'purpose': 'cloud_readable_annual_shards_for_existing_R5_required_5m_information_surface',
+              'target_original': {
+                  'path': 'data/development/5m_offset_0.parquet',
+                  'sha256': actual_target_sha,
+                  'rows': 70114,
+              },
+              'source_repository': 'staryocean0/factorlab-trend-reversion-regime-lab',
+              'source_ref': 'main',
+              'source_commit': source_commit,
+              'source_files': source_files,
+              'pooled_rows': int(len(source)),
+              'R5_required_columns': ['symbol', 'trading_day', 'close', 'bar_end_shanghai'],
+              'semantic_equivalence_checks': checks,
+              'semantic_equivalent_for_R5_required_columns': True,
+              'binary_identity_with_target_single_parquet_claimed': False,
+              'scientific_protocol_changed': False,
+              'CL008_executed_in_actions': False,
+              'BLACKBOX_read': False,
+              'post_2020_rows_read': False,
+              'PnL_read': False,
+          }
+          (bridge / 'manifest.json').write_text(json.dumps(manifest, indent=2, sort_keys=True) + '\n', encoding='utf-8')
+          print(json.dumps(manifest, indent=2, sort_keys=True))
+          PY
+
+      - name: Commit imported bridge data
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/cloud_bridge/5m_000852_SH_2015_2020
+          git commit -m 'data: import cloud-readable CSI1000 5m annual bridge [skip ci]'
+          git push origin HEAD:codex/two-wave-phase1-20260905
