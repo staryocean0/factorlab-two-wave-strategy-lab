@@ -1,0 +1,45 @@
+{
+  "schema_id": "factorlab_broad_rmr_R5_execution_freeze@1.0",
+  "session_date": "2026-09-08",
+  "research_identity": "R5_multiscale_serial_dependence_state_v1",
+  "freeze_commit_parent": "b81e87506f60017fb766e56519dcd8af13bc5cae",
+  "execution_scope": "TRAIN_2015_2018_and_VALIDATION_2019_2020_only_no_BLACKBOX_no_PnL",
+  "frozen_artifacts": {
+    "preanalysis": {
+      "path": "docs/research/reversal_mean_reversion_R5_multiscale_serial_dependence_preanalysis_20260908.md",
+      "blob_sha": "e9f901e98485226678eb1324a3447df3472ea136"
+    },
+    "protocol": {
+      "path": "docs/governance/reversal_mean_reversion_R5_multiscale_serial_dependence_protocol_v1.json",
+      "blob_sha": "87446bd1d16baf280220cdd10ab53cd45193e649"
+    },
+    "runner": {
+      "path": "scripts/run_broad_rmr_R5_multiscale_serial_dependence.py",
+      "blob_sha": "cd0ac94f7f8dc4fba7c9ee25701bcca02f551f2a"
+    },
+    "tests": {
+      "path": "tests/unit/test_broad_rmr_R5_multiscale_serial_dependence.py",
+      "blob_sha": "cd3b91b528185912c085bab9b3e8caf6dba4c956"
+    }
+  },
+  "source_identity": {
+    "path": "data/development/5m_offset_0.parquet",
+    "sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48",
+    "rows_expected": 70114,
+    "instrument": "000852.SH",
+    "maximum_day": "2020-12-31"
+  },
+  "required_test_command": "pytest -q tests/unit/test_broad_rmr_R5_multiscale_serial_dependence.py",
+  "required_run_command": "python scripts/run_broad_rmr_R5_multiscale_serial_dependence.py --output docs/research/local_broad_rmr_R5_multiscale_serial_dependence_receipt_v1.json",
+  "required_receipt": "docs/research/local_broad_rmr_R5_multiscale_serial_dependence_receipt_v1.json",
+  "expected_test_count": 7,
+  "data_policy": {
+    "TRAIN_reusable": true,
+    "VALIDATION_reusable_and_diagnosable": true,
+    "BLACKBOX_assigned": false,
+    "BLACKBOX_read_authorized": false,
+    "fresh_OOS_claim_authorized": false
+  },
+  "github_actions_authorized_for_this_task": false,
+  "production_authority": false
+}
