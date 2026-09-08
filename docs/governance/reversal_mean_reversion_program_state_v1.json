@@ -7,7 +7,8 @@
   "active_branch_integration_commit": "9cded4c0e56e7d92232157699c0b569b39cabea4",
   "authority_reset_branch_status": "merged_into_active_research_branch_via_PR_5",
   "repository_wide_mainline": "broad_reversal_mean_reversion_mechanism_discovery_with_M0_interval_measurement_foundation",
-  "stage": "post_round1_and_T1_closeout_measurement_capability_admission_waiting_material_new_data_or_new_theory",
+  "stage": "post_round1_and_T1_closeout_measurement_capability_admitted_waiting_material_new_data_or_new_theory",
+  "whitepaper_current": "docs/research/reversal_mean_reversion_program_whitepaper_v2.md",
   "round1_closeout": "docs/research/reversal_mean_reversion_stage1_round1_closeout_20260908.md",
   "M0_two_wave_foundation": {
     "status": "v0617_formal_replay_cloud_reviewed_completed",
@@ -17,6 +18,8 @@
     "formal_replay_task": "CL-20260908-005",
     "local_feedback_commit": "c96f50d8bbc2d08253bd4176791c87e3fcdf4bc3",
     "cloud_review": "docs/research/two_wave_session_aware_information_set_bounds_cloud_review_20260908.md",
+    "measurement_capability_admission": "docs/governance/reversal_mean_reversion_v0617_measurement_capability_admission_v1.json",
+    "measurement_implications": "docs/research/reversal_mean_reversion_v0617_measurement_implications_20260908.md",
     "formal_verdict": "session_aware_bounds_valid_but_structural_gap_nonidentifiability_is_material",
     "source_rows": 349923,
     "future_2021_plus_rows_loaded": 0,
@@ -112,7 +115,7 @@
     "native_5m_OHLC_may_be_treated_as_exact_fine_path": false,
     "fully_enveloped_legs": "use_frozen_finite_interval_bounds",
     "structural_gap_legs": "use_universal_or_other_predeclared_partial_identification_bounds",
-    "admitted_real_finer_source_may_replace_uncertainty_only_after_source_and_role_admission": true,
+    "admitted_real_finer_source_may_replace_uncertainty_only_after_source_and_evidence_role_admission": true,
     "empirical_bound_shrinkage": false,
     "concentration_point_proxy_without_identification": false
   },
@@ -129,7 +132,6 @@
   "trading_PnL_authorized": false,
   "production_authority": false,
   "next_actions_in_order": [
-    "freeze_project_level_v0617_measurement_capability_and_new_data_admission_implications",
     "when_unified_data_update_arrives_verify_source_provenance_and_freeze_new_BUILD_CHECK_HOLDOUT_roles_before_any_outcome",
     "with_materially_new_data_prioritize_retesting_unresolved_R1_under_a_predeclared_identity",
     "only_admit_other_new_lane_if_independently_theory_driven_before_results",
@@ -140,8 +142,9 @@
     "CONTINUE_HERE.md",
     "docs/governance/reversal_mean_reversion_program_charter_v1.json",
     "docs/governance/reversal_mean_reversion_program_state_v1.json",
-    "docs/research/reversal_mean_reversion_program_whitepaper_v1.md",
+    "docs/research/reversal_mean_reversion_program_whitepaper_v2.md",
     "docs/research/two_wave_session_aware_information_set_bounds_cloud_review_20260908.md",
-    "docs/research/reversal_mean_reversion_T1_supply_cloud_review_20260908.md"
+    "docs/research/reversal_mean_reversion_T1_supply_cloud_review_20260908.md",
+    "docs/governance/reversal_mean_reversion_v0617_measurement_capability_admission_v1.json"
   ]
 }
