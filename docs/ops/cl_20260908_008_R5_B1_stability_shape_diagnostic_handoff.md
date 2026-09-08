@@ -15,15 +15,11 @@ Parent identity：`R5_multiscale_serial_dependence_state_v1`
 1. CL-007 的 B1 小幅 MSE 改善是否广泛分布在 VALIDATION trading days，而不是少数日期贡献；
 2. anti-persistence 越强时，经验 next-return slope 是否大体向更负方向移动。
 
-本任务**不改 B1 模型**，不增加任何 feature，不使用 BLACKBOX，不读 2021+，不做 PnL。
+不改 B1 模型，不增加 feature，不使用 BLACKBOX，不读 2021+，不做 PnL。
 
-## 2. 分支与冻结身份
+## 2. 冻结身份
 
-仓库：`staryocean0/factorlab-two-wave-strategy-lab`
-
-分支：`codex/two-wave-phase1-20260905`
-
-执行前必须更新到包含下列 freeze 的最新分支并核对 blob：
+执行前核对：
 
 ```text
 preanalysis
@@ -40,32 +36,32 @@ runner
 
 tests
   tests/unit/test_broad_rmr_R5_B1_stability_shape.py
-  blob 221d08e87894b2947848259af4f1b5d31b41f000
+  blob 539b6bba9f76ebf00584a40b9483bd6c692c30b2
 
 execution freeze
   docs/governance/reversal_mean_reversion_R5_B1_diagnostic_execution_freeze_v1.json
 ```
 
-任何 blob mismatch：停止，不执行 diagnostic。
+Pre-execution incident 已记录在 execution freeze：初版 D2 synthetic fixture 把两个年份放在不同 anti 半区间，导致每年缺 quintiles；已在任何 real diagnostic 前修复为两个年份都覆盖完整 anti range。**科学协议和 runner 均未改变。**
 
-## 3. Parent result entry gate
+任何 frozen blob mismatch：停止。
 
-Diagnostic runner 必须先重建并精确复现 CL-007：
+## 3. Parent entry reproduction gate
+
+必须精确复现 CL-007：
 
 ```text
 TRAIN rows      = 41,685
 VALIDATION rows = 21,428
-
 B0 beta = [0.005567078395256155, 0.03487451881755519]
 B1 beta = [0.004947147092300985, 0.01303609638446463, -1.069228621037033]
-
 B0 VALIDATION MSE = 1.011653266505294
 B1 VALIDATION MSE = 1.0101116108135515
 ```
 
 absolute tolerance = `1e-12`。
 
-任何 reproduction 失败：停止 D1/D2，并输出：
+失败则停止 D1/D2，输出：
 
 `R5_B1_diagnostic_execution_drift_or_insufficient`
 
@@ -77,7 +73,7 @@ pytest -q tests/unit/test_broad_rmr_R5_B1_stability_shape.py
 
 期望：4 passed。
 
-若失败，只允许修 implementation bug；不得修改 diagnostic protocol、D1/D2 support rule、B1 模型、数据窗口或 source identity。
+失败只允许修 implementation bug，不能改 protocol / D1/D2 gate / B1 / source identity。
 
 ## 5. Stage 2 — frozen diagnostic
 
@@ -86,41 +82,39 @@ python scripts/diagnose_broad_rmr_R5_B1_stability_shape.py \
   --output docs/research/local_broad_rmr_R5_B1_stability_shape_diagnostic_receipt_v1.json
 ```
 
-### D1
+### D1 — day breadth
 
-固定 TRAIN-fit B0/B1，按 VALIDATION trading day 计算：
+固定 TRAIN-fit B0/B1，按 VALIDATION trading day：
 
 `day_improvement = MSE_B0_day - MSE_B1_day`
 
-报告 pooled、2019、2020 的：days / mean / median / p10 / p90 / fraction_B1_better / weighted MSE。
-
-Frozen D1 support：2019 和 2020 都必须：
+2019、2020 都必须：
 
 ```text
 fraction_B1_better > 0.50
 median day_improvement > 0
 ```
 
-### D2
+才有 `D1=true`。
 
-只用 TRAIN `anti_persistence` feature 分布生成 20/40/60/80% quintile edges，然后原样应用 VALIDATION。
+### D2 — mechanism shape
 
-每个 quintile 描述：
+TRAIN anti-persistence 的 20/40/60/80% quantile 固定 5 个 bins，再原样应用 VALIDATION。
+
+每个 bin 描述：
 
 `next_z = alpha + slope * z_t`
 
-报告 TRAIN / VALIDATION / 2019 / 2020 的 5-bin n、mean anti、slope、MSE。
-
-Frozen shape support：VALIDATION、2019、2020 都要：
+VALIDATION、2019、2020 都必须：
 
 ```text
 top quintile slope < bottom quintile slope
-linear trend of 5 slopes vs mean anti < 0
+5-bin slope vs mean anti trend < 0
 ```
 
-## 6. 允许 adjudication
+才有 `D2=true`。
 
-只允许：
+## 6. 允许 adjudication
 
 - `R5_B1_diagnostic_supported_for_specialist_research`
 - `R5_B1_mechanism_shape_supported_but_day_breadth_weak`
@@ -128,12 +122,11 @@ linear trend of 5 slopes vs mean anti < 0
 - `R5_B1_small_gain_not_robust_enough_to_specialize`
 - `R5_B1_diagnostic_execution_drift_or_insufficient`
 
-只有第一种允许 specialist handoff。其它结果都不允许升级 HMM/rSLDS/Koopman。
+只有 D1=true 且 D2=true 才允许 specialist handoff。其它结果不允许 HMM/rSLDS/Koopman rescue。
 
 ## 7. 禁止事项
 
-- 不改 lag/window；
-- 不改 B0/B1；
+- 不改 lag/window/B0/B1；
 - 不新增 feature；
 - 不筛 favorable day/month/sign/time；
 - 不做 PnL/Sharpe；
@@ -150,15 +143,4 @@ linear trend of 5 slopes vs mean anti < 0
 docs/research/local_broad_rmr_R5_B1_stability_shape_diagnostic_receipt_v1.json
 ```
 
-commit message 至少写：
-
-- test command / exit / passed count；
-- diagnostic command / exit；
-- source SHA/rows；
-- entry reproduction pass/fail；
-- BLACKBOX_read=false；
-- post_2020_rows_read=false；
-- PnL_read=false；
-- `local_reported / cloud review pending`。
-
-大数据不推回。
+commit message 写明：test/diagnostic command、exit code、passed count、source identity、entry reproduction、BLACKBOX=false、post_2020=false、PnL=false，以及 `local_reported / cloud review pending`。
