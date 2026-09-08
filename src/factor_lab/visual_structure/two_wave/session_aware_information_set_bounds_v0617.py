@@ -44,21 +44,54 @@ def validate_source_identity(identity: Mapping[str, object]) -> None:
         raise ValueError("2021+ source rows are not allowed")
 
 
+def _ordered_unique_timestamps(values: Sequence[str], *, field: str) -> tuple[str, ...]:
+    out = tuple(str(x) for x in values)
+    if len(set(out)) != len(out):
+        raise ValueError(f"duplicate source timestamp in {field}")
+    if out != tuple(sorted(out)):
+        raise ValueError(f"source timestamps must be ordered in {field}")
+    return out
+
+
 def validate_transition_topology(
     support_source_timestamps: Sequence[str],
     gap_source_timestamps: Sequence[str],
+    source_timestamps_between_endpoints: Sequence[str] | None = None,
 ) -> dict:
-    """Validate one price-blind support/gap partition and return its class."""
-    support = tuple(str(x) for x in support_source_timestamps)
-    gap = tuple(str(x) for x in gap_source_timestamps)
+    """Validate one price-blind support/gap partition and return its class.
+
+    When ``source_timestamps_between_endpoints`` is supplied, support + gap must
+    be an exact partition of that authoritative source-row universe.  This is
+    the protocol-conformance guard that fails closed on a silently unclassified
+    source row (or an unexpected source row invented by the topology builder).
+    It consumes timestamps only; no source prices are accepted.
+    """
+    support = _ordered_unique_timestamps(
+        support_source_timestamps, field="support_source_timestamps"
+    )
+    gap = _ordered_unique_timestamps(
+        gap_source_timestamps, field="gap_source_timestamps"
+    )
     if not support:
         raise ValueError("every emitted native bar requires non-empty support")
-    if len(set(support)) != len(support) or len(set(gap)) != len(gap):
-        raise ValueError("duplicate source timestamp in topology")
     if set(support).intersection(gap):
         raise ValueError("support and gap timestamps must be disjoint")
-    if support != tuple(sorted(support)) or gap != tuple(sorted(gap)):
-        raise ValueError("source timestamps must be ordered")
+
+    if source_timestamps_between_endpoints is not None:
+        expected = _ordered_unique_timestamps(
+            source_timestamps_between_endpoints,
+            field="source_timestamps_between_endpoints",
+        )
+        classified = set(support).union(gap)
+        expected_set = set(expected)
+        if classified != expected_set:
+            missing = tuple(sorted(expected_set - classified))
+            unexpected = tuple(sorted(classified - expected_set))
+            raise ValueError(
+                "support/gap topology is not an exact source-row partition: "
+                f"missing={missing!r} unexpected={unexpected!r}"
+            )
+
     return {
         "support_source_count": len(support),
         "gap_source_count": len(gap),
