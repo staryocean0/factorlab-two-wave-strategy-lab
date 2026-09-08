@@ -57,6 +57,7 @@ def load_inputs():
     adapter=json.loads(ADAPTER.read_text()); censor=json.loads(CENSOR.read_text())
     if adapter['price_outcomes_opened_for_adapter_design'] is not False: raise RuntimeError('adapter not results blind')
     if adapter['scale_binding']['parent_birth_level']!=PARENT_LEVEL or adapter['scale_binding']['finer_birth_level']!=FINER_LEVEL: raise RuntimeError('scale binding drift')
+    if censor['rule']!='first_passage_outcome_must_censor_at_the_last_bar_of_the_event_calendar_year_even_if_the_structural_or_96_bar_horizon_extends_further': raise RuntimeError('partition censor drift')
     x=pd.read_parquet(CACHE,columns=['view','canonical_filtered_identity_id','phase','published_raw_occurrence_bars','publishing_birth_level','publishing_birth_confirmation_bar'],filters=[('view','==',VIEW)])
     b=pd.read_parquet(BARS,columns=['trading_day','close'])
     b['trading_day']=b.trading_day.astype(str); b['close']=pd.to_numeric(b.close,errors='coerce')
@@ -178,32 +179,33 @@ def r3_events(parents,logp,days,year_end):
         rows.append({'day':cur.day,'current_abs_drift':cur.abs_drift,'translation_decay':p0.abs_drift-cur.abs_drift,'quality_decay':0.5*((cur.overlap-p0.overlap)+(p0.eff-cur.eff)),'outcome':outcome,'resolve_idx':res})
     return pd.DataFrame(rows)
 
-def fit_model(train,features,positive):
-    d=train[train.outcome.isin([positive, 'failure' if positive in {'recovery','reentry'} else 'extension'])].copy()
-    negative='failure' if positive in {'recovery','reentry'} else 'extension'
-    d=d[d.outcome.isin([positive,negative])].copy(); d['y']=(d.outcome==positive).astype(int); d=d.replace([np.inf,-np.inf],np.nan).dropna(subset=features+['y'])
+def binary_frame(data,features,positive,negative):
+    d=data[data.outcome.isin([positive,negative])].copy()
+    d['y']=(d.outcome==positive).astype(int)
+    return d.replace([np.inf,-np.inf],np.nan).dropna(subset=features+['y'])
+
+def fit_model(train,features,positive,negative):
+    d=binary_frame(train,features,positive,negative)
     if len(d)<30 or d.y.nunique()<2:return None
-    m=Pipeline([('sc',StandardScaler()),('lr',LogisticRegression(C=1.0,penalty='l2',solver='lbfgs',max_iter=1000))]);m.fit(d[features].to_numpy(float),d.y.to_numpy(int));return m
+    m=Pipeline([('sc',StandardScaler()),('lr',LogisticRegression(C=1.0,penalty='l2',solver='lbfgs',max_iter=1000))])
+    m.fit(d[features].to_numpy(float),d.y.to_numpy(int));return m
 
 def score(model,data,features,positive,negative):
-    d=data[data.outcome.isin([positive,negative])].copy();d['y']=(d.outcome==positive).astype(int);d=d.replace([np.inf,-np.inf],np.nan).dropna(subset=features+['y'])
+    d=binary_frame(data,features,positive,negative)
     if model is None or d.empty:return {'status':'insufficient','n':int(len(d))}
     y=d.y.to_numpy(int);p=model.predict_proba(d[features].to_numpy(float))[:,1]
     return {'status':'scored','n':int(len(d)),'event_rate':float(y.mean()),'brier':float(brier_score_loss(y,p)),'log_loss':float(log_loss(y,p,labels=[0,1]))}
 
-def standardized_coef(model,feature):
-    names=list(model.feature_names_in_) if hasattr(model,'feature_names_in_') else None
-    return None
-
-def evaluate_lane(df,models,positive,negative,projection=None,gate_counts=(150,50)):
+def evaluate_lane(df,models,positive,negative):
     df=df.copy(); build=df[df.day<=BUILD_END]; check=df[(df.day>=CHECK_START)&(df.day<=CHECK_END)]
     fitted={}; result={'inventory':{},'models':{},'annual':{}}
     resolved=lambda x:x[x.outcome.isin([positive,negative])]
     result['inventory']={'BUILD_resolved':int(len(resolved(build))),'CHECK_2019_resolved':int(len(resolved(check[check.day.str.startswith('2019')]))),'CHECK_2020_resolved':int(len(resolved(check[check.day.str.startswith('2020')])))}
     for name,features in models.items():
-        m=fit_model(build,features,positive); fitted[name]=m; result['models'][name]=score(m,check,features,positive,negative)
+        m=fit_model(build,features,positive,negative); fitted[name]=m; result['models'][name]=score(m,check,features,positive,negative)
     for year in ('2019','2020'):
-        y=check[check.day.str.startswith(year)];result['annual'][year]={name:score(fitted[name],y,features,positive,negative) for name,features in models.items()}
+        y=check[check.day.str.startswith(year)]
+        result['annual'][year]={name:score(fitted[name],y,features,positive,negative) for name,features in models.items()}
     return result,fitted
 
 def projection_value(model,features,weights):
@@ -225,7 +227,8 @@ def gate_r3(res,fitted):
     inv=res['inventory'];out={}
     for cand,feat in [('translation_decay','translation_decay'),('quality_decay','quality_decay')]:
         b=res['models']['baseline'];c=res['models'][cand];m=fitted[cand];features=['current_abs_drift',feat];coef=projection_value(m,features,{feat:1})
-        g={'supply':inv['BUILD_resolved']>=100 and inv['CHECK_2019_resolved']>=40 and inv['CHECK_2020_resolved']>=40,'pooled_brier':c.get('brier',9)<b.get('brier',-9),'pooled_logloss':c.get('log_loss',9)<b.get('log_loss',-9),'both_years_brier':all(res['annual'][y][cand].get('brier',9)<res['annual'][y]['baseline'].get('brier',-9) for y in ('2019','2020')),'positive_deterioration':coef is not None and coef>0};out[cand]={'gates':g,'coefficient':coef,'passed':all(g.values())}
+        g={'supply':inv['BUILD_resolved']>=100 and inv['CHECK_2019_resolved']>=40 and inv['CHECK_2020_resolved']>=40,'pooled_brier':c.get('brier',9)<b.get('brier',-9),'pooled_logloss':c.get('log_loss',9)<b.get('log_loss',-9),'both_years_brier':all(res['annual'][y][cand].get('brier',9)<res['annual'][y]['baseline'].get('brier',-9) for y in ('2019','2020')),'positive_deterioration':coef is not None and coef>0}
+        out[cand]={'gates':g,'coefficient':coef,'passed':all(g.values())}
     return out
 
 def main():
@@ -240,5 +243,6 @@ def main():
     r2res,r2fit=evaluate_lane(R2,r2_models,'reentry','continuation');g2,p2=gate_r2(r2res,r2fit['parent_plus_excursion_state'])
     r3res,r3fit=evaluate_lane(R3,r3_models,'failure','extension');g3=gate_r3(r3res,r3fit)
     out={'schema_id':'factorlab_broad_rmr_stage1_R1_R2_R3_receipt@1.0','session_date':'2026-09-08','program_identity':'broad_reversal_mean_reversion_discovery_program_v1','code_commit':git_head(),'source':{'structure_cache_sha256':CACHE_SHA,'price_view_sha256':BARS_SHA,'max_day':str(b.trading_day.max()),'post_2020_rows_read':False},'scale':{'parent_level':5,'finer_level':3},'event_inventory':{'parent_mature_dedup':len(parents),'finer_mature_dedup':len(finers)},'R1':{'result':r1res,'projection':p1,'gates':g1,'progression_worthy':all(g1.values())},'R2':{'result':r2res,'projection':p2,'gates':g2,'progression_worthy':all(g2.values())},'R3':{'result':r3res,'candidate_gates':g3,'progression_worthy':any(v['passed'] for v in g3.values())},'scientifically_fresh':False,'morphology_replication_accepted':False,'trading_PnL_used':False,'production_authority':False}
-    a.output.parent.mkdir(parents=True,exist_ok=True);a.output.write_text(json.dumps(out,indent=2,sort_keys=True)+'\n');print(json.dumps({'R1':out['R1']['progression_worthy'],'R2':out['R2']['progression_worthy'],'R3':out['R3']['progression_worthy'],'post_2020_rows_read':False},sort_keys=True));return 0
+    a.output.parent.mkdir(parents=True,exist_ok=True);a.output.write_text(json.dumps(out,indent=2,sort_keys=True)+'\n')
+    print(json.dumps({'R1':out['R1']['progression_worthy'],'R2':out['R2']['progression_worthy'],'R3':out['R3']['progression_worthy'],'post_2020_rows_read':False},sort_keys=True));return 0
 if __name__=='__main__':raise SystemExit(main())
