@@ -39,6 +39,7 @@ jobs:
           import json
           import shutil
           import subprocess
+          from collections import Counter
           from pathlib import Path
 
           import numpy as np
@@ -51,14 +52,7 @@ jobs:
 
           expected_target_sha256 = 'bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48'
           expected_source_commit = '1a573ccf87732b07686285b92db9c31257481869'
-          expected_rows = {
-              2015: 11712,
-              2016: 11651,
-              2017: 11711,
-              2018: 11664,
-              2019: 11712,
-              2020: 11664,
-          }
+          expected_rows = {2015: 11712, 2016: 11651, 2017: 11711, 2018: 11664, 2019: 11712, 2020: 11664}
           expected_source_sha256 = {
               2015: '248fd11da64e2fd5ce54aa3c7e2304160fb05d240d2354f5a166b8b0b41e52d5',
               2016: 'ba0e92a8a27a27c2d137a5d311caeea26fa12ed1ebc9588000402a7b9ed9877e',
@@ -78,7 +72,6 @@ jobs:
           source_commit = subprocess.check_output(['git', '-C', '/tmp/trend-regime', 'rev-parse', 'HEAD'], text=True).strip()
           if source_commit != expected_source_commit:
               raise SystemExit(f'source commit drift: {source_commit}')
-
           actual_target_sha = sha256(target)
           if actual_target_sha != expected_target_sha256:
               raise SystemExit(f'target SHA mismatch: {actual_target_sha}')
@@ -90,21 +83,14 @@ jobs:
               if not p.is_file():
                   raise SystemExit(f'missing source file: {p}')
               actual_sha = sha256(p)
-              expected_sha = expected_source_sha256[year]
-              if actual_sha != expected_sha:
-                  raise SystemExit(f'{year} source SHA mismatch: {actual_sha} != {expected_sha}')
+              if actual_sha != expected_source_sha256[year]:
+                  raise SystemExit(f'{year} source SHA mismatch: {actual_sha}')
               f = pd.read_parquet(p, columns=['symbol', 'trading_day', 'close', 'timestamp'])
               if len(f) != expected_rows[year]:
                   raise SystemExit(f'{year} row mismatch: {len(f)} != {expected_rows[year]}')
               f = f.rename(columns={'timestamp': 'bar_end_shanghai'})
               years.append(f)
-              source_files.append({
-                  'year': year,
-                  'rows': int(len(f)),
-                  'sha256': actual_sha,
-                  'bytes': p.stat().st_size,
-                  'source_path': f'data/market/5m/000852.SH/{year}.parquet',
-              })
+              source_files.append({'year': year, 'rows': int(len(f)), 'sha256': actual_sha, 'bytes': p.stat().st_size, 'source_path': f'data/market/5m/000852.SH/{year}.parquet'})
 
           source = pd.concat(years, ignore_index=True)
           original = pd.read_parquet(target, columns=['symbol', 'trading_day', 'close', 'bar_end_shanghai'])
@@ -120,12 +106,9 @@ jobs:
 
           def canonical_source(frame: pd.DataFrame) -> pd.DataFrame:
               out = canonical_common(frame)
-              # Source contract in factorlab-star50-filter-lab explicitly states:
-              # "source Z strings encode Shanghai wall clock; use first19 characters
-              # localised Asia/Shanghai, not UTC conversion".
+              # Source contract: Z-tagged source strings encode Shanghai wall clock.
               wall = out['bar_end_shanghai'].astype(str).str.slice(0, 19)
-              ts = pd.to_datetime(wall, errors='raise').dt.tz_localize('Asia/Shanghai').dt.tz_convert('UTC')
-              out['bar_end_shanghai'] = ts
+              out['bar_end_shanghai'] = pd.to_datetime(wall, errors='raise').dt.tz_localize('Asia/Shanghai').dt.tz_convert('UTC')
               return out.sort_values(['bar_end_shanghai', 'symbol'], kind='stable').reset_index(drop=True)
 
           def canonical_target(frame: pd.DataFrame) -> pd.DataFrame:
@@ -135,20 +118,39 @@ jobs:
 
           a = canonical_source(source)
           b = canonical_target(original)
+          ta = a['bar_end_shanghai'].astype('int64').to_numpy()
+          tb = b['bar_end_shanghai'].astype('int64').to_numpy()
+          time_equal = ta == tb
           checks = {
               'symbol_exact': bool(np.array_equal(a['symbol'].to_numpy(), b['symbol'].to_numpy())),
               'trading_day_exact': bool(np.array_equal(a['trading_day'].to_numpy(), b['trading_day'].to_numpy())),
               'close_float64_exact': bool(np.array_equal(a['close'].to_numpy(dtype='float64'), b['close'].to_numpy(dtype='float64'))),
-              'bar_end_shanghai_exact': bool(np.array_equal(a['bar_end_shanghai'].astype('int64').to_numpy(), b['bar_end_shanghai'].astype('int64').to_numpy())),
+              'bar_end_shanghai_exact': bool(np.all(time_equal)),
           }
           if not all(checks.values()):
-              sample = {
-                  'source_first_timestamp_utc': str(a['bar_end_shanghai'].iloc[0]),
-                  'target_first_timestamp_utc': str(b['bar_end_shanghai'].iloc[0]),
-                  'source_last_timestamp_utc': str(a['bar_end_shanghai'].iloc[-1]),
-                  'target_last_timestamp_utc': str(b['bar_end_shanghai'].iloc[-1]),
+              idx = np.flatnonzero(~time_equal)
+              deltas_min = ((ta[idx] - tb[idx]) / 60_000_000_000).astype(float)
+              by_year = Counter(a.iloc[idx]['trading_day'].str.slice(0, 4).tolist())
+              delta_counts = Counter(float(x) for x in deltas_min.tolist())
+              examples = []
+              for i in idx[:20]:
+                  examples.append({
+                      'i': int(i),
+                      'day': str(a.at[i, 'trading_day']),
+                      'close': float(a.at[i, 'close']),
+                      'source_utc': str(a.at[i, 'bar_end_shanghai']),
+                      'target_utc': str(b.at[i, 'bar_end_shanghai']),
+                      'delta_minutes': float((ta[i] - tb[i]) / 60_000_000_000),
+                  })
+              diagnostic = {
+                  'checks': checks,
+                  'timestamp_mismatch_count': int(len(idx)),
+                  'timestamp_match_count': int(np.sum(time_equal)),
+                  'mismatch_by_year': dict(sorted(by_year.items())),
+                  'delta_minutes_counts': dict(sorted(delta_counts.items(), key=lambda kv: kv[0])),
+                  'examples': examples,
               }
-              raise SystemExit(f'R5 required-column equivalence failed: {checks}; timestamp_sample={sample}')
+              raise SystemExit('R5 required-column equivalence failed: ' + json.dumps(diagnostic, sort_keys=True))
 
           for year in range(2015, 2021):
               shutil.copy2(source_root / f'{year}.parquet', bridge / f'{year}.parquet')
@@ -156,11 +158,7 @@ jobs:
           manifest = {
               'schema_id': 'two_wave_cloud_bridge_5m_000852@1.0',
               'purpose': 'cloud_readable_annual_shards_for_existing_R5_required_5m_information_surface',
-              'target_original': {
-                  'path': 'data/development/5m_offset_0.parquet',
-                  'sha256': actual_target_sha,
-                  'rows': 70114,
-              },
+              'target_original': {'path': 'data/development/5m_offset_0.parquet', 'sha256': actual_target_sha, 'rows': 70114},
               'source_repository': 'staryocean0/factorlab-trend-reversion-regime-lab',
               'source_ref': expected_source_commit,
               'source_commit': source_commit,
