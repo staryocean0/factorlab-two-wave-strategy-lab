@@ -93,9 +93,12 @@ jobs:
               expected_sha = expected_source_sha256[year]
               if actual_sha != expected_sha:
                   raise SystemExit(f'{year} source SHA mismatch: {actual_sha} != {expected_sha}')
-              f = pd.read_parquet(p, columns=['symbol', 'trading_day', 'close', 'bar_end_shanghai'])
+              f = pd.read_parquet(p, columns=['symbol', 'trading_day', 'close', 'timestamp'])
               if len(f) != expected_rows[year]:
                   raise SystemExit(f'{year} row mismatch: {len(f)} != {expected_rows[year]}')
+              # The cross-index catalog exposes the same bar-end information as `timestamp`.
+              # Normalize only the field name for comparison with the frozen R5 view.
+              f = f.rename(columns={'timestamp': 'bar_end_shanghai'})
               years.append(f)
               source_files.append({
                   'year': year,
@@ -127,7 +130,13 @@ jobs:
               'bar_end_shanghai_exact': bool(np.array_equal(a['bar_end_shanghai'].astype('int64').to_numpy(), b['bar_end_shanghai'].astype('int64').to_numpy())),
           }
           if not all(checks.values()):
-              raise SystemExit(f'R5 required-column equivalence failed: {checks}')
+              sample = {
+                  'source_first_timestamp': str(a['bar_end_shanghai'].iloc[0]),
+                  'target_first_timestamp': str(b['bar_end_shanghai'].iloc[0]),
+                  'source_last_timestamp': str(a['bar_end_shanghai'].iloc[-1]),
+                  'target_last_timestamp': str(b['bar_end_shanghai'].iloc[-1]),
+              }
+              raise SystemExit(f'R5 required-column equivalence failed: {checks}; timestamp_sample={sample}')
 
           for year in range(2015, 2021):
               shutil.copy2(source_root / f'{year}.parquet', bridge / f'{year}.parquet')
@@ -141,8 +150,11 @@ jobs:
                   'rows': 70114,
               },
               'source_repository': 'staryocean0/factorlab-trend-reversion-regime-lab',
-              'source_ref': '1a573ccf87732b07686285b92db9c31257481869',
+              'source_ref': expected_source_commit,
               'source_commit': source_commit,
+              'source_time_field': 'timestamp',
+              'target_time_field': 'bar_end_shanghai',
+              'time_field_adapter': 'rename_only_then_parse_utc_for_exact_comparison',
               'source_files': source_files,
               'pooled_rows': int(len(source)),
               'R5_required_columns': ['symbol', 'trading_day', 'close', 'bar_end_shanghai'],
