@@ -12,6 +12,12 @@
     "CHECK": "2019-01-01_to_2020-12-31_not_fresh",
     "post_2020_open": false
   },
+  "identity_dedup": {
+    "scope": "same_view_same_birth_level_same_publication_confirmation_bar",
+    "keep": "lexicographically_smallest_canonical_filtered_identity_id",
+    "reason": "deterministic_outcome_blind_prevention_of_same_bar_duplicate_event_multiplicity",
+    "applies_to_parent_and_finer": true
+  },
   "scale_binding": {
     "parent_birth_level": 5,
     "parent_sigma_bars": 2.828427124746191,
@@ -37,7 +43,7 @@
   },
   "parent_state_validity": {
     "starts_at_parent_publication_confirmation_bar": true,
-    "expires_at": "min(next_mature_parent_publication_same_level, parent_publication_plus_96_bars)",
+    "expires_at": "min(next_mature_parent_publication_same_level_with_strictly_greater_confirmation_bar, parent_publication_plus_96_bars)",
     "reason_96": "preexisting_MaturityConfig_max_pair",
     "finer_identity_must_begin_after_parent_publication": "finer_p0_occurrence_bar > parent_publication_bar",
     "one_event_per_parent_per_lane": true
