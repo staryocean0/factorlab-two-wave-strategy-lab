@@ -1,12 +1,12 @@
 {
-  "schema_id": "factorlab_broad_rmr_next_data_admission_and_R1_retest@1.0",
+  "schema_id": "factorlab_broad_rmr_next_data_admission_and_R1_retest@2.0",
   "session_date": "2026-09-08",
   "program_identity": "broad_reversal_mean_reversion_discovery_program_v1",
-  "status": "frozen_before_material_new_data_arrival_no_new_outcomes_opened",
-  "purpose": "make_the_next_data_update_executable_without_reopening_researcher_degrees_of_freedom",
-  "applies_when": "user_reports_materially_new_unified_data_available",
+  "status": "frozen_prospectively_under_reusable_train_validation_blackbox_policy",
+  "data_role_policy": "docs/governance/reversal_mean_reversion_data_reuse_validation_policy_v1.md",
+  "purpose": "admit_new_data_without_treating_historical_data_as_single_use_and_without_losing_a_small_independent_confirmation_reserve",
   "phase_1_source_admission": {
-    "required_before_any_strategy_outcome": true,
+    "required_before_strategy_use": true,
     "checks": [
       "exact_dataset_identity_version_and_content_hash_or_equivalent_content_address",
       "instrument_and_date_coverage",
@@ -21,10 +21,10 @@
       "explicit_confirmation_that_synthetic_OHLC_fill_is_not_silent",
       "availability_or_point_in_time_semantics_where_relevant"
     ],
-    "failure_policy": "fail_closed_do_not_open_strategy_outcomes"
+    "failure_policy": "fail_closed_for_affected_dataset_not_for_entire_research_program"
   },
   "phase_2_measurement_classification": {
-    "required_for_every_path_feature": true,
+    "required_for_path_features": true,
     "allowed_classes": [
       "admitted_actual_finer_source_direct_measurement",
       "fully_enveloped_finite_interval_measurement_under_v0617",
@@ -34,23 +34,76 @@
     "interval_midpoint_as_truth": false,
     "structural_gap_drop_filter": false
   },
-  "phase_3_evidence_role_freeze": {
-    "must_precede_outcome_read": true,
-    "historical_2015_2020_role": "consumed_development_never_fresh",
-    "new_rows_role_assignment_rule": [
-      "inventory_coverage_first_without_strategy_outcomes",
-      "allocate_chronologically_nonoverlapping_BUILD_CHECK_HOLDOUT_blocks_before_any_candidate_result",
-      "prefer_at_least_two_independent_check_blocks_when_coverage_permits",
-      "preserve_latest_sufficient_block_as_holdout_when_coverage_permits",
-      "do_not_move_boundaries_after_results",
-      "if_coverage_is_insufficient_for_predeclared_roles_report_insufficient_data_instead_of_merging_blocks_posthoc"
+  "phase_3_reusable_evidence_roles": {
+    "historical_2015_2018": "TRAIN_research_corpus_reusable",
+    "historical_2019_2020": "VALIDATION_diagnostic_reusable",
+    "historical_data_expired_after_use": false,
+    "TRAIN_may_be_reused_for": [
+      "feature_development",
+      "model_training",
+      "mechanism_design",
+      "parameter_estimation",
+      "event_level_diagnostics",
+      "error_analysis"
+    ],
+    "VALIDATION_may_be_reused_for": [
+      "chronological_validation",
+      "detailed_failure_diagnostics",
+      "year_and_regime_breakdowns",
+      "subsequent_model_revision"
+    ],
+    "new_data_default_assignment": [
+      "after_source_admission_add_most_new_history_to_TRAIN_or_VALIDATION_as_needed",
+      "reserve_only_a_small_latest_sufficient_contiguous_block_as_BLACKBOX_after_candidate_maturity",
+      "do_not_allocate_blackbox_for_every_early_hypothesis",
+      "freeze_exact_blackbox_dates_only_when_a_candidate_is_ready_for_confirmation"
     ]
   },
+  "blackbox_confirmation_policy": {
+    "role": "independent_final_confirmation_not_general_development",
+    "default_outputs": [
+      "sample_count",
+      "predeclared_primary_metric",
+      "predeclared_benchmark_comparison",
+      "pass_fail_or_insufficient",
+      "data_integrity_gate"
+    ],
+    "default_forbidden_outputs": [
+      "event_dates",
+      "event_paths",
+      "year_breakdowns",
+      "direction_breakdowns",
+      "regime_breakdowns",
+      "failure_cases",
+      "parameter_sensitivity",
+      "diagnostic_information_that_can_target_strategy_repair"
+    ],
+    "if_detailed_diagnostics_requested_after_failure": "explicitly_demote_BLACKBOX_to_VALIDATION_then_diagnostics_are_allowed_but_that_block_loses_independent_confirmation_status",
+    "data_becomes_unusable_after_demotion": false
+  },
+  "sample_gate_policy": {
+    "default_per_calendar_year_minimum": false,
+    "preferred_basis": [
+      "total_effective_TRAIN_sample",
+      "total_effective_VALIDATION_sample",
+      "at_least_two_chronological_subperiods_when_feasible",
+      "predeclared_precision_or_minimum_detectable_effect",
+      "year_level_results_as_stability_diagnostics_not_automatic_hard_gates"
+    ],
+    "historical_frozen_gates_are_rewritten": false,
+    "T1_2019_48_lt_50_historical_decision_preserved": true
+  },
   "R1_priority_retest": {
-    "eligible_after_phase_1_to_3_pass": true,
     "reason": "R1_is_unresolved_due_supply_not_rejected",
-    "old_identity_may_not_be_tuned_from_2015_2020_results": true,
-    "must_freeze_before_new_outcome": [
+    "old_2015_2020_data_may_be_reused": true,
+    "old_2015_2020_role": "TRAIN_plus_VALIDATION_not_fresh",
+    "new_data_required_for_basic_research_execution": false,
+    "new_data_preferred_for": [
+      "increasing_event_supply",
+      "testing_stability_across_new_market_regimes",
+      "eventually_forming_a_small_blackbox_confirmation_reserve"
+    ],
+    "must_freeze_before_any_future_blackbox_confirmation": [
       "parent_state_measurement_identity",
       "counter_shock_event_identity",
       "recovery_boundary",
@@ -58,37 +111,31 @@
       "censoring_and_horizon",
       "feature_budget",
       "model_capacity",
-      "minimum_sample_gates",
-      "chronological_progression_gate",
+      "aggregate_blackbox_outputs",
       "handling_of_interval_valued_path_features"
     ],
-    "default_starting_point_if_reused": {
+    "default_starting_point_if_reusing_M1_identity": {
       "parent_view": "5m_offset_0",
       "parent_representation": "mature_M0_L5_or_a_separately_accepted_new_M0_identity",
-      "counter_shock_threshold": "0.5_times_parent_amplitude_if_and_only_if_reusing_M1_identity",
+      "counter_shock_threshold": "0.5_times_parent_amplitude",
       "parameter_search_from_old_results": false
-    },
-    "possible_outcomes": [
-      "R1_retest_supported_for_specialist_handoff",
-      "R1_retest_rejected_with_adequate_evidence",
-      "R1_retest_evidence_insufficient"
-    ]
+    }
   },
   "closed_lane_policy": {
-    "R2_same_identity_reopen": false,
-    "R3_same_identity_reopen": false,
-    "R4_same_identity_reopen": false,
-    "T1_same_5sigma_960bar_identity_reopen_without_material_new_data": false,
-    "new_identity_requires_independent_preoutcome_theory": true
+    "R2_same_identity_reopen_without_new_theory": false,
+    "R3_same_identity_reopen_without_new_theory": false,
+    "R4_same_identity_reopen_without_new_theory": false,
+    "T1_same_5sigma_960bar_historical_identity_retroactively_reopened": false,
+    "new_identity_requires_preoutcome_definition": true
   },
   "cloud_actions_when_data_arrives": [
-    "read_new_data_receipts_and_manifests_before_any_strategy_code",
+    "read_new_data_receipts_and_manifests",
     "write_cloud_source_admission_review",
-    "freeze_evidence_roles",
-    "freeze_R1_retest_protocol_if_eligible",
-    "only_then_execute_new_outcomes"
+    "append_admitted_rows_to_reusable_research_corpus_or_validation_pool",
+    "do_not_immediately_burn_new_rows_as_blackbox",
+    "when_a_candidate_is_mature_freeze_a_small_latest_blackbox_block_and_aggregate_only_output_contract",
+    "execute_blackbox_only_after_candidate_freeze"
   ],
   "trading_PnL_authorized": false,
-  "fresh_oos_claim_authorized_before_holdout_execution": false,
   "production_authority": false
 }
