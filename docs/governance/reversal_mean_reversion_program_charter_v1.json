@@ -1,5 +1,5 @@
 {
-  "schema_id": "factorlab_broad_reversal_mean_reversion_program_charter@1.0",
+  "schema_id": "factorlab_broad_reversal_mean_reversion_program_charter@1.1",
   "session_date": "2026-09-08",
   "program_identity": "broad_reversal_mean_reversion_discovery_program_v1",
   "repository": "staryocean0/factorlab-two-wave-strategy-lab",
@@ -23,60 +23,99 @@
   "M0_measurement_foundation": {
     "identity": "two_wave_structure_measurement_foundation",
     "role": "causal_structure_coordinate_system_not_a_trading_strategy",
-    "existing_v0617_work_preserved": true,
     "current_morphology_status": "morphology_replication_not_yet_accepted",
-    "v0617_formal_replay_still_required_for_its_own_identity": true,
+    "operational_baseline": "v0.4.3",
+    "v0617_formal_replay_status": "cloud_reviewed_completed",
+    "v0617_verdict": "session_aware_bounds_valid_but_structural_gap_nonidentifiability_is_material",
+    "accepted_new_capability": "interval_valued_session_aware_path_information_bounds",
+    "accepted_capability_is_morphology_acceptance": false,
+    "native_coarse_OHLC_implies_exact_fine_path": false,
     "v0617_blocks_broad_preanalysis": false,
     "v0617_blocks_claims_that_require_accepted_morphology": true
+  },
+  "path_measurement_policy": {
+    "every_fine_path_feature_must_declare_measurement_class": true,
+    "allowed_measurement_classes": [
+      "admitted_actual_finer_source_direct_measurement",
+      "fully_enveloped_finite_interval_measurement",
+      "structural_gap_partial_identification_interval"
+    ],
+    "interval_midpoint_may_be_called_observed_truth": false,
+    "structural_gap_event_may_be_dropped_to_improve_strategy_result": false,
+    "empirical_bound_shrinkage_after_outcome": false,
+    "point_proxy_without_identification": false
   },
   "primary_shallow_lanes": [
     {
       "id": "R1_cross_scale_pullback",
       "question": "inside_an_intact_parent_trend_can_a_sharp_opposite_lower_scale_move_be_identified_as_temporary_pullback_before_parent_failure",
-      "strategy_archetype": "trend_pullback_mean_reversion"
+      "strategy_archetype": "trend_pullback_mean_reversion",
+      "current_status": "unresolved_supply_insufficient_not_rejected",
+      "priority_on_material_new_data": true
     },
     {
       "id": "R2_range_boundary_reversion",
       "question": "inside_a_parent_range_can_an_excursion_or_breakout_be_distinguished_as_temporary_overshoot_versus_true_state_transition",
-      "strategy_archetype": "failed_breakout_or_range_edge_reversion"
+      "strategy_archetype": "failed_breakout_or_range_edge_reversion",
+      "current_status": "closed_under_current_low_capacity_identity"
     },
     {
       "id": "R3_structural_exhaustion_transition",
       "question": "when_an_existing_parent_trend_deteriorates_can_structure_quality_identify_transition_or_reversal_risk_before_a_simple_direction_flip",
-      "strategy_archetype": "trend_exhaustion_or_transition_reversal"
+      "strategy_archetype": "trend_exhaustion_or_transition_reversal",
+      "current_status": "closed_predeclared_direction_falsified"
     }
   ],
   "secondary_or_delegated_lanes": [
     {
       "id": "R4_statistical_state_extremes",
-      "role": "future_direction_source",
-      "examples": ["path_efficiency", "volatility_state", "frequency_band_amplitude", "wave_duration", "event_density", "asymmetry"]
+      "role": "closed_stage1_identity_no_candidate_qualifies"
     },
     {
-      "id": "R5_relative_value_or_overnight_dislocation",
+      "id": "T1_transitory_component_after_extreme_intraday_shock_v1",
+      "role": "independent_literature_driven_round2_identity_closed_before_outcome_supply_insufficient"
+    },
+    {
+      "id": "relative_value_or_overnight_dislocation",
       "role": "delegated_or_sibling_specialist_not_current_mainline"
     }
   ],
   "research_style": {
     "repository_role": "direction_finder_not_single_strategy_optimizer",
-    "parallel_lane_count_target": 3,
     "first_pass_depth": "shallow_mechanism_screen",
-    "required_sequence": ["phenomenon", "causal_pre_event_observability", "chronological_stability", "specialist_handoff_if_promising"],
+    "required_sequence": [
+      "theory_or_phenomenon",
+      "causal_pre_event_observability",
+      "results_blind_measurement_and_evidence_role_freeze",
+      "chronological_stability",
+      "specialist_handoff_if_promising"
+    ],
     "deep_optimization_before_lane_comparison": false,
     "post_hoc_rescue_of_failed_lane": false,
-    "trading_PnL_selection_in_shallow_stage": false
+    "trading_PnL_selection_in_shallow_stage": false,
+    "automatic_indicator_generation_after_failures": false
   },
   "evidence_governance": {
     "existing_two_wave_results_preserved": true,
     "existing_consumed_data_never_relabelled_fresh": true,
     "algorithm_generated_structure_labels_not_ground_truth": true,
     "future_data_roles_must_be_frozen_before_outcome_read": true,
-    "failed_or_ambiguous_lanes_must_be_preserved": true
+    "failed_or_ambiguous_lanes_must_be_preserved": true,
+    "supply_failure_must_not_be_relabelled_mechanism_failure": true,
+    "predeclared_direction_failure_must_not_be_reinterpreted_posthoc": true
+  },
+  "reopen_policy": {
+    "materially_new_data": "allowed_after_source_and_role_admission_before_outcomes",
+    "independent_new_theory": "allowed_only_if_preregistered_before_outcomes_and_not_a_renamed_rescue",
+    "new_M0_measurement_object": "allowed_after_explicit_program_admission",
+    "same_consumed_window_parameter_relaxation": false,
+    "R1_retest_priority_with_new_data": true
   },
   "authority_boundaries": {
     "production_authority": false,
     "paper_trading_authority": false,
     "factorlab_registry_mutation_authority": false,
-    "layer4_execution_authority": false
+    "layer4_execution_authority": false,
+    "fresh_oos_claim_authority": false
   }
 }
