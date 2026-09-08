@@ -1,0 +1,71 @@
+name: broad-rmr-R4-statistical-state
+
+on:
+  push:
+    branches:
+      - codex/broad-reversal-authority-reset-20260908
+    paths:
+      - 'scripts/run_broad_rmr_R4_statistical_state.py'
+      - 'tests/unit/test_broad_rmr_R4_statistical_state.py'
+      - 'docs/research/rmr_R4_statistical_state_extremes_preanalysis_20260908.md'
+      - 'docs/governance/reversal_mean_reversion_R4_statistical_state_protocol_v1.json'
+      - 'docs/governance/reversal_mean_reversion_R4_statistical_state_execution_freeze_v1.json'
+      - '.github/workflows/broad-rmr-R4-statistical-state.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  frozen-R4-screen:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install frozen dependencies
+        run: python -m pip install pytest numpy pandas pyarrow scikit-learn
+      - name: Verify frozen blob identities
+        run: |
+          test "$(git hash-object docs/research/rmr_R4_statistical_state_extremes_preanalysis_20260908.md)" = "03a904023112b4eeb2487fa6b073466df9e19b1c"
+          test "$(git hash-object docs/governance/reversal_mean_reversion_R4_statistical_state_protocol_v1.json)" = "f79c8bf04946fe8eef0bb0ded0483af8056a2759"
+          test "$(git hash-object scripts/run_broad_rmr_R4_statistical_state.py)" = "912a4caeaa7e727c909391baa72aff5e182afc73"
+          test "$(git hash-object tests/unit/test_broad_rmr_R4_statistical_state.py)" = "dc994f2c57d498d455054ee30a25c22988e33283"
+          test "$(git hash-object scripts/run_broad_rmr_stage1_R1_R2_R3.py)" = "f5302a448f3acd2d0c784756a8240748f41418ba"
+      - name: Run R4 synthetic and scientific-boundary tests
+        run: python -m pytest -q tests/unit/test_broad_rmr_R4_statistical_state.py
+      - name: Execute frozen R4 statistical-state screen
+        run: python scripts/run_broad_rmr_R4_statistical_state.py --output /tmp/R4_statistical_state.json
+      - name: Verify evidence and authority boundaries
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path('/tmp/R4_statistical_state.json').read_text())
+          assert x['source']['max_day'] <= '2020-12-31'
+          assert x['source']['post_2020_rows_read'] is False
+          assert x['parent']['view']=='5m_offset_0'
+          assert x['parent']['birth_level']==5
+          assert x['finer_activity']['birth_level']==3
+          assert x['normalization_reference_parent_count']==100
+          assert x['finer_activity']['density_window_bars']==96
+          assert x['candidate_ids']==['R4_A_inefficiency','R4_B_event_density','R4_C_amplitude_extremity']
+          assert x['combined_state_model_used'] is False
+          assert x['property_self_reversion_used_for_progression'] is False
+          assert x['normalization_window_search_performed'] is False
+          assert x['density_window_search_performed'] is False
+          assert x['state_threshold_search_performed'] is False
+          assert x['scientifically_fresh'] is False
+          assert x['morphology_replication_accepted'] is False
+          assert x['trading_PnL_used'] is False
+          assert x['production_authority'] is False
+          print('R4 frozen boundaries preserved')
+          PY
+      - name: Upload aggregate R4 receipt only
+        uses: actions/upload-artifact@v4
+        with:
+          name: broad-rmr-R4-statistical-state-receipt
+          path: /tmp/R4_statistical_state.json
+          if-no-files-found: error
