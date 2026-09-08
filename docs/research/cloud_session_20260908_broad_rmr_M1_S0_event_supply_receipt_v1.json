@@ -1,0 +1,51 @@
+{
+  "schema_id": "factorlab_broad_rmr_M1_event_supply_receipt@1.0",
+  "session_date": "2026-09-08",
+  "program_identity": "broad_reversal_mean_reversion_discovery_program_v1",
+  "measurement_identity": "M1_parent_structure_plus_single_shock_event_adapter_v1",
+  "execution": {
+    "location": "GitHub_Actions_after_direct_cloud_clone_DNS_failure_and_no_direct_local_model_tool",
+    "run_id": 34189319913,
+    "job_id": 101943932822,
+    "conclusion": "success",
+    "head_sha": "0ed8ae1241768e2e571b21a21192d8c005e4cf82",
+    "artifact_id": 10041629837,
+    "artifact_digest": "sha256:1a8a43a0a738abbe470360318df2f86693e8db23792caa147b500c79bd5c4138"
+  },
+  "research_role": "event_supply_only_no_post_event_outcome",
+  "price_values_read_only_through_event_trigger": true,
+  "post_event_outcomes_read": false,
+  "post_2020_rows_read": false,
+  "parent_level": 5,
+  "primary_view": "5m_offset_0",
+  "R1": {
+    "shock_fraction": 0.5,
+    "counts": {
+      "BUILD_2015_2018": 275,
+      "CHECK_2019": 57,
+      "CHECK_2020": 69
+    },
+    "supply_gate_passed": true,
+    "trigger_scan_reasons": {
+      "triggered": 401,
+      "parent_failure_before_trigger": 563,
+      "no_trigger_before_expiry": 766
+    }
+  },
+  "R2": {
+    "additional_excursion_threshold": null,
+    "counts": {
+      "BUILD_2015_2018": 713,
+      "CHECK_2019": 172,
+      "CHECK_2020": 164
+    },
+    "supply_gate_passed": true
+  },
+  "outcome_screen_authorized_by_supply": {
+    "R1": true,
+    "R2": true
+  },
+  "scientifically_fresh": false,
+  "trading_PnL_used": false,
+  "production_authority": false
+}
