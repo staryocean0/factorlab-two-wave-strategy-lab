@@ -5,63 +5,86 @@
 1. [`../CONTINUE_HERE.md`](../CONTINUE_HERE.md)
 2. [`governance/reversal_mean_reversion_program_charter_v1.json`](governance/reversal_mean_reversion_program_charter_v1.json)
 3. [`governance/reversal_mean_reversion_program_state_v1.json`](governance/reversal_mean_reversion_program_state_v1.json)
-4. [`research/reversal_mean_reversion_program_whitepaper_v1.md`](research/reversal_mean_reversion_program_whitepaper_v1.md)
+4. [`research/reversal_mean_reversion_program_whitepaper_v2.md`](research/reversal_mean_reversion_program_whitepaper_v2.md)
 5. [`../AGENTS.md`](../AGENTS.md)
 6. [`user/cloud_execution_prompt.md`](user/cloud_execution_prompt.md)
 
-These files decide repository-wide direction. Historical v0.x two-wave documents remain authoritative only inside M0 / their specific research identity.
+Historical v0.x two-wave documents remain authoritative only inside M0 / their specific research identity.
 
-## 1. Broad program structure
+## 1. Current status
 
-### M0 — two-wave structure measurement foundation
+`ROUND1_CLOSED_CL005_CLOUD_REVIEWED_T1_CLOSED_SUPPLY_INSUFFICIENT_WAITING_NEW_DATA_OR_INDEPENDENT_THEORY`
 
-The historical two-wave recognizer program is preserved as the causal structure/measurement foundation. It is not the only strategy mainline.
+### Broad mechanism lanes
 
-Current M0 frontier is v0.6.17 session-aware information-set bounds; authoritative-source formal replay is still pending for that identity.
+- `R1_cross_scale_pullback` — unresolved, evidence supply insufficient; priority retest when materially new data arrives.
+- `R2_range_boundary_reversion` — closed with adequate evidence.
+- `R3_structural_exhaustion_transition` — closed; preregistered direction falsified.
+- `R4_statistical_state_extremes` — closed; no candidate qualifies.
+- `T1_transitory_component_after_extreme_intraday_shock_v1` — closed before outcome; 2019 aligned supply 48 < 50.
+- relative-value / overnight — sibling/delegated specialist, not this repo's mainline.
 
-### Primary shallow mechanism lanes
+Round-1 closeout:
 
-- `R1_cross_scale_pullback`
-- `R2_range_boundary_reversion`
-- `R3_structural_exhaustion_transition`
+- [`research/reversal_mean_reversion_stage1_round1_closeout_20260908.md`](research/reversal_mean_reversion_stage1_round1_closeout_20260908.md)
 
-Secondary directions include statistical-state extremes. Relative-value / overnight dislocation is a sibling/delegated specialist.
+T1 cloud review:
 
-## 2. Original user objective and M0 handoff
+- [`research/reversal_mean_reversion_T1_supply_cloud_review_20260908.md`](research/reversal_mean_reversion_T1_supply_cloud_review_20260908.md)
 
-- [`user/two_wave_strategy_handoff_prompt.md`](user/two_wave_strategy_handoff_prompt.md)
-- [`user/cloud_execution_prompt.md`](user/cloud_execution_prompt.md)
+## 2. M0 — two-wave measurement foundation
 
-The original two-wave handoff remains important M0 requirements, but no longer defines the full repository scope by itself.
+Historical two-wave research is preserved as:
 
-## 3. Package and data boundary
+`M0_two_wave_structure_measurement_foundation`
+
+Current morphology status remains `morphology_replication_not_yet_accepted`; operational baseline remains v0.4.3.
+
+### v0.6.17 formal replay — completed and cloud-reviewed
+
+Accepted verdict:
+
+`session_aware_bounds_valid_but_structural_gap_nonidentifiability_is_material`
+
+Read:
+
+1. [`research/two_wave_session_aware_information_set_bounds_preanalysis_v0617.md`](research/two_wave_session_aware_information_set_bounds_preanalysis_v0617.md)
+2. [`research/two_wave_session_aware_information_set_bounds_protocol_v0617.md`](research/two_wave_session_aware_information_set_bounds_protocol_v0617.md)
+3. [`research/two_wave_session_aware_information_set_bounds_results_v0617.md`](research/two_wave_session_aware_information_set_bounds_results_v0617.md)
+4. [`research/two_wave_session_aware_information_set_bounds_cloud_review_20260908.md`](research/two_wave_session_aware_information_set_bounds_cloud_review_20260908.md)
+5. [`governance/reversal_mean_reversion_v0617_measurement_capability_admission_v1.json`](governance/reversal_mean_reversion_v0617_measurement_capability_admission_v1.json)
+6. [`research/reversal_mean_reversion_v0617_measurement_implications_20260908.md`](research/reversal_mean_reversion_v0617_measurement_implications_20260908.md)
+
+Key measurement result: native 5m OHLC does not point-identify fine path on every leg. `208,744 / 737,104 ≈ 28.3%` published legs contain actual structural source gaps and require partial-identification/universal intervals.
+
+## 3. Current data boundary
 
 - [`governance/package_scope.json`](governance/package_scope.json)
 - [`governance/data_usage_declaration.json`](governance/data_usage_declaration.json)
-- [`governance/layer3_tool16_candidate_slot.json`](governance/layer3_tool16_candidate_slot.json)
 - [`../data/README.md`](../data/README.md)
 - [`../data/manifest.json`](../data/manifest.json)
 
-## 4. Current FactorLab timing index chain
+Current cloud package contains CSI1000 development material only through 2020-12-31. No current broad result is fresh OOS.
 
-- [`ops/timing_infrastructure_four_layer_inventory@1.0.json`](ops/timing_infrastructure_four_layer_inventory@1.0.json)
-- [`ops/timing_infrastructure_four_layer_split_whitepaper.md`](ops/timing_infrastructure_four_layer_split_whitepaper.md)
-- [`user/timing_infrastructure_four_layer_split_workflow.md`](user/timing_infrastructure_four_layer_split_workflow.md)
-- [`ops/timing_layer1_datahub_clock_split@1.0.json`](ops/timing_layer1_datahub_clock_split@1.0.json)
-- [`ops/timing_layer1_datahub_clock_split_whitepaper.md`](ops/timing_layer1_datahub_clock_split_whitepaper.md)
-- [`ops/timing_layer2_measurement_plane_version_registry@1.0.json`](ops/timing_layer2_measurement_plane_version_registry@1.0.json)
-- [`ops/timing_layer2_measurement_plane@2.3.json`](ops/timing_layer2_measurement_plane@2.3.json)
-- [`ops/timing_layer2_measurement_plane_whitepaper.md`](ops/timing_layer2_measurement_plane_whitepaper.md)
-- [`ops/timing_layer3_strategy_architecture_version_registry@1.0.json`](ops/timing_layer3_strategy_architecture_version_registry@1.0.json)
-- [`ops/timing_layer3_strategy_architecture@2.2.json`](ops/timing_layer3_strategy_architecture@2.2.json)
-- [`ops/timing_strategy_identity_registry@2.2.json`](ops/timing_strategy_identity_registry@2.2.json)
-- [`ops/timing_layer3_strategy_architecture_whitepaper.md`](ops/timing_layer3_strategy_architecture_whitepaper.md)
-- [`user/timing_layer3_strategy_architecture_workflow.md`](user/timing_layer3_strategy_architecture_workflow.md)
-- [`ops/timing_four_layer_port_version_registry@1.0.json`](ops/timing_four_layer_port_version_registry@1.0.json)
-- [`ops/timing_four_layer_port_contracts@1.1.json`](ops/timing_four_layer_port_contracts@1.1.json)
-- [`ops/timing_four_layer_integration_whitepaper.md`](ops/timing_four_layer_integration_whitepaper.md)
+When materially new data arrive, source/provenance and BUILD/CHECK/HOLDOUT roles must be frozen before outcome access.
 
-## 5. Current fifteen-tool language / M0 candidate slot
+## 4. Current next action
+
+No automatic new indicator lane on the same consumed 2015–2020 window.
+
+Authorized research restarts only when:
+
+1. materially new data are admitted results-blind — then prioritize R1 retest;
+2. a genuinely independent literature/theory mechanism is preregistered before outcomes; or
+3. a materially new accepted M0 measurement object is admitted through program governance.
+
+Any fine-path feature must declare whether it is direct finer-source measurement, a finite interval, or partial identification.
+
+## 5. Historical FactorLab timing / infrastructure references
+
+The historical timing and integration documents remain available under `docs/ops/` and `docs/user/`. They do not override section 0 for repository-wide research direction.
+
+## 6. Current fifteen-tool language / M0 candidate slot
 
 - Python: `src/factor_lab/market_state/tool_registry_v1_5.py`
 - Regression test: `tests/unit/test_market_state_tool_registry_v1_5.py`
@@ -69,22 +92,9 @@ The original two-wave handoff remains important M0 requirements, but no longer d
 
 V1.5 remains immutable. Broad research does not automatically register M0 or any R-lane strategy.
 
-## 6. M0 v0.6.17 current frontier
-
-Read in order when executing the M0 formal replay:
-
-1. [`ops/datahub_bar_support_provenance_cloud_review_20260907.md`](ops/datahub_bar_support_provenance_cloud_review_20260907.md)
-2. [`ops/v0617_session_aware_bounds_freeze_receipt_20260908.md`](ops/v0617_session_aware_bounds_freeze_receipt_20260908.md)
-3. [`ops/v0617_stage1_cloud_preflight_20260908.md`](ops/v0617_stage1_cloud_preflight_20260908.md)
-4. [`research/two_wave_session_aware_information_set_bounds_preanalysis_v0617.md`](research/two_wave_session_aware_information_set_bounds_preanalysis_v0617.md)
-5. [`research/two_wave_session_aware_information_set_bounds_protocol_v0617.md`](research/two_wave_session_aware_information_set_bounds_protocol_v0617.md)
-6. `src/factor_lab/visual_structure/two_wave/session_aware_information_set_bounds_v0617.py`
-7. `tests/unit/test_two_wave_session_aware_information_set_bounds_v0617.py`
-8. [`ops/cloud_local_communication.md`](ops/cloud_local_communication.md), task `CL-20260908-005`
-
-This M0 queue does not override section 0 for repository-wide direction.
-
 ## 7. Research governance
+
+Key historical governance remains applicable:
 
 - [`user/strategy_slice_rebuild_workflow.md`](user/strategy_slice_rebuild_workflow.md)
 - [`ops/strategy_slice_rebuild_whitepaper.md`](ops/strategy_slice_rebuild_whitepaper.md)
@@ -92,12 +102,10 @@ This M0 queue does not override section 0 for repository-wide direction.
 - [`ops/post_training_strategy_science_acceptance@1.0.json`](ops/post_training_strategy_science_acceptance@1.0.json)
 - [`ops/post_training_account_audit@1.1.json`](ops/post_training_account_audit@1.1.json)
 
-Use these to preserve scientific boundaries. The supplied data do not automatically satisfy the full twelve-year promotion workflow.
-
 ## 8. Reference-only original project indexes
 
 - [`reference/factorlab_docs_00_index.md`](reference/factorlab_docs_00_index.md)
 - [`reference/factorlab_docs_ops_README.md`](reference/factorlab_docs_ops_README.md)
 - [`reference/factorlab_docs_user_README.md`](reference/factorlab_docs_user_README.md)
 
-These snapshots may contain older scope statements. Section 0 is authoritative for current repository-wide direction.
+These snapshots may contain older scope statements. Section 0 is authoritative.
