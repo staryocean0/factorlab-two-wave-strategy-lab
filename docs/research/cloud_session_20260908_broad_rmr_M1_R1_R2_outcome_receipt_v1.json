@@ -1,0 +1,93 @@
+{
+  "R1": {
+    "gates": {
+      "both_years_brier": false,
+      "integrity_direction": false,
+      "pooled_brier": false,
+      "pooled_logloss": false,
+      "supply": false
+    },
+    "integrity_projection": -0.12733981670582906,
+    "progression_worthy": false,
+    "result": {
+      "annual": {
+        "2019": {
+          "parent_integrity_only": {"brier": 0.21551195387709937, "event_rate": 0.25, "log_loss": 0.6226247394006348, "n": 40, "status": "scored"},
+          "parent_plus_severity": {"brier": 0.2327421898279704, "event_rate": 0.25, "log_loss": 0.6603529837181343, "n": 40, "status": "scored"},
+          "severity_only": {"brier": 0.23188107961757484, "event_rate": 0.25, "log_loss": 0.658485901419293, "n": 40, "status": "scored"}
+        },
+        "2020": {
+          "parent_integrity_only": {"brier": 0.25611286118019344, "event_rate": 0.38461538461538464, "log_loss": 0.7062750733825001, "n": 39, "status": "scored"},
+          "parent_plus_severity": {"brier": 0.25714725191191073, "event_rate": 0.38461538461538464, "log_loss": 0.7086004044685376, "n": 39, "status": "scored"},
+          "severity_only": {"brier": 0.23682858694240075, "event_rate": 0.38461538461538464, "log_loss": 0.6663492519197252, "n": 39, "status": "scored"}
+        }
+      },
+      "inventory": {"BUILD_resolved": 168, "CHECK_2019_resolved": 40, "CHECK_2020_resolved": 39},
+      "models": {
+        "parent_integrity_only": {"brier": 0.23555543976090534, "event_rate": 0.31645569620253167, "log_loss": 0.6639204738980113, "n": 79, "status": "scored"},
+        "parent_plus_severity": {"brier": 0.2447902584516878, "event_rate": 0.31645569620253167, "log_loss": 0.6841713306708648, "n": 79, "status": "scored"},
+        "severity_only": {"brier": 0.23432351994248896, "event_rate": 0.31645569620253167, "log_loss": 0.6623678086283672, "n": 79, "status": "scored"}
+      }
+    },
+    "trigger_scan_reasons": {"no_trigger_before_expiry": 766, "parent_failure_before_trigger": 563, "triggered": 401}
+  },
+  "R2": {
+    "gates": {
+      "both_years_brier": false,
+      "pooled_brier": false,
+      "pooled_logloss": false,
+      "range_direction": true,
+      "supply": true
+    },
+    "progression_worthy": false,
+    "range_projection": 0.11569365242374158,
+    "result": {
+      "annual": {
+        "2019": {
+          "excursion_severity_only": {"brier": 0.24785703147252994, "event_rate": 0.453416149068323, "log_loss": 0.6887681489651982, "n": 161, "status": "scored"},
+          "parent_plus_excursion_state": {"brier": 0.2504643339622646, "event_rate": 0.453416149068323, "log_loss": 0.6940720998511847, "n": 161, "status": "scored"},
+          "parent_range_state_only": {"brier": 0.2510040344286164, "event_rate": 0.453416149068323, "log_loss": 0.6952351715689804, "n": 161, "status": "scored"}
+        },
+        "2020": {
+          "excursion_severity_only": {"brier": 0.24933801034409273, "event_rate": 0.48344370860927155, "log_loss": 0.6918014851682108, "n": 151, "status": "scored"},
+          "parent_plus_excursion_state": {"brier": 0.2520293926522241, "event_rate": 0.48344370860927155, "log_loss": 0.697298310157931, "n": 151, "status": "scored"},
+          "parent_range_state_only": {"brier": 0.2525777815473125, "event_rate": 0.48344370860927155, "log_loss": 0.6984486232063266, "n": 151, "status": "scored"}
+        }
+      },
+      "inventory": {"BUILD_resolved": 657, "CHECK_2019_resolved": 161, "CHECK_2020_resolved": 151},
+      "models": {
+        "excursion_severity_only": {"brier": 0.24857378727254917, "event_rate": 0.46794871794871795, "log_loss": 0.6902362059096051, "n": 312, "status": "scored"},
+        "parent_plus_excursion_state": {"brier": 0.251221782238495, "event_rate": 0.46794871794871795, "log_loss": 0.6956335029163088, "n": 312, "status": "scored"},
+        "parent_range_state_only": {"brier": 0.25176568768157503, "event_rate": 0.46794871794871795, "log_loss": 0.6967903997652602, "n": 312, "status": "scored"}
+      }
+    }
+  },
+  "R3_reopened": false,
+  "code_commit": "75829280b55886c545bb4c6ab01a5743610aa5b4",
+  "execution": {
+    "location": "GitHub_Actions_after_direct_cloud_clone_DNS_failure_and_no_direct_local_model_tool",
+    "run_id": 34189627407,
+    "job_id": 101944836166,
+    "conclusion": "success",
+    "artifact_id": 10041736830,
+    "artifact_digest": "sha256:1b0130fcc3f2c8d0ac5fe28867a7d90ddc9eac55ed697f4ebd54f83a1529438c"
+  },
+  "excursion_threshold_search_performed": false,
+  "measurement_identity": "M1_parent_structure_plus_single_shock_event_adapter_v1",
+  "morphology_replication_accepted": false,
+  "parent": {"birth_level": 5, "view": "5m_offset_0"},
+  "parent_scale_or_offset_search_performed": false,
+  "production_authority": false,
+  "program_identity": "broad_reversal_mean_reversion_discovery_program_v1",
+  "schema_id": "factorlab_broad_rmr_M1_R1_R2_outcome_receipt@1.0",
+  "scientifically_fresh": false,
+  "session_date": "2026-09-08",
+  "shock_fraction_search_performed": false,
+  "source": {
+    "max_day": "2020-12-31",
+    "post_2020_rows_read": false,
+    "price_view_sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48",
+    "structure_cache_sha256": "8596622924e92182756162b7bdf0959f6d8ddc2222d6dbc9b4e4379cada9974c"
+  },
+  "trading_PnL_used": false
+}
