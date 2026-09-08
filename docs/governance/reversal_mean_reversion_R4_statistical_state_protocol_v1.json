@@ -1,0 +1,128 @@
+{
+  "schema_id": "factorlab_broad_rmr_R4_statistical_state_protocol@1.0",
+  "session_date": "2026-09-08",
+  "program_identity": "broad_reversal_mean_reversion_discovery_program_v1",
+  "research_identity": "R4_statistical_state_extremes_stage1_v1",
+  "stage": "results_blind_R4_protocol_freeze_before_price_outcome_execution",
+  "preanalysis": "docs/research/rmr_R4_statistical_state_extremes_preanalysis_20260908.md",
+  "market_outcomes_opened_for_protocol_design": false,
+  "source": {
+    "structure_cache_sha256": "8596622924e92182756162b7bdf0959f6d8ddc2222d6dbc9b4e4379cada9974c",
+    "price_view_sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48",
+    "primary_view": "5m_offset_0",
+    "parent_birth_level": 5,
+    "finer_activity_birth_level": 3,
+    "parent_scale_or_offset_search": false,
+    "BUILD": "2015-01-05_to_2018-12-31_consumed_development",
+    "CHECK": "2019-01-01_to_2020-12-31_not_fresh",
+    "post_2020_open": false
+  },
+  "parent_identity": {
+    "maturity": "cycle1_12_to_48_bars_cycle2_12_to_48_bars_pair_span_le_96",
+    "same_confirmation_dedup": "lexicographically_smallest_canonical_filtered_identity_id",
+    "publication_time_is_event_time": true,
+    "failure_boundary": "frozen_parent_structural_failure_boundary",
+    "extension_distance": "abs(event_log_close-failure_boundary)",
+    "extension_boundary": "event_log_close+parent_direction*extension_distance",
+    "outcome": "failure_first_vs_same_direction_extension_first_on_5m_close",
+    "maximum_post_event_bars": 96,
+    "censor": "earliest_of_next_strictly_later_mature_L5_publication_minus_1_event_plus_96_calendar_year_end",
+    "positive_label": "failure",
+    "negative_label": "extension"
+  },
+  "geometry_baseline": {
+    "features": ["abs_drift", "log_amplitude"],
+    "log_amplitude": "log(parent_amplitude_scale)"
+  },
+  "past_only_normalization": {
+    "reference_parent_count": 100,
+    "current_observation_excluded": true,
+    "center": "median",
+    "scale": "1.4826_times_median_absolute_deviation",
+    "minimum_reference_count": 100,
+    "zero_or_nonfinite_MAD": "state_unavailable",
+    "full_sample_normalization": false,
+    "threshold_search": false
+  },
+  "candidates": [
+    {
+      "id": "R4_A_inefficiency",
+      "raw_property": "parent_eff",
+      "state": "negative_robust_z_parent_eff",
+      "features": ["abs_drift", "log_amplitude", "R4_A_inefficiency"],
+      "predeclared_state_coefficient_sign": ">0",
+      "interpretation": "unusually_low_path_efficiency_raises_parent_failure_risk"
+    },
+    {
+      "id": "R4_B_event_density",
+      "raw_property": "count_of_mature_dedup_L3_publications_with_confirmation_in_open_interval_parent_conf_minus_96_to_parent_conf",
+      "density_window_bars": 96,
+      "direction_filter": null,
+      "state": "robust_z_event_density",
+      "features": ["abs_drift", "log_amplitude", "R4_B_event_density"],
+      "predeclared_state_coefficient_sign": ">0",
+      "interpretation": "unusually_dense_lower_scale_structural_activity_raises_parent_failure_risk"
+    },
+    {
+      "id": "R4_C_amplitude_extremity",
+      "raw_property": "log_amplitude",
+      "state": "abs_robust_z_log_amplitude",
+      "features": ["abs_drift", "log_amplitude", "R4_C_amplitude_extremity"],
+      "predeclared_state_coefficient_sign": ">0",
+      "interpretation": "unusually_compressed_or_expanded_parent_amplitude_raises_failure_risk"
+    }
+  ],
+  "candidate_budget": {
+    "objects": 3,
+    "combined_state_model": false,
+    "state_thresholds": false,
+    "high_low_amplitude_split": false
+  },
+  "model": {
+    "baseline_features": ["abs_drift", "log_amplitude"],
+    "pipeline": "StandardScaler+LogisticRegression(C=1,l2,lbfgs,max_iter=1000)",
+    "fit_on_BUILD_only": true,
+    "same_frozen_model_on_2019_and_2020": true,
+    "candidate_and_baseline_must_use_exact_same_candidate_available_rows": true,
+    "hyperparameter_search": false,
+    "calibration": false,
+    "binary_threshold": null,
+    "class_weight": null
+  },
+  "progress_gate_each_candidate": {
+    "minimum_resolved_BUILD": 150,
+    "minimum_resolved_2019": 50,
+    "minimum_resolved_2020": 50,
+    "pooled_candidate_Brier_strictly_lower_than_geometry_baseline": true,
+    "pooled_candidate_logloss_strictly_lower_than_geometry_baseline": true,
+    "candidate_Brier_improves_in_2019_and_2020": true,
+    "standardized_state_coefficient_positive": true,
+    "causal_and_source_boundaries_required": true,
+    "positive_result_label": "candidate_for_dedicated_specialist_review_not_automatic_strategy"
+  },
+  "descriptive_property_reversion": {
+    "allowed": true,
+    "fields": ["current_next_state_correlation", "absolute_state_contraction_share"],
+    "part_of_progress_gate": false,
+    "may_be_called_price_alpha": false
+  },
+  "if_multiple_candidates_qualify": "write_explicit_cross_candidate_review_before_any_combination_or_deep_work",
+  "if_none_qualify": "close_current_broad_stage1_mechanism_sweep_no_automatic_new_R5_R6_R7",
+  "forbidden": [
+    "combine_R4_A_B_C",
+    "search_100_parent_normalization_window",
+    "change_96_bar_density_window",
+    "search_state_threshold",
+    "split_amplitude_high_low_after_results",
+    "add_skewness_jump_count_RSI_MACD_or_orderflow_proxy",
+    "change_parent_L5_or_5m_view",
+    "change_failure_extension_outcome",
+    "open_post_2020_rows",
+    "select_by_trading_PnL",
+    "call_property_self_reversion_price_alpha",
+    "deep_model_rescue_under_R4_v1"
+  ],
+  "scientifically_fresh": false,
+  "morphology_replication_accepted": false,
+  "production_authority": false
+}
