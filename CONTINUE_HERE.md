@@ -1,196 +1,194 @@
-# 两浪研究继续入口：v0.6.17 已云端冻结，Stage 1 preflight 已完成，等待 authoritative-source formal replay（2026-09-08）
+# CONTINUE HERE — 广义反转 / 均值回归研究入口（2026-09-08）
 
-当前全局状态：`morphology_replication_not_yet_accepted`；操作基线仍为 **v0.4.3**；PR #1 保持 Draft。Direction/D1/D2/PAWCT、第三浪、收益/P&L、fresh OOS、paper trading、production 全部继续冻结。
+**本文件是判断本仓库“现在研究什么、下一步做什么”的第一权威。**
 
-## 当前真实前沿
+仓库名 `factorlab-two-wave-strategy-lab` 保留历史名称，但当前仓库级任务已经从“无限继续优化一个两浪识别器”升级为：
 
-v0.6.16 的 DataHub bar-support provenance 阻断已经解除。
+> **建立广义反转 / 均值回归研究框架，用多尺度父结构区分“完整状态中的暂时偏离”与“父状态真正改变”，并并行浅测多个机制方向。**
 
-`CL-20260907-004` 本地取得 authoritative DataHub contract / implementation / tests archive 和只读 identity diagnostic 后，云端按事前冻结的 intake gate 完成独立复核：
+## 1. 两浪研究的新角色：M0 结构测量底座
 
-`docs/ops/datahub_bar_support_provenance_cloud_review_20260907.md`
+现有 `v0.4.3 -> v0.6.17` 的两浪、同尺度、跨 offset、path property、roughness、concentration、qualification、session-aware information-set bounds 等研究全部保留原证据身份。
 
-正式 intake adjudication：
+它们现在仓库级统一归类为：
 
-`authoritative_archive_copy_accepted`
+`M0_two_wave_structure_measurement_foundation`
 
-GitHub issue #4 已以 `completed` 关闭。该关闭只解除外部 provenance blocker，**不等于 morphology acceptance**。
+M0 负责回答：
 
-## 权威 DataHub 绑定
+- 什么是因果完整波浪；
+- 什么是同尺度；
+- 两个完整波如何形成局部父结构；
+- 父结构的 drift / overlap / width / efficiency / roughness / duration / event density 如何测量；
+- 如何保证 streaming、replay、prefix 不被未来行情重写；
+- 不同 bar support / offset / session 信息集是否真的可比。
 
-冻结 authority：
+M0 **不是最终交易策略**，也不能因为某个结构量稳定就自动推出价格会反转或延续。
 
-```text
-DataHub committed HEAD = ba780790acd8e9a558e4e01f9474b6e79265d818
-session-offset implementation ancestor = 2c7b070f38f061378e89c19d183da9ccef9a6c88
-whitepaper last-touch ancestor = d31b140e35132911aa6ab164deaa9afcbb02b0ff
-symbol = 000852.SH
-source_kind = market_index_transaction_derived_1m
-dataset_version = bars_cn_index_1m_raw_canonical_market_index_baidu_3s_20000714_20260821_factorlab_unified_missing_day_repaired_v8_20260824
-source date range = 2015-01-05..2020-12-31
-DataHub source rows = 349,923
-2021+ = 0
-```
+当前 morphology 全局状态仍为：
 
-关键合同语义：
+`morphology_replication_not_yet_accepted`
 
-- offset0 使用 official `cn_a_session_end_label_no_noon_partial_v2`；
-- offset1–4 使用 `cn_a_session_wall_clock_offset_v1`；
-- 上下午独立，不跨午休/隔夜；
-- wall-clock offset session 首个完整 bucket 可包含 6 个 1m end labels；后续通常 5 个；真实缺分钟会减少 occupancy；
-- `bar_open_ts` 不是 exact support_start；
-- DataHub 构造路径里的 `...T09:35:00Z` 是上海墙上时钟标签，不能按 UTC 01:35 做 minute-of-day；
-- frozen offset0 parquet 的 `data_contract` 文本仍写 wall-clock v1，但权威 official-route replay 对全部 70,114 labels/OHLC 为 exact identity。该字段作为已知 metadata caveat 保留，**不得用于决定 offset0 support**；
-- FactorLab `1m_official.parquet` 有 350,561 行，不能自动替代 accepted DataHub 349,923-row source surface。
+操作基线仍为 **v0.4.3**。旧的 Direction/D1/D2/PAWCT、第三浪、收益/P&L、fresh OOS、paper trading、production 权限继续冻结。
 
-## v0.6.17 results-blind freeze
+## 2. M0 当前独立前沿：v0.6.17 继续保留
 
-云端 freeze receipt：
+v0.6.17 的权威任务没有取消。
 
-`docs/ops/v0617_session_aware_bounds_freeze_receipt_20260908.md`
+当前状态：
 
-冻结 artifacts：
+- DataHub bar-support provenance blocker 已解除；
+- frozen preanalysis / protocol 已在 real-data result 前冻结；
+- cloud Stage-1 preflight 已完成；
+- implementation conformance bug 已在 formal result 前修复；
+- authoritative-source formal replay 尚未闭合；
+- `CL-20260908-005` 仍是 M0 的合法本地执行任务。
 
-```text
-docs/research/two_wave_session_aware_information_set_bounds_preanalysis_v0617.md
-  git blob = 77f54c7a8e3699997450eaad941ed13b1e561b3a
+继续读取：
 
-docs/research/two_wave_session_aware_information_set_bounds_protocol_v0617.md
-  git blob = f0f6acd06c7ccacd331ed9938f77ff68c9519cfa
+- `docs/ops/datahub_bar_support_provenance_cloud_review_20260907.md`
+- `docs/ops/v0617_session_aware_bounds_freeze_receipt_20260908.md`
+- `docs/ops/v0617_stage1_cloud_preflight_20260908.md`
+- `docs/research/two_wave_session_aware_information_set_bounds_preanalysis_v0617.md`
+- `docs/research/two_wave_session_aware_information_set_bounds_protocol_v0617.md`
+- `docs/ops/cloud_local_communication.md` 中 `CL-20260908-005`
 
-protocol freeze commit = 61eba4c80215bb07375e59d3c53e8ac2b989ff28
-```
+M0 formal replay 必须继续使用 accepted DataHub `349,923` row authoritative source surface，不能拿 FactorLab `350,561` row `1m_official` 冒充 exact source support。
 
-这些协议在正式 replay 结果出现前已经冻结。后续不能根据 real-data/oracle 结果改协议来让 coverage/tightness 变好；发现协议前提失败时只能 fail closed。
+**但是：M0 未闭合不再阻止整个仓库做与其结果无关的 broad results-blind preanalysis。**
 
-## Stage 1 cloud preflight 已执行
+只有当某个后续策略结论明确需要“accepted morphology / v0.6.17 accepted bound”时，才必须先等 M0 完成。
 
-正式记录：
+## 3. 仓库级核心科学问题
 
-`docs/ops/v0617_stage1_cloud_preflight_20260908.md`
+所谓“均值”不等于一条移动平均线。
 
-云端 shell 尝试直接 clone 当前公开研究分支，实际因 outbound DNS 失败：
+它可以是：
 
-```text
-exit = 128
-Could not resolve host: github.com
-```
+- 价格中心或通道；
+- 震荡包络；
+- 两个已完成波形成的父结构；
+- 某 market state 下的正常轨迹；
+- 分布中心/区间；
+- 多资产相对关系；
+- 路径效率、波动率、振幅、事件密度等统计属性的正常状态。
 
-因此没有伪称整仓 cloud pytest 已通过。GitHub connector 仍可读取精确源码并写入分支，云端完成了 frozen implementation 的静态/数学 preflight，并发现一个真实 protocol-conformance implementation bug：原 `validate_transition_topology()` 无法发现 authoritative source universe 中被 support/gap **同时漏分类**的 timestamp。
+所有反转假说都必须先回答四件事：
 
-已在 formal real-data output 产生之前修复：
+1. **Scale：** lower / current / parent；
+2. **Parent state：** trend / range / transition / unknown；
+3. **Deviation object：** 到底什么发生了异常偏离；
+4. **Recovery / failure：** 什么事件算回归，什么事件算父状态改变。
 
-```text
-5ed707215072076deb502953e534eea5de70b5cc
-  exact support+gap source-row partition fail-closed guard
+最核心的判别问题是：
 
-2c3b28bef68da01a616e74b034555e996574406f
-  exact-partition + forbidden-input signature tests
-```
+> **低一级的剧烈反向波动，究竟只是完整父状态里的 fluctuation，还是父级行情真正翻转的开始？**
 
-该修复没有修改 frozen preanalysis/protocol，也没有改变 bound mathematics。
+## 4. 第一批三条主研究路线
 
-云端 supplemental source-equivalent stress check：
+### R1 — Cross-scale pullback：趋势中的次级回撤
 
-```text
-10,000 random feasible variable-step covered paths
-J/profile coverage failures = 0
+父级上涨/下跌结构仍完整，低一级突然反向运动。
 
-exact partition       = PASS
-missing source row    = expected FAIL-CLOSED
-unexpected source row = expected FAIL-CLOSED
-```
+研究：
 
-Stage 1 当前裁决：
+> 在 counter-move severity 相近时，父级结构完整度能否事前提高“先恢复、后破坏父结构”的区分能力？
 
-`implementation_preflight_pass_with_full_local_test_required`
+这是“上涨趋势急跌后是否值得逢低买 / 下跌趋势急涨后是否值得逢高卖”的机制版，不先做交易收益优化。
 
-含义：实现 preflight 可继续，但 exact repo full pytest 仍必须由能访问本地仓库/DataHub 的执行环境完成并记录真实 exit code。
+### R2 — Range-boundary reversion：震荡边界 / 假突破
 
-另有一个必须 fail-closed 报告的 edge：v0.6.13 `concentration_profile()` 对 `N<2` 定义为 `fewer_than_two_movements`，而 v0.6.17 数学 simplex 在 `N=1` 给退化 0 值。formal runner 必须在 oracle 前报告 `N=1` leg count；如存在，不得把 undefined oracle 强行改写为 0 来制造 coverage。
+父级是低漂移震荡包络，价格突然越界。
 
-## 当前 post-freeze implementation
+研究：
 
-基础 implementation-only commits：
+> 越界是暂时 overshoot / 假突破，还是震荡已经变成新趋势？
 
-```text
-3e49adf2a37c8b947d88ea0f46e17da8537ea074  helper
-2f29faf1e09c9fe78eb6fccdf00b88a7d0904eac  synthetic tests
-a96422d6aff1baff4192ef1c41eef04ef3eed054  source identity gate
-```
+先比较 parent drift / overlap / efficiency、break severity、break speed 与 local volatility，不允许结果出来后不断换 range 定义救策略。
 
-云端 Stage 1 preflight corrections：
+### R3 — Structural exhaustion / transition：趋势衰竭与状态切换
 
-```text
-5ed707215072076deb502953e534eea5de70b5cc  topology exact-partition guard
-2c3b28bef68da01a616e74b034555e996574406f  conformance tests
-```
+父级仍有方向，但结构质量逐步恶化。
 
-文件：
+研究：
 
-```text
-src/factor_lab/visual_structure/two_wave/session_aware_information_set_bounds_v0617.py
-tests/unit/test_two_wave_session_aware_information_set_bounds_v0617.py
-```
+> 能否在明确反向突破发生前，用结构退化识别 reversal / transition risk 上升？
 
-这些都只是 frozen protocol 的实现。formal replay 不得修改冻结数学/数据合同。
+候选现象包括：推进减弱、overlap 增加、效率下降、振幅异常、反向低级别事件密度上升等；第一轮只允许极小候选预算。
 
-## 当前尚未发生
+## 5. 次级方向
 
-正式结果文件目前不存在：
+### R4 — Statistical-state extremes
 
-`docs/research/two_wave_session_aware_information_set_bounds_results_v0617.md`
+路径效率、波动率、频带振幅、事件密度、波浪时长等属性本身可能均值回归。
 
-正式 compact output 目录目前也尚未形成：
+必须牢记：
 
-`cloud_results/cloud_chat_v0617_session_aware_bounds/`
+> **统计量自己回归，不等于价格均值回归。**
 
-因此 **v0.6.17 real-data replay 尚未闭合**，不能声称 session-aware bounds 已通过，也不能更新 morphology verdict。
+只有当状态变量对 price recovery/extension 或 parent transition 有稳定增量信息时，才升级。
 
-## 唯一下一正式动作
+### R5 — Relative-value / overnight dislocation
 
-继续执行 `CL-20260908-005`，但本地执行者必须先读取本次 cloud preflight：
+跨指数、跨资产、隔夜 gap 属于广义均值回归的一个子类，但已有兄弟专题在研究。
 
-`docs/ops/v0617_stage1_cloud_preflight_20260908.md`
+本仓可引用，不把它重新变成本仓主线。
 
-执行链固定为：
+## 6. 新研究方式
 
-**full local Stage 1 pytest/conformance → authoritative DataHub support-topology + native identity gates → price-blind bound registry checkpoint → oracle coverage/tightness formal replay → local feedback → cloud independent review。**
+本仓现在是：
 
-必须使用 accepted DataHub 349,923-row source surface；不能把 FactorLab 350,561-row `1m_official` 当 exact source support。
+`direction_finder_not_single_strategy_optimizer`
 
-输出必须写入冻结协议 section 14 指定的：
+默认规则：
 
-`cloud_results/cloud_chat_v0617_session_aware_bounds/`
+- 同时保留 2–3 个机制方向；
+- 给每条路线相近的小预算；
+- 先做 phenomenon -> causal observability -> chronological stability；
+- 不在 Stage-1 用 PnL 选模型；
+- 不在其他路线没浅测前连续几十轮深挖一条；
+- strong lane 毕业给 dedicated identity；
+- ambiguous lane 暂存；
+- failed lane 关闭，不靠后验加条件救活。
 
-正式报告：
+## 7. 当前仓库级 next action
 
-`docs/research/two_wave_session_aware_information_set_bounds_results_v0617.md`
+**不是继续设计 v0.6.18 / v0.6.19。**
 
-本地完成后，云端必须独立复核；本地 green run 本身不构成 morphology acceptance。
+当前顺序：
 
-## 继续禁止
+1. 权威叙事重置到 broad reversal program；
+2. 冻结公共 `scale / parent state / deviation / recovery` measurement vocabulary；
+3. 给 R1 / R2 / R3 分别写 results-blind shallow preanalysis；
+4. 盘点现有 2015–2020 DataHub views 和分支中已计算的 causal two-wave artifacts，选择三条路线都能公平使用的最小数据面；
+5. 在不声称 fresh OOS 的前提下做第一轮 equal-budget shallow screen；
+6. 比较路线后再决定哪个值得专门深挖。
 
-- 不改 frozen preanalysis/protocol；
-- 不把 v0.6.16 `H_end_5` 当真值；
-- 不用 FactorLab `1m_official` 本地重采样 replacement 5m；
-- 不删除 structural-gap / lunch / overnight / session-boundary legs；
-- 不根据 oracle 结果收窄 bound；
-- 不发明 concentration point proxy / threshold；
-- 不改 recognizer / matcher / projection / publication / qualification / roughness；
-- 不恢复 direction、第三浪、outcome/P&L、fresh OOS 或交易。
+M0 v0.6.17 formal replay 可由本地 authoritative-source 执行链并行推进，不阻断以上 1–4。
 
-## 下一位执行者读取顺序
+## 8. Authority order
 
-1. `AGENTS.md`
-2. `CONTINUE_HERE.md`
-3. `docs/ops/datahub_bar_support_provenance_cloud_review_20260907.md`
-4. `docs/ops/v0617_session_aware_bounds_freeze_receipt_20260908.md`
-5. `docs/ops/v0617_stage1_cloud_preflight_20260908.md`
-6. `docs/research/two_wave_session_aware_information_set_bounds_preanalysis_v0617.md`
-7. `docs/research/two_wave_session_aware_information_set_bounds_protocol_v0617.md`
-8. `src/factor_lab/visual_structure/two_wave/session_aware_information_set_bounds_v0617.py`
-9. `tests/unit/test_two_wave_session_aware_information_set_bounds_v0617.py`
-10. `docs/ops/cloud_local_communication.md` 中 `CL-20260908-005`
+以后发生上下文压缩或新助手接管，按以下顺序决定仓库级方向：
 
-**当前断点不是继续设计 v0.6.17，而是使用修正后的 frozen-protocol implementation 执行 authoritative-source formal replay。**
+1. `CONTINUE_HERE.md`
+2. `docs/governance/reversal_mean_reversion_program_charter_v1.json`
+3. `docs/governance/reversal_mean_reversion_program_state_v1.json`
+4. `docs/research/reversal_mean_reversion_program_whitepaper_v1.md`
+5. `AGENTS.md`
+6. post-reset lane protocols / preanalysis
+7. 旧两浪 v0.x 文档——只在 M0 / 历史具体 identity 内有权威性
+
+若旧文件写“唯一下一动作是继续 v0.6.17”，它只对 **M0 子项目**有效，不再控制整个仓库。
+
+## 9. 权限边界
+
+仍然禁止：
+
+- FactorLab current registry mutation；
+- Layer 4 economic routing；
+- real trading / paper trading；
+- fresh-OOS 声称；
+- 用 trading PnL 挑 recognizer / parent-state formula；
+- 把 algorithm-generated labels 当 morphology ground truth。
+
+Production authority = `false`。
