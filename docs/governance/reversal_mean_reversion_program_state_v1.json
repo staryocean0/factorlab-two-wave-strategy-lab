@@ -1,127 +1,120 @@
 {
-  "schema_id": "factorlab_broad_reversal_mean_reversion_program_state@1.1",
+  "schema_id": "factorlab_broad_reversal_mean_reversion_program_state@1.2",
   "session_date": "2026-09-08",
   "program_identity": "broad_reversal_mean_reversion_discovery_program_v1",
-  "current_status": "BROAD_RMR_ACTIVE_WITH_REUSABLE_TRAIN_VALIDATION_BLACKBOX_POLICY",
+  "current_status": "R5_MULTISCALE_SERIAL_DEPENDENCE_FROZEN_LOCAL_EXECUTION_PENDING_UNDER_REUSABLE_TRAIN_VALIDATION_POLICY",
   "active_research_branch": "codex/two-wave-phase1-20260905",
-  "repository_wide_mainline": "broad_reversal_mean_reversion_direction_discovery_with_reusable_research_corpus_and_small_blackbox_confirmation_reserve",
+  "repository_wide_mainline": "broad_reversal_mean_reversion_direction_discovery_not_single_strategy_optimization",
   "whitepaper_current": "docs/research/reversal_mean_reversion_program_whitepaper_v2.md",
   "data_reuse_policy": "docs/governance/reversal_mean_reversion_data_reuse_validation_policy_v1.md",
-  "next_data_policy": "docs/governance/reversal_mean_reversion_next_data_admission_and_R1_retest_v1.json",
   "data_roles": {
     "TRAIN": {
-      "period": "2015-01-05_to_2018-12-31",
-      "reusable": true,
-      "detailed_diagnostics_allowed": true,
-      "fresh_claim": false
+      "interval": "2015-01-05..2018-12-31",
+      "role": "reusable_training_and_diagnostic_research_corpus",
+      "repeat_use_allowed": true,
+      "detail_inspection_allowed": true
     },
     "VALIDATION": {
-      "period": "2019-01-01_to_2020-12-31",
-      "reusable": true,
-      "detailed_diagnostics_allowed": true,
-      "may_drive_next_model_revision": true,
-      "fresh_claim": false
+      "interval": "2019-01-01..2020-12-31",
+      "role": "reusable_validation_with_detailed_diagnostics_allowed",
+      "repeat_use_allowed": true,
+      "detail_inspection_allowed": true,
+      "may_drive_next_model_iteration": true
     },
     "BLACKBOX": {
+      "interval": null,
+      "role": "small_aggregate_only_final_confirmation_reserve_for_mature_candidate",
       "currently_assigned": false,
-      "purpose": "aggregate_only_independent_confirmation_for_mature_frozen_candidate",
-      "if_opened_for_diagnostics": "demote_to_VALIDATION_not_discard"
+      "detail_inspection_allowed": false,
+      "demotion_rule": "if_details_are_opened_it_becomes_VALIDATION_and_a_future_blackbox_must_be_separately_assigned"
     }
   },
+  "data_governance_principle": "data_is_reusable_research_asset_only_unseen_blackbox_qualification_is_consumable",
   "M0_two_wave_foundation": {
-    "status": "v0617_formal_replay_cloud_reviewed_completed",
-    "role": "parent_structure_and_interval_path_measurement_foundation",
+    "role": "causal_multiscale_structure_measurement_foundation_not_alpha",
     "morphology_replication_status": "not_yet_accepted",
     "operational_baseline": "v0.4.3",
-    "formal_replay_task": "CL-20260908-005",
-    "cloud_review": "docs/research/two_wave_session_aware_information_set_bounds_cloud_review_20260908.md",
-    "formal_verdict": "session_aware_bounds_valid_but_structural_gap_nonidentifiability_is_material",
-    "source_rows": 349923,
-    "published_legs": 737104,
-    "fully_enveloped_legs": 528360,
-    "structural_gap_universal_bound_legs": 208744,
-    "structural_gap_fraction": 0.2831947730578046,
-    "oracle_coverage_fraction": 1.0,
-    "accepted_measurement_capability": "interval_valued_session_aware_path_information_bounds",
-    "morphology_acceptance_implied": false
+    "v0617_status": "cloud_reviewed_completed",
+    "v0617_verdict": "session_aware_bounds_valid_but_structural_gap_nonidentifiability_is_material",
+    "accepted_capability": "interval_valued_session_aware_path_information_bounds",
+    "cloud_review": "docs/research/two_wave_session_aware_information_set_bounds_cloud_review_20260908.md"
   },
-  "lane_status": {
+  "historical_lane_status": {
     "R1_cross_scale_pullback": {
-      "historical_identity_status": "unresolved_under_old_frozen_annual_supply_gate",
-      "historical_M1_trigger_supply": {"TRAIN": 275, "2019": 57, "2020": 69},
-      "historical_M1_resolved_supply": {"TRAIN": 168, "2019": 40, "2020": 39},
+      "historical_identity": "unresolved_evidence_insufficient_after_one_results_blind_measurement_revision",
+      "historical_resolved_supply": {"TRAIN": 168, "2019": 40, "2020": 39},
       "mechanism_rejected": false,
-      "research_may_continue_on_existing_TRAIN_VALIDATION": true,
-      "priority": "high"
+      "may_continue_research_on_reusable_TRAIN_VALIDATION": true,
+      "historical_gate_must_not_be_rewritten": true
     },
     "R2_range_boundary_reversion": {
-      "historical_low_capacity_identity": "closed_with_adequate_evidence_under_M1",
-      "same_historical_identity_may_be_relabelled_success": false,
-      "independent_new_identity_research_allowed": true
+      "historical_identity": "closed_with_adequate_evidence_under_M1",
+      "independent_new_identity_allowed": true,
+      "old_result_must_not_be_relabelled": true
     },
     "R3_structural_exhaustion_transition": {
-      "historical_v1_identity": "closed_predeclared_direction_falsified",
-      "same_historical_identity_may_be_relabelled_success": false,
-      "broader_transition_research_allowed": true
+      "historical_identity": "closed_predeclared_direction_falsified",
+      "independent_new_identity_allowed": true,
+      "old_direction_failure_must_not_be_reinterpreted": true
     },
     "R4_statistical_state_extremes": {
-      "historical_v1_identity": "closed_no_candidate_qualifies",
-      "same_historical_identity_may_be_relabelled_success": false,
-      "independent_new_identity_research_allowed": true
+      "historical_identity": "closed_no_candidate_qualifies",
+      "independent_new_identity_allowed": true
     },
     "T1_transitory_component_after_extreme_intraday_shock_v1": {
       "historical_identity": "closed_before_outcome_supply_insufficient",
       "historical_supply": {"TRAIN_aligned": 364, "2019_aligned": 48, "2020_aligned": 87},
-      "historical_minimums": {"TRAIN": 150, "2019": 50, "2020": 50},
-      "historical_decision_rewritten": false,
-      "future_new_identity_may_use_new_sample_gate_policy": true
+      "historical_gate_must_not_be_rewritten": true,
+      "independent_new_identity_allowed": true
     }
   },
-  "sample_gate_policy": {
-    "arbitrary_per_year_minimum_as_default": false,
-    "prefer": [
-      "total_effective_sample",
-      "chronological_subperiod_stability",
-      "predeclared_precision_or_minimum_detectable_effect",
-      "year_level_breakdown_as_diagnostic"
-    ],
-    "historical_frozen_gates_preserved": true
+  "active_lane": {
+    "id": "R5_multiscale_serial_dependence_state_v1",
+    "scientific_question": "can_short_horizon_mean_reversion_and_slower_positive_memory_coexist_and_help_distinguish_temporary_countertrend_shocks_from_continuation",
+    "theory_source": "Sepp_and_Lucic_2026_autocorrelation_and_long_memory_framework",
+    "preanalysis": "docs/research/reversal_mean_reversion_R5_multiscale_serial_dependence_preanalysis_20260908.md",
+    "protocol": "docs/governance/reversal_mean_reversion_R5_multiscale_serial_dependence_protocol_v1.json",
+    "execution_freeze": "docs/governance/reversal_mean_reversion_R5_execution_freeze_v1.json",
+    "runner": "scripts/run_broad_rmr_R5_multiscale_serial_dependence.py",
+    "tests": "tests/unit/test_broad_rmr_R5_multiscale_serial_dependence.py",
+    "local_task": "CL-20260908-007",
+    "handoff": "docs/ops/cl_20260908_007_R5_multiscale_serial_dependence_handoff.md",
+    "execution_status": "frozen_pending_local_execution",
+    "BLACKBOX_used": false,
+    "PnL_authorized": false,
+    "subquestions": {
+      "R5_A": "supply_and_persistence_of_short_negative_long_positive_memory_state",
+      "R5_B": "anti_persistence_interaction_increment_for_next_5m_return",
+      "R5_C": "state_increment_for_15m_recovery_after_countertrend_shock"
+    }
   },
-  "measurement_policy_after_v0617": {
-    "native_5m_OHLC_may_be_treated_as_exact_fine_path": false,
-    "fully_enveloped_legs": "use_frozen_finite_interval_bounds_or_admitted_finer_source",
-    "structural_gap_legs": "use_partial_identification_or_admitted_actual_finer_source",
-    "empirical_bound_shrinkage": false
+  "research_style": {
+    "TRAIN_and_VALIDATION_can_be_reused": true,
+    "VALIDATION_can_be_opened_and_diagnosed": true,
+    "model_iteration_after_validation_allowed": true,
+    "BLACKBOX_reserved_until_candidate_mature": true,
+    "avoid_mechanical_per_calendar_year_sample_gates_by_default": true,
+    "prefer_pooled_effective_sample_plus_chronological_stability": true,
+    "multiple_shallow_mechanisms_before_deep_complexity": true,
+    "PnL_selection_in_discovery": false
   },
-  "current_research_authority": {
-    "may_continue_using_existing_TRAIN_VALIDATION": true,
-    "may_open_detailed_validation_diagnostics": true,
-    "may_iterate_models_after_validation": true,
-    "may_claim_existing_data_is_fresh_OOS": false,
-    "may_assign_blackbox_for_immature_idea": false,
-    "blackbox_must_be_small_and_reserved_for_mature_candidate": true
+  "path_measurement_policy": {
+    "native_5m_OHLC_is_exact_fine_path": false,
+    "allowed_classes": [
+      "admitted_actual_finer_source_direct_measurement",
+      "fully_enveloped_finite_interval_measurement",
+      "structural_gap_partial_identification_interval"
+    ]
   },
-  "new_data_purpose": [
-    "increase_market_regime_coverage",
-    "increase_rare_event_supply",
-    "improve_fine_path_observability",
-    "support_cross_asset_and_cross_sectional_mechanism_research",
-    "eventually_supply_a_small_independent_blackbox_confirmation_block"
-  ],
   "next_actions_in_order": [
-    "continue_broad_research_using_2015_2018_TRAIN_and_2019_2020_VALIDATION",
-    "prioritize_R1_cross_scale_pullback_but_keep_multi_direction_shallow_research_style",
-    "when_new_data_arrives_admit_source_and_add_most_new_history_to_TRAIN_or_VALIDATION",
-    "reserve_only_a_small_latest_sufficient_block_as_BLACKBOX_after_candidate_maturity",
-    "do_not_use_blackbox_for_early_idea_generation"
+    "execute_CL_20260908_007_locally_on_frozen_TRAIN_VALIDATION_runner_and_push_compact_receipt_with_skip_ci",
+    "cloud_review_R5_receipt_distinguishing_local_reported_from_cloud_reviewed",
+    "if_R5_has_partial_or_full_support_continue_diagnostics_on_reusable_TRAIN_VALIDATION_without_claiming_blackbox_confirmation",
+    "if_R5_low_capacity_mechanisms_fail_do_not_escalate_to_HMM_rSLDS_Koopman_as_rescue",
+    "assign_BLACKBOX_only_after_a_candidate_is_mature_enough_for_final_aggregate_confirmation"
   ],
   "trading_PnL_authorized": false,
-  "production_authority": false,
-  "authority_files": [
-    "CONTINUE_HERE.md",
-    "docs/governance/reversal_mean_reversion_program_charter_v1.json",
-    "docs/governance/reversal_mean_reversion_data_reuse_validation_policy_v1.md",
-    "docs/governance/reversal_mean_reversion_program_state_v1.json",
-    "docs/research/reversal_mean_reversion_program_whitepaper_v2.md"
-  ]
+  "paper_trading_authorized": false,
+  "fresh_OOS_claim_authorized": false,
+  "production_authority": false
 }
