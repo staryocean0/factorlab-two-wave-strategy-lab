@@ -2,7 +2,7 @@
 
 > 本文按仓库 `AGENTS.md` 的云端—本地交接协议维护。当前协作协议已由用户明确启用。
 >
-> 执行优先级：当前云端会话可执行 → 本地大模型 → GitHub Actions。当前任务不需要、也不授权用 GitHub Actions 绕过 DataHub provenance 阻断；保存本文档使用 `[skip ci]`。
+> 执行优先级：当前云端会话可执行 → 本地大模型 → GitHub Actions。用户当前不授权/不需要用 Actions；文档和研究提交使用 `[skip ci]`，不得用 push 试探 Actions 额度。
 
 ---
 
@@ -12,252 +12,291 @@
 
 **状态：SUPERSEDED / DO NOT EXECUTE**
 
-历史误交接，后续证据已经闭合 v0.5.2，不得回退或重跑。
-
 ### CL-20260906-002 — v0.6.0 qualified financial identity 五视图审计
 
 **状态：COMPLETED / CLOUD REVIEWED — Route M**
 
 正式结果：`docs/research/two_wave_qualified_identity_results_v060.md`。
 
-### CL-20260906-003 — v0.6.1 unmatched-identity decomposition 五视图正式审计
+### CL-20260906-003 — v0.6.1 unmatched-identity decomposition
 
 **状态：COMPLETED IN CLOUD / LOCAL HANDOFF CANCELLED / DO NOT EXECUTE**
 
-本地任务曾因 binary transport/runtime 限制建立；用户随后把 frozen parquet 直接提供给当前 Chat，云端完成真实 replay 与复核，原 handoff 因而取消。正式结果：`docs/research/two_wave_unmatched_identity_decomposition_results_v061.md`。
-
-> 上述历史任务的详细旧版记录仍保存在 Git 历史中；当前文档只保留执行状态与有效入口，避免让已经闭合的旧任务遮蔽当前唯一阻断。
-
----
-
-## DATA_AVAILABILITY / HANDOFF 现行规则
-
-仓库已跟踪的 development parquet 与外部 DataHub 产品合同是两类不同依赖：
-
-- GitHub connector 不能直接把 parquet 作为 Python runtime 输入，**不等于**仓库数据不存在；
-- 但当研究正式要求一个不在当前授权面中的 authoritative 外部 repo/contract/provenance，而当前 artifact 又无法自描述该事实时，这属于真实的外部输入阻断，可以按 Protocol 1 交给本地大模型取证。
-
-任何 handoff 都不得扩大研究权限：不得下载/构造 2021+ fresh OOS，不得把 index signal data 当成可成交收益，不得绕过 morphology gate 进入 direction、third-wave、P&L、paper trading 或 production。
+正式结果：`docs/research/two_wave_unmatched_identity_decomposition_results_v061.md`。
 
 ---
 
 # CL-20260907-004 — 获取 authoritative DataHub 5m bar-support provenance
 
-**状态：本地已反馈 / 云端已复核尚未发生**
+**状态：COMPLETED / LOCAL FEEDBACK RECEIVED / CLOUD REVIEWED — `authoritative_archive_copy_accepted`**
 
-**云端阻断原因：** 当前 Chat 已重新枚举 linked GitHub installation；可访问面只有现有 FactorLab 相关仓库，没有 `unified_datahub` / `datahub` repository。当前 frozen 5m artifacts 的 `source_minute_count` 仍逐行为空，且没有 exact `support_start/support_end/source_row_ids`。因此云端无法从当前 surface 获得 DataHub 产品真源，也不得用 `H_end_5` 或本地 1m 重采样替代。
+本地反馈 commit：
 
-**对应 unblock issue：** GitHub issue #4 — `Unblock morphology research: provide authoritative DataHub 5m bar-support provenance`
+`79925a46d8d5df5aff5674cd61c43e5f15a08276`
 
-**云端已冻结的 intake gate：**
-
-`docs/ops/datahub_bar_support_provenance_intake_protocol_20260907.md`
-
-该 gate 是 operations/provenance 验收协议，不是 v0.6.17 morphology 版本。
-
-## 任务目标
-
-请本地大模型在其能访问实际 FactorLab/DataHub 工程与数据环境的前提下，取得足以回答 **DataHub 对 `cn_a_session_wall_clock_offset_v1` 的每根 5m bar 到底使用哪些 source minutes** 的权威证据，并把证据身份、实际执行步骤和输出反馈回来。
-
-满足下面任一 evidence route 即可，不需要三条都做。
-
-### Route A — DataHub 真源合同/实现
-
-取得实际项目 `unified_datahub`，记录：
-
-1. repository remote / repository identity；
-2. branch/tag（如有）；
-3. exact commit SHA / immutable revision；
-4. `docs/modules/history/session-offset-bars-whitepaper.md`；
-5. 对应 bar-construction implementation；
-6. preferably matching tests/fixtures。
-
-如果 whitepaper 本身已经完全、无歧义地定义每根 bar 的 source support，也仍应报告 implementation/test 路径是否存在；不要自行补写合同里没有的规则。
-
-### Route B — provenance-rich DataHub 5m re-export
-
-如果本地 DataHub 能重新导出当前研究所需 5m products，请只通过 DataHub 的正式构造逻辑执行，不要在 FactorLab/local notebook 中用 1m 重采样重新定义 5m。
-
-每根 bar 至少需要：
-
-- view / offset identity；
-- native bar label/end timestamp；
-- `source_minute_count`；
-- exact `support_start`；
-- exact `support_end`；
-- `data_contract`；
-- source dataset/version identity。
-
-优先同时保留：
-
-- exact source-row IDs；和/或
-- exact source timestamps；
-- DataHub build commit；
-- export command/config/build receipt。
-
-### Route C — authoritative archive/copy
-
-如果实际 DataHub repo 无法直接授权给当前 Chat，可提供其 authoritative contract + implementation + tests 的 archive/copy，但必须记录 source revision 与文件 hash，保证它能追溯回真正项目 DataHub，而不是无来源的手工摘录。
-
-## 本地必须回答的合同问题
-
-请从 authoritative source 中逐项回答，不要从当前 v0.6.16 的 best-fit 指标反推：
-
-1. 5m support interval 在上午/下午 session 内如何定义？
-2. support 起止端点的 inclusive/exclusive 规则是什么？
-3. bar label、availability time、support_start、support_end 的精确关系是什么？
-4. 午休如何切分，是否跨午休聚合？
-5. overnight 如何处理？
-6. session-edge partial bars 如何处理/丢弃/标记？
-7. offset0 与 offset1–4 是否完全同一 support rule，还是存在分别定义？
-8. serialized timestamp 与 source support 的 authoritative timezone/clock convention 是什么？
-9. 是否能对当前 frozen development 5m rows 唯一确定 exact source support set？如果不能，具体还缺哪项 provenance？
-
-## Frozen identity controls
-
-如果执行 Route B，先验证数据身份，不要在 mismatch 时自动修复。
-
-当前冻结 row counts：
-
-```text
-5m_offset_0 = 70,114
-5m_offset_1 = 67,192
-5m_offset_2 = 67,192
-5m_offset_3 = 67,193
-5m_offset_4 = 67,191
-```
-
-当前 frozen products 声明：
-
-```text
-data_contract = cn_a_session_wall_clock_offset_v1
-source_kind = market_index_transaction_derived_1m
-```
-
-如 DataHub re-export 在 rows / timestamps / OHLC / dataset_version / contract 上与 frozen products 不一致：
-
-- 不要偷偷重排、删样本、改标签或重新 resample 让它“对上”；
-- 把 mismatch 单独报告，并给出 DataHub build identity 与差异摘要；
-- 该 mismatch 需要云端另行裁决，不能自动算作 unlock。
-
-## 禁止事项
-
-本地任务只做 **provenance acquisition / contract verification**。不要：
-
-- 开 v0.6.17 morphology 算法；
-- 把 `H_end_5` 当 authoritative truth；
-- 从 `1m_official` 本地重采样创造 replacement 5m；
-- 删除 lunch/overnight/session-boundary legs；
-- 发明新的 concentration/support proxy；
-- 读取或优化 direction、第三浪、outcome/P&L、fresh OOS、paper trading、production。
-
-## 期望反馈
-
-请在同一 CL-20260907-004 记录下反馈，或提供一份可由用户转交给云端的小报告。至少包含：
-
-1. **实际代码/合同身份**：repo、commit、文件路径、必要 hash；
-2. **实际数据身份**（若有 re-export）：symbol/role/date range、dataset_version、view row counts；
-3. **实际执行命令/步骤与退出码**；
-4. **上述 9 个合同问题的答案**，每个答案对应 source file/code/test 证据位置；
-5. **输出位置**：contract/archive/report/provenance export 的本地路径或可访问位置；
-6. **失败/未验证项**；
-7. 若大数据留在本地，给一个 compact manifest + deterministic session-boundary sample；不要为了反馈把全部大文件无必要搬进 GitHub。
-
-## 验收条件
-
-云端收到反馈后，将按：
-
-`docs/ops/datahub_bar_support_provenance_intake_protocol_20260907.md`
-
-执行独立复核。只有 authoritative lineage + support semantics/completeness 真正通过，才会把 issue #4 视为可关闭，并进入：
-
-**results-blind session-aware information-set bounds preanalysis → frozen protocol → real replay**。
-
-本地“已经找到文件/跑完脚本”本身不等于云端已复核通过。
-
----
-
-## 本地反馈（2026-09-07，本地大模型）
-
-**本地状态：已反馈。云端复核：尚未发生。本地不得代填“云端已复核”。**
-
-执行仓库：`staryocean0/factorlab-two-wave-strategy-lab` 分支 `codex/two-wave-phase1-20260905`。
-未改其他 5 个云端主题仓，未改 DataHub git，未开 morphology，未写 replacement 5m。
-
-### 1. 实际代码/合同身份
-
-- DataHub 本地路径：`/home/starryocean/桌面/量化/unified_datahub`
-- GitHub remote：**无**。这与云端搜不到 `unified_datahub` 一致。
-- branch：`main`
-- HEAD：`ba780790acd8e9a558e4e01f9474b6e79265d818`
-- session-offset 实现提交：`2c7b070f38f061378e89c19d183da9ccef9a6c88`
-- 白皮书最后触及提交：`d31b140e35132911aa6ab164deaa9afcbb02b0ff`
-- 权威绑定：**HEAD 已提交 blob**。脏工作区里的分工说明 / `session_clock_continuous` fail-closed 未当作权威。
-- 关键文件 sha256 与 git blob SHA1 见 `cloud_results/cl_20260907_004_datahub_bar_support_provenance/SOURCE_IDENTITY.json` 和 `archive/`。
-
-### 2. 实际数据身份
-
-- 未做 Class B 新产品 re-export。
-- 诊断源：湖中冻结声明的 1m `dataset_version=bars_cn_index_1m_raw_canonical_market_index_baidu_3s_20000714_20260821_factorlab_unified_missing_day_repaired_v8_20260824`
-- symbol=`000852.SH`，role=`development_material`，区间 `2015-01-05..2020-12-31`，**未读 2021+**
-- 1m 源行 349923；`source_kind=market_index_transaction_derived_1m`
-- 冻结 5m 行数仍为 70114 / 67192 / 67192 / 67193 / 67191
-- 用 DataHub `assign_intraday_bucket_minute` 回放：五视图 label 差集为 0，对齐 label 的 OHLC mismatch=0
-- 冻结 5m 的 `source_minute_count` 仍全 null，文件未被改写
-
-### 3. 实际执行命令与退出码
-
-```bash
-# DataHub 合同测试
-cd /home/starryocean/桌面/量化/unified_datahub
-PYTHONPATH=src .venv/bin/python -m pytest   tests/unit/storage/test_session_offset_contract.py   tests/unit/storage/test_bars_deriver.py -q --tb=short
-# exit 0 ; 33 passed in 0.81s
-
-# 只读身份诊断（不写 data/development）
-PYTHONPATH=/home/starryocean/桌面/量化/unified_datahub/src   /home/starryocean/桌面/量化/unified_datahub/.venv/bin/python   cloud_results/cl_20260907_004_datahub_bar_support_provenance/run_identity_diagnostic.py
-# exit 0
-```
-
-从 HEAD 提取白皮书/实现/测试副本的命令见反馈包 `archive/`。
-
-### 4. 九个合同问题
-
-完整答案：`cloud_results/cl_20260907_004_datahub_bar_support_provenance/contract_answers.md`
-
-最短结论：
-
-1. 上下午独立窗口，5m 由 `assign_intraday_bucket_minute(period=5, offset=k)` 定义。
-2. 每个 1m 端标签最多进一个桶；wall-clock 第一桶含 6 个 1m，后续完整桶 5 个；`bar_open_ts` ≠ exact support_start。
-3. label 是墙上时钟 end-label；产品无 support_start/end 列；冻结 `available_at=15:30+08:00` 不是 `first_tradable_slot`。
-4. 不跨午休；禁止独立 13:00 bar。
-5. 无隔夜会话，不跨日聚合。
-6. offset>0 丢网格前缀和不完整尾桶；offset0 official 保留 cap 在 session_end 的最后一桶。
-7. offset0 走 official v2 路径；offset1–4 走 wall-clock v1。冻结五视图却都标 `cn_a_session_wall_clock_offset_v1`。
-8. DataHub 序列化 `T09:35:00Z` 表示上海墙上时钟，不是 UTC 01:35。
-9. intended support 可由合同唯一确定；exact actual source set 不能从冻结 5m 单独恢复。同源 1m + 合同函数可恢复，且与冻结 OHLC/label 一致。
-
-### 5. 输出位置
-
-主题仓内（可 push 给云端）：
+本地 evidence pack：
 
 `cloud_results/cl_20260907_004_datahub_bar_support_provenance/`
 
-1m 湖大数据仍留本地 DataHub lake，未搬进 GitHub。
+云端 frozen intake gate：
 
-### 6. 失败 / 未验证项
+`docs/ops/datahub_bar_support_provenance_intake_protocol_20260907.md`
 
-- DataHub 无 GitHub remote，云端仍不能自己 clone 原仓；只能读本包 archive。
-- Route B 未产出带 `source_minute_count/support_start/support_end` 的新 5m 产品；公开 API 对钉死 `dataset_version`+offset fail-closed。
-- 未验证 `1m_official.parquet`（350561 行）与湖中 2015–2020 1m（349923 行）的差异；禁止用它重采样 5m。
-- 未把脏工作区未提交合同改动当作权威。
-- 未关闭 issue #4，未宣称 intake gate 已通过。
+云端独立复核：
 
-### 7. Compact manifest / session-boundary sample
+`docs/ops/datahub_bar_support_provenance_cloud_review_20260907.md`
 
-- 摘要：`identity_diagnostic.json`
-- 样例：`session_boundary_samples.json`（2015-01-05 与 2020-12-31，offset0–4，早盘第一根/午休前后/下午最后一根/隔夜过渡）
+复核结论：
 
-2015-01-05 offset0 第一根：label `09:35`，intended `09:30..09:35`，actual 缺 `09:30`，实际从 `09:31` 起。
+`authoritative_archive_copy_accepted`
+
+Issue #4 已 `completed` 关闭。该状态只解除 DataHub provenance blocker；全局 morphology 仍为 `morphology_replication_not_yet_accepted`。
+
+### Accepted authority
+
+```text
+DataHub committed HEAD = ba780790acd8e9a558e4e01f9474b6e79265d818
+session-offset implementation ancestor = 2c7b070f38f061378e89c19d183da9ccef9a6c88
+whitepaper last-touch ancestor = d31b140e35132911aa6ab164deaa9afcbb02b0ff
+symbol = 000852.SH
+source_kind = market_index_transaction_derived_1m
+dataset_version = bars_cn_index_1m_raw_canonical_market_index_baidu_3s_20000714_20260821_factorlab_unified_missing_day_repaired_v8_20260824
+date_range = 2015-01-05..2020-12-31
+source_rows = 349,923
+2021+ rows = 0
+```
+
+Known retained caveat：frozen offset0 parquet 的 `data_contract` 文本写 wall-clock v1，但 authoritative code 对 offset0 走 official v2；official-route replay 对冻结 offset0 全部 70,114 labels/OHLC exact match。不得改 frozen metadata，也不得再用该字段选择 support。
+
+---
+
+# CL-20260908-005 — 执行冻结 v0.6.17 session-aware information-set bounds formal replay
+
+**状态：OPEN / LOCAL EXECUTION REQUIRED / CLOUD REVIEW PENDING**
+
+## 任务边界
+
+本任务不是设计新算法，也不是重新冻结协议。云端已经 results-blind 冻结：
+
+```text
+preanalysis:
+  docs/research/two_wave_session_aware_information_set_bounds_preanalysis_v0617.md
+  blob = 77f54c7a8e3699997450eaad941ed13b1e561b3a
+
+protocol:
+  docs/research/two_wave_session_aware_information_set_bounds_protocol_v0617.md
+  blob = f0f6acd06c7ccacd331ed9938f77ff68c9519cfa
+
+freeze commit = 61eba4c80215bb07375e59d3c53e8ac2b989ff28
+freeze receipt:
+  docs/ops/v0617_session_aware_bounds_freeze_receipt_20260908.md
+```
+
+formal real-data results 尚未产生。YV/本地执行者只负责**按 frozen protocol 实现/验证并运行 formal replay**。
+
+## 现有 implementation-only 起点
+
+协议冻结后已经存在：
+
+```text
+3e49adf2a37c8b947d88ea0f46e17da8537ea074
+  src/factor_lab/visual_structure/two_wave/session_aware_information_set_bounds_v0617.py
+
+2f29faf1e09c9fe78eb6fccdf00b88a7d0904eac
+  tests/unit/test_two_wave_session_aware_information_set_bounds_v0617.py
+
+a96422d6aff1baff4192ef1c41eef04ef3eed054
+  source-identity gate cleanup
+```
+
+这些是 frozen protocol 的候选实现，不是新的研究协议。可修复 protocol-conformance implementation bug，但任何修复必须先记录原因，且不得改变 frozen mathematics/data contract。
+
+## 执行前 hard gate
+
+1. 更新/检出 `staryocean0/factorlab-two-wave-strategy-lab` 的 `codex/two-wave-phase1-20260905` 最新状态。
+2. 验证上述 preanalysis/protocol blob SHA 未变化；若变化，**停止**并报告，不执行 formal replay。
+3. DataHub 使用本地实际工程；验证 committed HEAD/accepted archive lineage。不要把脏工作区未提交规则当作 authority。
+4. 必须使用 accepted DataHub source surface：
+
+```text
+symbol = 000852.SH
+source_kind = market_index_transaction_derived_1m
+dataset_version = bars_cn_index_1m_raw_canonical_market_index_baidu_3s_20000714_20260821_factorlab_unified_missing_day_repaired_v8_20260824
+date_range = 2015-01-05..2020-12-31
+source_rows = 349,923
+2021+ = 0
+```
+
+5. 不得用 FactorLab `1m_official.parquet`（350,561 行）替代 exact DataHub source，除非另有事前冻结的 exact row-level bridge；当前没有该 bridge。
+6. offset0 support 必须按 authoritative official v2；offset1–4 按 wall-clock v1。不要从 frozen offset0 `data_contract` 文本决定构造规则。
+7. DataHub `...T09:35:00Z` 在构造函数中是上海墙上时钟 label；不要按 UTC 01:35 做 minute-of-day。
+
+任何 source identity / native identity / support replay mismatch 都必须 fail closed，不能自动修复。
+
+## 必须按顺序执行
+
+### Stage 1 — synthetic / implementation conformance
+
+先运行现有 v0.6.17 tests，并补齐 frozen protocol section 9 要求但现有测试尚未覆盖的 synthetic/topology gates。至少证明：
+
+- m=1..6 generalized vertex TV max；
+- variable-step feasible paths coverage；
+- C_inf/C_1/C_2 coverage；
+- un-enveloped actual source gap 强制 universal bound；
+- lunch/overnight 无 source rows 时不制造 fake gap；
+- discarded source rows 产生 gap；
+- positive price scaling invariance；
+- closed-leg future append invariance；
+- bound API 不接收 source fine prices/oracle/counterpart/direction/outcome；
+- source identity mismatch fail closed；
+- audited transition 中 source timestamp duplicate/double-assigned/unclassified fail closed。
+
+测试不通过时停止 real-data interpretation；不得为了通过而修改 frozen protocol。
+
+### Stage 2 — authoritative support topology + native identity gate
+
+使用 DataHub authoritative `assign_intraday_bucket_minute(period=5, offset=k, include_tail_partial=false)` / official equivalent path构建 actual source membership。不要 locally resample 创建新的 5m product。
+
+先证明五个 frozen 5m views：
+
+```text
+offset0 = 70,114
+offset1 = 67,192
+offset2 = 67,192
+offset3 = 67,193
+offset4 = 67,191
+```
+
+对每个 view 必须：
+
+- identical native label set；
+- extra/missing labels = 0；
+- aligned OHLC mismatch = 0；
+- 每根 emitted bar non-empty actual support；
+- last support close == native close；
+- assigned source closes 全在 native [L,H]；
+- every source row between audited native endpoints 被 price-blind topology stage 精确分类，不得 double assignment / silent deletion。
+
+Transition topology 至少记录 frozen protocol section 5 的字段，并将：
+
+- `gap_source_count=0` → `fully_enveloped_transition`
+- `gap_source_count>0` → `contains_unenveloped_source_gap`
+
+午休/隔夜的纯 wall-clock elapsed time 不算 gap；只有真实存在但未被 current native bar envelope 覆盖的 source rows 才算 gap。
+
+### Stage 3 — price-blind bound registry
+
+**先生成并持久化 topology + bounds registry，再读取 fine prices/oracle。**
+
+建议将 Stage 3 registry 的 SHA256 / row count / schema 写入 execution receipt，形成明确的 pre-oracle checkpoint。
+
+- fully enveloped transition/leg：严格调用 frozen variable-step bounds；
+- leg 只要含一个 un-enveloped source gap：整个 leg 使用 universal `J in [1/N,1]`、profile `[0,log N]`；
+- 不删除 structural-gap leg；
+- 不根据 oracle 位置收窄任何 interval。
+
+### Stage 4 — oracle validation / tightness descriptive replay
+
+只有 Stage 3 已固定后才允许读取 fine prices/oracle，用于：
+
+- exact N validation；
+- J1 coverage；
+- C_inf/C_1/C_2 coverage；
+- bound width / normalized width；
+- oracle position；
+- transition/leg topology counts；
+- frozen step-count bins；
+- strict same-event 29,453；
+- both-qualified 482；
+- qualification disagreement 699；
+- target repaired 80 / agreement 56 / disagreement 24；
+- frozen cross-slicer comparison。
+
+任何 coverage failure 是 model/data bug。不得针对失败样本 widening/tuning。
+
+## Frozen upstream control numbers
+
+正式 interpretation 前必须复现：
+
+```text
+published identities = 38,176 / 36,737 / 36,619 / 36,480 / 36,264
+published raw strict pairs = 8,381 / 5,770 / 6,204 / 9,098 = 29,453
+both-qualified = 482
+qualification disagreements = 699
+target repaired = 80 = 56 agreement + 24 disagreement
+fine profile defined = 737,070 published legs
+oracle-comparable strict pair-leg observations = 117,805
+```
+
+任一 upstream behavioral drift 都停止 interpretation。
+
+## 必须输出
+
+按 frozen protocol section 14 写入：
+
+`cloud_results/cloud_chat_v0617_session_aware_bounds/`
+
+至少包含：
+
+```text
+summary.json
+support_topology_summary.json
+source_identity.json
+native_identity.json
+synthetic_gate_receipt.json
+data_consistency.json
+bound_tightness.json
+step_count_overlay.json
+cross_slicer_bounds.json
+strata_overlays.json
+execution_receipt.json
+```
+
+正式报告：
+
+`docs/research/two_wave_session_aware_information_set_bounds_results_v0617.md`
+
+大型 row-level topology 可留本地，但 `execution_receipt.json` 必须记录 SHA256、row count、schema、确定性生成命令和本地位置。
+
+## 允许的正式裁决
+
+只允许 frozen protocol section 15 中五种：
+
+- `session_aware_bounds_valid_and_ready_for_identifiability_interpretation`
+- `session_aware_bounds_valid_but_structural_gap_nonidentifiability_is_material`
+- `session_aware_bounds_cover_oracle_but_are_too_wide_for_identification`
+- `session_aware_bounds_fail_support_topology_or_oracle_coverage`
+- `mixed_identifiability_requires_more_audit`
+
+不得自行新增“看起来更好”的 verdict。
+
+## 继续禁止
+
+- 不改 frozen preanalysis/protocol；
+- 不 promotion `H_end_5`；
+- 不 local 1m→5m replacement resample；
+- 不删除 structural-gap/session-boundary legs；
+- 不 empirical shrink bounds；
+- 不新增 concentration point proxy/threshold；
+- 不改 matcher/projection/publication/qualification/roughness；
+- 不读/优化 direction、第三浪、outcome/P&L、fresh OOS、paper trading、production。
+
+## 本地反馈要求
+
+执行完成后在本 CL-005 后追加实际反馈，至少包括：
+
+1. FactorLab exact commit / implementation changes；
+2. DataHub exact committed identity 与 source dataset identity；
+3. 全部实际命令、退出码、测试数量；
+4. Stage 1–4 gate PASS/FAIL；
+5. required outputs 的位置与 hashes；
+6. formal adjudication；
+7. 所有失败、未验证、runtime bridge；
+8. 明确写：`云端复核尚未发生`。
+
+提交到研究分支时使用 `[skip ci]`。不要运行 GitHub Actions。
+
+本地完成 ≠ 云端独立复核；不得自行修改 global morphology state。
 
 ---
 
@@ -265,11 +304,13 @@ PYTHONPATH=/home/starryocean/桌面/量化/unified_datahub/src   /home/starryoce
 
 读取顺序：
 
-1. `CONTINUE_HERE.md`
-2. `docs/research/two_wave_bar_support_semantics_results_v0616.md`
-3. `docs/ops/datahub_bar_support_provenance_acquisition_status_20260907.md`
-4. `docs/ops/datahub_bar_support_provenance_intake_protocol_20260907.md`
-5. issue #4
-6. 本文 `CL-20260907-004`
+1. `AGENTS.md`
+2. `CONTINUE_HERE.md`
+3. `docs/ops/datahub_bar_support_provenance_cloud_review_20260907.md`
+4. `docs/ops/v0617_session_aware_bounds_freeze_receipt_20260908.md`
+5. `docs/research/two_wave_session_aware_information_set_bounds_preanalysis_v0617.md`
+6. `docs/research/two_wave_session_aware_information_set_bounds_protocol_v0617.md`
+7. v0.6.17 helper + tests
+8. 本文 `CL-20260908-005`
 
-当前全局状态保持：`morphology_replication_not_yet_accepted`。
+当前动作：**执行 frozen v0.6.17 formal replay；不要重新设计 v0.6.17。**
