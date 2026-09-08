@@ -1,0 +1,131 @@
+{
+  "schema_id": "factorlab_broad_rmr_stage1_R1_R2_R3_receipt@1.0",
+  "session_date": "2026-09-08",
+  "program_identity": "broad_reversal_mean_reversion_discovery_program_v1",
+  "code_commit": "201a512ba3825f47288262ca9f1004a996a0e44c",
+  "execution": {
+    "location": "GitHub_Actions_after_direct_cloud_clone_DNS_failure_and_no_direct_local_model_tool",
+    "run_id": 34188765085,
+    "job_id": 101942316529,
+    "conclusion": "success",
+    "artifact_id": 10041442596,
+    "artifact_digest": "sha256:65b6891b5b7133dc5e235a4cb4c5927ebd718486401c6775d435883eb5d7acbe"
+  },
+  "source": {
+    "structure_cache_sha256": "8596622924e92182756162b7bdf0959f6d8ddc2222d6dbc9b4e4379cada9974c",
+    "price_view_sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48",
+    "max_day": "2020-12-31",
+    "post_2020_rows_read": false
+  },
+  "scale": {
+    "parent_level": 5,
+    "finer_level": 3,
+    "selected_results_blind": true
+  },
+  "event_inventory": {
+    "parent_mature_dedup": 1730,
+    "finer_mature_dedup": 931
+  },
+  "R1": {
+    "progression_worthy": false,
+    "decision_basis": "evidence_supply_insufficient",
+    "inventory": {"BUILD_resolved": 9, "CHECK_2019_resolved": 5, "CHECK_2020_resolved": 3},
+    "models": {
+      "severity_only": {"status": "insufficient", "n": 8},
+      "parent_integrity_only": {"status": "insufficient", "n": 8},
+      "parent_plus_severity": {"status": "insufficient", "n": 8}
+    },
+    "annual": {
+      "2019": {"severity_only_n": 5, "parent_integrity_only_n": 5, "parent_plus_severity_n": 5},
+      "2020": {"severity_only_n": 3, "parent_integrity_only_n": 3, "parent_plus_severity_n": 3}
+    },
+    "gates": {
+      "supply": false,
+      "pooled_brier": false,
+      "pooled_logloss": false,
+      "both_years_brier": false,
+      "integrity_direction": false
+    },
+    "projection": null
+  },
+  "R2": {
+    "progression_worthy": false,
+    "decision_basis": "evidence_supply_insufficient_and_annual_instability",
+    "projection": 0.5070396651833227,
+    "inventory": {"BUILD_resolved": 37, "CHECK_2019_resolved": 11, "CHECK_2020_resolved": 10},
+    "pooled": {
+      "excursion_severity_only": {"n": 21, "event_rate": 0.5238095238095238, "brier": 0.27670834363279234, "log_loss": 0.7475542716029796},
+      "parent_plus_excursion_state": {"n": 21, "event_rate": 0.5238095238095238, "brier": 0.27280342646664024, "log_loss": 0.7463753512240848},
+      "parent_range_state_only": {"n": 21, "event_rate": 0.5238095238095238, "brier": 0.25485983136883744, "log_loss": 0.7082185732524757}
+    },
+    "annual": {
+      "2019": {
+        "n": 11,
+        "severity_brier": 0.2879821280659693,
+        "parent_plus_brier": 0.26871662372777133,
+        "parent_only_brier": 0.24567809643496655
+      },
+      "2020": {
+        "n": 10,
+        "severity_brier": 0.26430718075629767,
+        "parent_plus_brier": 0.277298909479396,
+        "parent_only_brier": 0.26495973979609555
+      }
+    },
+    "gates": {
+      "supply": false,
+      "pooled_brier": true,
+      "pooled_logloss": true,
+      "both_years_brier": false,
+      "range_direction": true
+    }
+  },
+  "R3": {
+    "progression_worthy": false,
+    "decision_basis": "predeclared_deterioration_direction_gate_failed_despite_small_probability_metric_improvement",
+    "inventory": {"BUILD_resolved": 744, "CHECK_2019_resolved": 172, "CHECK_2020_resolved": 144},
+    "pooled": {
+      "baseline": {"n": 316, "event_rate": 0.439873417721519, "brier": 0.24504318994644314, "log_loss": 0.6833594323300233},
+      "translation_decay": {"n": 316, "event_rate": 0.439873417721519, "brier": 0.24411012288328726, "log_loss": 0.6814654295350725},
+      "quality_decay": {"n": 316, "event_rate": 0.439873417721519, "brier": 0.24347924639026372, "log_loss": 0.6801124348211599}
+    },
+    "annual": {
+      "2019": {
+        "n": 172,
+        "baseline_brier": 0.23576258618643622,
+        "translation_decay_brier": 0.23416607854459137,
+        "quality_decay_brier": 0.23321912085554125
+      },
+      "2020": {
+        "n": 144,
+        "baseline_brier": 0.25612835554867364,
+        "translation_decay_brier": 0.25598773139895187,
+        "quality_decay_brier": 0.25573439633451556
+      }
+    },
+    "candidate_gates": {
+      "translation_decay": {
+        "coefficient": -0.04937078498840438,
+        "supply": true,
+        "pooled_brier": true,
+        "pooled_logloss": true,
+        "both_years_brier": true,
+        "positive_deterioration": false,
+        "passed": false
+      },
+      "quality_decay": {
+        "coefficient": -0.12733564306133938,
+        "supply": true,
+        "pooled_brier": true,
+        "pooled_logloss": true,
+        "both_years_brier": true,
+        "positive_deterioration": false,
+        "passed": false
+      }
+    }
+  },
+  "scientifically_fresh": false,
+  "morphology_replication_accepted": false,
+  "trading_PnL_used": false,
+  "production_authority": false
+}
