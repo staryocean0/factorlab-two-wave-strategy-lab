@@ -1,0 +1,63 @@
+{
+  "schema_id": "factorlab_broad_reversal_stage1_screening_plan@1.0",
+  "session_date": "2026-09-08",
+  "program_identity": "broad_reversal_mean_reversion_discovery_program_v1",
+  "stage": "results_blind_equal_budget_R1_R2_R3_screening_plan",
+  "market_outcomes_opened_for_plan_design": false,
+  "evidence_roles": {
+    "BUILD": "2015-01-05_to_2018-12-31_consumed_development",
+    "CHRONOLOGICAL_CHECK": "2019-01-01_to_2020-12-31_not_fresh",
+    "POST_2020": "unopened_not_authorized"
+  },
+  "data_priority": [
+    "frozen_causal_M0_publication_or_strict_pair_cache",
+    "existing_DataHub_built_development_views",
+    "new_measurement_only_if_existing_cache_cannot_express_predeclared_lane"
+  ],
+  "metadata_only_schema_inventory_authorized_before_outcomes": true,
+  "lane_budget": {
+    "R1_cross_scale_pullback": {
+      "maximum_comparison_objects": 3,
+      "objects": ["counter_move_severity_only", "parent_integrity_only", "parent_plus_severity"]
+    },
+    "R2_range_boundary_reversion": {
+      "maximum_comparison_objects": 3,
+      "objects": ["excursion_severity_only", "parent_range_state_only", "parent_plus_excursion_state"]
+    },
+    "R3_structural_exhaustion_transition": {
+      "maximum_comparison_objects": 3,
+      "objects": ["simple_parent_magnitude_or_age_baseline", "translation_decay", "structure_quality_decay_or_fixed_combination"]
+    }
+  },
+  "common_model_rule": {
+    "prefer_simple_probability_or_group_comparison": true,
+    "one_low_capacity_model_family_if_needed": "standardized_logistic_regression",
+    "hyperparameter_search": false,
+    "probability_calibration": false,
+    "binary_threshold_selection": false,
+    "trading_PnL_selection": false
+  },
+  "chronological_rule": {
+    "fit_or_define_on_BUILD_only": true,
+    "score_same_frozen_definition_on_2019_and_2020": true,
+    "report_pooled_and_each_year": true,
+    "do_not_move_dates_after_results": true
+  },
+  "promotion_rule": {
+    "must_add_information_beyond_simple_baseline": true,
+    "must_have_nontrivial_event_supply": true,
+    "must_not_have_severe_direction_reversal_between_2019_and_2020_without_predeclared_explanation": true,
+    "promotion_is_to_dedicated_identity_only": true,
+    "production_authority": false
+  },
+  "forbidden": [
+    "large_indicator_search",
+    "calendar_slice_selection",
+    "many_scale_pair_search",
+    "posthoc_range_or_trend_threshold_tuning",
+    "deep_model_rescue",
+    "use_post_2020_rows",
+    "claim_fresh_OOS",
+    "optimize_trading_PnL"
+  ]
+}

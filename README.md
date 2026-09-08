@@ -1,44 +1,70 @@
-# FactorLab Two-Wave Layer 3 Research Theme
+# FactorLab Broad Reversal / Mean-Reversion Research Lab
 
-This is a private, minimal cloud research package for the proposed sixteenth
-FactorLab timing tool: `two_wave_parent_structure_recognizer`.
+This repository began as the `two_wave_parent_structure_recognizer` research theme and still contains the full causal two-wave measurement program. The repository-wide mission is now broader:
 
-The package gives Codex Cloud enough context to implement and test the
-recognizer without uploading the 2 TiB local DataHub or the 283 GiB FactorLab
-working tree. It includes:
+> **use causal multi-scale structure to discover, compare and graduate broad reversal / mean-reversion mechanisms.**
 
-- the user's full two-wave handoff prompt;
-- the current FactorLab Layer 1/2/3 timing contracts and their Python import
-  closure;
-- the immutable fifteen-tool V1.5 registry prefix;
-- the current Layer 3 architecture/identity indexes;
-- FactorLab strategy-research governance;
-- DataHub-built CSI1000 bar views for 2015-2020 development only;
-- package validation and regression tests.
-
-It intentionally excludes Layer 4 economics, raw transaction data, options,
-futures, private credentials, local outputs, historical FactorLab Git history,
-and all post-2020 CSI1000 rows.
-
-The canonical infrastructure shell is
-`docs/ops/timing_infrastructure_four_layer_inventory@1.0.json`: 数据时钟 →
-K线测量 → Layer 3策略研究 → 执行标的。Only the first three layers are
-executable in this theme; the execution layer is present as a boundary contract.
+The two-wave stack is retained as **M0 — the structure measurement foundation**, not the only strategy direction.
 
 ## Start here
 
-```bash
-python -m pip install -e .
-python scripts/validate_theme_package.py
-pytest -q
-```
+For repository-wide direction, read:
 
-Then follow [`docs/user/cloud_execution_prompt.md`](docs/user/cloud_execution_prompt.md).
+1. [`CONTINUE_HERE.md`](CONTINUE_HERE.md)
+2. [`docs/governance/reversal_mean_reversion_program_charter_v1.json`](docs/governance/reversal_mean_reversion_program_charter_v1.json)
+3. [`docs/governance/reversal_mean_reversion_program_state_v1.json`](docs/governance/reversal_mean_reversion_program_state_v1.json)
+4. [`docs/research/reversal_mean_reversion_program_whitepaper_v1.md`](docs/research/reversal_mean_reversion_program_whitepaper_v1.md)
+5. [`AGENTS.md`](AGENTS.md)
 
-## Scientific status
+Then use [`docs/INDEX.md`](docs/INDEX.md) for the historical M0/two-wave infrastructure and evidence chain.
 
-`infrastructure_candidate_waiting_morphology_replication`
+## Current program structure
 
-This repository may produce a research candidate and a pull request. It cannot
-install the tool into the authoritative local FactorLab registry or claim that
-the strategy works.
+### M0 — two-wave structure measurement foundation
+
+Preserves the existing work on causal pivots/waves, same-scale pairing, parent structure, path properties, cross-offset semantics, publication/qualification and session-aware information-set bounds.
+
+Current morphology status remains:
+
+`morphology_replication_not_yet_accepted`
+
+The v0.6.17 authoritative-source formal replay remains pending for its own M0 identity and is not rewritten by the broader program.
+
+### R1 — cross-scale pullback
+
+Study whether a sharp lower-scale counter-move inside an intact parent trend is more likely to recover before the parent structure fails.
+
+### R2 — range-boundary reversion
+
+Study whether an excursion outside a range-like parent structure is a temporary overshoot/failed breakout or a true transition into trend.
+
+### R3 — structural exhaustion / transition
+
+Study whether deterioration of an existing directional parent state can identify rising reversal/transition risk before a simple direction flip.
+
+Secondary directions include statistical-state extremes. Relative-value / overnight dislocation is treated as a sibling/delegated specialist rather than the mainline here.
+
+## Research style
+
+This repository is a **direction finder, not a single-strategy optimizer**.
+
+- Give multiple mechanisms comparable shallow research budgets.
+- Establish phenomenon, causal observability and chronological stability before deep optimization.
+- Do not use trading P&L to choose a recognizer or parent-state definition.
+- Promote strong lanes to dedicated identities; hold or close weak lanes without post-hoc rescue tuning.
+- Never relabel consumed evidence as fresh.
+
+## Infrastructure and authority boundary
+
+The package still includes the FactorLab timing contracts, immutable fifteen-tool V1.5 registry prefix, Layer 3 architecture context, supplied DataHub-built CSI1000 data surfaces, code/tests and historical two-wave evidence.
+
+It does **not** grant:
+
+- FactorLab current-registry mutation;
+- Layer 4 economic routing;
+- paper trading or real trading;
+- production authority;
+- unrestricted parameter selection;
+- fresh-OOS claims.
+
+Production authority remains `false`.

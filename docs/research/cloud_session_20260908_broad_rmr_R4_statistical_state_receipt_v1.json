@@ -1,0 +1,84 @@
+{
+  "candidate_ids": ["R4_A_inefficiency", "R4_B_event_density", "R4_C_amplitude_extremity"],
+  "code_commit": "fe8407cefb66f98e7352cede00a91a4407c3ed23",
+  "execution": {
+    "location": "GitHub_Actions_after_direct_cloud_clone_DNS_failure_and_no_direct_local_model_tool",
+    "run_id": 34190340146,
+    "job_id": 101946928577,
+    "conclusion": "success",
+    "artifact_id": 10041977266,
+    "artifact_digest": "sha256:51058c484c5de68e1d67c316f72a723b98fb870bb6f96cb427f841bd266ef844"
+  },
+  "combined_state_model_used": false,
+  "density_window_search_performed": false,
+  "finer_activity": {"birth_level": 3, "density_window_bars": 96, "mature_dedup_count": 931},
+  "geometry_baseline": ["abs_drift", "log_amplitude"],
+  "morphology_replication_accepted": false,
+  "normalization_reference_parent_count": 100,
+  "normalization_window_search_performed": false,
+  "parent": {"birth_level": 5, "mature_dedup_count": 1730, "view": "5m_offset_0"},
+  "post_2020_rows_read": false,
+  "production_authority": false,
+  "program_identity": "broad_reversal_mean_reversion_discovery_program_v1",
+  "property_self_reversion_used_for_progression": false,
+  "qualified_candidate_ids": [],
+  "research_identity": "R4_statistical_state_extremes_stage1_v1",
+  "results": {
+    "R4_A_inefficiency": {
+      "inventory": {"BUILD_resolved": 615, "CHECK_2019_resolved": 160, "CHECK_2020_resolved": 151},
+      "pooled": {
+        "baseline": {"n": 311, "event_rate": 0.5048231511254019, "brier": 0.2505775482110719, "log_loss": 0.6943208653297637, "status": "scored"},
+        "candidate": {"n": 311, "event_rate": 0.5048231511254019, "brier": 0.2510704924327203, "log_loss": 0.6953346162024163, "status": "scored"}
+      },
+      "annual": {
+        "2019": {"baseline_brier": 0.25081529693806487, "candidate_brier": 0.25154418330225975},
+        "2020": {"baseline_brier": 0.2503256290301522, "candidate_brier": 0.2505685683325459}
+      },
+      "state_coefficient": 0.25460085707127805,
+      "descriptive_property_reversion": {"n_pairs": 536, "current_next_state_correlation": 0.2972062776927741, "absolute_state_contraction_share": 0.503731343283582},
+      "gates": {"supply": true, "pooled_brier": false, "pooled_logloss": false, "both_years_brier": false, "positive_state_coefficient": true},
+      "qualifies_for_specialist_review": false
+    },
+    "R4_B_event_density": {
+      "inventory": {"BUILD_resolved": 515, "CHECK_2019_resolved": 159, "CHECK_2020_resolved": 136},
+      "pooled": {
+        "baseline": {"n": 295, "event_rate": 0.511864406779661, "brier": 0.25033715145419766, "log_loss": 0.693858955950359, "status": "scored"},
+        "candidate": {"n": 295, "event_rate": 0.511864406779661, "brier": 0.25362794234776864, "log_loss": 0.7005309565116693, "status": "scored"}
+      },
+      "annual": {
+        "2019": {"baseline_brier": 0.24926652583530964, "candidate_brier": 0.25091079644263165},
+        "2020": {"baseline_brier": 0.25158883875863286, "candidate_brier": 0.25680460557509793}
+      },
+      "state_coefficient": -0.1301270905184708,
+      "descriptive_property_reversion": {"n_pairs": 508, "current_next_state_correlation": 0.5710446164052436, "absolute_state_contraction_share": 0.17913385826771652},
+      "gates": {"supply": true, "pooled_brier": false, "pooled_logloss": false, "both_years_brier": false, "positive_state_coefficient": false},
+      "qualifies_for_specialist_review": false
+    },
+    "R4_C_amplitude_extremity": {
+      "inventory": {"BUILD_resolved": 615, "CHECK_2019_resolved": 160, "CHECK_2020_resolved": 151},
+      "pooled": {
+        "baseline": {"n": 311, "event_rate": 0.5048231511254019, "brier": 0.2505775482110719, "log_loss": 0.6943208653297637, "status": "scored"},
+        "candidate": {"n": 311, "event_rate": 0.5048231511254019, "brier": 0.25221366264350925, "log_loss": 0.6976170749585758, "status": "scored"}
+      },
+      "annual": {
+        "2019": {"baseline_brier": 0.25081529693806487, "candidate_brier": 0.2514976216475141},
+        "2020": {"baseline_brier": 0.2503256290301522, "candidate_brier": 0.2529723815796631}
+      },
+      "state_coefficient": 0.09173962615992652,
+      "descriptive_property_reversion": {"n_pairs": 536, "current_next_state_correlation": 0.5413712267311179, "absolute_state_contraction_share": 0.4962686567164179},
+      "gates": {"supply": true, "pooled_brier": false, "pooled_logloss": false, "both_years_brier": false, "positive_state_coefficient": true},
+      "qualifies_for_specialist_review": false
+    }
+  },
+  "schema_id": "factorlab_broad_rmr_R4_statistical_state_receipt@1.0",
+  "scientifically_fresh": false,
+  "session_date": "2026-09-08",
+  "source": {
+    "max_day": "2020-12-31",
+    "post_2020_rows_read": false,
+    "price_view_sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48",
+    "structure_cache_sha256": "8596622924e92182756162b7bdf0959f6d8ddc2222d6dbc9b4e4379cada9974c"
+  },
+  "state_threshold_search_performed": false,
+  "trading_PnL_used": false
+}

@@ -1,0 +1,108 @@
+{
+  "schema_id": "factorlab_broad_rmr_M1_R1_R2_outcome_protocol@1.0",
+  "session_date": "2026-09-08",
+  "program_identity": "broad_reversal_mean_reversion_discovery_program_v1",
+  "measurement_identity": "M1_parent_structure_plus_single_shock_event_adapter_v1",
+  "stage": "outcome_protocol_frozen_after_supply_pass_before_post_trigger_first_passage_read",
+  "preanalysis": "docs/research/rmr_M1_R1_R2_outcome_preanalysis_20260908.md",
+  "supply_receipt": "docs/research/cloud_session_20260908_broad_rmr_M1_S0_event_supply_receipt_v1.json",
+  "supply_gate": {
+    "R1_passed": true,
+    "R2_passed": true,
+    "R1_counts": {"BUILD": 275, "2019": 57, "2020": 69},
+    "R2_counts": {"BUILD": 713, "2019": 172, "2020": 164}
+  },
+  "source": {
+    "structure_cache_sha256": "8596622924e92182756162b7bdf0959f6d8ddc2222d6dbc9b4e4379cada9974c",
+    "price_view_sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48",
+    "primary_view": "5m_offset_0",
+    "parent_birth_level": 5,
+    "parent_scale_search": false,
+    "offset_search": false,
+    "BUILD": "2015-01-05_to_2018-12-31_consumed_development",
+    "CHECK": "2019-01-01_to_2020-12-31_not_fresh",
+    "post_2020_open": false
+  },
+  "common_parent_geometry": {
+    "reuse_exact_M1_adapter_and_stage1_parent_geometry": true,
+    "maturity": "cycle1_12_to_48_cycle2_12_to_48_pair_span_le_96",
+    "same_bar_identity_dedup": "lexicographically_smallest_canonical_filtered_identity_id",
+    "validity": "min(next_later_parent_publication_minus_1,parent_publication_plus_96,calendar_year_end)"
+  },
+  "R1": {
+    "event_definition_must_equal_M1_S0": true,
+    "shock_fraction": 0.5,
+    "shock_fraction_search": false,
+    "recovery_boundary": "pre_trigger_parent_direction_running_extreme",
+    "failure_boundary": "frozen_parent_structural_failure_boundary",
+    "maximum_post_trigger_bars": 96,
+    "censor_at_parent_expiry_and_year_end": true,
+    "positive_label": "recovery",
+    "negative_label": "failure",
+    "features": {
+      "severity_only": ["severity"],
+      "parent_integrity_only": ["abs_drift", "overlap", "parent_eff"],
+      "parent_plus_severity": ["severity", "abs_drift", "overlap", "parent_eff"]
+    },
+    "progress_gate": {
+      "minimum_resolved_BUILD": 150,
+      "minimum_resolved_2019": 50,
+      "minimum_resolved_2020": 50,
+      "parent_plus_pooled_Brier_strictly_lower_than_severity": true,
+      "parent_plus_pooled_logloss_strictly_lower_than_severity": true,
+      "parent_plus_Brier_improvement_positive_in_2019_and_2020": true,
+      "integrity_projection": "coef(abs_drift)-coef(overlap)+coef(parent_eff)>0"
+    }
+  },
+  "R2": {
+    "event_definition_must_equal_M1_S0": true,
+    "additional_excursion_threshold": null,
+    "reentry_boundary": "nearest_frozen_parent_envelope_edge",
+    "continuation_boundary": "event_close_plus_outward_sign*outside_distance",
+    "maximum_post_trigger_bars": 96,
+    "censor_at_parent_expiry_and_year_end": true,
+    "positive_label": "reentry",
+    "negative_label": "continuation",
+    "features": {
+      "excursion_severity_only": ["severity"],
+      "parent_range_state_only": ["abs_drift", "overlap", "parent_eff"],
+      "parent_plus_excursion_state": ["severity", "abs_drift", "overlap", "parent_eff"]
+    },
+    "progress_gate": {
+      "minimum_resolved_BUILD": 150,
+      "minimum_resolved_2019": 50,
+      "minimum_resolved_2020": 50,
+      "combined_pooled_Brier_strictly_lower_than_severity": true,
+      "combined_pooled_logloss_strictly_lower_than_severity": true,
+      "combined_Brier_improvement_positive_in_2019_and_2020": true,
+      "range_projection": "-coef(abs_drift)+coef(overlap)-coef(parent_eff)>0"
+    }
+  },
+  "model": {
+    "pipeline": "StandardScaler+LogisticRegression(C=1,l2,lbfgs,max_iter=1000)",
+    "fit_on_BUILD_only": true,
+    "same_frozen_model_for_2019_2020": true,
+    "hyperparameter_search": false,
+    "calibration": false,
+    "binary_threshold": null,
+    "class_weight": null
+  },
+  "if_resolved_supply_fails": "lane_evidence_insufficient_no_mechanism_rejection",
+  "if_metric_or_direction_gate_fails_with_resolved_supply": "lane_hold_or_close_according_to_exact_gate_without_rescue",
+  "forbidden": [
+    "change_R1_shock_fraction",
+    "add_R2_excursion_threshold",
+    "change_parent_level_or_view",
+    "change_parent_geometry_or_failure_boundary",
+    "change_96_bar_validity",
+    "lower_resolved_supply_gates_after_results",
+    "add_break_speed_volatility_or_technical_filters",
+    "select_one_direction_year_or_offset",
+    "read_post_2020_rows",
+    "select_by_trading_PnL",
+    "claim_fresh_OOS",
+    "claim_morphology_acceptance"
+  ],
+  "scientifically_fresh": false,
+  "production_authority": false
+}

@@ -1,31 +1,50 @@
 {
-  "schema_id": "two_wave_cloud_theme_package_scope@1.0",
-  "package_role": "temporary_private_cloud_research_repository",
-  "objective": "develop_a_causal_two_complete_wave_parent_structure_recognizer_as_a_proposed_Layer3_tool16",
+  "schema_id": "broad_reversal_mean_reversion_cloud_theme_package_scope@1.0",
+  "package_role": "bounded_cloud_research_repository_with_two_wave_M0_measurement_foundation",
+  "objective": "discover_compare_and_handoff_broad_reversal_mean_reversion_mechanisms_using_causal_multiscale_structure",
+  "historical_objective_preserved": "develop_a_causal_two_complete_wave_parent_structure_recognizer_as_a_proposed_Layer3_tool16",
   "source_project": "FactorLab",
+  "M0_two_wave_role": "structure_measurement_foundation_not_repository_wide_single_strategy",
   "included": [
-    "user_handoff_prompt",
+    "broad_reversal_program_authority",
+    "user_two_wave_handoff_as_historical_M0_requirements",
     "scoped_document_index",
     "current_Layer1_Layer2_Layer3_contracts",
     "current_15_tool_registry_prefix",
     "python_import_closure_for_timing_infrastructure",
     "relevant_regression_tests",
     "strategy_research_governance",
-    "CSI1000_2015_2020_DataHub_bar_views"
+    "CSI1000_DataHub_development_bar_views",
+    "historical_two_wave_M0_code_protocols_and_evidence",
+    "results_blind_R1_R2_R3_shallow_mechanism_research"
   ],
-  "excluded": [
-    "FactorLab_git_history",
+  "excluded_or_not_authorized_by_default": [
+    "FactorLab_current_registry_mutation",
     "credentials_and_environment_secrets",
-    "beads_interaction_history",
-    "runtime_caches",
-    "FactorLab_outputs_and_artifacts",
-    "raw_transaction_data",
-    "option_and_futures_data",
-    "post_2020_CSI1000_rows",
-    "Layer4_economic_routing_implementation"
+    "unbounded_local_working_tree_copy",
+    "raw_transaction_data_unless_separately_admitted",
+    "option_and_futures_execution_data_unless_separately_admitted",
+    "Layer4_economic_routing_implementation",
+    "paper_trading",
+    "real_trading",
+    "production_authority",
+    "PnL_driven_recognizer_or_parent_state_selection",
+    "automatic_fresh_OOS_claims",
+    "unpreregistered_future_market_rows"
   ],
+  "primary_shallow_lanes": [
+    "R1_cross_scale_pullback",
+    "R2_range_boundary_reversion",
+    "R3_structural_exhaustion_transition"
+  ],
+  "M0_current_frontier": {
+    "identity": "v0617_session_aware_information_set_bounds",
+    "formal_replay_pending": true,
+    "blocks_broad_results_blind_preanalysis": false,
+    "must_preserve_frozen_source_and_protocol": true
+  },
   "authoritative_local_registry_mutation": false,
   "cloud_result_import_requires_local_controller_review": true,
-  "private_repository_required": true,
+  "private_repository_required_historical_contract": true,
   "production_authority": false
 }

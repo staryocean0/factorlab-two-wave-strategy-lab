@@ -1,0 +1,55 @@
+{
+  "schema_id": "factorlab_broad_rmr_M1_R1_R2_outcome_execution_freeze@1.0",
+  "session_date": "2026-09-08",
+  "program_identity": "broad_reversal_mean_reversion_discovery_program_v1",
+  "measurement_identity": "M1_parent_structure_plus_single_shock_event_adapter_v1",
+  "stage": "outcome_execution_frozen_before_first_post_trigger_run",
+  "branch": "codex/broad-reversal-authority-reset-20260908",
+  "bound_blobs": {
+    "M1_adapter": "f7f979a8afb2c07f41400e94c713f6714935544f",
+    "M1_supply_receipt": "9e6f5f77b9d052f6706ab45d3bc285cdd19c4c65",
+    "M1_outcome_preanalysis": "bd6531677a0e2952777e688c27b9eb3eaf50a13b",
+    "M1_outcome_protocol": "aa9d8eaa5106b809dc35e01f2498809cdfdc89ae",
+    "M1_outcome_runner": "3edddebe11db3165ee0b9517681d2ec453127b97",
+    "M1_outcome_tests": "40d94b454cb12d673ae6211095dd2fd0f6929939",
+    "M1_supply_trigger_implementation": "44802028ff784f6ac3bfc0937259875a9d8cf390",
+    "parent_geometry_base_runner": "f5302a448f3acd2d0c784756a8240748f41418ba",
+    "parent_event_adapter_v1": "a69cfb807d6b6788e9fa3d9860d4933316bdb891",
+    "partition_censor_v1": "df50cf952b7ee3302ec202eed4851d24c94bebc3"
+  },
+  "source_identity": {
+    "published_identities_v065_sha256": "8596622924e92182756162b7bdf0959f6d8ddc2222d6dbc9b4e4379cada9974c",
+    "5m_offset_0_sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48"
+  },
+  "supply_authorization": {
+    "R1": {"BUILD": 275, "2019": 57, "2020": 69, "passed": true},
+    "R2": {"BUILD": 713, "2019": 172, "2020": 164, "passed": true}
+  },
+  "frozen_parameters": {
+    "parent_view": "5m_offset_0",
+    "parent_birth_level": 5,
+    "R1_shock_fraction": 0.5,
+    "R2_extra_excursion_threshold": null,
+    "maximum_post_trigger_bars": 96,
+    "year_end_censor": true,
+    "parent_expiry_censor": true
+  },
+  "resolved_progression_gates": {
+    "minimum_BUILD": 150,
+    "minimum_2019": 50,
+    "minimum_2020": 50,
+    "metric_and_direction_gates": "exactly_as_M1_outcome_protocol_v1"
+  },
+  "R3_reopen_authorized": false,
+  "parameter_or_gate_change_after_run": false,
+  "post_2020_read_authorized": false,
+  "trading_PnL_authorized": false,
+  "fresh_OOS_claim_authorized": false,
+  "morphology_acceptance_claim_authorized": false,
+  "production_authority": false,
+  "execution_location_policy": {
+    "direct_cloud_clone": "already_failed_github.com_DNS_in_current_session",
+    "direct_local_model_tool_available": false,
+    "github_actions": "allowed_as_final_available_location_for_this_exact_frozen_outcome_identity"
+  }
+}

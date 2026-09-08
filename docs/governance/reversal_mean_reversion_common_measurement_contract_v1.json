@@ -1,0 +1,71 @@
+{
+  "schema_id": "factorlab_broad_reversal_common_measurement_contract@1.0",
+  "session_date": "2026-09-08",
+  "program_identity": "broad_reversal_mean_reversion_discovery_program_v1",
+  "stage": "results_blind_common_measurement_freeze_before_R1_R2_R3_outcome_screen",
+  "market_outcomes_opened_for_contract_design": false,
+  "evidence_roles": {
+    "BUILD": {
+      "start": "2015-01-05",
+      "end": "2018-12-31",
+      "role": "consumed_development_material"
+    },
+    "CHRONOLOGICAL_CHECK": {
+      "start": "2019-01-01",
+      "end": "2020-12-31",
+      "role": "held_forward_within_new_identity_but_not_scientifically_fresh"
+    },
+    "POST_2020": {
+      "role": "not_authorized_for_current_broad_screen",
+      "open": false
+    }
+  },
+  "common_coordinates": {
+    "scale": ["lower", "current", "parent"],
+    "parent_state": ["trend_up", "trend_down", "range_like", "transition_or_uncertain"],
+    "deviation_object_required": true,
+    "recovery_boundary_required": true,
+    "state_change_or_failure_boundary_required": true,
+    "causal_horizon_required": true,
+    "censoring_rule_required": true
+  },
+  "M0_usage": {
+    "two_wave_measurements_are_coordinates_not_ground_truth": true,
+    "use_only_confirmed_or_published_causal_events": true,
+    "candidate_pivots_forbidden_as_event_time_state": true,
+    "future_revision_of_confirmed_history_forbidden": true,
+    "morphology_acceptance_not_assumed": true
+  },
+  "parent_state_measurements_first_pass": {
+    "continuous_before_bucket": true,
+    "preferred_existing_objects": [
+      "signed_or_absolute_two_wave_drift",
+      "envelope_width_or_scale",
+      "wave_overlap_or_phase_consistency",
+      "path_efficiency_or_roughness",
+      "amplitude_change",
+      "duration_or_event_density"
+    ],
+    "large_indicator_search_forbidden": true,
+    "hard_trend_range_threshold_search_forbidden": true
+  },
+  "event_outcome_principles": {
+    "first_passage_preferred": true,
+    "same_event_definition_across_build_and_chronological_check": true,
+    "do_not_use_fixed_future_return_as_only_reversion_definition_when_structural_boundary_exists": true,
+    "ties_or_ambiguous_same_bar_path": "censor_or_fail_closed",
+    "overlapping_events": "suppress_or_cluster_by_predeclared_rule_not_posthoc"
+  },
+  "comparison_principles": {
+    "every_lane_has_simple_severity_or_geometry_baseline": true,
+    "state_variable_must_add_incremental_information_beyond_baseline": true,
+    "same_primary_metrics_across_lanes": ["event_supply", "base_rate", "brier_or_logloss_if_probability_model", "effect_direction", "chronological_sign_stability"],
+    "trading_PnL_primary_metric": false
+  },
+  "claim_boundaries": {
+    "fresh_OOS": false,
+    "morphology_replication_accepted": false,
+    "strategy_validated": false,
+    "production_authority": false
+  }
+}

@@ -1,196 +1,202 @@
-# 两浪研究继续入口：v0.6.17 已云端冻结，Stage 1 preflight 已完成，等待 authoritative-source formal replay（2026-09-08）
+# CONTINUE HERE — 广义反转 / 均值回归研究入口（2026-09-08）
 
-当前全局状态：`morphology_replication_not_yet_accepted`；操作基线仍为 **v0.4.3**；PR #1 保持 Draft。Direction/D1/D2/PAWCT、第三浪、收益/P&L、fresh OOS、paper trading、production 全部继续冻结。
+**本文件是判断本仓库“现在研究什么、下一步做什么”的第一权威。**
 
-## 当前真实前沿
+仓库 `factorlab-two-wave-strategy-lab` 的历史核心是两浪父结构识别，但当前仓库级任务已经升级为：
 
-v0.6.16 的 DataHub bar-support provenance 阻断已经解除。
+> **用因果多尺度结构研究广义反转 / 均值回归：区分“完整父状态中的暂时偏离”与“父状态本身真正改变”，并用小预算比较多个机制，而不是无限优化一个 recognizer 或一个策略。**
 
-`CL-20260907-004` 本地取得 authoritative DataHub contract / implementation / tests archive 和只读 identity diagnostic 后，云端按事前冻结的 intake gate 完成独立复核：
+## 1. M0：两浪结构测量底座
 
-`docs/ops/datahub_bar_support_provenance_cloud_review_20260907.md`
+现有 `v0.4.3 -> v0.6.17` 两浪、同尺度、path property、roughness、concentration、qualification、session-aware information-set bounds 等研究全部保留原证据身份，统一归类为：
 
-正式 intake adjudication：
+`M0_two_wave_structure_measurement_foundation`
 
-`authoritative_archive_copy_accepted`
+M0 提供因果完整波浪、尺度表示、父结构、drift / overlap / width / efficiency / roughness / duration / density、publication time，以及 streaming/replay/prefix 不被未来重写的保证。
 
-GitHub issue #4 已以 `completed` 关闭。该关闭只解除外部 provenance blocker，**不等于 morphology acceptance**。
+M0 **是测量基础，不是自动成立的交易 alpha**。
 
-## 权威 DataHub 绑定
+当前 morphology 状态仍为：
 
-冻结 authority：
+`morphology_replication_not_yet_accepted`
 
-```text
-DataHub committed HEAD = ba780790acd8e9a558e4e01f9474b6e79265d818
-session-offset implementation ancestor = 2c7b070f38f061378e89c19d183da9ccef9a6c88
-whitepaper last-touch ancestor = d31b140e35132911aa6ab164deaa9afcbb02b0ff
-symbol = 000852.SH
-source_kind = market_index_transaction_derived_1m
-dataset_version = bars_cn_index_1m_raw_canonical_market_index_baidu_3s_20000714_20260821_factorlab_unified_missing_day_repaired_v8_20260824
-source date range = 2015-01-05..2020-12-31
-DataHub source rows = 349,923
-2021+ = 0
-```
+操作基线仍为 v0.4.3。旧 Direction/D1/D2/PAWCT、第三浪、收益/P&L、fresh OOS、paper trading、production 权限继续冻结。
 
-关键合同语义：
+### M0 v0.6.17 继续并行
 
-- offset0 使用 official `cn_a_session_end_label_no_noon_partial_v2`；
-- offset1–4 使用 `cn_a_session_wall_clock_offset_v1`；
-- 上下午独立，不跨午休/隔夜；
-- wall-clock offset session 首个完整 bucket 可包含 6 个 1m end labels；后续通常 5 个；真实缺分钟会减少 occupancy；
-- `bar_open_ts` 不是 exact support_start；
-- DataHub 构造路径里的 `...T09:35:00Z` 是上海墙上时钟标签，不能按 UTC 01:35 做 minute-of-day；
-- frozen offset0 parquet 的 `data_contract` 文本仍写 wall-clock v1，但权威 official-route replay 对全部 70,114 labels/OHLC 为 exact identity。该字段作为已知 metadata caveat 保留，**不得用于决定 offset0 support**；
-- FactorLab `1m_official.parquet` 有 350,561 行，不能自动替代 accepted DataHub 349,923-row source surface。
+v0.6.17 authoritative-source formal replay 没有取消：
 
-## v0.6.17 results-blind freeze
+- `CL-20260908-005` 仍是 M0 合法本地执行任务；
+- 必须使用 accepted DataHub `349,923` row source surface；
+- 不能拿 FactorLab `350,561` row `1m_official` 冒充 exact source support。
 
-云端 freeze receipt：
+M0 未闭合不阻止不依赖 morphology acceptance 的 results-blind broad research，但任何声称“形态学已接受”的结论仍必须等 M0 自己闭合。
 
-`docs/ops/v0617_session_aware_bounds_freeze_receipt_20260908.md`
+## 2. Broad program 公共坐标
 
-冻结 artifacts：
+所有反转假说都必须在结果前声明：
 
-```text
-docs/research/two_wave_session_aware_information_set_bounds_preanalysis_v0617.md
-  git blob = 77f54c7a8e3699997450eaad941ed13b1e561b3a
+1. **Scale**：lower / current / parent；
+2. **Parent state**：trend / range / transition / unknown；
+3. **Deviation object**：什么发生了异常偏离；
+4. **Recovery / failure**：什么算回归，什么算父状态改变。
 
-docs/research/two_wave_session_aware_information_set_bounds_protocol_v0617.md
-  git blob = f0f6acd06c7ccacd331ed9938f77ff68c9519cfa
+“均值”可以是价格中心、震荡包络、父级波形结构、状态条件轨迹、统计分布、相对关系或某个统计属性的正常区域。
 
-protocol freeze commit = 61eba4c80215bb07375e59d3c53e8ac2b989ff28
-```
+## 3. Round-1 已冻结的数据与父结构
 
-这些协议在正式 replay 结果出现前已经冻结。后续不能根据 real-data/oracle 结果改协议来让 coverage/tightness 变好；发现协议前提失败时只能 fail closed。
+- BUILD：2015-01-05..2018-12-31，已消费 development；
+- chronological check：2019-01-01..2020-12-31，不是 fresh；
+- post-2020：本轮从未打开；
+- primary view：`5m_offset_0`；
+- parent representation：结果盲结构供给选择后的 mature M0 L5；
+- temporal maturity：旧 v0.4.3 的 12–48 / 96 bar 规则；
+- 不允许根据结果重选 parent level / offset。
 
-## Stage 1 cloud preflight 已执行
+## 4. Round-1 最终路线裁决
 
-正式记录：
+权威 closeout：
 
-`docs/ops/v0617_stage1_cloud_preflight_20260908.md`
+`docs/research/reversal_mean_reversion_stage1_round1_closeout_20260908.md`
 
-云端 shell 尝试直接 clone 当前公开研究分支，实际因 outbound DNS 失败：
+最终决策：
 
-```text
-exit = 128
-Could not resolve host: github.com
-```
+`BROAD_RMR_STAGE1_ROUND1_CLOSED_NO_PROMOTED_MECHANISM`
 
-因此没有伪称整仓 cloud pytest 已通过。GitHub connector 仍可读取精确源码并写入分支，云端完成了 frozen implementation 的静态/数学 preflight，并发现一个真实 protocol-conformance implementation bug：原 `validate_transition_topology()` 无法发现 authoritative source universe 中被 support/gap **同时漏分类**的 timestamp。
+### R1 — Cross-scale pullback
 
-已在 formal real-data output 产生之前修复：
+最终状态：
 
-```text
-5ed707215072076deb502953e534eea5de70b5cc
-  exact support+gap source-row partition fail-closed guard
+`unresolved_evidence_insufficient_after_one_results_blind_measurement_revision`
 
-2c3b28bef68da01a616e74b034555e996574406f
-  exact-partition + forbidden-input signature tests
-```
+v1 要求 lower deviation 本身也是完整 L3 two-wave，样本过稀。M1 按结果盲方式改成：parent publication 后第一次反向 close move 达 `0.5 × parent amplitude` 即触发；0.5 来自旧 v0.4.3 `amplitude_ratio=2.0` reciprocal，并非结果调参。
 
-该修复没有修改 frozen preanalysis/protocol，也没有改变 bound mathematics。
+M1 trigger supply：BUILD `275`，2019=`57`，2020=`69`。
 
-云端 supplemental source-equivalent stress check：
+但 resolved first-passage 只有：
 
-```text
-10,000 random feasible variable-step covered paths
-J/profile coverage failures = 0
+- BUILD `168`；
+- 2019 `40`；
+- 2020 `39`。
 
-exact partition       = PASS
-missing source row    = expected FAIL-CLOSED
-unexpected source row = expected FAIL-CLOSED
-```
+2019/2020 未达到预注册最小 `50`，所以 **R1 不能叫失败，也不能叫成功，只能 unresolved**。
 
-Stage 1 当前裁决：
+禁止：降低 sample gate、改 0.5、换 level/offset 或继续在同一 2015–2020 结果上造 M2/M3 来救。未来重开要求实质新增数据，或独立理论先冻结的新 identity。
 
-`implementation_preflight_pass_with_full_local_test_required`
+### R2 — Range-boundary / failed-breakout reversion
 
-含义：实现 preflight 可继续，但 exact repo full pytest 仍必须由能访问本地仓库/DataHub 的执行环境完成并记录真实 exit code。
+最终状态：
 
-另有一个必须 fail-closed 报告的 edge：v0.6.13 `concentration_profile()` 对 `N<2` 定义为 `fewer_than_two_movements`，而 v0.6.17 数学 simplex 在 `N=1` 给退化 0 值。formal runner 必须在 oracle 前报告 `N=1` leg count；如存在，不得把 undefined oracle 强行改写为 0 来制造 coverage。
+`closed_with_adequate_evidence_under_M1`
 
-## 当前 post-freeze implementation
+M1 resolved supply 足够：BUILD `657`，2019=`161`，2020=`151`。
 
-基础 implementation-only commits：
+但加入 parent range state 后明确变差：
 
-```text
-3e49adf2a37c8b947d88ea0f46e17da8537ea074  helper
-2f29faf1e09c9fe78eb6fccdf00b88a7d0904eac  synthetic tests
-a96422d6aff1baff4192ef1c41eef04ef3eed054  source identity gate
-```
+- pooled Brier `0.2485738 -> 0.2512218`；
+- pooled log-loss `0.6902362 -> 0.6956335`；
+- 2019、2020 Brier 都恶化。
 
-云端 Stage 1 preflight corrections：
+因此 R2 关闭。不能通过增加最小突破距离、break speed、波动过滤、另一个 range algorithm 或 favorable direction/year 来救同一 identity。
 
-```text
-5ed707215072076deb502953e534eea5de70b5cc  topology exact-partition guard
-2c3b28bef68da01a616e74b034555e996574406f  conformance tests
-```
+### R3 — Structural exhaustion / transition
 
-文件：
+最终状态：
 
-```text
-src/factor_lab/visual_structure/two_wave/session_aware_information_set_bounds_v0617.py
-tests/unit/test_two_wave_session_aware_information_set_bounds_v0617.py
-```
+`closed_predeclared_direction_falsified`
 
-这些都只是 frozen protocol 的实现。formal replay 不得修改冻结数学/数据合同。
+供给充足：BUILD `744`，2019=`172`，2020=`144`。
 
-## 当前尚未发生
+预注册假说要求 deterioration 越大 -> parent failure risk 越高，但实际：
 
-正式结果文件目前不存在：
+- translation decay coefficient `-0.04937`；
+- quality decay coefficient `-0.12734`。
 
-`docs/research/two_wave_session_aware_information_set_bounds_results_v0617.md`
+方向相反，因此 R3 v1 关闭。不能翻转解释，也不能用 HMM/Koopman/deep model 救同一 identity。
 
-正式 compact output 目录目前也尚未形成：
+### R4 — Statistical-state extremes
 
-`cloud_results/cloud_chat_v0617_session_aware_bounds/`
+最终状态：
 
-因此 **v0.6.17 real-data replay 尚未闭合**，不能声称 session-aware bounds 已通过，也不能更新 morphology verdict。
+`closed_no_candidate_qualifies`
 
-## 唯一下一正式动作
+R4 用同一个 geometry baseline `abs_drift + log_amplitude` 分别测试三个结果前已冻结的统计状态：
 
-继续执行 `CL-20260908-005`，但本地执行者必须先读取本次 cloud preflight：
+1. path inefficiency；
+2. lower-scale event density；
+3. parent amplitude extremity。
 
-`docs/ops/v0617_stage1_cloud_preflight_20260908.md`
+三者供给都足够，但都让 parent failure vs extension 概率预测变差：
 
-执行链固定为：
+- inefficiency Brier `0.2505775 -> 0.2510705`；
+- event density `0.2503372 -> 0.2536279`，且状态系数方向也错误；
+- amplitude extremity `0.2505775 -> 0.2522137`；
+- 三个候选在 2019、2020 都未同时改善。
 
-**full local Stage 1 pytest/conformance → authoritative DataHub support-topology + native identity gates → price-blind bound registry checkpoint → oracle coverage/tightness formal replay → local feedback → cloud independent review。**
+R4 receipt：
 
-必须使用 accepted DataHub 349,923-row source surface；不能把 FactorLab 350,561-row `1m_official` 当 exact source support。
+`docs/research/cloud_session_20260908_broad_rmr_R4_statistical_state_receipt_v1.json`
 
-输出必须写入冻结协议 section 14 指定的：
+R4 adjudication：
 
-`cloud_results/cloud_chat_v0617_session_aware_bounds/`
+`docs/research/reversal_mean_reversion_R4_statistical_state_adjudication_20260908.md`
 
-正式报告：
+特别保留这个项目级结论：
 
-`docs/research/two_wave_session_aware_information_set_bounds_results_v0617.md`
+> **统计属性自己持续、极端或回归，不等于价格均值回归。**
 
-本地完成后，云端必须独立复核；本地 green run 本身不构成 morphology acceptance。
+## 5. Round-1 科学结论
 
-## 继续禁止
+这一轮没有找到可晋级的低容量广义均值回归机制，这本身是有效结果：
 
-- 不改 frozen preanalysis/protocol；
-- 不把 v0.6.16 `H_end_5` 当真值；
-- 不用 FactorLab `1m_official` 本地重采样 replacement 5m；
-- 不删除 structural-gap / lunch / overnight / session-boundary legs；
-- 不根据 oracle 结果收窄 bound；
-- 不发明 concentration point proxy / threshold；
-- 不改 recognizer / matcher / projection / publication / qualification / roughness；
-- 不恢复 direction、第三浪、outcome/P&L、fresh OOS 或交易。
+- M0 两浪结构能提供严谨的 parent-state 坐标，但不会自动变成 alpha；
+- R1 是 evidence-supply unresolved，不是机制证伪；
+- R2、R3、R4 在供给充分情况下分别被当前低容量假说否定；
+- 不应继续在同一 2015–2020 consumed window 上自动发明 R5/R6/R7，直到某个指标碰巧通过。
 
-## 下一位执行者读取顺序
+## 6. 当前 broad program 状态
 
-1. `AGENTS.md`
-2. `CONTINUE_HERE.md`
-3. `docs/ops/datahub_bar_support_provenance_cloud_review_20260907.md`
-4. `docs/ops/v0617_session_aware_bounds_freeze_receipt_20260908.md`
-5. `docs/ops/v0617_stage1_cloud_preflight_20260908.md`
-6. `docs/research/two_wave_session_aware_information_set_bounds_preanalysis_v0617.md`
-7. `docs/research/two_wave_session_aware_information_set_bounds_protocol_v0617.md`
-8. `src/factor_lab/visual_structure/two_wave/session_aware_information_set_bounds_v0617.py`
-9. `tests/unit/test_two_wave_session_aware_information_set_bounds_v0617.py`
-10. `docs/ops/cloud_local_communication.md` 中 `CL-20260908-005`
+`broad_new_lane_generation_authorized = false`
 
-**当前断点不是继续设计 v0.6.17，而是使用修正后的 frozen-protocol implementation 执行 authoritative-source formal replay。**
+新的 broad mechanism screen 只有在以下任一条件成立后才能重开：
+
+1. **实质新增数据**到位，并在看 outcome 前重新冻结 BUILD/check/holdout 角色；
+2. 一个**独立理论/文献驱动的新机制**在阅读本轮结果之外先被定义和 review；
+3. M0 产生一个实质新的、被接受的因果测量对象，并先修改 program charter，再做 results-blind 研究。
+
+R2/R3/R4 原样重跑不属于新机制。
+
+## 7. 当前 next action
+
+1. 把本次 authority reset + Round-1 evidence 合并回真正的活跃研究分支 `codex/two-wave-phase1-20260905`；
+2. 继续等待 / 复核 M0 v0.6.17 authoritative local formal replay `CL-20260908-005`；
+3. 你之后通知统一数据工具完成数据更新时，先做 source/role admission，再决定哪些 broad hypotheses 可以获得新的 results-blind research budget；
+4. 在此之前不自动生成新的 R5/R6/R7，不做 PnL、paper trading 或 production。
+
+## 8. Authority order
+
+以后发生上下文压缩或新助手接管，按以下顺序判断仓库级方向：
+
+1. `CONTINUE_HERE.md`
+2. `docs/governance/reversal_mean_reversion_program_charter_v1.json`
+3. `docs/governance/reversal_mean_reversion_program_state_v1.json`
+4. `docs/research/reversal_mean_reversion_program_whitepaper_v1.md`
+5. `AGENTS.md`
+6. post-reset lane / measurement protocols
+7. 历史 v0.x 文档——只在 M0 / 对应具体 identity 内有权威性
+
+旧文件若写“唯一下一动作是继续 v0.6.17”，只对 M0 子项目有效，不再控制整个仓库。
+
+## 9. 权限边界
+
+仍然禁止：
+
+- FactorLab current registry mutation；
+- Layer 4 economic routing；
+- real / paper trading；
+- fresh-OOS 声称；
+- 用 PnL 挑 recognizer / parent-state formula；
+- 把 algorithm-generated labels 当 morphology ground truth；
+- 失败后不断加过滤器直到通过。
+
+Production authority = `false`。

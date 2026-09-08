@@ -1,0 +1,56 @@
+{
+  "schema_id": "factorlab_broad_rmr_R4_statistical_state_execution_freeze@1.0",
+  "session_date": "2026-09-08",
+  "program_identity": "broad_reversal_mean_reversion_discovery_program_v1",
+  "research_identity": "R4_statistical_state_extremes_stage1_v1",
+  "stage": "execution_frozen_before_first_R4_price_outcome_run",
+  "branch": "codex/broad-reversal-authority-reset-20260908",
+  "bound_blobs": {
+    "R4_preanalysis": "03a904023112b4eeb2487fa6b073466df9e19b1c",
+    "R4_protocol": "f79c8bf04946fe8eef0bb0ded0483af8056a2759",
+    "R4_runner": "912a4caeaa7e727c909391baa72aff5e182afc73",
+    "R4_tests": "dc994f2c57d498d455054ee30a25c22988e33283",
+    "parent_geometry_base_runner": "f5302a448f3acd2d0c784756a8240748f41418ba"
+  },
+  "source_identity": {
+    "published_identities_v065_sha256": "8596622924e92182756162b7bdf0959f6d8ddc2222d6dbc9b4e4379cada9974c",
+    "5m_offset_0_sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48"
+  },
+  "frozen_event": {
+    "parent_birth_level": 5,
+    "view": "5m_offset_0",
+    "outcome": "parent_failure_first_vs_same_direction_symmetric_extension_first",
+    "maximum_post_event_bars": 96,
+    "next_parent_and_year_end_censor": true
+  },
+  "frozen_states": {
+    "reference_parent_count": 100,
+    "density_window_bars": 96,
+    "candidate_ids": [
+      "R4_A_inefficiency",
+      "R4_B_event_density",
+      "R4_C_amplitude_extremity"
+    ],
+    "combined_state_model": false,
+    "state_threshold_search": false
+  },
+  "frozen_baseline": ["abs_drift", "log_amplitude"],
+  "progression_gates": {
+    "minimum_BUILD": 150,
+    "minimum_2019": 50,
+    "minimum_2020": 50,
+    "pooled_Brier_and_logloss_improvement": true,
+    "Brier_improvement_in_both_2019_and_2020": true,
+    "positive_oriented_state_coefficient": true
+  },
+  "post_2020_read_authorized": false,
+  "trading_PnL_authorized": false,
+  "fresh_OOS_claim_authorized": false,
+  "morphology_acceptance_claim_authorized": false,
+  "production_authority": false,
+  "execution_location_policy": {
+    "direct_cloud_clone": "already_failed_github.com_DNS_in_current_session",
+    "direct_local_model_tool_available": false,
+    "github_actions": "allowed_as_final_available_location_for_this_exact_frozen_R4_identity"
+  }
+}

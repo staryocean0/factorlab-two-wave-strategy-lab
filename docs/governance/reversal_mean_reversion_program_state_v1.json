@@ -1,0 +1,130 @@
+{
+  "schema_id": "factorlab_broad_reversal_mean_reversion_program_state@1.0",
+  "session_date": "2026-09-08",
+  "program_identity": "broad_reversal_mean_reversion_discovery_program_v1",
+  "current_status": "BROAD_RMR_STAGE1_ROUND1_CLOSED_NO_PROMOTED_MECHANISM",
+  "active_research_branch": "codex/two-wave-phase1-20260905",
+  "authority_reset_branch": "codex/broad-reversal-authority-reset-20260908",
+  "repository_wide_mainline": "broad_reversal_mean_reversion_mechanism_discovery_paused_after_round1",
+  "stage": "round1_closeout_wait_for_new_data_or_independent_theory_while_M0_v0617_continues_in_parallel",
+  "round1_closeout": "docs/research/reversal_mean_reversion_stage1_round1_closeout_20260908.md",
+  "M0_two_wave_foundation": {
+    "status": "advanced_measurement_research_preserved",
+    "role": "parent_structure_measurement_foundation",
+    "current_frontier": "v0617_authoritative_source_formal_replay_pending",
+    "morphology_replication_status": "not_yet_accepted",
+    "formal_replay_task": "CL-20260908-005",
+    "blocks_new_results_blind_program_design": false,
+    "blocks_claims_requiring_accepted_morphology": true
+  },
+  "common_evidence_roles": {
+    "BUILD": "2015-01-05_to_2018-12-31_consumed_development",
+    "CHECK": "2019-01-01_to_2020-12-31_not_fresh",
+    "post_2020_open": false,
+    "primary_view": "5m_offset_0",
+    "parent_representation_level": 5,
+    "parent_scale_selected_results_blind": true
+  },
+  "lane_status": {
+    "R1_cross_scale_pullback": {
+      "status": "unresolved_evidence_insufficient_after_one_results_blind_measurement_revision",
+      "M1_trigger_supply": {"BUILD": 275, "2019": 57, "2020": 69},
+      "M1_resolved_supply": {"BUILD": 168, "2019": 40, "2020": 39},
+      "mechanism_rejected": false,
+      "additional_measurement_rescue_on_same_2015_2020_evidence_authorized": false,
+      "future_revisit_requires": "materially_new_data_or_independently_theory_driven_new_identity_approved_before_outcomes"
+    },
+    "R2_range_boundary_reversion": {
+      "status": "closed_with_adequate_evidence_under_M1",
+      "resolved_supply": {"BUILD": 657, "2019": 161, "2020": 151},
+      "pooled_severity_Brier": 0.24857378727254917,
+      "pooled_parent_plus_Brier": 0.251221782238495,
+      "pooled_severity_logloss": 0.6902362059096051,
+      "pooled_parent_plus_logloss": 0.6956335029163088,
+      "rescue_under_same_identity_allowed": false
+    },
+    "R3_structural_exhaustion_transition": {
+      "status": "closed_predeclared_direction_falsified",
+      "BUILD_resolved": 744,
+      "CHECK_2019_resolved": 172,
+      "CHECK_2020_resolved": 144,
+      "translation_decay_coefficient": -0.04937078498840438,
+      "quality_decay_coefficient": -0.12733564306133938,
+      "rescue_under_same_identity_allowed": false
+    },
+    "R4_statistical_state_extremes": {
+      "status": "closed_no_candidate_qualifies",
+      "execution_run_id": 34190340146,
+      "receipt": "docs/research/cloud_session_20260908_broad_rmr_R4_statistical_state_receipt_v1.json",
+      "adjudication": "docs/research/reversal_mean_reversion_R4_statistical_state_adjudication_20260908.md",
+      "qualified_candidate_ids": [],
+      "R4_A_inefficiency": {
+        "BUILD": 615,
+        "2019": 160,
+        "2020": 151,
+        "baseline_Brier": 0.2505775482110719,
+        "candidate_Brier": 0.2510704924327203,
+        "state_coefficient": 0.25460085707127805
+      },
+      "R4_B_event_density": {
+        "BUILD": 515,
+        "2019": 159,
+        "2020": 136,
+        "baseline_Brier": 0.25033715145419766,
+        "candidate_Brier": 0.25362794234776864,
+        "state_coefficient": -0.1301270905184708
+      },
+      "R4_C_amplitude_extremity": {
+        "BUILD": 615,
+        "2019": 160,
+        "2020": 151,
+        "baseline_Brier": 0.2505775482110719,
+        "candidate_Brier": 0.25221366264350925,
+        "state_coefficient": 0.09173962615992652
+      },
+      "rescue_under_same_identity_allowed": false
+    },
+    "R5_relative_value_or_overnight": {
+      "status": "delegated_sibling_specialist_not_part_of_round1"
+    }
+  },
+  "round1_executions": {
+    "R1_R2_R3_v1": 34188765085,
+    "M1_supply_only": 34189319913,
+    "M1_R1_R2_outcomes": 34189627407,
+    "R4_statistical_state": 34190340146
+  },
+  "program_findings": [
+    "M0_two_wave_structures_are_useful_causal_parent_state_coordinates_but_not_automatic_alpha",
+    "R1_event_supply_failure_must_not_be_relabelled_as_mechanism_failure",
+    "R2_parent_range_state_does_not_add_stable_reentry_information_beyond_excursion_severity",
+    "R3_simple_deterioration_direction_is_falsified_under_v1",
+    "R4_tested_statistical_states_do_not_improve_parent_failure_vs_extension_probability_beyond_geometry_baseline",
+    "statistical_property_dynamics_are_not_sufficient_evidence_of_price_mean_reversion",
+    "automatic_new_indicator_generation_on_same_2015_2020_consumed_window_is_paused"
+  ],
+  "broad_new_lane_generation_authorized": false,
+  "reopen_conditions": [
+    "materially_new_data_with_roles_frozen_before_outcomes",
+    "independently_theory_or_literature_driven_new_mechanism_reviewed_before_consulting_round1_results",
+    "materially_new_accepted_M0_measurement_object_followed_by_results_blind_program_charter_amendment"
+  ],
+  "deep_strategy_optimization_authorized": false,
+  "single_lane_full_backtest_authorized": false,
+  "third_wave_hypothesis_authorized_repository_wide": false,
+  "trading_PnL_authorized": false,
+  "production_authority": false,
+  "next_actions_in_order": [
+    "merge_authority_reset_and_round1_evidence_into_active_research_branch_codex_two_wave_phase1_20260905",
+    "continue_v0617_authoritative_source_formal_replay_when_local_feedback_for_CL_20260908_005_arrives",
+    "admit_future_unified_data_updates_only_after_new_results_blind_role_freeze",
+    "do_not_generate_new_R5_R6_R7_mechanisms_on_same_consumed_window_by_default"
+  ],
+  "lane_budget_rule": "round1_closed_no_promotions;wait_for_new_data_or_independent_theory",
+  "authority_files": [
+    "CONTINUE_HERE.md",
+    "docs/governance/reversal_mean_reversion_program_charter_v1.json",
+    "docs/governance/reversal_mean_reversion_program_state_v1.json",
+    "docs/research/reversal_mean_reversion_program_whitepaper_v1.md"
+  ]
+}

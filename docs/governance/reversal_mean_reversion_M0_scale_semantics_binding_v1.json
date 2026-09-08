@@ -1,0 +1,42 @@
+{
+  "schema_id": "factorlab_broad_rmr_M0_scale_semantics_binding@1.0",
+  "session_date": "2026-09-08",
+  "program_identity": "broad_reversal_mean_reversion_discovery_program_v1",
+  "stage": "results_blind_scale_semantics_binding",
+  "source_semantics": {
+    "representation": "time_causal_recursive_scale_space",
+    "birth_rule": "first_scale_where_same_five_extremum_ridges_form_exact_adjacent_tuple_after_all_intervening_child_ridge_deaths_are_causally_certified",
+    "birth_level": "integer_index_into_prefixed_geometric_smoothing_scale_lattice",
+    "sigma_formula_bars": "0.5 * sqrt(2)^birth_level",
+    "sigma_is": "smoothing_kernel_standard_deviation_in_bars",
+    "sigma_is_not": [
+      "wave_duration_threshold",
+      "economic_parent_timeframe_ground_truth",
+      "future_selected_scale"
+    ],
+    "publication_is_append_only": true,
+    "later_valid_evidence_cannot_rewrite_published_identity": true
+  },
+  "broad_stage1_usage": {
+    "operational_finer_parent_relation": "adjacent representation levels L-1 and L only",
+    "claim_natural_market_hierarchy": false,
+    "claim_morphology_ground_truth": false,
+    "primary_view": "5m_offset_0",
+    "reason_primary_view": "preexisting official/main 5m view avoids outcome-driven cross-offset selection",
+    "other_offsets_role": "measurement_robustness_diagnostic_only_not_primary_candidate_selection"
+  },
+  "parent_level_selection_rule": {
+    "uses_future_price_outcomes": false,
+    "candidate_levels": "published_birth_levels_with_adjacent_finer_level_available",
+    "minimum_BUILD_publications": 300,
+    "minimum_2019_publications": 75,
+    "minimum_2020_publications": 75,
+    "selection": "choose_smallest_birth_level_meeting_all_supply_gates_on_5m_offset_0",
+    "fallback_if_none": "fail_closed_and_revisit_data_supply_not_choose_best_outcome_level"
+  },
+  "evidence_roles": {
+    "BUILD": "2015-01-05_to_2018-12-31_consumed_development",
+    "CHRONOLOGICAL_CHECK": "2019-01-01_to_2020-12-31_not_fresh"
+  },
+  "production_authority": false
+}
