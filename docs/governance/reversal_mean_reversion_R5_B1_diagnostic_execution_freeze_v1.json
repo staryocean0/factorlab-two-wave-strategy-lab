@@ -1,9 +1,17 @@
 {
-  "schema_id": "factorlab_broad_rmr_R5_B1_diagnostic_execution_freeze@1.0",
+  "schema_id": "factorlab_broad_rmr_R5_B1_diagnostic_execution_freeze@1.1",
   "session_date": "2026-09-08",
   "diagnostic_identity": "R5_B1_stability_shape_diagnostic_v1",
   "parent_identity": "R5_multiscale_serial_dependence_state_v1",
-  "freeze_parent_commit": "be1fe6b61db63dfc46beaebb9ff917dc54ab3fb0",
+  "freeze_parent_commit": "008a0951164b5a2348837048f1217037b19ee8b0",
+  "pre_execution_incident": {
+    "type": "synthetic_test_fixture_coverage_bug_only",
+    "description": "initial D2 synthetic validation assigned low anti range to 2019 and high anti range to 2020, making each year miss part of the frozen quintile range",
+    "fix": "both synthetic validation years now span the full TRAIN anti range",
+    "scientific_protocol_changed": false,
+    "runner_changed": false,
+    "real_data_outcome_seen_before_fix": false
+  },
   "frozen_artifacts": {
     "preanalysis": {
       "path": "docs/research/reversal_mean_reversion_R5_B1_stability_diagnostic_preanalysis_20260908.md",
@@ -19,7 +27,7 @@
     },
     "tests": {
       "path": "tests/unit/test_broad_rmr_R5_B1_stability_shape.py",
-      "blob_sha": "221d08e87894b2947848259af4f1b5d31b41f000"
+      "blob_sha": "539b6bba9f76ebf00584a40b9483bd6c692c30b2"
     }
   },
   "parent_CL007": {
