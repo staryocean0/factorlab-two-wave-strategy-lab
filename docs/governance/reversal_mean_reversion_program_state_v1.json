@@ -2,11 +2,13 @@
   "schema_id": "factorlab_broad_reversal_mean_reversion_program_state@1.0",
   "session_date": "2026-09-08",
   "program_identity": "broad_reversal_mean_reversion_discovery_program_v1",
-  "current_status": "BROAD_RMR_STAGE1_ROUND1_CLOSED_NO_PROMOTED_MECHANISM",
+  "current_status": "ROUND1_CLOSED_T1_LITERATURE_DRIVEN_THEORY_INTAKE_FROZEN_SUPPLY_PENDING_OUTCOMES_SEALED",
   "active_research_branch": "codex/two-wave-phase1-20260905",
+  "active_branch_integration_commit": "9cded4c0e56e7d92232157699c0b569b39cabea4",
   "authority_reset_branch": "codex/broad-reversal-authority-reset-20260908",
-  "repository_wide_mainline": "broad_reversal_mean_reversion_mechanism_discovery_paused_after_round1",
-  "stage": "round1_closeout_wait_for_new_data_or_independent_theory_while_M0_v0617_continues_in_parallel",
+  "authority_reset_branch_status": "merged_into_active_research_branch_via_PR_5",
+  "repository_wide_mainline": "broad_reversal_mean_reversion_mechanism_discovery_with_bounded_round2_theory_intake",
+  "stage": "round2_T1_supply_only_while_M0_v0617_authoritative_local_replay_remains_pending",
   "round1_closeout": "docs/research/reversal_mean_reversion_stage1_round1_closeout_20260908.md",
   "M0_two_wave_foundation": {
     "status": "advanced_measurement_research_preserved",
@@ -14,6 +16,9 @@
     "current_frontier": "v0617_authoritative_source_formal_replay_pending",
     "morphology_replication_status": "not_yet_accepted",
     "formal_replay_task": "CL-20260908-005",
+    "formal_replay_handoff_refresh": "docs/ops/cl_20260908_005_v0617_formal_replay_refresh_20260908.md",
+    "formal_results_file_present_at_last_cloud_check": false,
+    "cloud_review_completed": false,
     "blocks_new_results_blind_program_design": false,
     "blocks_claims_requiring_accepted_morphology": true
   },
@@ -85,8 +90,26 @@
       "rescue_under_same_identity_allowed": false
     },
     "R5_relative_value_or_overnight": {
-      "status": "delegated_sibling_specialist_not_part_of_round1"
+      "status": "delegated_sibling_specialist_not_part_of_round1_or_T1"
     }
+  },
+  "round2_theory_intake": {
+    "identity": "T1_transitory_component_after_extreme_intraday_shock_v1",
+    "status": "literature_driven_theory_intake_frozen_supply_alignment_only_pending_local_execution",
+    "independent_of_R1_R2_R3_R4_rescue": true,
+    "theory_intake": "docs/research/reversal_mean_reversion_round2_transitory_shock_theory_intake_20260908.md",
+    "supply_protocol": "docs/governance/reversal_mean_reversion_T1_transitory_shock_supply_protocol_v1.json",
+    "execution_freeze": "docs/governance/reversal_mean_reversion_T1_supply_execution_freeze_v1.json",
+    "local_task": "CL-20260908-006",
+    "local_handoff": "docs/ops/cl_20260908_006_T1_transitory_shock_supply_handoff.md",
+    "event": "native_5m_offset0_abs_robust_z_ge_5_using_exactly_prior_960_native_bars",
+    "mechanism_variable": "within_bar_retrace_fraction_from_completed_event_bar_1m_terminal_path",
+    "direct_liquidity_identification_claim": false,
+    "direct_information_shock_identification_claim": false,
+    "post_event_outcome_authorized": false,
+    "supply_minimums": {"BUILD": 150, "2019": 50, "2020": 50},
+    "if_supply_passes": "outcomes_remain_sealed_until_cloud_review_and_separate_execution_freeze",
+    "if_supply_fails": "close_T1_current_data_identity_without_threshold_or_window_rescue"
   },
   "round1_executions": {
     "R1_R2_R3_v1": 34188765085,
@@ -101,12 +124,14 @@
     "R3_simple_deterioration_direction_is_falsified_under_v1",
     "R4_tested_statistical_states_do_not_improve_parent_failure_vs_extension_probability_beyond_geometry_baseline",
     "statistical_property_dynamics_are_not_sufficient_evidence_of_price_mean_reversion",
-    "automatic_new_indicator_generation_on_same_2015_2020_consumed_window_is_paused"
+    "automatic_indicator_generation_on_same_2015_2020_consumed_window_remains_forbidden",
+    "T1_is_admitted_only_because_it_is_independently_literature_driven_and_is_currently_supply_only"
   ],
   "broad_new_lane_generation_authorized": false,
+  "specific_T1_supply_only_authorized": true,
   "reopen_conditions": [
     "materially_new_data_with_roles_frozen_before_outcomes",
-    "independently_theory_or_literature_driven_new_mechanism_reviewed_before_consulting_round1_results",
+    "independently_theory_or_literature_driven_new_mechanism_reviewed_before_outcome_execution",
     "materially_new_accepted_M0_measurement_object_followed_by_results_blind_program_charter_amendment"
   ],
   "deep_strategy_optimization_authorized": false,
@@ -115,12 +140,13 @@
   "trading_PnL_authorized": false,
   "production_authority": false,
   "next_actions_in_order": [
-    "merge_authority_reset_and_round1_evidence_into_active_research_branch_codex_two_wave_phase1_20260905",
-    "continue_v0617_authoritative_source_formal_replay_when_local_feedback_for_CL_20260908_005_arrives",
+    "when_CL_20260908_005_local_feedback_arrives_cloud_review_M0_v0617_without_modifying_frozen_protocol",
+    "execute_CL_20260908_006_locally_supply_alignment_only_and_push_compact_receipt_with_skip_ci",
+    "cloud_review_T1_supply_receipt_before_any_post_event_outcome_authorization",
     "admit_future_unified_data_updates_only_after_new_results_blind_role_freeze",
-    "do_not_generate_new_R5_R6_R7_mechanisms_on_same_consumed_window_by_default"
+    "do_not_generate_additional_indicator_lanes_on_same_consumed_window_by_default"
   ],
-  "lane_budget_rule": "round1_closed_no_promotions;wait_for_new_data_or_independent_theory",
+  "lane_budget_rule": "round1_closed_no_promotions;one_independent_literature_driven_T1_intake_has_supply_only_budget;no_outcome_budget_until_supply_cloud_review",
   "authority_files": [
     "CONTINUE_HERE.md",
     "docs/governance/reversal_mean_reversion_program_charter_v1.json",
