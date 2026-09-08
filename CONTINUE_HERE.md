@@ -27,8 +27,10 @@ M0 **是测量基础，不是自动成立的交易 alpha**。
 v0.6.17 authoritative-source formal replay 没有取消：
 
 - `CL-20260908-005` 仍是 M0 合法本地执行任务；
+- 当前 formal result / `cloud_results/cloud_chat_v0617_session_aware_bounds/` 仍未回传；
 - 必须使用 accepted DataHub `349,923` row source surface；
-- 不能拿 FactorLab `350,561` row `1m_official` 冒充 exact source support。
+- 不能拿 FactorLab `350,561` row `1m_official` 冒充 exact source support；
+- compact refresh handoff：`docs/ops/cl_20260908_005_v0617_formal_replay_refresh_20260908.md`。
 
 M0 未闭合不阻止不依赖 morphology acceptance 的 results-blind broad research，但任何声称“形态学已接受”的结论仍必须等 M0 自己闭合。
 
@@ -154,26 +156,94 @@ R4 adjudication：
 - R2、R3、R4 在供给充分情况下分别被当前低容量假说否定；
 - 不应继续在同一 2015–2020 consumed window 上自动发明 R5/R6/R7，直到某个指标碰巧通过。
 
-## 6. 当前 broad program 状态
+Authority reset 与 Round-1 evidence 已通过 PR #5 merge 回真正活跃分支，integration commit：
+
+`9cded4c0e56e7d92232157699c0b569b39cabea4`
+
+## 6. Round-2 的唯一已准入 theory intake：T1
+
+一般性的：
 
 `broad_new_lane_generation_authorized = false`
 
-新的 broad mechanism screen 只有在以下任一条件成立后才能重开：
+仍然成立。
+
+但 Round-1 closeout 允许一个例外：**独立理论/文献驱动机制必须在 outcome 前定义并 review**。当前已按这个门准入一个且仅一个 T1：
+
+`T1_transitory_component_after_extreme_intraday_shock_v1`
+
+它不是 R1/R2/R3/R4 rescue，也不是“又加一个技术指标”。理论依据来自两类相反的公开证据：
+
+- 极端短周期价格变化之后可能发生反转，常被讨论为 temporary price pressure / liquidity provision；
+- 信息型 jump 也可能出现短期 continuation / underreaction。
+
+因此 T1 不假设“大幅波动必然反转”，而只问：
+
+> **在一个已经完成的极端 5m shock 内，如果最大定向位移在 5m 收盘前已经出现部分回吐，这个已观察到的 transitory-component symptom，是否增加后续同日完整回撤相对等距延续的概率？**
+
+当前数据没有可靠 volume/order book/news，所以：
+
+- 不允许把 T1 叫直接 liquidity identification；
+- 不允许把 T1 叫 direct information-shock classifier；
+- 唯一机制变量是 completed event bar 的 `within_bar_retrace_fraction`。
+
+已冻结：
+
+- theory intake：`docs/research/reversal_mean_reversion_round2_transitory_shock_theory_intake_20260908.md`；
+- supply protocol：`docs/governance/reversal_mean_reversion_T1_transitory_shock_supply_protocol_v1.json`；
+- execution freeze：`docs/governance/reversal_mean_reversion_T1_supply_execution_freeze_v1.json`；
+- local task：`CL-20260908-006`；
+- handoff：`docs/ops/cl_20260908_006_T1_transitory_shock_supply_handoff.md`。
+
+### T1 当前只允许 supply/alignment audit
+
+事件定义已经在供给前冻结：
+
+- native `5m_offset_0`；
+- `r5 = log(close/open)`；
+- 只用当前 bar 前恰好 960 个 native 5m bars；
+- median + `1.4826*MAD`；
+- `abs(robust_z) >= 5.0`；
+- 不允许 threshold / window / offset / sign-specific search。
+
+事件自身的 1m path 只允许做 alignment 和 completed-bar retrace 描述；不得读事件后的 future return / reversal / continuation / Brier / log-loss / PnL。
+
+Frozen aligned supply gate：
+
+- BUILD >= `150`；
+- 2019 >= `50`；
+- 2020 >= `50`。
+
+如果供给失败，T1 当前 2015–2020 identity 直接关闭，不降 5-sigma、不改 960。
+
+如果供给通过，**outcomes 仍然 sealed**；必须先 cloud review receipt，再另写 outcome execution freeze。
+
+## 7. Broad program 重开条件
+
+除了已经 results-blind 冻结的 T1 supply-only intake，新的 broad mechanism screen 仍只有在以下任一条件成立后才能重开：
 
 1. **实质新增数据**到位，并在看 outcome 前重新冻结 BUILD/check/holdout 角色；
-2. 一个**独立理论/文献驱动的新机制**在阅读本轮结果之外先被定义和 review；
+2. 另一个**独立理论/文献驱动的新机制**在 outcome 前先被定义、review，并且不得只是本轮失败路线的改名 rescue；
 3. M0 产生一个实质新的、被接受的因果测量对象，并先修改 program charter，再做 results-blind 研究。
 
 R2/R3/R4 原样重跑不属于新机制。
 
-## 7. 当前 next action
+## 8. 当前 next action
 
-1. 把本次 authority reset + Round-1 evidence 合并回真正的活跃研究分支 `codex/two-wave-phase1-20260905`；
-2. 继续等待 / 复核 M0 v0.6.17 authoritative local formal replay `CL-20260908-005`；
-3. 你之后通知统一数据工具完成数据更新时，先做 source/role admission，再决定哪些 broad hypotheses 可以获得新的 results-blind research budget；
-4. 在此之前不自动生成新的 R5/R6/R7，不做 PnL、paper trading 或 production。
+当前有两个合法、彼此独立的本地任务：
 
-## 8. Authority order
+1. **M0 / CL-20260908-005**：执行 frozen v0.6.17 authoritative-source formal replay；当前结果尚未回传，云端复核尚未发生；
+2. **Broad T1 / CL-20260908-006**：只执行 extreme-shock supply/alignment audit，并推回 compact receipt；**不得执行 post-event outcome**。
+
+云端下一步固定为：
+
+- 收到 CL-005 时先做 M0 source/blob/gate 独立复核；
+- 收到 CL-006 时先做 T1 supply/source/blob 独立复核；
+- T1 只有 supply cloud-reviewed PASS 后才可能另行授权 outcome；
+- 你之后通知统一数据工具完成数据更新时，先做 source/role admission，再决定 R1 等 unresolved hypothesis 是否获得新 research budget；
+- 在此之前不做 PnL、paper trading 或 production。
+
+## 9. Authority order
 
 以后发生上下文压缩或新助手接管，按以下顺序判断仓库级方向：
 
@@ -187,7 +257,7 @@ R2/R3/R4 原样重跑不属于新机制。
 
 旧文件若写“唯一下一动作是继续 v0.6.17”，只对 M0 子项目有效，不再控制整个仓库。
 
-## 9. 权限边界
+## 10. 权限边界
 
 仍然禁止：
 
