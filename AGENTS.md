@@ -1,175 +1,246 @@
 # Broad Reversal / Mean-Reversion Research Control Plane
 
-This repository historically developed the causal two-complete-wave parent-structure recognizer. As of 2026-09-08, repository-wide authority is broader:
+This repository is a **broad reversal / mean-reversion direction finder**, not a single-strategy optimizer.
 
-> **discover and compare broad reversal / mean-reversion mechanisms using causal multi-scale structure, while retaining the two-wave stack as the M0 measurement foundation.**
+Repository-wide mission:
 
-The repository is a direction finder, not a single-strategy optimizer. It has no authority to trade, mutate the local FactorLab current pointer, promote a production strategy, or alter Layer 4.
+> **Use causal multi-scale measurements to distinguish temporary lower-scale deviations inside an intact parent state from true parent-state changes, and compare multiple low-capacity mechanisms before taking any one mechanism deep.**
+
+Historical two-wave work is preserved as `M0_two_wave_structure_measurement_foundation`. M0 is measurement infrastructure, not automatic trading alpha.
+
+No production, paper-trading, Layer-4, FactorLab-current-pointer mutation, or unrestricted PnL-selection authority is granted by this repository.
 
 ## Repository-wide authority order
 
-Read in this order when deciding what the project should do next:
+When deciding what the project is doing now, read in this order:
 
 1. `CONTINUE_HERE.md`
 2. `docs/governance/reversal_mean_reversion_program_charter_v1.json`
-3. `docs/governance/reversal_mean_reversion_program_state_v1.json`
-4. `docs/research/reversal_mean_reversion_program_whitepaper_v1.md`
-5. this `AGENTS.md`
-6. post-reset lane-specific protocols / preanalysis
-7. historical two-wave v0.x documents, authoritative only inside their specific M0 / historical identity
+3. `docs/governance/reversal_mean_reversion_data_reuse_validation_policy_v1.md`
+4. `docs/governance/reversal_mean_reversion_program_state_v1.json`
+5. `docs/research/reversal_mean_reversion_program_whitepaper_v2.md`
+6. this `AGENTS.md`
+7. post-reset lane protocols / cloud reviews
+8. historical v0.x documents only inside their own M0 / historical identity
 
-An unfinished `next_action` in an older two-wave document does not control repository-wide direction unless the current program state explicitly promotes it.
+An unfinished `next_action` in an older two-wave document does not control repository-wide direction.
 
-## M0 — two-wave structure measurement foundation
+## Data is reusable; blackbox qualification is scarce
 
-All existing causal two-wave work remains valid evidence for its own identity. M0 covers:
+The project uses three evidence roles.
+
+### TRAIN
+
+Current interval: `2015-01-05..2018-12-31`.
+
+TRAIN is a reusable research asset. It may be repeatedly used for:
+
+- model fitting;
+- feature construction;
+- threshold exploration when a research identity permits it;
+- diagnostics;
+- case inspection;
+- failure analysis;
+- mechanism redesign.
+
+Using TRAIN once does not consume it.
+
+### VALIDATION
+
+Current interval: `2019-01-01..2020-12-31`.
+
+VALIDATION is also reusable. It may be repeatedly used to:
+
+- check chronological stability;
+- inspect years/events/details;
+- diagnose why a model failed;
+- revise a model and validate again.
+
+Once details are inspected, the data is still valid as VALIDATION; it simply is not a never-seen blackbox.
+
+### BLACKBOX
+
+No BLACKBOX interval is currently assigned.
+
+BLACKBOX is reserved only for a sufficiently mature candidate. It should normally expose only predeclared aggregate confirmation outputs. If its details are opened for diagnosis, that interval is demoted to VALIDATION and a future blackbox must be assigned separately if another unseen confirmation is desired.
+
+**Data itself is not disposable. Only never-seen blackbox qualification is consumable.**
+
+Do not mechanically burn one calendar year per research attempt. By default prefer pooled effective sample size plus chronological stability diagnostics over arbitrary `N per natural year` gates unless the year-specific question is scientifically central.
+
+Historical frozen gates remain historical facts and must not be retroactively rewritten.
+
+## M0 — two-wave measurement foundation
+
+M0 covers causal complete-wave and parent-structure measurement, including:
 
 - online pivots and complete waves;
 - same-scale pairing;
-- parent envelope / drift / overlap / efficiency / roughness / duration / density;
-- streaming, batch replay and prefix invariance;
-- bar-support / offset / session information-set semantics;
+- parent drift / envelope / overlap;
+- path efficiency / roughness / duration / density;
+- streaming / replay / prefix invariance;
+- session / offset / source-support semantics;
 - morphology replication infrastructure.
 
-Current M0 status remains `morphology_replication_not_yet_accepted`. The operational baseline remains v0.4.3.
+Current global morphology status remains:
 
-The v0.6.17 authoritative-source formal replay remains a legitimate M0 task (`CL-20260908-005`) and must retain its frozen protocol, source identity, fail-closed semantics and evidence labels. It does **not** block results-blind broad-program preanalysis that does not claim accepted morphology.
+`morphology_replication_not_yet_accepted`
 
-## Broad-program primary lanes
+Operational baseline remains `v0.4.3`.
 
-Give comparable shallow budgets to these mechanisms before taking one deep:
+### v0.6.17 accepted measurement capability
 
-1. `R1_cross_scale_pullback`
-   - intact parent trend + opposite lower-scale shock;
-   - ask whether parent integrity adds information beyond counter-move severity about recovery before parent failure.
+`CL-20260908-005` is completed and cloud-reviewed.
 
-2. `R2_range_boundary_reversion`
-   - range-like parent + boundary excursion;
-   - ask whether temporary overshoot / failed breakout can be separated from genuine transition to trend.
+Accepted verdict:
 
-3. `R3_structural_exhaustion_transition`
-   - directional parent whose structural quality deteriorates;
-   - ask whether degradation raises reversal/transition risk before a simple direction flip.
+`session_aware_bounds_valid_but_structural_gap_nonidentifiability_is_material`
 
-Secondary directions include statistical-state extremes. Relative-value / overnight dislocation is a sibling/delegated specialist, not the default mainline here.
+Accepted capability:
 
-## Common scientific coordinate system
+`interval_valued_session_aware_path_information_bounds`
 
-Every new reversal hypothesis must declare before outcome inspection:
+This does **not** mean morphology is accepted and does **not** mean native 5m OHLC reveals the exact fine path.
 
-1. **scale** — lower / current / parent;
-2. **parent state** — trend / range / transition / unknown;
-3. **deviation object** — what exactly is abnormal;
-4. **recovery/failure criterion** — what counts as reversion and what counts as state change.
+Any future fine-path feature must declare one of:
 
-A mean may be a line, band, trajectory, wave structure, distribution, relative relationship or statistical state. Do not reduce mean reversion to moving-average distance.
+1. admitted actual finer-source direct measurement;
+2. fully-enveloped finite interval measurement;
+3. structural-gap partial-identification interval.
 
-## Research style
+Do not turn an interval midpoint or convenient proxy into observed truth. Do not drop structural-gap events merely because they hurt a strategy result.
 
-Stage-1 broad discovery is deliberately shallow:
+## Historical broad-lane evidence
 
-- keep 2–3 mechanisms alive in parallel;
-- use small comparable candidate budgets;
-- establish phenomenon -> causal observability -> chronological stability first;
-- do not select by trading P&L;
-- do not repeatedly tune one lane while the others have not received comparable first passes;
-- promote strong lanes to dedicated identities;
-- hold ambiguous lanes without rescue tuning;
-- close failed lanes instead of increasing complexity until they work.
+Historical results remain evidence for their exact identities but do not make the underlying data unusable.
+
+- `R1_cross_scale_pullback`: historically unresolved because the old gate had insufficient resolved samples; mechanism not rejected. New research identities may continue on TRAIN/VALIDATION.
+- `R2_range_boundary_reversion`: historical low-capacity M1 identity closed; independent new identities are allowed but must not rewrite the old result.
+- `R3_structural_exhaustion_transition`: historical v1 preregistered direction was falsified; independent new transition identities are allowed but cannot reinterpret that failure.
+- `R4_statistical_state_extremes`: historical v1 candidates failed to add stable information; other independently motivated statistical-state questions remain researchable.
+- `T1_transitory_component_after_extreme_intraday_shock_v1`: historical 5-sigma/960-bar identity closed before outcome on its frozen old supply gate; future independent shock identities are allowed.
 
 A statistical property reverting toward its own normal state is **not** by itself evidence of price mean reversion.
 
-## Frozen infrastructure boundaries
+## Active lane — R5 multiscale serial dependence
 
-- `tool_registry_v1_5` is the immutable current fifteen-tool prefix.
-- `two_wave_parent_structure_recognizer` remains only a research candidate slot unless separately accepted.
-- Do not edit V1.5 in place.
-- The current Layer 3 architecture / identity registries remain research infrastructure; no registered usable strategy is granted by this repo.
-- Never use result-driven calendar rules. Never call a year, date, event or hand-labelled example a runtime state.
-- Direction/D1/D2/PAWCT, the old third-wave hypothesis, trading P&L, fresh OOS, paper trading and production remain frozen unless a new post-reset identity explicitly and validly opens them.
+Current active identity:
+
+`R5_multiscale_serial_dependence_state_v1`
+
+Independent theory motivation: short-horizon mean reversion and slower positive memory can coexist at different scales; trend and reversal are therefore scale-dependent states rather than permanent asset labels.
+
+Frozen artifacts:
+
+- preanalysis: `docs/research/reversal_mean_reversion_R5_multiscale_serial_dependence_preanalysis_20260908.md`
+- protocol: `docs/governance/reversal_mean_reversion_R5_multiscale_serial_dependence_protocol_v1.json`
+- execution freeze: `docs/governance/reversal_mean_reversion_R5_execution_freeze_v1.json`
+- runner: `scripts/run_broad_rmr_R5_multiscale_serial_dependence.py`
+- tests: `tests/unit/test_broad_rmr_R5_multiscale_serial_dependence.py`
+- local task: `CL-20260908-007`
+- handoff: `docs/ops/cl_20260908_007_R5_multiscale_serial_dependence_handoff.md`
+
+R5 uses TRAIN and VALIDATION only; no BLACKBOX exists for this lane.
+
+R5-A first establishes whether short-negative / slower-positive memory states have enough supply. R5-B asks whether anti-persistence changes next-return reversal strength. R5-C asks whether a counter-trend 5m shock is more likely to recover toward the preceding slow direction when slower positive memory and short anti-persistence are stronger.
+
+Do not escalate a failed low-capacity R5 result into HMM/rSLDS/Koopman as a rescue. Those model classes require their own incremental rationale.
+
+## Common scientific coordinate system
+
+Every new reversal hypothesis must declare before its result is interpreted:
+
+1. **scale** — lower / current / parent;
+2. **parent state** — trend / range / transition / unknown;
+3. **deviation object** — what is abnormal;
+4. **recovery/failure criterion** — what counts as reversion and what counts as state change.
+
+A mean can be a line, band, trajectory, wave structure, distribution, relative relationship or statistical state. Do not reduce mean reversion to moving-average distance.
+
+## Research style
+
+- Keep broad discovery shallow before going deep.
+- Prefer simple statistical baselines before HMM/rSLDS/Koopman/deep models.
+- TRAIN and VALIDATION can support repeated model iteration.
+- Preserve every historical receipt and failed identity; do not rewrite old conclusions when a new identity is created.
+- Do not select shallow research by trading PnL.
+- Do not create favorable sign/year/time-of-day subgroups after seeing results and call them new evidence.
+- BLACKBOX is assigned only after a candidate is mature enough for a final aggregate-only confirmation.
 
 ## Data contract
 
-- Shipped market rows are `000852.SH` CSI1000 index signal data.
-- The original package interval is 2015-01-05 through 2020-12-31 and is consumed/development material, never fresh.
-- 2021+ rows are not authorized merely because a broad lane exists; any new data role must be frozen before outcome read.
-- Data is index signal data, not a tradable fill surface. Do not report index returns as executable IM/ETF/option returns.
-- Timestamps and bar-support semantics must follow the frozen DataHub contracts for the identity being executed.
-- Use supplied DataHub-built bar views. Do not silently resample new wall-clock frequencies locally.
-- For v0.6.17 specifically, accepted authoritative DataHub support is the 349,923-row source surface; FactorLab 350,561-row `1m_official` is not an exact replacement.
-- Binary Parquet being undisplayable in UI is not missing data if it exists after clone; use Python/pyarrow.
+Current shipped market data used by R5:
+
+```text
+instrument = 000852.SH
+file = data/development/5m_offset_0.parquet
+rows = 70,114
+sha256 = bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48
+range = 2015-01-05..2020-12-31
+```
+
+It is index signal data, not a tradable fill surface.
+
+For any identity that uses DataHub exact source support, obey that identity's frozen source contract. For v0.6.17 specifically, authoritative source support was the 349,923-row DataHub source surface; FactorLab `1m_official` was not an exact substitute.
+
+Do not silently fill missing bars, synthesize OHLC, locally resample a new product when the protocol says use a supplied native view, or invent timestamp/timezone semantics.
 
 ## Causal requirements
 
-- candidate pivots may move; confirmed historical events may not be rewritten by future rows;
-- save event occurrence, confirmation, classification and executable times separately;
-- no centered windows, bilateral smoothing, future extrema, full-sample normalization or hindsight parameters in online signals;
-- batch replay must use the same streaming semantics;
-- OHLC alone does not reveal within-bar high/low order;
-- algorithm-generated structure labels are not independent morphology ground truth;
-- every evidence interval must keep its actual development / repeat / holdout / fresh role.
+- Candidate pivots may move; confirmed historical events may not be rewritten by future rows.
+- Save occurrence, confirmation, classification and executable times separately when relevant.
+- No centered windows, bilateral smoothing, future extrema, full-sample normalization or hindsight parameters in online signals.
+- Batch replay must use the same causal semantics.
+- OHLC alone does not reveal within-bar high/low order.
+- Algorithm-generated structure labels are not independent morphology ground truth.
+- Every result must state TRAIN / VALIDATION / BLACKBOX role truthfully.
 
-## Current required repository-wide order
+## Current execution order
 
-1. maintain this broad authority reset;
-2. freeze common scale / parent-state / deviation / recovery vocabulary;
-3. write bounded results-blind R1/R2/R3 preanalysis;
-4. inventory a common existing data/evidence surface for a fair first screen;
-5. execute comparable low-capacity probes without fresh-OOS or P&L claims;
-6. compare lanes before any dedicated deep research;
-7. continue M0 v0.6.17 formal replay in parallel when the authoritative local execution path is available.
+1. Preserve the reusable TRAIN / VALIDATION / BLACKBOX governance.
+2. Execute frozen R5 locally via `CL-20260908-007` because the current cloud session has no direct Parquet execution surface.
+3. Push only the compact R5 receipt using `[skip ci]`.
+4. Cloud reviews the receipt and distinguishes `local_reported` from `cloud_reviewed`.
+5. If R5 has partial/full support, continue diagnosis and iteration on TRAIN/VALIDATION; do not prematurely allocate a BLACKBOX.
+6. If R5 low-capacity mechanisms fail, do not deep-model rescue them.
+7. New data, when available, expands TRAIN/VALIDATION coverage and can later provide a small BLACKBOX; old data remains usable.
 
-Do not respond to the broad reset by inventing v0.6.18/v0.6.19 measurement tweaks unless the program state explicitly returns research budget to M0.
+## 云端—本地交接协议
 
-## Deliverables
+This protocol is active only when the user explicitly activates cloud/local collaboration or asks this cloud session to continue work that requires local execution. It is active in the current collaboration.
 
-- reusable measurement code: `src/factor_lab/market_state/` or `src/factor_lab/visual_structure/`;
-- tests: `tests/unit/`;
-- executable workflows: `scripts/`;
-- specifications / decisions: `docs/`;
-- reviewable generated results: `cloud_results/`;
-- never modify raw development data merely to make a result pass.
+### Execution priority
 
-Every conclusion must state actual execution location, sample count, failures/unresolved gaps, evidence role and authority status.
+When active:
 
-No production, paper-trading, registered-use, unrestricted parameter-selection or fresh-OOS authority is available by default.
+1. current cloud session direct execution;
+2. local large-model execution;
+3. GitHub Actions only as a last resort.
 
-## 云端—本地交接协议（默认不生效）
+Writing code or commands is not execution. Report the actual execution location and evidence.
 
-### 生效条件
+If the cloud lacks the required local market data or filesystem:
 
-Protocol 1 与 Protocol 2 **默认不生效**。只有在当前任务中被明确告知“你和云端协作”时才生效。同等表述包括“按云端交接协议执行”、“这是云端与本地协作”。
+- write an executable task-specific handoff under `docs/ops/` and, where practical, a pointer in `docs/ops/cloud_local_communication.md`;
+- give the task ID, branch/commit, frozen artifacts, exact commands, expected compact output and acceptance rules;
+- keep large market data and large row-level artifacts local;
+- push only compact receipts/reports unless the data contract requires otherwise.
 
-把一项任务发到某个云端主题仓库、并要求该云端会话继续执行，也视为已经明确告知**该云端会话**启用本协议。
+Local feedback must state actual commit, commands, exit codes, source identity, output paths, failures/unverified items, and must label itself `local_reported` rather than `cloud_reviewed`.
 
-### 不生效的情况
+Cloud review must independently compare the feedback against frozen code/protocol/source gates before changing authority state.
 
-正常情况下，许多任务由本地发起、在本地执行。即使本协议已经写进 `AGENTS.md`，只要当前任务没有上述明确告知，本协议就不生效：
+Do not use GitHub Actions merely to probe quota. Current R5 task does not authorize Actions.
 
-- 按普通本地任务继续工作，不要去写交接文档、等待云端，或把步骤发到 GitHub Actions；
-- 不要因为本文存在，就把本地任务改写成云端协作任务；
-- 未生效时，下面 Protocol 1 / Protocol 2 没有运行时效力。
+## Frozen authority boundaries
 
-本协议即使生效，也只改变执行地点和沟通方式，不扩大训练、数据搬迁、金融验收或生产权限。
+Unless a later higher-authority document explicitly changes them:
 
-### Protocol 1：云端缺数据时的文档交接与本地反馈
+- no FactorLab current-registry mutation;
+- no Layer-4 trading execution;
+- no fresh-OOS claim from TRAIN/VALIDATION;
+- no paper trading;
+- no production;
+- no unrestricted PnL-based parameter selection.
 
-适用于已激活协作后的计算、测试和证据检查。某一步因云端缺少所需数据而无法执行时，云端 AI 必须将该步骤写入 `docs/ops/cloud_local_communication.md`，并在当次回复中明确告知用户任务编号、阻断原因、文档路径和需要本地大模型完成的事项。不能只说“等待数据”、静默跳过，或默认要求把全部原始数据搬到云端。
-
-交接只需一份可执行记录：任务目标与所需结论、代码分支/提交、已完成和未执行的步骤、缺失的最小数据及口径、执行命令或实施步骤、预期输出和验收条件。已有同一任务记录则复用，不反复索取同一批文件。
-
-本地大模型完成后，在同一沟通记录中反馈实际代码版本、数据范围与必要身份摘要、命令与退出码、结果及产物位置、失败或未验证事项；大数据和大产物留本地，只回传必要的小报告或可访问文档。
-
-云端收到反馈后先读取并复核，区分“本地已反馈”与“云端已复核”，注明复核范围和结论后继续。不能把本地报告称为云端独立全量复验，也不能将未执行或失败项改写为通过。
-
-### Protocol 2：计算执行位置与工作流优先级
-
-**仅在本协议已生效时：** 当前云端会话直接执行 -> 请求本地大模型执行 -> 最后才考虑 GitHub Actions。
-
-能在当前云端会话用实际 Python/终端完成的计算、测试、静态检查和小规模验证，优先自己运行。写了代码、给出命令或推测结果都不等于实际执行。
-
-云端确实无法完成时，按 Protocol 1 交接给本地。只有前两种方式不适用、且 Actions 能取得输入并有可用额度时，才把 Actions 作为最后选择，并记录理由。
-
-用户告知 Actions 无额度期间，不主动派发或反复 push 试探。适用的文档提交使用 `[skip ci]`，避免无意义计算。
-
-报告每一步的实际执行地点、已完成/未执行状态和证据位置。缺数据或额度不会自动否定策略，也不构成让无关步骤停工的理由。
+Production authority = `false`.
