@@ -2,210 +2,171 @@
 
 **本文件是判断本仓库“现在研究什么、下一步做什么”的第一权威。**
 
-仓库 `factorlab-two-wave-strategy-lab` 的仓库级任务是：
+仓库级任务：
 
-> **用因果多尺度结构研究广义反转 / 均值回归，区分“完整父状态中的暂时偏离”与“父状态本身改变”，并用小预算筛选多个机制，而不是无限优化一个 recognizer 或一个策略。**
+> **用因果、多尺度、低容量的研究框架发现广义反转 / 均值回归机制；核心不是“跌多了就买”，而是判断眼前偏离属于完整父状态里的次级波动，还是父状态本身已经改变。**
 
 当前总状态：
 
-`BROAD_RMR_ACTIVE_WITH_REUSABLE_TRAIN_VALIDATION_BLACKBOX_POLICY`
+`R5_MULTISCALE_SERIAL_DEPENDENCE_FROZEN_LOCAL_EXECUTION_PENDING_UNDER_REUSABLE_TRAIN_VALIDATION_POLICY`
 
-## 1. 数据不是一次性消耗品
+## 1. 数据治理：数据不是消耗品
 
-从现在起采用三层数据角色：
+当前采用三层角色。
 
-1. **TRAIN / Research corpus**：训练、机制设计、参数估计、事件级拆解、失败分析，可反复使用；
-2. **VALIDATION / Diagnostic validation**：做跨时期验证，也允许失败后打开细节诊断并继续改模型，可反复使用；
-3. **BLACKBOX / Confirmation reserve**：只给已经成熟、冻结好的候选做独立最终确认，默认只返回预先定义的 aggregate 结果。
+### TRAIN
 
-关键原则：
+`2015-01-05..2018-12-31`
 
-> **数据不会因为被看过就失去研究价值；失去的只是“完全未见黑箱确认”的资格。**
+可反复用于训练、特征设计、参数估计、事件拆解、失败分析和模型修改。
 
-如果一个 BLACKBOX 失败后决定拆细节，它只会从 `BLACKBOX -> VALIDATION`，以后仍可继续研究，不是“报废”。
+### VALIDATION
 
-当前角色：
+`2019-01-01..2020-12-31`
 
-- 2015-01-05..2018-12-31 = **TRAIN**；
-- 2019-01-01..2020-12-31 = **VALIDATION**；
-- 当前尚未正式指定新的 BLACKBOX 日期块。
+可反复用于跨时期验证，也允许打开年份/事件/案例细节做诊断，并根据诊断继续改模型。
 
-详细政策：
+### BLACKBOX
+
+当前**没有分配**。
+
+只有当某个候选已经比较成熟时，才从尚未打开的新数据里划一小段 aggregate-only final confirmation reserve。若之后为了诊断打开 BLACKBOX 细节，该段自动降级成 VALIDATION；数据仍然可用，只是不再具有“从未看过”的资格。
+
+所以：
+
+> **可重复研究的数据不会被烧掉；真正稀缺的只有 never-seen BLACKBOX qualification。**
+
+权威数据政策：
 
 `docs/governance/reversal_mean_reversion_data_reuse_validation_policy_v1.md`
 
-这也 supersede 之前“同一 2015–2020 consumed window 原则上不能继续研究”的仓库级表述。历史已经冻结并执行过的 R1/R2/R3/R4/T1 裁决继续保留，不追溯改写；但 2015–2020 数据本身可以继续作为 TRAIN/VALIDATION 研究资产使用。
+## 2. M0：两浪只是测量底座
 
-## 2. M0：两浪结构测量底座
-
-历史 `v0.4.3 -> v0.6.17` 两浪研究全部保留，统一角色：
+历史 v0.4.3–v0.6.17 两浪工作继续保留为：
 
 `M0_two_wave_structure_measurement_foundation`
 
-M0 提供因果完整波、尺度、父结构、drift / overlap / width / efficiency / roughness / duration / density、publication time、streaming/replay/prefix 不被未来重写，以及 session/source information-set 语义。
+它提供因果 complete wave、parent structure、scale、drift / overlap / width / efficiency / roughness / duration / density、publication time 和 session/source support 语义。
 
-M0 是**测量底座，不是自动成立的交易 alpha**。
+M0 **不是自动成立的 alpha**。
 
-全局 morphology 继续是：
+当前：
 
-`morphology_replication_not_yet_accepted`
+- operational baseline = `v0.4.3`
+- morphology = `morphology_replication_not_yet_accepted`
+- CL-20260908-005 = `CLOUD REVIEWED / COMPLETED`
+- v0.6.17 accepted capability = `interval_valued_session_aware_path_information_bounds`
 
-操作基线继续是 `v0.4.3`。Direction / D1 / D2 / PAWCT、第三浪、PnL、paper trading、production 均未解冻。
+v0.6.17 的硬结论：native 5m OHLC 不能被默认当作已知 fine path。细路径特征必须声明 direct finer-source measurement、fully-enveloped finite interval 或 structural-gap partial identification。
 
-## 3. CL-20260908-005 已完成云端验收
-
-状态：
-
-`CL-20260908-005 = CLOUD REVIEWED / COMPLETED`
-
-正式接受 verdict：
-
-`session_aware_bounds_valid_but_structural_gap_nonidentifiability_is_material`
-
-关键事实：
-
-- authoritative DataHub 1m source rows = `349,923`；
-- 2015-01-05..2020-12-31；2021+ loaded = `0`；
-- five native 5m views exact label/OHLC replay；
-- published legs = `737,104`；
-- N mismatch = `0`；
-- J / C_inf / C_1 / C_2 oracle coverage = `100%`；
-- fully enveloped legs = `528,360`；
-- structural-gap universal-bound legs = `208,744`，约 `28.3%`。
-
-因此 v0.6.17 被接受为新的 M0 **interval-valued measurement capability**，而不是 morphology acceptance。
-
-新硬规则：
-
-> **native 5m OHLC 不能默认等同于已知 fine path。**
-
-以后任何 path efficiency / roughness / concentration 类研究都必须声明：
-
-1. 真实 finer-source 直接测量；或
-2. fully-enveloped 下的 finite interval；或
-3. structural-gap 下的 partial-identification / universal interval。
-
-禁止把 interval midpoint 或其它 proxy 偷换成真实 fine-path point value。
-
-Cloud review：
+云端 review：
 
 `docs/research/two_wave_session_aware_information_set_bounds_cloud_review_20260908.md`
 
-能力 admission：
-
-`docs/governance/reversal_mean_reversion_v0617_measurement_capability_admission_v1.json`
-
-## 4. 已执行 Round-1 的历史结论
-
-这些是**历史 identity 的结果**，继续保留，不因新数据复用政策而倒改。
+## 3. 历史 broad lanes 仍是历史证据，不限制数据复用
 
 ### R1 — Cross-scale pullback
 
-历史状态：
+旧 identity 的结论是 `unresolved`，不是 rejected；当时的 old gate 下 resolved supply 为 `168 / 40 / 39`。
 
-`unresolved_evidence_insufficient_after_one_results_blind_measurement_revision`
+**现在允许继续用 TRAIN / VALIDATION 研究 R1 或其独立新 identity。** 不能做的是把旧结论追溯改写成成功/失败，或把 TRAIN/VALIDATION 叫 fresh。
 
-M1 trigger supply：`275 / 57 / 69`；resolved supply：`168 / 40 / 39`（TRAIN / 2019 / 2020）。旧 frozen gate 要求 2019/2020 各 >=50，因此该次 identity 只能 unresolved。
+### R2 — Range-boundary reversion
 
-**但 R1 研究本身没有关闭。**
+旧 M1 identity 在 adequate supply 下表现变差，历史 identity closed。可以研究独立的新 range-reversion 机制，但不能改写旧结果。
 
-在新的 TRAIN/VALIDATION 政策下，可以继续利用 2015–2020 做模型开发、事件拆解和验证；只是这些结果必须标记为 reused TRAIN/VALIDATION，不能叫 fresh OOS。
+### R3 — Structural exhaustion
 
-### R2 — Range-boundary / failed-breakout reversion
-
-历史低容量 identity：`closed_with_adequate_evidence_under_M1`。
-
-这只关闭当时那套具体定义，不代表“所有震荡边界均值回归永久禁止研究”。如果未来有独立的新理论/新定义，可以作为新的 identity 在 TRAIN/VALIDATION 上研究，但不能把旧失败改名成成功。
-
-### R3 — Structural exhaustion / transition
-
-历史 v1：`closed_predeclared_direction_falsified`。
-
-两个 deterioration 系数方向与预注册相反。该 v1 不可翻转故事；但更广义的状态切换研究并未被永久禁止。
+旧 v1 preregistered direction 被证伪，历史 identity closed。可以研究独立的新 transition 机制，但不能把旧负号反解释成成功。
 
 ### R4 — Statistical-state extremes
 
-历史 v1：`closed_no_candidate_qualifies`。
+旧 v1 三个 candidate 都没有增量，历史 identity closed。其它独立 statistical-state 问题仍可研究。
 
-Path inefficiency、lower-scale event density、amplitude extremity 三个候选在当时定义下无增量。
+### T1 — Extreme-shock transitory component
 
-项目级结论继续保留：
+旧 `5-sigma / 960-bar` identity 在 outcome 前因旧 supply gate 关闭；CL-006 已 cloud-reviewed。这个历史结果保留，但不表示所有 shock-reversion 研究永久禁止。
 
-> **统计属性自身的持续、极端或均值回归，不等于价格存在均值回归 alpha。**
+## 4. 当前正在执行：R5 多尺度序列依赖
 
-## 5. T1 历史结论
+Identity：
 
-`CL-20260908-006 = CLOUD REVIEWED / COMPLETED`
+`R5_multiscale_serial_dependence_state_v1`
 
-历史 supply gate：
+它来自独立理论，而不是旧 lane rescue：Sepp & Lucic 的 autocorrelation / long-memory 框架明确允许**短期负自相关与较慢正记忆同时存在**。因此“趋势”和“均值回归”可能在不同尺度同时成立。
 
-| partition | aligned | minimum | result |
-|---|---:|---:|---|
-| BUILD 2015–2018 | 364 | 150 | PASS |
-| 2019 | 48 | 50 | **FAIL** |
-| 2020 | 87 | 50 | PASS |
+本轮只用同一 native `5m_offset_0` 数据，先做三个低容量问题：
 
-所以历史 identity：
+1. **R5-A memory sign map**：短期负记忆、较慢正记忆的 mixed state 是否真实存在且有足够供给；
+2. **R5-B anti-persistence routing**：短期反持久程度是否稳定增强下一步反转；
+3. **R5-C counter-trend shock**：较慢正记忆状态里，反向 5m shock 是否更容易在随后 15m 回到原 parent direction。
 
-`T1_current_data_event_supply_insufficient / CLOSED_BEFORE_OUTCOME`
+冻结尺度：
 
-这次裁决不追溯修改。
+- causal volatility history = 240 valid 5m returns；
+- state history = 960 valid z；
+- short lags = 1..3 exact 5m steps；
+- slower lags = 12..18 exact 5m steps；
+- lag pair / parent drift / future recovery 都不能跨午休、隔夜或其它非 exact-5m segment；
+- shock threshold = TRAIN `abs(z)` 80% quantile；
+- 不搜索 lag/window/quantile。
 
-但从新政策起，未来 sample gate 不再机械默认“每个自然年都 >= N”。优先根据总有效样本、跨时期稳定性和统计精度事前设计；逐年结果更多作为稳定性诊断。
+本轮不做 HMM/rSLDS/Koopman，不做 PnL。
 
-## 6. 当前研究可以继续，不需要等新数据才能动
+冻结文件：
 
-现在合法且推荐的 next actions 是：
+- `docs/research/reversal_mean_reversion_R5_multiscale_serial_dependence_preanalysis_20260908.md`
+- `docs/governance/reversal_mean_reversion_R5_multiscale_serial_dependence_protocol_v1.json`
+- `docs/governance/reversal_mean_reversion_R5_execution_freeze_v1.json`
+- `scripts/run_broad_rmr_R5_multiscale_serial_dependence.py`
+- `tests/unit/test_broad_rmr_R5_multiscale_serial_dependence.py`
 
-1. **继续使用 2015–2018 TRAIN + 2019–2020 VALIDATION 做广义反转方向研究。**
-2. R1 仍是高优先方向，可继续拆解“父趋势中的突然反向冲击”问题；允许查看 VALIDATION 细节、定位失败、迭代模型。
-3. 也可以并行研究真正独立的新机制，不要求每个方向都拥有一块全新的未见数据。
-4. 新数据到来后，绝大多数新历史优先加入 TRAIN/VALIDATION，扩大 regime 和稀有事件覆盖；**不要一到新数据就整段烧成黑箱。**
-5. 只有当某个候选已经在 TRAIN + VALIDATION 上基本成熟，才从最新数据中留一小块连续区间做 BLACKBOX。
-6. BLACKBOX 只看 aggregate frozen outputs；若要拆细节，则明确把该 block 降级成 VALIDATION，再另留未来黑箱。
-7. 不做 PnL、paper trading、production。
+## 5. 当前执行任务：CL-20260908-007
 
-## 7. 本仓真正缺的数据
+当前云端已实际尝试 direct raw-GitHub execution surface，DNS 解析失败，因此真实 Parquet run 交给本地模型，而不是 GitHub Actions。
 
-当前数据已经足够继续做研究。新增数据主要解决三类问题：
+Handoff：
 
-### A. 更长时间覆盖
+`docs/ops/cl_20260908_007_R5_multiscale_serial_dependence_handoff.md`
 
-优先希望 CSI1000 以及可比较宽基指数的稳定 1m 历史覆盖更长年份，以增加：
+本地顺序：
 
-- 牛市；
-- 熊市；
-- 横盘；
-- 高波动；
-- 低波动；
-- 稀有急跌/急涨事件。
+```bash
+pytest -q tests/unit/test_broad_rmr_R5_multiscale_serial_dependence.py
+```
 
-这主要提高机制样本量和 regime 覆盖，不是因为旧数据“过期”。
+期望 7 passed；通过后：
 
-### B. 更细路径数据
+```bash
+python scripts/run_broad_rmr_R5_multiscale_serial_dependence.py \
+  --output docs/research/local_broad_rmr_R5_multiscale_serial_dependence_receipt_v1.json
+```
 
-对“突然冲击到底是次级波动还是父级反转”这类研究，最有价值的是：
+只需 `[skip ci]` 推 compact receipt；大数据不推。
 
-- 真实 1m 完整路径；
-- 若能取得，3s / tick / observation-level 指数源；
-- 明确 timestamp / session / source provenance；
-- 不 silent-fill。
+本地结果只能叫 `local_reported`。云端收到 receipt 后必须先核对 frozen blobs、source SHA、R5-A supply gate、B1→B2 顺序、C sample gate 和 BLACKBOX/PnL flags，再改成 `cloud_reviewed`。
 
-这样可以减少 5m OHLC 下的 partial-identification 问题。
+## 6. R5 后续规则
 
-### C. 更丰富的状态信息
+- R5-A state supply 不够：当前 identity 停止，不改 lag/window 救；
+- R5-B 核心 B1 不支持：不直接升级 HMM/rSLDS/Koopman 去救；
+- R5-C state-aware 不优于 severity-only：不宣称“趋势中的回撤均值回归成立”；
+- 若 R5 有 partial/full support，可以继续在**同一 TRAIN / VALIDATION**上拆细节、改模型、重新验证；这是合法研究，不需要新数据续命；
+- 只有候选成熟后才分配小 BLACKBOX。
 
-后续若研究机制来源，可补：
+## 7. 下一批新数据的作用
 
-- CSI300 / CSI500 / CSI1000 同步 1m；
-- point-in-time constituents / weights；
-- 全市场 A 股 1m（中央数据湖即可，不必复制入仓）；
-- IF / IC / IM 真实合约分钟线，后期做可交易性；
-- 若能得到 volume / order book / spread / news timestamp，则可研究 liquidity-vs-information shock；没有就不伪造代理。
+新数据不是因为旧数据“用完了”。它主要用来：
+
+- 扩展牛/熊/震荡/高低波动状态覆盖；
+- 增加稀有 shock/event 样本；
+- 提供 CSI300/500/1000 同步比较；
+- 提供更完整 1m/3s/tick fine path；
+- 最后给成熟候选留一小段 BLACKBOX。
 
 ## 8. Authority order
 
-上下文压缩或新助手接管时，按以下顺序：
+上下文压缩或新助手接管时：
 
 1. `CONTINUE_HERE.md`
 2. `docs/governance/reversal_mean_reversion_program_charter_v1.json`
@@ -213,19 +174,18 @@ Path inefficiency、lower-scale event density、amplitude extremity 三个候选
 4. `docs/governance/reversal_mean_reversion_program_state_v1.json`
 5. `docs/research/reversal_mean_reversion_program_whitepaper_v2.md`
 6. `AGENTS.md`
-7. post-reset protocols / cloud reviews
-8. 历史 v0.x 文档——只在 M0 / 对应具体 identity 内有权威性
+7. 当前 lane protocols / cloud reviews
+8. 历史 v0.x 文档只在对应 identity 内有效
 
 ## 9. 权限边界
 
 仍然禁止：
 
-- 把 TRAIN/VALIDATION 包装成 fresh OOS；
-- 把 algorithm-generated labels 当 morphology ground truth；
-- empirical interval shrinkage；
-- structural-gap favorable filtering；
-- 用 PnL 挑 recognizer / parent-state formula；
-- real / paper trading；
-- production。
+- 把 TRAIN/VALIDATION 称 fresh OOS；
+- 当前阶段用 PnL/Sharpe 挑研究模型；
+- Layer 4 / paper trading / production；
+- FactorLab current registry mutation；
+- 用 native OHLC 伪造 fine path；
+- outcome 后有利分方向/年份/时段筛选。
 
 Production authority = `false`。
