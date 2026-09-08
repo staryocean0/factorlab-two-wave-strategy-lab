@@ -1,0 +1,48 @@
+{
+  "schema_id": "factorlab_broad_rmr_stage1_R1_R2_R3_execution_freeze@1.0",
+  "session_date": "2026-09-08",
+  "program_identity": "broad_reversal_mean_reversion_discovery_program_v1",
+  "stage": "execution_frozen_before_first_price_outcome_run",
+  "branch": "codex/broad-reversal-authority-reset-20260908",
+  "bound_blobs": {
+    "common_measurement_contract": "798a1f70409b257c55648009a57ef08084d853b5",
+    "stage1_screening_plan": "a4edf275a220e9086a4dc2705b98ee5ef962fed8",
+    "event_adapter": "a69cfb807d6b6788e9fa3d9860d4933316bdb891",
+    "partition_censor": "df50cf952b7ee3302ec202eed4851d24c94bebc3",
+    "scale_supply_receipt_v2": "230e9558fe40a23dcb64b82f194507e83d7e9ee7",
+    "runner": "f5302a448f3acd2d0c784756a8240748f41418ba",
+    "tests": "e387ea5964957f8cfba0ca027f9acb171c179f2a"
+  },
+  "source_identity": {
+    "published_identities_v065_sha256": "8596622924e92182756162b7bdf0959f6d8ddc2222d6dbc9b4e4379cada9974c",
+    "5m_offset_0_sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48"
+  },
+  "frozen_scale": {
+    "parent_birth_level": 5,
+    "finer_birth_level": 3,
+    "one_octave_separation": true,
+    "scale_search_after_results": false
+  },
+  "evidence_roles": {
+    "BUILD": "2015-01-05_to_2018-12-31_consumed_development",
+    "CHECK_2019": "not_fresh",
+    "CHECK_2020": "not_fresh",
+    "post_2020_open": false
+  },
+  "outcome_semantics": {
+    "R1": "recovery_first_vs_parent_failure_first",
+    "R2": "reentry_first_vs_symmetric_continuation_first",
+    "R3": "parent_failure_first_vs_symmetric_same_direction_extension_first",
+    "partition_year_end_censor": true
+  },
+  "candidate_and_gate_change_after_execution": false,
+  "trading_PnL_used": false,
+  "fresh_OOS_claim_authorized": false,
+  "morphology_acceptance_claim_authorized": false,
+  "production_authority": false,
+  "execution_location_policy": {
+    "direct_cloud_clone_attempt": "failed_github.com_DNS_resolution_in_current_session",
+    "direct_local_model_tool_available": false,
+    "github_actions": "allowed_only_as_final_available_location_for_this_exact_frozen_identity"
+  }
+}
