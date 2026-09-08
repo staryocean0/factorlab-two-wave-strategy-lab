@@ -1,261 +1,204 @@
-# 广义反转与均值回归研究白皮书 v2
+# 广义反转与均值回归研究白皮书 v2（2026-09-08 修订）
 
-日期：2026-09-08  
 项目：`broad_reversal_mean_reversion_discovery_program_v1`
 
-## 1. 本仓库现在研究什么
+## 1. 项目定位
 
-本仓库不是“某一个两浪策略仓”，也不是“开盘跳空回补仓”。
+本仓库不是单一“两浪策略仓”，也不是开盘跳空专题仓。
 
 仓库级任务是：
 
-> **建立广义反转 / 均值回归的方向发现框架：用因果多尺度状态判断一次偏离更像暂时波动，还是父级状态本身已经改变；用小预算同时筛多个机制，强的交给专门身份，弱的及时关闭。**
+> **发现和比较广义反转 / 均值回归机制，研究在不同尺度和父级状态下，一个异常偏离究竟是暂时波动，还是状态本身已经改变。**
 
-所谓“均值”不一定是一条均线。它可以是：
+“均值”可以是价格中心、动态区间、趋势轨迹、父级结构、状态条件分布、跨资产相对关系或统计属性的正常区域。
 
-- 价格中心或区间；
-- 趋势通道；
-- 已完成波浪形成的父级结构；
-- 某个状态下的正常轨迹；
-- 多资产正常相对关系；
-- 某个统计属性的正常区域。
-
-所有策略问题最终都归结为：
-
-1. 当前研究尺度是什么？
-2. 父级状态是什么？
-3. 当前偏离的对象是什么？
-4. 什么算恢复，什么算父状态失败？
-
-## 2. M0 两浪体系的角色
-
-历史 `v0.4.3 -> v0.6.17` 两浪研究全部保留，但统一归为：
+两浪体系归入：
 
 `M0_two_wave_structure_measurement_foundation`
 
-M0 的职责是提供：
+M0 提供因果多尺度结构坐标，不自动提供交易 alpha。
 
-- 因果拐点和完整波；
-- 多尺度表示；
-- 两个完整波形成的 parent structure；
-- drift / overlap / width / efficiency / roughness / duration / density；
-- publication time；
-- streaming/replay/prefix 不被未来改写；
-- session/source information-set 语义。
+## 2. 数据治理：数据是长期研究资产
 
-M0 是**测量语言**，不是交易方向。
+项目不采用“每验证一次就烧掉一段历史”的做法。
 
-全局 morphology 仍为：
+### TRAIN
 
-`morphology_replication_not_yet_accepted`
+当前 `2015-01-05..2018-12-31`。
 
-操作基线仍为 `v0.4.3`。
+可以反复训练、调研、拆案例、诊断失败和修改模型。
 
-## 3. v0.6.17 已经闭合，但闭合的是“可识别性”
+### VALIDATION
 
-`CL-20260908-005` 已完成本地 formal replay 并通过云端独立复核。
+当前 `2019-01-01..2020-12-31`。
 
-Cloud-reviewed verdict：
+可以反复做时间稳定性检验，也可以在失败后拆年份、事件和状态做诊断，再回到 TRAIN/VALIDATION 继续迭代。
+
+### BLACKBOX
+
+当前不分配。
+
+只有候选足够成熟时，才划一小段尚未打开的数据做 aggregate-only 最终确认。若之后打开细节，这段数据降级成 VALIDATION，而不是“报废”。
+
+因此：
+
+> **数据本身不是消耗品；只有 never-seen BLACKBOX qualification 是稀缺的。**
+
+旧的 `consumed / not fresh` 标签只说明它不能再被包装成第一次独立确认，不代表不能继续研究。
+
+## 3. M0 当前状态
+
+v0.6.17 authoritative-source replay 已完成云端独立复核。
+
+接受 verdict：
 
 `session_aware_bounds_valid_but_structural_gap_nonidentifiability_is_material`
 
-关键结果：
-
-- authoritative 1m source rows = `349,923`；
-- 五个 native 5m views label/OHLC exact replay；
-- published legs = `737,104`；
-- registered N mismatch = `0`；
-- J / C_inf / C_1 / C_2 oracle coverage = `100%`；
-- fully enveloped legs = `528,360`；
-- actual structural-gap legs = `208,744`，约 `28.3%`。
-
-因此 v0.6.17 被接受为：
+接受能力：
 
 `interval_valued_session_aware_path_information_bounds`
 
-它没有证明 morphology 正确，也没有给出第三浪方向。
+关键含义：native 5m OHLC 不足以天然确定 fine path。以后 path efficiency / roughness / concentration 等细路径量必须明确属于：
 
-真正的新规则是：
+1. 真实 finer-source 直接测量；
+2. fully-enveloped finite interval；
+3. structural-gap partial-identification interval。
 
-> **native 5m OHLC 不能被默认当成已经知道 fine path。**
+这不是 morphology acceptance。当前 morphology 仍 `morphology_replication_not_yet_accepted`，operational baseline 仍 v0.4.3。
 
-以后用路径效率、粗糙度、集中度等变量时，必须明确它属于：
+## 4. 第一轮 broad research 的历史结论
 
-- 真实 finer-source 直接观测；
-- fully-enveloped 情况下的有限区间；
-- structural-gap 情况下的 partial-identification / universal interval。
+### R1：趋势中的次级回撤
 
-禁止把区间偷偷压成一个伪精确点值。
+旧 identity 因旧年度样本门而 `unresolved`，不是机制被否定。它可以继续在 TRAIN / VALIDATION 上以新的、明确身份研究；只是不能追溯改写旧 receipt，也不能把 2019/2020 称 fresh。
 
-云端 review：
+### R2：震荡边界回归
 
-`docs/research/two_wave_session_aware_information_set_bounds_cloud_review_20260908.md`
+旧 M1 低容量 identity 在充分样本下没有提供增量，历史 identity closed。未来可以提出真正独立的新 range-reversion 机制。
 
-测量能力 admission：
+### R3：结构衰竭
 
-`docs/governance/reversal_mean_reversion_v0617_measurement_capability_admission_v1.json`
+旧 v1 的预注册方向被证伪，历史 identity closed。未来可以研究新的 transition 机制，但不能把旧负号重新讲成成功。
 
-## 4. Round-1：四类机制的结果
+### R4：统计状态极端
 
-共同 evidence roles 在结果前冻结：
+旧 v1 三个 candidate 均无稳定增量。其重要教训仍然是：
 
-- BUILD：2015–2018；
-- chronological check：2019、2020；
-- 全部是 consumed development / not fresh；
-- post-2020 未打开。
+> **统计属性自己回归，不等于价格必然均值回归。**
 
-最终总裁决：
+### T1：极端冲击暂时性成分
 
-`BROAD_RMR_STAGE1_ROUND1_CLOSED_NO_PROMOTED_MECHANISM`
+旧 5-sigma / 960-bar identity 在 outcome 前因旧 supply gate 关闭。这个结论保留，但不代表所有 shock-reversion 研究永久禁止。
 
-### R1 — 趋势中的跨尺度回撤
+## 5. 当前新方向：R5 多尺度序列依赖
 
-核心问题：父级趋势尚完整时，突然的反向冲击是不是低级别回撤？
+当前 active identity：
 
-最终状态：
+`R5_multiscale_serial_dependence_state_v1`
 
-`unresolved_evidence_insufficient_after_one_results_blind_measurement_revision`
+独立理论基础来自 trend-following / autocorrelation 文献：**短期负自相关与较慢尺度正记忆可以同时存在。** 因此市场并不是简单地“现在趋势”或“现在震荡”二选一；更合理的问题是：不同尺度上的序列依赖符号是否不同，以及这种状态是否帮助判断短期反向波动。
 
-一次结果盲 measurement revision 后，trigger supply 足够，但 resolved first-passage 只有：
+R5 不依赖 M0 morphology acceptance，也不是旧 R1 的参数 rescue。
 
-- BUILD `168`；
-- 2019 `40`；
-- 2020 `39`。
+### R5-A：多尺度 memory sign map
 
-冻结门槛要求 check 每年 >=50，因此 R1 **没有被证伪，也没有通过**。
+用 causal normalized 5m returns 研究：
 
-这是目前最值得在 materially new data 到来后优先重检的方向。
+- short lags 1..3 是否为负；
+- slower lags 12..18 是否为正；
+- `short<0 & slower>0` mixed state 是否有足够供给和持续性。
 
-### R2 — 震荡边界 / 假突破回归
+### R5-B：局部 anti-persistence
 
-供给充分：`657 / 161 / 151`。
+检验短期 anti-persistence 是否稳定让当前 5m return 对下一 5m return 的斜率更负。
 
-加入 parent range state 后，pooled Brier / log-loss 和 2019、2020 都变差。
+先用低容量 OLS；简单交互不成立，不允许直接用 HMM/rSLDS/Koopman 救。
 
-结论：当前低容量 R2 identity 关闭。
+### R5-C：慢趋势里的反向 shock
 
-### R3 — 结构衰竭 / 状态切换
+这是用户提出的核心场景的纯统计版本：
 
-供给充分：`744 / 172 / 144`。
+> 一段较慢方向运动之后，突然出现一个反方向 5m shock；在较慢正记忆与短期 anti-persistence 更强时，随后 15m 是否更容易回到原方向？
 
-预注册要求 deterioration 越大，parent failure risk 越高；实际两个核心系数均为负。
+事件阈值只由 TRAIN 的 `abs(z)` 80% quantile 决定，不按 outcome 搜索。
 
-结论：预注册方向被证伪，R3 v1 关闭。
+## 6. R5 数据和时间语义
 
-### R4 — 统计状态极端
+使用：
 
-测试：
+`data/development/5m_offset_0.parquet`
 
-- path inefficiency；
-- lower-scale event density；
-- parent amplitude extremity。
+CSI1000 `000852.SH`，70,114 rows。
 
-三者供给都足够，但全部让 common geometry baseline 变差。
+只构造同一 trading day 内、bar_end 相差恰好 5 分钟的 close-to-close log return。
 
-结论：R4 关闭。
+午休、隔夜和缺 bar 都切断 continuous segment：
 
-Round-1 最重要的项目级结论之一：
+- autocorrelation lag pair 不跨 segment；
+- parent drift 不跨 segment；
+- future 15m recovery 不跨 segment。
 
-> **统计属性自身的持续、极端或均值回归，不等于价格存在均值回归 alpha。**
+冻结参数：
 
-## 5. Round-2 T1：独立理论方向在 outcome 前关闭
+- causal volatility history = 240 valid returns；
+- state history = 960 valid z；
+- short lags = 1..3；
+- slower lags = 12..18；
+- each lag minimum pair count = 100；
+- shock threshold = TRAIN 80% quantile of `abs(z)`。
 
-T1：
+## 7. 为什么现在不直接上状态模型
 
-`T1_transitory_component_after_extreme_intraday_shock_v1`
+用户提供的多状态 / rSLDS / Koopman 文献非常重要，但本仓当前不应该跳到最复杂层。
 
-它来自独立文献问题：极端价格冲击可能包含暂时性价格压力，也可能是信息冲击；不能预设“大波动一定反转”。
+正确阶梯是：
 
-当前数据没有可靠 volume/order book/news，因此 T1 只允许研究 completed 5m shock 内部已经观察到的：
+1. 先证明简单的 serial-dependence / state interaction 有稳定增量；
+2. 再研究离散 regime routing；
+3. 只有简单 regime 有价值时，才考虑 rSLDS；
+4. 再之后才讨论 Switching-Koopman。
 
-`within_bar_retrace_fraction`
+否则复杂模型只是在同一数据上扩大自由度。
 
-结果前冻结：
+## 8. 当前执行状态
 
-- past-only 960 native 5m bars；
-- median + 1.4826 MAD；
-- extreme threshold = 5 robust sigma；
-- exact 5×1m event-bar support；
-- supply minimum = BUILD 150 / 2019 50 / 2020 50。
+R5 的 preanalysis、protocol、runner、tests 和 execution freeze 已全部写入。
 
-本地 supply audit 经云端复核：
+本地任务：
 
-- BUILD aligned = `364`；
-- 2019 aligned = `48`；
-- 2020 aligned = `87`。
+`CL-20260908-007`
 
-因为 `48 < 50`，所以：
+Handoff：
 
-`T1_current_data_event_supply_insufficient / CLOSED_BEFORE_OUTCOME`
+`docs/ops/cl_20260908_007_R5_multiscale_serial_dependence_handoff.md`
 
-没有读取 post-event reversal/continuation outcome，也不能通过降低 5σ 或改 960 来救。
+当前云端已实际尝试 raw-GitHub direct execution，DNS 解析失败，因此真实 Parquet run 由本地模型执行；GitHub Actions 未授权。
 
-Cloud review：
+本地只需要跑冻结的 7 个 synthetic tests 和一次 TRAIN/VALIDATION runner，推 compact receipt。云端收到后再独立验收。
 
-`docs/research/reversal_mean_reversion_T1_supply_cloud_review_20260908.md`
+## 9. BLACKBOX 的使用时机
 
-## 6. 当前科学地图
+R5 即使在 VALIDATION 表现不错，也不会立刻吃掉一段黑箱。
 
-现在不是“没有方向”，而是方向的证据身份已经分清：
+先允许：
 
-- **R1：unresolved** —— 新数据来后优先复核；
-- **R2：closed**；
-- **R3：closed**；
-- **R4：closed**；
-- **T1：当前 identity 在 outcome 前因供给不足 closed**；
-- relative-value / overnight：兄弟专题，不控制本仓主线；
-- M0：继续作为测量底座，v0.6.17 interval capability 已 cloud-reviewed，但 morphology 未 accepted。
+- TRAIN 反复建模；
+- VALIDATION 反复拆解；
+- 机制修订；
+- 多年份稳定性诊断。
 
-## 7. 下一轮研究怎样启动
+只有当模型形式、阈值、特征预算、评价指标都趋于稳定，才分配一个小 BLACKBOX，且默认只读取 aggregate pass/fail。
 
-本仓现在暂停在同一 2015–2020 consumed window 上继续自动发明指标。
+## 10. 权限边界
 
-新的 outcome budget 只有三个入口：
+当前不授权：
 
-### A. Materially new data
-
-新数据到来后，必须先：
-
-1. source/provenance 验证；
-2. timestamp/session semantics 验证；
-3. missing/duplicate/unexpected ledger；
-4. 在 outcome 前冻结新的 BUILD / check / holdout；
-5. 声明 fine-path variable 是 direct measurement 还是 interval-valued measurement。
-
-随后优先重检 R1，因为 R1 是 unresolved 而不是 rejected。
-
-### B. 真正独立的新理论
-
-必须先写理论、机制方向、变量、失败条件、候选预算，再看 outcome。
-
-不能把 R2/R3/R4/T1 换名字重新跑。
-
-### C. 新的 M0 测量对象
-
-只有当 M0 产生一个实质新的、被接受的 causal measurement object，才可以先修改 program charter，再给新的 broad lane 一个 results-blind 小预算。
-
-## 8. 研究节奏
-
-继续坚持：
-
-**多个方向浅测 > 一个方向无限优化。**
-
-一条线只能有小候选预算。失败必须保留；样本不足必须写 unresolved；供给门失败不能降门槛；结果方向错了不能事后改故事。
-
-一个方向真正值得深入时，应毕业给 dedicated specialist identity，而不是让 broad repo 自己变成单策略优化仓。
-
-## 9. 当前禁止项
-
-仍然禁止：
-
-- fresh-OOS 虚假声明；
-- FactorLab current registry mutation；
-- Direction / D1 / D2 / PAWCT 解冻；
-- 第三浪假说仓库级解冻；
-- PnL 驱动筛选；
-- paper trading / production；
-- structural-gap favorable filtering；
-- empirical interval shrinkage；
-- 在同一 consumed 数据里不断造新指标直到通过。
+- TRAIN/VALIDATION 上的 fresh-OOS 宣称；
+- PnL/Sharpe 驱动的研究选择；
+- paper trading；
+- production；
+- FactorLab registry mutation；
+- 用 native OHLC 假装 fine path 已知；
+- outcome 后的 favorable direction/year/time filter。
 
 Production authority = `false`。
