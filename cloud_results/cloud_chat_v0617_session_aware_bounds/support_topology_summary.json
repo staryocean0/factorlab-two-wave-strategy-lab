@@ -1,0 +1,56 @@
+{
+  "gap_source_count_distribution": {
+    "0": 327189,
+    "1": 4,
+    "2": 3,
+    "3": 1727,
+    "4": 9954
+  },
+  "local_topology_counts_path": "/home/starryocean/桌面/量化/factorlab-two-wave-strategy-lab/tmp/v0617_local_registries/transition_topology_counts.parquet",
+  "local_topology_counts_rows": 338877,
+  "local_topology_counts_sha256": "3519cae59fe4e067c16402f667341009b954ba205a58c186134732cea8aa660f",
+  "max_support_source_count": 6,
+  "n_transitions": 338877,
+  "schema": [
+    "view_id",
+    "previous_native_label",
+    "current_native_label",
+    "current_native_bar_id",
+    "support_source_count",
+    "gap_source_count",
+    "transition_class",
+    "source_dataset_version",
+    "contract_revision"
+  ],
+  "status": "PASS",
+  "support_source_count_distribution": {
+    "1": 13,
+    "2": 14,
+    "3": 30,
+    "4": 1343,
+    "5": 325799,
+    "6": 11678
+  },
+  "transition_class_counts": {
+    "5m_offset_0": {
+      "contains_unenveloped_source_gap": 0,
+      "fully_enveloped_transition": 70113
+    },
+    "5m_offset_1": {
+      "contains_unenveloped_source_gap": 2922,
+      "fully_enveloped_transition": 64269
+    },
+    "5m_offset_2": {
+      "contains_unenveloped_source_gap": 2922,
+      "fully_enveloped_transition": 64269
+    },
+    "5m_offset_3": {
+      "contains_unenveloped_source_gap": 2922,
+      "fully_enveloped_transition": 64270
+    },
+    "5m_offset_4": {
+      "contains_unenveloped_source_gap": 2922,
+      "fully_enveloped_transition": 64268
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "1-3": {
+    "defined": 250312,
+    "mean_j_width": 0.7276944396993585,
+    "n_legs": 250312,
+    "structural_gap": 13861
+  },
+  "12-23": {
+    "defined": 99926,
+    "mean_j_width": 0.655669490400081,
+    "n_legs": 99926,
+    "structural_gap": 58105
+  },
+  "24+": {
+    "defined": 85600,
+    "mean_j_width": 0.8125033506382091,
+    "n_legs": 85600,
+    "structural_gap": 67852
+  },
+  "4-5": {
+    "defined": 120329,
+    "mean_j_width": 0.5199904292058621,
+    "n_legs": 120329,
+    "structural_gap": 15855
+  },
+  "6-11": {
+    "defined": 180937,
+    "mean_j_width": 0.5034116370666928,
+    "n_legs": 180937,
+    "structural_gap": 53071
+  }
+}

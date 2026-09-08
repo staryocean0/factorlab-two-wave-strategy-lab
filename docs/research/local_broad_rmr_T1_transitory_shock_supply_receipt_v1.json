@@ -1,0 +1,83 @@
+{
+  "PnL_read": false,
+  "event_contract": {
+    "current_bar_excluded_from_reference": true,
+    "extreme_abs_robust_z": 5.0,
+    "reference_bars": 960,
+    "return": "log(close/open)"
+  },
+  "future_return_read": false,
+  "outcome_execution_authorized": false,
+  "partitions": {
+    "BUILD": {
+      "aligned_events": 364,
+      "extreme_events": 366,
+      "minimum_aligned_required": 150,
+      "rejections": {
+        "support_count_3": 1,
+        "support_count_4": 1
+      },
+      "supply_pass": true,
+      "within_bar_retrace_fraction": {
+        "max": 0.5187261584813357,
+        "mean": 0.01393164244157502,
+        "median": 0.0,
+        "min": 0.0,
+        "n": 364,
+        "p25": 0.0,
+        "p75": 0.0
+      }
+    },
+    "CHECK_2019": {
+      "aligned_events": 48,
+      "extreme_events": 48,
+      "minimum_aligned_required": 50,
+      "rejections": {},
+      "supply_pass": false,
+      "within_bar_retrace_fraction": {
+        "max": 0.24318047632045836,
+        "mean": 0.015004257723364589,
+        "median": 0.0,
+        "min": 0.0,
+        "n": 48,
+        "p25": 0.0,
+        "p75": 0.0
+      }
+    },
+    "CHECK_2020": {
+      "aligned_events": 87,
+      "extreme_events": 87,
+      "minimum_aligned_required": 50,
+      "rejections": {},
+      "supply_pass": true,
+      "within_bar_retrace_fraction": {
+        "max": 0.3949979119273803,
+        "mean": 0.0185548659397793,
+        "median": 0.0,
+        "min": 0.0,
+        "n": 87,
+        "p25": 0.0,
+        "p75": 0.0
+      }
+    }
+  },
+  "post_2020_rows_read": false,
+  "post_event_outcomes_read": false,
+  "production_authority": false,
+  "research_identity": "T1_transitory_component_after_extreme_intraday_shock_v1",
+  "reversal_or_continuation_label_read": false,
+  "schema_id": "factorlab_broad_rmr_T1_supply_receipt@1.0",
+  "source_identity": {
+    "five_minute_path": "/home/starryocean/桌面/量化/factorlab-two-wave-strategy-lab/data/development/5m_offset_0.parquet",
+    "five_minute_rows": 70114,
+    "five_minute_sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48",
+    "maximum_trading_day": "2020-12-31",
+    "minimum_trading_day": "2015-01-05",
+    "one_minute_path": "/home/starryocean/桌面/量化/factorlab-two-wave-strategy-lab/data/development/1m_official.parquet",
+    "one_minute_rows": 350561,
+    "one_minute_sha256": "755217afce9dec383e48cd46d591402fa90dc50897abeb3dc7097c9a18a109d4",
+    "symbol": "000852.SH"
+  },
+  "stage": "supply_and_alignment_only",
+  "supply_gate_status": "T1_current_data_event_supply_insufficient"
+}

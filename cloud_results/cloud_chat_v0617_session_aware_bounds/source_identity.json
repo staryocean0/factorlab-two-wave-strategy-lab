@@ -1,0 +1,28 @@
+{
+  "accepted_contract_archive_blob": "accb183f695880c5524f7263bfdfae1debe006a0",
+  "datahub_head": "ba780790acd8e9a558e4e01f9474b6e79265d818",
+  "dataset_version": "bars_cn_index_1m_raw_canonical_market_index_baidu_3s_20000714_20260821_factorlab_unified_missing_day_repaired_v8_20260824",
+  "dataset_version_identity": "hive_directory_v8_not_infile_hardlink_column",
+  "dataset_version_infile_values": [
+    "bars_cn_index_1m_raw_canonical_market_index_baidu_3s_20000714_20260821_cffex_underlyings_alias_repaired_v4_20260823"
+  ],
+  "dataset_version_values": [
+    "bars_cn_index_1m_raw_canonical_market_index_baidu_3s_20000714_20260821_factorlab_unified_missing_day_repaired_v8_20260824"
+  ],
+  "date_range": [
+    "2015-01-05",
+    "2020-12-31"
+  ],
+  "future_2021_plus_rows_loaded": 0,
+  "lake_path": "/home/starryocean/桌面/量化/unified_datahub/.runtime/live/lake/bars/dataset_version=bars_cn_index_1m_raw_canonical_market_index_baidu_3s_20000714_20260821_factorlab_unified_missing_day_repaired_v8_20260824/instrument_type=market_index",
+  "max_timestamp": "2020-12-31T15:00:00Z",
+  "min_timestamp": "2015-01-05T09:31:00Z",
+  "source_kind": "market_index_transaction_derived_1m",
+  "source_kind_values": [
+    "market_index_transaction_derived_1m"
+  ],
+  "source_rows": 349923,
+  "symbol": "000852.SH",
+  "unique_trading_days": 1462,
+  "used_factorlab_1m_official": false
+}

@@ -1,0 +1,8 @@
+{
+  "exit_code": 0,
+  "protocol_section9_covered_by_existing_tests": true,
+  "pytest_summary": "..............                                                           [100%]",
+  "status": "PASS",
+  "test_count_reported_by_dots": 14,
+  "tests_file": "tests/unit/test_two_wave_session_aware_information_set_bounds_v0617.py"
+}

@@ -1,0 +1,72 @@
+{
+  "5m_offset_0": {
+    "assigned_close_outside_envelope": 0,
+    "construction": "official_v2",
+    "derived_labels": 70114,
+    "empty_support": 0,
+    "extra_labels": [],
+    "frozen_data_contract_text_not_used_for_offset0": true,
+    "frozen_rows": 70114,
+    "last_support_close_mismatch": 0,
+    "missing_labels": [],
+    "n_extra_labels": 0,
+    "n_missing_labels": 0,
+    "ohlc_mismatch": 0
+  },
+  "5m_offset_1": {
+    "assigned_close_outside_envelope": 0,
+    "construction": "wall_clock_v1",
+    "derived_labels": 67192,
+    "empty_support": 0,
+    "extra_labels": [],
+    "frozen_data_contract_text_not_used_for_offset0": true,
+    "frozen_rows": 67192,
+    "last_support_close_mismatch": 0,
+    "missing_labels": [],
+    "n_extra_labels": 0,
+    "n_missing_labels": 0,
+    "ohlc_mismatch": 0
+  },
+  "5m_offset_2": {
+    "assigned_close_outside_envelope": 0,
+    "construction": "wall_clock_v1",
+    "derived_labels": 67192,
+    "empty_support": 0,
+    "extra_labels": [],
+    "frozen_data_contract_text_not_used_for_offset0": true,
+    "frozen_rows": 67192,
+    "last_support_close_mismatch": 0,
+    "missing_labels": [],
+    "n_extra_labels": 0,
+    "n_missing_labels": 0,
+    "ohlc_mismatch": 0
+  },
+  "5m_offset_3": {
+    "assigned_close_outside_envelope": 0,
+    "construction": "wall_clock_v1",
+    "derived_labels": 67193,
+    "empty_support": 0,
+    "extra_labels": [],
+    "frozen_data_contract_text_not_used_for_offset0": true,
+    "frozen_rows": 67193,
+    "last_support_close_mismatch": 0,
+    "missing_labels": [],
+    "n_extra_labels": 0,
+    "n_missing_labels": 0,
+    "ohlc_mismatch": 0
+  },
+  "5m_offset_4": {
+    "assigned_close_outside_envelope": 0,
+    "construction": "wall_clock_v1",
+    "derived_labels": 67191,
+    "empty_support": 0,
+    "extra_labels": [],
+    "frozen_data_contract_text_not_used_for_offset0": true,
+    "frozen_rows": 67191,
+    "last_support_close_mismatch": 0,
+    "missing_labels": [],
+    "n_extra_labels": 0,
+    "n_missing_labels": 0,
+    "ohlc_mismatch": 0
+  }
+}

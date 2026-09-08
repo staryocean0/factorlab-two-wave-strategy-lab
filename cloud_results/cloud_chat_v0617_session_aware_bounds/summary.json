@@ -1,0 +1,74 @@
+{
+  "formal_adjudication": "session_aware_bounds_valid_but_structural_gap_nonidentifiability_is_material",
+  "future_outcome_used": false,
+  "hard_controls": {
+    "aggregate_strict": 29453,
+    "both_qualified": 482,
+    "fine_profile_defined_legs": 737104,
+    "frozen_v0610_oracle_comparable_pair_legs": 117805,
+    "published_identities": [
+      38176,
+      36737,
+      36619,
+      36480,
+      36264
+    ],
+    "published_legs": 737104,
+    "qualification_disagreement": 699,
+    "reconstructed_strict_pair_legs_4_per_pair": 117812,
+    "strict_pairs_by_other_view": [
+      8381,
+      5770,
+      6204,
+      9098
+    ],
+    "target_agreement": 56,
+    "target_disagreement": 24,
+    "target_repaired": 80
+  },
+  "legs": {
+    "fully_enveloped_defined": 528360,
+    "offset0_structural_gap": 0,
+    "offset1_4_structural_gap": 208744,
+    "structural_gap_fraction": 0.2831947730578046,
+    "structural_gap_universal": 208744,
+    "undefined": 0
+  },
+  "morphology_status": "morphology_replication_not_yet_accepted",
+  "operational_baseline": "v0.4.3",
+  "oracle": {
+    "N_mismatch": 0,
+    "coverage_failures": 0,
+    "defined": 737104,
+    "full_coverage_fraction": 1.0
+  },
+  "production_authority": false,
+  "schema": "two_wave_session_aware_information_set_bounds@0.6.17",
+  "topology": {
+    "max_support_source_count": 6,
+    "transition_class_counts": {
+      "5m_offset_0": {
+        "contains_unenveloped_source_gap": 0,
+        "fully_enveloped_transition": 70113
+      },
+      "5m_offset_1": {
+        "contains_unenveloped_source_gap": 2922,
+        "fully_enveloped_transition": 64269
+      },
+      "5m_offset_2": {
+        "contains_unenveloped_source_gap": 2922,
+        "fully_enveloped_transition": 64269
+      },
+      "5m_offset_3": {
+        "contains_unenveloped_source_gap": 2922,
+        "fully_enveloped_transition": 64270
+      },
+      "5m_offset_4": {
+        "contains_unenveloped_source_gap": 2922,
+        "fully_enveloped_transition": 64268
+      }
+    }
+  },
+  "trade_authority": false,
+  "云端复核尚未发生": true
+}

@@ -314,3 +314,172 @@ execution_receipt.json
 8. 本文 `CL-20260908-005`
 
 当前动作：**执行 frozen v0.6.17 formal replay；不要重新设计 v0.6.17。**
+
+
+---
+
+## 本地反馈 — CL-20260908-005（2026-09-08）
+
+**状态：LOCAL REPORTED / 云端复核尚未发生**
+
+执行身份：本地 Codex controller。工作目录 `/home/starryocean/桌面/量化/factorlab-two-wave-strategy-lab`。研究分支 `codex/two-wave-phase1-20260905`。执行时代码起点 SHA `0edb9cf08b38141b68e513e58020fc8d5cbd8312`。新增 implementation-only runner：`scripts/run_two_wave_session_aware_information_set_bounds_v0617.py`。
+
+未改 frozen preanalysis/protocol。未使用 FactorLab `1m_official.parquet` 作为 source support。未使用 DataHub 脏工作区。GitHub Actions 未运行。未读 direction / 第三浪 / outcome / PnL / 2021+。未自行修改 global morphology state。
+
+### 命令与退出码
+
+| 命令 | 退出码 |
+|---|---|
+| `pytest -q tests/unit/test_two_wave_session_aware_information_set_bounds_v0617.py` | 0（14 passed） |
+| `python scripts/run_two_wave_session_aware_information_set_bounds_v0617.py` | 0 |
+
+### Stage gates
+
+1. Stage 1 synthetic：PASS
+2. Stage 2 source/native/topology：PASS（349,923 rows；五个 frozen 5m views label/OHLC/support exact）
+3. Stage 3 pre-oracle bounds registry：PASS（737,104 legs 先落盘再读 oracle）
+4. Stage 4 oracle：PASS（N mismatch 0，coverage fail 0）
+
+### DataHub identity
+
+```text
+HEAD = ba780790acd8e9a558e4e01f9474b6e79265d818
+accepted contract archive blob = accb183f695880c5524f7263bfdfae1debe006a0
+symbol = 000852.SH
+source_kind = market_index_transaction_derived_1m
+dataset_version = bars_cn_index_1m_raw_canonical_market_index_baidu_3s_20000714_20260821_factorlab_unified_missing_day_repaired_v8_20260824
+date_range = 2015-01-05..2020-12-31
+source_rows = 349923
+2021+ = 0
+```
+
+v8 湖路径中 hardlink 分区的文件内 `dataset_version` 列可能仍是旧 canonical；本 replay 与 CL-004 hive_partitioning 一致，以目录根 v8 为 identity。
+
+### Formal adjudication
+
+`session_aware_bounds_valid_but_structural_gap_nonidentifiability_is_material`
+
+offset0 gap transitions = 0；offset1–4 各 2,922 个 un-enveloped source-gap transitions；208,744 / 737,104 published legs 进入 universal bound。oracle coverage = 1.0。不得删除这些 legs，也不得把 discarded minutes 并进邻 bar envelope。
+
+正式报告：`docs/research/two_wave_session_aware_information_set_bounds_results_v0617.md`
+
+### Compact outputs
+
+目录：`cloud_results/cloud_chat_v0617_session_aware_bounds/`
+
+| file | sha256 |
+|---|---|
+| summary.json | 8765c5faced7e5d8c51ce2ab9c8377f4237f8223eb4720eb22d187e79438714a |
+| support_topology_summary.json | a170cc43fb5bd97c56e9c8f4232952ac5f918ab141b743439a7e381a36789185 |
+| source_identity.json | 077e981c63f76ebe2277bce4c207a0f74570d1e1d5f4117ca627ad4e831bf471 |
+| native_identity.json | 1471bd02fa69eb45dd96157ce276fb3451a6e26bff5e2ef045e70771cf74d258 |
+| synthetic_gate_receipt.json | 844ae152caca869058dc9f8ceec92a69c181aeeca0f5ac0afc66c2630831a3c8 |
+| data_consistency.json | 87ed61b6ae22f82625693d4740b4b5571ac4224192ec23507375eca7814f3656 |
+| bound_tightness.json | 99658677a32ea71469146d00fcbef68c7d2238268ca50db4b44dbf31296c2930 |
+| step_count_overlay.json | a928ca84463fbd8fff6915ebfd7742d6fa408b24dd6745615edfab936d9700d1 |
+| cross_slicer_bounds.json | c645f762807b6a5ae37e49084b90c91b43d484b3896f8290925347719d2dc44b |
+| strata_overlays.json | f3f50bfcd5eafe7b73a9d4f0e0c8ce38a87228ac944242412dd6948560bc7a10 |
+| execution_receipt.json | c4a837529ee3c478daf364939391a36924571cce01f717a1587c2f5028acca07 |
+
+大型 registry 留本地：
+
+```text
+tmp/v0617_local_registries/transition_topology_counts.parquet
+  rows=338877 sha256=3519cae59fe4e067c16402f667341009b954ba205a58c186134732cea8aa660f
+tmp/v0617_local_registries/published_leg_bounds_pre_oracle.parquet
+  rows=737104 sha256=824bbba91b666f49ea44717a6b8aed505e56998b0aadaeaa092e13a05c0e8dc9
+```
+
+Runtime bridge：DataHub v8 湖路径 hardlink 分区的文件内 dataset_version 列不是 v8 字符串；identity 按目录根与 CL-004 hive 口径绑定。不是 1m_official 替换，也不是新 5m 产品。
+
+**云端复核尚未发生。**
+
+---
+
+# CL-20260908-006 — T1 transitory-shock supply-only audit
+
+**状态：LOCAL REPORTED / 云端复核尚未发生 / outcomes still sealed**
+
+交接文件：`docs/ops/cl_20260908_006_T1_transitory_shock_supply_handoff.md`
+
+执行身份：本地 Codex controller。同一研究分支 `codex/two-wave-phase1-20260905`，执行时代码 SHA `0edb9cf08b38141b68e513e58020fc8d5cbd8312`。未改 frozen theory/protocol/runner/tests。未跑任何 outcome 脚本。GitHub Actions 未运行。
+
+### Frozen blob verification
+
+```text
+docs/research/reversal_mean_reversion_round2_transitory_shock_theory_intake_20260908.md
+  792e768ed8d7fb1808583a49f16d42b9c7438f97
+docs/governance/reversal_mean_reversion_T1_transitory_shock_supply_protocol_v1.json
+  49615926077f1f2e45e08f427f745363581e2e26
+scripts/audit_broad_rmr_T1_transitory_shock_supply.py
+  9bc4533dacb5914ee63b5d9d82a745694031b917
+tests/unit/test_broad_rmr_T1_transitory_shock_supply.py
+  e6acd417a74e4164e77f195db739b5328b8e0542
+```
+
+### 命令与退出码
+
+| 命令 | 退出码 |
+|---|---|
+| `pytest -q tests/unit/test_broad_rmr_T1_transitory_shock_supply.py` | 0（8 passed） |
+| `python scripts/audit_broad_rmr_T1_transitory_shock_supply.py --output docs/research/local_broad_rmr_T1_transitory_shock_supply_receipt_v1.json` | 0 |
+
+### Source identity
+
+```text
+data/development/5m_offset_0.parquet
+  rows = 70114
+  SHA256 = bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48
+data/development/1m_official.parquet
+  rows = 350561
+  SHA256 = 755217afce9dec383e48cd46d591402fa90dc50897abeb3dc7097c9a18a109d4
+symbol = 000852.SH
+max day = 2020-12-31
+```
+
+此 T1 使用已准入 FactorLab development package，不与 CL-005 的 DataHub 349,923-row source 混用。
+
+### Supply counts
+
+| partition | extreme events | aligned events | minimum | pass |
+|---|---:|---:|---:|---|
+| BUILD 2015-2018 | 366 | 364 | 150 | true |
+| 2019 | 48 | 48 | 50 | false |
+| 2020 | 87 | 87 | 50 | true |
+
+BUILD 拒绝原因：`support_count_3=1`，`support_count_4=1`。2019/2020 无 alignment reject。
+
+`within_bar_retrace_fraction` 描述性摘要见 receipt：BUILD mean 0.01393 / median 0；2019 mean 0.01500 / median 0；2020 mean 0.01855 / median 0。
+
+### Supply gate
+
+`T1_current_data_event_supply_insufficient`
+
+2019 aligned events 48 < 50。未降低 5-sigma 阈值，未改 960-bar 窗口，未搜其他 offset，未打开 post-event outcomes。
+
+Receipt：`docs/research/local_broad_rmr_T1_transitory_shock_supply_receipt_v1.json`  
+sha256 `fb067ddd2e07b14da9e5e64ee0403830baa14518ee75737ac244023f3c98a5bd`
+
+Flags：
+
+```text
+post_event_outcomes_read=false
+future_return_read=false
+reversal_or_continuation_label_read=false
+PnL_read=false
+post_2020_rows_read=false
+outcome_execution_authorized=false
+```
+
+**云端复核尚未发生。**
+
+---
+
+## 当前本地回传后的断点
+
+两个本地任务均已 `local_reported`，彼此独立，均等待云端复核：
+
+1. `CL-20260908-005`：M0 v0.6.17 formal replay 已回传；云端先做 source/blob/gate 独立复核。
+2. `CL-20260908-006`：T1 supply 不足（2019 aligned 48<50）；outcomes 仍封闭。云端先做 supply/source/blob 独立复核。不得因 supply 失败而降低阈值。
+
+本地完成 ≠ 云端独立复核。

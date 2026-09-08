@@ -230,10 +230,10 @@ R2/R3/R4 原样重跑不属于新机制。
 
 ## 8. 当前 next action
 
-当前有两个合法、彼此独立的本地任务：
+两个彼此独立的本地任务均已 `local_reported`，**云端复核尚未发生**：
 
-1. **M0 / CL-20260908-005**：执行 frozen v0.6.17 authoritative-source formal replay；当前结果尚未回传，云端复核尚未发生；
-2. **Broad T1 / CL-20260908-006**：只执行 extreme-shock supply/alignment audit，并推回 compact receipt；**不得执行 post-event outcome**。
+1. **M0 / CL-20260908-005**：frozen v0.6.17 authoritative-source formal replay 已回传。裁决 `session_aware_bounds_valid_but_structural_gap_nonidentifiability_is_material`。正式报告 `docs/research/two_wave_session_aware_information_set_bounds_results_v0617.md`。不得把 local_reported 写成 cloud_reviewed，也不得改 morphology 全局状态。
+2. **Broad T1 / CL-20260908-006**：supply/alignment audit 已回传。gate = `T1_current_data_event_supply_insufficient`（2019 aligned 48<50）。**不得执行 post-event outcome，不得降低 5-sigma / 960-bar 门槛。**
 
 云端下一步固定为：
 

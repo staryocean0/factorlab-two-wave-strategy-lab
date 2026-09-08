@@ -1,0 +1,208 @@
+{
+  "accepted_contract_archive_blob": "accb183f695880c5524f7263bfdfae1debe006a0",
+  "commands": [
+    {
+      "command": "pytest -q tests/unit/test_two_wave_session_aware_information_set_bounds_v0617.py",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "..............                                                           [100%]"
+    },
+    {
+      "command": "python scripts/run_two_wave_session_aware_information_set_bounds_v0617.py",
+      "exit_code": 0
+    }
+  ],
+  "datahub_head": "ba780790acd8e9a558e4e01f9474b6e79265d818",
+  "elapsed_seconds": 184.78739142417908,
+  "execution_surface": "local_codex_controller",
+  "formal_adjudication": "session_aware_bounds_valid_but_structural_gap_nonidentifiability_is_material",
+  "future_outcome_used": false,
+  "github_actions_used": false,
+  "implementation_commit": "0edb9cf08b38141b68e513e58020fc8d5cbd8312",
+  "large_local_artifacts": [
+    {
+      "generation_command": "python scripts/run_two_wave_session_aware_information_set_bounds_v0617.py",
+      "path": "/home/starryocean/桌面/量化/factorlab-two-wave-strategy-lab/tmp/v0617_local_registries/transition_topology_counts.parquet",
+      "rows": 338877,
+      "schema": [
+        "view_id",
+        "previous_native_label",
+        "current_native_label",
+        "current_native_bar_id",
+        "support_source_count",
+        "gap_source_count",
+        "transition_class",
+        "source_dataset_version",
+        "contract_revision"
+      ],
+      "sha256": "3519cae59fe4e067c16402f667341009b954ba205a58c186134732cea8aa660f"
+    },
+    {
+      "generation_command": "python scripts/run_two_wave_session_aware_information_set_bounds_v0617.py",
+      "path": "/home/starryocean/桌面/量化/factorlab-two-wave-strategy-lab/tmp/v0617_local_registries/published_leg_bounds_pre_oracle.parquet",
+      "rows": 737104,
+      "schema": [
+        "view",
+        "canonical_filtered_identity_id",
+        "publication_event_id",
+        "leg_ordinal",
+        "start_bar",
+        "end_bar",
+        "native_transition_count",
+        "defined",
+        "reason",
+        "bound_class",
+        "fine_step_count",
+        "support_source_count_total",
+        "gap_source_count_total",
+        "gap_transition_count",
+        "j_low",
+        "j_high",
+        "c_inf_low",
+        "c_inf_high",
+        "c_1_low",
+        "c_1_high",
+        "c_2_low",
+        "c_2_high"
+      ],
+      "sha256": "824bbba91b666f49ea44717a6b8aed505e56998b0aadaeaa092e13a05c0e8dc9"
+    }
+  ],
+  "local_status": "local_feedback_ready_cloud_review_pending",
+  "preanalysis_git_blob_sha": "77f54c7a8e3699997450eaad941ed13b1e561b3a",
+  "production_authority": false,
+  "protocol_freeze_commit": "61eba4c80215bb07375e59d3c53e8ac2b989ff28",
+  "protocol_git_blob_sha": "f0f6acd06c7ccacd331ed9938f77ff68c9519cfa",
+  "research_branch": "codex/two-wave-phase1-20260905",
+  "schema": "two_wave_v0617_execution_receipt@1.0",
+  "stage1": {
+    "exit_code": 0,
+    "protocol_section9_covered_by_existing_tests": true,
+    "pytest_summary": "..............                                                           [100%]",
+    "status": "PASS",
+    "test_count_reported_by_dots": 14,
+    "tests_file": "tests/unit/test_two_wave_session_aware_information_set_bounds_v0617.py"
+  },
+  "stage2": {
+    "native_identity": {
+      "5m_offset_0": {
+        "assigned_close_outside_envelope": 0,
+        "construction": "official_v2",
+        "derived_labels": 70114,
+        "empty_support": 0,
+        "extra_labels": [],
+        "frozen_data_contract_text_not_used_for_offset0": true,
+        "frozen_rows": 70114,
+        "last_support_close_mismatch": 0,
+        "missing_labels": [],
+        "n_extra_labels": 0,
+        "n_missing_labels": 0,
+        "ohlc_mismatch": 0
+      },
+      "5m_offset_1": {
+        "assigned_close_outside_envelope": 0,
+        "construction": "wall_clock_v1",
+        "derived_labels": 67192,
+        "empty_support": 0,
+        "extra_labels": [],
+        "frozen_data_contract_text_not_used_for_offset0": true,
+        "frozen_rows": 67192,
+        "last_support_close_mismatch": 0,
+        "missing_labels": [],
+        "n_extra_labels": 0,
+        "n_missing_labels": 0,
+        "ohlc_mismatch": 0
+      },
+      "5m_offset_2": {
+        "assigned_close_outside_envelope": 0,
+        "construction": "wall_clock_v1",
+        "derived_labels": 67192,
+        "empty_support": 0,
+        "extra_labels": [],
+        "frozen_data_contract_text_not_used_for_offset0": true,
+        "frozen_rows": 67192,
+        "last_support_close_mismatch": 0,
+        "missing_labels": [],
+        "n_extra_labels": 0,
+        "n_missing_labels": 0,
+        "ohlc_mismatch": 0
+      },
+      "5m_offset_3": {
+        "assigned_close_outside_envelope": 0,
+        "construction": "wall_clock_v1",
+        "derived_labels": 67193,
+        "empty_support": 0,
+        "extra_labels": [],
+        "frozen_data_contract_text_not_used_for_offset0": true,
+        "frozen_rows": 67193,
+        "last_support_close_mismatch": 0,
+        "missing_labels": [],
+        "n_extra_labels": 0,
+        "n_missing_labels": 0,
+        "ohlc_mismatch": 0
+      },
+      "5m_offset_4": {
+        "assigned_close_outside_envelope": 0,
+        "construction": "wall_clock_v1",
+        "derived_labels": 67191,
+        "empty_support": 0,
+        "extra_labels": [],
+        "frozen_data_contract_text_not_used_for_offset0": true,
+        "frozen_rows": 67191,
+        "last_support_close_mismatch": 0,
+        "missing_labels": [],
+        "n_extra_labels": 0,
+        "n_missing_labels": 0,
+        "ohlc_mismatch": 0
+      }
+    },
+    "status": "PASS"
+  },
+  "stage3_checkpoint": {
+    "checkpoint": "pre_oracle",
+    "fully_enveloped_defined_legs": 528360,
+    "local_bounds_path": "/home/starryocean/桌面/量化/factorlab-two-wave-strategy-lab/tmp/v0617_local_registries/published_leg_bounds_pre_oracle.parquet",
+    "local_bounds_rows": 737104,
+    "local_bounds_sha256": "824bbba91b666f49ea44717a6b8aed505e56998b0aadaeaa092e13a05c0e8dc9",
+    "n_published_legs": 737104,
+    "oracle_prices_read": false,
+    "schema": [
+      "view",
+      "canonical_filtered_identity_id",
+      "publication_event_id",
+      "leg_ordinal",
+      "start_bar",
+      "end_bar",
+      "native_transition_count",
+      "defined",
+      "reason",
+      "bound_class",
+      "fine_step_count",
+      "support_source_count_total",
+      "gap_source_count_total",
+      "gap_transition_count",
+      "j_low",
+      "j_high",
+      "c_inf_low",
+      "c_inf_high",
+      "c_1_low",
+      "c_1_high",
+      "c_2_low",
+      "c_2_high"
+    ],
+    "status": "PASS",
+    "structural_gap_universal_bound_legs": 208744,
+    "undefined_legs": 0
+  },
+  "stage4": {
+    "N_mismatch": 0,
+    "coverage_failures": 0,
+    "status": "PASS"
+  },
+  "status": "local_reported",
+  "task": "CL-20260908-005",
+  "trade_authority": false,
+  "used_dirty_datahub_worktree": false,
+  "used_factorlab_1m_official": false,
+  "云端复核尚未发生": true
+}

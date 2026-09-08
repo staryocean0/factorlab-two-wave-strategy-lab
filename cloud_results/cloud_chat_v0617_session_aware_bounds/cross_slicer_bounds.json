@@ -1,0 +1,15 @@
+{
+  "both_defined_pair_legs": 117812,
+  "frozen_v0610_oracle_comparable_pair_legs": 117805,
+  "note": "v0.6.17 oracle uses DataHub source prices; 117805 is the frozen v0.6.10 overlay size, not a new sample.",
+  "reconstructed_pair_legs_4_per_pair": 117812,
+  "strict_same_event_pair_legs": {
+    "both_fully_enveloped": 81473,
+    "both_structural_gap": 0,
+    "either_structural_gap": 36339,
+    "j_high_abs_diff_median": 0.11303905073947257,
+    "j_low_abs_diff_median": 0.0,
+    "j_width_abs_diff_median": 0.10533843279081317,
+    "n_pair_legs": 117812
+  }
+}

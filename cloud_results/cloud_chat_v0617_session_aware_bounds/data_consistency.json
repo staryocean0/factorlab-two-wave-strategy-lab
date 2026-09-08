@@ -1,0 +1,54 @@
+{
+  "by_view": {
+    "5m_offset_0": {
+      "coverage_fail": 0,
+      "covered": 152704,
+      "gap": 0,
+      "legs": 152704,
+      "n_mismatch": 0
+    },
+    "5m_offset_1": {
+      "coverage_fail": 0,
+      "covered": 146948,
+      "gap": 52248,
+      "legs": 146948,
+      "n_mismatch": 0
+    },
+    "5m_offset_2": {
+      "coverage_fail": 0,
+      "covered": 146476,
+      "gap": 52232,
+      "legs": 146476,
+      "n_mismatch": 0
+    },
+    "5m_offset_3": {
+      "coverage_fail": 0,
+      "covered": 145920,
+      "gap": 52157,
+      "legs": 145920,
+      "n_mismatch": 0
+    },
+    "5m_offset_4": {
+      "coverage_fail": 0,
+      "covered": 145056,
+      "gap": 52107,
+      "legs": 145056,
+      "n_mismatch": 0
+    }
+  },
+  "expected_fine_profile_defined": 737070,
+  "fine_profile_defined_legs": 737104,
+  "oracle_coverage_failures": 0,
+  "oracle_defined_legs": 737104,
+  "published_leg_counts": [
+    152704,
+    146948,
+    146476,
+    145920,
+    145056
+  ],
+  "registered_vs_actual_N_mismatch": 0,
+  "source_prices_read_after_stage3_only": true,
+  "undefined_legs": 0,
+  "used_factorlab_1m_official_for_oracle": false
+}
