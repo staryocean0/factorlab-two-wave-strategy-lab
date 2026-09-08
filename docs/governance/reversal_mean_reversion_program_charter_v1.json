@@ -1,5 +1,5 @@
 {
-  "schema_id": "factorlab_broad_reversal_mean_reversion_program_charter@1.1",
+  "schema_id": "factorlab_broad_reversal_mean_reversion_program_charter@1.2",
   "session_date": "2026-09-08",
   "program_identity": "broad_reversal_mean_reversion_discovery_program_v1",
   "repository": "staryocean0/factorlab-two-wave-strategy-lab",
@@ -29,9 +29,7 @@
     "v0617_verdict": "session_aware_bounds_valid_but_structural_gap_nonidentifiability_is_material",
     "accepted_new_capability": "interval_valued_session_aware_path_information_bounds",
     "accepted_capability_is_morphology_acceptance": false,
-    "native_coarse_OHLC_implies_exact_fine_path": false,
-    "v0617_blocks_broad_preanalysis": false,
-    "v0617_blocks_claims_that_require_accepted_morphology": true
+    "native_coarse_OHLC_implies_exact_fine_path": false
   },
   "path_measurement_policy": {
     "every_fine_path_feature_must_declare_measurement_class": true,
@@ -45,35 +43,49 @@
     "empirical_bound_shrinkage_after_outcome": false,
     "point_proxy_without_identification": false
   },
+  "data_reuse_policy": {
+    "policy_file": "docs/governance/reversal_mean_reversion_data_reuse_validation_policy_v1.md",
+    "data_is_single_use_consumable": false,
+    "roles": {
+      "TRAIN": "fully_reusable_research_and_model_development",
+      "VALIDATION": "reusable_chronological_validation_with_detailed_diagnostics_allowed",
+      "BLACKBOX": "small_independent_confirmation_reserve_with_aggregate_only_outputs"
+    },
+    "current_2015_2018_role": "TRAIN",
+    "current_2019_2020_role": "VALIDATION",
+    "current_blackbox_block_assigned": false,
+    "blackbox_if_opened_for_diagnostics": "demote_to_VALIDATION_not_data_discard",
+    "freshness_is_property_of_evidence_role_not_usability": true
+  },
   "primary_shallow_lanes": [
     {
       "id": "R1_cross_scale_pullback",
       "question": "inside_an_intact_parent_trend_can_a_sharp_opposite_lower_scale_move_be_identified_as_temporary_pullback_before_parent_failure",
       "strategy_archetype": "trend_pullback_mean_reversion",
-      "current_status": "unresolved_supply_insufficient_not_rejected",
-      "priority_on_material_new_data": true
+      "current_status": "unresolved_under_historical_frozen_test_but_researchable_in_TRAIN_VALIDATION",
+      "may_continue_using_2015_2020": true
     },
     {
       "id": "R2_range_boundary_reversion",
       "question": "inside_a_parent_range_can_an_excursion_or_breakout_be_distinguished_as_temporary_overshoot_versus_true_state_transition",
       "strategy_archetype": "failed_breakout_or_range_edge_reversion",
-      "current_status": "closed_under_current_low_capacity_identity"
+      "current_status": "historical_low_capacity_identity_closed_but_new_independent_identity_may_be_researched_in_TRAIN_VALIDATION"
     },
     {
       "id": "R3_structural_exhaustion_transition",
       "question": "when_an_existing_parent_trend_deteriorates_can_structure_quality_identify_transition_or_reversal_risk_before_a_simple_direction_flip",
       "strategy_archetype": "trend_exhaustion_or_transition_reversal",
-      "current_status": "closed_predeclared_direction_falsified"
+      "current_status": "historical_v1_direction_falsified_but_broader_research_not_permanently_banned"
     }
   ],
   "secondary_or_delegated_lanes": [
     {
       "id": "R4_statistical_state_extremes",
-      "role": "closed_stage1_identity_no_candidate_qualifies"
+      "role": "historical_stage1_identity_closed_no_candidate_qualifies"
     },
     {
       "id": "T1_transitory_component_after_extreme_intraday_shock_v1",
-      "role": "independent_literature_driven_round2_identity_closed_before_outcome_supply_insufficient"
+      "role": "historical_identity_closed_before_outcome_supply_insufficient"
     },
     {
       "id": "relative_value_or_overnight_dislocation",
@@ -83,33 +95,35 @@
   "research_style": {
     "repository_role": "direction_finder_not_single_strategy_optimizer",
     "first_pass_depth": "shallow_mechanism_screen",
+    "TRAIN_and_VALIDATION_may_support_multiple_iterations": true,
+    "blackbox_reserved_for_mature_candidates_only": true,
     "required_sequence": [
       "theory_or_phenomenon",
       "causal_pre_event_observability",
-      "results_blind_measurement_and_evidence_role_freeze",
-      "chronological_stability",
-      "specialist_handoff_if_promising"
+      "TRAIN_development",
+      "VALIDATION_diagnostics_and_chronological_stability",
+      "candidate_freeze_if_promising",
+      "BLACKBOX_confirmation_if_warranted"
     ],
-    "deep_optimization_before_lane_comparison": false,
-    "post_hoc_rescue_of_failed_lane": false,
     "trading_PnL_selection_in_shallow_stage": false,
     "automatic_indicator_generation_after_failures": false
   },
   "evidence_governance": {
     "existing_two_wave_results_preserved": true,
-    "existing_consumed_data_never_relabelled_fresh": true,
+    "existing_2015_2020_results_are_not_fresh": true,
+    "existing_2015_2020_data_remain_reusable": true,
     "algorithm_generated_structure_labels_not_ground_truth": true,
-    "future_data_roles_must_be_frozen_before_outcome_read": true,
-    "failed_or_ambiguous_lanes_must_be_preserved": true,
-    "supply_failure_must_not_be_relabelled_mechanism_failure": true,
-    "predeclared_direction_failure_must_not_be_reinterpreted_posthoc": true
+    "blackbox_role_must_be_frozen_before_blackbox_outcome_read": true,
+    "failed_or_ambiguous_historical_identities_must_be_preserved": true,
+    "historical_frozen_decisions_are_not_retroactively_rewritten": true,
+    "future_sample_gates_should_prefer_total_sample_and_precision_over_arbitrary_per_year_minimums": true
   },
   "reopen_policy": {
-    "materially_new_data": "allowed_after_source_and_role_admission_before_outcomes",
-    "independent_new_theory": "allowed_only_if_preregistered_before_outcomes_and_not_a_renamed_rescue",
-    "new_M0_measurement_object": "allowed_after_explicit_program_admission",
-    "same_consumed_window_parameter_relaxation": false,
-    "R1_retest_priority_with_new_data": true
+    "R1_research_on_existing_TRAIN_VALIDATION": "allowed",
+    "independent_new_theory_on_existing_TRAIN_VALIDATION": "allowed",
+    "historical_closed_identity_relabelled_as_success": false,
+    "materially_new_data": "useful_for_more_regimes_more_supply_and_future_blackbox_but_not_required_for_all_research",
+    "new_M0_measurement_object": "allowed_after_explicit_program_admission"
   },
   "authority_boundaries": {
     "production_authority": false,
