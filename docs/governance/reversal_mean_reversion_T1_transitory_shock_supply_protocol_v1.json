@@ -1,0 +1,95 @@
+{
+  "schema_id": "factorlab_broad_rmr_T1_transitory_shock_supply_protocol@1.0",
+  "session_date": "2026-09-08",
+  "research_identity": "T1_transitory_component_after_extreme_intraday_shock_v1",
+  "stage": "results_blind_supply_and_alignment_only",
+  "theory_intake": "docs/research/reversal_mean_reversion_round2_transitory_shock_theory_intake_20260908.md",
+  "post_event_outcome_authorized": false,
+  "source": {
+    "instrument": "000852.SH",
+    "five_minute_path": "data/development/5m_offset_0.parquet",
+    "five_minute_sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48",
+    "one_minute_path": "data/development/1m_official.parquet",
+    "one_minute_sha256": "755217afce9dec383e48cd46d591402fa90dc50897abeb3dc7097c9a18a109d4",
+    "minimum_day": "2015-01-05",
+    "maximum_day": "2020-12-31",
+    "post_2020_read": false,
+    "data_role": "consumed_development_material"
+  },
+  "event": {
+    "native_view": "5m_offset_0",
+    "return": "log(close/open)",
+    "past_only_reference_bars": 960,
+    "reference_current_bar_excluded": true,
+    "center": "median",
+    "scale": "1.4826_times_MAD",
+    "extreme_threshold_abs_robust_z": 5.0,
+    "threshold_search": false,
+    "zero_or_nonfinite_scale": "event_unavailable"
+  },
+  "fine_path_alignment": {
+    "one_minute_interval_membership": "same_trading_day_and_bar_end_shanghai_in_(native_5m_end_minus_5_minutes,native_5m_end]",
+    "expected_full_support_count": 5,
+    "timestamps_unique_and_strictly_ordered": true,
+    "last_one_minute_close_must_match_native_5m_close": true,
+    "close_match_rtol": 1e-12,
+    "close_match_atol": 1e-10,
+    "missing_bar_imputation": false,
+    "local_1m_to_5m_replacement_resample": false,
+    "alignment_failure": "reject_event_fail_closed"
+  },
+  "mechanism_variable": {
+    "count": 1,
+    "id": "within_bar_retrace_fraction",
+    "definition": "max(0,peak_directed_displacement-terminal_directed_displacement)/peak_directed_displacement",
+    "available_at_event_close": true,
+    "uses_post_event_prices": false,
+    "liquidity_identification_claim": false,
+    "information_shock_identification_claim": false
+  },
+  "partitions": {
+    "BUILD": "2015-01-05..2018-12-31",
+    "CHECK_2019": "2019-01-01..2019-12-31",
+    "CHECK_2020": "2020-01-01..2020-12-31"
+  },
+  "supply_gate": {
+    "minimum_aligned_BUILD": 150,
+    "minimum_aligned_2019": 50,
+    "minimum_aligned_2020": 50,
+    "if_fail": "T1_current_data_event_supply_insufficient",
+    "if_pass": "T1_supply_passed_outcomes_still_sealed_pending_cloud_review_and_separate_authorization"
+  },
+  "allowed_outputs": [
+    "source_identity",
+    "five_minute_row_count",
+    "one_minute_row_count",
+    "per_partition_extreme_event_count",
+    "per_partition_aligned_event_count",
+    "per_partition_rejection_counts_by_reason",
+    "within_bar_retrace_fraction_descriptive_summary_on_aligned_events",
+    "supply_gate_status",
+    "execution_receipt"
+  ],
+  "forbidden_outputs": [
+    "future_return",
+    "reversal_label",
+    "continuation_label",
+    "first_passage_outcome",
+    "Brier",
+    "logloss",
+    "model_coefficient",
+    "PnL",
+    "post_2020_statistic"
+  ],
+  "forbidden_changes_after_supply": [
+    "lower_5_sigma_threshold",
+    "change_960_reference_bars",
+    "positive_negative_asymmetric_thresholds",
+    "search_other_5m_offsets",
+    "time_of_day_favorable_filter",
+    "add_volume_or_spread_proxy",
+    "add_R1_R2_R3_R4_state",
+    "open_post_2020"
+  ],
+  "production_authority": false
+}
