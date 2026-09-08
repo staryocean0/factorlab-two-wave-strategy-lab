@@ -1,120 +1,95 @@
 {
-  "schema_id": "factorlab_broad_reversal_mean_reversion_program_state@1.2",
+  "schema_id": "factorlab_broad_reversal_mean_reversion_program_state@1.3",
   "session_date": "2026-09-08",
   "program_identity": "broad_reversal_mean_reversion_discovery_program_v1",
-  "current_status": "R5_MULTISCALE_SERIAL_DEPENDENCE_FROZEN_LOCAL_EXECUTION_PENDING_UNDER_REUSABLE_TRAIN_VALIDATION_POLICY",
+  "current_status": "R5_PARTIAL_SUPPORT_B1_BOUNDED_DIAGNOSTIC_FROZEN_CL008_LOCAL_EXECUTION_PENDING",
   "active_research_branch": "codex/two-wave-phase1-20260905",
-  "repository_wide_mainline": "broad_reversal_mean_reversion_direction_discovery_not_single_strategy_optimization",
-  "whitepaper_current": "docs/research/reversal_mean_reversion_program_whitepaper_v2.md",
-  "data_reuse_policy": "docs/governance/reversal_mean_reversion_data_reuse_validation_policy_v1.md",
+  "repository_wide_mainline": "broad_reversal_mean_reversion_direction_discovery_with_reusable_TRAIN_VALIDATION_and_delayed_BLACKBOX",
   "data_roles": {
-    "TRAIN": {
-      "interval": "2015-01-05..2018-12-31",
-      "role": "reusable_training_and_diagnostic_research_corpus",
-      "repeat_use_allowed": true,
-      "detail_inspection_allowed": true
-    },
-    "VALIDATION": {
-      "interval": "2019-01-01..2020-12-31",
-      "role": "reusable_validation_with_detailed_diagnostics_allowed",
-      "repeat_use_allowed": true,
-      "detail_inspection_allowed": true,
-      "may_drive_next_model_iteration": true
-    },
-    "BLACKBOX": {
-      "interval": null,
-      "role": "small_aggregate_only_final_confirmation_reserve_for_mature_candidate",
-      "currently_assigned": false,
-      "detail_inspection_allowed": false,
-      "demotion_rule": "if_details_are_opened_it_becomes_VALIDATION_and_a_future_blackbox_must_be_separately_assigned"
-    }
+    "TRAIN": "2015-01-05..2018-12-31_reusable",
+    "VALIDATION": "2019-01-01..2020-12-31_reusable_and_diagnosable",
+    "BLACKBOX": "none_assigned"
   },
-  "data_governance_principle": "data_is_reusable_research_asset_only_unseen_blackbox_qualification_is_consumable",
-  "M0_two_wave_foundation": {
-    "role": "causal_multiscale_structure_measurement_foundation_not_alpha",
-    "morphology_replication_status": "not_yet_accepted",
+  "data_governance_principle": "data_is_reusable_only_never_seen_blackbox_qualification_is_consumable",
+  "M0": {
+    "role": "measurement_foundation_not_alpha",
     "operational_baseline": "v0.4.3",
+    "morphology_replication_status": "not_yet_accepted",
     "v0617_status": "cloud_reviewed_completed",
-    "v0617_verdict": "session_aware_bounds_valid_but_structural_gap_nonidentifiability_is_material",
-    "accepted_capability": "interval_valued_session_aware_path_information_bounds",
-    "cloud_review": "docs/research/two_wave_session_aware_information_set_bounds_cloud_review_20260908.md"
+    "accepted_capability": "interval_valued_session_aware_path_information_bounds"
   },
-  "historical_lane_status": {
-    "R1_cross_scale_pullback": {
-      "historical_identity": "unresolved_evidence_insufficient_after_one_results_blind_measurement_revision",
-      "historical_resolved_supply": {"TRAIN": 168, "2019": 40, "2020": 39},
-      "mechanism_rejected": false,
-      "may_continue_research_on_reusable_TRAIN_VALIDATION": true,
-      "historical_gate_must_not_be_rewritten": true
-    },
-    "R2_range_boundary_reversion": {
-      "historical_identity": "closed_with_adequate_evidence_under_M1",
-      "independent_new_identity_allowed": true,
-      "old_result_must_not_be_relabelled": true
-    },
-    "R3_structural_exhaustion_transition": {
-      "historical_identity": "closed_predeclared_direction_falsified",
-      "independent_new_identity_allowed": true,
-      "old_direction_failure_must_not_be_reinterpreted": true
-    },
-    "R4_statistical_state_extremes": {
-      "historical_identity": "closed_no_candidate_qualifies",
-      "independent_new_identity_allowed": true
-    },
-    "T1_transitory_component_after_extreme_intraday_shock_v1": {
-      "historical_identity": "closed_before_outcome_supply_insufficient",
-      "historical_supply": {"TRAIN_aligned": 364, "2019_aligned": 48, "2020_aligned": 87},
-      "historical_gate_must_not_be_rewritten": true,
-      "independent_new_identity_allowed": true
-    }
+  "historical_lanes": {
+    "R1_cross_scale_pullback": "old_identity_unresolved_not_rejected_research_may_continue_on_TRAIN_VALIDATION",
+    "R2_range_boundary_reversion": "old_low_capacity_identity_closed",
+    "R3_structural_exhaustion_transition": "old_v1_predeclared_direction_falsified",
+    "R4_statistical_state_extremes": "old_v1_no_candidate_qualifies",
+    "T1_transitory_shock": "old_5sigma_960bar_identity_closed_before_outcome_on_old_supply_gate"
   },
-  "active_lane": {
-    "id": "R5_multiscale_serial_dependence_state_v1",
-    "scientific_question": "can_short_horizon_mean_reversion_and_slower_positive_memory_coexist_and_help_distinguish_temporary_countertrend_shocks_from_continuation",
-    "theory_source": "Sepp_and_Lucic_2026_autocorrelation_and_long_memory_framework",
-    "preanalysis": "docs/research/reversal_mean_reversion_R5_multiscale_serial_dependence_preanalysis_20260908.md",
-    "protocol": "docs/governance/reversal_mean_reversion_R5_multiscale_serial_dependence_protocol_v1.json",
-    "execution_freeze": "docs/governance/reversal_mean_reversion_R5_execution_freeze_v1.json",
-    "runner": "scripts/run_broad_rmr_R5_multiscale_serial_dependence.py",
-    "tests": "tests/unit/test_broad_rmr_R5_multiscale_serial_dependence.py",
+  "R5_parent_execution": {
+    "identity": "R5_multiscale_serial_dependence_state_v1",
     "local_task": "CL-20260908-007",
-    "handoff": "docs/ops/cl_20260908_007_R5_multiscale_serial_dependence_handoff.md",
-    "execution_status": "frozen_pending_local_execution",
+    "local_feedback_commit": "abf95c1c0dacfee487bf2c6ecaa920c697cbfaec",
+    "cloud_review": "docs/research/reversal_mean_reversion_R5_multiscale_serial_dependence_cloud_review_20260908.md",
+    "status": "cloud_reviewed_partial_support",
+    "overall_adjudication": "R5_partial_support_keep_researching_on_TRAIN_VALIDATION",
+    "R5_A": {
+      "status": "supply_passed_but_discrete_mixed_state_prevalence_unstable",
+      "TRAIN_mixed_state": 9576,
+      "VALIDATION_mixed_state": 924,
+      "TRAIN_mixed_fraction": 0.21971365638766518,
+      "VALIDATION_mixed_fraction": 0.04124631729309883
+    },
+    "R5_B1": {
+      "status": "small_but_chronologically_consistent_incremental_support",
+      "TRAIN_interaction_coefficient": -1.069228621037033,
+      "VALIDATION_MSE_B0": 1.011653266505294,
+      "VALIDATION_MSE_B1": 1.0101116108135515,
+      "B1_better_in_2019": true,
+      "B1_better_in_2020": true,
+      "eligible_for_one_bounded_diagnostic": true
+    },
+    "R5_B2": {
+      "status": "not_promoted_complex_upgrade_worse_than_B1",
+      "VALIDATION_MSE": 1.0105881395568574
+    },
+    "R5_C": {
+      "status": "low_capacity_countertrend_recovery_mechanism_not_supported",
+      "TRAIN_resolved": 1323,
+      "VALIDATION_resolved": 723,
+      "long_memory_coefficient": -2.3923096558243615,
+      "anti_persistence_coefficient": 0.4310511577716094,
+      "VALIDATION_mean_recovery": -0.03146420229486495,
+      "same_identity_rescue_allowed": false
+    },
     "BLACKBOX_used": false,
-    "PnL_authorized": false,
-    "subquestions": {
-      "R5_A": "supply_and_persistence_of_short_negative_long_positive_memory_state",
-      "R5_B": "anti_persistence_interaction_increment_for_next_5m_return",
-      "R5_C": "state_increment_for_15m_recovery_after_countertrend_shock"
-    }
+    "PnL_used": false
   },
-  "research_style": {
-    "TRAIN_and_VALIDATION_can_be_reused": true,
-    "VALIDATION_can_be_opened_and_diagnosed": true,
-    "model_iteration_after_validation_allowed": true,
-    "BLACKBOX_reserved_until_candidate_mature": true,
-    "avoid_mechanical_per_calendar_year_sample_gates_by_default": true,
-    "prefer_pooled_effective_sample_plus_chronological_stability": true,
-    "multiple_shallow_mechanisms_before_deep_complexity": true,
-    "PnL_selection_in_discovery": false
-  },
-  "path_measurement_policy": {
-    "native_5m_OHLC_is_exact_fine_path": false,
-    "allowed_classes": [
-      "admitted_actual_finer_source_direct_measurement",
-      "fully_enveloped_finite_interval_measurement",
-      "structural_gap_partial_identification_interval"
-    ]
+  "active_diagnostic": {
+    "id": "R5_B1_stability_shape_diagnostic_v1",
+    "purpose": "determine_whether_small_B1_gain_is_broad_across_validation_days_and_has_mechanism_consistent_anti_persistence_shape",
+    "preanalysis": "docs/research/reversal_mean_reversion_R5_B1_stability_diagnostic_preanalysis_20260908.md",
+    "protocol": "docs/governance/reversal_mean_reversion_R5_B1_stability_diagnostic_protocol_v1.json",
+    "execution_freeze": "docs/governance/reversal_mean_reversion_R5_B1_diagnostic_execution_freeze_v1.json",
+    "runner": "scripts/diagnose_broad_rmr_R5_B1_stability_shape.py",
+    "tests": "tests/unit/test_broad_rmr_R5_B1_stability_shape.py",
+    "local_task": "CL-20260908-008",
+    "handoff": "docs/ops/cl_20260908_008_R5_B1_stability_shape_diagnostic_handoff.md",
+    "status": "frozen_pending_local_execution",
+    "D1": "day_level_breadth_of_fixed_B1_vs_B0_validation_error_improvement",
+    "D2": "TRAIN_fixed_anti_persistence_quintile_shape_of_empirical_next_return_slope",
+    "specialist_handoff_authorized_only_if": "D1_and_D2_both_supported",
+    "BLACKBOX_used": false
   },
   "next_actions_in_order": [
-    "execute_CL_20260908_007_locally_on_frozen_TRAIN_VALIDATION_runner_and_push_compact_receipt_with_skip_ci",
-    "cloud_review_R5_receipt_distinguishing_local_reported_from_cloud_reviewed",
-    "if_R5_has_partial_or_full_support_continue_diagnostics_on_reusable_TRAIN_VALIDATION_without_claiming_blackbox_confirmation",
-    "if_R5_low_capacity_mechanisms_fail_do_not_escalate_to_HMM_rSLDS_Koopman_as_rescue",
-    "assign_BLACKBOX_only_after_a_candidate_is_mature_enough_for_final_aggregate_confirmation"
+    "execute_CL_20260908_008_locally_and_push_compact_receipt_with_skip_ci",
+    "cloud_review_CL008_entry_reproduction_D1_D2_and_adjudication",
+    "if_D1_and_D2_both_support_promote_B1_to_specialist_research_identity_without_opening_BLACKBOX",
+    "otherwise_do_not_escalate_B1_to_HMM_rSLDS_Koopman",
+    "continue_other_broad_shallow_research_after_R5_B1_budget_is_closed"
   ],
   "trading_PnL_authorized": false,
   "paper_trading_authorized": false,
   "fresh_OOS_claim_authorized": false,
+  "BLACKBOX_assigned": false,
   "production_authority": false
 }
