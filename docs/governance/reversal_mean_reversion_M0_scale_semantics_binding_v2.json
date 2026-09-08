@@ -20,7 +20,7 @@
     "claim_natural_market_hierarchy": false,
     "interpretation": "one_octave_operational_M0_scale_separation_for_first_broad_screen"
   },
-  "temporal_maturity_gate_parent_identity": {
+  "temporal_maturity_gate_each_identity": {
     "uses_only_five_published_raw_occurrence_bars": true,
     "cycle_1_duration": "p2-p0",
     "cycle_2_duration": "p4-p2",
@@ -32,13 +32,13 @@
     "future_price_outcomes_used": false
   },
   "parent_level_selection_rule": {
-    "minimum_mature_BUILD_publications": 300,
-    "minimum_mature_2019_publications": 75,
-    "minimum_mature_2020_publications": 75,
-    "minimum_finer_BUILD_publications": 300,
-    "minimum_finer_2019_publications": 75,
-    "minimum_finer_2020_publications": 75,
-    "selection": "choose_smallest_parent_level_L_meeting_parent_temporal_maturity_supply_and_finer_L_minus_2_supply",
+    "minimum_mature_BUILD_publications_parent": 300,
+    "minimum_mature_2019_publications_parent": 75,
+    "minimum_mature_2020_publications_parent": 75,
+    "minimum_mature_BUILD_publications_finer": 300,
+    "minimum_mature_2019_publications_finer": 75,
+    "minimum_mature_2020_publications_finer": 75,
+    "selection": "choose_smallest_parent_level_L_meeting_temporal_maturity_supply_for_parent_L_and_finer_L_minus_2",
     "fallback_if_none": "fail_closed_no_outcome_screen"
   },
   "broad_stage1_claim_boundary": {
