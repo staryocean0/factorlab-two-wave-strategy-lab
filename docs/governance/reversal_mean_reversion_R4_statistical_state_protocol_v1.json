@@ -102,6 +102,8 @@
   },
   "descriptive_property_reversion": {
     "allowed": true,
+    "period": "CHECK_2019_2020_candidate_available_parent_sequence",
+    "sequence_order": "chronological_parent_publication_order",
     "fields": ["current_next_state_correlation", "absolute_state_contraction_share"],
     "part_of_progress_gate": false,
     "may_be_called_price_alpha": false
