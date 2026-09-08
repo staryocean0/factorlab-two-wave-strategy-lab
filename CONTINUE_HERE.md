@@ -2,271 +2,218 @@
 
 **本文件是判断本仓库“现在研究什么、下一步做什么”的第一权威。**
 
-仓库 `factorlab-two-wave-strategy-lab` 的历史核心是两浪父结构识别，但当前仓库级任务已经升级为：
+仓库 `factorlab-two-wave-strategy-lab` 的仓库级任务是：
 
-> **用因果多尺度结构研究广义反转 / 均值回归：区分“完整父状态中的暂时偏离”与“父状态本身真正改变”，并用小预算比较多个机制，而不是无限优化一个 recognizer 或一个策略。**
+> **用因果多尺度结构研究广义反转 / 均值回归，区分“完整父状态中的暂时偏离”与“父状态本身改变”，并用小预算筛选多个机制，而不是无限优化一个 recognizer 或一个策略。**
+
+当前总状态：
+
+`ROUND1_CLOSED_CL005_CLOUD_REVIEWED_T1_CLOSED_SUPPLY_INSUFFICIENT_WAITING_NEW_DATA_OR_INDEPENDENT_THEORY`
 
 ## 1. M0：两浪结构测量底座
 
-现有 `v0.4.3 -> v0.6.17` 两浪、同尺度、path property、roughness、concentration、qualification、session-aware information-set bounds 等研究全部保留原证据身份，统一归类为：
+历史 `v0.4.3 -> v0.6.17` 两浪研究全部保留，统一角色：
 
 `M0_two_wave_structure_measurement_foundation`
 
-M0 提供因果完整波浪、尺度表示、父结构、drift / overlap / width / efficiency / roughness / duration / density、publication time，以及 streaming/replay/prefix 不被未来重写的保证。
+M0 提供因果完整波、尺度、父结构、drift / overlap / width / efficiency / roughness / duration / density、publication time、streaming/replay/prefix 不被未来重写，以及 session/source information-set 语义。
 
-M0 **是测量基础，不是自动成立的交易 alpha**。
+M0 是**测量底座，不是自动成立的交易 alpha**。
 
-当前 morphology 状态仍为：
+全局 morphology 继续是：
 
 `morphology_replication_not_yet_accepted`
 
-操作基线仍为 v0.4.3。旧 Direction/D1/D2/PAWCT、第三浪、收益/P&L、fresh OOS、paper trading、production 权限继续冻结。
+操作基线继续是 `v0.4.3`。Direction / D1 / D2 / PAWCT、第三浪、outcome/PnL、fresh OOS、paper trading、production 均未解冻。
 
-### M0 v0.6.17 继续并行
+## 2. CL-20260908-005 已完成云端验收
 
-v0.6.17 authoritative-source formal replay 没有取消：
+本地 formal replay 已由云端独立复核。
 
-- `CL-20260908-005` 仍是 M0 合法本地执行任务；
-- 当前 formal result / `cloud_results/cloud_chat_v0617_session_aware_bounds/` 仍未回传；
-- 必须使用 accepted DataHub `349,923` row source surface；
-- 不能拿 FactorLab `350,561` row `1m_official` 冒充 exact source support；
-- compact refresh handoff：`docs/ops/cl_20260908_005_v0617_formal_replay_refresh_20260908.md`。
+状态：
 
-M0 未闭合不阻止不依赖 morphology acceptance 的 results-blind broad research，但任何声称“形态学已接受”的结论仍必须等 M0 自己闭合。
+`CL-20260908-005 = CLOUD REVIEWED / COMPLETED`
 
-## 2. Broad program 公共坐标
+正式接受的 frozen verdict：
 
-所有反转假说都必须在结果前声明：
+`session_aware_bounds_valid_but_structural_gap_nonidentifiability_is_material`
 
-1. **Scale**：lower / current / parent；
-2. **Parent state**：trend / range / transition / unknown；
-3. **Deviation object**：什么发生了异常偏离；
-4. **Recovery / failure**：什么算回归，什么算父状态改变。
+云端 review：
 
-“均值”可以是价格中心、震荡包络、父级波形结构、状态条件轨迹、统计分布、相对关系或某个统计属性的正常区域。
+`docs/research/two_wave_session_aware_information_set_bounds_cloud_review_20260908.md`
 
-## 3. Round-1 已冻结的数据与父结构
+关键事实：
 
-- BUILD：2015-01-05..2018-12-31，已消费 development；
-- chronological check：2019-01-01..2020-12-31，不是 fresh；
-- post-2020：本轮从未打开；
-- primary view：`5m_offset_0`；
-- parent representation：结果盲结构供给选择后的 mature M0 L5；
-- temporal maturity：旧 v0.4.3 的 12–48 / 96 bar 规则；
-- 不允许根据结果重选 parent level / offset。
+- authoritative DataHub 1m source rows = `349,923`；
+- 2015-01-05..2020-12-31；2021+ loaded = `0`；
+- five native 5m views exact label/OHLC replay；
+- published legs = `737,104`；
+- N mismatch = `0`；
+- J / C_inf / C_1 / C_2 oracle coverage = `100%`；
+- fully enveloped legs = `528,360`；
+- structural-gap universal-bound legs = `208,744`，约 `28.3%`。
 
-## 4. Round-1 最终路线裁决
+因此 v0.6.17 被接受为新的 M0 **interval-valued measurement capability**，而不是 morphology acceptance。
 
-权威 closeout：
+新硬规则：
 
-`docs/research/reversal_mean_reversion_stage1_round1_closeout_20260908.md`
+> **native 5m OHLC 不能默认等同于已知 fine path。**
 
-最终决策：
+以后任何 path efficiency / roughness / concentration 类研究都必须声明：
+
+1. 真实 finer-source 直接测量；或
+2. fully-enveloped 下的 finite interval；或
+3. structural-gap 下的 partial-identification / universal interval。
+
+禁止把 interval midpoint 或其它 proxy 偷换成真实 fine-path point value。
+
+能力 admission：
+
+`docs/governance/reversal_mean_reversion_v0617_measurement_capability_admission_v1.json`
+
+项目含义：
+
+`docs/research/reversal_mean_reversion_v0617_measurement_implications_20260908.md`
+
+## 3. Broad Round-1 已正式收口
+
+共同证据身份：
+
+- BUILD = 2015–2018 consumed development；
+- chronological check = 2019、2020，not fresh；
+- post-2020 未打开；
+- primary view = `5m_offset_0`；
+- parent representation = results-blind 选择的 mature M0 L5。
+
+总裁决：
 
 `BROAD_RMR_STAGE1_ROUND1_CLOSED_NO_PROMOTED_MECHANISM`
 
 ### R1 — Cross-scale pullback
 
-最终状态：
+状态：
 
 `unresolved_evidence_insufficient_after_one_results_blind_measurement_revision`
 
-v1 要求 lower deviation 本身也是完整 L3 two-wave，样本过稀。M1 按结果盲方式改成：parent publication 后第一次反向 close move 达 `0.5 × parent amplitude` 即触发；0.5 来自旧 v0.4.3 `amplitude_ratio=2.0` reciprocal，并非结果调参。
+M1 trigger supply：`275 / 57 / 69`；resolved supply：`168 / 40 / 39`（BUILD / 2019 / 2020）。2019/2020 未达到 frozen `50` minimum。
 
-M1 trigger supply：BUILD `275`，2019=`57`，2020=`69`。
-
-但 resolved first-passage 只有：
-
-- BUILD `168`；
-- 2019 `40`；
-- 2020 `39`。
-
-2019/2020 未达到预注册最小 `50`，所以 **R1 不能叫失败，也不能叫成功，只能 unresolved**。
-
-禁止：降低 sample gate、改 0.5、换 level/offset 或继续在同一 2015–2020 结果上造 M2/M3 来救。未来重开要求实质新增数据，或独立理论先冻结的新 identity。
+**R1 未被证伪。** materially new data 到来后，它是优先重检 lane；但不能利用旧 2015–2020 结果改 0.5 shock、scale、offset 或 sample gate。
 
 ### R2 — Range-boundary / failed-breakout reversion
 
-最终状态：
+状态：`closed_with_adequate_evidence_under_M1`。
 
-`closed_with_adequate_evidence_under_M1`
-
-M1 resolved supply 足够：BUILD `657`，2019=`161`，2020=`151`。
-
-但加入 parent range state 后明确变差：
-
-- pooled Brier `0.2485738 -> 0.2512218`；
-- pooled log-loss `0.6902362 -> 0.6956335`；
-- 2019、2020 Brier 都恶化。
-
-因此 R2 关闭。不能通过增加最小突破距离、break speed、波动过滤、另一个 range algorithm 或 favorable direction/year 来救同一 identity。
+供给充分，但 parent range state 让 Brier / log-loss 和 2019/2020 都变差。禁止同 identity rescue。
 
 ### R3 — Structural exhaustion / transition
 
-最终状态：
+状态：`closed_predeclared_direction_falsified`。
 
-`closed_predeclared_direction_falsified`
-
-供给充足：BUILD `744`，2019=`172`，2020=`144`。
-
-预注册假说要求 deterioration 越大 -> parent failure risk 越高，但实际：
-
-- translation decay coefficient `-0.04937`；
-- quality decay coefficient `-0.12734`。
-
-方向相反，因此 R3 v1 关闭。不能翻转解释，也不能用 HMM/Koopman/deep model 救同一 identity。
+供给充分，但两个 deterioration 系数均为负，与结果前冻结的正 failure-risk 方向相反。禁止翻转故事或 deep-model rescue。
 
 ### R4 — Statistical-state extremes
 
-最终状态：
+状态：`closed_no_candidate_qualifies`。
 
-`closed_no_candidate_qualifies`
+Path inefficiency、lower-scale event density、amplitude extremity 三个状态全部没有在 common geometry baseline 之上增加稳定价格信息。
 
-R4 用同一个 geometry baseline `abs_drift + log_amplitude` 分别测试三个结果前已冻结的统计状态：
+项目级结论继续保留：
 
-1. path inefficiency；
-2. lower-scale event density；
-3. parent amplitude extremity。
+> **统计属性自身的持续、极端或均值回归，不等于价格存在均值回归 alpha。**
 
-三者供给都足够，但都让 parent failure vs extension 概率预测变差：
+## 4. Round-2 T1 已在 outcome 前关闭
 
-- inefficiency Brier `0.2505775 -> 0.2510705`；
-- event density `0.2503372 -> 0.2536279`，且状态系数方向也错误；
-- amplitude extremity `0.2505775 -> 0.2522137`；
-- 三个候选在 2019、2020 都未同时改善。
-
-R4 receipt：
-
-`docs/research/cloud_session_20260908_broad_rmr_R4_statistical_state_receipt_v1.json`
-
-R4 adjudication：
-
-`docs/research/reversal_mean_reversion_R4_statistical_state_adjudication_20260908.md`
-
-特别保留这个项目级结论：
-
-> **统计属性自己持续、极端或回归，不等于价格均值回归。**
-
-## 5. Round-1 科学结论
-
-这一轮没有找到可晋级的低容量广义均值回归机制，这本身是有效结果：
-
-- M0 两浪结构能提供严谨的 parent-state 坐标，但不会自动变成 alpha；
-- R1 是 evidence-supply unresolved，不是机制证伪；
-- R2、R3、R4 在供给充分情况下分别被当前低容量假说否定；
-- 不应继续在同一 2015–2020 consumed window 上自动发明 R5/R6/R7，直到某个指标碰巧通过。
-
-Authority reset 与 Round-1 evidence 已通过 PR #5 merge 回真正活跃分支，integration commit：
-
-`9cded4c0e56e7d92232157699c0b569b39cabea4`
-
-## 6. Round-2 的唯一已准入 theory intake：T1
-
-一般性的：
-
-`broad_new_lane_generation_authorized = false`
-
-仍然成立。
-
-但 Round-1 closeout 允许一个例外：**独立理论/文献驱动机制必须在 outcome 前定义并 review**。当前已按这个门准入一个且仅一个 T1：
+Identity：
 
 `T1_transitory_component_after_extreme_intraday_shock_v1`
 
-它不是 R1/R2/R3/R4 rescue，也不是“又加一个技术指标”。理论依据来自两类相反的公开证据：
+`CL-20260908-006` 的 supply/alignment-only 本地执行已由云端独立复核。
 
-- 极端短周期价格变化之后可能发生反转，常被讨论为 temporary price pressure / liquidity provision；
-- 信息型 jump 也可能出现短期 continuation / underreaction。
+状态：
 
-因此 T1 不假设“大幅波动必然反转”，而只问：
+`CL-20260908-006 = CLOUD REVIEWED / COMPLETED`
 
-> **在一个已经完成的极端 5m shock 内，如果最大定向位移在 5m 收盘前已经出现部分回吐，这个已观察到的 transitory-component symptom，是否增加后续同日完整回撤相对等距延续的概率？**
+但 frozen supply gate 失败：
 
-当前数据没有可靠 volume/order book/news，所以：
+| partition | aligned | minimum | result |
+|---|---:|---:|---|
+| BUILD 2015–2018 | 364 | 150 | PASS |
+| 2019 | 48 | 50 | **FAIL** |
+| 2020 | 87 | 50 | PASS |
 
-- 不允许把 T1 叫直接 liquidity identification；
-- 不允许把 T1 叫 direct information-shock classifier；
-- 唯一机制变量是 completed event bar 的 `within_bar_retrace_fraction`。
+因此：
 
-已冻结：
+`T1_current_data_event_supply_insufficient / CLOSED_BEFORE_OUTCOME`
 
-- theory intake：`docs/research/reversal_mean_reversion_round2_transitory_shock_theory_intake_20260908.md`；
-- supply protocol：`docs/governance/reversal_mean_reversion_T1_transitory_shock_supply_protocol_v1.json`；
-- execution freeze：`docs/governance/reversal_mean_reversion_T1_supply_execution_freeze_v1.json`；
-- local task：`CL-20260908-006`；
-- handoff：`docs/ops/cl_20260908_006_T1_transitory_shock_supply_handoff.md`。
+云端 review：
 
-### T1 当前只允许 supply/alignment audit
+`docs/research/reversal_mean_reversion_T1_supply_cloud_review_20260908.md`
 
-事件定义已经在供给前冻结：
+Post-event future return / reversal / continuation / Brier / log-loss / PnL 均未打开。
 
-- native `5m_offset_0`；
-- `r5 = log(close/open)`；
-- 只用当前 bar 前恰好 960 个 native 5m bars；
-- median + `1.4826*MAD`；
-- `abs(robust_z) >= 5.0`；
-- 不允许 threshold / window / offset / sign-specific search。
+禁止因为 `48` 接近 `50` 就降低 5 robust-sigma threshold、缩短 960-bar reference、换 offset、分方向或筛时段。
 
-事件自身的 1m path 只允许做 alignment 和 completed-bar retrace 描述；不得读事件后的 future return / reversal / continuation / Brier / log-loss / PnL。
+## 5. 当前科学地图
 
-Frozen aligned supply gate：
+- **M0**：v0.6.17 interval measurement capability 已 cloud-reviewed；morphology 仍未 accepted。
+- **R1**：unresolved，未来 materially new data 优先重检。
+- **R2**：closed。
+- **R3**：closed。
+- **R4**：closed。
+- **T1**：current identity closed before outcome due supply failure。
+- relative-value / overnight：兄弟专题，不控制本仓主线。
 
-- BUILD >= `150`；
-- 2019 >= `50`；
-- 2020 >= `50`。
+## 6. 当前合法 next actions
 
-如果供给失败，T1 当前 2015–2020 identity 直接关闭，不降 5-sigma、不改 960。
+现在**没有**合法理由继续在同一 2015–2020 consumed window 上自动制造新的 R5/R6/R7 指标。
 
-如果供给通过，**outcomes 仍然 sealed**；必须先 cloud review receipt，再另写 outcome execution freeze。
+下一步按优先级只有：
 
-## 7. Broad program 重开条件
+1. **等待统一数据工具的新数据更新。** 数据到达后先做 source/provenance、timestamp/session、missing/duplicate/unexpected ledger；
+2. 在任何 outcome 前冻结新的 BUILD / chronological check / holdout；
+3. 明确 fine-path feature 属于 direct measurement 还是 interval/partial-identification；
+4. materially new data 通过 admission 后，优先给 unresolved R1 一个新的 results-blind research budget；
+5. 若出现真正独立的新理论，可在 outcome 前 preregister 一个新 identity；禁止把 R2/R3/R4/T1 改名重跑；
+6. 不做 PnL、paper trading、production。
 
-除了已经 results-blind 冻结的 T1 supply-only intake，新的 broad mechanism screen 仍只有在以下任一条件成立后才能重开：
+## 7. 新数据到来时对本仓最重要的要求
 
-1. **实质新增数据**到位，并在看 outcome 前重新冻结 BUILD/check/holdout 角色；
-2. 另一个**独立理论/文献驱动的新机制**在 outcome 前先被定义、review，并且不得只是本轮失败路线的改名 rescue；
-3. M0 产生一个实质新的、被接受的因果测量对象，并先修改 program charter，再做 results-blind 研究。
+除了更长年份，更重要的是 **真实 finer source completeness**：
 
-R2/R3/R4 原样重跑不属于新机制。
+- CSI1000 / CSI300 / CSI500 完整、可追溯 1m source；
+- timestamp label / timezone / session semantics；
+- missing / duplicate / unexpected clock ledger；
+- source SHA / lineage；
+- 若有 3s 或更细 observations，保留原始 observation identity，不只保留重采样 OHLC。
 
-## 8. 当前 next action
+这样可以减少未来 path research 对 partial-identification interval 的依赖。
 
-两个彼此独立的本地任务均已 `local_reported`，**云端复核尚未发生**：
+## 8. Authority order
 
-1. **M0 / CL-20260908-005**：frozen v0.6.17 authoritative-source formal replay 已回传。裁决 `session_aware_bounds_valid_but_structural_gap_nonidentifiability_is_material`。正式报告 `docs/research/two_wave_session_aware_information_set_bounds_results_v0617.md`。不得把 local_reported 写成 cloud_reviewed，也不得改 morphology 全局状态。
-2. **Broad T1 / CL-20260908-006**：supply/alignment audit 已回传。gate = `T1_current_data_event_supply_insufficient`（2019 aligned 48<50）。**不得执行 post-event outcome，不得降低 5-sigma / 960-bar 门槛。**
-
-云端下一步固定为：
-
-- 收到 CL-005 时先做 M0 source/blob/gate 独立复核；
-- 收到 CL-006 时先做 T1 supply/source/blob 独立复核；
-- T1 只有 supply cloud-reviewed PASS 后才可能另行授权 outcome；
-- 你之后通知统一数据工具完成数据更新时，先做 source/role admission，再决定 R1 等 unresolved hypothesis 是否获得新 research budget；
-- 在此之前不做 PnL、paper trading 或 production。
-
-## 9. Authority order
-
-以后发生上下文压缩或新助手接管，按以下顺序判断仓库级方向：
+上下文压缩或新助手接管时，按以下顺序：
 
 1. `CONTINUE_HERE.md`
 2. `docs/governance/reversal_mean_reversion_program_charter_v1.json`
 3. `docs/governance/reversal_mean_reversion_program_state_v1.json`
-4. `docs/research/reversal_mean_reversion_program_whitepaper_v1.md`
+4. `docs/research/reversal_mean_reversion_program_whitepaper_v2.md`
 5. `AGENTS.md`
-6. post-reset lane / measurement protocols
+6. post-reset protocols / cloud reviews
 7. 历史 v0.x 文档——只在 M0 / 对应具体 identity 内有权威性
 
-旧文件若写“唯一下一动作是继续 v0.6.17”，只对 M0 子项目有效，不再控制整个仓库。
+旧文件若写“唯一下一动作是继续 v0.6.17”，已被本文件 supersede；CL-005 已完成 cloud review。
 
-## 10. 权限边界
+## 9. 权限边界
 
 仍然禁止：
 
 - FactorLab current registry mutation；
 - Layer 4 economic routing；
-- real / paper trading；
-- fresh-OOS 声称；
+- fresh-OOS 虚假声明；
 - 用 PnL 挑 recognizer / parent-state formula；
 - 把 algorithm-generated labels 当 morphology ground truth；
-- 失败后不断加过滤器直到通过。
+- empirical interval shrinkage；
+- structural-gap favorable filtering；
+- real / paper trading；
+- production。
 
 Production authority = `false`。
