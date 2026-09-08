@@ -1,0 +1,143 @@
+{
+  "schema_id": "factorlab_broad_rmr_stage1_event_adapter@1.0",
+  "session_date": "2026-09-08",
+  "program_identity": "broad_reversal_mean_reversion_discovery_program_v1",
+  "stage": "results_blind_event_adapter_freeze_before_price_outcome_screen",
+  "price_outcomes_opened_for_adapter_design": false,
+  "source": {
+    "structure_cache": "cloud_inputs/frozen_research_cache_v065_v0613/published_identities_v065.parquet",
+    "primary_price_view": "data/development/5m_offset_0.parquet",
+    "primary_view": "5m_offset_0",
+    "BUILD": "2015-01-05_to_2018-12-31_consumed_development",
+    "CHECK": "2019-01-01_to_2020-12-31_not_fresh",
+    "post_2020_open": false
+  },
+  "scale_binding": {
+    "parent_birth_level": 5,
+    "parent_sigma_bars": 2.828427124746191,
+    "finer_birth_level": 3,
+    "finer_sigma_bars": 1.4142135623730954,
+    "one_octave_separation": true,
+    "temporal_maturity_each_identity": "cycle1_12_to_48_bars_and_cycle2_12_to_48_bars_and_pair_span_le_96",
+    "scale_search_after_freeze": false
+  },
+  "geometry_from_published_raw_five_pivots": {
+    "log_prices": "close_at_published_raw_occurrence_bars",
+    "direction": "sign(log_p4-log_p0)",
+    "cycle_range_1": "max(log_p0_p1_p2)-min(log_p0_p1_p2)",
+    "cycle_range_2": "max(log_p2_p3_p4)-min(log_p2_p3_p4)",
+    "amplitude_scale": "mean(cycle_range_1,cycle_range_2)",
+    "abs_drift": "abs(log_p4-log_p0)/amplitude_scale",
+    "overlap": "intersection_length_of_two_cycle_log_price_ranges/min(cycle_range_1,cycle_range_2)",
+    "parent_eff": "abs(log_p4-log_p0)/sum(abs(diff(log_p0_to_log_p4)))",
+    "envelope_low": "min(log_p0_to_log_p4)",
+    "envelope_high": "max(log_p0_to_log_p4)",
+    "latest_failure_boundary": "for_positive_direction_latest_low_phase_pivot;for_negative_direction_latest_high_phase_pivot",
+    "zero_or_nonfinite_amplitude": "exclude"
+  },
+  "parent_state_validity": {
+    "starts_at_parent_publication_confirmation_bar": true,
+    "expires_at": "min(next_mature_parent_publication_same_level, parent_publication_plus_96_bars)",
+    "reason_96": "preexisting_MaturityConfig_max_pair",
+    "finer_identity_must_begin_after_parent_publication": "finer_p0_occurrence_bar > parent_publication_bar",
+    "one_event_per_parent_per_lane": true
+  },
+  "R1_cross_scale_pullback": {
+    "event": "first_mature_finer_identity_with_direction_opposite_parent_inside_parent_validity_window",
+    "event_time": "finer_publication_confirmation_bar",
+    "severity": "abs(finer_log_p4-finer_log_p0)/parent_amplitude_scale",
+    "recovery_boundary": "finer_log_p0_origin",
+    "failure_boundary": "parent_latest_failure_boundary",
+    "valid_geometry": "event_close_strictly_between_recovery_and_failure_in_parent_direction",
+    "outcome": "recovery_first_vs_parent_failure_first_on_5m_close",
+    "maximum_post_event_bars": 96,
+    "censor_at_parent_state_expiry": true,
+    "features": ["severity","abs_drift","overlap","parent_eff"],
+    "models": {
+      "severity_only": ["severity"],
+      "parent_integrity_only": ["abs_drift","overlap","parent_eff"],
+      "parent_plus_severity": ["severity","abs_drift","overlap","parent_eff"]
+    },
+    "progress_gate": {
+      "minimum_BUILD_resolved": 150,
+      "minimum_2019_resolved": 50,
+      "minimum_2020_resolved": 50,
+      "parent_plus_severity_pooled_Brier_lower_than_severity": true,
+      "parent_plus_severity_pooled_logloss_lower_than_severity": true,
+      "Brier_improvement_positive_in_2019_and_2020": true,
+      "integrity_projection_direction": "coef(abs_drift)-coef(overlap)+coef(parent_eff)>0"
+    }
+  },
+  "R2_range_boundary_reversion": {
+    "event": "first_mature_finer_identity_inside_parent_validity_window_whose_publication_close_is_outside_parent_envelope_and_direction_points_outward",
+    "event_time": "finer_publication_confirmation_bar",
+    "severity": "outside_log_distance/parent_envelope_width",
+    "reentry_boundary": "nearest_parent_envelope_edge",
+    "continuation_boundary": "event_log_close_plus_outward_sign*outside_log_distance",
+    "outcome": "reentry_first_vs_symmetric_continuation_first_on_5m_close",
+    "maximum_post_event_bars": 96,
+    "censor_at_parent_state_expiry": true,
+    "features": ["severity","abs_drift","overlap","parent_eff"],
+    "models": {
+      "excursion_severity_only": ["severity"],
+      "parent_range_state_only": ["abs_drift","overlap","parent_eff"],
+      "parent_plus_excursion_state": ["severity","abs_drift","overlap","parent_eff"]
+    },
+    "progress_gate": {
+      "minimum_BUILD_resolved": 150,
+      "minimum_2019_resolved": 50,
+      "minimum_2020_resolved": 50,
+      "combined_pooled_Brier_lower_than_severity": true,
+      "combined_pooled_logloss_lower_than_severity": true,
+      "Brier_improvement_positive_in_2019_and_2020": true,
+      "range_projection_direction": "-coef(abs_drift)+coef(overlap)-coef(parent_eff)>0"
+    }
+  },
+  "R3_structural_exhaustion_transition": {
+    "event": "next_mature_parent_identity_same_direction_whose_p0_occurs_after_previous_parent_publication_and_is_published_within_192_bars",
+    "reason_192": "two_times_preexisting_max_pair_allows_one_new_complete_parent_structure_after_prior_publication",
+    "event_time": "current_parent_publication_confirmation_bar",
+    "translation_decay": "previous_abs_drift-current_abs_drift",
+    "quality_decay": "0.5*((current_overlap-previous_overlap)+(previous_parent_eff-current_parent_eff))",
+    "baseline_feature": "current_abs_drift",
+    "failure_boundary": "current_parent_latest_failure_boundary",
+    "extension_boundary": "event_log_close_plus_parent_direction*abs(event_log_close-failure_boundary)",
+    "outcome": "parent_failure_first_vs_symmetric_same_direction_extension_first_on_5m_close",
+    "maximum_post_event_bars": 96,
+    "models": {
+      "baseline": ["current_abs_drift"],
+      "translation_decay": ["current_abs_drift","translation_decay"],
+      "quality_decay": ["current_abs_drift","quality_decay"]
+    },
+    "progress_gate_each_deterioration_candidate": {
+      "minimum_BUILD_resolved": 100,
+      "minimum_2019_resolved": 40,
+      "minimum_2020_resolved": 40,
+      "pooled_Brier_lower_than_baseline": true,
+      "pooled_logloss_lower_than_baseline": true,
+      "Brier_improvement_positive_in_2019_and_2020": true,
+      "deterioration_coefficient_positive": true
+    }
+  },
+  "common_model": {
+    "pipeline": "StandardScaler+LogisticRegression(C=1,l2,lbfgs,max_iter=1000)",
+    "fit_on_BUILD_only": true,
+    "evaluate_same_frozen_model_on_2019_and_2020": true,
+    "hyperparameter_search": false,
+    "calibration": false,
+    "binary_threshold": null
+  },
+  "forbidden": [
+    "change_parent_or_finer_level_after_results",
+    "use_other_offsets_to_select_winner",
+    "change_maturity_window_after_results",
+    "change_first_passage_boundaries_after_results",
+    "add_technical_indicators",
+    "split_by_calendar_subperiod_to_rescue",
+    "read_post_2020_rows",
+    "select_by_trading_PnL",
+    "claim_fresh_OOS",
+    "claim_morphology_acceptance"
+  ],
+  "production_authority": false
+}
