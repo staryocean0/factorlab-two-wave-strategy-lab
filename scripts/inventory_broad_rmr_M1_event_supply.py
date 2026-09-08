@@ -139,9 +139,9 @@ def main() -> int:
         "program_identity": "broad_reversal_mean_reversion_discovery_program_v1",
         "measurement_identity": "M1_parent_structure_plus_single_shock_event_adapter_v1",
         "research_role": "event_supply_only_no_post_event_outcome",
-        "price_values_read_only_through_event_trigger": true,
-        "post_event_outcomes_read": false,
-        "post_2020_rows_read": false,
+        "price_values_read_only_through_event_trigger": True,
+        "post_event_outcomes_read": False,
+        "post_2020_rows_read": False,
         "parent_level": 5,
         "primary_view": "5m_offset_0",
         "R1": {
@@ -159,9 +159,9 @@ def main() -> int:
             "R1": bool(r1_gate),
             "R2": bool(r2_gate),
         },
-        "scientifically_fresh": false,
-        "trading_PnL_used": false,
-        "production_authority": false,
+        "scientifically_fresh": False,
+        "trading_PnL_used": False,
+        "production_authority": False,
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
