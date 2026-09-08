@@ -12,131 +12,73 @@
 
 “均值”可以是价格中心、动态区间、趋势轨迹、父级结构、状态条件分布、跨资产相对关系或统计属性的正常区域。
 
-两浪体系归入：
-
-`M0_two_wave_structure_measurement_foundation`
-
-M0 提供因果多尺度结构坐标，不自动提供交易 alpha。
+两浪体系归入 `M0_two_wave_structure_measurement_foundation`：提供因果多尺度结构坐标，不自动提供交易 alpha。
 
 ## 2. 数据治理：数据是长期研究资产
 
 项目不采用“每验证一次就烧掉一段历史”的做法。
 
-### TRAIN
+- **TRAIN**：`2015-01-05..2018-12-31`，可以反复训练、调研、拆案例、诊断失败和修改模型。
+- **VALIDATION**：`2019-01-01..2020-12-31`，可以反复做时间稳定性检验，也可以拆年份、事件和状态做诊断，再继续迭代。
+- **BLACKBOX**：当前不分配。只有候选足够成熟时才划一小段尚未打开的数据做 aggregate-only 最终确认。
 
-当前 `2015-01-05..2018-12-31`。
-
-可以反复训练、调研、拆案例、诊断失败和修改模型。
-
-### VALIDATION
-
-当前 `2019-01-01..2020-12-31`。
-
-可以反复做时间稳定性检验，也可以在失败后拆年份、事件和状态做诊断，再回到 TRAIN/VALIDATION 继续迭代。
-
-### BLACKBOX
-
-当前不分配。
-
-只有候选足够成熟时，才划一小段尚未打开的数据做 aggregate-only 最终确认。若之后打开细节，这段数据降级成 VALIDATION，而不是“报废”。
-
-因此：
+如果 BLACKBOX 后来被打开细节，它降级为 VALIDATION；数据仍然可用，只是不再具有“从未看过”的资格。
 
 > **数据本身不是消耗品；只有 never-seen BLACKBOX qualification 是稀缺的。**
 
-旧的 `consumed / not fresh` 标签只说明它不能再被包装成第一次独立确认，不代表不能继续研究。
+权威政策：`docs/governance/reversal_mean_reversion_data_reuse_validation_policy_v1.md`。
 
 ## 3. M0 当前状态
 
 v0.6.17 authoritative-source replay 已完成云端独立复核。
 
-接受 verdict：
+接受 verdict：`session_aware_bounds_valid_but_structural_gap_nonidentifiability_is_material`。
 
-`session_aware_bounds_valid_but_structural_gap_nonidentifiability_is_material`
+接受能力：`interval_valued_session_aware_path_information_bounds`。
 
-接受能力：
-
-`interval_valued_session_aware_path_information_bounds`
-
-关键含义：native 5m OHLC 不足以天然确定 fine path。以后 path efficiency / roughness / concentration 等细路径量必须明确属于：
-
-1. 真实 finer-source 直接测量；
-2. fully-enveloped finite interval；
-3. structural-gap partial-identification interval。
+native 5m OHLC 不足以天然确定 fine path。以后 path efficiency / roughness / concentration 等细路径量必须明确属于：真实 finer-source 直接测量、fully-enveloped finite interval、或 structural-gap partial-identification interval。
 
 这不是 morphology acceptance。当前 morphology 仍 `morphology_replication_not_yet_accepted`，operational baseline 仍 v0.4.3。
 
-## 4. 第一轮 broad research 的历史结论
+## 4. 历史 broad research 的正确解释
 
-### R1：趋势中的次级回撤
+- **R1**：旧 identity 因旧样本门 `unresolved`，不是机制被否定；允许继续在 TRAIN / VALIDATION 研究新 identity，不能追溯改写旧 receipt。
+- **R2**：旧 M1 低容量 identity 在充分样本下没有增量，历史 identity closed；独立的新 range-reversion 机制仍可研究。
+- **R3**：旧 v1 预注册方向被证伪，历史 identity closed；独立的新 transition 机制仍可研究。
+- **R4**：旧 v1 三个 candidate 均无稳定增量。重要教训：统计属性自己回归，不等于价格必然均值回归。
+- **T1**：旧 5-sigma / 960-bar identity 在 outcome 前因旧 supply gate 关闭；不代表所有 shock-reversion 研究永久禁止。
 
-旧 identity 因旧年度样本门而 `unresolved`，不是机制被否定。它可以继续在 TRAIN / VALIDATION 上以新的、明确身份研究；只是不能追溯改写旧 receipt，也不能把 2019/2020 称 fresh。
+这些结论是 identity-level evidence，不会“耗掉”底层数据。
 
-### R2：震荡边界回归
+## 5. 当前 active：R5 多尺度序列依赖
 
-旧 M1 低容量 identity 在充分样本下没有提供增量，历史 identity closed。未来可以提出真正独立的新 range-reversion 机制。
+Identity：`R5_multiscale_serial_dependence_state_v1`。
 
-### R3：结构衰竭
+独立理论基础来自 trend-following / autocorrelation 文献：**短期负自相关与较慢尺度正记忆可以同时存在。** 因此市场不是简单的“趋势/震荡”永久二选一，反转和趋势可能在不同尺度同时成立。
 
-旧 v1 的预注册方向被证伪，历史 identity closed。未来可以研究新的 transition 机制，但不能把旧负号重新讲成成功。
+R5 不依赖 M0 morphology acceptance，也不是旧 R1 参数 rescue。
 
-### R4：统计状态极端
+### R5-A：memory sign map
 
-旧 v1 三个 candidate 均无稳定增量。其重要教训仍然是：
+研究 short lags 1..3 与 slower lags 12..18 的符号状态，先确认 `short<0 & slower>0` 是否有足够供给和持续性。
 
-> **统计属性自己回归，不等于价格必然均值回归。**
+### R5-B：anti-persistence routing
 
-### T1：极端冲击暂时性成分
+用低容量 OLS 检验短期 anti-persistence 是否稳定让当前 5m return 对下一 5m return 的有效斜率更负。
 
-旧 5-sigma / 960-bar identity 在 outcome 前因旧 supply gate 关闭。这个结论保留，但不代表所有 shock-reversion 研究永久禁止。
-
-## 5. 当前新方向：R5 多尺度序列依赖
-
-当前 active identity：
-
-`R5_multiscale_serial_dependence_state_v1`
-
-独立理论基础来自 trend-following / autocorrelation 文献：**短期负自相关与较慢尺度正记忆可以同时存在。** 因此市场并不是简单地“现在趋势”或“现在震荡”二选一；更合理的问题是：不同尺度上的序列依赖符号是否不同，以及这种状态是否帮助判断短期反向波动。
-
-R5 不依赖 M0 morphology acceptance，也不是旧 R1 的参数 rescue。
-
-### R5-A：多尺度 memory sign map
-
-用 causal normalized 5m returns 研究：
-
-- short lags 1..3 是否为负；
-- slower lags 12..18 是否为正；
-- `short<0 & slower>0` mixed state 是否有足够供给和持续性。
-
-### R5-B：局部 anti-persistence
-
-检验短期 anti-persistence 是否稳定让当前 5m return 对下一 5m return 的斜率更负。
-
-先用低容量 OLS；简单交互不成立，不允许直接用 HMM/rSLDS/Koopman 救。
+简单交互不成立，不允许直接用 HMM/rSLDS/Koopman 救。
 
 ### R5-C：慢趋势里的反向 shock
 
-这是用户提出的核心场景的纯统计版本：
-
-> 一段较慢方向运动之后，突然出现一个反方向 5m shock；在较慢正记忆与短期 anti-persistence 更强时，随后 15m 是否更容易回到原方向？
+纯统计地研究：一段较慢方向运动之后，突然出现反方向 5m shock；在较慢正记忆与短期 anti-persistence 更强时，随后 15m 是否更容易回到原方向。
 
 事件阈值只由 TRAIN 的 `abs(z)` 80% quantile 决定，不按 outcome 搜索。
 
-## 6. R5 数据和时间语义
+## 6. R5 时间与数据合同
 
-使用：
+使用 `data/development/5m_offset_0.parquet`，CSI1000 `000852.SH`，70,114 rows。
 
-`data/development/5m_offset_0.parquet`
-
-CSI1000 `000852.SH`，70,114 rows。
-
-只构造同一 trading day 内、bar_end 相差恰好 5 分钟的 close-to-close log return。
-
-午休、隔夜和缺 bar 都切断 continuous segment：
-
-- autocorrelation lag pair 不跨 segment；
-- parent drift 不跨 segment；
-- future 15m recovery 不跨 segment。
+只构造同一 trading day 内、bar_end 相差恰好 5 分钟的 close-to-close log return。午休、隔夜和缺 bar 都切断 continuous segment：autocorrelation lag pair、parent drift、future 15m recovery 均不得跨 segment。
 
 冻结参数：
 
@@ -147,58 +89,41 @@ CSI1000 `000852.SH`，70,114 rows。
 - each lag minimum pair count = 100；
 - shock threshold = TRAIN 80% quantile of `abs(z)`。
 
-## 7. 为什么现在不直接上状态模型
-
-用户提供的多状态 / rSLDS / Koopman 文献非常重要，但本仓当前不应该跳到最复杂层。
-
-正确阶梯是：
-
-1. 先证明简单的 serial-dependence / state interaction 有稳定增量；
-2. 再研究离散 regime routing；
-3. 只有简单 regime 有价值时，才考虑 rSLDS；
-4. 再之后才讨论 Switching-Koopman。
-
-否则复杂模型只是在同一数据上扩大自由度。
-
-## 8. 当前执行状态
+## 7. 当前执行状态
 
 R5 的 preanalysis、protocol、runner、tests 和 execution freeze 已全部写入。
 
-本地任务：
+本地任务：`CL-20260908-007`。
 
-`CL-20260908-007`
+Handoff：`docs/ops/cl_20260908_007_R5_multiscale_serial_dependence_handoff.md`。
 
-Handoff：
+当前云端已实际尝试 raw-GitHub direct execution，DNS 解析失败；因此真实 Parquet run 由本地模型执行，GitHub Actions 未授权。
 
-`docs/ops/cl_20260908_007_R5_multiscale_serial_dependence_handoff.md`
+本地顺序：先跑冻结的 7 个 synthetic tests，再执行一次 TRAIN/VALIDATION runner，推 compact receipt。云端收到后独立验收。
 
-当前云端已实际尝试 raw-GitHub direct execution，DNS 解析失败，因此真实 Parquet run 由本地模型执行；GitHub Actions 未授权。
+## 8. 为什么不直接上状态模型
 
-本地只需要跑冻结的 7 个 synthetic tests 和一次 TRAIN/VALIDATION runner，推 compact receipt。云端收到后再独立验收。
+用户提供的 HMM / rSLDS / Koopman 框架很重要，但合理阶梯是：
+
+1. 先证明简单 serial-dependence / state interaction 有稳定增量；
+2. 再研究离散 regime routing；
+3. 简单 regime 有价值后才考虑 rSLDS；
+4. 再之后才讨论 Switching-Koopman。
+
+否则复杂模型只是扩大同一数据上的研究自由度。
 
 ## 9. BLACKBOX 的使用时机
 
-R5 即使在 VALIDATION 表现不错，也不会立刻吃掉一段黑箱。
+R5 即使 VALIDATION 表现不错，也不会立即分配 BLACKBOX。
 
-先允许：
+先允许 TRAIN 反复建模、VALIDATION 反复拆解、机制修订和时间稳定性诊断。只有模型形式、阈值、特征预算和评价指标趋于稳定后，才分配一个小 BLACKBOX，默认只读 aggregate pass/fail。
 
-- TRAIN 反复建模；
-- VALIDATION 反复拆解；
-- 机制修订；
-- 多年份稳定性诊断。
+## 10. 新数据的作用
 
-只有当模型形式、阈值、特征预算、评价指标都趋于稳定，才分配一个小 BLACKBOX，且默认只读取 aggregate pass/fail。
+新数据不是因为旧数据“用完了”。它主要用于扩展不同市场状态、增加稀有事件、提高 1m/3s/tick 细路径质量、加入 CSI300/500/1000 或横截面机制，以及最终给成熟候选留一小段 BLACKBOX。
 
-## 10. 权限边界
+## 11. 权限边界
 
-当前不授权：
-
-- TRAIN/VALIDATION 上的 fresh-OOS 宣称；
-- PnL/Sharpe 驱动的研究选择；
-- paper trading；
-- production；
-- FactorLab registry mutation；
-- 用 native OHLC 假装 fine path 已知；
-- outcome 后的 favorable direction/year/time filter。
+当前不授权：TRAIN/VALIDATION 上的 fresh-OOS 宣称、PnL/Sharpe 驱动的研究选择、paper trading、production、FactorLab registry mutation、用 native OHLC 假装 fine path 已知、outcome 后 favorable direction/year/time filter。
 
 Production authority = `false`。
