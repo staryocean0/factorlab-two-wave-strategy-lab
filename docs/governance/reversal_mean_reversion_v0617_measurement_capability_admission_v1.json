@@ -1,0 +1,76 @@
+{
+  "schema_id": "factorlab_broad_rmr_v0617_measurement_capability_admission@1.0",
+  "session_date": "2026-09-08",
+  "source_identity": "M0_two_wave_structure_measurement_foundation/v0.6.17",
+  "cloud_review": "docs/research/two_wave_session_aware_information_set_bounds_cloud_review_20260908.md",
+  "accepted_verdict": "session_aware_bounds_valid_but_structural_gap_nonidentifiability_is_material",
+  "accepted_capability": "interval_valued_session_aware_path_information_bounds",
+  "not_accepted": [
+    "morphology_replication",
+    "point_identified_path_concentration_from_native_5m_OHLC",
+    "H_end_5_as_authoritative_support_truth",
+    "empirical_bound_shrinkage",
+    "direction_or_third_wave_prediction",
+    "trading_alpha"
+  ],
+  "evidence": {
+    "authoritative_source_rows": 349923,
+    "date_range": "2015-01-05..2020-12-31",
+    "published_legs": 737104,
+    "fully_enveloped_legs": 528360,
+    "structural_gap_universal_bound_legs": 208744,
+    "structural_gap_fraction": 0.2831947730578046,
+    "oracle_coverage_fraction": 1.0,
+    "oracle_coverage_failures": 0,
+    "registered_vs_actual_N_mismatch": 0,
+    "all_leg_J_width_median": 0.690029150655901,
+    "all_leg_J_width_mean": 0.6388177063673829
+  },
+  "measurement_classes": {
+    "actual_finer_source_direct_measurement": {
+      "allowed": true,
+      "requires": [
+        "source_provenance_admitted_before_outcome",
+        "exact_time_and_session_semantics",
+        "no_synthetic_missing_rows",
+        "causal_availability_timestamp_or_equivalent_contract"
+      ]
+    },
+    "fully_enveloped_native_bar_leg": {
+      "allowed": true,
+      "representation": "finite_interval_from_frozen_v0617_bounds"
+    },
+    "leg_with_actual_unenveloped_source_gap": {
+      "allowed": true,
+      "representation": "universal_or_predeclared_partial_identification_interval",
+      "point_imputation": false,
+      "drop_leg_to_improve_results": false
+    }
+  },
+  "downstream_rules": [
+    "every_path_feature_must_declare_measurement_class",
+    "candidate_models_may_not_treat_interval_midpoint_as_observed_truth_without_a_separately_preregistered_partial_identification_method",
+    "structural_gap_status_may_be_used_as_measurement_quality_metadata_but_not_as_a_posthoc_alpha_filter",
+    "finer_source_data_may_narrow_uncertainty_only_after_source_and_evidence_role_admission",
+    "future_append_may_not_rewrite_closed_historical_measurement_state"
+  ],
+  "new_data_admission_requirements": [
+    "verify_exact_source_identity_and_SHA_or_content_address",
+    "verify_timestamp_label_and_session_semantics",
+    "inventory missing_duplicate_unexpected_source_rows_fail_closed",
+    "freeze BUILD_CHECK_HOLDOUT_roles_before_any_strategy_outcome_read",
+    "state_whether_path_measurement_is_direct_or_interval_valued",
+    "do_not_call_historical_consumed_data_fresh"
+  ],
+  "R1_retest_policy": {
+    "priority_when_materially_new_data_arrives": true,
+    "reason": "R1_is_unresolved_from_supply_not_rejected",
+    "must_preserve": [
+      "predeclared_parent_state_identity_or_separately_approved_new_M0_identity",
+      "no_parameter_relaxation_based_on_prior_2015_2020_results",
+      "chronological_role_freeze_before_outcomes",
+      "explicit_measurement_uncertainty_for_any_path_information_feature"
+    ]
+  },
+  "production_authority": false
+}
