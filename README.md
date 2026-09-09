@@ -1,44 +1,39 @@
 # FactorLab Two-Wave Layer 3 Research Theme
 
-This is a private, minimal cloud research package for the proposed sixteenth
-FactorLab timing tool: `two_wave_parent_structure_recognizer`.
+## Current bucket authority: causal structure/state recognition
 
-The package gives Codex Cloud enough context to implement and test the
-recognizer without uploading the 2 TiB local DataHub or the 283 GiB FactorLab
-working tree. It includes:
+This repository is the current FactorLab bucket for **causally deciding whether the present parent K-line structure is range-bound, an uptrend, or a downtrend**.
 
-- the user's full two-wave handoff prompt;
-- the current FactorLab Layer 1/2/3 timing contracts and their Python import
-  closure;
-- the immutable fifteen-tool V1.5 registry prefix;
-- the current Layer 3 architecture/identity indexes;
-- FactorLab strategy-research governance;
-- DataHub-built CSI1000 bar views for 2015-2020 development only;
-- package validation and regression tests.
+The canonical primary research object remains `two_wave_parent_structure_recognizer`:
 
-It intentionally excludes Layer 4 economics, raw transaction data, options,
-futures, private credentials, local outputs, historical FactorLab Git history,
-and all post-2020 CSI1000 rows.
+1. causally identify completed same-scale waves;
+2. pair two complete waves at the same scale;
+3. classify their parent structure as **Range / UpTrend / DownTrend / Uncertain**;
+4. preserve event time, confirmation time, classification time and replay stability;
+5. do not use trading P&L as a substitute for morphology/state-recognition acceptance.
 
-The canonical infrastructure shell is
-`docs/ops/timing_infrastructure_four_layer_inventory@1.0.json`: 数据时钟 →
-K线测量 → Layer 3策略研究 → 执行标的。Only the first three layers are
-executable in this theme; the execution layer is present as a boundary contract.
+Start with:
 
-## Start here
+- [`docs/INDEX.md`](docs/INDEX.md)
+- [`docs/user/two_wave_strategy_handoff_prompt.md`](docs/user/two_wave_strategy_handoff_prompt.md)
+- [`docs/user/cloud_execution_prompt.md`](docs/user/cloud_execution_prompt.md)
 
-```bash
-python -m pip install -e .
-python scripts/validate_theme_package.py
-pytest -q
-```
+## Migrated supporting evidence
 
-Then follow [`docs/user/cloud_execution_prompt.md`](docs/user/cloud_execution_prompt.md).
+A separate causal K-line state-recognizer lineage (`v1`-`v13`) was mistakenly developed in `factorlab-trend-reversion-regime-lab`. Its key authority, contribution ledger and decisive result cards are preserved under:
 
-## Scientific status
+`docs/archive/migrated_kline_state_recognizer_from_trend_reversion_20260909/`
 
-`infrastructure_candidate_waiting_morphology_replication`
+That migrated package is **supporting/comparison evidence only**. Its historical `v10 temporal blend` champion is not automatically the Two-Wave champion because it does not implement the required two-complete-wave morphology contract. Any reuse must be integrated and revalidated against the Two-Wave acceptance semantics.
 
-This repository may produce a research candidate and a pull request. It cannot
-install the tool into the authoritative local FactorLab registry or claim that
-the strategy works.
+## Explicit bucket boundary
+
+This repository does **not** own:
+
+- concrete reversal/mean-reversion strategy payoff research such as R1/R2 — that belongs to `factorlab-trend-reversion-regime-lab`;
+- STAR50/CSI1000 bottom-layer volatility/risk-state switching such as Unsafe/Recovering/HighVol — that belongs to `factorlab-star50-filter-lab`;
+- Layer 4 live execution or production trading.
+
+The package still contains imported Layer 1/2/3 infrastructure closure required by the bounded cloud theme; those dependencies are not separate active strategy mandates.
+
+`production_authority=false`.
