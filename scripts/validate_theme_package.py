@@ -40,6 +40,18 @@ IGNORED_GENERATED_PARTS = {
     ".mypy_cache",
     ".pyright",
 }
+# These files are the current human/AI control plane.  They were part of the
+# original seed closure, but the 2026-09-09 bucket-scope repair intentionally
+# changed them while leaving the underlying imported source closure frozen.
+# Treating them as immutable would make a legitimate authority correction look
+# like source corruption.  They must still exist and are covered by Git history
+# and repository-surface validation; every other seed-manifest entry remains
+# byte-for-byte checked.
+MUTABLE_AUTHORITY_PATHS = {
+    "AGENTS.md",
+    "README.md",
+    "docs/INDEX.md",
+}
 
 
 def _sha256(path: Path) -> str:
@@ -63,15 +75,29 @@ def validate_source_closure() -> dict[str, int]:
     if not isinstance(entries, list) or not entries:
         raise RuntimeError("source closure is empty")
     checked = 0
+    mutable_checked = 0
     for item in entries:
         if not isinstance(item, dict):
             raise RuntimeError("source closure row must be an object")
         relative = str(item["path"])
         path = ROOT / relative
+        if relative in MUTABLE_AUTHORITY_PATHS:
+            if not path.is_file():
+                raise RuntimeError(f"mutable authority entry missing: {relative}")
+            mutable_checked += 1
+            continue
         if not path.is_file() or _sha256(path) != str(item["sha256"]):
             raise RuntimeError(f"frozen source drifted: {relative}")
         checked += 1
-    return {"source_files_checked": checked}
+    missing_authority = sorted(
+        relative for relative in MUTABLE_AUTHORITY_PATHS if not (ROOT / relative).is_file()
+    )
+    if missing_authority:
+        raise RuntimeError(f"mutable authority entries missing: {missing_authority}")
+    return {
+        "source_files_checked": checked,
+        "mutable_authority_files_checked": mutable_checked,
+    }
 
 
 def validate_repository_surface() -> dict[str, int]:
