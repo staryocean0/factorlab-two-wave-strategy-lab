@@ -1,5 +1,11 @@
 # Two-Wave Theme Document Index
 
+## 0. Current bucket authority
+
+Primary objective: causally identify two complete same-scale waves and classify the resulting parent structure as `Range`, `UpTrend`, `DownTrend`, or `Uncertain`.
+
+Concrete reversal/MR payoff research belongs to `factorlab-trend-reversion-regime-lab`. Bottom-layer Unsafe/Recovering/HighVol risk-state research belongs to `factorlab-star50-filter-lab`.
+
 ## 1. User objective
 
 - [`user/two_wave_strategy_handoff_prompt.md`](user/two_wave_strategy_handoff_prompt.md)
@@ -40,7 +46,16 @@
 
 V1.5 is immutable. The cloud task may propose V1.6 but may not rewrite V1.5.
 
-## 5. Research governance
+## 5. Migrated supporting state-classification evidence
+
+The mis-scoped causal K-line recognizer v1-v13 lineage from `factorlab-trend-reversion-regime-lab` is preserved under:
+
+- [`archive/migrated_kline_state_recognizer_from_trend_reversion_20260909/MIGRATION_NOTE.md`](archive/migrated_kline_state_recognizer_from_trend_reversion_20260909/MIGRATION_NOTE.md)
+- authority/champion/contribution records and decisive v10-v13 result cards in the same directory.
+
+This package is a comparison baseline and contribution library, **not** a replacement for the Two-Wave morphology acceptance gate.
+
+## 6. Research governance
 
 - [`user/strategy_slice_rebuild_workflow.md`](user/strategy_slice_rebuild_workflow.md)
 - [`ops/strategy_slice_rebuild_whitepaper.md`](ops/strategy_slice_rebuild_whitepaper.md)
@@ -48,14 +63,12 @@ V1.5 is immutable. The cloud task may propose V1.6 but may not rewrite V1.5.
 - [`ops/post_training_strategy_science_acceptance@1.0.json`](ops/post_training_strategy_science_acceptance@1.0.json)
 - [`ops/post_training_account_audit@1.1.json`](ops/post_training_account_audit@1.1.json)
 
-The supplied data cannot satisfy the twelve-year strategy promotion workflow.
-Use these documents to preserve scientific boundaries, not to overclaim status.
+The supplied data cannot satisfy the twelve-year strategy promotion workflow. Use these documents to preserve scientific boundaries, not to overclaim status.
 
-## 6. Reference-only original project indexes
+## 7. Reference-only original project indexes
 
 - [`reference/factorlab_docs_00_index.md`](reference/factorlab_docs_00_index.md)
 - [`reference/factorlab_docs_ops_README.md`](reference/factorlab_docs_ops_README.md)
 - [`reference/factorlab_docs_user_README.md`](reference/factorlab_docs_user_README.md)
 
-These snapshots contain links outside this bounded theme package. The scoped
-index above is the executable package index.
+These snapshots contain links outside this bounded theme package. The scoped index above is the executable package index.
