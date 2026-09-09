@@ -18,6 +18,12 @@ Start with:
 - [`docs/user/two_wave_strategy_handoff_prompt.md`](docs/user/two_wave_strategy_handoff_prompt.md)
 - [`docs/user/cloud_execution_prompt.md`](docs/user/cloud_execution_prompt.md)
 
+## Four-layer timing navigation shell
+
+The retained infrastructure inventory is `docs/ops/timing_infrastructure_four_layer_inventory@1.0.json`.
+Its navigation semantics remain: **数据时钟 → K线测量 → 状态/机会研究 → 执行标的**.
+This shell is compatibility/navigation infrastructure only; it does not change the Two-Wave bucket's current scientific authority.
+
 ## Migrated supporting evidence
 
 A separate causal K-line state-recognizer lineage (`v1`-`v13`) was mistakenly developed in `factorlab-trend-reversion-regime-lab`. Its key authority, contribution ledger and decisive result cards are preserved under:
