@@ -1,0 +1,27 @@
+{
+  "schema": "migrated_kline_recognizer_champion_snapshot@1.0",
+  "source_repository": "staryocean0/factorlab-trend-reversion-regime-lab",
+  "source_branch": "research/kline-recognizer-persistence-prior-v13",
+  "migration_date": "2026-09-09",
+  "authority_in_two_wave": "supporting_evidence_only_not_two_wave_champion",
+  "historical_champion_version": "v10_temporal_blend",
+  "historical_champion_result_commit": "723404633fccb0a52181d2090cadbca3114dcc67",
+  "classifier": {
+    "primary": {"family": "pooled_multinomial_linear", "C": 1.0, "feature_surface": "12_current_causal_kline_features"},
+    "temporal_auxiliary": {"family": "temporal_context_linear", "horizon_bars": 6, "C": 0.1},
+    "blend": {"method": "log_probability_blend", "alpha": 0.3, "primary_weight": 0.7, "temporal_weight": 0.3, "fallback_when_temporal_unavailable": "primary_only"}
+  },
+  "switch_policy": {"switch_margin": 0.05, "min_new_probability": 0.45, "confirmation_bars": 4},
+  "pre2025_worst_cell": {
+    "min_balanced_accuracy": 0.7553851080081395,
+    "min_macro_f1": 0.7591912321042829,
+    "min_transition_f1": 0.19843342036553524,
+    "max_false_transitions_per_day": 1.2066115702479339
+  },
+  "consumed_2025_diagnostic": {
+    "000852.SH": {"balanced_accuracy": 0.8142904553683235, "macro_f1": 0.8105197657575427, "transition_f1": 0.23136246786632392, "false_transitions_per_day": 1.0905349794238683},
+    "000688.SH": {"balanced_accuracy": 0.7892740156432709, "macro_f1": 0.7907867772954409, "transition_f1": 0.21978021978021978, "false_transitions_per_day": 1.0164609053497942}
+  },
+  "fresh_oos_claim": false,
+  "production_ready": false
+}
