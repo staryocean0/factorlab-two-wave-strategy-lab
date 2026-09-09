@@ -1,0 +1,44 @@
+{
+  "schema": "migrated_kline_recognizer_contributions@1.0",
+  "source_repository": "staryocean0/factorlab-trend-reversion-regime-lab",
+  "source_branch": "research/kline-recognizer-persistence-prior-v13",
+  "authority_in_two_wave": "supporting_evidence_only",
+  "contributions": [
+    {
+      "id": "v6_soft_transition_asymmetry",
+      "finding": "Transition directions are not equivalent; Shock exit benefits from extra inertia, but hard extra confirmation damages point-state quality.",
+      "later_test": "v12 gamma=0.10 slightly improved all four aggregates but was not promotable"
+    },
+    {
+      "id": "v7_persistence_prior_point_state_signal",
+      "finding": "Previous-state/persistence information improved point-state classification, while direct Markov decoding harmed transition quality and churn control.",
+      "best_point_metrics": {"min_balanced_accuracy": 0.7739355167381246, "min_macro_f1": 0.7800117165696421, "min_transition_f1": 0.11764705882352942, "max_false_transitions_per_day": 2.0950413223140494}
+    },
+    {
+      "id": "v8_rare_switch_confidence_signal",
+      "finding": "True switches were an extreme rare-event problem (~1.44%-1.53% positive rows); hard gating suppressed churn but destroyed state quality."
+    },
+    {
+      "id": "v9_temporal_context_h6",
+      "finding": "Six-bar causal temporal context carried strong transition information but was too costly as a standalone replacement classifier.",
+      "integration": "successfully integrated into historical v10 at 30% log-probability weight"
+    },
+    {
+      "id": "v10_controlled_temporal_blend",
+      "finding": "Controlled temporal auxiliary blend preserved point-state floors and improved transition behavior; historical winner inside the migrated lineage."
+    },
+    {
+      "id": "v11_higher_temporal_weight_diminishing_returns",
+      "finding": "Higher temporal weight remained mildly positive but did not meet material-improvement promotion threshold; alpha grid closed."
+    },
+    {
+      "id": "v12_soft_shock_exit_inertia_revalidation",
+      "finding": "Soft Shock-exit inertia direction was revalidated as a small effect; gamma axis closed."
+    },
+    {
+      "id": "v13_low_weight_persistence_prior",
+      "finding": "rho=0.05 slightly improved point-state and transition F1 but increased max false transitions/day; not promoted."
+    }
+  ],
+  "two_wave_reuse_rule": "Do not import any historical winner or contribution as Two-Wave authority. Reuse only under an explicit protocol that preserves two-complete-wave morphology, causal confirmation timing, and Two-Wave acceptance semantics."
+}
