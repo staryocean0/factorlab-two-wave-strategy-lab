@@ -27,6 +27,9 @@ from factor_lab.visual_structure.two_wave.same_scale_v043 import MaturityConfig
 from factor_lab.visual_structure.two_wave.scale_invariant_predecessor_publication_v065 import (
     publish_first_valid_candidate,
 )
+from factor_lab.visual_structure.two_wave.unmatched_identity_decomposition_v061 import (
+    canonicalize_tuple_births,
+)
 
 VIEWS = tuple(f"5m_offset_{i}" for i in range(5))
 EXPECTED_PUBLICATIONS = {
@@ -35,6 +38,13 @@ EXPECTED_PUBLICATIONS = {
     "5m_offset_2": 36619,
     "5m_offset_3": 36480,
     "5m_offset_4": 36264,
+}
+EXPECTED_FILTERED_GROUPS = {
+    "5m_offset_0": 38634,
+    "5m_offset_1": 37175,
+    "5m_offset_2": 37061,
+    "5m_offset_3": 36935,
+    "5m_offset_4": 36688,
 }
 SAFETY_REASONS = {
     "long_cycle",
@@ -57,11 +67,21 @@ def dump_jsonl_gz(path: Path, rows) -> None:
             fh.write(json.dumps(row, ensure_ascii=False, sort_keys=True, separators=(",", ":")) + "\n")
 
 
-def build_publications(view: str, bars: list[dict]) -> tuple[list[dict], dict]:
+def build_publications(view: str, bars: list[dict]) -> tuple[list[dict], list[dict], dict]:
     cfg = MaturityConfig(timeframe=view)
     ridge = build_ridge_run(bars, cfg=cfg)
     if ridge.lineage_anomalies:
         raise AssertionError(f"v0.5.2 lineage anomalies on {view}: {len(ridge.lineage_anomalies)}")
+
+    # This is the frozen v0.6.1/v0.6.5 filtered-event universe used before
+    # raw-projection strictness is evaluated. Keep all canonical tuple-birth
+    # groups, including groups that later fail to publish a valid raw identity.
+    filtered_rows = canonicalize_tuple_births(ridge.tuple_births, bars)
+    if len(filtered_rows) != EXPECTED_FILTERED_GROUPS[view]:
+        raise AssertionError(
+            f"filtered canonical-group drift for {view}: "
+            f"{len(filtered_rows)} != {EXPECTED_FILTERED_GROUPS[view]}"
+        )
 
     groups: dict[tuple[str, tuple[int, ...]], list[dict]] = defaultdict(list)
     for birth in ridge.tuple_births:
@@ -81,6 +101,9 @@ def build_publications(view: str, bars: list[dict]) -> tuple[list[dict], dict]:
             }
         )
         groups[(phase, filtered)].append(candidate)
+
+    if len(groups) != len(filtered_rows):
+        raise AssertionError("publication grouping drifted from canonical tuple-birth universe")
 
     rows = []
     no_valid = 0
@@ -115,13 +138,15 @@ def build_publications(view: str, bars: list[dict]) -> tuple[list[dict], dict]:
             if bool(candidate["scale_qualified"]):
                 raise AssertionError("legacy case_02 90/3 pathology became qualified")
 
-        times = [str(bars[i]["timestamp"]) for i in raw]
+        raw_times = [str(bars[i]["timestamp"]) for i in raw]
+        filtered_times = [str(bars[i]["timestamp"]) for i in filtered]
         rows.append(
             {
                 "phase": phase,
                 "five_filtered_occurrence_bars": list(filtered),
+                "five_filtered_occurrence_times": filtered_times,
                 "published_raw_occurrence_bars": list(raw),
-                "five_occurrence_times": times,
+                "five_occurrence_times": raw_times,
                 "publishing_confirmation_bar": confirmation,
                 "control_qualified": bool(control["scale_qualified"]),
                 "candidate_qualified": bool(candidate["scale_qualified"]),
@@ -141,7 +166,7 @@ def build_publications(view: str, bars: list[dict]) -> tuple[list[dict], dict]:
         "view": view,
         "bars": len(bars),
         "tuple_births": len(ridge.tuple_births),
-        "canonical_filtered_groups": len(groups),
+        "canonical_filtered_groups": len(filtered_rows),
         "published_identities": len(rows),
         "no_valid_publication": no_valid,
         "suppressed_would_be_rewrites": suppressed_rewrites,
@@ -155,7 +180,7 @@ def build_publications(view: str, bars: list[dict]) -> tuple[list[dict], dict]:
         "future_outcome_used": False,
         "trade_authority": False,
     }
-    return rows, summary
+    return rows, filtered_rows, summary
 
 
 def main() -> None:
@@ -169,9 +194,10 @@ def main() -> None:
         ROOT / f"data/development/{args.view}.parquet",
         ROOT / "data/manifest.json",
     )
-    rows, summary = build_publications(args.view, bars)
+    rows, filtered_rows, summary = build_publications(args.view, bars)
     summary["data_audit"] = audit
     dump_jsonl_gz(args.output / f"records-{args.view}.json.gz", rows)
+    dump_jsonl_gz(args.output / f"filtered-{args.view}.json.gz", filtered_rows)
     dump_json(args.output / f"summary-{args.view}.json", summary)
     print(json.dumps(summary, ensure_ascii=False, sort_keys=True), flush=True)
 
