@@ -1,0 +1,573 @@
+{
+  "changed_recognizer_rules": [],
+  "controls": {
+    "candidate_matrix": {
+      "both_qualified": 1462,
+      "both_rejected": 27315,
+      "main_only_qualified": 386,
+      "other_only_qualified": 290
+    },
+    "control_reproduction": true,
+    "filtered_pairs": 57029,
+    "strict_pairs": 29453
+  },
+  "future_outcome_used": false,
+  "input_workflow_run": 34423674192,
+  "interpretation_category": "v0619_local_duration_boundary_sensitivity_dominant",
+  "morphology_acceptance": false,
+  "offsets": {
+    "5m_offset_1": {
+      "any_family_involvement_counts": {
+        "amplitude": 40,
+        "confirmation": 35,
+        "local_duration": 100,
+        "long_span": 8
+      },
+      "any_family_involvement_fractions": {
+        "amplitude": 0.23255813953488372,
+        "confirmation": 0.20348837209302326,
+        "local_duration": 0.5813953488372093,
+        "long_span": 0.046511627906976744
+      },
+      "candidate_matrix": {
+        "both_qualified": 400,
+        "both_rejected": 7809,
+        "main_only_qualified": 101,
+        "other_only_qualified": 71
+      },
+      "disagreements": 172,
+      "duration_delta_quantiles": {
+        "max_abs_cycle_duration_delta": {
+          "0": 0.0,
+          "0.25": 1.0,
+          "0.5": 1.0,
+          "0.75": 2.0,
+          "0.9": 2.0,
+          "0.99": 3.0,
+          "1": 3.0
+        },
+        "max_abs_leg_duration_delta": {
+          "0": 1.0,
+          "0.25": 1.0,
+          "0.5": 1.0,
+          "0.75": 2.0,
+          "0.9": 2.0,
+          "0.99": 2.0,
+          "1": 2.0
+        },
+        "qualified_cycle_ratio_headroom_below_2": {
+          "0": 0.0,
+          "0.25": 0.25,
+          "0.5": 0.6201923076923077,
+          "0.75": 0.8333333333333333,
+          "0.9": 0.9298319327731094,
+          "0.99": 1.0,
+          "1": 1.0
+        },
+        "rejected_cycle_ratio_excess_over_2": {
+          "0": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "0.75": 0.0,
+          "0.9": 0.08333333333333348,
+          "0.99": 0.20050000000000043,
+          "1": 0.25
+        }
+      },
+      "filtered_pairs": 14784,
+      "local_duration_only": 90,
+      "local_duration_only_simple_one_bar": 78,
+      "local_duration_only_simple_one_bar_fraction": 0.8666666666666667,
+      "long_span_material_involvement": {
+        "count": 8,
+        "fraction": 0.046511627906976744
+      },
+      "orientation_counts": {
+        "main_qualified_other_rejected": 101,
+        "main_rejected_other_qualified": 71
+      },
+      "primary_family_counts": {
+        "amplitude_only": 31,
+        "confirmation_only": 32,
+        "local_duration_only": 90,
+        "long_span_only": 8,
+        "mixed_multi_family": 11
+      },
+      "primary_family_fractions": {
+        "amplitude_only": 0.18023255813953487,
+        "confirmation_only": 0.18604651162790697,
+        "local_duration_only": 0.5232558139534884,
+        "long_span_only": 0.046511627906976744,
+        "mixed_multi_family": 0.06395348837209303
+      },
+      "reason_involvement_counts": {
+        "amplitude_mismatch": 40,
+        "confirmation_too_late": 35,
+        "cycle_duration_mismatch": 16,
+        "long_cycle": 8,
+        "short_cycle": 26,
+        "short_leg": 64
+      },
+      "reason_one_bar_boundary": {
+        "cycle_duration_mismatch": {
+          "denominator": 16,
+          "fraction": 0.5,
+          "numerator": 8
+        },
+        "short_cycle": {
+          "denominator": 26,
+          "fraction": 0.8076923076923077,
+          "numerator": 21
+        },
+        "short_leg": {
+          "denominator": 64,
+          "fraction": 0.96875,
+          "numerator": 62
+        }
+      },
+      "strict_pairs": 8381
+    },
+    "5m_offset_2": {
+      "any_family_involvement_counts": {
+        "amplitude": 31,
+        "confirmation": 46,
+        "local_duration": 91,
+        "long_span": 2
+      },
+      "any_family_involvement_fractions": {
+        "amplitude": 0.19375,
+        "confirmation": 0.2875,
+        "local_duration": 0.56875,
+        "long_span": 0.0125
+      },
+      "candidate_matrix": {
+        "both_qualified": 287,
+        "both_rejected": 5323,
+        "main_only_qualified": 93,
+        "other_only_qualified": 67
+      },
+      "disagreements": 160,
+      "duration_delta_quantiles": {
+        "max_abs_cycle_duration_delta": {
+          "0": 0.0,
+          "0.25": 1.0,
+          "0.5": 1.0,
+          "0.75": 2.0,
+          "0.9": 2.0,
+          "0.99": 3.0,
+          "1": 3.0
+        },
+        "max_abs_leg_duration_delta": {
+          "0": 1.0,
+          "0.25": 1.0,
+          "0.5": 1.0,
+          "0.75": 2.0,
+          "0.9": 2.0,
+          "0.99": 2.0999999999999943,
+          "1": 3.0
+        },
+        "qualified_cycle_ratio_headroom_below_2": {
+          "0": 0.0,
+          "0.25": 0.19999999999999996,
+          "0.5": 0.5925925925925926,
+          "0.75": 0.8205128205128205,
+          "0.9": 0.9523809523809523,
+          "0.99": 1.0,
+          "1": 1.0
+        },
+        "rejected_cycle_ratio_excess_over_2": {
+          "0": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "0.75": 0.0,
+          "0.9": 0.09090909090909083,
+          "0.99": 0.3099999999999993,
+          "1": 0.3999999999999999
+        }
+      },
+      "filtered_pairs": 12725,
+      "local_duration_only": 84,
+      "local_duration_only_simple_one_bar": 73,
+      "local_duration_only_simple_one_bar_fraction": 0.8690476190476191,
+      "long_span_material_involvement": {
+        "count": 2,
+        "fraction": 0.0125
+      },
+      "orientation_counts": {
+        "main_qualified_other_rejected": 93,
+        "main_rejected_other_qualified": 67
+      },
+      "primary_family_counts": {
+        "amplitude_only": 23,
+        "confirmation_only": 41,
+        "local_duration_only": 84,
+        "long_span_only": 2,
+        "mixed_multi_family": 10
+      },
+      "primary_family_fractions": {
+        "amplitude_only": 0.14375,
+        "confirmation_only": 0.25625,
+        "local_duration_only": 0.525,
+        "long_span_only": 0.0125,
+        "mixed_multi_family": 0.0625
+      },
+      "reason_involvement_counts": {
+        "amplitude_mismatch": 31,
+        "confirmation_too_late": 46,
+        "cycle_duration_mismatch": 17,
+        "long_cycle": 2,
+        "short_cycle": 33,
+        "short_leg": 51
+      },
+      "reason_one_bar_boundary": {
+        "cycle_duration_mismatch": {
+          "denominator": 17,
+          "fraction": 0.4117647058823529,
+          "numerator": 7
+        },
+        "short_cycle": {
+          "denominator": 33,
+          "fraction": 0.8484848484848485,
+          "numerator": 28
+        },
+        "short_leg": {
+          "denominator": 51,
+          "fraction": 1.0,
+          "numerator": 51
+        }
+      },
+      "strict_pairs": 5770
+    },
+    "5m_offset_3": {
+      "any_family_involvement_counts": {
+        "amplitude": 36,
+        "confirmation": 36,
+        "local_duration": 101,
+        "long_span": 2
+      },
+      "any_family_involvement_fractions": {
+        "amplitude": 0.21686746987951808,
+        "confirmation": 0.21686746987951808,
+        "local_duration": 0.608433734939759,
+        "long_span": 0.012048192771084338
+      },
+      "candidate_matrix": {
+        "both_qualified": 302,
+        "both_rejected": 5736,
+        "main_only_qualified": 90,
+        "other_only_qualified": 76
+      },
+      "disagreements": 166,
+      "duration_delta_quantiles": {
+        "max_abs_cycle_duration_delta": {
+          "0": 0.0,
+          "0.25": 1.0,
+          "0.5": 1.0,
+          "0.75": 2.0,
+          "0.9": 2.0,
+          "0.99": 3.0,
+          "1": 3.0
+        },
+        "max_abs_leg_duration_delta": {
+          "0": 1.0,
+          "0.25": 1.0,
+          "0.5": 1.0,
+          "0.75": 2.0,
+          "0.9": 2.0,
+          "0.99": 2.0,
+          "1": 2.0
+        },
+        "qualified_cycle_ratio_headroom_below_2": {
+          "0": 0.0,
+          "0.25": 0.26086956521739135,
+          "0.5": 0.625,
+          "0.75": 0.8461538461538463,
+          "0.9": 0.9411764705882353,
+          "0.99": 1.0,
+          "1": 1.0
+        },
+        "rejected_cycle_ratio_excess_over_2": {
+          "0": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "0.75": 0.0,
+          "0.9": 0.08333333333333348,
+          "0.99": 0.27272727272727293,
+          "1": 0.3999999999999999
+        }
+      },
+      "filtered_pairs": 13412,
+      "local_duration_only": 94,
+      "local_duration_only_simple_one_bar": 85,
+      "local_duration_only_simple_one_bar_fraction": 0.9042553191489362,
+      "long_span_material_involvement": {
+        "count": 2,
+        "fraction": 0.012048192771084338
+      },
+      "orientation_counts": {
+        "main_qualified_other_rejected": 90,
+        "main_rejected_other_qualified": 76
+      },
+      "primary_family_counts": {
+        "amplitude_only": 29,
+        "confirmation_only": 32,
+        "local_duration_only": 94,
+        "long_span_only": 2,
+        "mixed_multi_family": 9
+      },
+      "primary_family_fractions": {
+        "amplitude_only": 0.1746987951807229,
+        "confirmation_only": 0.1927710843373494,
+        "local_duration_only": 0.5662650602409639,
+        "long_span_only": 0.012048192771084338,
+        "mixed_multi_family": 0.05421686746987952
+      },
+      "reason_involvement_counts": {
+        "amplitude_mismatch": 36,
+        "confirmation_too_late": 36,
+        "cycle_duration_mismatch": 18,
+        "long_cycle": 2,
+        "short_cycle": 27,
+        "short_leg": 71
+      },
+      "reason_one_bar_boundary": {
+        "cycle_duration_mismatch": {
+          "denominator": 18,
+          "fraction": 0.4444444444444444,
+          "numerator": 8
+        },
+        "short_cycle": {
+          "denominator": 27,
+          "fraction": 0.9259259259259259,
+          "numerator": 25
+        },
+        "short_leg": {
+          "denominator": 71,
+          "fraction": 1.0,
+          "numerator": 71
+        }
+      },
+      "strict_pairs": 6204
+    },
+    "5m_offset_4": {
+      "any_family_involvement_counts": {
+        "amplitude": 37,
+        "confirmation": 41,
+        "local_duration": 101,
+        "long_span": 9
+      },
+      "any_family_involvement_fractions": {
+        "amplitude": 0.20786516853932585,
+        "confirmation": 0.2303370786516854,
+        "local_duration": 0.5674157303370787,
+        "long_span": 0.05056179775280899
+      },
+      "candidate_matrix": {
+        "both_qualified": 473,
+        "both_rejected": 8447,
+        "main_only_qualified": 102,
+        "other_only_qualified": 76
+      },
+      "disagreements": 178,
+      "duration_delta_quantiles": {
+        "max_abs_cycle_duration_delta": {
+          "0": 0.0,
+          "0.25": 1.0,
+          "0.5": 1.0,
+          "0.75": 2.0,
+          "0.9": 2.0,
+          "0.99": 2.0,
+          "1": 2.0
+        },
+        "max_abs_leg_duration_delta": {
+          "0": 1.0,
+          "0.25": 1.0,
+          "0.5": 1.0,
+          "0.75": 1.0,
+          "0.9": 2.0,
+          "0.99": 2.0,
+          "1": 2.0
+        },
+        "qualified_cycle_ratio_headroom_below_2": {
+          "0": 0.0,
+          "0.25": 0.19999999999999996,
+          "0.5": 0.6000000000000001,
+          "0.75": 0.8333333333333333,
+          "0.9": 0.9375,
+          "0.99": 1.0,
+          "1": 1.0
+        },
+        "rejected_cycle_ratio_excess_over_2": {
+          "0": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "0.75": 0.0,
+          "0.9": 0.07142857142857162,
+          "0.99": 0.36363636363636376,
+          "1": 0.3999999999999999
+        }
+      },
+      "filtered_pairs": 16108,
+      "local_duration_only": 93,
+      "local_duration_only_simple_one_bar": 82,
+      "local_duration_only_simple_one_bar_fraction": 0.8817204301075269,
+      "long_span_material_involvement": {
+        "count": 9,
+        "fraction": 0.05056179775280899
+      },
+      "orientation_counts": {
+        "main_qualified_other_rejected": 102,
+        "main_rejected_other_qualified": 76
+      },
+      "primary_family_counts": {
+        "amplitude_only": 29,
+        "confirmation_only": 38,
+        "local_duration_only": 93,
+        "long_span_only": 8,
+        "mixed_multi_family": 10
+      },
+      "primary_family_fractions": {
+        "amplitude_only": 0.16292134831460675,
+        "confirmation_only": 0.21348314606741572,
+        "local_duration_only": 0.5224719101123596,
+        "long_span_only": 0.0449438202247191,
+        "mixed_multi_family": 0.056179775280898875
+      },
+      "reason_involvement_counts": {
+        "amplitude_mismatch": 37,
+        "confirmation_too_late": 41,
+        "cycle_duration_mismatch": 17,
+        "long_cycle": 9,
+        "long_pair": 1,
+        "short_cycle": 22,
+        "short_leg": 66
+      },
+      "reason_one_bar_boundary": {
+        "cycle_duration_mismatch": {
+          "denominator": 17,
+          "fraction": 0.35294117647058826,
+          "numerator": 6
+        },
+        "short_cycle": {
+          "denominator": 22,
+          "fraction": 0.9090909090909091,
+          "numerator": 20
+        },
+        "short_leg": {
+          "denominator": 66,
+          "fraction": 1.0,
+          "numerator": 66
+        }
+      },
+      "strict_pairs": 9098
+    }
+  },
+  "pooled": {
+    "any_family_involvement_counts": {
+      "amplitude": 144,
+      "confirmation": 158,
+      "local_duration": 393,
+      "long_span": 21
+    },
+    "any_family_involvement_fractions": {
+      "amplitude": 0.21301775147928995,
+      "confirmation": 0.23372781065088757,
+      "local_duration": 0.5813609467455622,
+      "long_span": 0.03106508875739645
+    },
+    "disagreements": 676,
+    "duration_delta_quantiles": {
+      "max_abs_cycle_duration_delta": {
+        "0": 0.0,
+        "0.25": 1.0,
+        "0.5": 1.0,
+        "0.75": 2.0,
+        "0.9": 2.0,
+        "0.99": 3.0,
+        "1": 3.0
+      },
+      "max_abs_leg_duration_delta": {
+        "0": 1.0,
+        "0.25": 1.0,
+        "0.5": 1.0,
+        "0.75": 2.0,
+        "0.9": 2.0,
+        "0.99": 2.0,
+        "1": 3.0
+      },
+      "qualified_cycle_ratio_headroom_below_2": {
+        "0": 0.0,
+        "0.25": 0.23076923076923084,
+        "0.5": 0.6153846153846154,
+        "0.75": 0.8333333333333333,
+        "0.9": 0.9411764705882353,
+        "0.99": 1.0,
+        "1": 1.0
+      },
+      "rejected_cycle_ratio_excess_over_2": {
+        "0": 0.0,
+        "0.25": 0.0,
+        "0.5": 0.0,
+        "0.75": 0.0,
+        "0.9": 0.08333333333333348,
+        "0.99": 0.30509090909090797,
+        "1": 0.3999999999999999
+      }
+    },
+    "local_duration_only": 361,
+    "local_duration_only_simple_one_bar": 318,
+    "local_duration_only_simple_one_bar_fraction": 0.8808864265927978,
+    "long_span_material_involvement": {
+      "count": 21,
+      "fraction": 0.03106508875739645
+    },
+    "orientation_counts": {
+      "main_qualified_other_rejected": 386,
+      "main_rejected_other_qualified": 290
+    },
+    "primary_family_counts": {
+      "amplitude_only": 112,
+      "confirmation_only": 143,
+      "local_duration_only": 361,
+      "long_span_only": 20,
+      "mixed_multi_family": 40
+    },
+    "primary_family_fractions": {
+      "amplitude_only": 0.16568047337278108,
+      "confirmation_only": 0.21153846153846154,
+      "local_duration_only": 0.5340236686390533,
+      "long_span_only": 0.029585798816568046,
+      "mixed_multi_family": 0.05917159763313609
+    },
+    "reason_involvement_counts": {
+      "amplitude_mismatch": 144,
+      "confirmation_too_late": 158,
+      "cycle_duration_mismatch": 68,
+      "long_cycle": 21,
+      "long_pair": 1,
+      "short_cycle": 108,
+      "short_leg": 252
+    },
+    "reason_one_bar_boundary": {
+      "cycle_duration_mismatch": {
+        "denominator": 68,
+        "fraction": 0.4264705882352941,
+        "numerator": 29
+      },
+      "short_cycle": {
+        "denominator": 108,
+        "fraction": 0.8703703703703703,
+        "numerator": 94
+      },
+      "short_leg": {
+        "denominator": 252,
+        "fraction": 0.9920634920634921,
+        "numerator": 250
+      }
+    }
+  },
+  "production_authority": false,
+  "schema": "two_wave_duration_geometry_decomposition_result@0.6.19",
+  "trade_authority": false,
+  "v0618_remains_best_qualification_component": true
+}
