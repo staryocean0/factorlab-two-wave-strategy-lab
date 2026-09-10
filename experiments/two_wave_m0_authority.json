@@ -1,5 +1,5 @@
 {
-  "schema": "two_wave_m0_authority@1.8",
+  "schema": "two_wave_m0_authority@1.9",
   "date": "2026-09-10",
   "primary_object": "two_wave_parent_structure_recognizer",
   "target_states": ["Range", "UpTrend", "DownTrend", "Uncertain"],
@@ -55,31 +55,9 @@
         "range_decisive_share": 0.010617760617760617
       },
       "diagnostics": [
-        {
-          "version": "v0.6.24",
-          "status": "supported_diagnostic_evidence",
-          "formal_result_commit": "347812dd269aa34ff7520c181d94b4c5f92badd6",
-          "retained_contribution": "v0623 harm is entirely one-sided rescue from D1-both-uncertain pairs; consensus margin separates many harmful rescues from repaired old nonexact pairs"
-        },
-        {
-          "version": "v0.6.26",
-          "status": "supported_diagnostic_evidence",
-          "formal_result_commit": "0dbc35d2638922e06df6859ccf035c94dacd2435",
-          "formal_attribution": "v0626_absolute_margin_geometry_is_state_asymmetric",
-          "retained_contribution": "common absolute margin nearly eliminates Range while retaining most trend rescues"
-        },
-        {
-          "version": "v0.6.28",
-          "status": "supported_diagnostic_evidence",
-          "formal_result_commit": "80b78e0facf0f5b0abd9cb0d6c6e7d80ef4ad1bd",
-          "formal_attribution": "v0628_range_rescue_topology_does_not_authorize_support_dispersion_gate",
-          "v0625_exact_count": 1402,
-          "v0627_exact_count": 1388,
-          "introduced_harm": 19,
-          "repaired_v0625_nonexact": 5,
-          "harmful_group_size_gate_passed": false,
-          "authorization": "no_support_dispersion_gate_from_v0628"
-        }
+        {"version": "v0.6.24", "status": "supported_diagnostic_evidence", "formal_result_commit": "347812dd269aa34ff7520c181d94b4c5f92badd6", "retained_contribution": "v0623 harm is entirely one-sided rescue from D1-both-uncertain pairs; consensus margin separates many harmful rescues from repaired old nonexact pairs"},
+        {"version": "v0.6.26", "status": "supported_diagnostic_evidence", "formal_result_commit": "0dbc35d2638922e06df6859ccf035c94dacd2435", "formal_attribution": "v0626_absolute_margin_geometry_is_state_asymmetric", "retained_contribution": "common absolute margin nearly eliminates Range while retaining most trend rescues"},
+        {"version": "v0.6.28", "status": "supported_diagnostic_evidence", "formal_result_commit": "80b78e0facf0f5b0abd9cb0d6c6e7d80ef4ad1bd", "formal_attribution": "v0628_range_rescue_topology_does_not_authorize_support_dispersion_gate", "introduced_harm": 19, "repaired_v0625_nonexact": 5, "harmful_group_size_gate_passed": false, "authorization": "no_support_dispersion_gate_from_v0628"}
       ],
       "challengers": [
         {"version": "v0.6.21", "status": "rejected_contribution_retained", "formal_result_commit": "4fe8e4d837bcb5d9accb372c0bc754be137ff0a1", "pooled_exact_agreement": 0.9500683994528044, "pooled_decisive_coverage": 0.8423392612859097, "decisive_agreement": 1.0, "opposite_trend_conflicts": 0, "retained_contribution": "whole-parent-window Huber sharply reduces D1 over-abstention"},
@@ -87,11 +65,12 @@
         {"version": "v0.6.23", "status": "rejected_contribution_retained", "formal_result_commit": "a8ca442ccb7482164c2dd3cdeee8b8640ea40957", "workflow_run": 34442468065, "pooled_exact_agreement": 0.9555403556771546, "pooled_decisive_coverage": 0.7855677154582763, "decisive_agreement": 1.0, "opposite_trend_conflicts": 0, "retained_contribution": "endpoint-erosion unanimity recovers most stability while retaining a large coverage gain"},
         {"version": "v0.6.25", "status": "rejected_contribution_retained", "formal_result_commit": "ea103714043ac5fbac4c0ae6d806377fb5cf76a9", "workflow_run": 34447731074, "pooled_exact_agreement": 0.9589603283173734, "pooled_exact_count": 1402, "pooled_decisive_coverage": 0.7086183310533516, "decisive_agreement": 1.0, "opposite_trend_conflicts": 0, "retained_contribution": "strongest pooled-exact contribution; absolute 0.10 margin is state-asymmetric and nearly eliminates Range"},
         {"version": "v0.6.27", "status": "rejected_contribution_retained", "formal_result_commit": "31547cff37b476c14352c77482383dc6007c8d70", "workflow_run": 34489291486, "range_required_absolute_margin": 0.03, "trend_required_absolute_margin": 0.10, "pooled_exact_agreement": 0.9493844049247606, "pooled_exact_count": 1388, "decisive_agreement": 1.0, "opposite_trend_conflicts": 0, "retained_contribution": "state-relative Range margin restores class diversity but direct admission causes one-sided slicing harm"},
-        {"version": "v0.6.29", "name": "cycle-band Range rescue", "status": "rejected_contribution_retained", "formal_verdict": "v0629_cycle_band_range_rescue_direction_rejected", "formal_result_commit": "7fff2c6ad6daad3e63c3ef942828655de1f7812f", "workflow_run": 34492604772, "cycle_iqr_overlap_threshold": 0.50, "D1_decisive_override_count": 0, "pooled_exact_agreement": 0.9541723666210671, "pooled_exact_count": 1395, "pooled_decisive_coverage": 0.7506839945280438, "decisive_agreement": 1.0, "range_decisive_share": 0.06605922551252848, "opposite_trend_conflicts": 0, "new_range_rescues_across_views": 337, "retained_contribution": "robust overlap of the two complete cycles' central price-occupancy bands is independent usable Range evidence, restoring Range supply while preserving perfect decisive agreement; overlap alone is too permissive for cross-slicing exact stability"}
+        {"version": "v0.6.29", "name": "cycle-band Range rescue", "status": "rejected_contribution_retained", "formal_result_commit": "7fff2c6ad6daad3e63c3ef942828655de1f7812f", "workflow_run": 34492604772, "cycle_iqr_overlap_threshold": 0.50, "pooled_exact_agreement": 0.9541723666210671, "pooled_exact_count": 1395, "pooled_decisive_coverage": 0.7506839945280438, "decisive_agreement": 1.0, "range_decisive_share": 0.06605922551252848, "opposite_trend_conflicts": 0, "retained_contribution": "two-cycle central price-band overlap is independent useful Range evidence but is too permissive alone"},
+        {"version": "v0.6.30", "name": "Range evidence intersection", "status": "rejected_contribution_retained", "formal_verdict": "v0630_range_evidence_intersection_direction_rejected", "formal_result_commit": "c404fd311815814ae32d318a60f4a3825a818db8", "workflow_run": 34493744124, "frozen_range_margin": 0.03, "frozen_cycle_iqr_overlap": 0.50, "pooled_exact_agreement": 0.9500683994528044, "pooled_exact_count": 1389, "pooled_decisive_coverage": 0.7349521203830369, "decisive_agreement": 1.0, "range_decisive_share": 0.0460679385760819, "opposite_trend_conflicts": 0, "new_range_rescues_across_views": 211, "pair_change_topology": {"both": 27, "main_only": 12, "other_only": 11, "none": 1412}, "retained_contribution": "requiring both frozen margin and band-overlap evidence reduces Range supply but does not preferentially remove one-sided cross-slicing rescues; evidence intersection alone is not enough"}
       ]
     }
   },
-  "next_authorized_step": "preregister_v0630_intersection_range_rescue_preserving_v0625_and_requiring_both_frozen_v0627_range_margin_0_03_and_frozen_v0629_cycle_iqr_overlap_0_50",
+  "next_authorized_step": "preregister_v0631_mutual_median_containment_range_rescue_preserving_v0625_requiring_v0623_range_consensus_frozen_v0627_margin_0_03_and_mutual_median_containment_on_all_four_frozen_v0623_endpoint_erosion_supports",
   "trade_authority": false,
   "production_authority": false
 }
