@@ -43,14 +43,17 @@
       "name": "duration-geometry disagreement decomposition",
       "status": "supported_diagnostic_evidence",
       "formal_attribution": "v0619_local_duration_boundary_sensitivity_dominant",
-      "workflow_run": 34425574563,
-      "result_commit": "e5bb5d29e614d2b81f2d23820590e458430b9b86",
+      "workflow_run": 34438737396,
+      "result_commit": "2c755eab8d28822ea7f7927c4c8b43162af1824e",
       "disagreements": 676,
       "local_duration_involved": 393,
       "local_duration_involved_fraction": 0.5813609467455622,
       "local_duration_only": 361,
       "local_duration_only_simple_one_bar": 318,
-      "local_duration_only_simple_one_bar_fraction": 0.8808864265927978
+      "local_duration_only_simple_one_bar_fraction": 0.8808864265927978,
+      "short_leg_one_bar_fraction": 0.9920634920634921,
+      "short_cycle_one_bar_fraction": 0.8703703703703703,
+      "cycle_duration_mismatch_one_bar_fraction": 0.4264705882352941
     },
     "fine_path_measurement": {
       "version": "v0.6.17",
