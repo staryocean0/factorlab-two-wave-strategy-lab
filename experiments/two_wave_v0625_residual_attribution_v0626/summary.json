@@ -1,0 +1,275 @@
+{
+  "by_transition": {
+    "introduced_harm": {
+      "D1_topology_counts": {
+        "both_uncertain": 34
+      },
+      "rescue_topology_counts": {
+        "main_only_rescued": 12,
+        "other_only_rescued": 22
+      },
+      "rescued_state_counts": {
+        "downtrend": 8,
+        "range": 5,
+        "uptrend": 21
+      }
+    },
+    "persistent_nonexact": {
+      "D1_topology_counts": {
+        "main_decisive_other_uncertain": 12,
+        "main_uncertain_other_decisive": 14
+      },
+      "rescue_topology_counts": {
+        "neither_rescued": 26
+      },
+      "rescued_state_counts": {}
+    },
+    "repaired_old_nonexact": {
+      "D1_topology_counts": {
+        "main_decisive_other_uncertain": 20,
+        "main_uncertain_other_decisive": 16
+      },
+      "rescue_topology_counts": {
+        "main_only_rescued": 16,
+        "other_only_rescued": 20
+      },
+      "rescued_state_counts": {
+        "downtrend": 17,
+        "uptrend": 19
+      }
+    },
+    "retained_exact": {
+      "D1_topology_counts": {
+        "both_decisive": 684,
+        "both_uncertain": 682
+      },
+      "rescue_topology_counts": {
+        "both_rescued": 286,
+        "neither_rescued": 1080
+      },
+      "rescued_state_counts": {
+        "downtrend": 264,
+        "range": 8,
+        "uptrend": 300
+      }
+    }
+  },
+  "changed_recognizer_rules": [],
+  "controls": {
+    "D1_decisive_coverage": 0.4890560875512996,
+    "D1_exact_count": 1400,
+    "both_v0618_qualified_pairs": 1462,
+    "filtered_pairs": 57029,
+    "raw_strict_pairs": 29453,
+    "reproduced": true,
+    "v0623_exact_count": 1397,
+    "v0625_decisive_agreement": 1.0,
+    "v0625_decisive_coverage": 0.7086183310533516,
+    "v0625_exact_count": 1402,
+    "v0625_opposite_trend_conflicts": 0
+  },
+  "formal_attribution": "v0626_absolute_margin_geometry_is_state_asymmetric",
+  "future_outcome_used": false,
+  "morphology_acceptance": false,
+  "per_offset_transition_counts": {
+    "5m_offset_1": {
+      "introduced_harm": 10,
+      "persistent_nonexact": 10,
+      "repaired_old_nonexact": 8,
+      "retained_exact": 372
+    },
+    "5m_offset_2": {
+      "introduced_harm": 10,
+      "persistent_nonexact": 6,
+      "repaired_old_nonexact": 9,
+      "retained_exact": 262
+    },
+    "5m_offset_3": {
+      "introduced_harm": 6,
+      "persistent_nonexact": 4,
+      "repaired_old_nonexact": 7,
+      "retained_exact": 285
+    },
+    "5m_offset_4": {
+      "introduced_harm": 8,
+      "persistent_nonexact": 6,
+      "repaired_old_nonexact": 12,
+      "retained_exact": 447
+    }
+  },
+  "production_authority": false,
+  "qualification_policy": "v0.6.18",
+  "schema": "two_wave_v0625_residual_direction_attribution@0.6.26",
+  "single_view_margin_geometry": {
+    "by_state": {
+      "downtrend": {
+        "candidate_count": 1266,
+        "keep_fraction": 0.8665086887835703,
+        "kept_count": 1097,
+        "margin_all": {
+          "count": 1266,
+          "max": 5.038139657895568,
+          "mean": 0.8457003858090123,
+          "median": 0.5803189640935885,
+          "min": 0.0007965606206171705,
+          "p10": 0.0697454277982924,
+          "p25": 0.2076364127475492,
+          "p75": 1.1593968569568807,
+          "p90": 1.9677791478097835
+        },
+        "margin_kept": {
+          "count": 1097,
+          "max": 5.038139657895568,
+          "mean": 0.9684107332072188,
+          "median": 0.698108306677764,
+          "min": 0.10278881677272933,
+          "p10": 0.18069137204396746,
+          "p25": 0.32309304497272984,
+          "p75": 1.2579720209180116,
+          "p90": 2.2214056899232353
+        },
+        "margin_withheld": {
+          "count": 169,
+          "max": 0.09994100063497291,
+          "mean": 0.049172272815921056,
+          "median": 0.04943308767707644,
+          "min": 0.0007965606206171705,
+          "p10": 0.0103055095258902,
+          "p25": 0.025472659812767695,
+          "p75": 0.06937612754263645,
+          "p90": 0.08760276855611208
+        },
+        "withheld_count": 169
+      },
+      "range": {
+        "candidate_count": 365,
+        "keep_fraction": 0.07397260273972603,
+        "kept_count": 27,
+        "margin_all": {
+          "count": 365,
+          "max": 0.13384386988184288,
+          "mean": 0.04990404304797899,
+          "median": 0.045723086157618206,
+          "min": 0.00014349825406045902,
+          "p10": 0.010228549254491608,
+          "p25": 0.02169320183882692,
+          "p75": 0.07462926496594573,
+          "p90": 0.0950422545178488
+        },
+        "margin_kept": {
+          "count": 27,
+          "max": 0.13384386988184288,
+          "mean": 0.11126731555069534,
+          "median": 0.10820501444040032,
+          "min": 0.10105952293793671,
+          "p10": 0.10303864199954305,
+          "p25": 0.10488869250335214,
+          "p75": 0.1162078316212389,
+          "p90": 0.12211586720197987
+        },
+        "margin_withheld": {
+          "count": 338,
+          "max": 0.09993443665850867,
+          "mean": 0.04500224317350165,
+          "median": 0.04177236713958912,
+          "min": 0.00014349825406045902,
+          "p10": 0.009079946235126061,
+          "p25": 0.020687927162379847,
+          "p75": 0.06901987145058698,
+          "p90": 0.08297068783054741
+        },
+        "range_relative_margin_all": {
+          "count": 365,
+          "max": 0.8922924658789526,
+          "mean": 0.33269362031985994,
+          "median": 0.3048205743841214,
+          "min": 0.0009566550270697268,
+          "p10": 0.0681903283632774,
+          "p25": 0.14462134559217948,
+          "p75": 0.49752843310630485,
+          "p90": 0.633615030118992
+        },
+        "range_relative_margin_kept": {
+          "count": 27,
+          "max": 0.8922924658789526,
+          "mean": 0.7417821036713023,
+          "median": 0.7213667629360021,
+          "min": 0.6737301529195782,
+          "p10": 0.6869242799969537,
+          "p25": 0.6992579500223476,
+          "p75": 0.7747188774749261,
+          "p90": 0.8141057813465324
+        },
+        "range_relative_margin_withheld": {
+          "count": 338,
+          "max": 0.6662295777233911,
+          "mean": 0.300014954490011,
+          "median": 0.2784824475972608,
+          "min": 0.0009566550270697268,
+          "p10": 0.060532974900840406,
+          "p25": 0.13791951441586567,
+          "p75": 0.4601324763372466,
+          "p90": 0.5531379188703162
+        },
+        "withheld_count": 338
+      },
+      "uptrend": {
+        "candidate_count": 1424,
+        "keep_fraction": 0.8728932584269663,
+        "kept_count": 1243,
+        "margin_all": {
+          "count": 1424,
+          "max": 6.787998933857461,
+          "mean": 0.8235307767532469,
+          "median": 0.5707630534676418,
+          "min": 0.00034819742006009236,
+          "p10": 0.08280777064618715,
+          "p25": 0.2131038238433929,
+          "p75": 1.0758468524619313,
+          "p90": 1.967671894786564
+        },
+        "margin_kept": {
+          "count": 1243,
+          "max": 6.787998933857461,
+          "mean": 0.9362130144446444,
+          "median": 0.6616973620019615,
+          "min": 0.10169714719490908,
+          "p10": 0.1836984291077167,
+          "p25": 0.3398738814851681,
+          "p75": 1.191731335038571,
+          "p90": 2.1048985825874107
+        },
+        "margin_withheld": {
+          "count": 181,
+          "max": 0.09953062403260315,
+          "mean": 0.04969640409906325,
+          "median": 0.049205732434825955,
+          "min": 0.00034819742006009236,
+          "p10": 0.007270808977053345,
+          "p25": 0.022006148640807965,
+          "p75": 0.07790932920965332,
+          "p90": 0.09252618427447967
+        },
+        "withheld_count": 181
+      }
+    },
+    "candidate_record_count": 3055,
+    "range_keep_fraction": 0.07397260273972603,
+    "trend_keep_fraction": 0.8698884758364313
+  },
+  "trade_authority": false,
+  "transition_counts": {
+    "introduced_harm": 34,
+    "persistent_nonexact": 26,
+    "repaired_old_nonexact": 36,
+    "retained_exact": 1366
+  },
+  "verdict_inputs": {
+    "introduced_harm_one_sided_fraction": 1.0,
+    "introduced_harm_one_sided_gate": true,
+    "range_keep_fraction": 0.07397260273972603,
+    "range_suppression_gate": true,
+    "trend_keep_fraction": 0.8698884758364313,
+    "verdict": "v0626_absolute_margin_geometry_is_state_asymmetric"
+  }
+}
