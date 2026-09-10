@@ -12,8 +12,9 @@ Current M0 authority:
 - [`../experiments/two_wave_m0_authority.json`](../experiments/two_wave_m0_authority.json)
 - [`../experiments/two_wave_path_gate_demotion_v0618/RESULT_CARD.md`](../experiments/two_wave_path_gate_demotion_v0618/RESULT_CARD.md)
 - [`../experiments/two_wave_duration_geometry_decomposition_v0619/RESULT_CARD.md`](../experiments/two_wave_duration_geometry_decomposition_v0619/RESULT_CARD.md)
+- [`../experiments/two_wave_one_bar_duration_repair_v0620/RESULT_CARD.md`](../experiments/two_wave_one_bar_duration_repair_v0620/RESULT_CARD.md)
 
-Global morphology status remains `morphology_replication_not_yet_accepted`. v0.6.18 is the current best **qualification-policy research component**, not an independently accepted full recognizer. v0.6.19 is attribution evidence only and changes no recognizer rule.
+Global morphology status remains `morphology_replication_not_yet_accepted`. v0.6.18 remains the current best **qualification-policy research component**. v0.6.19 is attribution evidence; v0.6.20 is a rejected challenger whose contribution is retained. The active unresolved layer is parent `Range / UpTrend / DownTrend / Uncertain` classification.
 
 ## 1. User objective
 
