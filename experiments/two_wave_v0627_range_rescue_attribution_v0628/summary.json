@@ -1,0 +1,66 @@
+{
+  "controls": {
+    "D1_exact_count": 1400,
+    "both_v0618_qualified_pairs": 1462,
+    "filtered_pairs": 57029,
+    "raw_strict_pairs": 29453,
+    "reproduced": true,
+    "v0625_exact_count": 1402,
+    "v0627_exact_count": 1388
+  },
+  "formal_attribution": "v0628_range_rescue_topology_does_not_authorize_support_dispersion_gate",
+  "future_outcome_used": false,
+  "gates": {
+    "all_label_changes_uncertain_to_range": true,
+    "introduced_harm_one_sided_fraction_at_least_80pct": true,
+    "minimum_group_sizes": false,
+    "support_dispersion_separation": true,
+    "upstream_controls": true
+  },
+  "groups": {
+    "introduced_harm": {
+      "dispersion": {
+        "max": 1.2065085664683004,
+        "median": 0.8468203466067452,
+        "min": 0.1263325977251741,
+        "n": 19,
+        "p25": 0.7302771072214103,
+        "p75": 0.9806288239196795,
+        "p90": 1.181130253777973
+      }
+    },
+    "successful_exact_or_repaired": {
+      "dispersion": {
+        "max": 1.153495508160476,
+        "median": 0.6980676846835964,
+        "min": 0.1263325977251741,
+        "n": 59,
+        "p25": 0.44118922808383765,
+        "p75": 0.8349788160362257,
+        "p90": 1.002862540921425
+      }
+    }
+  },
+  "introduced_harm_one_sided_count": 19,
+  "introduced_harm_one_sided_fraction": 1.0,
+  "morphology_acceptance": false,
+  "next_step_authorized": "no_support_dispersion_gate_from_v0628",
+  "pair_transitions": {
+    "introduced_harm": 19,
+    "persistent_nonexact": 55,
+    "repaired_v0625_nonexact": 5,
+    "retained_exact": 1383
+  },
+  "production_authority": false,
+  "qualification_policy": "v0.6.18",
+  "range_topology_counts": {
+    "both_sides_new_range": 27,
+    "main_only_new_range": 8,
+    "no_new_range": 1411,
+    "one_side_new_range_other_already_decisive": 5,
+    "other_only_new_range": 11
+  },
+  "recognizer_changed": false,
+  "schema": "two_wave_v0627_range_rescue_attribution_result@0.6.28",
+  "trade_authority": false
+}
