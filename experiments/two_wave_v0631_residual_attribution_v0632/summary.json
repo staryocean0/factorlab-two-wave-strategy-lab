@@ -1,0 +1,76 @@
+{
+  "changed_side_min_slack_by_class": {
+    "introduced_harm": {
+      "count": 22,
+      "max": 0.32029339853301964,
+      "median": 0.12514501160093783,
+      "min": 0.0005370569280460976,
+      "q25": 0.09176564778222118,
+      "q75": 0.19769497831348037
+    },
+    "repaired_old_nonexact": {
+      "count": 4,
+      "max": 0.15382260656614993,
+      "median": 0.11421320260052711,
+      "min": 0.07534058070731194,
+      "q25": 0.07534058070731194,
+      "q75": 0.1532700200118442
+    }
+  },
+  "changed_side_min_slack_support_by_class": {
+    "introduced_harm": {
+      "full": 2,
+      "left_eroded_1": 7,
+      "right_eroded_1": 13
+    },
+    "repaired_old_nonexact": {
+      "left_eroded_1": 1,
+      "right_eroded_1": 3
+    }
+  },
+  "controls": {
+    "both_v0618_qualified_pairs": 1462,
+    "reproduced": true,
+    "v0625_exact_count": 1402,
+    "v0631_exact_count": 1384,
+    "v0631_new_range_rescues": 154,
+    "v0631_topology": {
+      "both": 17,
+      "main_only": 14,
+      "none": 1419,
+      "other_only": 12
+    }
+  },
+  "formal_attribution": "v0632_v0631_one_sided_range_rescue_slack_decomposition",
+  "future_outcome_used": false,
+  "morphology_acceptance": false,
+  "one_sided_semantic_counts": {
+    "introduced_harm": 22,
+    "repaired_old_nonexact": 4
+  },
+  "production_authority": false,
+  "qualification_changed": false,
+  "recognizer_changed": false,
+  "schema": "two_wave_v0631_residual_attribution_result@0.6.32",
+  "trade_authority": false,
+  "unchanged_side_min_slack_when_available_by_class": {
+    "introduced_harm": {
+      "count": 6,
+      "max": -0.010172939979644944,
+      "median": -0.05467350243984395,
+      "min": -0.151505743557937,
+      "q25": -0.09596883601405345,
+      "q75": -0.03508957913708657
+    }
+  },
+  "unchanged_side_reason_by_class": {
+    "introduced_harm": {
+      "mutual_containment_fail": 6,
+      "not_range_consensus": 1,
+      "range_margin_fail": 15
+    },
+    "repaired_old_nonexact": {
+      "containment_unavailable": 4
+    }
+  }
+}
