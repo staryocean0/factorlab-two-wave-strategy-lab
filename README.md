@@ -32,7 +32,7 @@ Current best-supported research components are:
 - fine-path partial-identification measurement: **v0.6.17** cloud-reviewed bounds;
 - parent direction (`Range / UpTrend / DownTrend`): **still blocked / not accepted**.
 
-v0.6.18 formally demotes only `inefficient_leg` and `jump_dominated_leg` from hard morphology vetoes to diagnostics. On the frozen v0.6.5 strict same-event universe, aggregate positive qualification overlap improved from **40.8129% to 68.3817%**, and both-qualified pairs increased from **482 to 1,462**, with all four harmless 5m offsets improving. This is a qualification-policy pass, **not morphology acceptance**.
+v0.6.18 formally demotes only `inefficient_leg` and `jump_dominated_leg` from hard morphology vetoes to diagnostics. On the frozen v0.6.5 strict same-event universe, aggregate positive qualification overlap improved from **40.8129% to 68.3817%**, and both-qualified pairs increased from **482 to 1,462**, with all four harmless 5m offsets improving. This is a qualification-policy pass, **not morphology acceptance and not authorization to promote D1/D2/PAWCT as the final state classifier**.
 
 Machine-readable authority: [`experiments/two_wave_m0_authority.json`](experiments/two_wave_m0_authority.json).
 
