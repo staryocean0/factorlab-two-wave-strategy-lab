@@ -15,8 +15,28 @@ The canonical primary research object remains `two_wave_parent_structure_recogni
 Start with:
 
 - [`docs/INDEX.md`](docs/INDEX.md)
+- [`docs/research/TWO_WAVE_M0_AUTHORITY.md`](docs/research/TWO_WAVE_M0_AUTHORITY.md)
 - [`docs/user/two_wave_strategy_handoff_prompt.md`](docs/user/two_wave_strategy_handoff_prompt.md)
 - [`docs/user/cloud_execution_prompt.md`](docs/user/cloud_execution_prompt.md)
+
+## Current M0 scientific status
+
+The full recognizer is **not yet independently morphology-accepted**. Historical full-recognizer operational baseline remains `v0.4.3`; component-level advances do not silently replace that full baseline.
+
+Current best-supported research components are:
+
+- parent identity: **v0.5.2 exact-ridge identity**;
+- same-scale semantics: **v0.5.4 full-cycle qualification**;
+- immutable raw identity publication: **v0.6.5**;
+- qualification policy: **v0.6.18 path-gate demotion** — current best research qualification component;
+- fine-path partial-identification measurement: **v0.6.17** cloud-reviewed bounds;
+- parent direction (`Range / UpTrend / DownTrend`): **still blocked / not accepted**.
+
+v0.6.18 formally demotes only `inefficient_leg` and `jump_dominated_leg` from hard morphology vetoes to diagnostics. On the frozen v0.6.5 strict same-event universe, aggregate positive qualification overlap improved from **40.8129% to 68.3817%**, and both-qualified pairs increased from **482 to 1,462**, with all four harmless 5m offsets improving. This is a qualification-policy pass, **not morphology acceptance**.
+
+Machine-readable authority: [`experiments/two_wave_m0_authority.json`](experiments/two_wave_m0_authority.json).
+
+Next authorized research is a results-blind decomposition of remaining **duration-geometry** qualification disagreements. Direction/state formula changes remain frozen until morphology identity/qualification stability is adequate.
 
 ## Four-layer timing navigation shell
 
