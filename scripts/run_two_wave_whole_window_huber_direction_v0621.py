@@ -80,11 +80,11 @@ def reconstruct_pair(row, bars, view):
     return evaluate_pair(points,bars,cfg,source="v0621_direction_audit")
 
 
-def per_row_direction(row,bars,view):
+def per_row_direction(row,bars,closes,view):
     pair=reconstruct_pair(row,bars,view)
     d1=str(pair["direction_versions"]["D1"])
     challenger=classify_parent_window(
-        [float(bar["close"]) for bar in bars],
+        closes,
         row["published_raw_occurrence_bars"],
         float(pair["amplitude_unit_price"]),
     )
@@ -143,16 +143,17 @@ def main():
     p=argparse.ArgumentParser(); p.add_argument("--input",type=Path,required=True); p.add_argument("--output",type=Path,required=True)
     args=p.parse_args(); args.output.mkdir(parents=True,exist_ok=True)
 
-    filtered={}; records={}; recmap={}; bars={}; directions={}
+    filtered={}; records={}; recmap={}; bars={}; closes={}; directions={}
     for view in VIEWS:
         filtered[view]=load_gz(find_one(args.input,f"filtered-{view}.json.gz"))
         records[view]=load_gz(find_one(args.input,f"records-{view}.json.gz"))
         recmap[view]={fkey(r):r for r in records[view]}
         bars[view],_=load_development_bars(ROOT/f"data/development/{view}.parquet",ROOT/"data/manifest.json")
+        closes[view]=[float(bar["close"]) for bar in bars[view]]
         directions[view]={}
         for r in records[view]:
             if bool(r["candidate_qualified"]):
-                directions[view][fkey(r)]=per_row_direction(r,bars[view],view)
+                directions[view][fkey(r)]=per_row_direction(r,bars[view],closes[view],view)
 
     total_bothq=0; per_offset={}; pooled_d1=[]; pooled_h=[]
     main="5m_offset_0"
