@@ -69,12 +69,22 @@ For Range only, also report `margin / 0.15`, because `0.15` is the maximum possi
 
 Do not invent a corresponding bounded denominator for Trend: trend margin above `0.50` is not upper-bounded by the frozen state geometry.
 
-## Allowed conclusions
+## Frozen attribution verdict
 
-The result may conclude only one of:
+Before any v0.6.26 result is read, define:
 
-1. `v0626_absolute_margin_geometry_is_state_asymmetric` if Range is materially more suppressed by the common absolute margin and the residual pair errors remain concentrated in one-sided rescue boundaries;
-2. `v0626_residual_harm_not_explained_by_margin_geometry` otherwise.
+- `range_keep_fraction` = kept Range rescues / all v0.6.23 Range rescue candidates;
+- `trend_keep_fraction` = kept UpTrend+DownTrend rescues / all v0.6.23 UpTrend+DownTrend rescue candidates;
+- `introduced_harm_one_sided_fraction` = introduced-harm pairs whose v0.6.25 rescue topology is main-only or other-only / all introduced-harm pairs.
+
+Return `v0626_absolute_margin_geometry_is_state_asymmetric` only if BOTH hold:
+
+1. `range_keep_fraction <= 0.5 * trend_keep_fraction`;
+2. `introduced_harm_one_sided_fraction >= 0.80`.
+
+Otherwise return `v0626_residual_harm_not_explained_by_margin_geometry`.
+
+These thresholds are attribution gates only. They do not authorize a runtime threshold and may not be tuned after results.
 
 No direction winner, threshold change, or authority promotion follows from v0.6.26 alone.
 
