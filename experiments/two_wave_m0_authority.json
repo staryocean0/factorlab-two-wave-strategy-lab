@@ -1,0 +1,56 @@
+{
+  "schema": "two_wave_m0_authority@1.0",
+  "date": "2026-09-10",
+  "primary_object": "two_wave_parent_structure_recognizer",
+  "target_states": ["Range", "UpTrend", "DownTrend", "Uncertain"],
+  "global_status": "morphology_replication_not_yet_accepted",
+  "morphology_acceptance": false,
+  "historical_full_recognizer_operational_baseline": {
+    "version": "v0.4.3",
+    "replace_only_after_full_morphology_acceptance": true
+  },
+  "component_authority": {
+    "parent_identity": {
+      "version": "v0.5.2",
+      "name": "exact-ridge parent identity",
+      "status": "supported_research_component"
+    },
+    "same_scale_semantics": {
+      "version": "v0.5.4",
+      "name": "full-cycle-scale qualification",
+      "status": "supported_research_component"
+    },
+    "raw_identity_publication": {
+      "version": "v0.6.5",
+      "name": "first-valid immutable predecessor publication",
+      "status": "supported_research_component"
+    },
+    "qualification_policy": {
+      "version": "v0.6.18",
+      "name": "path-gate demotion",
+      "status": "current_best_research_component",
+      "formal_verdict": "v0618_path_gate_demotion_research_candidate_pass",
+      "result_commit": "9600eca94de9fb2cc39db4b995edec3d5e7870c3",
+      "workflow_run": 34423674192,
+      "aggregate_positive_overlap_before": 0.40812870448772226,
+      "aggregate_positive_overlap_after": 0.6838166510757717,
+      "both_qualified_before": 482,
+      "both_qualified_after": 1462,
+      "demoted_hard_reasons": ["inefficient_leg", "jump_dominated_leg"]
+    },
+    "fine_path_measurement": {
+      "version": "v0.6.17",
+      "name": "session-aware information-set bounds",
+      "status": "cloud_reviewed_measurement_capability",
+      "structural_gap_leg_fraction": 0.2831947731
+    },
+    "parent_direction": {
+      "version": null,
+      "status": "blocked_not_accepted",
+      "historical_diagnostics": ["D1", "D2", "PAWCT"]
+    }
+  },
+  "next_authorized_step": "results_blind_duration_geometry_disagreement_decomposition_under_v0618_path_policy",
+  "trade_authority": false,
+  "production_authority": false
+}
