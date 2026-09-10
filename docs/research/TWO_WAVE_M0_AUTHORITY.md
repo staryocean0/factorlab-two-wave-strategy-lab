@@ -54,7 +54,8 @@ This does **not** mean morphology acceptance. It means the v0.6.18 qualification
 
 ## v0.6.19 attribution evidence
 
-Formal workflow run: GitHub Actions `34425574563`.
+Formal workflow run: GitHub Actions `34438737396`.
+Formal result commit: `2c755eab8d28822ea7f7927c4c8b43162af1824e`.
 Result bundle: `experiments/two_wave_duration_geometry_decomposition_v0619/`.
 Formal attribution: `v0619_local_duration_boundary_sensitivity_dominant`.
 
@@ -74,11 +75,17 @@ Pooled attribution:
 - confirmation involved: `158 / 676 = 23.37%`;
 - long-span safety involved: `21 / 676 = 3.11%`.
 
+Reason-level one-bar boundary attribution:
+
+- `short_leg`: `250 / 252 = 99.21%`;
+- `short_cycle`: `94 / 108 = 87.04%`;
+- `cycle_duration_mismatch`: `29 / 68 = 42.65%`.
+
 All four harmless offsets independently showed the same pattern: simple-one-bar fraction among local-duration-only was `86.67% / 86.90% / 90.43% / 88.17%`.
 
-Interpretation: after the successful v0.6.18 path-gate demotion, the largest remaining instability is not broad duration failure but a narrow native-bar discretization boundary around the frozen `min_leg=4` and `min_cycle=12` requirements. This authorizes exactly one new preregistered **single-view causal boundary-repair challenger**. It does not authorize cross-view information at runtime, broad threshold search, or any direction/state modification.
+Interpretation: after the successful v0.6.18 path-gate demotion, the largest remaining instability is a narrow native-bar discretization boundary around the frozen `min_leg=4` and `min_cycle=12` requirements. The evidence does **not** support demoting `cycle_duration_mismatch` in the same step. This authorizes exactly one preregistered single-view causal boundary-repair challenger.
 
-v0.6.18 remains the current best qualification component until such a challenger passes its own frozen non-regression and material-improvement gates.
+v0.6.18 remains the current best qualification component until such a challenger passes its own frozen promotion gate.
 
 ## Historical contributions retained
 
