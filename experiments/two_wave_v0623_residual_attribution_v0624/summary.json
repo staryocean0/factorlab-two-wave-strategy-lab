@@ -1,0 +1,205 @@
+{
+  "by_transition": {
+    "introduced_harm": {
+      "D1_topology_counts": {
+        "both_uncertain": 50
+      },
+      "consensus_margin_quantiles": {
+        "count": 50,
+        "max": 0.2088105646040771,
+        "mean": 0.04342465471138958,
+        "median": 0.027858721038782897,
+        "min": 0.00044959134537575496,
+        "p10": 0.0037361016621931336,
+        "p25": 0.012613206476224992,
+        "p75": 0.069665962616026,
+        "p90": 0.08200279548182922
+      },
+      "rescue_topology_counts": {
+        "main_only_rescued": 28,
+        "other_only_rescued": 22
+      },
+      "rescued_label_counts": {
+        "downtrend": 18,
+        "range": 14,
+        "uptrend": 18
+      },
+      "rescued_side_uncertain_subtype_counts": {
+        "coherent_but_subthreshold": 8,
+        "large_migration_without_coherent_direction": 3,
+        "opposite_envelope_conflict": 2,
+        "same_phase_reversal_conflict": 31,
+        "single_phase_dominant": 1,
+        "strong_net_with_opposed_phase": 5
+      },
+      "support_score_span_quantiles": {
+        "count": 50,
+        "max": 0.44037647300027816,
+        "mean": 0.14061588962289484,
+        "median": 0.1465458276881107,
+        "min": 0.009711434434439559,
+        "p10": 0.03522305097969227,
+        "p25": 0.05750374263902314,
+        "p75": 0.19234991906663929,
+        "p90": 0.25547267234641075
+      }
+    },
+    "persistent_nonexact": {
+      "D1_topology_counts": {
+        "main_decisive_other_uncertain": 6,
+        "main_uncertain_other_decisive": 9
+      },
+      "consensus_margin_quantiles": {
+        "count": 0
+      },
+      "rescue_topology_counts": {
+        "neither_rescued": 15
+      },
+      "rescued_label_counts": {},
+      "rescued_side_uncertain_subtype_counts": {},
+      "support_score_span_quantiles": {
+        "count": 0
+      }
+    },
+    "repaired_old_nonexact": {
+      "D1_topology_counts": {
+        "main_decisive_other_uncertain": 26,
+        "main_uncertain_other_decisive": 21
+      },
+      "consensus_margin_quantiles": {
+        "count": 47,
+        "max": 1.8445457027337762,
+        "mean": 0.43757283513218803,
+        "median": 0.28769336200547757,
+        "min": 0.0011991041490269083,
+        "p10": 0.04632569106605564,
+        "p25": 0.12733921466624742,
+        "p75": 0.6487498494320619,
+        "p90": 0.9887875458295765
+      },
+      "rescue_topology_counts": {
+        "main_only_rescued": 21,
+        "other_only_rescued": 26
+      },
+      "rescued_label_counts": {
+        "downtrend": 21,
+        "range": 1,
+        "uptrend": 25
+      },
+      "rescued_side_uncertain_subtype_counts": {
+        "coherent_but_subthreshold": 11,
+        "large_migration_without_coherent_direction": 2,
+        "same_phase_reversal_conflict": 9,
+        "strong_net_with_opposed_phase": 25
+      },
+      "support_score_span_quantiles": {
+        "count": 47,
+        "max": 0.4824194620375457,
+        "mean": 0.11506539800685556,
+        "median": 0.09650251067952142,
+        "min": 0.025114996548075474,
+        "p10": 0.04831358580163517,
+        "p25": 0.05839952498828571,
+        "p75": 0.14279785181315002,
+        "p90": 0.20021074686722373
+      }
+    },
+    "retained_exact": {
+      "D1_topology_counts": {
+        "both_decisive": 684,
+        "both_uncertain": 666
+      },
+      "consensus_margin_quantiles": {
+        "count": 770,
+        "max": 4.808247874126134,
+        "mean": 0.7692681245150575,
+        "median": 0.4219008094667343,
+        "min": 0.0007965606206171705,
+        "p10": 0.04968954216689603,
+        "p25": 0.11791249781550214,
+        "p75": 1.0079355868715707,
+        "p90": 2.1043123296772186
+      },
+      "rescue_topology_counts": {
+        "both_rescued": 385,
+        "neither_rescued": 965
+      },
+      "rescued_label_counts": {
+        "downtrend": 300,
+        "range": 122,
+        "uptrend": 348
+      },
+      "rescued_side_uncertain_subtype_counts": {
+        "coherent_but_subthreshold": 53,
+        "large_migration_without_coherent_direction": 27,
+        "opposite_envelope_conflict": 33,
+        "same_phase_reversal_conflict": 587,
+        "single_phase_dominant": 16,
+        "strong_net_with_opposed_phase": 54
+      },
+      "support_score_span_quantiles": {
+        "count": 770,
+        "max": 1.095834102524136,
+        "mean": 0.11864204346694097,
+        "median": 0.09642065656040148,
+        "min": 0.006717296993739019,
+        "p10": 0.029498808984316584,
+        "p25": 0.04732361671441335,
+        "p75": 0.1598000075247572,
+        "p90": 0.23775788018800262
+      }
+    }
+  },
+  "changed_recognizer_rules": [],
+  "controls": {
+    "D1_decisive_coverage": 0.4890560875512996,
+    "D1_exact_agreement": 0.957592339261286,
+    "D1_exact_count": 1400,
+    "both_v0618_qualified_pairs": 1462,
+    "filtered_pairs": 57029,
+    "raw_strict_pairs": 29453,
+    "reproduced": true,
+    "v0623_decisive_agreement": 1.0,
+    "v0623_decisive_coverage": 0.7855677154582763,
+    "v0623_exact_agreement": 0.9555403556771546,
+    "v0623_exact_count": 1397,
+    "v0623_opposite_trend_conflicts": 0
+  },
+  "future_outcome_used": false,
+  "morphology_acceptance": false,
+  "per_offset_transition_counts": {
+    "5m_offset_1": {
+      "introduced_harm": 18,
+      "persistent_nonexact": 9,
+      "repaired_old_nonexact": 9,
+      "retained_exact": 364
+    },
+    "5m_offset_2": {
+      "introduced_harm": 9,
+      "persistent_nonexact": 2,
+      "repaired_old_nonexact": 13,
+      "retained_exact": 263
+    },
+    "5m_offset_3": {
+      "introduced_harm": 11,
+      "persistent_nonexact": 2,
+      "repaired_old_nonexact": 9,
+      "retained_exact": 280
+    },
+    "5m_offset_4": {
+      "introduced_harm": 12,
+      "persistent_nonexact": 2,
+      "repaired_old_nonexact": 16,
+      "retained_exact": 443
+    }
+  },
+  "production_authority": false,
+  "schema": "two_wave_v0623_residual_direction_attribution@0.6.24",
+  "trade_authority": false,
+  "transition_counts": {
+    "introduced_harm": 50,
+    "persistent_nonexact": 15,
+    "repaired_old_nonexact": 47,
+    "retained_exact": 1350
+  }
+}
