@@ -1,5 +1,5 @@
 {
-  "schema": "two_wave_m0_authority@1.0",
+  "schema": "two_wave_m0_authority@1.1",
   "date": "2026-09-10",
   "primary_object": "two_wave_parent_structure_recognizer",
   "target_states": ["Range", "UpTrend", "DownTrend", "Uncertain"],
@@ -38,6 +38,20 @@
       "both_qualified_after": 1462,
       "demoted_hard_reasons": ["inefficient_leg", "jump_dominated_leg"]
     },
+    "qualification_disagreement_attribution": {
+      "version": "v0.6.19",
+      "name": "duration-geometry disagreement decomposition",
+      "status": "supported_diagnostic_evidence",
+      "formal_attribution": "v0619_local_duration_boundary_sensitivity_dominant",
+      "workflow_run": 34425574563,
+      "result_commit": "e5bb5d29e614d2b81f2d23820590e458430b9b86",
+      "disagreements": 676,
+      "local_duration_involved": 393,
+      "local_duration_involved_fraction": 0.5813609467455622,
+      "local_duration_only": 361,
+      "local_duration_only_simple_one_bar": 318,
+      "local_duration_only_simple_one_bar_fraction": 0.8808864265927978
+    },
     "fine_path_measurement": {
       "version": "v0.6.17",
       "name": "session-aware information-set bounds",
@@ -50,7 +64,7 @@
       "historical_diagnostics": ["D1", "D2", "PAWCT"]
     }
   },
-  "next_authorized_step": "results_blind_duration_geometry_disagreement_decomposition_under_v0618_path_policy",
+  "next_authorized_step": "preregister_one_single_view_causal_exact_one_bar_duration_boundary_repair_challenger_against_v0618",
   "trade_authority": false,
   "production_authority": false
 }
