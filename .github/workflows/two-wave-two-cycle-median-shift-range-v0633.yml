@@ -1,0 +1,67 @@
+name: two-wave-two-cycle-median-shift-range-v0633-once
+
+on:
+  push:
+    branches:
+      - research/two-wave-two-cycle-median-shift-range-v0633
+    paths-ignore:
+      - experiments/two_wave_two_cycle_median_shift_range_v0633/**
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  precheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: python -m pip install -e .
+      - run: python scripts/validate_theme_package.py
+      - run: pytest -q
+
+  replay:
+    needs: precheck
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: python -m pip install -e .
+      - name: Download frozen v0618 identity artifacts
+        uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 34423674192
+          pattern: v0618-5m_offset_*
+          path: tmp/v0633_input
+          merge-multiple: true
+      - name: Replay frozen v0633 two-cycle median-shift Range rescue
+        run: >-
+          python scripts/run_two_wave_two_cycle_median_shift_range_v0633.py
+          --input tmp/v0633_input
+          --output experiments/two_wave_two_cycle_median_shift_range_v0633
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v0633-two-cycle-median-shift-range-result
+          path: experiments/two_wave_two_cycle_median_shift_range_v0633/
+          retention-days: 30
+      - name: Commit formal v0633 result bundle
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add experiments/two_wave_two_cycle_median_shift_range_v0633
+          if git diff --cached --quiet; then
+            echo "Result bundle already identical; nothing to commit."
+            exit 0
+          fi
+          git commit -m "Record formal v0633 two-cycle median-shift Range result"
+          git push
