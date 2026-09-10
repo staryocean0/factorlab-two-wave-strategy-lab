@@ -1,0 +1,131 @@
+{
+  "aggregate": {
+    "baseline_matrix": {
+      "both_qualified": 1462,
+      "both_rejected": 27315,
+      "main_only_qualified": 386,
+      "other_only_qualified": 290
+    },
+    "baseline_positive_overlap": 0.6838166510757717,
+    "candidate_matrix": {
+      "both_qualified": 2181,
+      "both_rejected": 26215,
+      "main_only_qualified": 525,
+      "other_only_qualified": 532
+    },
+    "candidate_positive_overlap": 0.6735639283508339,
+    "positive_overlap_delta_pp": -1.0252722724937824
+  },
+  "candidate_count": 1,
+  "changed_component_only": [
+    "short_leg hard->diagnostic only when min_leg==3",
+    "short_cycle hard->diagnostic only when min_cycle==11"
+  ],
+  "controls": {
+    "baseline_matrix": {
+      "both_qualified": 1462,
+      "both_rejected": 27315,
+      "main_only_qualified": 386,
+      "other_only_qualified": 290
+    },
+    "filtered_pairs": 57029,
+    "strict_pairs": 29453
+  },
+  "eligible_for_qualification_component_update": false,
+  "future_outcome_used": false,
+  "gates": {
+    "aggregate_both_qualified_material": true,
+    "aggregate_positive_overlap_material": false,
+    "all_offsets_nonworse": false,
+    "control_reproduction": true,
+    "hard_safety_invariants": true
+  },
+  "identity_level": {
+    "newly_qualified_unique_across_views": 5297,
+    "newly_qualified_view_sum": 5345
+  },
+  "input_workflow_run": 34423674192,
+  "morphology_acceptance": false,
+  "offsets": {
+    "5m_offset_1": {
+      "baseline_matrix": {
+        "both_qualified": 400,
+        "both_rejected": 7809,
+        "main_only_qualified": 101,
+        "other_only_qualified": 71
+      },
+      "baseline_positive_overlap": 0.6993006993006993,
+      "candidate_matrix": {
+        "both_qualified": 610,
+        "both_rejected": 7498,
+        "main_only_qualified": 140,
+        "other_only_qualified": 133
+      },
+      "candidate_positive_overlap": 0.6908267270668177,
+      "filtered_pairs": 14784,
+      "positive_overlap_delta_pp": -0.8473972233881577,
+      "strict_pairs": 8381
+    },
+    "5m_offset_2": {
+      "baseline_matrix": {
+        "both_qualified": 287,
+        "both_rejected": 5323,
+        "main_only_qualified": 93,
+        "other_only_qualified": 67
+      },
+      "baseline_positive_overlap": 0.6420581655480985,
+      "candidate_matrix": {
+        "both_qualified": 425,
+        "both_rejected": 5097,
+        "main_only_qualified": 122,
+        "other_only_qualified": 126
+      },
+      "candidate_positive_overlap": 0.6315007429420505,
+      "filtered_pairs": 12725,
+      "positive_overlap_delta_pp": -1.0557422606047973,
+      "strict_pairs": 5770
+    },
+    "5m_offset_3": {
+      "baseline_matrix": {
+        "both_qualified": 302,
+        "both_rejected": 5736,
+        "main_only_qualified": 90,
+        "other_only_qualified": 76
+      },
+      "baseline_positive_overlap": 0.6452991452991453,
+      "candidate_matrix": {
+        "both_qualified": 451,
+        "both_rejected": 5505,
+        "main_only_qualified": 122,
+        "other_only_qualified": 126
+      },
+      "candidate_positive_overlap": 0.6452074391988555,
+      "filtered_pairs": 13412,
+      "positive_overlap_delta_pp": -0.00917061002898567,
+      "strict_pairs": 6204
+    },
+    "5m_offset_4": {
+      "baseline_matrix": {
+        "both_qualified": 473,
+        "both_rejected": 8447,
+        "main_only_qualified": 102,
+        "other_only_qualified": 76
+      },
+      "baseline_positive_overlap": 0.7265745007680492,
+      "candidate_matrix": {
+        "both_qualified": 695,
+        "both_rejected": 8115,
+        "main_only_qualified": 141,
+        "other_only_qualified": 147
+      },
+      "candidate_positive_overlap": 0.7070193285859614,
+      "filtered_pairs": 16108,
+      "positive_overlap_delta_pp": -1.9555172182087799,
+      "strict_pairs": 9098
+    }
+  },
+  "production_authority": false,
+  "schema": "two_wave_one_bar_duration_repair_result@0.6.20",
+  "trade_authority": false,
+  "verdict": "v0620_exact_one_bar_duration_repair_rejected"
+}
