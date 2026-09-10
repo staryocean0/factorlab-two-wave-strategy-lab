@@ -24,8 +24,9 @@ A later component may be better supported without changing the full-recognizer b
 | raw financial identity publication | v0.6.5 first-valid immutable predecessor publication | supported research component | one canonical filtered identity publishes at most one append-only raw identity |
 | path-related qualification policy | **v0.6.18 path-gate demotion** | **current best research qualification component** | `inefficient_leg` and `jump_dominated_leg` are diagnostics, not hard morphology vetoes; all non-path v0.5.4 gates remain hard |
 | qualification disagreement attribution | v0.6.19 duration-geometry decomposition | supported diagnostic evidence | remaining v0.6.18 disagreements are dominated by local-duration one-native-bar boundary sensitivity; changes no rule |
+| exact one-bar duration repair | v0.6.20 | rejected challenger / retained contribution | greatly increases positive supply but worsens cross-slicing positive overlap; do not widen the 3/11 relaxation |
 | fine-path information measurement | v0.6.17 session-aware information-set bounds | cloud-reviewed measurement capability | carries partial-identification intervals when native 5m bars do not identify fine path |
-| parent direction/state classification | D1 historical diagnostic only | **blocked / not accepted** | do not promote D1/D2/PAWCT to current parent-state authority |
+| parent direction/state classification | D1 historical diagnostic only | **blocked / not accepted; active next research layer** | D1/D2/PAWCT are not current parent-state authority; new work must not retry rejected endpoint routes |
 
 ## v0.6.18 decisive evidence
 
@@ -55,6 +56,7 @@ This does **not** mean morphology acceptance. It means the v0.6.18 qualification
 ## v0.6.19 attribution evidence
 
 Formal workflow run: GitHub Actions `34425574563`.
+Formal result commit: `e5bb5d29e614d2b81f2d23820590e458430b9b86`.
 Result bundle: `experiments/two_wave_duration_geometry_decomposition_v0619/`.
 Formal attribution: `v0619_local_duration_boundary_sensitivity_dominant`.
 
@@ -74,11 +76,29 @@ Pooled attribution:
 - confirmation involved: `158 / 676 = 23.37%`;
 - long-span safety involved: `21 / 676 = 3.11%`.
 
-All four harmless offsets independently showed the same pattern: simple-one-bar fraction among local-duration-only was `86.67% / 86.90% / 90.43% / 88.17%`.
+Interpretation: the largest remaining qualification instability is concentrated near one-native-bar local-duration boundaries. This was a valid attribution, not permission to assume a one-bar relaxation would improve the recognizer.
 
-Interpretation: after the successful v0.6.18 path-gate demotion, the largest remaining instability is not broad duration failure but a narrow native-bar discretization boundary around the frozen `min_leg=4` and `min_cycle=12` requirements. This authorizes exactly one new preregistered **single-view causal boundary-repair challenger**. It does not authorize cross-view information at runtime, broad threshold search, or any direction/state modification.
+## v0.6.20 adjudication and retained contribution
 
-v0.6.18 remains the current best qualification component until such a challenger passes its own frozen non-regression and material-improvement gates.
+Formal workflow run: GitHub Actions `34426276576`.
+Formal result commit: `8ef80d810ea7c47e1cc0e3f2cea4eb30f472f5e1`.
+Result bundle: `experiments/two_wave_one_bar_duration_repair_v0620/`.
+Formal verdict: `v0620_exact_one_bar_duration_repair_rejected`.
+
+The sole preregistered challenger demoted `short_leg` only for `min_leg==3` and `short_cycle` only for `min_cycle==11`. All more severe duration failures, `cycle_duration_mismatch`, amplitude, confirmation and long-span safety reasons remained hard.
+
+Frozen controls reproduced exactly. Relative to v0.6.18:
+
+- aggregate positive overlap: `68.3817% -> 67.3564%` (**-1.0253 pp**);
+- aggregate both-qualified: `1,462 -> 2,181`;
+- newly qualified published identities: `5,297` unique across views;
+- all four offset positive-overlap values were non-improving: `-0.8474 / -1.0557 / -0.0092 / -1.9555 pp`;
+- material both-qualified gate passed, but per-offset non-regression and aggregate +3 pp gates failed;
+- hard safety invariants passed.
+
+Therefore v0.6.18 remains the qualification-policy champion unchanged.
+
+The retained scientific contribution is narrower and important: **one-native-bar duration sensitivity is real, but direct threshold-minus-one admission is not a valid repair**. It releases many events while making the same financial identity less consistently qualified across harmless 5m slicing. Future duration work must improve the duration/scale measurement itself rather than widen `3/11` or search nearby hard thresholds.
 
 ## Historical contributions retained
 
@@ -95,22 +115,22 @@ Do not reduce historical versions to pass/fail only.
 - v0.6.17 established session-aware partial-identification bounds and proved structural fine-path nonidentifiability is material.
 - v0.6.18 converts the v0.6.7-v0.6.17 measurement insight into a successful qualification-policy improvement.
 - v0.6.19 shows the next-largest qualification instability is concentrated at one-native-bar local-duration boundaries rather than broad parent-scale failure.
+- v0.6.20 proves that this boundary concentration cannot be repaired by simply admitting exact 3-bar legs / 11-bar cycles; supply rises but cross-slicing positive stability falls.
 
-Rejected routes remain evidence and must not be silently retried: v0.4.4 fixed 12-48 hierarchy, endpoint D2, confidence-gated endpoint D2, PAWCT as previously adjudicated on selected ownership, shared-1m with frozen 5m thresholds, single native-OHLC concentration proxy, native close coarsening proxy.
+Rejected routes remain evidence and must not be silently retried: v0.4.4 fixed 12-48 hierarchy, endpoint D2, confidence-gated endpoint D2, PAWCT as previously adjudicated on selected ownership, shared-1m with frozen 5m thresholds, single native-OHLC concentration proxy, native close coarsening proxy, and v0.6.20 direct one-bar threshold relaxation.
 
 ## Next authorized research step
 
-Do **not** change direction/state classification yet.
+Return to the primary unresolved M0 task: **parent `Range / UpTrend / DownTrend / Uncertain` state classification** on identities qualified by the current v0.6.18 policy.
 
-The only newly authorized challenger is a narrow, causal, single-view duration-boundary repair built on the v0.6.18 qualification policy:
+The next direction/state challenger must obey:
 
-- `short_leg` may be demoted only for the exact boundary `min_leg == 3`; `min_leg <= 2` remains hard rejection;
-- `short_cycle` may be demoted only for the exact boundary `min_cycle == 11`; `min_cycle <= 10` remains hard rejection;
-- `cycle_duration_mismatch` remains hard in this first boundary-repair challenger;
-- amplitude, confirmation, long-cycle, long-pair, observed-day and wall-span gates remain unchanged;
-- no cross-view counterpart may be used by the recognizer at runtime;
-- no parameter grid or broad duration-threshold loosening is authorized.
+1. v0.6.18 qualification remains frozen and is not retuned together with direction;
+2. it must be causal and single-view at runtime;
+3. it must use the two complete parent cycles / whole parent window rather than simply reusing the rejected endpoint-D2 rule;
+4. historical D1 is the baseline diagnostic, not a trusted label source;
+5. cross-offset same-financial-identity consistency may be used for stability evaluation, never as a runtime feature;
+6. no future return, P&L, label balance or trading outcome may choose thresholds;
+7. because independent human morphology labels remain absent, a successful direction component may become the best-supported **research component**, but global morphology acceptance must remain false.
 
-Before results, freeze a promotion gate against v0.6.18 on the same `57,029 -> 29,453` identity universe. v0.6.18 remains champion if the challenger does not pass.
-
-Direction, H1/H2, third-wave, outcomes, PnL, paper trading and production remain frozen.
+Before running outcomes, freeze a direct parent-state candidate and a promotion gate that prevents trivial all-`Uncertain` or all-one-class solutions. H1/H2, third-wave, trading and production remain frozen.
