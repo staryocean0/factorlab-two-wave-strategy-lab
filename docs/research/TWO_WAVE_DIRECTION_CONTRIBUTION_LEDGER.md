@@ -76,8 +76,6 @@ Per-offset Huber exact-agreement delta versus D1:
 - offset3: `-1.66 pp`;
 - offset4: `+0.42 pp`.
 
-The whole-component promotion failed because not every offset was non-worse and pooled exact agreement did not improve by the preregistered +3 pp.
-
 ### Retained contribution
 
 1. Huber raises pooled decisive coverage by **+35.33 pp** (`48.91% -> 84.23%`).
@@ -86,7 +84,7 @@ The whole-component promotion failed because not every offset was non-worse and 
 4. It creates **zero** UpTrend-vs-DownTrend cross-view conflicts.
 5. Therefore its cross-view non-exact pairs are uncertainty-boundary disagreements, not contradictions among two decisive state labels.
 
-Interpretation: a robust whole-parent-window centerline contains strong usable state information and materially reduces D1 over-abstention, but it should not replace D1 wholesale.
+Interpretation: whole-parent-window centerline information is useful but should not replace D1 wholesale.
 
 ## v0.6.22 D1-primary Huber rescue — rejected, contribution retained
 
@@ -114,9 +112,41 @@ Additional audit:
 
 ### Retained contribution
 
-v0.6.22 proves that the v0.6.21 signal can be integrated without destroying D1's existing decisive outputs: coverage rises by **+36.94 pp**, decisive agreement remains above **99.9%**, and there are still zero opposite-trend conflicts. The remaining failure is concentrated at the rescue/abstention boundary: unconditional Huber rescue converts too many D1-Uncertain records on only one harmless slicing view.
+v0.6.22 proves the whole-window signal can be integrated without destroying D1's existing decisive outputs. Coverage rises by **+36.94 pp**, decisive agreement remains above **99.9%**, and opposite-trend conflicts remain zero. The remaining failure sits at the rescue/abstention boundary.
 
-This supports a narrower direct recognizer repair: keep D1 primary, keep the same Huber score thresholds, but rescue only when the Huber state is internally stable to small **single-view endpoint-support perturbations**. Historical v0.6.11 independently showed endpoint-erosion ensembles materially reduce slicing-sensitive measurement differences, so that contribution is now reused directly rather than left as archival evidence.
+## v0.6.23 D1-primary endpoint-erosion-consensus Huber rescue — rejected, contribution retained
+
+Protocol: `docs/research/TWO_WAVE_D1_HUBER_EROSION_CONSENSUS_V0623_PROTOCOL.md`  
+Result bundle: `experiments/two_wave_d1_huber_erosion_consensus_v0623/`  
+Formal result commit: `a8ca442ccb7482164c2dd3cdeee8b8640ea40957`  
+Formal workflow run: `34442468065`  
+Formal verdict: `v0623_D1_primary_erosion_consensus_Huber_rescue_direction_rejected`.
+
+This candidate preserved D1 and required the frozen v0.6.21 Huber state to be unanimous across full support plus fixed left/right/both one-bar endpoint erosions before rescuing D1 `Uncertain`.
+
+| Metric | D1 | v0.6.22 | v0.6.23 |
+|---|---:|---:|---:|
+| pooled exact four-state agreement | 95.7592% | 94.7332% | **95.5540%** |
+| pooled decisive coverage | 48.9056% | 85.8413% | **78.5568%** |
+| decisive agreement | 100% | 99.9178% | **100%** |
+| opposite Up/Down conflicts | 0 | 0 | **0** |
+
+v0.6.23 rescued `3,055` D1-Uncertain records and withheld `2,289` because the fixed support views did not reach unanimous decisive state. D1 decisive overrides remained exactly `0`.
+
+Per-offset exact agreement versus D1:
+
+- offset1: `95.50% -> 93.25%` (`-2.25 pp`);
+- offset2: `94.77% -> 96.17%` (`+1.39 pp`);
+- offset3: `96.36% -> 95.70%` (`-0.66 pp`);
+- offset4: `96.19% -> 97.04%` (`+0.85 pp`).
+
+### Retained contribution
+
+Endpoint-erosion unanimity materially repairs the unconditional-rescue instability: compared with v0.6.22, pooled exact agreement rises from `94.7332%` to `95.5540%`, leaving only a **0.2052 pp** gap to D1, while still retaining a **+29.65 pp** decisive-coverage gain over D1. Decisive agreement returns to **100%** and opposite-trend conflicts remain zero.
+
+The failure is now asymmetric rather than broad: offsets 2 and 4 improve beyond D1, while offsets 1 and 3 regress. Therefore the next work must not widen erosion or tune Huber thresholds. It must first decompose v0.6.23 pair-level repairs versus harms and determine whether residual harm is concentrated in **one-sided rescue topology**, label family, or support-state instability that can be observed causally inside one view.
+
+This decomposition is diagnostic evidence for direct recognizer improvement, not a new judge.
 
 No direction winner exists yet. D1 remains the historical stability baseline; v0.6.18 remains the qualification-policy champion.
 
