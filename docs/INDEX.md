@@ -6,6 +6,14 @@ Primary objective: causally identify two complete same-scale waves and classify 
 
 Concrete reversal/MR payoff research belongs to `factorlab-trend-reversion-regime-lab`. Bottom-layer Unsafe/Recovering/HighVol risk-state research belongs to `factorlab-star50-filter-lab`.
 
+Current M0 authority:
+
+- [`research/TWO_WAVE_M0_AUTHORITY.md`](research/TWO_WAVE_M0_AUTHORITY.md)
+- [`../experiments/two_wave_m0_authority.json`](../experiments/two_wave_m0_authority.json)
+- [`../experiments/two_wave_path_gate_demotion_v0618/RESULT_CARD.md`](../experiments/two_wave_path_gate_demotion_v0618/RESULT_CARD.md)
+
+Global morphology status remains `morphology_replication_not_yet_accepted`. v0.6.18 is the current best **qualification-policy research component**, not an independently accepted full recognizer.
+
 ## 1. User objective
 
 - [`user/two_wave_strategy_handoff_prompt.md`](user/two_wave_strategy_handoff_prompt.md)
