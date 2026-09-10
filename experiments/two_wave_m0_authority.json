@@ -1,5 +1,5 @@
 {
-  "schema": "two_wave_m0_authority@1.1",
+  "schema": "two_wave_m0_authority@1.2",
   "date": "2026-09-10",
   "primary_object": "two_wave_parent_structure_recognizer",
   "target_states": ["Range", "UpTrend", "DownTrend", "Uncertain"],
@@ -52,6 +52,27 @@
       "local_duration_only_simple_one_bar": 318,
       "local_duration_only_simple_one_bar_fraction": 0.8808864265927978
     },
+    "qualification_policy_challengers": [
+      {
+        "version": "v0.6.20",
+        "name": "exact one-bar duration repair",
+        "status": "rejected_contribution_retained",
+        "formal_verdict": "v0620_exact_one_bar_duration_repair_rejected",
+        "workflow_run": 34426276576,
+        "result_commit": "8ef80d810ea7c47e1cc0e3f2cea4eb30f472f5e1",
+        "aggregate_positive_overlap_before": 0.6838166510757717,
+        "aggregate_positive_overlap_after": 0.6735635359116022,
+        "aggregate_positive_overlap_delta_pp": -1.025311516416947,
+        "both_qualified_before": 1462,
+        "both_qualified_after": 2181,
+        "newly_qualified_unique_across_views": 5297,
+        "failed_gates": [
+          "all_offsets_nonworse",
+          "aggregate_positive_overlap_material"
+        ],
+        "retained_contribution": "one-native-bar duration sensitivity is real, but direct exact-3/exact-11 admission increases supply while worsening cross-slicing positive stability; future work must improve duration/scale measurement rather than widen thresholds"
+      }
+    ],
     "fine_path_measurement": {
       "version": "v0.6.17",
       "name": "session-aware information-set bounds",
@@ -60,11 +81,11 @@
     },
     "parent_direction": {
       "version": null,
-      "status": "blocked_not_accepted",
+      "status": "blocked_not_accepted_active_next_research_layer",
       "historical_diagnostics": ["D1", "D2", "PAWCT"]
     }
   },
-  "next_authorized_step": "preregister_one_single_view_causal_exact_one_bar_duration_boundary_repair_challenger_against_v0618",
+  "next_authorized_step": "preregister_direct_causal_whole_parent_window_state_classifier_against_historical_D1_on_v0618_qualified_same_event_pairs_without_retrying_endpoint_D2_or_PAWCT",
   "trade_authority": false,
   "production_authority": false
 }
