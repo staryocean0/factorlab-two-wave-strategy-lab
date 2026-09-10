@@ -1,5 +1,5 @@
 {
-  "schema": "two_wave_m0_authority@1.3",
+  "schema": "two_wave_m0_authority@1.4",
   "date": "2026-09-10",
   "primary_object": "two_wave_parent_structure_recognizer",
   "target_states": ["Range", "UpTrend", "DownTrend", "Uncertain"],
@@ -98,12 +98,28 @@
           "decisive_agreement": 1.0,
           "opposite_trend_conflicts": 0,
           "pooled_range_labels": 254,
-          "retained_contribution": "whole-parent-window Huber materially reduces D1 over-abstention while decisive labels remain perfectly cross-slicing consistent; use it as a rescue signal for D1 uncertainty rather than wholesale replacement"
+          "retained_contribution": "whole-parent-window Huber materially reduces D1 over-abstention while decisive labels remain perfectly cross-slicing consistent; use it as a rescue signal rather than wholesale replacement"
+        },
+        {
+          "version": "v0.6.22",
+          "name": "D1-primary Huber rescue",
+          "status": "rejected_contribution_retained",
+          "formal_verdict": "v0622_D1_primary_Huber_rescue_direction_rejected",
+          "formal_result_commit": "89126f20a17be5e8b64c296cff4a5795efb371c4",
+          "workflow_run": 34440036520,
+          "D1_decisive_override_count": 0,
+          "D1_uncertain_records_rescued": 3737,
+          "pooled_exact_agreement": 0.9473324213406292,
+          "pooled_decisive_coverage": 0.8584131326949385,
+          "decisive_agreement": 0.9991783073130649,
+          "opposite_trend_conflicts": 0,
+          "failed_gates": ["all_offsets_exact_agreement_nonworse", "pooled_exact_agreement_plus_1pp"],
+          "retained_contribution": "D1-primary rescue preserves every existing decisive D1 output and raises coverage to 85.84% with 99.92% decisive cross-slicing agreement and zero opposite-trend conflicts, but ungated Huber rescue is still too sensitive at uncertainty boundaries"
         }
       ]
     }
   },
-  "next_authorized_step": "preregister_single_D1_primary_Huber_rescue_direction_challenger_that_never_overrides_D1_decisive_outputs_and_only_fills_D1_uncertain_with_v0621_decisive_output",
+  "next_authorized_step": "preregister_single_D1_primary_endpoint_erosion_consensus_Huber_rescue_challenger_using_only_single_view_parent_window_support_and_frozen_v0621_thresholds",
   "trade_authority": false,
   "production_authority": false
 }
