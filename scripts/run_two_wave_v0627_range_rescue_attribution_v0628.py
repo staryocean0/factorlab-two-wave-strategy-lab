@@ -45,23 +45,21 @@ def state_details(row, bars, closes, view):
     changed = before != after
     if changed and not (before == "uncertain" and after == "range"):
         raise AssertionError(f"unexpected v0625->v0627 label change: {before}->{after}")
-    detail = {
-        "D1": d1,
-        "v0625": before,
-        "v0627": after,
-        "changed_to_range": changed,
-    }
+    detail = {"D1": d1, "v0625": before, "v0627": after, "changed_to_range": changed}
     if changed:
-        span = float(v27["consensus_score_span"])
+        span = float(v27["support_score_span"])
         margin = float(v27["consensus_margin_to_frozen_boundary"])
-        scores = [float(x) for x in v27["support_scores"]]
+        score_map = v27["support_scores"]
+        if not isinstance(score_map, dict):
+            raise AssertionError("v0623 support_scores must remain a mapping")
+        scores = [float(x) for x in score_map.values()]
         detail.update({
             "range_margin": margin,
             "range_support_span": span,
             "range_support_dispersion": normalized_range_support_dispersion(span),
             "support_score_min": min(scores),
             "support_score_max": max(scores),
-            "support_scores": scores,
+            "support_scores": {str(k): float(v) for k, v in score_map.items()},
         })
     return detail
 
@@ -117,8 +115,7 @@ def main():
                 states[view][fkey(row)] = state_details(row,bars[view],closes[view],view)
 
     main_view="5m_offset_0"; total=0; pd1=[]; p25=[]; p27=[]; audit=[]
-    transitions=Counter(); topology=Counter()
-    harmful=[]; successful=[]
+    transitions=Counter(); topology=Counter(); harmful=[]; successful=[]
     for view in VIEWS[1:]:
         graph=build_edge_graph(filtered[main_view],filtered[view],time_field="five_filtered_occurrence_times",nominal_bar_minutes=5.0,require_phase=True)
         fp=list(graph.mutual_unique_matches); assert len(fp)==EXPECTED_FILTERED[view]
