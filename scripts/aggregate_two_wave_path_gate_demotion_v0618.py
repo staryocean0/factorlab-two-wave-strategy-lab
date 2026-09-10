@@ -3,20 +3,26 @@
 from __future__ import annotations
 
 import argparse
-import bisect
 import gzip
 import json
 import sys
-from collections import defaultdict
-from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 from factor_lab.visual_structure.two_wave.morphology_identity_v060 import strict_anchor_edge
+from factor_lab.visual_structure.two_wave.unmatched_identity_decomposition_v061 import (
+    build_edge_graph,
+)
 
 VIEWS = tuple(f"5m_offset_{i}" for i in range(5))
+EXPECTED_FILTERED_MATCHES = {
+    "5m_offset_1": 14784,
+    "5m_offset_2": 12725,
+    "5m_offset_3": 13412,
+    "5m_offset_4": 16108,
+}
 EXPECTED_STRICT = {
     "5m_offset_1": 8381,
     "5m_offset_2": 5770,
@@ -39,40 +45,53 @@ def load_jsonl_gz(path: Path) -> list[dict]:
         return [json.loads(line) for line in fh if line.strip()]
 
 
-def minute(value: object) -> float:
-    return datetime.fromisoformat(str(value).replace("Z", "+00:00")).timestamp() / 60.0
+def filtered_key(row: dict) -> tuple[str, tuple[int, ...]]:
+    return str(row["phase"]), tuple(int(x) for x in row["five_filtered_occurrence_bars"])
 
 
-def indexed_mutual_unique_matches(a: list[dict], b: list[dict]) -> list[tuple[int, int]]:
-    """Exact v0.6.0 strict matcher with first-anchor indexing only for speed."""
-    by_phase: dict[str, list[tuple[float, int]]] = defaultdict(list)
-    for j, row in enumerate(b):
-        by_phase[str(row["phase"])].append((minute(row["five_occurrence_times"][0]), j))
-    phase_minutes = {}
-    for phase, rows in by_phase.items():
-        rows.sort()
-        phase_minutes[phase] = [x[0] for x in rows]
+def published_index(rows: list[dict]) -> dict[tuple[str, tuple[int, ...]], int]:
+    out: dict[tuple[str, tuple[int, ...]], int] = {}
+    for i, row in enumerate(rows):
+        key = filtered_key(row)
+        if key in out:
+            raise AssertionError("published filtered identity must be single-valued")
+        out[key] = i
+    return out
 
-    a_edges: dict[int, list[int]] = defaultdict(list)
-    b_degree: dict[int, int] = defaultdict(int)
-    for i, row in enumerate(a):
-        phase = str(row["phase"])
-        rows = by_phase.get(phase, [])
-        mins = phase_minutes.get(phase, [])
-        if not rows:
-            continue
-        m = minute(row["five_occurrence_times"][0])
-        lo = bisect.bisect_left(mins, m - 5.0)
-        hi = bisect.bisect_right(mins, m + 5.0)
-        for _, j in rows[lo:hi]:
-            if strict_anchor_edge(row, b[j], 5.0) is not None:
-                a_edges[i].append(j)
-                b_degree[j] += 1
-    return sorted(
-        (i, js[0])
-        for i, js in a_edges.items()
-        if len(js) == 1 and b_degree[js[0]] == 1
+
+def frozen_raw_strict_pairs(
+    filtered_a: list[dict],
+    filtered_b: list[dict],
+    published_a: list[dict],
+    published_b: list[dict],
+) -> tuple[int, list[tuple[int, int]]]:
+    """Reproduce the v0.6.5 two-layer pair semantics exactly.
+
+    First establish the mutual-unique same-event relation in the canonical
+    filtered tuple-birth universe. Only within those frozen parent-event pairs
+    ask whether both immutable raw publications exist and their five raw
+    anchors remain strict under the same one-nominal-bar locality rule.
+    """
+    graph = build_edge_graph(
+        filtered_a,
+        filtered_b,
+        time_field="five_filtered_occurrence_times",
+        nominal_bar_minutes=5.0,
+        require_phase=True,
     )
+    pub_a = published_index(published_a)
+    pub_b = published_index(published_b)
+    strict: list[tuple[int, int]] = []
+    for ia, ib in graph.mutual_unique_matches:
+        ka = filtered_key(filtered_a[ia])
+        kb = filtered_key(filtered_b[ib])
+        pa = pub_a.get(ka)
+        pb = pub_b.get(kb)
+        if pa is None or pb is None:
+            continue
+        if strict_anchor_edge(published_a[pa], published_b[pb], 5.0) is not None:
+            strict.append((pa, pb))
+    return len(graph.mutual_unique_matches), strict
 
 
 def matrix(a: list[dict], b: list[dict], matches: list[tuple[int, int]], field: str) -> dict:
@@ -111,18 +130,19 @@ def write_result_card(path: Path, result: dict) -> None:
         "",
         "## Frozen control reproduction",
         "",
-        f"Strict same-event pairs: **{result['aggregate']['strict_pairs']:,}** (expected 29,453).",
+        f"Filtered mutual-unique pairs: **{result['aggregate']['filtered_pairs']:,}** (expected 57,029).",
+        f"Published raw strict same-event pairs: **{result['aggregate']['strict_pairs']:,}** (expected 29,453).",
         f"Control matrix: `{result['aggregate']['control_matrix']}`.",
         "",
         "## Candidate qualification stability",
         "",
-        "| offset | strict pairs | control +overlap | candidate +overlap | both-Q control | both-Q candidate |",
-        "|---|---:|---:|---:|---:|---:|",
+        "| offset | filtered pairs | raw strict | control +overlap | candidate +overlap | both-Q control | both-Q candidate |",
+        "|---|---:|---:|---:|---:|---:|---:|",
     ]
     for view in VIEWS[1:]:
         row = result["offsets"][view]
         lines.append(
-            f"| {view} | {row['strict_pairs']:,} | {row['control_positive_overlap']:.4%} | {row['candidate_positive_overlap']:.4%} | {row['control_matrix']['both_qualified']} | {row['candidate_matrix']['both_qualified']} |"
+            f"| {view} | {row['filtered_pairs']:,} | {row['strict_pairs']:,} | {row['control_positive_overlap']:.4%} | {row['candidate_positive_overlap']:.4%} | {row['control_matrix']['both_qualified']} | {row['candidate_matrix']['both_qualified']} |"
         )
     agg = result["aggregate"]
     lines += [
@@ -149,25 +169,39 @@ def main() -> None:
     args = p.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
 
-    records = {}
+    records: dict[str, list[dict]] = {}
+    filtered: dict[str, list[dict]] = {}
     view_summaries = {}
     for view in VIEWS:
-        files = list(args.input.rglob(f"records-{view}.json.gz"))
+        record_files = list(args.input.rglob(f"records-{view}.json.gz"))
+        filtered_files = list(args.input.rglob(f"filtered-{view}.json.gz"))
         summaries = list(args.input.rglob(f"summary-{view}.json"))
-        if len(files) != 1 or len(summaries) != 1:
-            raise RuntimeError(f"expected exactly one shard for {view}")
-        records[view] = load_jsonl_gz(files[0])
+        if len(record_files) != 1 or len(filtered_files) != 1 or len(summaries) != 1:
+            raise RuntimeError(f"expected exactly one complete shard for {view}")
+        records[view] = load_jsonl_gz(record_files[0])
+        filtered[view] = load_jsonl_gz(filtered_files[0])
         view_summaries[view] = json.loads(summaries[0].read_text())
 
     main_rows = records["5m_offset_0"]
+    main_filtered = filtered["5m_offset_0"]
     offsets = {}
     control_total = {key: 0 for key in CONTROL_AGGREGATE}
     candidate_total = {key: 0 for key in CONTROL_AGGREGATE}
     strict_total = 0
+    filtered_total = 0
     all_nonworse = True
 
     for view in VIEWS[1:]:
-        matches = indexed_mutual_unique_matches(main_rows, records[view])
+        filtered_matches, matches = frozen_raw_strict_pairs(
+            main_filtered,
+            filtered[view],
+            main_rows,
+            records[view],
+        )
+        if filtered_matches != EXPECTED_FILTERED_MATCHES[view]:
+            raise AssertionError(
+                f"filtered pair control drift {view}: {filtered_matches} != {EXPECTED_FILTERED_MATCHES[view]}"
+            )
         if len(matches) != EXPECTED_STRICT[view]:
             raise AssertionError(f"strict pair control drift {view}: {len(matches)} != {EXPECTED_STRICT[view]}")
         control = matrix(main_rows, records[view], matches, "control_qualified")
@@ -178,6 +212,7 @@ def main() -> None:
         c1 = positive_overlap(candidate)
         all_nonworse = all_nonworse and c1 >= c0
         offsets[view] = {
+            "filtered_pairs": filtered_matches,
             "strict_pairs": len(matches),
             "control_matrix": control,
             "candidate_matrix": candidate,
@@ -185,10 +220,13 @@ def main() -> None:
             "candidate_positive_overlap": c1,
             "positive_overlap_delta_pp": 100.0 * (c1 - c0),
         }
+        filtered_total += filtered_matches
         strict_total += len(matches)
         add_matrix(control_total, control)
         add_matrix(candidate_total, candidate)
 
+    if filtered_total != 57029:
+        raise AssertionError(f"aggregate filtered-pair control drift: {filtered_total} != 57029")
     if strict_total != 29453 or control_total != CONTROL_AGGREGATE:
         raise AssertionError("aggregate frozen control drift")
 
@@ -219,6 +257,7 @@ def main() -> None:
         "view_summaries": view_summaries,
         "offsets": offsets,
         "aggregate": {
+            "filtered_pairs": filtered_total,
             "strict_pairs": strict_total,
             "control_matrix": control_total,
             "candidate_matrix": candidate_total,
