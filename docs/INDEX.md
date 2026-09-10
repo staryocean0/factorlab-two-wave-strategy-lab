@@ -11,8 +11,9 @@ Current M0 authority:
 - [`research/TWO_WAVE_M0_AUTHORITY.md`](research/TWO_WAVE_M0_AUTHORITY.md)
 - [`../experiments/two_wave_m0_authority.json`](../experiments/two_wave_m0_authority.json)
 - [`../experiments/two_wave_path_gate_demotion_v0618/RESULT_CARD.md`](../experiments/two_wave_path_gate_demotion_v0618/RESULT_CARD.md)
+- [`../experiments/two_wave_duration_geometry_decomposition_v0619/RESULT_CARD.md`](../experiments/two_wave_duration_geometry_decomposition_v0619/RESULT_CARD.md)
 
-Global morphology status remains `morphology_replication_not_yet_accepted`. v0.6.18 is the current best **qualification-policy research component**, not an independently accepted full recognizer.
+Global morphology status remains `morphology_replication_not_yet_accepted`. v0.6.18 is the current best **qualification-policy research component**, not an independently accepted full recognizer. v0.6.19 is attribution evidence only and changes no recognizer rule.
 
 ## 1. User objective
 
