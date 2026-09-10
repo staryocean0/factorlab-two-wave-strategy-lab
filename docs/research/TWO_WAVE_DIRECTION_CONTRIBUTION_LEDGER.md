@@ -80,17 +80,45 @@ The whole-component promotion failed because not every offset was non-worse and 
 
 ### Retained contribution
 
-The failure is narrow and informative:
-
 1. Huber raises pooled decisive coverage by **+35.33 pp** (`48.91% -> 84.23%`).
 2. Huber introduces a meaningful Range population: pooled Range labels `9 -> 254`.
 3. Conditional on both harmless views being decisive, Huber's label agreement is **100%**.
 4. It creates **zero** UpTrend-vs-DownTrend cross-view conflicts.
-5. Therefore its 73 cross-view non-exact pairs are uncertainty-boundary disagreements, not contradictions among two decisive state labels.
+5. Therefore its cross-view non-exact pairs are uncertainty-boundary disagreements, not contradictions among two decisive state labels.
 
-Interpretation: a robust whole-parent-window centerline contains strong usable state information and materially reduces D1 over-abstention, but it should not replace D1 wholesale. The next direct recognizer version may preserve every D1 decisive output and use Huber only as a rescue signal when D1 itself abstains.
+Interpretation: a robust whole-parent-window centerline contains strong usable state information and materially reduces D1 over-abstention, but it should not replace D1 wholesale.
 
-This is a contribution to the same parent-state recognizer, not a separate judge or post-hoc evaluator.
+## v0.6.22 D1-primary Huber rescue — rejected, contribution retained
+
+Protocol: `docs/research/TWO_WAVE_D1_HUBER_RESCUE_DIRECTION_V0622_PROTOCOL.md`
+Result bundle: `experiments/two_wave_d1_huber_rescue_direction_v0622/`
+Formal result commit: `89126f20a17be5e8b64c296cff4a5795efb371c4`
+Formal workflow run: `34440036520`
+Formal verdict: `v0622_D1_primary_Huber_rescue_direction_rejected`.
+
+The candidate preserved every D1 decisive output and used v0.6.21 Huber only when D1 was `Uncertain`.
+
+| Metric | D1 | v0.6.22 rescue |
+|---|---:|---:|
+| pooled exact four-state agreement | 95.7592% | 94.7332% |
+| pooled decisive coverage | 48.9056% | 85.8413% |
+| decisive agreement when both decisive | 100% | 99.9178% |
+| opposite UpTrend/DownTrend conflict | 0 | 0 |
+
+Additional audit:
+
+- D1 decisive overrides: **0**;
+- D1-Uncertain records rescued: **3,737**;
+- rescued labels: `1,592 uptrend / 1,431 downtrend / 714 range`;
+- per-offset exact-agreement deltas were `-3.00 / 0.00 / -0.99 / 0.00 pp` for offsets 1-4.
+
+### Retained contribution
+
+v0.6.22 proves that the v0.6.21 signal can be integrated without destroying D1's existing decisive outputs: coverage rises by **+36.94 pp**, decisive agreement remains above **99.9%**, and there are still zero opposite-trend conflicts. The remaining failure is concentrated at the rescue/abstention boundary: unconditional Huber rescue converts too many D1-Uncertain records on only one harmless slicing view.
+
+This supports a narrower direct recognizer repair: keep D1 primary, keep the same Huber score thresholds, but rescue only when the Huber state is internally stable to small **single-view endpoint-support perturbations**. Historical v0.6.11 independently showed endpoint-erosion ensembles materially reduce slicing-sensitive measurement differences, so that contribution is now reused directly rather than left as archival evidence.
+
+No direction winner exists yet. D1 remains the historical stability baseline; v0.6.18 remains the qualification-policy champion.
 
 `morphology_acceptance=false`
 `trade_authority=false`
