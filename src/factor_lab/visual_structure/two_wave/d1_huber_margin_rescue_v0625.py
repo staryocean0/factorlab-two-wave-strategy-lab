@@ -8,6 +8,7 @@ from .v0623_residual_attribution_v0624 import consensus_margin_and_span
 
 SCHEMA = "two_wave_d1_huber_margin_rescue_direction@0.6.25"
 MIN_CONSENSUS_MARGIN = 0.10
+BOUNDARY_EPS = 1e-12
 VALID_D1 = DECISIVE | {"uncertain"}
 
 
@@ -55,7 +56,11 @@ def d1_primary_margin_rescue(
         consensus["support_states"], consensus["support_scores"], state
     )
     margin = float(robust["consensus_margin_to_frozen_boundary"])
-    passed = margin >= MIN_CONSENSUS_MARGIN
+    # The protocol's boundary is inclusive (margin >= 0.10).  The epsilon only
+    # prevents binary floating-point representation from turning a mathematical
+    # equality such as 0.60 - 0.50 into a false rejection; it does not change
+    # the frozen 0.10 threshold.
+    passed = margin + BOUNDARY_EPS >= MIN_CONSENSUS_MARGIN
     return {
         **consensus,
         **robust,
