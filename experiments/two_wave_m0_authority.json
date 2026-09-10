@@ -1,5 +1,5 @@
 {
-  "schema": "two_wave_m0_authority@1.4",
+  "schema": "two_wave_m0_authority@1.5",
   "date": "2026-09-10",
   "primary_object": "two_wave_parent_structure_recognizer",
   "target_states": ["Range", "UpTrend", "DownTrend", "Uncertain"],
@@ -10,21 +10,9 @@
     "replace_only_after_full_morphology_acceptance": true
   },
   "component_authority": {
-    "parent_identity": {
-      "version": "v0.5.2",
-      "name": "exact-ridge parent identity",
-      "status": "supported_research_component"
-    },
-    "same_scale_semantics": {
-      "version": "v0.5.4",
-      "name": "full-cycle-scale qualification",
-      "status": "supported_research_component"
-    },
-    "raw_identity_publication": {
-      "version": "v0.6.5",
-      "name": "first-valid immutable predecessor publication",
-      "status": "supported_research_component"
-    },
+    "parent_identity": {"version": "v0.5.2", "name": "exact-ridge parent identity", "status": "supported_research_component"},
+    "same_scale_semantics": {"version": "v0.5.4", "name": "full-cycle-scale qualification", "status": "supported_research_component"},
+    "raw_identity_publication": {"version": "v0.6.5", "name": "first-valid immutable predecessor publication", "status": "supported_research_component"},
     "qualification_policy": {
       "version": "v0.6.18",
       "name": "path-gate demotion",
@@ -69,12 +57,7 @@
         "retained_contribution": "one-native-bar duration sensitivity is real, but direct exact-3/exact-11 admission increases supply while worsening cross-slicing positive stability"
       }
     ],
-    "fine_path_measurement": {
-      "version": "v0.6.17",
-      "name": "session-aware information-set bounds",
-      "status": "cloud_reviewed_measurement_capability",
-      "structural_gap_leg_fraction": 0.2831947731
-    },
+    "fine_path_measurement": {"version": "v0.6.17", "name": "session-aware information-set bounds", "status": "cloud_reviewed_measurement_capability", "structural_gap_leg_fraction": 0.2831947731},
     "parent_direction": {
       "version": null,
       "status": "blocked_not_accepted_active_research_layer",
@@ -113,13 +96,31 @@
           "pooled_decisive_coverage": 0.8584131326949385,
           "decisive_agreement": 0.9991783073130649,
           "opposite_trend_conflicts": 0,
-          "failed_gates": ["all_offsets_exact_agreement_nonworse", "pooled_exact_agreement_plus_1pp"],
           "retained_contribution": "D1-primary rescue preserves every existing decisive D1 output and raises coverage to 85.84% with 99.92% decisive cross-slicing agreement and zero opposite-trend conflicts, but ungated Huber rescue is still too sensitive at uncertainty boundaries"
+        },
+        {
+          "version": "v0.6.23",
+          "name": "D1-primary endpoint-erosion-consensus Huber rescue",
+          "status": "rejected_contribution_retained",
+          "formal_verdict": "v0623_D1_primary_erosion_consensus_Huber_rescue_direction_rejected",
+          "formal_result_commit": "a8ca442ccb7482164c2dd3cdeee8b8640ea40957",
+          "workflow_run": 34442468065,
+          "D1_decisive_override_count": 0,
+          "D1_uncertain_records_rescued": 3055,
+          "D1_uncertain_records_withheld": 2289,
+          "pooled_exact_agreement": 0.9555403556771546,
+          "pooled_exact_gap_vs_D1_pp": -0.20519835841313605,
+          "pooled_decisive_coverage": 0.7855677154582763,
+          "pooled_decisive_coverage_gain_vs_D1_pp": 29.65116279069767,
+          "decisive_agreement": 1.0,
+          "opposite_trend_conflicts": 0,
+          "per_offset_exact_delta_pp": {"5m_offset_1": -2.25, "5m_offset_2": 1.393728222996515, "5m_offset_3": -0.6622516556291456, "5m_offset_4": 0.8456659619450282},
+          "retained_contribution": "fixed one-bar endpoint-erosion unanimity recovers most of v0622's stability loss while preserving a +29.65pp coverage gain and perfect decisive cross-slicing agreement; residual failure is asymmetric across offsets and should be decomposed before another rescue rule is attempted"
         }
       ]
     }
   },
-  "next_authorized_step": "preregister_single_D1_primary_endpoint_erosion_consensus_Huber_rescue_challenger_using_only_single_view_parent_window_support_and_frozen_v0621_thresholds",
+  "next_authorized_step": "decompose_v0623_residual_cross_slicing_nonexact_pairs_into_D1_repair_vs_harm_and_single_side_vs_both_side_rescue_topologies_before_preregistering_v0624_direction_challenger",
   "trade_authority": false,
   "production_authority": false
 }
