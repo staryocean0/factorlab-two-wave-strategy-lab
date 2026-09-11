@@ -1,5 +1,5 @@
 {
-  "schema": "two_wave_m0_authority@1.15",
+  "schema": "two_wave_m0_authority@1.16",
   "date": "2026-09-11",
   "primary_object": "two_wave_parent_structure_recognizer",
   "target_states": ["Range", "UpTrend", "DownTrend", "Uncertain"],
@@ -37,7 +37,7 @@
     },
     "parent_direction": {
       "winner": null,
-      "status": "blocked_not_accepted_v0644_read_only_native_high_low_envelope_attribution_authorized",
+      "status": "blocked_not_accepted_audited_price_only_expansion_closed_after_v0644",
       "historical_baseline": {
         "name": "D1",
         "pooled_exact_agreement": 0.957592339261286,
@@ -179,10 +179,53 @@
       "authorized_next_protocol": "docs/research/TWO_WAVE_NATIVE_HIGH_LOW_ENVELOPE_DIRECTION_ATTRIBUTION_V0644_PROTOCOL.md"
     }
   },
+  "native_high_low_envelope_lineage": {
+    "v0644": {
+      "status": "diagnostic_complete_route_closed",
+      "protocol": "docs/research/TWO_WAVE_NATIVE_HIGH_LOW_ENVELOPE_DIRECTION_ATTRIBUTION_V0644_PROTOCOL.md",
+      "result_card": "experiments/two_wave_native_high_low_envelope_direction_v0644/RESULT_CARD.md",
+      "adjudication": "experiments/two_wave_native_high_low_envelope_direction_v0644/ADJUDICATION.json",
+      "workflow_run": 34616273360,
+      "raw_formal_result_commit": "f4128a8ef1aaf6e1f1f205af64a9fef77302d19b",
+      "formal_category": "v0644_high_low_envelope_redundant_or_unstable",
+      "controls": {
+        "filtered_pairs": 57029,
+        "raw_strict_pairs": 29453,
+        "both_v0618_qualified_pairs": 1462,
+        "D1_exact_count": 1400,
+        "v0625_exact_count": 1402
+      },
+      "threshold_free_rank_probabilities": {
+        "nonexact_mean_anchor_outward_excursion_gt_exact": 0.5080599144079886,
+        "nonexact_envelope_adjustment_l1_gt_exact": 0.4980266286257727,
+        "nonexact_envelope_adjustment_view_distance_l1_gt_exact": 0.5578340466000951,
+        "nonexact_mean_anchor_excursion_view_delta_gt_exact": 0.4890632429862102,
+        "nonexact_envelope_stability_gain_l1_gt_exact": 0.5327983832620067
+      },
+      "stability_gain": {
+        "v0625_exact_median": 0.0041014660230829295,
+        "v0625_nonexact_median": 0.009065932283269774,
+        "v0625_exact_positive_fraction": 0.5556348074179743,
+        "v0625_nonexact_positive_fraction": 0.55,
+        "per_offset_nonexact_medians": {
+          "5m_offset_1": 0.009065932283269774,
+          "5m_offset_2": 0.015499867500368393,
+          "5m_offset_3": 0.02185665270592614,
+          "5m_offset_4": -0.00699296462603538
+        }
+      },
+      "gate_authorized": false,
+      "challenger_authorized": false,
+      "high_low_envelope_route_closed": true,
+      "recognizer_changed": false,
+      "qualification_changed": false,
+      "direction_winner_changed": false
+    }
+  },
   "current_range_recovery_family_status": "closed_after_v0642_no_empirical_candidate",
-  "next_authorized_step": "execute_v0644_read_only_threshold_free_native_high_low_envelope_direction_attribution_on_frozen_1462_pair_universe; do_not_classify_rescue_veto_requalify_or_fit_thresholds",
-  "no_current_v0643_challenger_authorized": true,
-  "no_current_v0644_challenger_authorized": true,
+  "current_price_only_direction_expansion_status": "closed_after_v0644_no_additional_audited_causal_price_information_class_authorized",
+  "next_authorized_step": "no_v0645_challenger_authorized; any further parent_direction work requires a separately frozen information_class_audit demonstrating genuinely new causal information not reducible to the already covered close_anchor_migration, close_path_shape, distribution_W1, duration_geometry, or native_frozen_anchor_high_low_envelope classes",
+  "no_current_v0645_challenger_authorized": true,
   "forbidden_next_shortcuts": [
     "retry_endpoint_D2_or_confidence_gated_D2",
     "retry_PAWCT_absolute_phase_aligned_translation_as_is",
@@ -203,7 +246,9 @@
     "infer_within_bar_high_low_order_from_OHLC",
     "move_frozen_five_parent_anchors_using_high_low",
     "fit_high_low_excursion_cutoff_from_v0644_diagnostics",
+    "replace_D1_with_v0644_envelope_steps_without_separately_frozen_candidate_authority",
     "combine_v0644_diagnostics_post_hoc_with_closed_residual_gate_families",
+    "create_v0645_challenger_without_a_new_frozen_information_class_audit",
     "use_cross_offset_information_as_runtime_feature",
     "use_future_outcomes_or_PnL_for_morphology_selection"
   ],
