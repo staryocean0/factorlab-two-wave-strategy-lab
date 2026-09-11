@@ -28,14 +28,14 @@ def test_progress_curve_preserves_within_leg_order_shape():
     assert np.max(np.abs(linear - front_loaded)) > 0.0
 
 
-def test_descriptor_is_zero_for_matching_cycle_shapes_despite_translation_and_scale():
+def test_descriptor_is_zero_for_matching_cycle_shapes_despite_cycle_scale_change():
     closes = [
-        10.0, 10.5, 11.0,
-        10.5, 10.0,
-        20.0, 21.0, 22.0,
-        21.0, 20.0,
+        0.0, 0.5, 1.0,
+        0.5, 0.0,
+        1.0, 2.0,
+        1.0, 0.0,
     ]
-    out = progress_shape_descriptors(closes, [0, 2, 4, 7, 9])
+    out = progress_shape_descriptors(closes, [0, 2, 4, 6, 8])
     for key in (
         "first_leg_progress_l1",
         "second_leg_progress_l1",
@@ -49,16 +49,17 @@ def test_descriptor_is_zero_for_matching_cycle_shapes_despite_translation_and_sc
         assert out[key] == pytest.approx(0.0)
 
 
-def test_descriptor_detects_shape_difference_without_using_absolute_translation():
+def test_descriptor_detects_shape_difference_without_using_absolute_level_or_endpoint_scale():
     closes = [
         0.0, 0.5, 1.0,
         0.5, 0.0,
-        10.0, 11.8, 12.0,
-        11.0, 10.0,
+        1.8, 2.0,
+        1.0, 0.0,
     ]
-    out = progress_shape_descriptors(closes, [0, 2, 4, 7, 9])
+    out = progress_shape_descriptors(closes, [0, 2, 4, 6, 8])
     assert out["first_leg_progress_l1"] > 0.0
     assert out["first_leg_progress_linf"] > 0.0
+    assert out["second_leg_progress_l1"] == pytest.approx(0.0)
 
 
 def test_numeric_summary_and_rank_probability_are_threshold_free():
