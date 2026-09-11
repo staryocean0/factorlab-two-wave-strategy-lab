@@ -1,5 +1,5 @@
 {
-  "schema": "two_wave_m0_authority@1.16",
+  "schema": "two_wave_m0_authority@1.17",
   "date": "2026-09-11",
   "primary_object": "two_wave_parent_structure_recognizer",
   "target_states": ["Range", "UpTrend", "DownTrend", "Uncertain"],
@@ -37,7 +37,7 @@
     },
     "parent_direction": {
       "winner": null,
-      "status": "blocked_not_accepted_audited_price_only_expansion_closed_after_v0644",
+      "status": "blocked_not_accepted_price_input_expansion_exhausted_after_v0646",
       "historical_baseline": {
         "name": "D1",
         "pooled_exact_agreement": 0.957592339261286,
@@ -67,188 +67,117 @@
     "comparison_offsets_are_diagnostic_only": true
   },
   "range_recovery_lineage": {
-    "v0635": {
-      "status": "rejected_contribution_retained",
-      "formal_result_commit": "1ba5073373ac9ee925311a8de4d16bff2a1432dc",
-      "new_range_rescues": 725,
-      "pooled_exact_count": 1363,
-      "pair_change_topology": {"both": 93, "main_only": 26, "other_only": 24, "none": 1319}
-    },
-    "v0636": {
-      "status": "diagnostic_complete_no_ceiling_change_authorized",
-      "formal_result_commit": "4a2b2eb066326fc195128b56850130e20537907c",
-      "one_sided_semantic_counts": {"introduced_harm": 43, "repaired_old_nonexact": 4, "persistent_nonexact": 3}
-    },
-    "v0637": {
-      "status": "rejected_contribution_retained",
-      "formal_result_commit": "434b52aca4b84c84ec5ce46f0d561e7cbdefa187",
-      "workflow_run": 34602526496,
-      "new_range_rescues": 621,
-      "pooled_exact_count": 1370,
-      "decisive_agreement": 1.0,
-      "pair_change_topology": {"both": 61, "main_only": 23, "other_only": 21, "none": 1357}
-    },
-    "v0638": {
-      "status": "diagnostic_complete",
-      "formal_result_commit": "3e2dc902cb29985bbb9b31e2b6232b3ba3041b76",
-      "workflow_run": 34603190318,
-      "v0635_to_v0637_exact_transition": {"repaired": 31, "harmed": 24, "both_exact": 1339, "both_nonexact": 68},
-      "v0637_one_sided_semantic_counts": {"introduced_harm": 38, "repaired_old_nonexact": 6, "persistent_nonexact": 0},
-      "authorization": "no_nearby_W1_tuning_and_no_simple_v0635_and_v0637_consensus_gate"
-    },
-    "v0639": {
-      "status": "diagnostic_complete_no_gate_authorized",
-      "one_sided_semantic_counts": {"introduced_harm": 38, "repaired_old_nonexact": 6},
-      "strongest_descriptor": "first_leg_progress_l1",
-      "harm_greater_probability": 0.7478070175438597,
-      "authorization": "no_shape_distance_cutoff_from_six_repairs"
-    },
-    "v0640": {
-      "status": "diagnostic_complete_route_closed",
-      "primary_rank_statistics": {
-        "harm_rescue_A_L1_gt_stable_pair_mean_A_L1": 0.5336,
-        "harm_abs_delta_A_L1_gt_stable_abs_delta_A_L1": 0.5216
-      },
-      "authorization": "no_leg_asymmetry_equality_or_fitted_shape_gate"
-    },
-    "v0641": {
-      "status": "diagnostic_complete_route_closed",
-      "workflow_run": 34608353257,
-      "formal_result_commit": "5c92809f7606519d03b83426671c7772b7a9a639",
-      "formal_attribution": "v0641_cycle_drift_sign_topology_attribution_complete_no_gate_authorized",
-      "diagnostic_pairs": 105,
-      "stable_both_rows": 61,
-      "one_sided_semantic_counts": {"introduced_harm": 38, "repaired_old_nonexact": 6},
-      "primary_comparisons": {
-        "harm_rescue_same_direction_minus_stable": 0.06125970664365832,
-        "harm_rescue_all_three_minus_stable": 0.02804141501294219,
-        "harm_cycle_relation_flip_minus_stable": 0.016824849007765305,
-        "harm_all_three_flip_minus_stable": 0.02976704055220017
-      },
-      "gate_authorized": false,
-      "authorization": "close_cycle_drift_sign_topology_route"
-    },
+    "v0635": {"status": "rejected_contribution_retained"},
+    "v0636": {"status": "diagnostic_complete_no_ceiling_change_authorized"},
+    "v0637": {"status": "rejected_contribution_retained"},
+    "v0638": {"status": "diagnostic_complete_no_weighting_consensus_gate"},
+    "v0639": {"status": "diagnostic_complete_no_gate_authorized"},
+    "v0640": {"status": "diagnostic_complete_route_closed"},
+    "v0641": {"status": "diagnostic_complete_route_closed"},
     "v0642": {
       "status": "diagnostic_complete_range_recovery_family_closed",
       "workflow_run": 34612200264,
       "formal_result_commit": "ce97db4b347ef55ea648a7a9d476c364ac12a298",
-      "formal_attribution": "v0642_amplitude_normalization_stability_attribution_complete_no_gate_authorized",
-      "diagnostic_pairs": 105,
-      "stable_both_rows": 61,
-      "one_sided_semantic_counts": {"introduced_harm": 38, "repaired_old_nonexact": 6},
-      "threshold_free_rank_comparisons": {
-        "harm_amplitude_unit_SRD_gt_stable": 0.547886108714409,
-        "harm_cycle_amplitude_imbalance_SRD_gt_stable": 0.5599654874892148,
-        "harm_max_raw_w1_SRD_gt_stable": 0.6570319240724762,
-        "harm_max_normalized_w1_SRD_gt_stable": 0.6949956859361519
-      },
-      "harm_counterfactual_attribution": {
-        "raw_numerator_change_sufficient": 24,
-        "amplitude_denominator_change_sufficient": 4,
-        "either_component_alone_sufficient": 5,
-        "both_changes_required": 5
-      },
-      "harm_signed_change_fractions": {
-        "amplitude_unit_rescue_higher": 0.5789473684210527,
-        "amplitude_unit_rescue_lower": 0.42105263157894735,
-        "raw_w1_rescue_lower": 0.9210526315789473,
-        "normalized_w1_rescue_lower": 1.0
-      },
-      "gate_authorized": false,
-      "authorization": "close_W1_and_current_Range_recovery_residual_gating_family_no_alternative_amplitude_normalization_challenger_authorized"
+      "gate_authorized": false
     }
   },
   "direction_information_class_audit": {
     "v0643": {
       "status": "complete_read_only_audit_native_high_low_envelope_class_found",
       "audit_record": "docs/research/TWO_WAVE_DIRECTION_INFORMATION_CLASS_AUDIT_V0643.md",
-      "fresh_causal_information_class_found": true,
       "fresh_information_class": "native_high_low_envelope_excursion_at_frozen_parent_anchors",
       "duration_geometry_is_fresh_class": false,
-      "duration_coverage_evidence": [
-        "v054_corresponding_leg_duration_mismatch_demoted_to_diagnostic",
-        "v055_corresponding_leg_duration_ratio_mean_cycle_and_drift_per_bar_semantic_diagnostics",
-        "v0619_duration_geometry_disagreement_decomposition",
-        "v0620_one_bar_duration_repair"
-      ],
-      "high_low_prior_use": "v0617_session_aware_qualification_bounds_only_direction_excluded",
-      "recognizer_changed": false,
-      "qualification_changed": false,
-      "direction_winner_changed": false,
-      "gate_authorized": false,
-      "authorized_next_protocol": "docs/research/TWO_WAVE_NATIVE_HIGH_LOW_ENVELOPE_DIRECTION_ATTRIBUTION_V0644_PROTOCOL.md"
+      "gate_authorized": false
+    },
+    "v0645": {
+      "status": "complete_read_only_audit_native_open_body_gap_class_found_and_prior_price_audit_corrected",
+      "audit_record": "docs/research/TWO_WAVE_NON_CLOSE_INFORMATION_CLASS_AUDIT_V0645.md",
+      "governance_correction": "v0643_v0644_price_only_completeness_overstated_because_native_open_had_not_been_formally_adjudicated",
+      "fresh_information_class": "native_open_body_gap_geometry_at_frozen_parent_anchors",
+      "volume_authorized": false,
+      "clock_availability_authorized_as_direction_semantics": false,
+      "session_calendar_authorized_as_fresh_direction_semantics": false,
+      "source_support_gap_topology_authorized_as_direction_semantics": false,
+      "authorized_next_protocol": "docs/research/TWO_WAVE_NATIVE_OPEN_BODY_GAP_DIRECTION_ATTRIBUTION_V0646_PROTOCOL.md",
+      "gate_authorized": false
     }
   },
   "native_high_low_envelope_lineage": {
     "v0644": {
       "status": "diagnostic_complete_route_closed",
-      "protocol": "docs/research/TWO_WAVE_NATIVE_HIGH_LOW_ENVELOPE_DIRECTION_ATTRIBUTION_V0644_PROTOCOL.md",
-      "result_card": "experiments/two_wave_native_high_low_envelope_direction_v0644/RESULT_CARD.md",
-      "adjudication": "experiments/two_wave_native_high_low_envelope_direction_v0644/ADJUDICATION.json",
       "workflow_run": 34616273360,
       "raw_formal_result_commit": "f4128a8ef1aaf6e1f1f205af64a9fef77302d19b",
       "formal_category": "v0644_high_low_envelope_redundant_or_unstable",
+      "gate_authorized": false,
+      "challenger_authorized": false
+    }
+  },
+  "native_open_body_gap_lineage": {
+    "v0646": {
+      "status": "diagnostic_complete_route_closed",
+      "protocol": "docs/research/TWO_WAVE_NATIVE_OPEN_BODY_GAP_DIRECTION_ATTRIBUTION_V0646_PROTOCOL.md",
+      "result_card": "experiments/two_wave_native_open_body_gap_direction_v0646/RESULT_CARD.md",
+      "adjudication": "experiments/two_wave_native_open_body_gap_direction_v0646/ADJUDICATION.json",
+      "workflow_run": 34618326900,
+      "raw_formal_result_commit": "c71e9612a8dbc09aeefef5f85f2c208cdac60b8d",
+      "formal_category": "v0646_native_open_body_gap_redundant_or_unstable",
       "controls": {
         "filtered_pairs": 57029,
         "raw_strict_pairs": 29453,
         "both_v0618_qualified_pairs": 1462,
         "D1_exact_count": 1400,
-        "v0625_exact_count": 1402
+        "v0625_exact_count": 1402,
+        "v0625_decisive_agreement": 1.0,
+        "v0625_opposite_trend_conflicts": 0
       },
       "threshold_free_rank_probabilities": {
-        "nonexact_mean_anchor_outward_excursion_gt_exact": 0.5080599144079886,
-        "nonexact_envelope_adjustment_l1_gt_exact": 0.4980266286257727,
-        "nonexact_envelope_adjustment_view_distance_l1_gt_exact": 0.5578340466000951,
-        "nonexact_mean_anchor_excursion_view_delta_gt_exact": 0.4890632429862102,
-        "nonexact_envelope_stability_gain_l1_gt_exact": 0.5327983832620067
+        "nonexact_mean_abs_anchor_body_gt_exact": 0.4789586305278174,
+        "nonexact_abs_mean_oriented_anchor_body_gt_exact": 0.4865905848787446,
+        "nonexact_mean_abs_anchor_gap_gt_exact": 0.5508559201141227,
+        "nonexact_open_adjustment_view_distance_l1_gt_exact": 0.5259153590109368,
+        "nonexact_open_stability_gain_l1_gt_exact": 0.5489895387541607
       },
-      "stability_gain": {
-        "v0625_exact_median": 0.0041014660230829295,
-        "v0625_nonexact_median": 0.009065932283269774,
-        "v0625_exact_positive_fraction": 0.5556348074179743,
-        "v0625_nonexact_positive_fraction": 0.55,
+      "open_stability_gain": {
+        "v0625_exact_median": -0.04552264781854687,
+        "v0625_nonexact_median": -0.03228385593787753,
+        "v0625_exact_positive_fraction": 0.26105563480741795,
+        "v0625_nonexact_positive_fraction": 0.2833333333333333,
         "per_offset_nonexact_medians": {
-          "5m_offset_1": 0.009065932283269774,
-          "5m_offset_2": 0.015499867500368393,
-          "5m_offset_3": 0.02185665270592614,
-          "5m_offset_4": -0.00699296462603538
+          "5m_offset_1": -0.03753271341579051,
+          "5m_offset_2": -0.008874694440202807,
+          "5m_offset_3": -0.060062886026750174,
+          "5m_offset_4": -0.04717112905394007
         }
       },
+      "all_five_primary_ranks_within_0_40_0_60": true,
+      "positive_nonexact_offset_median_count": 0,
       "gate_authorized": false,
       "challenger_authorized": false,
-      "high_low_envelope_route_closed": true,
+      "native_open_route_closed": true,
       "recognizer_changed": false,
       "qualification_changed": false,
       "direction_winner_changed": false
     }
   },
   "current_range_recovery_family_status": "closed_after_v0642_no_empirical_candidate",
-  "current_price_only_direction_expansion_status": "closed_after_v0644_no_additional_audited_causal_price_information_class_authorized",
-  "next_authorized_step": "no_v0645_challenger_authorized; any further parent_direction work requires a separately frozen information_class_audit demonstrating genuinely new causal information not reducible to the already covered close_anchor_migration, close_path_shape, distribution_W1, duration_geometry, or native_frozen_anchor_high_low_envelope classes",
-  "no_current_v0645_challenger_authorized": true,
+  "current_price_input_direction_expansion_status": "closed_after_v0646_close_high_low_and_native_open_classes_adjudicated_no_challenger_authorized",
+  "next_authorized_step": "stop_direction_feature_mining_from_current_market_bar_fields; no_v0647_challenger_authorized. Further progress should move to independent_morphology_validation_or_a_separately_justified_new_data_modality, not data_quality_clock_session_or_cross_offset_metadata as parent_direction features",
+  "no_current_v0647_challenger_authorized": true,
   "forbidden_next_shortcuts": [
     "retry_endpoint_D2_or_confidence_gated_D2",
     "retry_PAWCT_absolute_phase_aligned_translation_as_is",
     "relabel_v0610_scalar_efficiency_jump_roughness_as_new_direction_signal",
-    "retune_v0625_margin",
-    "retune_v0629_overlap",
-    "retune_v0633_location_shift",
-    "containment_slack_margin_tuning_from_v0632",
-    "nearby_v0635_or_v0637_W1_ceiling_tuning",
-    "simple_v0635_and_v0637_weighting_consensus_gate",
-    "fit_shape_distance_cutoff_from_v0639",
-    "use_v0640_leg_asymmetry_equality_as_candidate_gate",
-    "use_v0641_sign_topology_as_structural_veto",
-    "change_parent_amplitude_normalization_from_v0642",
+    "retune_closed_range_recovery_gates",
     "mine_additional_residual_gates_from_v0637_one_sided_rows",
     "combine_weak_residual_diagnostics_post_hoc",
     "repackage_duration_phase_allocation_duration_ratio_or_drift_per_bar_as_fresh_direction_class",
     "infer_within_bar_high_low_order_from_OHLC",
-    "move_frozen_five_parent_anchors_using_high_low",
-    "fit_high_low_excursion_cutoff_from_v0644_diagnostics",
-    "replace_D1_with_v0644_envelope_steps_without_separately_frozen_candidate_authority",
-    "combine_v0644_diagnostics_post_hoc_with_closed_residual_gate_families",
-    "create_v0645_challenger_without_a_new_frozen_information_class_audit",
+    "move_frozen_five_parent_anchors_using_high_low_or_open",
+    "fit_high_low_or_open_body_gap_cutoffs_from_attribution_groups",
+    "replace_D1_with_high_low_or_open_anchor_steps_without_separately_frozen_candidate_authority",
+    "fill_or_impute_missing_index_volume_for_parent_direction",
+    "use_missing_volume_status_as_morphology_signal",
+    "use_available_at_confirmation_delay_session_count_calendar_span_or_source_support_gaps_as_parent_direction_semantics",
     "use_cross_offset_information_as_runtime_feature",
     "use_future_outcomes_or_PnL_for_morphology_selection"
   ],
