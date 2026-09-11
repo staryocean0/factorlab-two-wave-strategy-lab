@@ -46,7 +46,7 @@ jobs:
           merge-multiple: true
       - name: Run frozen v0642 amplitude-normalization stability attribution
         run: >-
-          python scripts/run_two_wave_amplitude_normalization_stability_v0642.py
+          python scripts/run_two_wave_amplitude_normalization_stability_v0642_cardfix.py
           --input tmp/v0642_input
           --output experiments/two_wave_amplitude_normalization_stability_v0642
       - uses: actions/upload-artifact@v4
