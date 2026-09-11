@@ -1,12 +1,10 @@
 """Deterministic session-aware 1m -> five harmless 5m offset views for v0.6.47.
 
-This module is validation infrastructure only.  Its semantics must reproduce the
-shipped 2015-2020 five-offset development products exactly before any external
+This module is validation infrastructure only. Its semantics must reproduce the
+shipped 2015-2020 five-offset Development products exactly before any external
 2024+ morphology result may be inspected.
 """
 from __future__ import annotations
-
-from typing import Iterable
 
 import numpy as np
 import pandas as pd
@@ -16,12 +14,7 @@ PRICE_FIELDS = ("open", "high", "low", "close")
 
 
 def _minute_index(local: pd.Series) -> pd.Series:
-    """Return 0..119 index inside the two canonical A-share minute sessions.
-
-    Input timestamps are bar-end instants converted to Asia/Shanghai.  Morning
-    one-minute bars end 09:31..11:30; afternoon bars end 13:01..15:00.
-    Rows outside those intervals fail closed.
-    """
+    """Return 0..119 wall-clock index inside each canonical A-share session."""
     minute = local.dt.hour * 60 + local.dt.minute
     morning0 = 9 * 60 + 31
     afternoon0 = 13 * 60 + 1
@@ -36,24 +29,51 @@ def _minute_index(local: pd.Series) -> pd.Series:
     return out
 
 
-def resample_five_minute_offset(frame: pd.DataFrame, offset: int) -> pd.DataFrame:
-    """Aggregate one frozen 1m frame into one offset view.
+def _group_number(minute_index: int, offset: int) -> int | None:
+    """DataHub wall-clock group for one source endpoint.
 
-    For each trading day and AM/PM session, use fixed wall-clock minute slots.
-    A 5m bar exists only when all five consecutive source minutes for its bin
-    are present.  Partial bins and session-edge fragments are discarded.
-    Output timestamp is the final source bar-end timestamp.
+    The first shifted window includes its explicit left-boundary endpoint:
+    offset r>0 uses indices r-1..r+4 (six point observations) for group 0.
+    Offset 0 has no 09:30/13:00 source endpoint, so group 0 is 0..4. All later
+    groups are non-overlapping five-row endpoint blocks.
+    """
+    m = int(minute_index)
+    r = int(offset)
+    first_start = max(0, r - 1)
+    first_end = r + 4
+    if m < first_start:
+        return None
+    if m <= first_end:
+        return 0
+    return 1 + (m - (r + 5)) // 5
+
+
+def _group_endpoint(group: int, offset: int) -> int:
+    return int(offset) + 4 + 5 * int(group)
+
+
+def resample_five_minute_offset(frame: pd.DataFrame, offset: int) -> pd.DataFrame:
+    """Aggregate a frozen 1m frame with DataHub wall-clock offset semantics.
+
+    Bins are fixed by session wall-clock endpoints. Causal flat-fill rows keep
+    the clock complete but are excluded from OHLC aggregation. A bin is emitted
+    when at least one non-flat source observation exists; timestamp remains the
+    nominal endpoint. The first shifted bin includes its left-boundary endpoint.
     """
     if isinstance(offset, bool) or not isinstance(offset, int) or offset not in range(5):
         raise ValueError("offset must be integer 0..4")
-    required = {"timestamp", "trading_day", *PRICE_FIELDS}
+    required = {"timestamp", "trading_day", "causal_flat_fill", *PRICE_FIELDS}
     missing = sorted(required.difference(frame.columns))
     if missing:
         raise ValueError(f"missing required columns: {missing}")
     if frame.empty:
         raise ValueError("empty 1m frame")
 
-    x = frame.loc[:, ["timestamp", "trading_day", *PRICE_FIELDS]].copy()
+    keep = ["timestamp", "trading_day", "causal_flat_fill", *PRICE_FIELDS]
+    for optional in ("amount", "volume"):
+        if optional in frame.columns:
+            keep.append(optional)
+    x = frame.loc[:, keep].copy()
     stamp = pd.to_datetime(x["timestamp"], utc=True, errors="raise")
     if stamp.isna().any() or stamp.duplicated().any() or not stamp.is_monotonic_increasing:
         raise ValueError("1m timestamps must be ordered, unique and non-null")
@@ -74,35 +94,41 @@ def resample_five_minute_offset(frame: pd.DataFrame, offset: int) -> pd.DataFram
     work["_day"] = trading_day
     work["_session"] = session
     work["_minute"] = idx.to_numpy()
-
-    # Offset-r bins start at source minute index r. A full 5-row bin has fixed
-    # expected minute indices r+5g .. r+5g+4. Session-edge fragments vanish.
-    eligible = work["_minute"] >= offset
-    work = work.loc[eligible].copy()
-    work["_group"] = ((work["_minute"] - offset) // 5).astype(np.int64)
+    work["_group"] = [_group_number(int(m), offset) for m in work["_minute"]]
+    work = work.loc[work["_group"].notna()].copy()
+    work["_group"] = work["_group"].astype(np.int64)
 
     rows: list[dict] = []
     for (day, sess, group), g in work.groupby(["_day", "_session", "_group"], sort=False):
-        start = offset + 5 * int(group)
-        expected = list(range(start, start + 5))
-        if expected[-1] > 119:
+        endpoint = _group_endpoint(int(group), offset)
+        if endpoint > 119:
             continue
-        actual = g["_minute"].astype(int).tolist()
-        if actual != expected:
-            # Native validation semantics require a complete source five-pack;
-            # missing/duplicated source minutes do not create a partial 5m bar.
+        endpoint_rows = g.loc[g["_minute"] == endpoint]
+        if len(endpoint_rows) != 1:
+            raise ValueError(f"missing or duplicate nominal endpoint for {day} {sess} group {group}")
+        real = g.loc[~g["causal_flat_fill"].astype(bool)]
+        if real.empty:
             continue
-        rows.append(
-            {
-                "timestamp": g["_stamp"].iloc[-1],
-                "trading_day": str(day),
-                "open": float(g["open"].iloc[0]),
-                "high": float(g["high"].max()),
-                "low": float(g["low"].min()),
-                "close": float(g["close"].iloc[-1]),
-            }
-        )
-    out = pd.DataFrame(rows, columns=["timestamp", "trading_day", *PRICE_FIELDS])
+        row = {
+            "timestamp": endpoint_rows["_stamp"].iloc[0],
+            "trading_day": str(day),
+            "open": float(real["open"].iloc[0]),
+            "high": float(real["high"].max()),
+            "low": float(real["low"].min()),
+            "close": float(real["close"].iloc[-1]),
+        }
+        if "amount" in real.columns:
+            row["amount"] = float(real["amount"].fillna(0.0).sum())
+        if "volume" in real.columns:
+            values = real["volume"]
+            row["volume"] = None if values.isna().all() else float(values.fillna(0.0).sum())
+        rows.append(row)
+
+    columns = ["timestamp", "trading_day", *PRICE_FIELDS]
+    for optional in ("amount", "volume"):
+        if optional in x.columns:
+            columns.append(optional)
+    out = pd.DataFrame(rows, columns=columns)
     if not out.empty and (out["timestamp"].duplicated().any() or not out["timestamp"].is_monotonic_increasing):
         raise AssertionError("resampled timestamps are not unique/increasing")
     return out
