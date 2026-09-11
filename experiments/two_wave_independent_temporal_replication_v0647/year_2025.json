@@ -1,0 +1,480 @@
+{
+  "all_original_v0625_gates_pass": false,
+  "controls": {
+    "both_v0618_qualified_pairs": 111,
+    "filtered_mutual_unique_pairs": 6255,
+    "qualification_matrix_by_offset": {
+      "5m_offset_1": {
+        "both_qualified": 36,
+        "both_rejected": 604,
+        "main_only_qualified": 13,
+        "other_only_qualified": 3
+      },
+      "5m_offset_2": {
+        "both_qualified": 28,
+        "both_rejected": 439,
+        "main_only_qualified": 12,
+        "other_only_qualified": 5
+      },
+      "5m_offset_3": {
+        "both_qualified": 15,
+        "both_rejected": 412,
+        "main_only_qualified": 9,
+        "other_only_qualified": 5
+      },
+      "5m_offset_4": {
+        "both_qualified": 32,
+        "both_rejected": 650,
+        "main_only_qualified": 3,
+        "other_only_qualified": 7
+      }
+    },
+    "raw_strict_pairs": 2273
+  },
+  "gates": {
+    "D1_decisive_override_zero": true,
+    "all_offsets_exact_agreement_nonworse": true,
+    "decisive_class_diversity": false,
+    "each_offset_side_decisive_coverage_at_least_55pct": true,
+    "nonzero_margin_rescue": true,
+    "opposite_trend_conflict_zero": true,
+    "pooled_decisive_agreement_at_least_99_5pct": true,
+    "pooled_decisive_coverage_material": true,
+    "pooled_exact_agreement_nonworse": true
+  },
+  "generation": {
+    "5m_offset_0": {
+      "bars": 11664,
+      "candidate_hard_reason_counts": {
+        "amplitude_mismatch": 2918,
+        "confirmation_too_late": 1341,
+        "cycle_duration_mismatch": 2901,
+        "long_cycle": 924,
+        "long_pair": 731,
+        "short_cycle": 4398,
+        "short_leg": 4950,
+        "too_many_observed_days": 594,
+        "wall_span_too_long": 296
+      },
+      "candidate_qualified": 327,
+      "canonical_filtered_groups": 6660,
+      "control_hard_reason_counts": {
+        "amplitude_mismatch": 2918,
+        "confirmation_too_late": 1341,
+        "cycle_duration_mismatch": 2901,
+        "inefficient_leg": 1961,
+        "jump_dominated_leg": 5159,
+        "long_cycle": 924,
+        "long_pair": 731,
+        "short_cycle": 4398,
+        "short_leg": 4950,
+        "too_many_observed_days": 594,
+        "wall_span_too_long": 296
+      },
+      "control_qualified": 101,
+      "future_outcome_used": false,
+      "long_span_safety_candidates_checked": 941,
+      "newly_qualified": 226,
+      "no_valid_publication": 58,
+      "published_identities": 6602,
+      "suppressed_would_be_rewrites": 0,
+      "trade_authority": false,
+      "tuple_births": 6661,
+      "view": "5m_offset_0"
+    },
+    "5m_offset_1": {
+      "bars": 11178,
+      "candidate_hard_reason_counts": {
+        "amplitude_mismatch": 2714,
+        "confirmation_too_late": 1279,
+        "cycle_duration_mismatch": 2699,
+        "long_cycle": 839,
+        "long_pair": 670,
+        "short_cycle": 4158,
+        "short_leg": 4663,
+        "too_many_observed_days": 561,
+        "wall_span_too_long": 278
+      },
+      "candidate_qualified": 327,
+      "canonical_filtered_groups": 6337,
+      "control_hard_reason_counts": {
+        "amplitude_mismatch": 2714,
+        "confirmation_too_late": 1279,
+        "cycle_duration_mismatch": 2699,
+        "inefficient_leg": 1897,
+        "jump_dominated_leg": 4810,
+        "long_cycle": 839,
+        "long_pair": 670,
+        "short_cycle": 4158,
+        "short_leg": 4663,
+        "too_many_observed_days": 561,
+        "wall_span_too_long": 278
+      },
+      "control_qualified": 106,
+      "future_outcome_used": false,
+      "long_span_safety_candidates_checked": 865,
+      "newly_qualified": 221,
+      "no_valid_publication": 71,
+      "published_identities": 6266,
+      "suppressed_would_be_rewrites": 1,
+      "trade_authority": false,
+      "tuple_births": 6338,
+      "view": "5m_offset_1"
+    },
+    "5m_offset_2": {
+      "bars": 11178,
+      "candidate_hard_reason_counts": {
+        "amplitude_mismatch": 2744,
+        "confirmation_too_late": 1283,
+        "cycle_duration_mismatch": 2678,
+        "long_cycle": 873,
+        "long_pair": 669,
+        "short_cycle": 4178,
+        "short_leg": 4648,
+        "too_many_observed_days": 564,
+        "wall_span_too_long": 278
+      },
+      "candidate_qualified": 340,
+      "canonical_filtered_groups": 6387,
+      "control_hard_reason_counts": {
+        "amplitude_mismatch": 2744,
+        "confirmation_too_late": 1283,
+        "cycle_duration_mismatch": 2678,
+        "inefficient_leg": 1956,
+        "jump_dominated_leg": 4800,
+        "long_cycle": 873,
+        "long_pair": 669,
+        "short_cycle": 4178,
+        "short_leg": 4648,
+        "too_many_observed_days": 564,
+        "wall_span_too_long": 278
+      },
+      "control_qualified": 95,
+      "future_outcome_used": false,
+      "long_span_safety_candidates_checked": 897,
+      "newly_qualified": 245,
+      "no_valid_publication": 68,
+      "published_identities": 6319,
+      "suppressed_would_be_rewrites": 0,
+      "trade_authority": false,
+      "tuple_births": 6387,
+      "view": "5m_offset_2"
+    },
+    "5m_offset_3": {
+      "bars": 11178,
+      "candidate_hard_reason_counts": {
+        "amplitude_mismatch": 2726,
+        "confirmation_too_late": 1281,
+        "cycle_duration_mismatch": 2734,
+        "long_cycle": 863,
+        "long_pair": 665,
+        "short_cycle": 4197,
+        "short_leg": 4646,
+        "too_many_observed_days": 560,
+        "wall_span_too_long": 287
+      },
+      "candidate_qualified": 331,
+      "canonical_filtered_groups": 6375,
+      "control_hard_reason_counts": {
+        "amplitude_mismatch": 2726,
+        "confirmation_too_late": 1281,
+        "cycle_duration_mismatch": 2734,
+        "inefficient_leg": 1833,
+        "jump_dominated_leg": 4811,
+        "long_cycle": 863,
+        "long_pair": 665,
+        "short_cycle": 4197,
+        "short_leg": 4646,
+        "too_many_observed_days": 560,
+        "wall_span_too_long": 287
+      },
+      "control_qualified": 121,
+      "future_outcome_used": false,
+      "long_span_safety_candidates_checked": 891,
+      "newly_qualified": 210,
+      "no_valid_publication": 82,
+      "published_identities": 6293,
+      "suppressed_would_be_rewrites": 0,
+      "trade_authority": false,
+      "tuple_births": 6375,
+      "view": "5m_offset_3"
+    },
+    "5m_offset_4": {
+      "bars": 11178,
+      "candidate_hard_reason_counts": {
+        "amplitude_mismatch": 2747,
+        "confirmation_too_late": 1264,
+        "cycle_duration_mismatch": 2702,
+        "long_cycle": 873,
+        "long_pair": 676,
+        "short_cycle": 4180,
+        "short_leg": 4664,
+        "too_many_observed_days": 573,
+        "wall_span_too_long": 294
+      },
+      "candidate_qualified": 337,
+      "canonical_filtered_groups": 6372,
+      "control_hard_reason_counts": {
+        "amplitude_mismatch": 2747,
+        "confirmation_too_late": 1264,
+        "cycle_duration_mismatch": 2702,
+        "inefficient_leg": 1976,
+        "jump_dominated_leg": 4864,
+        "long_cycle": 873,
+        "long_pair": 676,
+        "short_cycle": 4180,
+        "short_leg": 4664,
+        "too_many_observed_days": 573,
+        "wall_span_too_long": 294
+      },
+      "control_qualified": 112,
+      "future_outcome_used": false,
+      "long_span_safety_candidates_checked": 902,
+      "newly_qualified": 225,
+      "no_valid_publication": 62,
+      "published_identities": 6310,
+      "suppressed_would_be_rewrites": 0,
+      "trade_authority": false,
+      "tuple_births": 6372,
+      "view": "5m_offset_4"
+    }
+  },
+  "per_offset": {
+    "5m_offset_1": {
+      "D1": {
+        "decisive_agreement": 1.0,
+        "decisive_pair_count": 15,
+        "exact_agreement": 0.9444444444444444,
+        "exact_agreement_count": 34,
+        "main_decisive_coverage": 0.4722222222222222,
+        "opposite_trend_conflict_count": 0,
+        "other_decisive_coverage": 0.4166666666666667,
+        "pairs": 36,
+        "pooled_decisive_coverage": 0.4444444444444444,
+        "pooled_decisive_label_shares": {
+          "downtrend": 0.25,
+          "range": 0.0,
+          "uptrend": 0.75
+        },
+        "pooled_label_counts": {
+          "downtrend": 8,
+          "range": 0,
+          "uncertain": 40,
+          "uptrend": 24
+        }
+      },
+      "v0625": {
+        "decisive_agreement": 1.0,
+        "decisive_pair_count": 23,
+        "exact_agreement": 1.0,
+        "exact_agreement_count": 36,
+        "main_decisive_coverage": 0.6388888888888888,
+        "opposite_trend_conflict_count": 0,
+        "other_decisive_coverage": 0.6388888888888888,
+        "pairs": 36,
+        "pooled_decisive_coverage": 0.6388888888888888,
+        "pooled_decisive_label_shares": {
+          "downtrend": 0.30434782608695654,
+          "range": 0.0,
+          "uptrend": 0.6956521739130435
+        },
+        "pooled_label_counts": {
+          "downtrend": 14,
+          "range": 0,
+          "uncertain": 26,
+          "uptrend": 32
+        }
+      }
+    },
+    "5m_offset_2": {
+      "D1": {
+        "decisive_agreement": 1.0,
+        "decisive_pair_count": 18,
+        "exact_agreement": 0.9285714285714286,
+        "exact_agreement_count": 26,
+        "main_decisive_coverage": 0.6785714285714286,
+        "opposite_trend_conflict_count": 0,
+        "other_decisive_coverage": 0.6785714285714286,
+        "pairs": 28,
+        "pooled_decisive_coverage": 0.6785714285714286,
+        "pooled_decisive_label_shares": {
+          "downtrend": 0.3157894736842105,
+          "range": 0.0,
+          "uptrend": 0.6842105263157895
+        },
+        "pooled_label_counts": {
+          "downtrend": 12,
+          "range": 0,
+          "uncertain": 18,
+          "uptrend": 26
+        }
+      },
+      "v0625": {
+        "decisive_agreement": 1.0,
+        "decisive_pair_count": 23,
+        "exact_agreement": 0.9285714285714286,
+        "exact_agreement_count": 26,
+        "main_decisive_coverage": 0.8571428571428571,
+        "opposite_trend_conflict_count": 0,
+        "other_decisive_coverage": 0.8571428571428571,
+        "pairs": 28,
+        "pooled_decisive_coverage": 0.8571428571428571,
+        "pooled_decisive_label_shares": {
+          "downtrend": 0.3958333333333333,
+          "range": 0.0,
+          "uptrend": 0.6041666666666666
+        },
+        "pooled_label_counts": {
+          "downtrend": 19,
+          "range": 0,
+          "uncertain": 8,
+          "uptrend": 29
+        }
+      }
+    },
+    "5m_offset_3": {
+      "D1": {
+        "decisive_agreement": 1.0,
+        "decisive_pair_count": 6,
+        "exact_agreement": 0.8666666666666667,
+        "exact_agreement_count": 13,
+        "main_decisive_coverage": 0.4666666666666667,
+        "opposite_trend_conflict_count": 0,
+        "other_decisive_coverage": 0.4666666666666667,
+        "pairs": 15,
+        "pooled_decisive_coverage": 0.4666666666666667,
+        "pooled_decisive_label_shares": {
+          "downtrend": 0.7142857142857143,
+          "range": 0.07142857142857142,
+          "uptrend": 0.21428571428571427
+        },
+        "pooled_label_counts": {
+          "downtrend": 10,
+          "range": 1,
+          "uncertain": 16,
+          "uptrend": 3
+        }
+      },
+      "v0625": {
+        "decisive_agreement": 1.0,
+        "decisive_pair_count": 10,
+        "exact_agreement": 0.9333333333333333,
+        "exact_agreement_count": 14,
+        "main_decisive_coverage": 0.7333333333333333,
+        "opposite_trend_conflict_count": 0,
+        "other_decisive_coverage": 0.6666666666666666,
+        "pairs": 15,
+        "pooled_decisive_coverage": 0.7,
+        "pooled_decisive_label_shares": {
+          "downtrend": 0.5714285714285714,
+          "range": 0.047619047619047616,
+          "uptrend": 0.38095238095238093
+        },
+        "pooled_label_counts": {
+          "downtrend": 12,
+          "range": 1,
+          "uncertain": 9,
+          "uptrend": 8
+        }
+      }
+    },
+    "5m_offset_4": {
+      "D1": {
+        "decisive_agreement": 1.0,
+        "decisive_pair_count": 20,
+        "exact_agreement": 1.0,
+        "exact_agreement_count": 32,
+        "main_decisive_coverage": 0.625,
+        "opposite_trend_conflict_count": 0,
+        "other_decisive_coverage": 0.625,
+        "pairs": 32,
+        "pooled_decisive_coverage": 0.625,
+        "pooled_decisive_label_shares": {
+          "downtrend": 0.6,
+          "range": 0.0,
+          "uptrend": 0.4
+        },
+        "pooled_label_counts": {
+          "downtrend": 24,
+          "range": 0,
+          "uncertain": 24,
+          "uptrend": 16
+        }
+      },
+      "v0625": {
+        "decisive_agreement": 1.0,
+        "decisive_pair_count": 24,
+        "exact_agreement": 1.0,
+        "exact_agreement_count": 32,
+        "main_decisive_coverage": 0.75,
+        "opposite_trend_conflict_count": 0,
+        "other_decisive_coverage": 0.75,
+        "pairs": 32,
+        "pooled_decisive_coverage": 0.75,
+        "pooled_decisive_label_shares": {
+          "downtrend": 0.5833333333333334,
+          "range": 0.0,
+          "uptrend": 0.4166666666666667
+        },
+        "pooled_label_counts": {
+          "downtrend": 28,
+          "range": 0,
+          "uncertain": 16,
+          "uptrend": 20
+        }
+      }
+    }
+  },
+  "pooled": {
+    "D1": {
+      "decisive_agreement": 1.0,
+      "decisive_pair_count": 59,
+      "exact_agreement": 0.9459459459459459,
+      "exact_agreement_count": 105,
+      "main_decisive_coverage": 0.5675675675675675,
+      "opposite_trend_conflict_count": 0,
+      "other_decisive_coverage": 0.5495495495495496,
+      "pairs": 111,
+      "pooled_decisive_coverage": 0.5585585585585585,
+      "pooled_decisive_label_shares": {
+        "downtrend": 0.43548387096774194,
+        "range": 0.008064516129032258,
+        "uptrend": 0.5564516129032258
+      },
+      "pooled_label_counts": {
+        "downtrend": 54,
+        "range": 1,
+        "uncertain": 98,
+        "uptrend": 69
+      }
+    },
+    "v0625": {
+      "decisive_agreement": 1.0,
+      "decisive_pair_count": 80,
+      "exact_agreement": 0.972972972972973,
+      "exact_agreement_count": 108,
+      "main_decisive_coverage": 0.7387387387387387,
+      "opposite_trend_conflict_count": 0,
+      "other_decisive_coverage": 0.7297297297297297,
+      "pairs": 111,
+      "pooled_decisive_coverage": 0.7342342342342343,
+      "pooled_decisive_label_shares": {
+        "downtrend": 0.44785276073619634,
+        "range": 0.006134969325153374,
+        "uptrend": 0.5460122699386503
+      },
+      "pooled_label_counts": {
+        "downtrend": 73,
+        "range": 1,
+        "uncertain": 59,
+        "uptrend": 89
+      }
+    }
+  },
+  "rescue_audit": {
+    "D1_decisive_override_count": 0,
+    "minimum_consensus_margin": 0.1,
+    "v0625_rescued_record_count": 400
+  },
+  "year": 2025
+}
