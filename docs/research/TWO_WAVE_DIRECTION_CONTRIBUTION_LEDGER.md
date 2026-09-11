@@ -254,6 +254,32 @@ v0.6.42 rules out a denominator-primary explanation strong enough to authorize a
 
 **The v0.6.33-v0.6.42 W1 / Range-recovery residual-gating family is closed.** Do not continue by tuning the W1 ceiling, changing amplitude normalization, mining additional gates from the 44 residuals, or combining weak v0.6.39-v0.6.42 diagnostics post hoc.
 
+## v0.6.43 fresh direction information-class audit — complete
+
+Protocol/result record: `docs/research/TWO_WAVE_DIRECTION_INFORMATION_CLASS_AUDIT_V0643.md`.
+
+The repository-level inventory separates already-measured information from genuinely new inputs.
+
+### Time geometry is not a fresh class
+
+Time/duration cannot be reintroduced as a new direction class merely under different algebra:
+
+- v0.5.4 already demoted corresponding-leg duration mismatch to diagnostic-only under the explicit hypothesis that full-cycle period defines scale while phase-leg allocation is diagnostic;
+- v0.5.5 records corresponding-leg duration ratio, mean-cycle duration and drift-per-cycle-bar inside D1 semantic attribution;
+- v0.6.19-v0.6.20 formally decompose and test duration-boundary mechanisms for qualification.
+
+No duration/phase-allocation/drift-per-bar challenger is authorized by v0.6.43.
+
+### One distinct causal class remains open
+
+`native_high_low_envelope_excursion_at_frozen_parent_anchors` is materially distinct from the close-only direction chain.
+
+The data surface contains OHLC and v0.6.17 uses high/low only to form session-aware structural bounds for qualification. By contrast, D1, PAWCT, v0.6.10 close-path descriptors, v0.6.21 Huber and the v0.6.29-v0.6.42 Range/W1 chain all consume close pivots or close paths for parent-direction information.
+
+Therefore same-bar high/low excursion at the already-frozen five parent anchors has not yet been formally direction-adjudicated.
+
+This does **not** authorize a classifier. It authorizes only the separately frozen v0.6.44 read-only, threshold-free high/low-envelope attribution.
+
 ## Current research state
 
 There is still **no parent-direction winner**.
@@ -261,9 +287,11 @@ There is still **no parent-direction winner**.
 - v0.6.18 remains qualification champion.
 - v0.6.25 remains strongest pooled-exact direction contribution.
 - W1 / current Range-recovery residual-gating family is closed.
-- no v0.6.43 recognizer challenger is authorized.
+- v0.6.43 information-class audit is complete.
+- v0.6.44 native high/low envelope attribution is frozen and authorized as the next read-only diagnostic.
+- no v0.6.44 recognizer challenger, rescue, veto or threshold is authorized.
 
-The next authorized work is a **fresh read-only direction information-class audit** across existing code, protocols and evidence. A future challenger may be frozen only if that audit identifies a genuinely unmeasured causal morphology information class distinct from D2, PAWCT, scalar path descriptors, Huber/erosion evidence, location/IQR/containment, W1 weighting/normalization, normalized progress shape, leg asymmetry and sign topology.
+A later challenger may be frozen only if v0.6.44 demonstrates a coherent, non-redundant and harmless-slicing-stable mechanism. High/low may not move the frozen parent anchors, alter v0.6.18 qualification, or infer within-bar event order.
 
 `morphology_acceptance=false`
 `trade_authority=false`
