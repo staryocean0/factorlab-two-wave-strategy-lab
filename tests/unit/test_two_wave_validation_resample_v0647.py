@@ -83,6 +83,19 @@ def test_causal_flat_fill_preserves_clock_but_is_excluded_from_ohlc():
     assert out.iloc[0]["timestamp"] == frame.iloc[4]["timestamp"]
 
 
+def test_missing_nominal_endpoint_still_emits_scheduled_bar():
+    rows = _session("2024-01-02", "13:01", 14)
+    frame = pd.DataFrame(rows)
+    # For offset 0, 13:11..13:14 belong to the scheduled 13:15 window.
+    # The 13:15 source row is absent, but DataHub still emits the nominal 13:15 bar.
+    out = resample_five_minute_offset(frame, 0)
+    assert len(out) == 3
+    expected = pd.Timestamp("2024-01-02 13:15:00", tz="Asia/Shanghai").tz_convert("UTC")
+    assert out.iloc[-1]["timestamp"] == expected
+    assert out.iloc[-1]["open"] == frame.iloc[10]["open"]
+    assert out.iloc[-1]["close"] == frame.iloc[-1]["close"]
+
+
 def test_all_flat_bin_is_not_emitted():
     rows = _session("2024-01-02", "09:31", 5)
     for row in rows:
