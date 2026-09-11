@@ -2,6 +2,12 @@
 """Output-layer fix for the frozen v0.6.42 attribution runner."""
 from __future__ import annotations
 
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
 import scripts.run_two_wave_amplitude_normalization_stability_v0642 as runner
 
 
