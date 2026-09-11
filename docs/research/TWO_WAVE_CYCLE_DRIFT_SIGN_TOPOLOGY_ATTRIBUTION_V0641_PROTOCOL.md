@@ -8,9 +8,9 @@ Mode: read-only diagnostic; no recognizer change
 
 v0.6.39 found a local order-sensitive clue in first-leg progress shape, but v0.6.40 showed that first-vs-second-leg shape asymmetry does not separate harmful one-sided v0.6.37 Range rescues from stable both-rescue controls: the primary rank statistics were near 0.5. Therefore the v0.6.39/v0.6.40 normalized-shape route is closed for candidate promotion.
 
-The next unadjudicated information class is not another path distance. It is the **sign topology of the already-frozen two-cycle pivot migrations** that D1 stores in `phase_steps_in_amplitude_units`.
+The next unadjudicated information class is not another path distance. It is the **sign topology of the already-frozen two-cycle pivot migrations** that D1 defines as `phase_steps_in_amplitude_units`.
 
-For five alternating pivots `x0..x4`, the existing record defines:
+For five alternating pivots `x0..x4`, D1 defines:
 
 - `s0 = (x2 - x0) / amplitude_unit`: net drift of complete cycle 1 on the starting envelope;
 - `s1 = (x4 - x2) / amplitude_unit`: net drift of complete cycle 2 on the same starting envelope;
@@ -48,7 +48,23 @@ The one-sided semantic decomposition must remain:
 
 ## Frozen sign representation
 
-For each side, read the existing `phase_steps_in_amplitude_units = [s0, s1, s2]` from the published record. Do not recompute pivots and do not add smoothing.
+For each side, use the frozen D1 `phase_steps_in_amplitude_units = [s0, s1, s2]`. Do not redetect pivots and do not add smoothing.
+
+### Implementation clarification after the first pre-result replay failure
+
+Formal run `34607412997` failed before producing any result because the frozen v0.6.18 replay artifacts do not serialize the derived `phase_steps_in_amplitude_units` field. They do serialize the five already-published raw pivot occurrence bars.
+
+Therefore the replay reconstructs the omitted derived field **exactly from those published pivot bars and their observed closes using the original frozen D1 formula**:
+
+- `legs = diff(pivot_bars)`;
+- `cycles = [bar2-bar0, bar4-bar2]`;
+- cycle amplitudes are the absolute middle-pivot deviations from the line joining each cycle's endpoints, exactly as in `same_scale_v04.evaluate_pair`;
+- `amplitude_unit = mean(two cycle amplitudes)`;
+- `s0 = (x2-x0)/amplitude_unit`;
+- `s1 = (x4-x2)/amplitude_unit`;
+- `s2 = (x3-x1)/amplitude_unit`.
+
+This is an implementation repair only. No pivot is redetected, no new observation is introduced, and no descriptor, threshold, comparison, or decision rule below changes.
 
 Use strict mathematical sign around zero only:
 
