@@ -3,10 +3,47 @@ from __future__ import annotations
 
 import math
 from collections import Counter
-from typing import Iterable
+from typing import Iterable, Sequence
 
 SCHEMA = "two_wave_cycle_drift_sign_topology@0.6.41"
 NUMERIC_ZERO_EPS = 1e-12
+
+
+def reconstruct_phase_steps(
+    closes: Sequence[float], five_occurrence_bars: Sequence[int]
+) -> list[float]:
+    """Rebuild the frozen D1 phase steps from published pivots only.
+
+    The v0.6.18 replay artifacts publish the five raw occurrence bars but omit
+    the derived ``phase_steps_in_amplitude_units`` field.  This function uses
+    exactly the frozen v0.4 D1 formula from ``same_scale_v04.evaluate_pair``;
+    it does not redetect pivots, smooth prices, or introduce a new parameter.
+    """
+    ids = tuple(int(x) for x in five_occurrence_bars)
+    if len(ids) != 5 or any(b <= a for a, b in zip(ids, ids[1:])):
+        raise ValueError("five strictly increasing published occurrence bars required")
+    if ids[0] < 0 or ids[-1] >= len(closes):
+        raise ValueError("published occurrence bars outside supplied closes")
+
+    x = [float(closes[i]) for i in ids]
+    if not all(math.isfinite(v) for v in x):
+        raise ValueError("finite published pivot closes required")
+
+    legs = [b - a for a, b in zip(ids, ids[1:])]
+    cycles = [ids[2] - ids[0], ids[4] - ids[2]]
+    amplitudes = [
+        abs(x[k + 1] - (x[k] + (x[k + 2] - x[k]) * legs[k] / cycles[k // 2]))
+        for k in (0, 2)
+    ]
+    unit = sum(amplitudes) / 2.0
+    if not math.isfinite(unit) or unit <= 0:
+        raise ValueError("positive finite frozen amplitude unit required")
+
+    return [
+        float((x[2] - x[0]) / unit),
+        float((x[4] - x[2]) / unit),
+        float((x[3] - x[1]) / unit),
+    ]
 
 
 def strict_sign(value: float, *, eps: float = NUMERIC_ZERO_EPS) -> str:
