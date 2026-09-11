@@ -1,0 +1,49 @@
+{
+  "schema": "two_wave_v0648_prelabel_execution_status@1.0",
+  "date": "2026-09-12",
+  "status": "prelabel_implementation_complete_awaiting_two_independent_blinded_annotations",
+  "construction_protocol": "docs/research/TWO_WAVE_INDEPENDENT_REFERENCE_LABEL_CONSTRUCTION_V0648_PROTOCOL.md",
+  "scoring_semantics_clarification": "docs/research/TWO_WAVE_V0648_PRELABEL_SCORING_SEMANTICS_CLARIFICATION.md",
+  "execution_status_document": "docs/research/TWO_WAVE_V0648_PRELABEL_EXECUTION_STATUS.md",
+  "formal_packet_workflow_run": 34628102738,
+  "formal_packet_metadata_commit": "e3addb31ec2a8754e711cf820e6092c14588bdd0",
+  "sampling_commitment_sha256": "f4eeff13c1408c1ca3bf938c0cd8abc4dad961f63ed6a4a4158f243cd5b024c8",
+  "blinded_annotation_packet_sha256": "4c08c8d3f32c6e222acb3c4236fa8f39428ff25349deae16d6f49dca2901566e",
+  "selected_cases": 240,
+  "selected_candidate_cases": 120,
+  "selected_control_cases": 120,
+  "prelabel_scoring_determinacy": {
+    "formal_workflow_run": 34630392872,
+    "formal_result_commit": "bdf57c1c50e9675b1459c81060e47b7a12892a69",
+    "audit_file": "experiments/two_wave_independent_reference_label_v0648/SCORING_DETERMINACY_AUDIT.json",
+    "single_identity_candidate_cases": 118,
+    "double_identity_candidate_cases": 2,
+    "multi_identity_D1_state_disagreement_cases": 0,
+    "multi_identity_v0625_state_disagreement_cases": 0,
+    "case_level_v0625_state_determinate": true
+  },
+  "pre_frozen_post_label_tooling": {
+    "first_pass_quality_validator": "scripts/validate_two_wave_independent_reference_labels_v0648.py",
+    "third_adjudication_packet_builder": "scripts/prepare_two_wave_reference_adjudication_v0648.py",
+    "final_reference_freezer": "scripts/finalize_two_wave_reference_labels_v0648.py",
+    "post_reference_scoring_runner": "scripts/score_two_wave_independent_reference_v0648.py",
+    "final_reference_primitive": "src/factor_lab/visual_structure/two_wave/reference_label_freeze_v0648.py",
+    "aggregate_scoring_primitive": "src/factor_lab/visual_structure/two_wave/reference_label_scoring_v0648.py",
+    "primary_gated_model": "v0.6.25_absolute_margin_erosion_consensus_rescue",
+    "descriptive_comparator": "D1",
+    "hidden_mapping_unblinds_only_after_final_reference_freeze_and_first_pass_quality_pass": true
+  },
+  "external_dependency": {
+    "two_genuinely_independent_blinded_first_pass_annotators_required": true,
+    "third_independent_adjudicator_required_only_for_disagreement_cases": true,
+    "assistant_or_model_outputs_may_substitute_for_independent_annotators": false
+  },
+  "independent_labels_present": false,
+  "final_reference_labels_frozen": false,
+  "model_reference_scoring_started": false,
+  "calibration_verdict_available": false,
+  "morphology_acceptance": false,
+  "direction_winner": null,
+  "trade_authority": false,
+  "production_authority": false
+}
