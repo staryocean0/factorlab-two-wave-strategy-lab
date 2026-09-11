@@ -1,9 +1,25 @@
 from factor_lab.visual_structure.two_wave.cycle_drift_sign_topology_v0641 import (
     categorical_summary,
     cycle_drift_topology,
+    reconstruct_phase_steps,
     strict_sign,
     true_rate,
 )
+
+
+def test_reconstruct_phase_steps_matches_frozen_d1_formula():
+    closes = [100.0, 105.0, 110.0, 107.0, 104.0, 109.0, 115.0, 112.0, 109.0]
+    out = reconstruct_phase_steps(closes, [0, 2, 4, 6, 8])
+    unit = (8.0 + 8.5) / 2.0
+    expected = [4.0 / unit, 5.0 / unit, 5.0 / unit]
+    assert all(abs(a - b) < 1e-12 for a, b in zip(out, expected))
+
+
+def test_reconstruct_phase_steps_uses_only_published_pivot_closes():
+    anchors = [0, 2, 4, 6, 8]
+    base = [100.0, 999.0, 110.0, -999.0, 104.0, 999.0, 115.0, -999.0, 109.0]
+    altered = [100.0, -123.0, 110.0, 456.0, 104.0, -789.0, 115.0, 321.0, 109.0]
+    assert reconstruct_phase_steps(base, anchors) == reconstruct_phase_steps(altered, anchors)
 
 
 def test_strict_sign_uses_only_structural_zero():
