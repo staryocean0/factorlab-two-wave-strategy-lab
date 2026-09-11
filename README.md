@@ -30,13 +30,20 @@ Current best-supported research components are:
 - immutable raw identity publication: **v0.6.5**;
 - qualification policy: **v0.6.18 path-gate demotion** — current best research qualification component;
 - fine-path partial-identification measurement: **v0.6.17** cloud-reviewed bounds;
-- parent direction (`Range / UpTrend / DownTrend`): **still blocked / not accepted**.
+- parent direction (`Range / UpTrend / DownTrend`): **winner unset / not accepted**;
+- strongest pooled-exact Development direction contribution: **v0.6.25**, retained as evidence but not runtime authority.
 
 v0.6.18 formally demotes only `inefficient_leg` and `jump_dominated_leg` from hard morphology vetoes to diagnostics. On the frozen v0.6.5 strict same-event universe, aggregate positive qualification overlap improved from **40.8129% to 68.3817%**, and both-qualified pairs increased from **482 to 1,462**, with all four harmless 5m offsets improving. This is a qualification-policy pass, **not morphology acceptance and not authorization to promote D1/D2/PAWCT as the final state classifier**.
 
+The current OHLC market-bar direction-information expansion is closed after v0.6.46: native high/low and native open/body/gap were formally adjudicated and did not authorize a new challenger.
+
+v0.6.47 then performed a frozen post-2020 temporal replication of the existing v0.6.18 + D1/v0.6.25 chain. The 1m-to-five-offset constructor first reproduced all shipped 2015-2020 Development 5m products exactly, and also reproduced the independent external 2024/2025 native offset-0 controls exactly. The formal replication verdict was **`v0647_temporal_replication_under_original_v0625_gate_not_all_pass`**. Across `253` post-2020 both-qualified within-year pairs, D1 exact was `242/253 = 95.6522%`, versus v0.6.25 `238/253 = 94.0711%`; v0.6.25 raised decisive coverage from `47.6285%` to `68.5771%`, but failed harmless-offset and pooled exact non-regression. 2025 was favorable, while 2024 and 2026 retained the instability pattern.
+
+Therefore v0.6.18 remains qualification champion, v0.6.25 remains a retained Development direction contribution, and the parent-direction winner remains unset. `morphology_acceptance=false`, `trade_authority=false`, `production_authority=false`.
+
 Machine-readable authority: [`experiments/two_wave_m0_authority.json`](experiments/two_wave_m0_authority.json).
 
-Next authorized research is a results-blind decomposition of remaining **duration-geometry** qualification disagreements. Direction/state formula changes remain frozen until morphology identity/qualification stability is adequate.
+The next authorized scientific step is **independent reference-label morphology validation of the frozen recognizer/components**. Failure of v0.6.47 is not authorization to retune v0.6.25 on later-period residuals or resume mining OHLC/clock/session/data-quality fields. A genuinely new data modality would require its own information-class audit before candidate work.
 
 ## Four-layer timing navigation shell
 
