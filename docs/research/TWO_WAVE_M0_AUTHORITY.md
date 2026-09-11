@@ -57,7 +57,8 @@ The following families are already adjudicated and must not be silently retried 
 - v0.6.27-v0.6.32 state-relative Range margin, IQR overlap and mutual-median containment routes: rejected or diagnostic-only;
 - v0.6.33-v0.6.42 median-shift / W1 / phase-balanced W1 / residual-shape / sign-topology / amplitude-normalization family: closed;
 - time/duration geometry: already measured through v0.5.4/v0.5.5 and v0.6.19-v0.6.20; not a fresh direction information class;
-- native same-bar high/low envelope excursion at the frozen five parent anchors: adjudicated and closed by v0.6.44.
+- native same-bar high/low envelope excursion at the frozen five parent anchors: adjudicated and closed by v0.6.44;
+- native open/body/gap geometry at the frozen five parent anchors: adjudicated and closed by v0.6.46.
 
 ### v0.6.35-v0.6.38: W1 route
 
@@ -100,15 +101,11 @@ No denominator-primary failure was established. `gate_authorized=false`. The v0.
 
 Audit record: `docs/research/TWO_WAVE_DIRECTION_INFORMATION_CLASS_AUDIT_V0643.md`.
 
-The audit established that time/duration geometry is not a pristine class:
+The audit established that time/duration geometry is not a pristine class: v0.5.4/v0.5.5 already measure corresponding-leg duration mismatch/ratio, mean-cycle duration and drift-per-mean-cycle-bar, while v0.6.19-v0.6.20 formally investigate duration geometry in qualification.
 
-- v0.5.4 already made corresponding-leg duration mismatch diagnostic-only under the full-cycle-scale / phase-leg-allocation hypothesis;
-- v0.5.5 records corresponding-leg duration ratio, mean-cycle duration and drift-per-mean-cycle-bar inside D1 semantic attribution;
-- v0.6.19-v0.6.20 formally decompose/test duration-boundary mechanisms for qualification.
+The materially distinct class identified at that stage was `native_high_low_envelope_excursion_at_frozen_parent_anchors`, leading only to the read-only v0.6.44 attribution.
 
-The one materially distinct causal price-information class found by v0.6.43 was `native_high_low_envelope_excursion_at_frozen_parent_anchors`. It was distinct because historical parent-direction work was close-pivot / close-path based, while v0.6.17 used high/low only for qualification bounds and explicitly excluded direction.
-
-v0.6.43 therefore authorized exactly one read-only threshold-free study: v0.6.44.
+The later v0.6.45 audit corrected one overstatement in v0.6.43/v0.6.44 governance: native `open` had not yet been formally enumerated, so the earlier phrase “price-only expansion exhausted” was premature.
 
 ## v0.6.44: native high/low envelope attribution — complete; route closed
 
@@ -118,46 +115,82 @@ Raw formal result commit: `f4128a8ef1aaf6e1f1f205af64a9fef77302d19b`.
 Result card: `experiments/two_wave_native_high_low_envelope_direction_v0644/RESULT_CARD.md`.  
 Governance adjudication: `experiments/two_wave_native_high_low_envelope_direction_v0644/ADJUDICATION.json`.
 
-All hard controls reproduced exactly:
+All hard controls reproduced exactly: `57,029` filtered, `29,453` raw strict, `1,462` both-v0.6.18-qualified, D1 exact `1,400`, v0.6.25 exact `1,402`.
+
+Fixed v0.6.25 nonexact-vs-exact rank probabilities were `0.5080599144079886`, `0.4980266286257727`, `0.5578340466000951`, `0.4890632429862102`, and `0.5327983832620067` across the frozen high/low descriptors.
+
+Positive stability-gain incidence was essentially identical (`0.5556348074179743` exact vs `0.55` nonexact), and nonexact median gain changed sign across offsets.
+
+Final frozen category: `v0644_high_low_envelope_redundant_or_unstable`.
+
+`gate_authorized=false`; `challenger_authorized=false`. The native frozen-anchor high/low route is closed.
+
+## v0.6.45: non-close information-class audit — governance correction and final remaining market-bar class
+
+Audit record: `docs/research/TWO_WAVE_NON_CLOSE_INFORMATION_CLASS_AUDIT_V0645.md`.
+
+This audit explicitly corrected the prior completeness claim and inventoried the remaining causally available fields.
+
+- **Volume** is not an authorized current research surface: CSI1000 index volume is mostly unavailable and may not be filled or manufactured.
+- **Confirmation delay / `available_at` / execution clock** are causality metadata, not `Range/Trend` semantics.
+- **Session/calendar span** is already scale/qualification context and cannot be repackaged as a new direction signal.
+- **1m source-support/gap topology** is measurement/data-product provenance used for uncertainty bounds, not parent market-state semantics.
+- **Cross-offset identity** remains diagnostic only.
+- Native **open/body/gap** geometry at the already-frozen five parent anchors was the one remaining source-distinct market-price class not yet formally adjudicated.
+
+v0.6.45 therefore authorized exactly one read-only, threshold-free follow-up: v0.6.46. It did not authorize a classifier.
+
+## v0.6.46: native open/body/gap attribution — complete; route closed
+
+Frozen protocol: `docs/research/TWO_WAVE_NATIVE_OPEN_BODY_GAP_DIRECTION_ATTRIBUTION_V0646_PROTOCOL.md`.  
+Formal workflow run: `34618326900`.  
+Raw formal result commit: `c71e9612a8dbc09aeefef5f85f2c208cdac60b8d`.  
+Result card: `experiments/two_wave_native_open_body_gap_direction_v0646/RESULT_CARD.md`.  
+Governance adjudication: `experiments/two_wave_native_open_body_gap_direction_v0646/ADJUDICATION.json`.
+
+All frozen hard controls reproduced exactly:
 
 - filtered pairs: `57,029`;
 - raw strict pairs: `29,453`;
 - both-v0.6.18-qualified pairs: `1,462`;
 - D1 exact: `1,400`;
-- v0.6.25 exact: `1,402`.
+- v0.6.25 exact: `1,402`;
+- v0.6.25 decisive agreement: `1.0`;
+- opposite UpTrend/DownTrend conflicts: `0`.
 
-Fixed v0.6.25 nonexact-vs-exact rank probabilities:
+The five pre-frozen v0.6.25 nonexact-vs-exact rank probabilities were:
 
-- mean anchor outward excursion: `0.5080599144079886`;
-- envelope-adjustment L1: `0.4980266286257727`;
-- envelope-adjustment harmless-view distance: `0.5578340466000951`;
-- mean-anchor-excursion harmless-view delta: `0.4890632429862102`;
-- envelope stability gain: `0.5327983832620067`.
+- mean absolute anchor body: `0.4789586305278174`;
+- absolute mean phase-oriented anchor body: `0.4865905848787446`;
+- mean absolute opening gap: `0.5508559201141227`;
+- open-adjustment harmless-view distance L1: `0.5259153590109368`;
+- open stability gain L1: `0.5489895387541607`.
 
-Pooled median `envelope_stability_gain_l1` was only `0.0041014660230829295` for v0.6.25 exact pairs and `0.009065932283269774` for nonexact pairs. Positive-gain incidence was essentially identical: `0.5556348074179743` exact versus `0.55` nonexact.
+All five lie inside the pre-frozen `[0.40, 0.60]` redundancy band.
 
-Nonexact median stability gain by harmless offset:
+More importantly, replacing close-anchor phase migration with open-anchor migration made harmless-slicing stability **worse**, not better. Pooled median `open_stability_gain_l1 = close_view_distance - open_view_distance` was:
 
-- offset 1: `+0.009065932283269774`;
-- offset 2: `+0.015499867500368393`;
-- offset 3: `+0.02185665270592614`;
-- offset 4: `-0.00699296462603538`.
+- v0.6.25 exact: `-0.04552300088588504`;
+- v0.6.25 nonexact: `-0.03228363345938465`.
 
-The broad population also had a negative median gain on offset 3. Thus the stability effect is small and not cross-offset coherent. Outward-excursion and adjustment magnitudes remain effectively non-separating, with rank probabilities near `0.5`.
+Positive-gain incidence was only `0.26105563480741795` exact and `0.2833333333333333` nonexact. The nonexact median was negative on all four harmless offsets:
 
-Final frozen category:
+- offset 1: `-0.03753271341579051`;
+- offset 2: `-0.008874694440202807`;
+- offset 3: `-0.060062886026750174`;
+- offset 4: `-0.04717112905394007`.
 
-`v0644_high_low_envelope_redundant_or_unstable`
+By the pre-frozen A -> B -> C interpretation order, the formal category is:
 
-Interpretation: high/low is a genuinely different source field from close, but on the frozen parent anchors it does not provide a coherent direction/stability mechanism. The route is closed.
+`v0646_native_open_body_gap_redundant_or_unstable`
+
+Interpretation: native open/body/gap is causally source-distinct, but it neither separates the existing v0.6.25 inconsistency nor improves harmless-slicing stability. The native-open route is closed.
 
 `gate_authorized=false`  
 `challenger_authorized=false`  
 `recognizer_changed=false`  
 `qualification_changed=false`  
 `direction_winner_changed=false`
-
-No high/low threshold, rescue, veto, D1 replacement, or post-hoc composite is authorized.
 
 ## Current research rule
 
@@ -170,10 +203,11 @@ No high/low threshold, rescue, veto, D1 replacement, or post-hoc composite is au
 - cycle-drift sign-topology route is closed.
 - amplitude-normalization route is closed.
 - native frozen-anchor high/low envelope route is closed after v0.6.44.
-- the **currently audited price-only parent-direction information-class expansion line is closed**.
-- **no v0.6.45 challenger is authorized**.
+- native frozen-anchor open/body/gap route is closed after v0.6.46.
+- after the v0.6.45 governance correction and v0.6.46 adjudication, the **current market-bar price-input parent-direction expansion is genuinely exhausted**.
+- **no v0.6.47 challenger is authorized**.
 
-Any further parent-direction research must begin with a separately frozen evidence-level information-class audit that demonstrates genuinely new causal information not reducible to the already covered close-anchor migration, close-path shape, close distribution/W1, duration geometry, or native frozen-anchor OHLC-envelope classes. It may not begin by tuning or combining closed diagnostics.
+The next legitimate program step is **not another direction feature** from the current OHLC/clock/session/data-quality surface. Further progress should move to independent morphology validation / replication using frozen existing components, or to a separately justified new data modality with its own evidence-level audit before any candidate protocol.
 
 ## Forbidden shortcuts
 
@@ -189,13 +223,15 @@ Any further parent-direction research must begin with a separately frozen eviden
 - mine more residual gates from the 44 one-sided v0.6.37 rows;
 - combine weak residual diagnostics post hoc into a composite classifier;
 - repackage duration, phase allocation, duration ratio or drift-per-bar as a fresh direction class;
-- infer within-bar high/low ordering from OHLC;
-- move the frozen five parent anchors using high/low;
-- fit a high/low excursion cutoff from v0.6.44 diagnostics;
-- replace D1 with v0.6.44 envelope steps without separately frozen candidate authority;
-- combine v0.6.44 diagnostics post hoc with closed W1/shape/sign residual gates;
-- create a v0.6.45 challenger without a new frozen information-class audit;
+- infer within-bar OHLC event ordering;
+- move the frozen five parent anchors using high/low or open;
+- fit high/low excursion or open/body/gap cutoffs from v0.6.44/v0.6.46 diagnostics;
+- replace D1 with high/low or open-anchor phase steps without separately frozen authority;
+- fill or impute missing index volume for parent direction;
+- use missing-volume status as a morphology signal;
+- use `available_at`, confirmation delay, session count, calendar span or source-support gaps as parent-direction semantics;
 - use harmless comparison offsets as runtime information;
+- create a v0.6.47 challenger by recombining the closed fields above;
 - use future returns, P&L, H1/H2, third-wave outcomes, or later-period selection data for morphology decisions.
 
 Independent morphology acceptance remains false. Trading and production remain closed.
