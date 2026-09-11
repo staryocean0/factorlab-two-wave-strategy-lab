@@ -1,9 +1,9 @@
 {
-  "schema": "two_wave_m0_authority@1.18",
-  "date": "2026-09-11",
+  "schema": "two_wave_m0_authority@1.19",
+  "date": "2026-09-12",
   "primary_object": "two_wave_parent_structure_recognizer",
   "target_states": ["Range", "UpTrend", "DownTrend", "Uncertain"],
-  "global_status": "morphology_replication_not_yet_accepted",
+  "global_status": "independent_reference_label_packet_ready_awaiting_blinded_annotations",
   "morphology_acceptance": false,
   "historical_full_recognizer_operational_baseline": {
     "version": "v0.4.3",
@@ -37,7 +37,7 @@
     },
     "parent_direction": {
       "winner": null,
-      "status": "blocked_not_accepted_price_input_expansion_exhausted_and_v0647_temporal_replication_not_all_pass",
+      "status": "blocked_not_accepted_price_input_expansion_exhausted_v0647_temporal_replication_not_all_pass_v0648_reference_scoring_blocked_pending_annotations",
       "historical_baseline": {
         "name": "D1",
         "pooled_exact_agreement": 0.957592339261286,
@@ -119,7 +119,7 @@
       "result_card": "experiments/two_wave_native_open_body_gap_direction_v0646/RESULT_CARD.md",
       "adjudication": "experiments/two_wave_native_open_body_gap_direction_v0646/ADJUDICATION.json",
       "workflow_run": 34618326900,
-      "raw_formal_result_commit": "c71e9612a8dbc09aeef5f85f2c208cdac60b8d",
+      "raw_formal_result_commit": "c71e9612a8dbc09aeefef5f85f2c208cdac60b8d",
       "formal_category": "v0646_native_open_body_gap_redundant_or_unstable",
       "controls": {
         "filtered_pairs": 57029,
@@ -167,7 +167,7 @@
       "summary": "experiments/two_wave_independent_temporal_replication_v0647/summary.json",
       "development_resampler_precheck_run": 34623300582,
       "formal_workflow_run": 34624208758,
-      "formal_result_commit": "1e783f9",
+      "formal_result_commit": "1e783f925b669d6d71ed26a3ccac2ba7cb5fd9b0",
       "verdict": "v0647_temporal_replication_under_original_v0625_gate_not_all_pass",
       "external_native_offset0_equivalence": {
         "2024": true,
@@ -233,11 +233,47 @@
       "production_authority_changed": false
     }
   },
+  "independent_reference_label_lineage": {
+    "v0648": {
+      "status": "packet_ready_awaiting_two_independent_blinded_first_pass_annotations",
+      "protocol": "docs/research/TWO_WAVE_INDEPENDENT_REFERENCE_LABEL_CONSTRUCTION_V0648_PROTOCOL.md",
+      "protocol_freeze_commit": "86bfba86f01dda2f06b266b2025fbe3f1e39bc36",
+      "packet_workflow_run": 34628102738,
+      "packet_metadata_commit": "e3addb31ec2a8754e711cf820e6092c14588bdd0",
+      "packet_manifest": "experiments/two_wave_independent_reference_label_v0648/PACKET_MANIFEST.json",
+      "sampling_commitment_record": "experiments/two_wave_independent_reference_label_v0648/SAMPLING_COMMITMENT.json",
+      "scoring_block_record": "experiments/two_wave_independent_reference_label_v0648/SCORING_BLOCKED.json",
+      "source_sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48",
+      "candidate_qualified_publications_available": 2115,
+      "selected_cases": 240,
+      "hidden_candidate_cases": 120,
+      "hidden_control_cases": 120,
+      "years": [2015, 2016, 2017, 2018, 2019, 2020],
+      "cases_per_year_per_hidden_stratum": 20,
+      "annotator_visible_file_count": 243,
+      "sampling_commitment_sha256": "f4eeff13c1408c1ca3bf938c0cd8abc4dad961f63ed6a4a4158f243cd5b024c8",
+      "blinded_annotation_zip_sha256": "4c08c8d3f32c6e222acb3c4236fa8f39428ff25349deae16d6f49dca2901566e",
+      "hidden_mapping_in_annotator_packet": false,
+      "independent_labels_present": false,
+      "model_scoring_started": false,
+      "label_quality_validator_implemented": true,
+      "first_pass_requires_two_distinct_annotator_ids": true,
+      "third_party_adjudication_required_for_disagreements": true,
+      "model_scoring_allowed_before_final_reference_freeze": false,
+      "development_period_calibration_only": true,
+      "morphology_acceptance_changed": false,
+      "qualification_changed": false,
+      "direction_winner_changed": false,
+      "trade_authority_changed": false,
+      "production_authority_changed": false
+    }
+  },
   "current_range_recovery_family_status": "closed_after_v0642_no_empirical_candidate",
   "current_price_input_direction_expansion_status": "closed_after_v0646_close_high_low_and_native_open_classes_adjudicated_no_challenger_authorized",
   "current_temporal_replication_status": "v0647_complete_not_all_original_v0625_gates_pass",
-  "next_authorized_step": "independent_reference_label_morphology_validation_of_frozen_existing_components; do_not_resume_current_OHLC_direction_feature_mining. A genuinely_new_data_modality_requires_a_separate_information_class_audit_before_candidate_work",
-  "no_current_v0648_challenger_authorized": true,
+  "current_reference_label_status": "v0648_blinded_packet_ready_scoring_blocked_awaiting_two_independent_first_pass_annotations",
+  "next_authorized_step": "obtain_two_independent_blinded_v0648_annotation_sheets; freeze_both_sha256_hashes; run_pre_frozen_label_quality_gates; third_party_adjudicate_disagreements; freeze_final_reference_labels; only_then_unblind_hidden_mapping_and_score. do_not_resume_current_OHLC_direction_feature_mining",
+  "no_current_direction_challenger_authorized": true,
   "forbidden_next_shortcuts": [
     "retry_endpoint_D2_or_confidence_gated_D2",
     "retry_PAWCT_absolute_phase_aligned_translation_as_is",
@@ -258,7 +294,13 @@
     "drop_2024_or_2026_or_weak_offsets_to_make_v0647_pass",
     "retune_v0625_margin_on_post_2020_temporal_replication",
     "declare_v0625_direction_winner_from_2025_only",
-    "declare_global_morphology_acceptance_without_independent_reference_labels"
+    "use_algorithm_outputs_migrated_v1_v13_or_project_adjudications_as_independent_reference_truth",
+    "reveal_hidden_v0648_stratum_model_pivots_qualification_direction_outputs_dates_future_bars_or_outcomes_to_first_pass_annotators",
+    "compare_first_pass_annotators_before_both_returned_sheet_hashes_are_frozen",
+    "change_v0648_sample_annotation_rules_or_agreement_gates_after_seeing_labels",
+    "score_model_reference_agreement_before_disagreement_adjudication_and_final_reference_freeze",
+    "tune_v0618_or_v0625_against_v0648_reference_labels",
+    "declare_global_morphology_acceptance_from_v0648_development_period_calibration_alone"
   ],
   "trade_authority": false,
   "production_authority": false
