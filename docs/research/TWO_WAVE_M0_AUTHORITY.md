@@ -19,7 +19,7 @@ A component-level win never upgrades the whole recognizer. Rejected challengers 
 
 ## Frozen direction evaluation universe
 
-All direction work from v0.6.21 onward uses the same strict same-financial-identity universe derived from the frozen v0.6.18 artifacts:
+All current direction work uses the same strict same-financial-identity universe derived from the frozen v0.6.18 artifacts:
 
 - filtered mutual-unique same-event pairs: `57,029`;
 - published raw strict pairs: `29,453`;
@@ -27,7 +27,12 @@ All direction work from v0.6.21 onward uses the same strict same-financial-ident
 - main view: `5m_offset_0`;
 - four harmless 5-minute comparison offsets are diagnostic only and may never become runtime information.
 
-Historical D1 on this universe has exact four-state agreement `95.7592%`, pooled decisive coverage `48.9056%`, decisive agreement `100%`, and zero opposite UpTrend/DownTrend conflicts.
+Historical D1 on this universe:
+
+- exact four-state agreement: `1400/1462 = 95.7592%`;
+- decisive coverage: `48.9056%`;
+- decisive agreement: `100%`;
+- opposite UpTrend/DownTrend conflicts: `0`.
 
 ## Current best direction contribution: v0.6.25
 
@@ -41,122 +46,134 @@ v0.6.25 remains the strongest pooled-exact contribution:
 
 It is **not** a direction winner because harmless-offset non-regression was not achieved and Range supply is too small.
 
-## Direction / Range-recovery evidence chain
+## Closed direction information families
 
-The following families have already been adjudicated and must not be silently retried under new names:
+The following families are already adjudicated and must not be silently retried under new names:
 
 - endpoint D2 and confidence-gated D2: rejected;
-- PAWCT absolute phase-aligned translated path: rejected;
-- v0.6.10 scalar path efficiency/jump/roughness family: already measured;
-- v0.6.21-v0.6.23 whole-window Huber and erosion-consensus rescue: useful information, no winner;
-- v0.6.27 direct state-relative Range margin: rejected;
-- v0.6.29 cycle-IQR overlap alone: rejected;
-- v0.6.30/v0.6.31 stacked Range gates: rejected;
-- v0.6.33 median-shift Range: rejected;
-- v0.6.34 median-shift/IQR intersection: rejected;
-- v0.6.35 bar-equal complete-cycle W1: rejected as a direction challenger;
-- v0.6.37 phase-balanced W1: rejected as a direction challenger;
-- nearby W1-ceiling tuning from v0.6.36: not authorized;
-- simple v0.6.35 AND v0.6.37 weighting-consensus gate: not authorized.
+- PAWCT absolute phase-aligned translated close path: rejected;
+- v0.6.10 scalar close-path efficiency/jump/roughness/hidden-variation family: already measured;
+- v0.6.21-v0.6.25 whole-window Huber / erosion-consensus family: useful contribution, no winner;
+- v0.6.27-v0.6.32 state-relative Range margin, IQR overlap and mutual-median containment routes: rejected or diagnostic-only;
+- v0.6.33-v0.6.42 median-shift / W1 / phase-balanced W1 / residual-shape / sign-topology / amplitude-normalization family: closed;
+- time/duration geometry: already measured through v0.5.4/v0.5.5 and v0.6.19-v0.6.20; not a fresh direction information class;
+- native same-bar high/low envelope excursion at the frozen five parent anchors: adjudicated and closed by v0.6.44.
 
-### v0.6.35-v0.6.38: W1 family state
+### v0.6.35-v0.6.38: W1 route
 
-v0.6.35 produced `725` new Range rescues and exact agreement `1363/1462 = 93.2285%`; one-sided topology was `26 main-only / 24 other-only`. v0.6.36 found `43` introduced harms, `4` repairs and `3` persistent non-exact cases, so nearby `0.15` W1 tuning was forbidden.
+v0.6.35 produced `725` new Range rescues and exact `1363/1462`; one-sided topology was `26 main-only / 24 other-only`. v0.6.36 found `43` introduced harms, `4` repairs and `3` persistent non-exact cases, so nearby W1-ceiling tuning was forbidden.
 
-v0.6.37 removed duration-proportional probability weighting by assigning each complete cycle's first leg `50%` probability mass and second leg `50%`. It produced `621` new Range rescues, exact `1370/1462 = 93.7073%`, decisive agreement `100%`, and topology `61 both / 23 main-only / 21 other-only / 1357 none`. All four harmless offsets still regressed versus v0.6.25.
+v0.6.37 phase-balanced W1 produced `621` new Range rescues, exact `1370/1462`, decisive agreement `100%`, and topology `61 both / 23 main-only / 21 other-only / 1357 none`; all four harmless offsets still regressed versus v0.6.25.
 
-v0.6.38 attributed the v0.6.35 -> v0.6.37 change: `31` old non-exact pairs repaired, `24` old exact pairs harmed, net `+7`. Remaining v0.6.37 one-sided residuals were `38 introduced_harm / 6 repaired_old_nonexact`; shared bar-equal+phase-balanced rescues were `28 harm / 4 repair`, phase-balanced-only rescues `10 harm / 2 repair`.
+v0.6.38 found `38 introduced_harm / 6 repaired_old_nonexact` among the remaining one-sided residuals. No simple v0.6.35 AND v0.6.37 consensus gate was authorized.
 
-### v0.6.39: order-sensitive residual shape — diagnostic complete
+### v0.6.39-v0.6.41: shape and sign routes
 
-On the 44 one-sided v0.6.37 residuals, the strongest descriptor was `first_leg_progress_l1`, with `P(harm > repair) = 0.7478070175438597`; first-leg L-infinity and max-leg L1 were about `0.72149`, while second-leg descriptors were weak. Only six repair rows existed, so no shape-distance cutoff was authorized.
+v0.6.39 found a local first-leg progress-shape clue, strongest `first_leg_progress_l1` with `P(harm > repair) = 0.7478070175438597`, but only six repairs existed and no cutoff was authorized.
 
-### v0.6.40: leg-asymmetry + harmless-slicing stability — route closed
+v0.6.40 showed leg asymmetry did not generalize: harm-vs-stable ranks were about `0.5336` for rescue-side `A_L1` and `0.5216` for harmless-slicing `|delta A_L1|`. Route closed.
 
-Using the `61` stable both-rescue controls plus the `44` one-sided residuals, the first-vs-second-leg asymmetry did not generalize:
+v0.6.41 cycle-drift sign topology also failed to form a coherent separator. Formal workflow run `34608353257`, result commit `5c92809f7606519d03b83426671c7772b7a9a639`. Route closed.
 
-- harm rescue `A_L1` vs stable-both rank: about `0.5336`;
-- harm harmless-slicing `|delta A_L1|` vs stable rank: about `0.5216`.
+### v0.6.42: amplitude-normalization stability; W1 / Range-recovery family closed
 
-The normalized progress-shape / leg-asymmetry candidate route is closed. Do not promote `A=0`, `first_leg_L1 <= second_leg_L1`, or a fitted shape cutoff.
-
-### v0.6.41: cycle-drift sign topology — route closed
-
-Formal workflow run: `34608353257`.
-Formal result commit: `5c92809f7606519d03b83426671c7772b7a9a639`.
-
-The frozen universe reproduced exactly. Primary harm-minus-stable differences were small:
-
-- rescue-side same-direction cycle drift: `+0.06125970664365832`;
-- rescue-side all-three migrations same direction: `+0.02804141501294219`;
-- harmless-view cycle-relation flip: `+0.016824849007765305`;
-- harmless-view all-three flip: `+0.02976704055220017`.
-
-`gate_authorized=false`. No structural sign veto is authorized.
-
-### v0.6.42: amplitude-normalization stability — diagnostic complete; W1 / Range-recovery family closed
-
-Formal workflow run: `34612200264`.
+Formal workflow run: `34612200264`.  
 Formal result commit: `ce97db4b347ef55ea648a7a9d476c364ac12a298`.
-Formal attribution: `v0642_amplitude_normalization_stability_attribution_complete_no_gate_authorized`.
 
-The run reproduced the full frozen controls exactly: `57,029` filtered pairs, `29,453` raw strict pairs, `1,462` both-v0.6.18-qualified pairs, and v0.6.37 topology `61 both / 23 main-only / 21 other-only / 1,357 none`. Diagnostic universe remained `105` pairs = `61` stable both-rescue + `44` one-sided, with `38 harm / 6 repair`.
+Threshold-free harm-vs-stable ranks:
 
-The amplitude denominator was **not** the dominant harmless-slicing instability mechanism:
+- amplitude-unit SRD: `0.547886108714409`;
+- cycle-amplitude-imbalance SRD: `0.5599654874892148`;
+- raw-W1 SRD: `0.6570319240724762`;
+- normalized-W1 SRD: `0.6949956859361519`.
 
-- `P(harm amplitude_unit_SRD > stable) = 0.547886108714409`;
-- `P(harm cycle_amplitude_imbalance_SRD > stable) = 0.5599654874892148`;
-- by contrast, `P(harm max_raw_W1_SRD > stable) = 0.6570319240724762`;
-- `P(harm max_normalized_W1_SRD > stable) = 0.6949956859361519`.
+Frozen 38-harm counterfactual attribution:
 
-The median amplitude-unit SRD was only `0.041867293607276576` for harm versus `0.035764690547654264` for stable controls. Harm raw-W1 SRD was more separated: median `0.18650017680358333` versus stable `0.12271540699230692`.
+- raw numerator change sufficient: `24`;
+- amplitude denominator change sufficient: `4`;
+- either component alone sufficient: `5`;
+- both changes required: `5`.
 
-The frozen 38-harm numerator/denominator swap attribution was decisive against a denominator-primary explanation:
+No denominator-primary failure was established. `gate_authorized=false`. The v0.6.33-v0.6.42 W1 / Range-recovery residual-gating family is closed.
 
-- `raw_numerator_change_sufficient = 24/38 = 63.1579%`;
-- `amplitude_denominator_change_sufficient = 4/38 = 10.5263%`;
-- `either_component_alone_sufficient = 5/38 = 13.1579%`;
-- `both_changes_required = 5/38 = 13.1579%`.
-
-Thus a raw-numerator swap alone was sufficient in `29/38 = 76.3158%` when the five `either` rows are included, while a denominator swap alone was sufficient in only `9/38 = 23.6842%`. Rescue-side amplitude units were not directionally coherent (`57.8947%` higher, `42.1053%` lower), whereas rescue max raw W1 was lower than the non-rescue companion in `92.1053%` of harm rows.
-
-Conclusion: no clear amplitude-normalization-denominator failure exists that can motivate a separately frozen alternative normalization challenger. `gate_authorized=false`. **The v0.6.33-v0.6.42 W1 / Range-recovery residual-gating family is closed.** Do not continue by inventing additional W1 normalization, residual, threshold, shape, sign, or gate combinations from these rows.
-
-### v0.6.43: direction information-class audit — complete; one new causal class retained for diagnosis
+## v0.6.43: fresh direction information-class audit
 
 Audit record: `docs/research/TWO_WAVE_DIRECTION_INFORMATION_CLASS_AUDIT_V0643.md`.
 
-The audit does not create a recognizer candidate. Its main closure is that time/duration geometry is **not** a fresh class:
+The audit established that time/duration geometry is not a pristine class:
 
-- v0.5.4 already made corresponding-leg duration mismatch diagnostic-only under the explicit full-cycle-scale / phase-leg-allocation hypothesis;
+- v0.5.4 already made corresponding-leg duration mismatch diagnostic-only under the full-cycle-scale / phase-leg-allocation hypothesis;
 - v0.5.5 records corresponding-leg duration ratio, mean-cycle duration and drift-per-mean-cycle-bar inside D1 semantic attribution;
-- v0.6.19-v0.6.20 formally decompose and test duration-boundary mechanisms for qualification.
+- v0.6.19-v0.6.20 formally decompose/test duration-boundary mechanisms for qualification.
 
-Therefore duration, phase allocation, duration ratio or drift-per-bar cannot be reintroduced as a new direction signal merely by algebraic recombination.
+The one materially distinct causal price-information class found by v0.6.43 was `native_high_low_envelope_excursion_at_frozen_parent_anchors`. It was distinct because historical parent-direction work was close-pivot / close-path based, while v0.6.17 used high/low only for qualification bounds and explicitly excluded direction.
 
-The audit identified exactly one material causal information class not yet formally adjudicated for parent direction: `native_high_low_envelope_excursion_at_frozen_parent_anchors`.
+v0.6.43 therefore authorized exactly one read-only threshold-free study: v0.6.44.
 
-The underlying distinction is explicit:
+## v0.6.44: native high/low envelope attribution — complete; route closed
 
-- the source bars preserve OHLC and causal availability;
-- v0.6.17 uses high/low only for session-aware qualification/concentration bounds and explicitly excludes direction;
-- D1, PAWCT, v0.6.10 path descriptors, v0.6.21 Huber and the v0.6.29-v0.6.42 Range/W1 chain consume close pivots or close paths for parent-direction information.
+Frozen protocol: `docs/research/TWO_WAVE_NATIVE_HIGH_LOW_ENVELOPE_DIRECTION_ATTRIBUTION_V0644_PROTOCOL.md`.  
+Formal workflow run: `34616273360`.  
+Raw formal result commit: `f4128a8ef1aaf6e1f1f205af64a9fef77302d19b`.  
+Result card: `experiments/two_wave_native_high_low_envelope_direction_v0644/RESULT_CARD.md`.  
+Governance adjudication: `experiments/two_wave_native_high_low_envelope_direction_v0644/ADJUDICATION.json`.
 
-Thus same-bar high/low excursion at the **already frozen** five parent anchors is distinct from the closed close-path families. No anchor may be moved to a favorable extreme, and no within-bar high/low order may be inferred.
+All hard controls reproduced exactly:
 
-v0.6.43 authorizes only the separately frozen **v0.6.44 native high/low envelope direction attribution**. v0.6.44 is read-only and threshold-free; it may not classify, rescue, veto, requalify or promote a recognizer.
+- filtered pairs: `57,029`;
+- raw strict pairs: `29,453`;
+- both-v0.6.18-qualified pairs: `1,462`;
+- D1 exact: `1,400`;
+- v0.6.25 exact: `1,402`.
+
+Fixed v0.6.25 nonexact-vs-exact rank probabilities:
+
+- mean anchor outward excursion: `0.5080599144079886`;
+- envelope-adjustment L1: `0.4980266286257727`;
+- envelope-adjustment harmless-view distance: `0.5578340466000951`;
+- mean-anchor-excursion harmless-view delta: `0.4890632429862102`;
+- envelope stability gain: `0.5327983832620067`.
+
+Pooled median `envelope_stability_gain_l1` was only `0.0041014660230829295` for v0.6.25 exact pairs and `0.009065932283269774` for nonexact pairs. Positive-gain incidence was essentially identical: `0.5556348074179743` exact versus `0.55` nonexact.
+
+Nonexact median stability gain by harmless offset:
+
+- offset 1: `+0.009065932283269774`;
+- offset 2: `+0.015499867500368393`;
+- offset 3: `+0.02185665270592614`;
+- offset 4: `-0.00699296462603538`.
+
+The broad population also had a negative median gain on offset 3. Thus the stability effect is small and not cross-offset coherent. Outward-excursion and adjustment magnitudes remain effectively non-separating, with rank probabilities near `0.5`.
+
+Final frozen category:
+
+`v0644_high_low_envelope_redundant_or_unstable`
+
+Interpretation: high/low is a genuinely different source field from close, but on the frozen parent anchors it does not provide a coherent direction/stability mechanism. The route is closed.
+
+`gate_authorized=false`  
+`challenger_authorized=false`  
+`recognizer_changed=false`  
+`qualification_changed=false`  
+`direction_winner_changed=false`
+
+No high/low threshold, rescue, veto, D1 replacement, or post-hoc composite is authorized.
 
 ## Current research rule
 
 - v0.6.18 remains the qualification champion.
 - v0.6.25 remains the strongest pooled-exact direction contribution.
 - parent-direction winner remains unset.
-- the current W1 / Range-recovery family is closed.
-- v0.6.43 information-class audit is complete.
-- the next authorized work is **v0.6.44 read-only native high/low envelope attribution** under `TWO_WAVE_NATIVE_HIGH_LOW_ENVELOPE_DIRECTION_ATTRIBUTION_V0644_PROTOCOL.md`.
-- no v0.6.44 recognizer challenger is authorized.
+- W1 / Range-recovery residual-gating family is closed.
+- duration/time-geometry repackaging is closed.
+- normalized progress-shape / leg-asymmetry route is closed.
+- cycle-drift sign-topology route is closed.
+- amplitude-normalization route is closed.
+- native frozen-anchor high/low envelope route is closed after v0.6.44.
+- the **currently audited price-only parent-direction information-class expansion line is closed**.
+- **no v0.6.45 challenger is authorized**.
 
-Only if v0.6.44 shows a coherent, non-redundant and harmless-slicing-stable mechanism may a later, separately frozen challenger be considered.
+Any further parent-direction research must begin with a separately frozen evidence-level information-class audit that demonstrates genuinely new causal information not reducible to the already covered close-anchor migration, close-path shape, close distribution/W1, duration geometry, or native frozen-anchor OHLC-envelope classes. It may not begin by tuning or combining closed diagnostics.
 
 ## Forbidden shortcuts
 
@@ -175,7 +192,9 @@ Only if v0.6.44 shows a coherent, non-redundant and harmless-slicing-stable mech
 - infer within-bar high/low ordering from OHLC;
 - move the frozen five parent anchors using high/low;
 - fit a high/low excursion cutoff from v0.6.44 diagnostics;
+- replace D1 with v0.6.44 envelope steps without separately frozen candidate authority;
 - combine v0.6.44 diagnostics post hoc with closed W1/shape/sign residual gates;
+- create a v0.6.45 challenger without a new frozen information-class audit;
 - use harmless comparison offsets as runtime information;
 - use future returns, P&L, H1/H2, third-wave outcomes, or later-period selection data for morphology decisions.
 
