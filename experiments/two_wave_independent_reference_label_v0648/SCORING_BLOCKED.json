@@ -1,0 +1,10 @@
+{
+  "independent_labels_present": false,
+  "model_scoring_allowed": false,
+  "morphology_acceptance": false,
+  "next_action": "obtain_two_independent_blinded_annotations_then_freeze_their_sha256_hashes",
+  "production_authority": false,
+  "reason": "two independent blinded first-pass label sheets and adjudicated final reference labels do not yet exist",
+  "schema": "two_wave_reference_scoring_block@0.6.48",
+  "trade_authority": false
+}

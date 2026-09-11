@@ -1,0 +1,7 @@
+{
+  "commitment_algorithm": "sha256(canonical_json(hidden_deterministic_case_mapping))",
+  "hidden_mapping_written_to_public_packet": false,
+  "reproducible_from_frozen_source_and_generator": true,
+  "schema": "two_wave_reference_sampling_commitment@0.6.48",
+  "sha256": "f4eeff13c1408c1ca3bf938c0cd8abc4dad961f63ed6a4a4158f243cd5b024c8"
+}
