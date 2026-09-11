@@ -6,7 +6,7 @@ Primary objective: causally identify two complete same-scale waves and classify 
 
 Concrete reversal/MR payoff research belongs to `factorlab-trend-reversion-regime-lab`. Bottom-layer Unsafe/Recovering/HighVol risk-state research belongs to `factorlab-star50-filter-lab`.
 
-Current M0 authority and active direction chain:
+Current M0 authority and direction chain:
 
 - [`research/TWO_WAVE_M0_AUTHORITY.md`](research/TWO_WAVE_M0_AUTHORITY.md)
 - [`../experiments/two_wave_m0_authority.json`](../experiments/two_wave_m0_authority.json)
@@ -14,13 +14,17 @@ Current M0 authority and active direction chain:
 - [`../experiments/two_wave_path_gate_demotion_v0618/RESULT_CARD.md`](../experiments/two_wave_path_gate_demotion_v0618/RESULT_CARD.md)
 - [`research/TWO_WAVE_DIRECTION_INFORMATION_CLASS_AUDIT_V0643.md`](research/TWO_WAVE_DIRECTION_INFORMATION_CLASS_AUDIT_V0643.md)
 - [`research/TWO_WAVE_NATIVE_HIGH_LOW_ENVELOPE_DIRECTION_ATTRIBUTION_V0644_PROTOCOL.md`](research/TWO_WAVE_NATIVE_HIGH_LOW_ENVELOPE_DIRECTION_ATTRIBUTION_V0644_PROTOCOL.md)
+- [`../experiments/two_wave_native_high_low_envelope_direction_v0644/RESULT_CARD.md`](../experiments/two_wave_native_high_low_envelope_direction_v0644/RESULT_CARD.md)
+- [`../experiments/two_wave_native_high_low_envelope_direction_v0644/ADJUDICATION.json`](../experiments/two_wave_native_high_low_envelope_direction_v0644/ADJUDICATION.json)
 
 Qualification-history anchors retained for audit:
 
 - [`../experiments/two_wave_duration_geometry_decomposition_v0619/RESULT_CARD.md`](../experiments/two_wave_duration_geometry_decomposition_v0619/RESULT_CARD.md)
 - [`../experiments/two_wave_one_bar_duration_repair_v0620/RESULT_CARD.md`](../experiments/two_wave_one_bar_duration_repair_v0620/RESULT_CARD.md)
 
-Global morphology status remains `morphology_replication_not_yet_accepted`. v0.6.18 remains the current best **qualification-policy research component**. v0.6.25 remains the strongest pooled-exact **direction contribution**, but the parent-direction winner is still unset. v0.6.43 has completed the fresh information-class audit: duration/time geometry is already measured and may not be repackaged as new; the one newly retained causal class is native same-bar high/low envelope excursion at the frozen parent anchors. The only currently authorized next direction work is the frozen **v0.6.44 read-only, threshold-free high/low-envelope attribution**. No v0.6.44 recognizer challenger is authorized.
+Global morphology status remains `morphology_replication_not_yet_accepted`. v0.6.18 remains the current best **qualification-policy research component**. v0.6.25 remains the strongest pooled-exact **direction contribution**, but the parent-direction winner is still unset.
+
+v0.6.43 completed the fresh price-information-class audit. It established that duration/time geometry is already measured and may not be repackaged, while native same-bar high/low envelope excursion at the frozen anchors was the one distinct remaining causal price class. v0.6.44 has now formally adjudicated that class as **`v0644_high_low_envelope_redundant_or_unstable`**. The high/low route is closed, and so is the currently audited price-only parent-direction expansion line. **No v0.6.45 challenger is authorized.** Any further parent-direction work must begin with a separately frozen information-class audit demonstrating genuinely new causal information.
 
 ## 1. User objective
 
