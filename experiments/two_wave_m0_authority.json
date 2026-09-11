@@ -138,8 +138,8 @@
         "nonexact_open_stability_gain_l1_gt_exact": 0.5489895387541607
       },
       "open_stability_gain": {
-        "v0625_exact_median": -0.04552264781854687,
-        "v0625_nonexact_median": -0.03228385593787753,
+        "v0625_exact_median": -0.04552300088588504,
+        "v0625_nonexact_median": -0.03228363345938465,
         "v0625_exact_positive_fraction": 0.26105563480741795,
         "v0625_nonexact_positive_fraction": 0.2833333333333333,
         "per_offset_nonexact_medians": {
