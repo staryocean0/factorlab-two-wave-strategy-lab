@@ -1,0 +1,274 @@
+{
+  "audit": {
+    "D1_decisive_override_count": 0,
+    "all_four_supports_required": true,
+    "leg_probability_mass": 0.5,
+    "new_range_rescue_count": 621,
+    "pair_change_topology": {
+      "both": 61,
+      "main_only": 23,
+      "none": 1357,
+      "other_only": 21
+    },
+    "phase_balanced": true,
+    "range_w1_max": 0.15
+  },
+  "controls": {
+    "both_v0618_qualified_pairs": 1462,
+    "filtered_pairs": 57029,
+    "raw_strict_pairs": 29453,
+    "reproduced": true,
+    "v0625_exact_count": 1402
+  },
+  "future_outcome_used": false,
+  "gates": {
+    "D1_v0625_decisive_override_zero": true,
+    "all_changes_uncertain_to_range": true,
+    "all_offsets_exact_nonworse_vs_v0625": false,
+    "decisive_class_diversity": true,
+    "opposite_trend_conflict_zero": true,
+    "pooled_decisive_agreement_at_least_99_5pct": true,
+    "pooled_decisive_coverage_plus_1pp": true,
+    "pooled_exact_plus_0_20pp": false,
+    "upstream_controls": true
+  },
+  "morphology_acceptance": false,
+  "per_offset": {
+    "5m_offset_1": {
+      "v0625": {
+        "decisive_agreement": 1.0,
+        "decisive_pair_count": 271,
+        "exact_agreement": 0.95,
+        "exact_agreement_count": 380,
+        "main_decisive_coverage": 0.7025,
+        "opposite_trend_conflict_count": 0,
+        "other_decisive_coverage": 0.7025,
+        "pairs": 400,
+        "pooled_decisive_coverage": 0.7025,
+        "pooled_decisive_label_shares": {
+          "downtrend": 0.47330960854092524,
+          "range": 0.012455516014234875,
+          "uptrend": 0.5142348754448398
+        },
+        "pooled_label_counts": {
+          "downtrend": 266,
+          "range": 7,
+          "uncertain": 238,
+          "uptrend": 289
+        }
+      },
+      "v0637": {
+        "decisive_agreement": 1.0,
+        "decisive_pair_count": 292,
+        "exact_agreement": 0.935,
+        "exact_agreement_count": 374,
+        "main_decisive_coverage": 0.7625,
+        "opposite_trend_conflict_count": 0,
+        "other_decisive_coverage": 0.7625,
+        "pairs": 400,
+        "pooled_decisive_coverage": 0.7625,
+        "pooled_decisive_label_shares": {
+          "downtrend": 0.4360655737704918,
+          "range": 0.09016393442622951,
+          "uptrend": 0.4737704918032787
+        },
+        "pooled_label_counts": {
+          "downtrend": 266,
+          "range": 55,
+          "uncertain": 190,
+          "uptrend": 289
+        }
+      }
+    },
+    "5m_offset_2": {
+      "v0625": {
+        "decisive_agreement": 1.0,
+        "decisive_pair_count": 194,
+        "exact_agreement": 0.9442508710801394,
+        "exact_agreement_count": 271,
+        "main_decisive_coverage": 0.7003484320557491,
+        "opposite_trend_conflict_count": 0,
+        "other_decisive_coverage": 0.7073170731707317,
+        "pairs": 287,
+        "pooled_decisive_coverage": 0.7038327526132404,
+        "pooled_decisive_label_shares": {
+          "downtrend": 0.4603960396039604,
+          "range": 0.007425742574257425,
+          "uptrend": 0.5321782178217822
+        },
+        "pooled_label_counts": {
+          "downtrend": 186,
+          "range": 3,
+          "uncertain": 170,
+          "uptrend": 215
+        }
+      },
+      "v0637": {
+        "decisive_agreement": 1.0,
+        "decisive_pair_count": 206,
+        "exact_agreement": 0.9198606271777003,
+        "exact_agreement_count": 264,
+        "main_decisive_coverage": 0.759581881533101,
+        "opposite_trend_conflict_count": 0,
+        "other_decisive_coverage": 0.7560975609756098,
+        "pairs": 287,
+        "pooled_decisive_coverage": 0.7578397212543554,
+        "pooled_decisive_label_shares": {
+          "downtrend": 0.42758620689655175,
+          "range": 0.07816091954022988,
+          "uptrend": 0.4942528735632184
+        },
+        "pooled_label_counts": {
+          "downtrend": 186,
+          "range": 34,
+          "uncertain": 139,
+          "uptrend": 215
+        }
+      }
+    },
+    "5m_offset_3": {
+      "v0625": {
+        "decisive_agreement": 1.0,
+        "decisive_pair_count": 210,
+        "exact_agreement": 0.9668874172185431,
+        "exact_agreement_count": 292,
+        "main_decisive_coverage": 0.7119205298013245,
+        "opposite_trend_conflict_count": 0,
+        "other_decisive_coverage": 0.7119205298013245,
+        "pairs": 302,
+        "pooled_decisive_coverage": 0.7119205298013245,
+        "pooled_decisive_label_shares": {
+          "downtrend": 0.49767441860465117,
+          "range": 0.009302325581395349,
+          "uptrend": 0.4930232558139535
+        },
+        "pooled_label_counts": {
+          "downtrend": 214,
+          "range": 4,
+          "uncertain": 174,
+          "uptrend": 212
+        }
+      },
+      "v0637": {
+        "decisive_agreement": 1.0,
+        "decisive_pair_count": 220,
+        "exact_agreement": 0.9271523178807947,
+        "exact_agreement_count": 280,
+        "main_decisive_coverage": 0.7649006622516556,
+        "opposite_trend_conflict_count": 0,
+        "other_decisive_coverage": 0.7649006622516556,
+        "pairs": 302,
+        "pooled_decisive_coverage": 0.7649006622516556,
+        "pooled_decisive_label_shares": {
+          "downtrend": 0.46320346320346323,
+          "range": 0.07792207792207792,
+          "uptrend": 0.4588744588744589
+        },
+        "pooled_label_counts": {
+          "downtrend": 214,
+          "range": 36,
+          "uncertain": 142,
+          "uptrend": 212
+        }
+      }
+    },
+    "5m_offset_4": {
+      "v0625": {
+        "decisive_agreement": 1.0,
+        "decisive_pair_count": 331,
+        "exact_agreement": 0.9704016913319239,
+        "exact_agreement_count": 459,
+        "main_decisive_coverage": 0.7040169133192389,
+        "opposite_trend_conflict_count": 0,
+        "other_decisive_coverage": 0.7251585623678647,
+        "pairs": 473,
+        "pooled_decisive_coverage": 0.7145877378435518,
+        "pooled_decisive_label_shares": {
+          "downtrend": 0.47337278106508873,
+          "range": 0.011834319526627219,
+          "uptrend": 0.514792899408284
+        },
+        "pooled_label_counts": {
+          "downtrend": 320,
+          "range": 8,
+          "uncertain": 270,
+          "uptrend": 348
+        }
+      },
+      "v0637": {
+        "decisive_agreement": 1.0,
+        "decisive_pair_count": 355,
+        "exact_agreement": 0.9556025369978859,
+        "exact_agreement_count": 452,
+        "main_decisive_coverage": 0.7610993657505285,
+        "opposite_trend_conflict_count": 0,
+        "other_decisive_coverage": 0.7843551797040169,
+        "pairs": 473,
+        "pooled_decisive_coverage": 0.7727272727272727,
+        "pooled_decisive_label_shares": {
+          "downtrend": 0.4377564979480164,
+          "range": 0.08618331053351573,
+          "uptrend": 0.47606019151846785
+        },
+        "pooled_label_counts": {
+          "downtrend": 320,
+          "range": 63,
+          "uncertain": 215,
+          "uptrend": 348
+        }
+      }
+    }
+  },
+  "pooled": {
+    "v0625": {
+      "decisive_agreement": 1.0,
+      "decisive_pair_count": 1006,
+      "exact_agreement": 0.9589603283173734,
+      "exact_agreement_count": 1402,
+      "main_decisive_coverage": 0.7045143638850889,
+      "opposite_trend_conflict_count": 0,
+      "other_decisive_coverage": 0.7127222982216143,
+      "pairs": 1462,
+      "pooled_decisive_coverage": 0.7086183310533516,
+      "pooled_decisive_label_shares": {
+        "downtrend": 0.47586872586872586,
+        "range": 0.010617760617760617,
+        "uptrend": 0.5135135135135135
+      },
+      "pooled_label_counts": {
+        "downtrend": 986,
+        "range": 22,
+        "uncertain": 852,
+        "uptrend": 1064
+      }
+    },
+    "v0637": {
+      "decisive_agreement": 1.0,
+      "decisive_pair_count": 1073,
+      "exact_agreement": 0.9370725034199726,
+      "exact_agreement_count": 1370,
+      "main_decisive_coverage": 0.761969904240766,
+      "opposite_trend_conflict_count": 0,
+      "other_decisive_coverage": 0.7688098495212038,
+      "pairs": 1462,
+      "pooled_decisive_coverage": 0.7653898768809849,
+      "pooled_decisive_label_shares": {
+        "downtrend": 0.44057193923145666,
+        "range": 0.0840035746201966,
+        "uptrend": 0.47542448614834676
+      },
+      "pooled_label_counts": {
+        "downtrend": 986,
+        "range": 188,
+        "uncertain": 686,
+        "uptrend": 1064
+      }
+    }
+  },
+  "production_authority": false,
+  "qualification_changed": false,
+  "qualification_policy": "v0.6.18",
+  "schema": "two_wave_phase_balanced_wasserstein_range_result@0.6.37",
+  "trade_authority": false,
+  "verdict": "v0637_phase_balanced_wasserstein_range_direction_rejected"
+}
