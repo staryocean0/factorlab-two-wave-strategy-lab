@@ -55,10 +55,10 @@ def test_counterfactual_denominator_only_sufficient():
 
 def test_counterfactual_both_changes_required():
     out = counterfactual_crossing_attribution(
-        rescue_max_raw_w1=1.4,
-        rescue_amplitude_unit=10.0,
+        rescue_max_raw_w1=1.6,
+        rescue_amplitude_unit=11.0,
         nonrescue_max_raw_w1=1.8,
-        nonrescue_amplitude_unit=10.5,
+        nonrescue_amplitude_unit=10.0,
         inherited_w1_ceiling=0.15,
     )
     assert out["attribution_category"] == "both_changes_required"
