@@ -20,17 +20,22 @@ Current M0 authority and direction chain:
 - [`research/TWO_WAVE_NATIVE_OPEN_BODY_GAP_DIRECTION_ATTRIBUTION_V0646_PROTOCOL.md`](research/TWO_WAVE_NATIVE_OPEN_BODY_GAP_DIRECTION_ATTRIBUTION_V0646_PROTOCOL.md)
 - [`../experiments/two_wave_native_open_body_gap_direction_v0646/RESULT_CARD.md`](../experiments/two_wave_native_open_body_gap_direction_v0646/RESULT_CARD.md)
 - [`../experiments/two_wave_native_open_body_gap_direction_v0646/ADJUDICATION.json`](../experiments/two_wave_native_open_body_gap_direction_v0646/ADJUDICATION.json)
+- [`research/TWO_WAVE_INDEPENDENT_TEMPORAL_MORPHOLOGY_REPLICATION_V0647_PROTOCOL.md`](research/TWO_WAVE_INDEPENDENT_TEMPORAL_MORPHOLOGY_REPLICATION_V0647_PROTOCOL.md)
+- [`../experiments/two_wave_independent_temporal_replication_v0647/RESULT_CARD.md`](../experiments/two_wave_independent_temporal_replication_v0647/RESULT_CARD.md)
+- [`../experiments/two_wave_independent_temporal_replication_v0647/summary.json`](../experiments/two_wave_independent_temporal_replication_v0647/summary.json)
 
 Qualification-history anchors retained for audit:
 
 - [`../experiments/two_wave_duration_geometry_decomposition_v0619/RESULT_CARD.md`](../experiments/two_wave_duration_geometry_decomposition_v0619/RESULT_CARD.md)
 - [`../experiments/two_wave_one_bar_duration_repair_v0620/RESULT_CARD.md`](../experiments/two_wave_one_bar_duration_repair_v0620/RESULT_CARD.md)
 
-Global morphology status remains `morphology_replication_not_yet_accepted`. v0.6.18 remains the current best **qualification-policy research component**. v0.6.25 remains the strongest pooled-exact **direction contribution**, but the parent-direction winner is still unset.
+Global morphology status remains `morphology_replication_not_yet_accepted`. v0.6.18 remains the current best **qualification-policy research component**. v0.6.25 remains the strongest pooled-exact **Development direction contribution**, but the parent-direction winner is still unset.
 
-v0.6.43 found native high/low as a distinct frozen-anchor class and v0.6.44 closed it as `v0644_high_low_envelope_redundant_or_unstable`. v0.6.45 then corrected the earlier “price-only exhausted” overstatement by identifying native `open` as the one market-price field not yet formally direction-adjudicated, while explicitly rejecting volume, clock/availability, session/calendar and source-support/gap metadata as substitutes for parent-state semantics. v0.6.46 has now formally adjudicated native open/body/gap as **`v0646_native_open_body_gap_redundant_or_unstable`**: all five primary ranks lie inside `[0.40,0.60]`, and open-anchor migration is less harmless-slicing-stable than close-anchor migration on all four offsets.
+v0.6.43 found native high/low as a distinct frozen-anchor class and v0.6.44 closed it as `v0644_high_low_envelope_redundant_or_unstable`. v0.6.45 corrected the earlier “price-only exhausted” overstatement by identifying native `open` as the one market-price field not yet formally direction-adjudicated, while explicitly rejecting volume, clock/availability, session/calendar and source-support/gap metadata as substitutes for parent-state semantics. v0.6.46 then formally closed native open/body/gap as `v0646_native_open_body_gap_redundant_or_unstable`.
 
-The corrected OHLC market-bar price-input direction expansion is therefore **closed after v0.6.46**. **No v0.6.47 challenger is authorized.** The next legitimate program step is independent morphology validation/replication using frozen existing components, or an evidence-level audit of a genuinely new data modality before any candidate work.
+The corrected OHLC market-bar price-input direction expansion is therefore **closed after v0.6.46**. v0.6.47 has now completed an independent post-2020 temporal replication of the frozen v0.6.18 + D1/v0.6.25 chain. The external 2024/2025 native offset-0 controls and the full 2015-2020 five-offset reconstruction both matched exactly, but the scientific verdict was **`v0647_temporal_replication_under_original_v0625_gate_not_all_pass`**: pooled v0.6.25 exact was `238/253 = 94.0711%` versus D1 `242/253 = 95.6522%`, despite higher v0.6.25 decisive coverage (`68.5771%` vs `47.6285%`). 2025 was favorable, but 2024 and 2026 preserved the harmless-slicing exact-regression failure mode.
+
+No v0.6.48 direction challenger is authorized. The next legitimate program step is **independent reference-label morphology validation of the frozen recognizer/components**, or a separate evidence-level audit of a genuinely new data modality before any candidate work. Do not return to residual OHLC/clock/session/data-quality feature mining merely because v0.6.47 did not pass.
 
 ## 1. User objective
 
