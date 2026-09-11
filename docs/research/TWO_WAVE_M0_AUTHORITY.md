@@ -114,25 +114,79 @@ Formal verdict: `v0634_two_cycle_distribution_intersection_direction_rejected`.
 
 Retained contribution: median location shift and central-IQR overlap are largely redundant at their frozen thresholds. Their intersection removes only a small fraction of v0.6.33 rescues and does not repair cross-slicing instability. Do not tune `0.15` or `0.50`, and do not keep stacking nearby gates.
 
+### v0.6.35-v0.6.36: complete-distribution W1 and threshold attribution
+
+v0.6.35 replaced median/IQR gate stacking with one complete-cycle empirical Wasserstein-1 distance, normalized by the frozen parent amplitude, while retaining the same `0.15` ceiling and requiring all four endpoint-erosion supports. Formal result commit `1ba5073373ac9ee925311a8de4d16bff2a1432dc`.
+
+Results:
+
+- new Range rescues: `725`;
+- exact `95.8960% -> 93.2285%` (`1,363/1,462`);
+- decisive coverage `70.8618% -> 77.3769%`;
+- decisive agreement `99.7352%` (`1,130/1,133`);
+- Range decisive share `12.0918%`;
+- pair-change topology: `93 both / 26 main-only / 24 other-only / 1,319 none`;
+- decisive overrides `0`; opposite-trend conflicts `0`.
+
+Retained contribution: full-distribution distance is materially more selective than v0.6.33/v0.6.34 but still creates too many one-sided `Uncertain -> Range` changes and does not beat v0.6.25.
+
+v0.6.36 then preregistered a read-only residual attribution; formal result commit `4a2b2eb066326fc195128b56850130e20537907c`. Among the `50` one-sided v0.6.35 changes, `43` introduced new non-exact pairs, `4` repaired old non-exact pairs and `3` remained non-exact. Although `40/43` harmful cases lay within `0.03` of the `0.15` W1 boundary, only four repairs existed, below the preregistered minimum support of twenty. Therefore nearby W1-threshold tuning, including `0.15 -> 0.12`, is not authorized.
+
+### v0.6.37 phase-balanced W1 — rejected, measurement contribution retained
+
+Protocol was frozen before implementation at `390e9f502ccbeebd1067c1fc2a248b5e1ddd8bff`. Formal workflow run `34602526496`; formal result commit `434b52aca4b84c84ec5ce46f0d561e7cbdefa187`.
+
+The only measurement change was within-cycle probability weighting: each complete cycle's first leg carries exactly `50%` probability mass and its second leg carries exactly `50%`, irrespective of bar count. The `0.15` W1 ceiling, four endpoint supports, v0.6.25 preservation rule and promotion gates were unchanged.
+
+Results:
+
+- new Range rescues: `621`;
+- exact `95.8960% -> 93.7073%` (`1,370/1,462`);
+- decisive coverage `70.8618% -> 76.5390%`;
+- decisive agreement `100%`;
+- Range decisive share `8.4004%`;
+- topology: `61 both / 23 main-only / 21 other-only / 1,357 none`;
+- all four offset exact-agreement rates regressed versus v0.6.25;
+- decisive overrides `0`; opposite-trend conflicts `0`.
+
+Formal verdict: `v0637_phase_balanced_wasserstein_range_direction_rejected`.
+
+Retained contribution: removing duration-proportional sampling weight repairs part of v0.6.35's instability and restores decisive agreement to 100%, but the Range rescue remains systematically too broad.
+
+### v0.6.38 phase-balance residual attribution — diagnostic complete
+
+Protocol was frozen before replay. Formal workflow run `34603190318`; formal result commit `3e2dc902cb29985bbb9b31e2b6232b3ba3041b76`.
+
+Relative to v0.6.35, phase balancing produced:
+
+- `31` previously non-exact pairs repaired;
+- `24` previously exact pairs harmed;
+- net exact improvement `+7` pairs;
+- `1,339` pairs exact under both and `68` non-exact under both.
+
+The remaining v0.6.37 one-sided changes versus v0.6.25 numbered `44`: `38` introduced harm and only `6` repaired old non-exact pairs. Of these, rescues shared by bar-equal v0.6.35 and phase-balanced v0.6.37 were `28 harm / 4 repair`; phase-balanced-only rescues were `10 harm / 2 repair`.
+
+Formal interpretation: neither nearby W1 threshold tuning nor a simple `v0.6.35 AND v0.6.37` weighting-consensus/intersection rule is authorized. Both aggregate-distribution W1 variants supply useful Range evidence but remain one-sided-instability generators.
+
 ## Current direction research rule
 
 The parent-direction winner remains **unset**. v0.6.25 remains the strongest pooled-exact contribution. v0.6.18 remains the qualification champion.
 
-Rejected routes must not be silently retried: endpoint D2, confidence-gated endpoint D2, PAWCT as previously adjudicated, wholesale Huber replacement, unconditional Huber rescue, ungated erosion-consensus rescue, post-hoc retuning of v0.6.25 margin, v0.6.27 direct state-relative admission, fitted support-dispersion or containment-slack thresholds, v0.6.29 overlap used alone, v0.6.30/v0.6.31 gate stacking, v0.6.33 median shift alone, and v0.6.34 median-shift/IQR intersection.
+Rejected routes must not be silently retried: endpoint D2, confidence-gated endpoint D2, PAWCT as previously adjudicated, wholesale Huber replacement, unconditional Huber rescue, ungated erosion-consensus rescue, post-hoc retuning of v0.6.25 margin, v0.6.27 direct state-relative admission, fitted support-dispersion or containment-slack thresholds, v0.6.29 overlap used alone, v0.6.30/v0.6.31 gate stacking, v0.6.33 median shift alone, v0.6.34 median-shift/IQR intersection, nearby v0.6.35 W1-ceiling tuning, v0.6.37 phase-balanced W1 used directly, or a simple bar-equal/phase-balanced W1 consensus gate.
+
+The historical PAWCT representation must also not be recreated under another name: it phase-aligns each leg to a fixed grid and measures the second complete cycle's absolute translated price path relative to the first. Scalar path-efficiency/jump/roughness descriptors from the v0.6.10-v0.6.18 qualification research likewise already exist and must not be presented as a novel direction signal.
 
 ## Next authorized step
 
-Preregister one direct **v0.6.35 full two-cycle distribution-distance Range challenger**:
+Preregister one **read-only v0.6.39 order-sensitive residual-shape attribution**, not a recognizer challenger.
 
-- preserve every decisive v0.6.25 output exactly;
-- only consider records still `Uncertain` under v0.6.25;
-- use the same four frozen endpoint supports;
-- on each support, compare the empirical close distributions of complete cycle 1 and complete cycle 2 using one-dimensional Wasserstein-1 distance;
-- normalize that distance by the frozen parent amplitude unit;
-- use the existing morphology-scale tolerance `0.15` as the sole distance ceiling on all four supports;
-- rescue to `Range` only if every support passes;
-- no parameter menu, threshold fitting, cross-offset runtime feature, Huber Range margin, IQR overlap, containment slack, future return, P&L, H1/H2, third wave, 2021+, or 2026 selection data.
+Its purpose is to test an unmeasured information class on the already-identified v0.6.37 one-sided residuals: after removing each leg's own endpoint level and total endpoint displacement, compare the **within-leg phase progress shape** of corresponding legs across the two complete cycles. This is deliberately distinct from:
 
-Use the same frozen promotion gate versus v0.6.25: all four offsets non-worse, pooled exact +0.20 pp, decisive coverage +1.00 pp, decisive agreement >=99.5%, zero opposite-trend conflicts, class diversity, and zero decisive overrides.
+- endpoint D2, which uses envelope endpoint translation;
+- PAWCT, which measures absolute phase-aligned price translation between cycles;
+- v0.6.10 scalar efficiency/jump/roughness descriptors;
+- v0.6.33-v0.6.37 order-free location/distribution measurements.
+
+The diagnostic must be threshold-free and may report only predeclared shape-distance descriptors and their distributions for `introduced_harm` versus `repaired_old_nonexact` residual classes. It must not modify classification, infer a gate, select a cutoff, use other offsets as runtime information, or use future returns/P&L/H1/H2/third-wave/2021+/2026 selection data. Any later recognizer candidate must be separately frozen before replay.
 
 Independent morphology acceptance remains false. Trading and production remain closed.
