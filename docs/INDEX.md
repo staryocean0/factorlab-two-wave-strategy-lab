@@ -16,6 +16,10 @@ Current M0 authority and direction chain:
 - [`research/TWO_WAVE_NATIVE_HIGH_LOW_ENVELOPE_DIRECTION_ATTRIBUTION_V0644_PROTOCOL.md`](research/TWO_WAVE_NATIVE_HIGH_LOW_ENVELOPE_DIRECTION_ATTRIBUTION_V0644_PROTOCOL.md)
 - [`../experiments/two_wave_native_high_low_envelope_direction_v0644/RESULT_CARD.md`](../experiments/two_wave_native_high_low_envelope_direction_v0644/RESULT_CARD.md)
 - [`../experiments/two_wave_native_high_low_envelope_direction_v0644/ADJUDICATION.json`](../experiments/two_wave_native_high_low_envelope_direction_v0644/ADJUDICATION.json)
+- [`research/TWO_WAVE_NON_CLOSE_INFORMATION_CLASS_AUDIT_V0645.md`](research/TWO_WAVE_NON_CLOSE_INFORMATION_CLASS_AUDIT_V0645.md)
+- [`research/TWO_WAVE_NATIVE_OPEN_BODY_GAP_DIRECTION_ATTRIBUTION_V0646_PROTOCOL.md`](research/TWO_WAVE_NATIVE_OPEN_BODY_GAP_DIRECTION_ATTRIBUTION_V0646_PROTOCOL.md)
+- [`../experiments/two_wave_native_open_body_gap_direction_v0646/RESULT_CARD.md`](../experiments/two_wave_native_open_body_gap_direction_v0646/RESULT_CARD.md)
+- [`../experiments/two_wave_native_open_body_gap_direction_v0646/ADJUDICATION.json`](../experiments/two_wave_native_open_body_gap_direction_v0646/ADJUDICATION.json)
 
 Qualification-history anchors retained for audit:
 
@@ -24,7 +28,9 @@ Qualification-history anchors retained for audit:
 
 Global morphology status remains `morphology_replication_not_yet_accepted`. v0.6.18 remains the current best **qualification-policy research component**. v0.6.25 remains the strongest pooled-exact **direction contribution**, but the parent-direction winner is still unset.
 
-v0.6.43 completed the fresh price-information-class audit. It established that duration/time geometry is already measured and may not be repackaged, while native same-bar high/low envelope excursion at the frozen anchors was the one distinct remaining causal price class. v0.6.44 has now formally adjudicated that class as **`v0644_high_low_envelope_redundant_or_unstable`**. The high/low route is closed, and so is the currently audited price-only parent-direction expansion line. **No v0.6.45 challenger is authorized.** Any further parent-direction work must begin with a separately frozen information-class audit demonstrating genuinely new causal information.
+v0.6.43 found native high/low as a distinct frozen-anchor class and v0.6.44 closed it as `v0644_high_low_envelope_redundant_or_unstable`. v0.6.45 then corrected the earlier “price-only exhausted” overstatement by identifying native `open` as the one market-price field not yet formally direction-adjudicated, while explicitly rejecting volume, clock/availability, session/calendar and source-support/gap metadata as substitutes for parent-state semantics. v0.6.46 has now formally adjudicated native open/body/gap as **`v0646_native_open_body_gap_redundant_or_unstable`**: all five primary ranks lie inside `[0.40,0.60]`, and open-anchor migration is less harmless-slicing-stable than close-anchor migration on all four offsets.
+
+The corrected OHLC market-bar price-input direction expansion is therefore **closed after v0.6.46**. **No v0.6.47 challenger is authorized.** The next legitimate program step is independent morphology validation/replication using frozen existing components, or an evidence-level audit of a genuinely new data modality before any candidate work.
 
 ## 1. User objective
 
