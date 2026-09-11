@@ -121,7 +121,7 @@ def _scoring_records() -> list[dict]:
             pred = ref_state
             if i == 0:
                 ref_state, pred = "uptrend", "downtrend"
-            elif 1 <= i <= 4:
+            elif 1 <= i <= 5:
                 pred = "uncertain"
             records.append({
                 "year": year,
