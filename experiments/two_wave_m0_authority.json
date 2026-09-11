@@ -1,5 +1,5 @@
 {
-  "schema": "two_wave_m0_authority@1.14",
+  "schema": "two_wave_m0_authority@1.15",
   "date": "2026-09-11",
   "primary_object": "two_wave_parent_structure_recognizer",
   "target_states": ["Range", "UpTrend", "DownTrend", "Uncertain"],
@@ -37,7 +37,7 @@
     },
     "parent_direction": {
       "winner": null,
-      "status": "blocked_not_accepted_fresh_information_class_audit_required_before_any_new_challenger",
+      "status": "blocked_not_accepted_v0644_read_only_native_high_low_envelope_attribution_authorized",
       "historical_baseline": {
         "name": "D1",
         "pooled_exact_agreement": 0.957592339261286,
@@ -158,9 +158,31 @@
       "authorization": "close_W1_and_current_Range_recovery_residual_gating_family_no_alternative_amplitude_normalization_challenger_authorized"
     }
   },
+  "direction_information_class_audit": {
+    "v0643": {
+      "status": "complete_read_only_audit_native_high_low_envelope_class_found",
+      "audit_record": "docs/research/TWO_WAVE_DIRECTION_INFORMATION_CLASS_AUDIT_V0643.md",
+      "fresh_causal_information_class_found": true,
+      "fresh_information_class": "native_high_low_envelope_excursion_at_frozen_parent_anchors",
+      "duration_geometry_is_fresh_class": false,
+      "duration_coverage_evidence": [
+        "v054_corresponding_leg_duration_mismatch_demoted_to_diagnostic",
+        "v055_corresponding_leg_duration_ratio_mean_cycle_and_drift_per_bar_semantic_diagnostics",
+        "v0619_duration_geometry_disagreement_decomposition",
+        "v0620_one_bar_duration_repair"
+      ],
+      "high_low_prior_use": "v0617_session_aware_qualification_bounds_only_direction_excluded",
+      "recognizer_changed": false,
+      "qualification_changed": false,
+      "direction_winner_changed": false,
+      "gate_authorized": false,
+      "authorized_next_protocol": "docs/research/TWO_WAVE_NATIVE_HIGH_LOW_ENVELOPE_DIRECTION_ATTRIBUTION_V0644_PROTOCOL.md"
+    }
+  },
   "current_range_recovery_family_status": "closed_after_v0642_no_empirical_candidate",
-  "next_authorized_step": "conduct_a_fresh_read_only_direction_information_class_audit_over_existing_code_protocols_and_evidence_before_freezing_any_new_challenger; do_not_recombine_closed_features_into_a_post_hoc_candidate",
+  "next_authorized_step": "execute_v0644_read_only_threshold_free_native_high_low_envelope_direction_attribution_on_frozen_1462_pair_universe; do_not_classify_rescue_veto_requalify_or_fit_thresholds",
   "no_current_v0643_challenger_authorized": true,
+  "no_current_v0644_challenger_authorized": true,
   "forbidden_next_shortcuts": [
     "retry_endpoint_D2_or_confidence_gated_D2",
     "retry_PAWCT_absolute_phase_aligned_translation_as_is",
@@ -177,6 +199,11 @@
     "change_parent_amplitude_normalization_from_v0642",
     "mine_additional_residual_gates_from_v0637_one_sided_rows",
     "combine_weak_residual_diagnostics_post_hoc",
+    "repackage_duration_phase_allocation_duration_ratio_or_drift_per_bar_as_fresh_direction_class",
+    "infer_within_bar_high_low_order_from_OHLC",
+    "move_frozen_five_parent_anchors_using_high_low",
+    "fit_high_low_excursion_cutoff_from_v0644_diagnostics",
+    "combine_v0644_diagnostics_post_hoc_with_closed_residual_gate_families",
     "use_cross_offset_information_as_runtime_feature",
     "use_future_outcomes_or_PnL_for_morphology_selection"
   ],
