@@ -1,5 +1,5 @@
 {
-  "schema": "two_wave_m0_authority@1.13",
+  "schema": "two_wave_m0_authority@1.14",
   "date": "2026-09-11",
   "primary_object": "two_wave_parent_structure_recognizer",
   "target_states": ["Range", "UpTrend", "DownTrend", "Uncertain"],
@@ -37,7 +37,7 @@
     },
     "parent_direction": {
       "winner": null,
-      "status": "blocked_not_accepted_active_research_layer",
+      "status": "blocked_not_accepted_fresh_information_class_audit_required_before_any_new_challenger",
       "historical_baseline": {
         "name": "D1",
         "pooled_exact_agreement": 0.957592339261286,
@@ -127,10 +127,40 @@
       },
       "gate_authorized": false,
       "authorization": "close_cycle_drift_sign_topology_route"
+    },
+    "v0642": {
+      "status": "diagnostic_complete_range_recovery_family_closed",
+      "workflow_run": 34612200264,
+      "formal_result_commit": "ce97db4b347ef55ea648a7a9d476c364ac12a298",
+      "formal_attribution": "v0642_amplitude_normalization_stability_attribution_complete_no_gate_authorized",
+      "diagnostic_pairs": 105,
+      "stable_both_rows": 61,
+      "one_sided_semantic_counts": {"introduced_harm": 38, "repaired_old_nonexact": 6},
+      "threshold_free_rank_comparisons": {
+        "harm_amplitude_unit_SRD_gt_stable": 0.547886108714409,
+        "harm_cycle_amplitude_imbalance_SRD_gt_stable": 0.5599654874892148,
+        "harm_max_raw_w1_SRD_gt_stable": 0.6570319240724762,
+        "harm_max_normalized_w1_SRD_gt_stable": 0.6949956859361519
+      },
+      "harm_counterfactual_attribution": {
+        "raw_numerator_change_sufficient": 24,
+        "amplitude_denominator_change_sufficient": 4,
+        "either_component_alone_sufficient": 5,
+        "both_changes_required": 5
+      },
+      "harm_signed_change_fractions": {
+        "amplitude_unit_rescue_higher": 0.5789473684210527,
+        "amplitude_unit_rescue_lower": 0.42105263157894735,
+        "raw_w1_rescue_lower": 0.9210526315789473,
+        "normalized_w1_rescue_lower": 1.0
+      },
+      "gate_authorized": false,
+      "authorization": "close_W1_and_current_Range_recovery_residual_gating_family_no_alternative_amplitude_normalization_challenger_authorized"
     }
   },
-  "current_range_recovery_family_status": "one_final_amplitude_normalization_attribution_authorized_before_family_closure_decision",
-  "next_authorized_step": "preregister_and_execute_read_only_v0642_amplitude_normalization_stability_attribution_on_the_v0637_rescue_involved_universe; decompose raw phase-balanced_W1 numerator versus frozen parent amplitude denominator and use inherited_0_15_only_for_counterfactual_crossing_attribution; no new threshold or recognizer change",
+  "current_range_recovery_family_status": "closed_after_v0642_no_empirical_candidate",
+  "next_authorized_step": "conduct_a_fresh_read_only_direction_information_class_audit_over_existing_code_protocols_and_evidence_before_freezing_any_new_challenger; do_not_recombine_closed_features_into_a_post_hoc_candidate",
+  "no_current_v0643_challenger_authorized": true,
   "forbidden_next_shortcuts": [
     "retry_endpoint_D2_or_confidence_gated_D2",
     "retry_PAWCT_absolute_phase_aligned_translation_as_is",
@@ -144,6 +174,8 @@
     "fit_shape_distance_cutoff_from_v0639",
     "use_v0640_leg_asymmetry_equality_as_candidate_gate",
     "use_v0641_sign_topology_as_structural_veto",
+    "change_parent_amplitude_normalization_from_v0642",
+    "mine_additional_residual_gates_from_v0637_one_sided_rows",
     "combine_weak_residual_diagnostics_post_hoc",
     "use_cross_offset_information_as_runtime_feature",
     "use_future_outcomes_or_PnL_for_morphology_selection"
