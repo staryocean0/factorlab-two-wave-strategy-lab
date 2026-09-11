@@ -122,17 +122,41 @@ Thus a raw-numerator swap alone was sufficient in `29/38 = 76.3158%` when the fi
 
 Conclusion: no clear amplitude-normalization-denominator failure exists that can motivate a separately frozen alternative normalization challenger. `gate_authorized=false`. **The v0.6.33-v0.6.42 W1 / Range-recovery residual-gating family is closed.** Do not continue by inventing additional W1 normalization, residual, threshold, shape, sign, or gate combinations from these rows.
 
+### v0.6.43: direction information-class audit — complete; one new causal class retained for diagnosis
+
+Audit record: `docs/research/TWO_WAVE_DIRECTION_INFORMATION_CLASS_AUDIT_V0643.md`.
+
+The audit does not create a recognizer candidate. Its main closure is that time/duration geometry is **not** a fresh class:
+
+- v0.5.4 already made corresponding-leg duration mismatch diagnostic-only under the explicit full-cycle-scale / phase-leg-allocation hypothesis;
+- v0.5.5 records corresponding-leg duration ratio, mean-cycle duration and drift-per-mean-cycle-bar inside D1 semantic attribution;
+- v0.6.19-v0.6.20 formally decompose and test duration-boundary mechanisms for qualification.
+
+Therefore duration, phase allocation, duration ratio or drift-per-bar cannot be reintroduced as a new direction signal merely by algebraic recombination.
+
+The audit identified exactly one material causal information class not yet formally adjudicated for parent direction: `native_high_low_envelope_excursion_at_frozen_parent_anchors`.
+
+The underlying distinction is explicit:
+
+- the source bars preserve OHLC and causal availability;
+- v0.6.17 uses high/low only for session-aware qualification/concentration bounds and explicitly excludes direction;
+- D1, PAWCT, v0.6.10 path descriptors, v0.6.21 Huber and the v0.6.29-v0.6.42 Range/W1 chain consume close pivots or close paths for parent-direction information.
+
+Thus same-bar high/low excursion at the **already frozen** five parent anchors is distinct from the closed close-path families. No anchor may be moved to a favorable extreme, and no within-bar high/low order may be inferred.
+
+v0.6.43 authorizes only the separately frozen **v0.6.44 native high/low envelope direction attribution**. v0.6.44 is read-only and threshold-free; it may not classify, rescue, veto, requalify or promote a recognizer.
+
 ## Current research rule
 
 - v0.6.18 remains the qualification champion.
 - v0.6.25 remains the strongest pooled-exact direction contribution.
 - parent-direction winner remains unset.
-- no current Range-recovery challenger is authorized.
 - the current W1 / Range-recovery family is closed.
+- v0.6.43 information-class audit is complete.
+- the next authorized work is **v0.6.44 read-only native high/low envelope attribution** under `TWO_WAVE_NATIVE_HIGH_LOW_ENVELOPE_DIRECTION_ATTRIBUTION_V0644_PROTOCOL.md`.
+- no v0.6.44 recognizer challenger is authorized.
 
-The next work must begin with a **fresh, read-only direction information-class audit** over the existing repository and evidence ledger. Its job is to identify whether any genuinely unmeasured causal morphology information class remains after D2, PAWCT, scalar path descriptors, Huber/erosion evidence, location/IQR/containment, W1 weighting/normalization, normalized progress shape, leg asymmetry, and sign topology. It is not authorized to create an empirical candidate merely by recombining existing rejected features.
-
-No v0.6.43 recognizer challenger is currently authorized. A future challenger requires a separately frozen mechanism that is demonstrably distinct from the closed families.
+Only if v0.6.44 shows a coherent, non-redundant and harmless-slicing-stable mechanism may a later, separately frozen challenger be considered.
 
 ## Forbidden shortcuts
 
@@ -147,6 +171,11 @@ No v0.6.43 recognizer challenger is currently authorized. A future challenger re
 - alter parent amplitude normalization based on v0.6.42;
 - mine more residual gates from the 44 one-sided v0.6.37 rows;
 - combine weak residual diagnostics post hoc into a composite classifier;
+- repackage duration, phase allocation, duration ratio or drift-per-bar as a fresh direction class;
+- infer within-bar high/low ordering from OHLC;
+- move the frozen five parent anchors using high/low;
+- fit a high/low excursion cutoff from v0.6.44 diagnostics;
+- combine v0.6.44 diagnostics post hoc with closed W1/shape/sign residual gates;
 - use harmless comparison offsets as runtime information;
 - use future returns, P&L, H1/H2, third-wave outcomes, or later-period selection data for morphology decisions.
 
