@@ -1,7 +1,7 @@
 # Two-Wave v0.6.42 Amplitude-Normalization Stability Attribution Protocol
 
 Date: 2026-09-11
-Status: `frozen_before_implementation_and_replay`
+Status: `frozen_before_implementation_and_replay_with_pre_result_semantic_clarification`
 Mode: read-only mechanism attribution; no recognizer change
 
 ## 1. Question
@@ -121,26 +121,31 @@ These rows are the frozen stability control population.
 
 For each of the `44` one-sided pairs preserve the same frozen `rescue_side` / `nonrescue_side`, semantic class and rescue origin used in v0.6.40-v0.6.41.
 
-The rescue side must satisfy `max_normalized_w1 <= 0.15`; the companion non-rescue side must fail the all-support W1 condition and therefore have `max_normalized_w1 > 0.15`.
+The changed rescue side must satisfy `max_normalized_w1 <= 0.15` because v0.6.37 changed only v0.6.25 `Uncertain -> Range` rows that pass all four frozen W1 supports.
 
-Record:
+Pre-result semantic clarification: the companion side has different meaning by semantic class.
 
-- rescue and non-rescue amplitude units;
-- rescue and non-rescue max raw W1;
-- rescue and non-rescue max normalized W1;
+- For the `38 introduced_harm` rows, v0.6.25 was exact before the one-sided rescue. Therefore the companion side was also v0.6.25 `Uncertain`; because it did not change under v0.6.37, it must fail the all-support W1 condition and has `max_normalized_w1 > 0.15`. These are the valid W1 crossing-attribution rows.
+- For the `6 repaired_old_nonexact` rows, the unchanged companion may already be a v0.6.25 decisive `Range` row. Its unchanged state does not imply W1 failure because v0.6.37 never needs W1 to override a v0.6.25 decisive label. Repairs therefore remain descriptive only and are not forced into the counterfactual crossing categories.
+
+Record on all 44 rows:
+
+- rescue and companion amplitude units;
+- rescue and companion max raw W1;
+- rescue and companion max normalized W1;
 - signed amplitude-unit SRD;
 - signed max-raw-W1 SRD;
 - signed max-normalized-W1 SRD;
 - absolute SRDs for the same quantities;
 - cycle-amplitude-imbalance quantities.
 
-## 8. Frozen counterfactual crossing attribution
+## 8. Frozen counterfactual crossing attribution on the 38 harm rows
 
-For each one-sided pair compute exactly two component-swap counterfactuals. No new parameter is introduced.
+Compute exactly two component-swap counterfactuals for each `introduced_harm` row. No new parameter is introduced.
 
 ### Raw-numerator change only
 
-Use the rescue side's raw numerator with the non-rescue side's denominator:
+Use the rescue side's raw numerator with the companion non-rescue denominator:
 
 `raw_only_normalized = rescue_max_raw_w1 / nonrescue_amplitude_unit`.
 
@@ -148,7 +153,7 @@ Use the rescue side's raw numerator with the non-rescue side's denominator:
 
 ### Amplitude-denominator change only
 
-Use the non-rescue side's raw numerator with the rescue side's denominator:
+Use the companion non-rescue side's raw numerator with the rescue denominator:
 
 `denominator_only_normalized = nonrescue_max_raw_w1 / rescue_amplitude_unit`.
 
@@ -162,6 +167,8 @@ Assign exactly one categorical explanation:
 4. `both_changes_required` if neither single-component swap passes while the actual rescue side passes.
 
 This is attribution of the existing frozen crossing, not a new classifier.
+
+The six repair rows receive no counterfactual category; they are reported descriptively only.
 
 ## 9. Frozen reporting
 
