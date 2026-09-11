@@ -1,0 +1,53 @@
+{
+  "schema": "two_wave_native_high_low_envelope_direction_adjudication@0.6.44",
+  "date": "2026-09-11",
+  "formal_workflow_run": 34616273360,
+  "raw_formal_result_commit": "f4128a8ef1aaf6e1f1f205af64a9fef77302d19b",
+  "raw_summary_formal_attribution": "v0644_native_high_low_envelope_fixed_statistics_complete_pending_governance_category",
+  "final_governance_category": "v0644_high_low_envelope_redundant_or_unstable",
+  "controls": {
+    "filtered_pairs": 57029,
+    "raw_strict_pairs": 29453,
+    "both_v0618_qualified_pairs": 1462,
+    "D1_exact_count": 1400,
+    "v0625_exact_count": 1402,
+    "reproduced": true
+  },
+  "v0625_threshold_free_rank_probabilities": {
+    "nonexact_mean_anchor_outward_excursion_gt_exact": 0.5080599144079886,
+    "nonexact_envelope_adjustment_l1_gt_exact": 0.4980266286257727,
+    "nonexact_envelope_adjustment_view_distance_l1_gt_exact": 0.5578340466000951,
+    "nonexact_mean_anchor_excursion_view_delta_gt_exact": 0.4890632429862102,
+    "nonexact_envelope_stability_gain_l1_gt_exact": 0.5327983832620067
+  },
+  "pooled_stability": {
+    "v0625_exact_gain_median": 0.0041014660230829295,
+    "v0625_nonexact_gain_median": 0.009065932283269774,
+    "v0625_exact_positive_gain_fraction": 0.5556348074179743,
+    "v0625_nonexact_positive_gain_fraction": 0.55
+  },
+  "per_offset_nonexact_gain_median": {
+    "5m_offset_1": 0.009065932283269774,
+    "5m_offset_2": 0.015499867500368393,
+    "5m_offset_3": 0.02185665270592614,
+    "5m_offset_4": -0.00699296462603538
+  },
+  "reason": [
+    "fixed exact-vs-nonexact rank statistics are near 0.5",
+    "outward excursion and envelope-adjustment magnitude do not separate the remaining v0625 inconsistencies",
+    "positive stability-gain incidence is essentially identical in exact and nonexact groups",
+    "stability gain is small and cross-offset behavior is not coherent",
+    "native high-low input is source-distinct but does not establish a usable direction/stability mechanism"
+  ],
+  "raw_summary_mutated_after_results": false,
+  "gate_authorized": false,
+  "challenger_authorized": false,
+  "high_low_envelope_route_closed": true,
+  "recognizer_changed": false,
+  "qualification_changed": false,
+  "direction_winner_changed": false,
+  "morphology_acceptance": false,
+  "future_outcome_used": false,
+  "trade_authority": false,
+  "production_authority": false
+}
