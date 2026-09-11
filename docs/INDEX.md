@@ -6,15 +6,21 @@ Primary objective: causally identify two complete same-scale waves and classify 
 
 Concrete reversal/MR payoff research belongs to `factorlab-trend-reversion-regime-lab`. Bottom-layer Unsafe/Recovering/HighVol risk-state research belongs to `factorlab-star50-filter-lab`.
 
-Current M0 authority:
+Current M0 authority and active direction chain:
 
 - [`research/TWO_WAVE_M0_AUTHORITY.md`](research/TWO_WAVE_M0_AUTHORITY.md)
 - [`../experiments/two_wave_m0_authority.json`](../experiments/two_wave_m0_authority.json)
+- [`research/TWO_WAVE_DIRECTION_CONTRIBUTION_LEDGER.md`](research/TWO_WAVE_DIRECTION_CONTRIBUTION_LEDGER.md)
 - [`../experiments/two_wave_path_gate_demotion_v0618/RESULT_CARD.md`](../experiments/two_wave_path_gate_demotion_v0618/RESULT_CARD.md)
+- [`research/TWO_WAVE_DIRECTION_INFORMATION_CLASS_AUDIT_V0643.md`](research/TWO_WAVE_DIRECTION_INFORMATION_CLASS_AUDIT_V0643.md)
+- [`research/TWO_WAVE_NATIVE_HIGH_LOW_ENVELOPE_DIRECTION_ATTRIBUTION_V0644_PROTOCOL.md`](research/TWO_WAVE_NATIVE_HIGH_LOW_ENVELOPE_DIRECTION_ATTRIBUTION_V0644_PROTOCOL.md)
+
+Qualification-history anchors retained for audit:
+
 - [`../experiments/two_wave_duration_geometry_decomposition_v0619/RESULT_CARD.md`](../experiments/two_wave_duration_geometry_decomposition_v0619/RESULT_CARD.md)
 - [`../experiments/two_wave_one_bar_duration_repair_v0620/RESULT_CARD.md`](../experiments/two_wave_one_bar_duration_repair_v0620/RESULT_CARD.md)
 
-Global morphology status remains `morphology_replication_not_yet_accepted`. v0.6.18 remains the current best **qualification-policy research component**. v0.6.19 is attribution evidence; v0.6.20 is a rejected challenger whose contribution is retained. The active unresolved layer is parent `Range / UpTrend / DownTrend / Uncertain` classification.
+Global morphology status remains `morphology_replication_not_yet_accepted`. v0.6.18 remains the current best **qualification-policy research component**. v0.6.25 remains the strongest pooled-exact **direction contribution**, but the parent-direction winner is still unset. v0.6.43 has completed the fresh information-class audit: duration/time geometry is already measured and may not be repackaged as new; the one newly retained causal class is native same-bar high/low envelope excursion at the frozen parent anchors. The only currently authorized next direction work is the frozen **v0.6.44 read-only, threshold-free high/low-envelope attribution**. No v0.6.44 recognizer challenger is authorized.
 
 ## 1. User objective
 
