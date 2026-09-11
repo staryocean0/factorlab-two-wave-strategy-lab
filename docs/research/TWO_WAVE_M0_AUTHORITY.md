@@ -31,7 +31,7 @@ Historical D1 on this universe has exact four-state agreement `95.7592%`, pooled
 
 ## Current best direction contribution: v0.6.25
 
-v0.6.25 remains the strongest pooled-exact contribution and the comparison base for Range-recovery research:
+v0.6.25 remains the strongest pooled-exact contribution:
 
 - exact agreement: `1402/1462 = 0.9589603283173734`;
 - pooled decisive coverage: `0.7086183310533516`;
@@ -63,75 +63,76 @@ The following families have already been adjudicated and must not be silently re
 
 v0.6.35 produced `725` new Range rescues and exact agreement `1363/1462 = 93.2285%`; one-sided topology was `26 main-only / 24 other-only`. v0.6.36 found `43` introduced harms, `4` repairs and `3` persistent non-exact cases, so nearby `0.15` W1 tuning was forbidden.
 
-v0.6.37 removed duration-proportional probability weighting by assigning each completed leg exactly `50%` cycle probability mass. It produced `621` new Range rescues, exact `1370/1462 = 93.7073%`, decisive agreement `100%`, and topology `61 both / 23 main-only / 21 other-only / 1357 none`. All four harmless offsets still regressed versus v0.6.25.
+v0.6.37 removed duration-proportional probability weighting by assigning each complete cycle's first leg `50%` probability mass and second leg `50%`. It produced `621` new Range rescues, exact `1370/1462 = 93.7073%`, decisive agreement `100%`, and topology `61 both / 23 main-only / 21 other-only / 1357 none`. All four harmless offsets still regressed versus v0.6.25.
 
-v0.6.38 attributed the v0.6.35 -> v0.6.37 change: `31` old non-exact pairs repaired, `24` old exact pairs harmed, net `+7`. The remaining v0.6.37 one-sided residuals were `38 introduced_harm / 6 repaired_old_nonexact`; shared bar-equal+phase-balanced rescues were `28 harm / 4 repair`, while phase-balanced-only rescues were `10 harm / 2 repair`.
+v0.6.38 attributed the v0.6.35 -> v0.6.37 change: `31` old non-exact pairs repaired, `24` old exact pairs harmed, net `+7`. Remaining v0.6.37 one-sided residuals were `38 introduced_harm / 6 repaired_old_nonexact`; shared bar-equal+phase-balanced rescues were `28 harm / 4 repair`, phase-balanced-only rescues `10 harm / 2 repair`.
 
 ### v0.6.39: order-sensitive residual shape — diagnostic complete
 
-Formal result established that within-leg progress shape contains a local clue but cannot authorize a gate. On the 44 one-sided v0.6.37 residuals:
-
-- `38` introduced harm;
-- `6` repaired old non-exact;
-- strongest descriptor was `first_leg_progress_l1` with `P(harm > repair) = 0.7478070175438597`;
-- `first_leg_progress_linf` and `max_leg_progress_l1` were about `0.72149`;
-- second-leg descriptors were weak, including `second_leg_progress_linf ~= 0.50658`.
-
-Because there were only six repair rows, no shape-distance cutoff was authorized.
+On the 44 one-sided v0.6.37 residuals, the strongest descriptor was `first_leg_progress_l1`, with `P(harm > repair) = 0.7478070175438597`; first-leg L-infinity and max-leg L1 were about `0.72149`, while second-leg descriptors were weak. Only six repair rows existed, so no shape-distance cutoff was authorized.
 
 ### v0.6.40: leg-asymmetry + harmless-slicing stability — route closed
 
-v0.6.40 expanded the diagnostic population to `61` stable both-rescue controls plus the `44` one-sided residuals and tested the structural first-vs-second-leg asymmetry without fitting a cutoff.
+Using the `61` stable both-rescue controls plus the `44` one-sided residuals, the first-vs-second-leg asymmetry did not generalize:
 
-Primary threshold-free rank results were weak:
+- harm rescue `A_L1` vs stable-both rank: about `0.5336`;
+- harm harmless-slicing `|delta A_L1|` vs stable rank: about `0.5216`.
 
-- harm rescue `A_L1` vs stable-both pair mean: about `0.5336`;
-- harm harmless-slicing `|delta A_L1|` vs stable-both: about `0.5216`;
-- L-infinity analogues were likewise weak.
+The normalized progress-shape / leg-asymmetry candidate route is closed. Do not promote `A=0`, `first_leg_L1 <= second_leg_L1`, or a fitted shape cutoff.
 
-Conclusion: the apparent first-leg signal from v0.6.39 does not generalize into a stable equality/sign gate. The normalized progress-shape / leg-asymmetry candidate route is closed. Do not promote `first_leg_L1 <= second_leg_L1`, `A=0`, or a fitted shape threshold from these diagnostics.
-
-### v0.6.41: cycle-drift sign topology — diagnostic complete, route closed
+### v0.6.41: cycle-drift sign topology — route closed
 
 Formal workflow run: `34608353257`.
 Formal result commit: `5c92809f7606519d03b83426671c7772b7a9a639`.
 
-The run reproduced the frozen universe exactly and reconstructed the historical D1 phase steps from the already-published five raw occurrence bars using the frozen D1 formula; no pivot detector or direction threshold was changed.
-
-Diagnostic universe remained `105` rescue-involved pairs = `61` stable both-rescue + `44` one-sided, with `38 harm / 6 repair`.
-
-Frozen primary differences, harm minus stable controls:
+The frozen universe reproduced exactly. Primary harm-minus-stable differences were small:
 
 - rescue-side same-direction cycle drift: `+0.06125970664365832`;
 - rescue-side all-three migrations same direction: `+0.02804141501294219`;
 - harmless-view cycle-relation flip: `+0.016824849007765305`;
 - harmless-view all-three flip: `+0.02976704055220017`.
 
-These effects are small and not a coherent separating mechanism. `gate_authorized=false`. The cycle-drift sign-topology route is closed; no structural sign veto is authorized.
+`gate_authorized=false`. No structural sign veto is authorized.
+
+### v0.6.42: amplitude-normalization stability — diagnostic complete; W1 / Range-recovery family closed
+
+Formal workflow run: `34612200264`.
+Formal result commit: `ce97db4b347ef55ea648a7a9d476c364ac12a298`.
+Formal attribution: `v0642_amplitude_normalization_stability_attribution_complete_no_gate_authorized`.
+
+The run reproduced the full frozen controls exactly: `57,029` filtered pairs, `29,453` raw strict pairs, `1,462` both-v0.6.18-qualified pairs, and v0.6.37 topology `61 both / 23 main-only / 21 other-only / 1,357 none`. Diagnostic universe remained `105` pairs = `61` stable both-rescue + `44` one-sided, with `38 harm / 6 repair`.
+
+The amplitude denominator was **not** the dominant harmless-slicing instability mechanism:
+
+- `P(harm amplitude_unit_SRD > stable) = 0.547886108714409`;
+- `P(harm cycle_amplitude_imbalance_SRD > stable) = 0.5599654874892148`;
+- by contrast, `P(harm max_raw_W1_SRD > stable) = 0.6570319240724762`;
+- `P(harm max_normalized_W1_SRD > stable) = 0.6949956859361519`.
+
+The median amplitude-unit SRD was only `0.041867293607276576` for harm versus `0.035764690547654264` for stable controls. Harm raw-W1 SRD was more separated: median `0.18650017680358333` versus stable `0.12271540699230692`.
+
+The frozen 38-harm numerator/denominator swap attribution was decisive against a denominator-primary explanation:
+
+- `raw_numerator_change_sufficient = 24/38 = 63.1579%`;
+- `amplitude_denominator_change_sufficient = 4/38 = 10.5263%`;
+- `either_component_alone_sufficient = 5/38 = 13.1579%`;
+- `both_changes_required = 5/38 = 13.1579%`.
+
+Thus a raw-numerator swap alone was sufficient in `29/38 = 76.3158%` when the five `either` rows are included, while a denominator swap alone was sufficient in only `9/38 = 23.6842%`. Rescue-side amplitude units were not directionally coherent (`57.8947%` higher, `42.1053%` lower), whereas rescue max raw W1 was lower than the non-rescue companion in `92.1053%` of harm rows.
+
+Conclusion: no clear amplitude-normalization-denominator failure exists that can motivate a separately frozen alternative normalization challenger. `gate_authorized=false`. **The v0.6.33-v0.6.42 W1 / Range-recovery residual-gating family is closed.** Do not continue by inventing additional W1 normalization, residual, threshold, shape, sign, or gate combinations from these rows.
 
 ## Current research rule
 
-The parent-direction winner remains **unset**. v0.6.25 remains the strongest pooled-exact contribution. v0.6.18 remains the qualification champion.
+- v0.6.18 remains the qualification champion.
+- v0.6.25 remains the strongest pooled-exact direction contribution.
+- parent-direction winner remains unset.
+- no current Range-recovery challenger is authorized.
+- the current W1 / Range-recovery family is closed.
 
-The repeated v0.6.33-v0.6.41 evidence says the current Range-recovery problem is not solved by stacking more location, overlap, W1-ceiling, progress-shape, leg-asymmetry, or sign-topology gates. Before closing the complete W1/Range-recovery family, one final unadjudicated mechanism is authorized: determine whether harmless-slicing instability is materially caused by the **amplitude normalization denominator** rather than by the raw phase-balanced W1 numerator itself.
+The next work must begin with a **fresh, read-only direction information-class audit** over the existing repository and evidence ledger. Its job is to identify whether any genuinely unmeasured causal morphology information class remains after D2, PAWCT, scalar path descriptors, Huber/erosion evidence, location/IQR/containment, W1 weighting/normalization, normalized progress shape, leg asymmetry, and sign topology. It is not authorized to create an empirical candidate merely by recombining existing rejected features.
 
-## Next authorized step: v0.6.42 amplitude-normalization stability attribution
-
-Preregister and execute one **read-only v0.6.42 amplitude-normalization stability attribution** on the same v0.6.37 rescue-involved universe.
-
-It must decompose, without fitting new thresholds:
-
-- each side's frozen parent `amplitude_unit_price` and two detrended cycle amplitudes;
-- phase-balanced W1 in raw price units across the existing four endpoint supports;
-- the corresponding normalized W1 = raw W1 / amplitude unit;
-- harmless-view changes in raw numerator versus amplitude denominator;
-- for one-sided v0.6.37 rescues, counterfactual denominator/numerator swaps using only the already-frozen `0.15` W1 ceiling to classify whether the crossing can be explained by raw-W1 change, denominator change, either alone, or both together.
-
-The `61` stable both-rescue pairs are the stability control group. The `38` introduced harms are the primary one-sided group. The six repairs remain descriptive only.
-
-v0.6.42 is diagnostic only: no classifier, learned cutoff, new W1 ceiling, recognizer change, or subgroup-derived gate is allowed. Cross-offset quantities are diagnostic and may not enter runtime features.
-
-If v0.6.42 does not reveal a clear denominator-instability mechanism distinct from the stable-both controls, the current W1 / Range-recovery family must be closed rather than extended with additional residual gates. If a strong denominator mechanism is found, any alternative parent-scale normalization must be a separately frozen future challenger before replay.
+No v0.6.43 recognizer challenger is currently authorized. A future challenger requires a separately frozen mechanism that is demonstrably distinct from the closed families.
 
 ## Forbidden shortcuts
 
@@ -141,8 +142,10 @@ If v0.6.42 does not reveal a clear denominator-instability mechanism distinct fr
 - retune v0.6.25 margin, v0.6.29 overlap, v0.6.33 location shift, containment slack, or v0.6.35/v0.6.37 W1 ceiling;
 - simple v0.6.35 AND v0.6.37 consensus gate;
 - fit a shape-distance cutoff from v0.6.39;
-- use v0.6.40 `A=0` / first-leg-vs-second-leg equality as a candidate gate;
+- use v0.6.40 leg-asymmetry equality as a candidate gate;
 - use v0.6.41 sign topology as a structural veto;
+- alter parent amplitude normalization based on v0.6.42;
+- mine more residual gates from the 44 one-sided v0.6.37 rows;
 - combine weak residual diagnostics post hoc into a composite classifier;
 - use harmless comparison offsets as runtime information;
 - use future returns, P&L, H1/H2, third-wave outcomes, or later-period selection data for morphology decisions.
