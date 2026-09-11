@@ -27,7 +27,10 @@ def test_low_phase_envelope_metrics_use_same_bar_low_high_extremes_only():
     assert out["anchor_outward_excursions"] == [0.1, 0.2, 0.2, 0.3, 0.3]
     assert out["close_phase_steps_in_amplitude_units"] == [0.2, 0.3, 0.3]
     assert out["envelope_phase_steps_in_amplitude_units"] == [0.1, 0.2, 0.4]
-    assert out["envelope_adjustment_vector"] == [-0.1, -0.09999999999999998, 0.10000000000000003]
+    assert all(
+        abs(a - b) < 1e-12
+        for a, b in zip(out["envelope_adjustment_vector"], [-0.1, -0.1, 0.1])
+    )
     assert abs(out["mean_anchor_outward_excursion"] - 0.22) < 1e-12
     assert abs(out["envelope_adjustment_l1"] - 0.1) < 1e-12
 
@@ -47,7 +50,8 @@ def test_harmless_pair_metrics_positive_gain_means_envelope_more_stable():
     }
     out = harmless_pair_metrics(main, other)
     assert abs(out["close_step_view_distance_l1"] - 0.3) < 1e-12
-    assert abs(out["envelope_step_view_distance_l1"] - (0.4 / 3.0)) < 1e-12
+    assert abs(out["envelope_step_view_distance_l1"] - 0.1) < 1e-12
+    assert abs(out["envelope_stability_gain_l1"] - 0.2) < 1e-12
     assert out["envelope_stability_gain_l1"] > 0
     assert abs(out["mean_anchor_excursion_view_delta"] - 0.1) < 1e-12
     assert out["comparison_offsets_runtime_information"] is False
