@@ -1,0 +1,76 @@
+{
+  "controls": {
+    "both_v0618_qualified_pairs": 1462,
+    "filtered_pairs": 57029,
+    "raw_strict_pairs": 29453,
+    "reproduced": true,
+    "v0635_pair_change_topology": {
+      "both": 93,
+      "main_only": 26,
+      "none": 1319,
+      "other_only": 24
+    },
+    "v0637_pair_change_topology": {
+      "both": 61,
+      "main_only": 23,
+      "none": 1357,
+      "other_only": 21
+    }
+  },
+  "formal_attribution": "v0638_phase_balance_residual_attribution_complete",
+  "future_outcome_used": false,
+  "morphology_acceptance": false,
+  "phase_balance_transition_counts": {
+    "both_exact": 1339,
+    "both_nonexact": 68,
+    "phase_balance_harmed_v0635_exact": 24,
+    "phase_balance_repaired_v0635_nonexact": 31
+  },
+  "phase_balance_transition_counts_by_offset": {
+    "5m_offset_1": {
+      "both_exact": 366,
+      "both_nonexact": 19,
+      "phase_balance_harmed_v0635_exact": 7,
+      "phase_balance_repaired_v0635_nonexact": 8
+    },
+    "5m_offset_2": {
+      "both_exact": 257,
+      "both_nonexact": 17,
+      "phase_balance_harmed_v0635_exact": 6,
+      "phase_balance_repaired_v0635_nonexact": 7
+    },
+    "5m_offset_3": {
+      "both_exact": 275,
+      "both_nonexact": 16,
+      "phase_balance_harmed_v0635_exact": 6,
+      "phase_balance_repaired_v0635_nonexact": 5
+    },
+    "5m_offset_4": {
+      "both_exact": 441,
+      "both_nonexact": 16,
+      "phase_balance_harmed_v0635_exact": 5,
+      "phase_balance_repaired_v0635_nonexact": 11
+    }
+  },
+  "production_authority": false,
+  "qualification_changed": false,
+  "recognizer_changed": false,
+  "schema": "two_wave_phase_balance_residual_attribution_result@0.6.38",
+  "semantic_by_rescue_origin": {
+    "introduced_harm": {
+      "phase_balanced_only_rescue": 10,
+      "shared_bar_equal_and_phase_balanced_rescue": 28
+    },
+    "repaired_old_nonexact": {
+      "phase_balanced_only_rescue": 2,
+      "shared_bar_equal_and_phase_balanced_rescue": 4
+    }
+  },
+  "threshold_changed": false,
+  "trade_authority": false,
+  "v0637_one_sided_changes": 44,
+  "v0637_one_sided_semantic_counts": {
+    "introduced_harm": 38,
+    "repaired_old_nonexact": 6
+  }
+}
