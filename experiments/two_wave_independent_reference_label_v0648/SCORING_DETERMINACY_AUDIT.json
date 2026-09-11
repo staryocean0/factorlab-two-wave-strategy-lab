@@ -1,0 +1,33 @@
+{
+  "candidate_case_D1_state_counts_when_unanimous": {
+    "downtrend": 33,
+    "uncertain": 58,
+    "uptrend": 29
+  },
+  "candidate_case_v0625_state_counts_when_unanimous": {
+    "downtrend": 41,
+    "uncertain": 40,
+    "uptrend": 39
+  },
+  "candidate_qualified_publications": 2115,
+  "conclusion": "v0625_case_state_determinate_despite_multiple_qualified_identities",
+  "hidden_mapping_commitment_verified": true,
+  "independent_labels_read": false,
+  "model_reference_scoring_started": false,
+  "morphology_acceptance": false,
+  "multi_identity_candidate_cases": 2,
+  "multi_identity_d1_state_disagreement_cases": 0,
+  "multi_identity_v0625_state_disagreement_cases": 0,
+  "performed_before_independent_labels": true,
+  "production_authority": false,
+  "qualified_identity_multiplicity_counts": {
+    "1": 118,
+    "2": 2
+  },
+  "sampling_commitment_sha256": "f4eeff13c1408c1ca3bf938c0cd8abc4dad961f63ed6a4a4158f243cd5b024c8",
+  "schema": "two_wave_v0648_scoring_determinacy_audit@1.0",
+  "selected_candidate_cases": 120,
+  "selected_control_cases": 120,
+  "source_manifest_verified": true,
+  "trade_authority": false
+}
