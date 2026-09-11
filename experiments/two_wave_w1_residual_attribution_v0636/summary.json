@@ -1,0 +1,59 @@
+{
+  "authorization_gates": {
+    "harm_median_at_least_0_03_smaller": true,
+    "harm_near_boundary_fraction_at_least_70pct": true,
+    "introduced_harm_n_at_least_20": true,
+    "repair_near_boundary_fraction_at_most_40pct": true,
+    "repaired_n_at_least_20": false
+  },
+  "controls": {
+    "both_v0618_qualified_pairs": 1462,
+    "filtered_pairs": 57029,
+    "raw_strict_pairs": 29453,
+    "reproduced": true,
+    "v0635_pair_change_topology": {
+      "both": 93,
+      "main_only": 26,
+      "none": 1319,
+      "other_only": 24
+    }
+  },
+  "formal_attribution": "v0636_w1_margin_route_not_authorized",
+  "future_outcome_used": false,
+  "morphology_acceptance": false,
+  "one_sided_changes": 50,
+  "production_authority": false,
+  "qualification_changed": false,
+  "recognizer_changed": false,
+  "schema": "two_wave_w1_residual_attribution_result@0.6.36",
+  "semantic_counts": {
+    "introduced_harm": 43,
+    "persistent_nonexact": 3,
+    "repaired_old_nonexact": 4
+  },
+  "slack_stats": {
+    "introduced_harm": {
+      "count": 43,
+      "fraction_le_0_03": 0.9302325581395349,
+      "median": 0.01329600460565547,
+      "q25": 0.004584014971805245,
+      "q75": 0.019355964138413853
+    },
+    "persistent_nonexact": {
+      "count": 3,
+      "fraction_le_0_03": 1.0,
+      "median": 0.014360836305067126,
+      "q25": 0.011589645193054193,
+      "q75": 0.014360836305067126
+    },
+    "repaired_old_nonexact": {
+      "count": 4,
+      "fraction_le_0_03": 0.25,
+      "median": 0.056254649907615424,
+      "q25": 0.035012944591582364,
+      "q75": 0.07890020328947316
+    }
+  },
+  "trade_authority": false,
+  "w1_margin_authorized": false
+}
