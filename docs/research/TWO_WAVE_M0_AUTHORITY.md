@@ -1,13 +1,13 @@
 # Two-Wave M0 Authority
 
-Date: 2026-09-11
+Date: 2026-09-12
 
 ## Global scientific status
 
 - Primary object: `two_wave_parent_structure_recognizer`.
 - Target semantics: two complete same-scale waves -> parent `Range / UpTrend / DownTrend / Uncertain`.
 - Independent morphology acceptance: **false**.
-- Global status: `morphology_replication_not_yet_accepted`.
+- Global status: `independent_reference_label_packet_ready_awaiting_blinded_annotations`.
 - Historical full-recognizer operational baseline: **v0.4.3** until full morphology acceptance.
 - Qualification champion: **v0.6.18 path-gate demotion**.
 - Parent-direction winner: **unset**.
@@ -168,7 +168,7 @@ The five pre-frozen v0.6.25 nonexact-vs-exact rank probabilities were:
 
 All five lie inside the pre-frozen `[0.40, 0.60]` redundancy band.
 
-Replacing close-anchor phase migration with open-anchor migration made harmless-slicing stability **worse**, not better. Pooled median `open_stability_gain_l1 = close_view_distance - open_view_distance` was `-0.04552300088588504` for v0.6.25-exact and `-0.03228363345938465` for v0.6.25-nonexact pairs. The nonexact median was negative on all four harmless offsets: `-0.03753271341579051`, `-0.008874694440202807`, `-0.060062886026750174`, `-0.04717112905394007`.
+Replacing close-anchor phase migration with open-anchor migration made harmless-slicing stability **worse**, not better. Pooled median `open_stability_gain_l1 = close_view_distance - open_distance` was `-0.04552300088588504` for v0.6.25-exact and `-0.03228363345938465` for v0.6.25-nonexact pairs. The nonexact median was negative on all four harmless offsets: `-0.03753271341579051`, `-0.008874694440202807`, `-0.060062886026750174`, `-0.04717112905394007`.
 
 Final category: `v0646_native_open_body_gap_redundant_or_unstable`.
 
@@ -183,7 +183,7 @@ Final category: `v0646_native_open_body_gap_redundant_or_unstable`.
 Frozen protocol: `docs/research/TWO_WAVE_INDEPENDENT_TEMPORAL_MORPHOLOGY_REPLICATION_V0647_PROTOCOL.md`.  
 Development five-offset resampler precheck run: `34623300582`.  
 Formal replication workflow run: `34624208758`.  
-Formal result commit: `1e783f9`.  
+Formal result commit: `1e783f925b669d6d71ed26a3ccac2ba7cb5fd9b0`.  
 Result card: `experiments/two_wave_independent_temporal_replication_v0647/RESULT_CARD.md`.  
 Summary: `experiments/two_wave_independent_temporal_replication_v0647/summary.json`.
 
@@ -226,7 +226,44 @@ Authority is unchanged:
 - `trade_authority=false`;
 - `production_authority=false`.
 
-Independent reference morphology labels are still required before full morphology acceptance can be considered.
+## v0.6.48: blinded independent reference-label construction — packet ready; scoring blocked
+
+Frozen protocol: `docs/research/TWO_WAVE_INDEPENDENT_REFERENCE_LABEL_CONSTRUCTION_V0648_PROTOCOL.md`.  
+Protocol freeze commit: `86bfba86f01dda2f06b266b2025fbe3f1e39bc36`.  
+Formal packet workflow run: `34628102738`.  
+Packet metadata commit: `e3addb31ec2a8754e711cf820e6092c14588bdd0`.  
+Packet manifest: `experiments/two_wave_independent_reference_label_v0648/PACKET_MANIFEST.json`.  
+Sampling commitment: `experiments/two_wave_independent_reference_label_v0648/SAMPLING_COMMITMENT.json`.  
+Scoring block: `experiments/two_wave_independent_reference_label_v0648/SCORING_BLOCKED.json`.
+
+A repository audit across the Two-Wave, Trend/Reversion and STAR50 related repositories found no existing independent human/external Two-Wave reference-label set. Existing algorithm outputs and governance adjudications are not accepted as ground truth. v0.6.48 therefore constructs the reference-label evidence surface instead of fabricating labels.
+
+The frozen packet contains exactly `240` CSI1000 Development cases, balanced across 2015-2020 with `20` hidden candidate and `20` hidden control cases per year. Candidate membership uses only frozen v0.6.18 qualified confirmation cutoffs; control membership is isolated from recent qualified cutoffs. Direction labels, D1/v0.6.25 outputs, harmless offsets, model pivots, dates/years, post-cutoff bars, returns and P&L are absent from the annotator-visible material.
+
+Formal packet controls:
+
+- source main-view SHA256: `bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48`;
+- eligible v0.6.18 candidate-qualified publications before deterministic selection: `2,115`;
+- selected cases: `240` = `120` hidden candidate + `120` hidden control;
+- visible files: `243` = `240` PNG charts + annotator README + empty label sheet + public manifest;
+- hidden deterministic mapping is absent from the annotator ZIP;
+- sampling commitment SHA256: `f4eeff13c1408c1ca3bf938c0cd8abc4dad961f63ed6a4a4158f243cd5b024c8`;
+- blinded annotation ZIP SHA256: `4c08c8d3f32c6e222acb3c4236fa8f39428ff25349deae16d6f49dca2901566e`;
+- `independent_labels_present=false`;
+- `model_scoring_started=false`.
+
+First-pass label validation is already implemented and regression-tested. It requires two different annotator IDs, exactly the same 240 case IDs, the frozen label enums/anchor rules, and computes the pre-frozen exact-agreement/Cohen-kappa gates while keeping hidden strata and model predictions blinded. Disagreement adjudication and final reference-label freeze must occur before any model/reference scoring.
+
+Current hard dependency:
+
+1. send the exact same blinded packet separately to two independent annotators;
+2. freeze SHA256 of both returned first-pass CSVs before comparison;
+3. evaluate frozen label-quality gates;
+4. send only disagreement cases to a third independent adjudicator while remaining model-blind;
+5. freeze final reference labels;
+6. only then unblind the deterministic hidden mapping and execute the pre-frozen candidate/control scoring metrics.
+
+A v0.6.48 calibration pass, even if later achieved, cannot by itself set `morphology_acceptance=true`; the packet is from the 2015-2020 Development period. Full morphology acceptance still requires a separately frozen fresh held-out reference-label validation.
 
 ## Current research rule
 
@@ -241,9 +278,10 @@ Independent reference morphology labels are still required before full morpholog
 - native frozen-anchor high/low envelope route is closed after v0.6.44.
 - native frozen-anchor open/body/gap route is closed after v0.6.46.
 - the current market-bar OHLC parent-direction expansion is exhausted.
-- v0.6.47 temporal replication is complete and does not authorize a v0.6.48 direction challenger.
+- v0.6.47 temporal replication is complete and does not authorize another direction challenger.
+- v0.6.48 blinded reference packet is complete; **model scoring is blocked until independent first-pass labels and adjudicated final reference labels are frozen**.
 
-The next legitimate program step is **independent reference-label morphology validation of the frozen recognizer/components**. If a genuinely new data modality is proposed instead, it must first receive a separate information-class audit. The program should not return to residual OHLC/clock/session/data-quality feature mining merely because v0.6.47 did not pass.
+The next legitimate program action is not another empirical feature experiment. It is to obtain the two independent blinded annotation sheets under the frozen v0.6.48 contract, then run the already-implemented label-quality validator. A genuinely new data modality, if proposed later, still requires a separate information-class audit.
 
 ## Forbidden shortcuts
 
@@ -267,11 +305,17 @@ The next legitimate program step is **independent reference-label morphology val
 - use missing-volume status as a morphology signal;
 - use `available_at`, confirmation delay, session count, calendar span or source-support gaps as parent-direction semantics;
 - use harmless comparison offsets as runtime information;
-- create a v0.6.48 challenger by recombining the closed fields above;
+- create a v0.6.48 direction challenger by recombining the closed fields above;
 - drop 2024, 2026, or weak offsets to reinterpret v0.6.47 as a pass;
 - retune v0.6.25 margin on post-2020 replication residuals;
 - install v0.6.25 from the favorable 2025 slice alone;
-- use future returns, P&L, H1/H2, third-wave outcomes, or later-period selection data for morphology decisions;
-- declare global morphology acceptance without independent reference labels.
+- use algorithm-produced labels, migrated v1-v13 outputs or project adjudications as independent reference truth;
+- reveal hidden candidate/control stratum, v0.6.18 pivots/qualification, D1/v0.6.25 output, dates/years, future bars or downstream outcomes to first-pass annotators;
+- compare the two annotators before both returned CSV hashes are frozen;
+- change sample membership, annotation rules or agreement gates after seeing labels;
+- score model/reference agreement before third-party disagreement adjudication and final reference-label freeze;
+- tune v0.6.18/v0.6.25 against the v0.6.48 reference labels;
+- declare global morphology acceptance from this Development-period calibration packet alone;
+- use future returns, P&L, H1/H2, third-wave outcomes, or later-period selection data for morphology decisions.
 
 Independent morphology acceptance remains false. Trading and production remain closed.
