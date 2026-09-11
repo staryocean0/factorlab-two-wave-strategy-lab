@@ -12,6 +12,7 @@ This ledger separates **whole-component promotion** from **retained scientific c
 - historical direction baseline: **D1**;
 - strongest pooled-exact direction contribution: **v0.6.25 absolute-margin erosion-consensus rescue**;
 - parent-direction winner: **unset**;
+- audited price-only direction expansion: **closed after v0.6.44**;
 - independent morphology acceptance: **false**;
 - trade authority: **false**;
 - production authority: **false**.
@@ -150,10 +151,8 @@ Only four repairs existed, so the apparent clustering near the `0.15` ceiling ca
 
 ### v0.6.37 phase-balanced W1 — rejected, measurement improvement retained
 
-Formal workflow run: `34602526496`.
+Formal workflow run: `34602526496`.  
 Formal result commit: `434b52aca4b84c84ec5ce46f0d561e7cbdefa187`.
-
-The only measurement change was probability weighting: each complete cycle's first and second legs each carry exactly 50% mass.
 
 - new Range rescues: `621`;
 - exact: `1370/1462 = 93.7073%`;
@@ -165,33 +164,16 @@ Contribution: phase balancing removes some duration-proportional sampling instab
 
 ### v0.6.38 phase-balance residual attribution — no weighting-consensus gate
 
-Formal workflow run: `34603190318`.
+Formal workflow run: `34603190318`.  
 Formal result commit: `3e2dc902cb29985bbb9b31e2b6232b3ba3041b76`.
 
-Relative to v0.6.35:
-
-- old non-exact repaired: `31`;
-- old exact harmed: `24`;
-- net exact improvement: `+7`.
-
-Remaining v0.6.37 one-sided residuals versus v0.6.25:
-
-- introduced harm: `38`;
-- repaired old non-exact: `6`.
-
-Shared v0.6.35+v0.6.37 rescues were `28 harm / 4 repair`; phase-balanced-only rescues `10 harm / 2 repair`. No simple bar-equal AND phase-balanced consensus gate is authorized.
+Relative to v0.6.35, `31` old non-exact pairs were repaired and `24` old exact pairs harmed. Remaining v0.6.37 one-sided residuals versus v0.6.25 were `38 introduced_harm / 6 repaired_old_nonexact`. No simple bar-equal AND phase-balanced consensus gate is authorized.
 
 ## v0.6.39-v0.6.41: residual-shape and sign-topology routes closed
 
 ### v0.6.39 order-sensitive progress shape — clue only
 
-On the 44 one-sided residuals:
-
-- strongest descriptor: `first_leg_progress_l1`;
-- tie-aware `P(harm > repair) = 0.7478070175438597`;
-- only six repair rows.
-
-Contribution: first-leg progress shape contains a local clue; no numeric shape gate is authorized.
+On the 44 one-sided residuals, strongest descriptor was `first_leg_progress_l1` with tie-aware `P(harm > repair) = 0.7478070175438597`; only six repair rows existed. No numeric shape gate was authorized.
 
 ### v0.6.40 leg-asymmetry + harmless-slicing stability — route closed
 
@@ -200,35 +182,19 @@ Using 61 stable both-rescue controls plus 44 one-sided residuals:
 - harm rescue `A_L1` vs stable rank: about `0.5336`;
 - harm `|delta A_L1|` vs stable rank: about `0.5216`.
 
-Conclusion: first-vs-second-leg asymmetry does not generalize. Do not promote `A=0`, equality logic, or fitted shape thresholds.
+Conclusion: first-vs-second-leg asymmetry does not generalize.
 
 ### v0.6.41 cycle-drift sign topology — route closed
 
-Formal workflow run: `34608353257`.
+Formal workflow run: `34608353257`.  
 Formal result commit: `5c92809f7606519d03b83426671c7772b7a9a639`.
 
-Harm-minus-stable primary differences:
-
-- same-direction cycle drift: `+0.06125970664365832`;
-- all-three same direction: `+0.02804141501294219`;
-- cycle-relation flip: `+0.016824849007765305`;
-- all-three flip: `+0.02976704055220017`.
-
-Conclusion: effects are small and incoherent as a separating mechanism. No sign-topology structural veto is authorized.
+Primary harm-minus-stable differences were small (`+0.06126`, `+0.02804`, `+0.01682`, `+0.02977` across the frozen sign-topology quantities). No structural sign veto is authorized.
 
 ## v0.6.42 amplitude-normalization stability — W1 / Range-recovery family closed
 
-Formal workflow run: `34612200264`.
+Formal workflow run: `34612200264`.  
 Formal result commit: `ce97db4b347ef55ea648a7a9d476c364ac12a298`.
-Formal attribution: `v0642_amplitude_normalization_stability_attribution_complete_no_gate_authorized`.
-
-The frozen controls reproduced exactly:
-
-- filtered pairs: `57,029`;
-- raw strict pairs: `29,453`;
-- both-v0.6.18-qualified pairs: `1,462`;
-- v0.6.37 topology: `61 both / 23 main-only / 21 other-only / 1357 none`;
-- diagnostic universe: `61` stable both-rescue + `38` harm + `6` repair.
 
 Threshold-free harm-vs-stable ranks:
 
@@ -237,48 +203,49 @@ Threshold-free harm-vs-stable ranks:
 - raw-W1 SRD: `0.6570319240724762`;
 - normalized-W1 SRD: `0.6949956859361519`.
 
-The denominator is therefore not the main instability discriminator. Median amplitude-unit SRD was only `0.041867293607276576` for harm versus `0.035764690547654264` for stable controls, while raw-W1 SRD separated more strongly (`0.18650017680358333` vs `0.12271540699230692`).
+Frozen 38-harm counterfactual attribution: raw numerator sufficient `24`, denominator sufficient `4`, either-alone `5`, both required `5`. No denominator-primary failure was established and no alternative amplitude normalization challenger was authorized.
 
-Frozen counterfactual attribution for the 38 harm rows:
-
-- raw numerator change sufficient: `24`;
-- amplitude denominator change sufficient: `4`;
-- either component alone sufficient: `5`;
-- both changes required: `5`.
-
-Thus raw-numerator substitution alone can explain the crossing in `29/38 = 76.3158%` if the five `either` rows are included, while denominator substitution alone can explain only `9/38 = 23.6842%`. Rescue-side raw W1 was lower than the companion in `92.1053%` of harm rows, whereas amplitude-unit direction was mixed.
-
-### Formal contribution / closure
-
-v0.6.42 rules out a denominator-primary explanation strong enough to authorize an alternative parent-scale normalization challenger. `gate_authorized=false`.
-
-**The v0.6.33-v0.6.42 W1 / Range-recovery residual-gating family is closed.** Do not continue by tuning the W1 ceiling, changing amplitude normalization, mining additional gates from the 44 residuals, or combining weak v0.6.39-v0.6.42 diagnostics post hoc.
+**The v0.6.33-v0.6.42 W1 / Range-recovery residual-gating family is closed.**
 
 ## v0.6.43 fresh direction information-class audit — complete
 
-Protocol/result record: `docs/research/TWO_WAVE_DIRECTION_INFORMATION_CLASS_AUDIT_V0643.md`.
+Record: `docs/research/TWO_WAVE_DIRECTION_INFORMATION_CLASS_AUDIT_V0643.md`.
 
-The repository-level inventory separates already-measured information from genuinely new inputs.
+Time/duration is not a fresh class: v0.5.4/v0.5.5 already measure corresponding-leg duration mismatch/ratio, mean-cycle duration and drift-per-cycle-bar, while v0.6.19-v0.6.20 formally investigate duration geometry in qualification.
 
-### Time geometry is not a fresh class
+The audit found one materially distinct causal price input: `native_high_low_envelope_excursion_at_frozen_parent_anchors`. Historical parent-direction work is close-pivot / close-path based; v0.6.17's high/low use was confined to qualification bounds and excluded direction.
 
-Time/duration cannot be reintroduced as a new direction class merely under different algebra:
+v0.6.43 therefore authorized only a read-only threshold-free v0.6.44 attribution.
 
-- v0.5.4 already demoted corresponding-leg duration mismatch to diagnostic-only under the explicit hypothesis that full-cycle period defines scale while phase-leg allocation is diagnostic;
-- v0.5.5 records corresponding-leg duration ratio, mean-cycle duration and drift-per-cycle-bar inside D1 semantic attribution;
-- v0.6.19-v0.6.20 formally decompose and test duration-boundary mechanisms for qualification.
+## v0.6.44 native high/low envelope attribution — route closed
 
-No duration/phase-allocation/drift-per-bar challenger is authorized by v0.6.43.
+Frozen protocol: `docs/research/TWO_WAVE_NATIVE_HIGH_LOW_ENVELOPE_DIRECTION_ATTRIBUTION_V0644_PROTOCOL.md`.  
+Formal workflow run: `34616273360`.  
+Raw formal result commit: `f4128a8ef1aaf6e1f1f205af64a9fef77302d19b`.  
+Result card: `experiments/two_wave_native_high_low_envelope_direction_v0644/RESULT_CARD.md`.  
+Adjudication: `experiments/two_wave_native_high_low_envelope_direction_v0644/ADJUDICATION.json`.
 
-### One distinct causal class remains open
+Controls reproduced exactly: `57,029` filtered, `29,453` raw strict, `1,462` both-v0.6.18-qualified, D1 exact `1,400`, v0.6.25 exact `1,402`.
 
-`native_high_low_envelope_excursion_at_frozen_parent_anchors` is materially distinct from the close-only direction chain.
+Fixed v0.6.25 nonexact-vs-exact rank probabilities:
 
-The data surface contains OHLC and v0.6.17 uses high/low only to form session-aware structural bounds for qualification. By contrast, D1, PAWCT, v0.6.10 close-path descriptors, v0.6.21 Huber and the v0.6.29-v0.6.42 Range/W1 chain all consume close pivots or close paths for parent-direction information.
+- mean anchor outward excursion: `0.5080599144079886`;
+- envelope-adjustment L1: `0.4980266286257727`;
+- envelope-adjustment harmless-view distance: `0.5578340466000951`;
+- mean-anchor-excursion harmless-view delta: `0.4890632429862102`;
+- envelope stability gain: `0.5327983832620067`.
 
-Therefore same-bar high/low excursion at the already-frozen five parent anchors has not yet been formally direction-adjudicated.
+Pooled positive stability-gain fractions were `0.5556348074179743` for exact and `0.55` for nonexact. The nonexact median gain by offset was `+0.009066`, `+0.015500`, `+0.021857`, and `-0.006993`; the broad offset-3 population also had a negative median gain.
 
-This does **not** authorize a classifier. It authorizes only the separately frozen v0.6.44 read-only, threshold-free high/low-envelope attribution.
+### Formal contribution / closure
+
+The high/low field is a source-distinct causal input, but at the frozen anchors it is empirically close to redundant for direction consistency: fixed group ranks remain around `0.5`, stability gain is tiny, and the offset pattern is not coherent.
+
+Final category: `v0644_high_low_envelope_redundant_or_unstable`.
+
+`gate_authorized=false`; `challenger_authorized=false`.
+
+The native frozen-anchor high/low envelope route is closed. Do not fit an excursion cutoff, replace D1 with envelope steps, move anchors, infer intrabar high/low ordering, or combine this diagnostic post hoc with the closed W1/shape/sign residual families.
 
 ## Current research state
 
@@ -286,13 +253,17 @@ There is still **no parent-direction winner**.
 
 - v0.6.18 remains qualification champion.
 - v0.6.25 remains strongest pooled-exact direction contribution.
-- W1 / current Range-recovery residual-gating family is closed.
-- v0.6.43 information-class audit is complete.
-- v0.6.44 native high/low envelope attribution is frozen and authorized as the next read-only diagnostic.
-- no v0.6.44 recognizer challenger, rescue, veto or threshold is authorized.
+- W1 / Range-recovery residual-gating family is closed.
+- duration/time geometry is already covered and may not be repackaged.
+- progress-shape / leg-asymmetry route is closed.
+- sign-topology route is closed.
+- amplitude-normalization route is closed.
+- native frozen-anchor high/low envelope route is closed.
+- the **currently audited price-only parent-direction information-class expansion line is closed after v0.6.44**.
+- **no v0.6.45 challenger is authorized**.
 
-A later challenger may be frozen only if v0.6.44 demonstrates a coherent, non-redundant and harmless-slicing-stable mechanism. High/low may not move the frozen parent anchors, alter v0.6.18 qualification, or infer within-bar event order.
+Further direction work requires a separately frozen information-class audit establishing genuinely new causal information not reducible to the already covered close-anchor migration, close-path shape, close distribution/W1, duration geometry, or native frozen-anchor high/low envelope classes.
 
-`morphology_acceptance=false`
-`trade_authority=false`
+`morphology_acceptance=false`  
+`trade_authority=false`  
 `production_authority=false`
