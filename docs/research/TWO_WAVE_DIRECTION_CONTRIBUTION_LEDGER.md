@@ -1,154 +1,269 @@
 # Two-Wave Parent-Direction Contribution Ledger
 
-Date: 2026-09-10
+Date: 2026-09-11
 Scope: parent `Range / UpTrend / DownTrend / Uncertain` research only.
 
-This ledger separates **whole-component promotion** from **retained scientific contribution**. A rejected direction challenger does not become authority, but verified local contributions must remain available for direct integration into the same recognizer.
+This ledger separates **whole-component promotion** from **retained scientific contribution**. A rejected direction challenger never becomes authority, but verified measurements and mechanisms remain part of the evidence chain. Harmless comparison offsets are diagnostic only and may never become runtime information.
 
-## D1 historical diagnostic
+## Current direction authority snapshot
 
-Retained contribution:
+- qualification champion: **v0.6.18 path-gate demotion**;
+- frozen both-qualified direction universe: **1,462** strict same-financial-identity pairs;
+- historical direction baseline: **D1**;
+- strongest pooled-exact direction contribution: **v0.6.25 absolute-margin erosion-consensus rescue**;
+- parent-direction winner: **unset**;
+- independent morphology acceptance: **false**;
+- trade authority: **false**;
+- production authority: **false**.
 
-- very high cross-slicing exact four-state agreement on the current v0.6.18 both-qualified same-event universe;
-- pooled exact agreement `95.7592%`;
-- when both sides are decisive, decisive-label agreement is `100%` and opposite-trend conflicts are `0`.
+Historical D1 on the 1,462-pair universe:
 
-Limitation:
+- exact four-state agreement: `95.7592%` (`1400/1462`);
+- decisive coverage: `48.9056%`;
+- decisive agreement when both sides are decisive: `100%`;
+- opposite UpTrend/DownTrend conflicts: `0`.
 
-- pooled decisive coverage only `48.9056%`;
-- pooled labels are `724 uptrend / 697 downtrend / 9 range / 1,494 uncertain` across the two sides of 1,462 paired identities;
-- D1 is therefore stable but materially over-abstaining, especially for Range.
-
-D1 remains a historical baseline diagnostic, not morphology truth.
+D1 is stable but materially over-abstaining, especially on Range.
 
 ## D2 endpoint translation — rejected route
 
-Retained contribution:
+Retained contribution: whole-envelope displacement contains direction/state information.
 
-- whole-envelope displacement can convert many D1 uncertain cases into decisive states.
+Failure: formal historical adjudication worsened exact cross-offset consistency on all four harmless 5m offsets.
 
-Failure:
-
-- exact cross-offset label consistency worsened on all four harmless 5m offsets in its formal historical adjudication.
-
-Do not retry endpoint D2 or tune its confidence boundary post hoc.
+Do not retry endpoint D2 or confidence-gate it post hoc.
 
 ## PAWCT — rejected route
 
-Retained contribution:
+Retained contribution: absolute phase-aligned translated-path information is measurable and relevant.
 
-- parent-window/cycle translation information is relevant to direction/state measurement.
+Failure: failed frozen selected-ownership/stability adjudication.
 
-Failure:
+Do not recreate the same absolute phase-grid translation under a new name.
 
-- previously failed the frozen selected-ownership/stability adjudication.
+## v0.6.21-v0.6.23: whole-window Huber and erosion stabilization
 
-Do not retry PAWCT as-is.
+### v0.6.21 whole-window Huber — rejected, information retained
 
-## v0.6.21 whole-window Huber centerline — rejected, contribution retained
+Formal result commit: `4fe8e4d837bcb5d9accb372c0bc754be137ff0a1`.
 
-Protocol: `docs/research/TWO_WAVE_WHOLE_WINDOW_HUBER_DIRECTION_V0621_PROTOCOL.md`
-Result bundle: `experiments/two_wave_whole_window_huber_direction_v0621/`
-Formal result commit: `4fe8e4d837bcb5d9accb372c0bc754be137ff0a1`
-Primary formal run: `34439356292`
-Equivalent cached replay receipt: `34439563376`; scientific replay succeeded and produced no result diff, so its final git-commit step failed only with `nothing added to commit`.
-Formal verdict: `v0621_whole_window_huber_direction_rejected`.
+- exact agreement: `95.0068%`;
+- decisive coverage: `84.2339%`;
+- decisive agreement: `100%`;
+- opposite-trend conflicts: `0`.
 
-Frozen controls reproduced:
+Contribution: full-parent-window robust centerline information greatly increases decisive supply without creating Up-vs-Down contradictions, but wholesale replacement is too slicing-sensitive.
 
-- filtered mutual-unique same-event pairs: `57,029`;
-- raw strict same-event pairs: `29,453`;
-- both-v0.6.18-qualified direction pairs: `1,462`.
+### v0.6.22 D1-primary Huber rescue — rejected, integration pattern retained
 
-### Whole-component result
+Formal result commit: `89126f20a17be5e8b64c296cff4a5795efb371c4`.
 
-| Metric | D1 | v0.6.21 Huber |
-|---|---:|---:|
-| pooled exact four-state agreement | 95.7592% | 95.0068% |
-| pooled decisive coverage | 48.9056% | 84.2339% |
-| decisive agreement when both decisive | 100% | 100% |
-| opposite UpTrend/DownTrend conflict | 0 | 0 |
+- exact agreement: `94.7332%`;
+- decisive coverage: `85.8413%`;
+- decisive agreement: `99.9178%`;
+- D1 decisive overrides: `0`.
 
-Per-offset Huber exact-agreement delta versus D1:
+Contribution: D1-primary rescue is structurally viable, but unconditional rescue is too permissive.
 
-- offset1: `-2.00 pp`;
-- offset2: `0.00 pp`;
-- offset3: `-1.66 pp`;
-- offset4: `+0.42 pp`.
+### v0.6.23 endpoint-erosion unanimity rescue — rejected, stabilization retained
 
-### Retained contribution
+Formal result commit: `a8ca442ccb7482164c2dd3cdeee8b8640ea40957`.
 
-1. Huber raises pooled decisive coverage by **+35.33 pp** (`48.91% -> 84.23%`).
-2. Huber introduces a meaningful Range population: pooled Range labels `9 -> 254`.
-3. Conditional on both harmless views being decisive, Huber's label agreement is **100%**.
-4. It creates **zero** UpTrend-vs-DownTrend cross-view conflicts.
-5. Therefore its cross-view non-exact pairs are uncertainty-boundary disagreements, not contradictions among two decisive state labels.
+- exact agreement: `95.5540%`;
+- decisive coverage: `78.5568%`;
+- decisive agreement: `100%`;
+- opposite-trend conflicts: `0`.
 
-Interpretation: whole-parent-window centerline information is useful but should not replace D1 wholesale.
+Contribution: fixed endpoint-support unanimity materially improves rescue stability, but offset-specific regressions remain.
 
-## v0.6.22 D1-primary Huber rescue — rejected, contribution retained
+## v0.6.24-v0.6.28: rescue-boundary attribution and strongest contribution
 
-Protocol: `docs/research/TWO_WAVE_D1_HUBER_RESCUE_DIRECTION_V0622_PROTOCOL.md`
-Result bundle: `experiments/two_wave_d1_huber_rescue_direction_v0622/`
-Formal result commit: `89126f20a17be5e8b64c296cff4a5795efb371c4`
-Formal workflow run: `34440036520`
-Formal verdict: `v0622_D1_primary_Huber_rescue_direction_rejected`.
+v0.6.24 localized v0.6.23's remaining harm to one-sided rescue among pairs where D1 was uncertain on both harmless views.
 
-The candidate preserved every D1 decisive output and used v0.6.21 Huber only when D1 was `Uncertain`.
+### v0.6.25 absolute-margin erosion-consensus rescue — strongest contribution, not winner
 
-| Metric | D1 | v0.6.22 rescue |
-|---|---:|---:|
-| pooled exact four-state agreement | 95.7592% | 94.7332% |
-| pooled decisive coverage | 48.9056% | 85.8413% |
-| decisive agreement when both decisive | 100% | 99.9178% |
-| opposite UpTrend/DownTrend conflict | 0 | 0 |
+This remains the strongest pooled-exact direction contribution:
 
-Additional audit:
+- exact agreement: `1402/1462 = 0.9589603283173734`;
+- decisive coverage: `70.8618%`;
+- decisive agreement: `100%`;
+- opposite-trend conflicts: `0`;
+- Range decisive share: about `1.06%`.
 
-- D1 decisive overrides: **0**;
-- D1-Uncertain records rescued: **3,737**;
-- rescued labels: `1,592 uptrend / 1,431 downtrend / 714 range`;
-- per-offset exact-agreement deltas were `-3.00 / 0.00 / -0.99 / 0.00 pp` for offsets 1-4.
+It is **not** a direction winner because harmless-offset non-regression was not achieved and Range supply is too small.
 
-### Retained contribution
+v0.6.26 showed that the common absolute margin is state-asymmetric. v0.6.27 restored Range supply using a smaller Range margin but exact consistency deteriorated. v0.6.28 found no valid support-dispersion threshold authorization.
 
-v0.6.22 proves the whole-window signal can be integrated without destroying D1's existing decisive outputs. Coverage rises by **+36.94 pp**, decisive agreement remains above **99.9%**, and opposite-trend conflicts remain zero. The remaining failure sits at the rescue/abstention boundary.
+Do not retune v0.6.25/v0.6.27 margins from these residuals.
 
-## v0.6.23 D1-primary endpoint-erosion-consensus Huber rescue — rejected, contribution retained
+## v0.6.29-v0.6.32: direct Range evidence — useful but insufficient
 
-Protocol: `docs/research/TWO_WAVE_D1_HUBER_EROSION_CONSENSUS_V0623_PROTOCOL.md`  
-Result bundle: `experiments/two_wave_d1_huber_erosion_consensus_v0623/`  
-Formal result commit: `a8ca442ccb7482164c2dd3cdeee8b8640ea40957`  
-Formal workflow run: `34442468065`  
-Formal verdict: `v0623_D1_primary_erosion_consensus_Huber_rescue_direction_rejected`.
+- v0.6.29 cycle-IQR overlap supplied meaningful Range evidence but was too permissive alone.
+- v0.6.30 intersected Range margin and IQR overlap; supply fell without preferentially removing one-sided instability.
+- v0.6.31 mutual-median containment added Range-like evidence but remained slicing-sensitive.
+- v0.6.32 showed containment slack does not separate harm from repair; no slack tuning is authorized.
 
-This candidate preserved D1 and required the frozen v0.6.21 Huber state to be unanimous across full support plus fixed left/right/both one-bar endpoint erosions before rescuing D1 `Uncertain`.
+Contribution: central-location and overlap evidence are real Range measurements, but stacking nearby gates does not solve harmless-slicing instability.
 
-| Metric | D1 | v0.6.22 | v0.6.23 |
-|---|---:|---:|---:|
-| pooled exact four-state agreement | 95.7592% | 94.7332% | **95.5540%** |
-| pooled decisive coverage | 48.9056% | 85.8413% | **78.5568%** |
-| decisive agreement | 100% | 99.9178% | **100%** |
-| opposite Up/Down conflicts | 0 | 0 | **0** |
+## v0.6.33-v0.6.38: two-cycle location/distribution and W1 family
 
-v0.6.23 rescued `3,055` D1-Uncertain records and withheld `2,289` because the fixed support views did not reach unanimous decisive state. D1 decisive overrides remained exactly `0`.
+### v0.6.33 median-shift Range — rejected
 
-Per-offset exact agreement versus D1:
+- new Range rescues: `1,119`;
+- exact fell from v0.6.25 `95.8960%` to `91.8605%`;
+- all four offsets regressed.
 
-- offset1: `95.50% -> 93.25%` (`-2.25 pp`);
-- offset2: `94.77% -> 96.17%` (`+1.39 pp`);
-- offset3: `96.36% -> 95.70%` (`-0.66 pp`);
-- offset4: `96.19% -> 97.04%` (`+0.85 pp`).
+Contribution: two-cycle robust location shift is a strong Range-supply signal but far too broad.
 
-### Retained contribution
+### v0.6.34 median-shift + IQR intersection — rejected
 
-Endpoint-erosion unanimity materially repairs the unconditional-rescue instability: compared with v0.6.22, pooled exact agreement rises from `94.7332%` to `95.5540%`, leaving only a **0.2052 pp** gap to D1, while still retaining a **+29.65 pp** decisive-coverage gain over D1. Decisive agreement returns to **100%** and opposite-trend conflicts remain zero.
+Formal workflow run: `34599957160`.
 
-The failure is now asymmetric rather than broad: offsets 2 and 4 improve beyond D1, while offsets 1 and 3 regress. Therefore the next work must not widen erosion or tune Huber thresholds. It must first decompose v0.6.23 pair-level repairs versus harms and determine whether residual harm is concentrated in **one-sided rescue topology**, label family, or support-state instability that can be observed causally inside one view.
+- new Range rescues: `1,077`;
+- exact: `91.9289%`;
+- decisive agreement: `99.21%`;
+- all four offsets regressed.
 
-This decomposition is diagnostic evidence for direct recognizer improvement, not a new judge.
+Contribution: median shift and central-IQR overlap are largely redundant at their frozen thresholds.
 
-No direction winner exists yet. D1 remains the historical stability baseline; v0.6.18 remains the qualification-policy champion.
+### v0.6.35 complete-distribution W1 — rejected, measurement retained
+
+Formal result commit: `1ba5073373ac9ee925311a8de4d16bff2a1432dc`.
+
+- new Range rescues: `725`;
+- exact: `1363/1462 = 93.2285%`;
+- topology: `93 both / 26 main-only / 24 other-only / 1319 none`.
+
+Contribution: complete-distribution distance is more selective than location/IQR gates but still creates too many one-sided rescues.
+
+### v0.6.36 W1 residual attribution — nearby threshold tuning forbidden
+
+Formal result commit: `4a2b2eb066326fc195128b56850130e20537907c`.
+
+Among 50 one-sided v0.6.35 changes:
+
+- introduced harm: `43`;
+- repaired old non-exact: `4`;
+- persistent non-exact: `3`.
+
+Only four repairs existed, so the apparent clustering near the `0.15` ceiling cannot authorize `0.15 -> 0.12` or other nearby tuning.
+
+### v0.6.37 phase-balanced W1 — rejected, measurement improvement retained
+
+Formal workflow run: `34602526496`.
+Formal result commit: `434b52aca4b84c84ec5ce46f0d561e7cbdefa187`.
+
+The only measurement change was probability weighting: each complete cycle's first and second legs each carry exactly 50% mass.
+
+- new Range rescues: `621`;
+- exact: `1370/1462 = 93.7073%`;
+- decisive agreement: `100%`;
+- topology: `61 both / 23 main-only / 21 other-only / 1357 none`;
+- all four offsets still regressed versus v0.6.25.
+
+Contribution: phase balancing removes some duration-proportional sampling instability but does not make W1 a valid Range challenger.
+
+### v0.6.38 phase-balance residual attribution — no weighting-consensus gate
+
+Formal workflow run: `34603190318`.
+Formal result commit: `3e2dc902cb29985bbb9b31e2b6232b3ba3041b76`.
+
+Relative to v0.6.35:
+
+- old non-exact repaired: `31`;
+- old exact harmed: `24`;
+- net exact improvement: `+7`.
+
+Remaining v0.6.37 one-sided residuals versus v0.6.25:
+
+- introduced harm: `38`;
+- repaired old non-exact: `6`.
+
+Shared v0.6.35+v0.6.37 rescues were `28 harm / 4 repair`; phase-balanced-only rescues `10 harm / 2 repair`. No simple bar-equal AND phase-balanced consensus gate is authorized.
+
+## v0.6.39-v0.6.41: residual-shape and sign-topology routes closed
+
+### v0.6.39 order-sensitive progress shape — clue only
+
+On the 44 one-sided residuals:
+
+- strongest descriptor: `first_leg_progress_l1`;
+- tie-aware `P(harm > repair) = 0.7478070175438597`;
+- only six repair rows.
+
+Contribution: first-leg progress shape contains a local clue; no numeric shape gate is authorized.
+
+### v0.6.40 leg-asymmetry + harmless-slicing stability — route closed
+
+Using 61 stable both-rescue controls plus 44 one-sided residuals:
+
+- harm rescue `A_L1` vs stable rank: about `0.5336`;
+- harm `|delta A_L1|` vs stable rank: about `0.5216`.
+
+Conclusion: first-vs-second-leg asymmetry does not generalize. Do not promote `A=0`, equality logic, or fitted shape thresholds.
+
+### v0.6.41 cycle-drift sign topology — route closed
+
+Formal workflow run: `34608353257`.
+Formal result commit: `5c92809f7606519d03b83426671c7772b7a9a639`.
+
+Harm-minus-stable primary differences:
+
+- same-direction cycle drift: `+0.06125970664365832`;
+- all-three same direction: `+0.02804141501294219`;
+- cycle-relation flip: `+0.016824849007765305`;
+- all-three flip: `+0.02976704055220017`.
+
+Conclusion: effects are small and incoherent as a separating mechanism. No sign-topology structural veto is authorized.
+
+## v0.6.42 amplitude-normalization stability — W1 / Range-recovery family closed
+
+Formal workflow run: `34612200264`.
+Formal result commit: `ce97db4b347ef55ea648a7a9d476c364ac12a298`.
+Formal attribution: `v0642_amplitude_normalization_stability_attribution_complete_no_gate_authorized`.
+
+The frozen controls reproduced exactly:
+
+- filtered pairs: `57,029`;
+- raw strict pairs: `29,453`;
+- both-v0.6.18-qualified pairs: `1,462`;
+- v0.6.37 topology: `61 both / 23 main-only / 21 other-only / 1357 none`;
+- diagnostic universe: `61` stable both-rescue + `38` harm + `6` repair.
+
+Threshold-free harm-vs-stable ranks:
+
+- amplitude-unit SRD: `0.547886108714409`;
+- cycle-amplitude-imbalance SRD: `0.5599654874892148`;
+- raw-W1 SRD: `0.6570319240724762`;
+- normalized-W1 SRD: `0.6949956859361519`.
+
+The denominator is therefore not the main instability discriminator. Median amplitude-unit SRD was only `0.041867293607276576` for harm versus `0.035764690547654264` for stable controls, while raw-W1 SRD separated more strongly (`0.18650017680358333` vs `0.12271540699230692`).
+
+Frozen counterfactual attribution for the 38 harm rows:
+
+- raw numerator change sufficient: `24`;
+- amplitude denominator change sufficient: `4`;
+- either component alone sufficient: `5`;
+- both changes required: `5`.
+
+Thus raw-numerator substitution alone can explain the crossing in `29/38 = 76.3158%` if the five `either` rows are included, while denominator substitution alone can explain only `9/38 = 23.6842%`. Rescue-side raw W1 was lower than the companion in `92.1053%` of harm rows, whereas amplitude-unit direction was mixed.
+
+### Formal contribution / closure
+
+v0.6.42 rules out a denominator-primary explanation strong enough to authorize an alternative parent-scale normalization challenger. `gate_authorized=false`.
+
+**The v0.6.33-v0.6.42 W1 / Range-recovery residual-gating family is closed.** Do not continue by tuning the W1 ceiling, changing amplitude normalization, mining additional gates from the 44 residuals, or combining weak v0.6.39-v0.6.42 diagnostics post hoc.
+
+## Current research state
+
+There is still **no parent-direction winner**.
+
+- v0.6.18 remains qualification champion.
+- v0.6.25 remains strongest pooled-exact direction contribution.
+- W1 / current Range-recovery residual-gating family is closed.
+- no v0.6.43 recognizer challenger is authorized.
+
+The next authorized work is a **fresh read-only direction information-class audit** across existing code, protocols and evidence. A future challenger may be frozen only if that audit identifies a genuinely unmeasured causal morphology information class distinct from D2, PAWCT, scalar path descriptors, Huber/erosion evidence, location/IQR/containment, W1 weighting/normalization, normalized progress shape, leg asymmetry and sign topology.
 
 `morphology_acceptance=false`
 `trade_authority=false`
