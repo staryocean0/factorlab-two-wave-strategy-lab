@@ -19,15 +19,33 @@ from factor_lab.visual_structure.two_wave.validation_resample_v0647 import (
 )
 
 
+def _jsonable(value):
+    if isinstance(value, pd.Timestamp):
+        return value.isoformat()
+    if pd.isna(value):
+        return None
+    if hasattr(value, "item"):
+        try:
+            return value.item()
+        except Exception:
+            pass
+    return str(value) if not isinstance(value, (str, int, float, bool, type(None))) else value
+
+
+def frame_rows(frame: pd.DataFrame, mask, columns: list[str]) -> list[dict]:
+    rows = []
+    for rec in frame.loc[mask, columns].to_dict("records"):
+        rows.append({k: _jsonable(v) for k, v in rec.items()})
+    return rows
+
+
 def source_context(one: pd.DataFrame, timestamp: str | None) -> list[dict]:
     if not timestamp:
         return []
     target = pd.Timestamp(timestamp)
     stamp = pd.to_datetime(one["timestamp"], utc=True, errors="raise")
     mask = (stamp >= target - pd.Timedelta(minutes=8)) & (stamp <= target + pd.Timedelta(minutes=2))
-    rows = one.loc[mask, ["timestamp", "open", "high", "low", "close"]].copy()
-    rows["timestamp"] = pd.to_datetime(rows["timestamp"], utc=True).astype(str)
-    return rows.to_dict("records")
+    return frame_rows(one, mask, list(one.columns))
 
 
 def timestamp_set_delta(candidate: pd.DataFrame, reference: pd.DataFrame) -> dict:
@@ -43,6 +61,10 @@ def timestamp_set_delta(candidate: pd.DataFrame, reference: pd.DataFrame) -> dic
     }
 
 
+def first_day_metadata(frame: pd.DataFrame, n: int = 8) -> list[dict]:
+    return frame_rows(frame, frame.index.isin(frame.index[:n]), list(frame.columns))
+
+
 def main() -> None:
     p = argparse.ArgumentParser()
     p.add_argument("--output", type=Path, required=True)
@@ -50,6 +72,12 @@ def main() -> None:
     args.output.mkdir(parents=True, exist_ok=True)
 
     one = pd.read_parquet(ROOT / "data/development/1m_official.parquet")
+    print(json.dumps({
+        "development_1m_columns": list(one.columns),
+        "development_1m_dtypes": {k: str(v) for k, v in one.dtypes.items()},
+        "development_1m_first_rows_full_metadata": first_day_metadata(one),
+    }, ensure_ascii=False, sort_keys=True), flush=True)
+
     results = {}
     all_exact = True
     for offset, view in enumerate(VIEWS):
@@ -62,19 +90,9 @@ def main() -> None:
             if isinstance(mismatch.get("reference"), dict):
                 ts = mismatch["reference"].get("timestamp")
             result["timestamp_set_delta"] = timestamp_set_delta(candidate, ref)
-            result["source_context"] = source_context(one, ts)
-            result["reference_head"] = (
-                ref.loc[:, ["timestamp", "open", "high", "low", "close"]]
-                .head(3)
-                .assign(timestamp=lambda x: pd.to_datetime(x["timestamp"], utc=True).astype(str))
-                .to_dict("records")
-            )
-            result["candidate_head"] = (
-                candidate.loc[:, ["timestamp", "open", "high", "low", "close"]]
-                .head(3)
-                .assign(timestamp=lambda x: pd.to_datetime(x["timestamp"], utc=True).astype(str))
-                .to_dict("records")
-            )
+            result["source_context_full_metadata"] = source_context(one, ts)
+            result["reference_columns"] = list(ref.columns)
+            result["reference_first_rows_full_metadata"] = first_day_metadata(ref, 3)
         results[view] = result
         all_exact = all_exact and bool(result["exact"])
         print(json.dumps({"view": view, **result}, ensure_ascii=False, sort_keys=True), flush=True)
