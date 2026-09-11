@@ -16,6 +16,7 @@ sys.path.insert(0, str(ROOT / "src"))
 from factor_lab.visual_structure.two_wave.cycle_drift_sign_topology_v0641 import (
     categorical_summary,
     cycle_drift_topology,
+    reconstruct_phase_steps,
     true_rate,
 )
 from factor_lab.visual_structure.two_wave.data import load_development_bars
@@ -47,8 +48,10 @@ EXPECTED_ORIGIN = {
 }
 
 
-def side_topology(record: dict) -> dict:
-    return cycle_drift_topology(record["phase_steps_in_amplitude_units"])
+def side_topology(closes: list[float], record: dict) -> dict:
+    """Use published pivots and the exact frozen D1 phase-step formula."""
+    steps = reconstruct_phase_steps(closes, record["published_raw_occurrence_bars"])
+    return cycle_drift_topology(steps)
 
 
 def bool_fraction(rows: list[dict], field: str) -> float:
@@ -88,6 +91,8 @@ def write_card(path: Path, result: dict) -> None:
         "",
         "No classifier or magnitude threshold was changed. All quantities use only strict sign topology around structural zero.",
         "",
+        "The frozen v0.6.18 replay records omit the derived phase-step field, so the formal replay reconstructs it exactly from the already-published five pivot bars and the frozen D1 amplitude formula. No pivot is redetected.",
+        "",
         "| quantity | stable both-rescue | harm one-sided | repair one-sided |",
         "|---|---:|---:|---:|",
         f"| same-direction cycle drift | {stable['side_same_direction_rate']:.4f} | {harm['rescue_side']['cycle_drift_relation']['rates'].get('same_direction', 0.0):.4f} | {repair['rescue_side']['cycle_drift_relation']['rates'].get('same_direction', 0.0):.4f} |",
@@ -117,7 +122,9 @@ def main() -> None:
         filtered[view] = load_gz(find_one(args.input, f"filtered-{view}.json.gz"))
         records[view] = load_gz(find_one(args.input, f"records-{view}.json.gz"))
         maps[view] = {fkey(r): r for r in records[view]}
-        bars[view], _ = load_development_bars(ROOT / f"data/development/{view}.parquet", ROOT / "data/manifest.json")
+        bars[view], _ = load_development_bars(
+            ROOT / f"data/development/{view}.parquet", ROOT / "data/manifest.json"
+        )
         closes[view] = [float(x["close"]) for x in bars[view]]
         states35[view], states37[view] = {}, {}
         for row in records[view]:
@@ -138,8 +145,11 @@ def main() -> None:
 
     for view in VIEWS[1:]:
         graph = build_edge_graph(
-            filtered[main_view], filtered[view], time_field="five_filtered_occurrence_times",
-            nominal_bar_minutes=5.0, require_phase=True,
+            filtered[main_view],
+            filtered[view],
+            time_field="five_filtered_occurrence_times",
+            nominal_bar_minutes=5.0,
+            require_phase=True,
         )
         fp = list(graph.mutual_unique_matches)
         assert len(fp) == EXPECTED_FILTERED[view]
@@ -165,16 +175,19 @@ def main() -> None:
             topology_counts[topo] += 1
 
             if topo == "both":
-                mt, ot = side_topology(a), side_topology(b)
-                stable_rows.append({
-                    "offset_pair": view,
-                    "main_cycle_drift_relation": mt["cycle_drift_relation"],
-                    "other_cycle_drift_relation": ot["cycle_drift_relation"],
-                    "main_all_three_same_direction": mt["all_three_same_direction"],
-                    "other_all_three_same_direction": ot["all_three_same_direction"],
-                    "cycle_relation_flipped": mt["cycle_drift_relation"] != ot["cycle_drift_relation"],
-                    "all_three_flipped": mt["all_three_same_direction"] != ot["all_three_same_direction"],
-                })
+                mt = side_topology(closes[main_view], a)
+                ot = side_topology(closes[view], b)
+                stable_rows.append(
+                    {
+                        "offset_pair": view,
+                        "main_cycle_drift_relation": mt["cycle_drift_relation"],
+                        "other_cycle_drift_relation": ot["cycle_drift_relation"],
+                        "main_all_three_same_direction": mt["all_three_same_direction"],
+                        "other_all_three_same_direction": ot["all_three_same_direction"],
+                        "cycle_relation_flipped": mt["cycle_drift_relation"] != ot["cycle_drift_relation"],
+                        "all_three_flipped": mt["all_three_same_direction"] != ot["all_three_same_direction"],
+                    }
+                )
                 continue
             if topo not in {"main_only", "other_only"}:
                 continue
@@ -183,30 +196,45 @@ def main() -> None:
             semantic_counts[sem] += 1
             if lc:
                 rescue_record, nonrescue_record = a, b
-                old_label, plain_label, balanced_label = a37["v0625"], a35["v0635"], a37["v0637"]
+                rescue_view, nonrescue_view = main_view, view
+                old_label, plain_label, balanced_label = (
+                    a37["v0625"], a35["v0635"], a37["v0637"]
+                )
                 rescue_side = "main"
             else:
                 rescue_record, nonrescue_record = b, a
-                old_label, plain_label, balanced_label = b37["v0625"], b35["v0635"], b37["v0637"]
+                rescue_view, nonrescue_view = view, main_view
+                old_label, plain_label, balanced_label = (
+                    b37["v0625"], b35["v0635"], b37["v0637"]
+                )
                 rescue_side = "other"
+
             origin = rescue_origin(old_label, plain_label, balanced_label)
             origin_counts[origin] += 1
-            rt, nt = side_topology(rescue_record), side_topology(nonrescue_record)
-            one_rows.append({
-                "offset_pair": view,
-                "topology": topo,
-                "semantic_class": sem,
-                "rescue_origin": origin,
-                "rescue_side": rescue_side,
-                "rescue_cycle_drift_relation": rt["cycle_drift_relation"],
-                "nonrescue_cycle_drift_relation": nt["cycle_drift_relation"],
-                "rescue_all_three_same_direction": rt["all_three_same_direction"],
-                "nonrescue_all_three_same_direction": nt["all_three_same_direction"],
-                "cycle_relation_flipped": rt["cycle_drift_relation"] != nt["cycle_drift_relation"],
-                "all_three_flipped": rt["all_three_same_direction"] != nt["all_three_same_direction"],
-                "rescue_same_nonrescue_not": rt["cycle_drift_relation"] == "same_direction" and nt["cycle_drift_relation"] != "same_direction",
-                "rescue_all_three_nonrescue_not": bool(rt["all_three_same_direction"] and not nt["all_three_same_direction"]),
-            })
+            rt = side_topology(closes[rescue_view], rescue_record)
+            nt = side_topology(closes[nonrescue_view], nonrescue_record)
+            one_rows.append(
+                {
+                    "offset_pair": view,
+                    "topology": topo,
+                    "semantic_class": sem,
+                    "rescue_origin": origin,
+                    "rescue_side": rescue_side,
+                    "rescue_cycle_drift_relation": rt["cycle_drift_relation"],
+                    "nonrescue_cycle_drift_relation": nt["cycle_drift_relation"],
+                    "rescue_all_three_same_direction": rt["all_three_same_direction"],
+                    "nonrescue_all_three_same_direction": nt["all_three_same_direction"],
+                    "cycle_relation_flipped": rt["cycle_drift_relation"] != nt["cycle_drift_relation"],
+                    "all_three_flipped": rt["all_three_same_direction"] != nt["all_three_same_direction"],
+                    "rescue_same_nonrescue_not": (
+                        rt["cycle_drift_relation"] == "same_direction"
+                        and nt["cycle_drift_relation"] != "same_direction"
+                    ),
+                    "rescue_all_three_nonrescue_not": bool(
+                        rt["all_three_same_direction"] and not nt["all_three_same_direction"]
+                    ),
+                }
+            )
 
     assert total == EXPECTED_BOTHQ
     assert dict(topology_counts) == EXPECTED_TOPOLOGY
@@ -215,18 +243,31 @@ def main() -> None:
     assert dict(origin_counts) == EXPECTED_ORIGIN
 
     stable_sides = []
-    for r in stable_rows:
-        stable_sides.extend([
-            {"cycle_drift_relation": r["main_cycle_drift_relation"], "all_three_same_direction": r["main_all_three_same_direction"]},
-            {"cycle_drift_relation": r["other_cycle_drift_relation"], "all_three_same_direction": r["other_all_three_same_direction"]},
-        ])
-    stable_same = true_rate([r["cycle_drift_relation"] == "same_direction" for r in stable_sides])
+    for row in stable_rows:
+        stable_sides.extend(
+            [
+                {
+                    "cycle_drift_relation": row["main_cycle_drift_relation"],
+                    "all_three_same_direction": row["main_all_three_same_direction"],
+                },
+                {
+                    "cycle_drift_relation": row["other_cycle_drift_relation"],
+                    "all_three_same_direction": row["other_all_three_same_direction"],
+                },
+            ]
+        )
+
+    stable_same = true_rate(
+        [r["cycle_drift_relation"] == "same_direction" for r in stable_sides]
+    )
     stable_all3 = true_rate([r["all_three_same_direction"] for r in stable_sides])
     stable_relation_flip = bool_fraction(stable_rows, "cycle_relation_flipped")
     stable_all3_flip = bool_fraction(stable_rows, "all_three_flipped")
     stable_summary = {
         "side_count": len(stable_sides),
-        "side_cycle_drift_relation": categorical_summary([r["cycle_drift_relation"] for r in stable_sides]),
+        "side_cycle_drift_relation": categorical_summary(
+            [r["cycle_drift_relation"] for r in stable_sides]
+        ),
         "side_same_direction_rate": stable_same,
         "side_all_three_same_direction_rate": stable_all3,
         "cycle_relation_flip_rate": stable_relation_flip,
@@ -234,19 +275,26 @@ def main() -> None:
     }
 
     by_sem, by_origin = defaultdict(list), defaultdict(list)
-    for r in one_rows:
-        by_sem[r["semantic_class"]].append(r)
-        by_origin[r["rescue_origin"]].append(r)
+    for row in one_rows:
+        by_sem[row["semantic_class"]].append(row)
+        by_origin[row["rescue_origin"]].append(row)
     sem_summary = {k: one_group_summary(v) for k, v in by_sem.items()}
     origin_summary = {k: one_group_summary(v) for k, v in by_origin.items()}
+
     harm = sem_summary["introduced_harm"]
-    harm_same = harm["rescue_side"]["cycle_drift_relation"]["rates"].get("same_direction", 0.0)
+    harm_same = harm["rescue_side"]["cycle_drift_relation"]["rates"].get(
+        "same_direction", 0.0
+    )
     harm_all3 = harm["rescue_side"]["all_three_same_direction_rate"]
     primary = {
         "harm_rescue_same_direction_minus_stable": float(harm_same - stable_same),
         "harm_rescue_all_three_minus_stable": float(harm_all3 - stable_all3),
-        "harm_cycle_relation_flip_minus_stable": float(harm["cycle_relation_flip_rate"] - stable_relation_flip),
-        "harm_all_three_flip_minus_stable": float(harm["all_three_flip_rate"] - stable_all3_flip),
+        "harm_cycle_relation_flip_minus_stable": float(
+            harm["cycle_relation_flip_rate"] - stable_relation_flip
+        ),
+        "harm_all_three_flip_minus_stable": float(
+            harm["all_three_flip_rate"] - stable_all3_flip
+        ),
     }
 
     result = {
@@ -257,6 +305,7 @@ def main() -> None:
             "raw_strict_pairs": 29453,
             "both_v0618_qualified_pairs": total,
             "v0637_pair_change_topology": dict(topology_counts),
+            "phase_step_source": "reconstructed_exactly_from_published_raw_occurrence_bars_using_frozen_D1_formula",
             "reproduced": True,
         },
         "diagnostic_pairs": 105,
@@ -277,7 +326,10 @@ def main() -> None:
         "trade_authority": False,
         "production_authority": False,
     }
-    (args.output / "summary.json").write_text(json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True) + "\n")
+
+    (args.output / "summary.json").write_text(
+        json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+    )
     write_card(args.output / "RESULT_CARD.md", result)
     with gzip.open(args.output / "stable_both_rows.jsonl.gz", "wt", encoding="utf-8") as fh:
         for row in stable_rows:
