@@ -1,0 +1,39 @@
+{
+  "schema": "two_wave_native_open_body_gap_direction_adjudication@0.6.46",
+  "date": "2026-09-11",
+  "workflow_run": 34618326900,
+  "raw_result_commit": "c71e9612a8dbc09aeefef5f85f2c208cdac60b8d",
+  "protocol": "docs/research/TWO_WAVE_NATIVE_OPEN_BODY_GAP_DIRECTION_ATTRIBUTION_V0646_PROTOCOL.md",
+  "interpretation_category": "v0646_native_open_body_gap_redundant_or_unstable",
+  "category_rule": "A_first_applicable",
+  "controls_reproduced": true,
+  "v0625_threshold_free_rank_probabilities": {
+    "nonexact_mean_abs_anchor_body_gt_exact": 0.4789586305278174,
+    "nonexact_abs_mean_oriented_anchor_body_gt_exact": 0.4865905848787446,
+    "nonexact_mean_abs_anchor_gap_gt_exact": 0.5508559201141227,
+    "nonexact_open_adjustment_view_distance_l1_gt_exact": 0.5259153590109368,
+    "nonexact_open_stability_gain_l1_gt_exact": 0.5489895387541607
+  },
+  "all_five_primary_ranks_within_0_40_0_60": true,
+  "v0625_nonexact_open_stability_gain_medians_by_offset": {
+    "5m_offset_1": -0.03753271341579051,
+    "5m_offset_2": -0.008874694440202807,
+    "5m_offset_3": -0.060062886026750174,
+    "5m_offset_4": -0.04717112905394007
+  },
+  "positive_nonexact_offset_median_count": 0,
+  "open_stability_gain_positive_fraction": {
+    "v0625_exact": 0.26105563480741795,
+    "v0625_nonexact": 0.2833333333333333
+  },
+  "scientific_conclusion": "native open/body/gap is a causally distinct observed price input but does not separate v0.6.25 exact from nonexact pairs and open-anchor phase migration is less harmless-slicing-stable than close-anchor migration across all four offsets",
+  "gate_authorized": false,
+  "challenger_authorized": false,
+  "native_open_route_closed": true,
+  "recognizer_changed": false,
+  "qualification_changed": false,
+  "direction_winner_changed": false,
+  "morphology_acceptance": false,
+  "trade_authority": false,
+  "production_authority": false
+}
