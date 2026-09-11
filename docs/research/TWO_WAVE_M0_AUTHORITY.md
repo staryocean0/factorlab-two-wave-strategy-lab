@@ -19,7 +19,7 @@ A component-level win never upgrades the whole recognizer. Rejected challengers 
 
 ## Frozen direction evaluation universe
 
-All current direction work uses the same strict same-financial-identity universe derived from the frozen v0.6.18 artifacts:
+All current Development direction work uses the same strict same-financial-identity universe derived from the frozen v0.6.18 artifacts:
 
 - filtered mutual-unique same-event pairs: `57,029`;
 - published raw strict pairs: `29,453`;
@@ -36,7 +36,7 @@ Historical D1 on this universe:
 
 ## Current best direction contribution: v0.6.25
 
-v0.6.25 remains the strongest pooled-exact contribution:
+v0.6.25 remains the strongest pooled-exact Development contribution:
 
 - exact agreement: `1402/1462 = 0.9589603283173734`;
 - pooled decisive coverage: `0.7086183310533516`;
@@ -168,23 +168,9 @@ The five pre-frozen v0.6.25 nonexact-vs-exact rank probabilities were:
 
 All five lie inside the pre-frozen `[0.40, 0.60]` redundancy band.
 
-More importantly, replacing close-anchor phase migration with open-anchor migration made harmless-slicing stability **worse**, not better. Pooled median `open_stability_gain_l1 = close_view_distance - open_view_distance` was:
+Replacing close-anchor phase migration with open-anchor migration made harmless-slicing stability **worse**, not better. Pooled median `open_stability_gain_l1 = close_view_distance - open_view_distance` was `-0.04552300088588504` for v0.6.25-exact and `-0.03228363345938465` for v0.6.25-nonexact pairs. The nonexact median was negative on all four harmless offsets: `-0.03753271341579051`, `-0.008874694440202807`, `-0.060062886026750174`, `-0.04717112905394007`.
 
-- v0.6.25 exact: `-0.04552300088588504`;
-- v0.6.25 nonexact: `-0.03228363345938465`.
-
-Positive-gain incidence was only `0.26105563480741795` exact and `0.2833333333333333` nonexact. The nonexact median was negative on all four harmless offsets:
-
-- offset 1: `-0.03753271341579051`;
-- offset 2: `-0.008874694440202807`;
-- offset 3: `-0.060062886026750174`;
-- offset 4: `-0.04717112905394007`.
-
-By the pre-frozen A -> B -> C interpretation order, the formal category is:
-
-`v0646_native_open_body_gap_redundant_or_unstable`
-
-Interpretation: native open/body/gap is causally source-distinct, but it neither separates the existing v0.6.25 inconsistency nor improves harmless-slicing stability. The native-open route is closed.
+Final category: `v0646_native_open_body_gap_redundant_or_unstable`.
 
 `gate_authorized=false`  
 `challenger_authorized=false`  
@@ -192,10 +178,60 @@ Interpretation: native open/body/gap is causally source-distinct, but it neither
 `qualification_changed=false`  
 `direction_winner_changed=false`
 
+## v0.6.47: independent temporal morphology replication — complete; original v0.6.25 gates do not replicate
+
+Frozen protocol: `docs/research/TWO_WAVE_INDEPENDENT_TEMPORAL_MORPHOLOGY_REPLICATION_V0647_PROTOCOL.md`.  
+Development five-offset resampler precheck run: `34623300582`.  
+Formal replication workflow run: `34624208758`.  
+Formal result commit: `1e783f9`.  
+Result card: `experiments/two_wave_independent_temporal_replication_v0647/RESULT_CARD.md`.  
+Summary: `experiments/two_wave_independent_temporal_replication_v0647/summary.json`.
+
+Before any post-2020 morphology score was permitted, the frozen 1m->five-offset constructor reproduced every 2015-2020 Development 5m file exactly on timestamp and O/H/L/C: `70,114`, `67,192`, `67,192`, `67,193`, `67,191` rows respectively. The same constructor then reproduced the independent external 2024 and 2025 native offset-0 files exactly: `11,616/11,616` and `11,664/11,664`, with zero O/H/L/C error.
+
+The three calendar slices were recognized independently with the complete frozen v0.6.18 raw-generation/qualification chain; no parent crossed a year boundary. The external post-2020 bars were not used in Two-Wave Development, but v0.6.47 does **not** claim globally fresh OOS because the source archives have their own prior research history and the 2026 source manifest explicitly says `fresh_oos=false`.
+
+Frozen original-v0.6.25 gate results:
+
+- **2024**: `87` both-v0.6.18-qualified pairs. D1 exact `0.9770114942528736`; v0.6.25 exact `0.9080459770114943`; v0.6.25 coverage `0.6781609195402298`. Failed `all_offsets_exact_agreement_nonworse`, `pooled_exact_agreement_nonworse`, and `decisive_class_diversity`.
+- **2025**: `111` pairs. D1 exact `0.9459459459459459`; v0.6.25 exact `0.972972972972973`; coverage `0.7342342342342343`. Exact/coverage/offset gates passed, but `decisive_class_diversity` failed, so the year still does not pass all original gates.
+- **2026**: `55` pairs. D1 exact `0.9454545454545454`; v0.6.25 exact `0.9272727272727272`; coverage `0.6`. Failed all-offset exact non-regression, pooled exact non-regression, material pooled coverage, and per-offset-side coverage.
+
+Pooled across only the already-formed within-year pairs:
+
+- filtered mutual-unique pairs: `16,093`;
+- raw strict pairs: `5,861`;
+- both-v0.6.18-qualified pairs: `253`;
+- D1 exact: `242/253 = 0.9565217391304348`;
+- D1 decisive coverage: `0.4762845849802372`;
+- v0.6.25 exact: `238/253 = 0.9407114624505929`;
+- v0.6.25 decisive coverage: `0.6857707509881423`;
+- v0.6.25 decisive agreement: `1.0`;
+- v0.6.25 opposite UpTrend/DownTrend conflicts: `0`.
+
+Overall v0.6.25 passed coverage, decisive-agreement, class-diversity, zero-conflict and rescue-supply gates, but failed both `all_offsets_exact_agreement_nonworse` and `pooled_exact_agreement_nonworse`.
+
+Formal verdict:
+
+`v0647_temporal_replication_under_original_v0625_gate_not_all_pass`
+
+Interpretation: v0.6.25 continues to buy substantial decisive coverage, and 2025 is a favorable slice, but the Development-era failure mode—rescues that can damage harmless-slicing exact stability—survives in later periods. v0.6.47 therefore does **not** install v0.6.25 as direction winner and does not authorize post-2020 retuning.
+
+Authority is unchanged:
+
+- v0.6.18 remains qualification champion;
+- parent-direction winner remains unset;
+- v0.6.25 remains a retained research contribution;
+- `morphology_acceptance=false`;
+- `trade_authority=false`;
+- `production_authority=false`.
+
+Independent reference morphology labels are still required before full morphology acceptance can be considered.
+
 ## Current research rule
 
 - v0.6.18 remains the qualification champion.
-- v0.6.25 remains the strongest pooled-exact direction contribution.
+- v0.6.25 remains the strongest pooled-exact Development direction contribution, but v0.6.47 did **not** replicate its original full promotion gate across 2024-2026.
 - parent-direction winner remains unset.
 - W1 / Range-recovery residual-gating family is closed.
 - duration/time-geometry repackaging is closed.
@@ -204,10 +240,10 @@ Interpretation: native open/body/gap is causally source-distinct, but it neither
 - amplitude-normalization route is closed.
 - native frozen-anchor high/low envelope route is closed after v0.6.44.
 - native frozen-anchor open/body/gap route is closed after v0.6.46.
-- after the v0.6.45 governance correction and v0.6.46 adjudication, the **current market-bar price-input parent-direction expansion is genuinely exhausted**.
-- **no v0.6.47 challenger is authorized**.
+- the current market-bar OHLC parent-direction expansion is exhausted.
+- v0.6.47 temporal replication is complete and does not authorize a v0.6.48 direction challenger.
 
-The next legitimate program step is **not another direction feature** from the current OHLC/clock/session/data-quality surface. Further progress should move to independent morphology validation / replication using frozen existing components, or to a separately justified new data modality with its own evidence-level audit before any candidate protocol.
+The next legitimate program step is **independent reference-label morphology validation of the frozen recognizer/components**. If a genuinely new data modality is proposed instead, it must first receive a separate information-class audit. The program should not return to residual OHLC/clock/session/data-quality feature mining merely because v0.6.47 did not pass.
 
 ## Forbidden shortcuts
 
@@ -231,7 +267,11 @@ The next legitimate program step is **not another direction feature** from the c
 - use missing-volume status as a morphology signal;
 - use `available_at`, confirmation delay, session count, calendar span or source-support gaps as parent-direction semantics;
 - use harmless comparison offsets as runtime information;
-- create a v0.6.47 challenger by recombining the closed fields above;
-- use future returns, P&L, H1/H2, third-wave outcomes, or later-period selection data for morphology decisions.
+- create a v0.6.48 challenger by recombining the closed fields above;
+- drop 2024, 2026, or weak offsets to reinterpret v0.6.47 as a pass;
+- retune v0.6.25 margin on post-2020 replication residuals;
+- install v0.6.25 from the favorable 2025 slice alone;
+- use future returns, P&L, H1/H2, third-wave outcomes, or later-period selection data for morphology decisions;
+- declare global morphology acceptance without independent reference labels.
 
 Independent morphology acceptance remains false. Trading and production remain closed.
