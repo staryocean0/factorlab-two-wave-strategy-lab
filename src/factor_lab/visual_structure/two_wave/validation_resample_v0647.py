@@ -57,8 +57,8 @@ def resample_five_minute_offset(frame: pd.DataFrame, offset: int) -> pd.DataFram
 
     Bins are fixed by session wall-clock endpoints. Causal flat-fill rows keep
     the clock complete but are excluded from OHLC aggregation. A bin is emitted
-    when at least one non-flat source observation exists; timestamp remains the
-    nominal endpoint. The first shifted bin includes its left-boundary endpoint.
+    when at least one non-flat source observation exists and its nominal endpoint
+    row exists. The first shifted bin includes its left-boundary endpoint.
     """
     if isinstance(offset, bool) or not isinstance(offset, int) or offset not in range(5):
         raise ValueError("offset must be integer 0..4")
@@ -104,8 +104,10 @@ def resample_five_minute_offset(frame: pd.DataFrame, offset: int) -> pd.DataFram
         if endpoint > 119:
             continue
         endpoint_rows = g.loc[g["_minute"] == endpoint]
+        if len(endpoint_rows) == 0:
+            continue
         if len(endpoint_rows) != 1:
-            raise ValueError(f"missing or duplicate nominal endpoint for {day} {sess} group {group}")
+            raise ValueError(f"duplicate nominal endpoint for {day} {sess} group {group}")
         real = g.loc[~g["causal_flat_fill"].astype(bool)]
         if real.empty:
             continue
