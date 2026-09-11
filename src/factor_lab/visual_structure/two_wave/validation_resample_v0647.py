@@ -52,13 +52,26 @@ def _group_endpoint(group: int, offset: int) -> int:
     return int(offset) + 4 + 5 * int(group)
 
 
+def _nominal_endpoint_timestamp(day: str, session: str, endpoint: int) -> pd.Timestamp:
+    """Return the fixed wall-clock endpoint even when the 1m endpoint row is absent."""
+    if session == "AM":
+        base = pd.Timestamp(f"{day} 09:31:00", tz="Asia/Shanghai")
+    elif session == "PM":
+        base = pd.Timestamp(f"{day} 13:01:00", tz="Asia/Shanghai")
+    else:
+        raise ValueError(f"unknown session {session}")
+    return (base + pd.Timedelta(minutes=int(endpoint))).tz_convert("UTC")
+
+
 def resample_five_minute_offset(frame: pd.DataFrame, offset: int) -> pd.DataFrame:
     """Aggregate a frozen 1m frame with DataHub wall-clock offset semantics.
 
     Bins are fixed by session wall-clock endpoints. Causal flat-fill rows keep
     the clock complete but are excluded from OHLC aggregation. A bin is emitted
-    when at least one non-flat source observation exists and its nominal endpoint
-    row exists. The first shifted bin includes its left-boundary endpoint.
+    whenever at least one non-flat source observation exists in that scheduled
+    window. The output timestamp is the nominal wall-clock endpoint even on an
+    abnormal session where that exact 1m endpoint row is absent. The first
+    shifted bin includes its left-boundary endpoint.
     """
     if isinstance(offset, bool) or not isinstance(offset, int) or offset not in range(5):
         raise ValueError("offset must be integer 0..4")
@@ -103,16 +116,12 @@ def resample_five_minute_offset(frame: pd.DataFrame, offset: int) -> pd.DataFram
         endpoint = _group_endpoint(int(group), offset)
         if endpoint > 119:
             continue
-        endpoint_rows = g.loc[g["_minute"] == endpoint]
-        if len(endpoint_rows) == 0:
-            continue
-        if len(endpoint_rows) != 1:
-            raise ValueError(f"duplicate nominal endpoint for {day} {sess} group {group}")
         real = g.loc[~g["causal_flat_fill"].astype(bool)]
         if real.empty:
             continue
+        nominal_stamp = _nominal_endpoint_timestamp(str(day), str(sess), endpoint)
         row = {
-            "timestamp": endpoint_rows["_stamp"].iloc[0],
+            "timestamp": nominal_stamp,
             "trading_day": str(day),
             "open": float(real["open"].iloc[0]),
             "high": float(real["high"].max()),
@@ -149,7 +158,13 @@ def exact_ohlc_timestamp_equivalence(candidate: pd.DataFrame, reference: pd.Data
     c["timestamp"] = pd.to_datetime(c["timestamp"], utc=True, errors="raise")
     r["timestamp"] = pd.to_datetime(r["timestamp"], utc=True, errors="raise")
     same_rows = len(c) == len(r)
-    ts_equal = bool(same_rows and np.array_equal(c["timestamp"].astype("int64").to_numpy(), r["timestamp"].astype("int64").to_numpy()))
+    ts_equal = bool(
+        same_rows
+        and np.array_equal(
+            c["timestamp"].astype("int64").to_numpy(),
+            r["timestamp"].astype("int64").to_numpy(),
+        )
+    )
     price_equal = {}
     max_abs = {}
     for field in PRICE_FIELDS:
@@ -167,11 +182,19 @@ def exact_ohlc_timestamp_equivalence(candidate: pd.DataFrame, reference: pd.Data
     if not exact:
         n = min(len(c), len(r))
         for i in range(n):
-            if c["timestamp"].iloc[i] != r["timestamp"].iloc[i] or any(float(c[f].iloc[i]) != float(r[f].iloc[i]) for f in PRICE_FIELDS):
+            if c["timestamp"].iloc[i] != r["timestamp"].iloc[i] or any(
+                float(c[f].iloc[i]) != float(r[f].iloc[i]) for f in PRICE_FIELDS
+            ):
                 first_mismatch = {
                     "row": i,
-                    "candidate": {k: str(c[k].iloc[i]) if k == "timestamp" else float(c[k].iloc[i]) for k in required},
-                    "reference": {k: str(r[k].iloc[i]) if k == "timestamp" else float(r[k].iloc[i]) for k in required},
+                    "candidate": {
+                        k: str(c[k].iloc[i]) if k == "timestamp" else float(c[k].iloc[i])
+                        for k in required
+                    },
+                    "reference": {
+                        k: str(r[k].iloc[i]) if k == "timestamp" else float(r[k].iloc[i])
+                        for k in required
+                    },
                 }
                 break
         if first_mismatch is None and len(c) != len(r):
