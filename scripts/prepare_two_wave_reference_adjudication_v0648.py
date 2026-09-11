@@ -76,25 +76,32 @@ def main() -> int:
     )
 
     zip_path = args.output / "two_wave_v0648_disagreement_adjudication_packet.zip"
-    readme = f"""# Two-Wave v0.6.48 independent third adjudication\n\nThis packet contains only the {len(disagreement_ids)} cases where the two already-frozen first-pass annotators disagree under the v0.6.48 protocol.\n\nThe third adjudicator must remain blind to model predictions, hidden candidate/control stratum, absolute date/year, future bars, returns and P&L. The first-pass labels shown here are frozen and may not be edited. Complete only `ADJUDICATION_LABEL_SHEET.csv`.\n\n`annotator_id` must identify one adjudicator distinct from both first-pass annotators. Set `independent_of_first_pass_annotators=true` and `blinded_to_model=true` only if true. `completed_at` must be timezone-aware ISO-8601.\n\nThe semantic labels and optional anchors use the same definitions as the original packet. No unresolved disagreement may remain in the finalized reference set.\n"""
+    if disagreement_ids:
+        readme = f"""# Two-Wave v0.6.48 independent third adjudication\n\nThis packet contains only the {len(disagreement_ids)} cases where the two already-frozen first-pass annotators disagree under the v0.6.48 protocol.\n\nThe third adjudicator must remain blind to model predictions, hidden candidate/control stratum, absolute date/year, future bars, returns and P&L. The first-pass labels shown here are frozen and may not be edited. Complete only `ADJUDICATION_LABEL_SHEET.csv`.\n\n`annotator_id` must identify one adjudicator distinct from both first-pass annotators. Set `independent_of_first_pass_annotators=true` and `blinded_to_model=true` only if true. `completed_at` must be timezone-aware ISO-8601.\n\nThe semantic labels and optional anchors use the same definitions as the original packet. No unresolved disagreement may remain in the finalized reference set.\n"""
 
-    with zipfile.ZipFile(io.BytesIO(packet_bytes), "r") as source, zipfile.ZipFile(
-        zip_path, "w", compression=zipfile.ZIP_DEFLATED
-    ) as out:
-        add_bytes(out, "ADJUDICATOR_README.md", readme.encode("utf-8"))
-        add_bytes(out, "FIRST_PASS_LABELS.csv", csv_bytes(first_pass))
-        add_bytes(out, "ADJUDICATION_LABEL_SHEET.csv", csv_bytes(blank))
-        for case_id in disagreement_ids:
-            chart = f"cases/{case_id}.png"
-            try:
-                data = source.read(chart)
-            except KeyError as exc:
-                raise RuntimeError(f"missing frozen blinded chart {chart}") from exc
-            add_bytes(out, chart, data)
+        with zipfile.ZipFile(io.BytesIO(packet_bytes), "r") as source, zipfile.ZipFile(
+            zip_path, "w", compression=zipfile.ZIP_DEFLATED
+        ) as out:
+            add_bytes(out, "ADJUDICATOR_README.md", readme.encode("utf-8"))
+            add_bytes(out, "FIRST_PASS_LABELS.csv", csv_bytes(first_pass))
+            add_bytes(out, "ADJUDICATION_LABEL_SHEET.csv", csv_bytes(blank))
+            for case_id in disagreement_ids:
+                chart = f"cases/{case_id}.png"
+                try:
+                    data = source.read(chart)
+                except KeyError as exc:
+                    raise RuntimeError(f"missing frozen blinded chart {chart}") from exc
+                add_bytes(out, chart, data)
+        packet_sha = sha256_bytes(zip_path.read_bytes())
+        packet_status = "third_adjudication_required_packet_frozen"
+    else:
+        packet_sha = None
+        packet_status = "no_first_pass_disagreement_third_adjudication_not_required"
 
     manifest = {
         **freeze,
-        "adjudication_packet_sha256": sha256_bytes(zip_path.read_bytes()),
+        "status": packet_status,
+        "adjudication_packet_sha256": packet_sha,
         "adjudication_packet_case_count": len(disagreement_ids),
         "adjudication_packet_contains_hidden_mapping": False,
     }
