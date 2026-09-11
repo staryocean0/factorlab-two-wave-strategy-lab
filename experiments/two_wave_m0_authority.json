@@ -1,5 +1,5 @@
 {
-  "schema": "two_wave_m0_authority@1.17",
+  "schema": "two_wave_m0_authority@1.18",
   "date": "2026-09-11",
   "primary_object": "two_wave_parent_structure_recognizer",
   "target_states": ["Range", "UpTrend", "DownTrend", "Uncertain"],
@@ -37,7 +37,7 @@
     },
     "parent_direction": {
       "winner": null,
-      "status": "blocked_not_accepted_price_input_expansion_exhausted_after_v0646",
+      "status": "blocked_not_accepted_price_input_expansion_exhausted_and_v0647_temporal_replication_not_all_pass",
       "historical_baseline": {
         "name": "D1",
         "pooled_exact_agreement": 0.957592339261286,
@@ -119,7 +119,7 @@
       "result_card": "experiments/two_wave_native_open_body_gap_direction_v0646/RESULT_CARD.md",
       "adjudication": "experiments/two_wave_native_open_body_gap_direction_v0646/ADJUDICATION.json",
       "workflow_run": 34618326900,
-      "raw_formal_result_commit": "c71e9612a8dbc09aeefef5f85f2c208cdac60b8d",
+      "raw_formal_result_commit": "c71e9612a8dbc09aeef5f85f2c208cdac60b8d",
       "formal_category": "v0646_native_open_body_gap_redundant_or_unstable",
       "controls": {
         "filtered_pairs": 57029,
@@ -159,10 +159,85 @@
       "direction_winner_changed": false
     }
   },
+  "temporal_morphology_replication": {
+    "v0647": {
+      "status": "complete_original_v0625_gate_not_all_pass",
+      "protocol": "docs/research/TWO_WAVE_INDEPENDENT_TEMPORAL_MORPHOLOGY_REPLICATION_V0647_PROTOCOL.md",
+      "result_card": "experiments/two_wave_independent_temporal_replication_v0647/RESULT_CARD.md",
+      "summary": "experiments/two_wave_independent_temporal_replication_v0647/summary.json",
+      "development_resampler_precheck_run": 34623300582,
+      "formal_workflow_run": 34624208758,
+      "formal_result_commit": "1e783f9",
+      "verdict": "v0647_temporal_replication_under_original_v0625_gate_not_all_pass",
+      "external_native_offset0_equivalence": {
+        "2024": true,
+        "2025": true
+      },
+      "year_isolated_results": {
+        "2024": {
+          "both_v0618_qualified_pairs": 87,
+          "D1_exact_agreement": 0.9770114942528736,
+          "v0625_exact_agreement": 0.9080459770114943,
+          "v0625_decisive_coverage": 0.6781609195402298,
+          "all_original_v0625_gates_pass": false,
+          "failed_gates": [
+            "all_offsets_exact_agreement_nonworse",
+            "decisive_class_diversity",
+            "pooled_exact_agreement_nonworse"
+          ]
+        },
+        "2025": {
+          "both_v0618_qualified_pairs": 111,
+          "D1_exact_agreement": 0.9459459459459459,
+          "v0625_exact_agreement": 0.972972972972973,
+          "v0625_decisive_coverage": 0.7342342342342343,
+          "all_original_v0625_gates_pass": false,
+          "failed_gates": ["decisive_class_diversity"]
+        },
+        "2026": {
+          "both_v0618_qualified_pairs": 55,
+          "D1_exact_agreement": 0.9454545454545454,
+          "v0625_exact_agreement": 0.9272727272727272,
+          "v0625_decisive_coverage": 0.6,
+          "all_original_v0625_gates_pass": false,
+          "failed_gates": [
+            "all_offsets_exact_agreement_nonworse",
+            "each_offset_side_decisive_coverage_at_least_55pct",
+            "pooled_decisive_coverage_material",
+            "pooled_exact_agreement_nonworse"
+          ]
+        }
+      },
+      "overall": {
+        "filtered_mutual_unique_pairs": 16093,
+        "raw_strict_pairs": 5861,
+        "both_v0618_qualified_pairs": 253,
+        "D1_exact_count": 242,
+        "D1_exact_agreement": 0.9565217391304348,
+        "D1_decisive_coverage": 0.4762845849802372,
+        "v0625_exact_count": 238,
+        "v0625_exact_agreement": 0.9407114624505929,
+        "v0625_decisive_coverage": 0.6857707509881423,
+        "v0625_decisive_agreement": 1.0,
+        "v0625_opposite_trend_conflicts": 0,
+        "failed_gates": [
+          "all_offsets_exact_agreement_nonworse",
+          "pooled_exact_agreement_nonworse"
+        ]
+      },
+      "fresh_oos_claimed": false,
+      "morphology_acceptance_changed": false,
+      "qualification_changed": false,
+      "direction_winner_changed": false,
+      "trade_authority_changed": false,
+      "production_authority_changed": false
+    }
+  },
   "current_range_recovery_family_status": "closed_after_v0642_no_empirical_candidate",
   "current_price_input_direction_expansion_status": "closed_after_v0646_close_high_low_and_native_open_classes_adjudicated_no_challenger_authorized",
-  "next_authorized_step": "stop_direction_feature_mining_from_current_market_bar_fields; no_v0647_challenger_authorized. Further progress should move to independent_morphology_validation_or_a_separately_justified_new_data_modality, not data_quality_clock_session_or_cross_offset_metadata as parent_direction features",
-  "no_current_v0647_challenger_authorized": true,
+  "current_temporal_replication_status": "v0647_complete_not_all_original_v0625_gates_pass",
+  "next_authorized_step": "independent_reference_label_morphology_validation_of_frozen_existing_components; do_not_resume_current_OHLC_direction_feature_mining. A genuinely_new_data_modality_requires_a_separate_information_class_audit_before_candidate_work",
+  "no_current_v0648_challenger_authorized": true,
   "forbidden_next_shortcuts": [
     "retry_endpoint_D2_or_confidence_gated_D2",
     "retry_PAWCT_absolute_phase_aligned_translation_as_is",
@@ -179,7 +254,11 @@
     "use_missing_volume_status_as_morphology_signal",
     "use_available_at_confirmation_delay_session_count_calendar_span_or_source_support_gaps_as_parent_direction_semantics",
     "use_cross_offset_information_as_runtime_feature",
-    "use_future_outcomes_or_PnL_for_morphology_selection"
+    "use_future_outcomes_or_PnL_for_morphology_selection",
+    "drop_2024_or_2026_or_weak_offsets_to_make_v0647_pass",
+    "retune_v0625_margin_on_post_2020_temporal_replication",
+    "declare_v0625_direction_winner_from_2025_only",
+    "declare_global_morphology_acceptance_without_independent_reference_labels"
   ],
   "trade_authority": false,
   "production_authority": false
