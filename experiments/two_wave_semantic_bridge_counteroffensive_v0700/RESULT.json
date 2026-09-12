@@ -1,0 +1,151 @@
+{
+  "anchored_reference_positive_cases": 11,
+  "annotator_confidence_used": false,
+  "annotator_notes_used": false,
+  "case_level_table_written": false,
+  "component_retention_map": {
+    "data_clock_source_replay_governance": "retain_without_semantic_change",
+    "direction_D1_v0625": "downstream_component_not_yet_retested",
+    "exact_ridge_five_tuple_objectization": "requires_reconstruction_or_revalidation",
+    "legacy_filtered_parent_identity": "requires_reconstruction_or_revalidation",
+    "raw_projection_v064_v065": "requires_reconstruction_or_revalidation",
+    "same_scale_v054_and_qualification_v0618": "downstream_component_not_yet_retested",
+    "tcss_extrema_ridge_infrastructure": "retain_as_support_infrastructure_but_not_parent_authority",
+    "tuple_birth_causal_adjacency_rule": "requires_reconstruction_or_revalidation"
+  },
+  "construction": {
+    "canonical_groups": 38634,
+    "published_groups": 38176,
+    "qualified_publications": 2115
+  },
+  "development_discovery_only": true,
+  "direction_prediction_used": false,
+  "direction_winner_changed": false,
+  "final_reference_sha256": "321ce484f7f3f62bf6ff9d7d45de666e77d0cd17001b63a258a3e274e529884d",
+  "frozen_decision": {
+    "component_retention_map": {
+      "data_clock_source_replay_governance": "retain_without_semantic_change",
+      "direction_D1_v0625": "downstream_component_not_yet_retested",
+      "exact_ridge_five_tuple_objectization": "requires_reconstruction_or_revalidation",
+      "legacy_filtered_parent_identity": "requires_reconstruction_or_revalidation",
+      "raw_projection_v064_v065": "requires_reconstruction_or_revalidation",
+      "same_scale_v054_and_qualification_v0618": "downstream_component_not_yet_retested",
+      "tcss_extrema_ridge_infrastructure": "retain_as_support_infrastructure_but_not_parent_authority",
+      "tuple_birth_causal_adjacency_rule": "requires_reconstruction_or_revalidation"
+    },
+    "primary_category": "v0700_ridge_infrastructure_salvage_supported_exact_tuple_objectization_breaks_semantic_bridge",
+    "salvage_threshold_cases": 8
+  },
+  "future_outcome_used": false,
+  "human_reference_labels_used": true,
+  "morphology_acceptance": false,
+  "new_object_constructor_fitted": false,
+  "primary_category": "v0700_ridge_infrastructure_salvage_supported_exact_tuple_objectization_breaks_semantic_bridge",
+  "production_authority": false,
+  "protocol": "docs/research/TWO_WAVE_SEMANTIC_BRIDGE_COUNTEROFFENSIVE_V0700_PROTOCOL.md",
+  "protocol_freeze_commit": "525948dc7f22a01fdfd6df453a935181df41e0f6",
+  "qualification_changed": false,
+  "reference_positive_candidate_cases": 16,
+  "salvage_staircase": {
+    "L4_filtered_per_ordinal_cell_hit_count": {
+      "0": 3,
+      "1": 4,
+      "2": 4,
+      "3": 3,
+      "4": 3
+    },
+    "L5_raw_per_ordinal_cell_hit_count": {
+      "0": 3,
+      "1": 4,
+      "2": 4,
+      "3": 4,
+      "4": 4
+    },
+    "case_count": 11,
+    "common_scale_level_count": {
+      "count": 11,
+      "max": 6.0,
+      "median": 6.0,
+      "min": 0.0
+    },
+    "exact_tuple_match_count": {
+      "count": 11,
+      "max": 2.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "layer_support_counts": {
+      "L0": 11,
+      "L1": 10,
+      "L2": 3,
+      "L3": 3,
+      "L4": 2,
+      "L5": 3
+    },
+    "layer_support_fraction": {
+      "L0": 1.0,
+      "L1": 0.9090909090909091,
+      "L2": 0.2727272727272727,
+      "L3": 0.2727272727272727,
+      "L4": 0.18181818181818182,
+      "L5": 0.2727272727272727
+    },
+    "per_ordinal_human_anchor_exact_raw_argextreme_count": {
+      "0": 6,
+      "1": 5,
+      "2": 5,
+      "3": 5,
+      "4": 6
+    },
+    "per_ordinal_nearest_common_scale_ridge_distance": {
+      "0": {
+        "count": 10,
+        "max": 1.0,
+        "median": 0.0,
+        "min": 0.0
+      },
+      "1": {
+        "count": 10,
+        "max": 1.0,
+        "median": 0.0,
+        "min": 0.0
+      },
+      "2": {
+        "count": 10,
+        "max": 1.0,
+        "median": 0.0,
+        "min": 0.0
+      },
+      "3": {
+        "count": 10,
+        "max": 1.0,
+        "median": 0.0,
+        "min": 0.0
+      },
+      "4": {
+        "count": 10,
+        "max": 4.0,
+        "median": 0.0,
+        "min": 0.0
+      }
+    },
+    "transitions": {
+      "L1_true_L2_false": 7,
+      "L2_true_L3_false": 0,
+      "L3_true_L4_false": 1,
+      "L4_true_L5_false": 0
+    },
+    "tuple_birth_match_count": {
+      "count": 11,
+      "max": 1.0,
+      "median": 0.0,
+      "min": 0.0
+    }
+  },
+  "sampling_commitment_sha256": "f4eeff13c1408c1ca3bf938c0cd8abc4dad961f63ed6a4a4158f243cd5b024c8",
+  "schema": "two_wave_semantic_bridge_counteroffensive@0.7.0",
+  "source_manifest_verified": true,
+  "source_sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48",
+  "threshold_fitting_performed": false,
+  "trade_authority": false
+}
