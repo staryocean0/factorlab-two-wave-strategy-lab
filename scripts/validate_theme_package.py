@@ -23,33 +23,21 @@ SLOT = ROOT / "docs/governance/layer3_tool16_candidate_slot.json"
 USAGE = ROOT / "docs/governance/data_usage_declaration.json"
 MAX_GIT_FILE_BYTES = 100 * 1024 * 1024
 FORBIDDEN_PARTS = {
-    ".env",
-    ".venv",
-    ".omx",
-    ".local",
-    ".runtime",
-    "runtime",
-    "artifacts",
-    "output",
-    ".beads",
+    ".env", ".venv", ".omx", ".local", ".runtime", "runtime", "artifacts", "output", ".beads",
 }
 IGNORED_GENERATED_PARTS = {
-    "__pycache__",
-    ".pytest_cache",
-    ".ruff_cache",
-    ".mypy_cache",
-    ".pyright",
+    "__pycache__", ".pytest_cache", ".ruff_cache", ".mypy_cache", ".pyright",
 }
-# These files are the current human/AI/governance control plane. They were
-# listed in the original seed closure, but scope repair and validator maintenance
-# must be possible without pretending the original imported source changed.
-# They still must exist and remain auditable through Git history/repository
-# validation. Every other seed-manifest entry remains byte-for-byte frozen.
+# These four control-plane entries remain mutable, as in the original validator.
+# Do not expand this set to waive source or data integrity.
 MUTABLE_AUTHORITY_PATHS = {
-    "AGENTS.md",
-    "README.md",
-    "docs/INDEX.md",
-    "scripts/validate_theme_package.py",
+    "AGENTS.md", "README.md", "docs/INDEX.md", "scripts/validate_theme_package.py",
+}
+# A relocation is NOT a hash exemption. The original seed bytes must still match
+# the unchanged seed manifest at this exact archive path. All other entries retain
+# their original path and hash. Current CI is independently checked for manual opt-in.
+FROZEN_SOURCE_RELOCATIONS = {
+    ".github/workflows/ci.yml": "docs/archive/repository_consistency_20260912/ci.yml",
 }
 
 
@@ -75,11 +63,12 @@ def validate_source_closure() -> dict[str, int]:
         raise RuntimeError("source closure is empty")
     checked = 0
     mutable_checked = 0
+    relocated_checked = 0
     for item in entries:
         if not isinstance(item, dict):
             raise RuntimeError("source closure row must be an object")
         relative = str(item["path"])
-        path = ROOT / relative
+        path = ROOT / FROZEN_SOURCE_RELOCATIONS.get(relative, relative)
         if relative in MUTABLE_AUTHORITY_PATHS:
             if not path.is_file():
                 raise RuntimeError(f"mutable authority entry missing: {relative}")
@@ -87,6 +76,10 @@ def validate_source_closure() -> dict[str, int]:
             continue
         if not path.is_file() or _sha256(path) != str(item["sha256"]):
             raise RuntimeError(f"frozen source drifted: {relative}")
+        if relative in FROZEN_SOURCE_RELOCATIONS:
+            if not (ROOT / relative).is_file():
+                raise RuntimeError(f"current replacement missing: {relative}")
+            relocated_checked += 1
         checked += 1
     missing_authority = sorted(
         relative for relative in MUTABLE_AUTHORITY_PATHS if not (ROOT / relative).is_file()
@@ -96,6 +89,7 @@ def validate_source_closure() -> dict[str, int]:
     return {
         "source_files_checked": checked,
         "mutable_authority_files_checked": mutable_checked,
+        "relocated_frozen_entries_checked": relocated_checked,
     }
 
 
@@ -137,16 +131,8 @@ def validate_data() -> dict[str, object]:
             raise RuntimeError(f"data row count drifted: {relative}")
         frame = pd.read_parquet(path)
         required = {
-            "symbol",
-            "timestamp",
-            "bar_end_shanghai",
-            "timestamp_source_serialized",
-            "trading_day",
-            "open",
-            "high",
-            "low",
-            "close",
-            "package_data_role",
+            "symbol", "timestamp", "bar_end_shanghai", "timestamp_source_serialized",
+            "trading_day", "open", "high", "low", "close", "package_data_role",
         }
         if missing := sorted(required.difference(frame.columns)):
             raise RuntimeError(f"data product missing columns {missing}: {relative}")
@@ -160,9 +146,7 @@ def validate_data() -> dict[str, object]:
         timestamp = pd.to_datetime(frame["timestamp"], errors="raise", utc=True)
         if timestamp.duplicated().any() or not timestamp.is_monotonic_increasing:
             raise RuntimeError(f"timestamps are duplicated or unordered: {relative}")
-        ohlc = frame[["open", "high", "low", "close"]].apply(
-            pd.to_numeric, errors="raise"
-        )
+        ohlc = frame[["open", "high", "low", "close"]].apply(pd.to_numeric, errors="raise")
         if not np.isfinite(ohlc.to_numpy(float)).all() or bool((ohlc <= 0.0).any().any()):
             raise RuntimeError(f"OHLC contains invalid prices: {relative}")
         if bool((ohlc["high"] < ohlc[["open", "close", "low"]].max(axis=1)).any()):
@@ -173,10 +157,8 @@ def validate_data() -> dict[str, object]:
         minimum_day = min(minimum_day, days.min())
         maximum_day = max(maximum_day, days.max())
     return {
-        "data_product_count": len(products),
-        "data_row_count": total_rows,
-        "minimum_trading_day": minimum_day,
-        "maximum_trading_day": maximum_day,
+        "data_product_count": len(products), "data_row_count": total_rows,
+        "minimum_trading_day": minimum_day, "maximum_trading_day": maximum_day,
     }
 
 
@@ -193,24 +175,15 @@ def validate_tool_boundary() -> dict[str, object]:
         raise RuntimeError("candidate slot ordinal drifted")
     if usage.get("economic_strategy_selection_authority") is not False:
         raise RuntimeError("data package overclaimed economic authority")
-    return {
-        "immutable_tool_count": len(CURRENT_TOOL_IDS),
-        "candidate_tool_id": candidate,
-        "candidate_installed": False,
-    }
+    return {"immutable_tool_count": len(CURRENT_TOOL_IDS), "candidate_tool_id": candidate, "candidate_installed": False}
 
 
 def main() -> None:
     result: dict[str, object] = {
         "schema_id": "two_wave_cloud_theme_validation@1.0",
         "status": "passed_bounded_cloud_theme_ready_for_morphology_research",
-        **validate_source_closure(),
-        **validate_repository_surface(),
-        **validate_data(),
-        **validate_tool_boundary(),
-        "fresh_oos": False,
-        "registered_use_authority": False,
-        "production_authority": False,
+        **validate_source_closure(), **validate_repository_surface(), **validate_data(), **validate_tool_boundary(),
+        "fresh_oos": False, "registered_use_authority": False, "production_authority": False,
     }
     print(json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True))
 

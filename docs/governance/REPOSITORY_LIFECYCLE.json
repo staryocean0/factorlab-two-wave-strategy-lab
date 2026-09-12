@@ -1,0 +1,136 @@
+{
+  "schema": "two_wave_repository_lifecycle@1.0",
+  "date": "2026-09-12",
+  "base_commit": "ec0d49f1cec7d6c34d13af0fcfdb824687d57392",
+  "base_tree": "9679ee00f5aa063b2208e597e590d1a70edaa917",
+  "machine_authority": "experiments/two_wave_m0_authority.json",
+  "generated_current_documents": [
+    "README.md",
+    "docs/INDEX.md",
+    "CONTINUE_HERE.md",
+    "docs/research/TWO_WAVE_M0_AUTHORITY.md",
+    "docs/research/TWO_WAVE_CURRENT_WHITEPAPER.md",
+    "docs/research/TWO_WAVE_DIRECTION_CONTRIBUTION_LEDGER.md"
+  ],
+  "archive_snapshots": [
+    {
+      "original_path": "AGENTS.md",
+      "archive_path": "docs/archive/repository_consistency_20260912/AGENTS.md",
+      "git_blob_sha": "7b0752ec03bf15e94fca2c909cc15cce49272e88",
+      "source_commit": "ec0d49f1cec7d6c34d13af0fcfdb824687d57392"
+    },
+    {
+      "original_path": "README.md",
+      "archive_path": "docs/archive/repository_consistency_20260912/README.md",
+      "git_blob_sha": "8022d1442c4ecd2c3bcb31a074110fa67808209e",
+      "source_commit": "ec0d49f1cec7d6c34d13af0fcfdb824687d57392"
+    },
+    {
+      "original_path": "docs/INDEX.md",
+      "archive_path": "docs/archive/repository_consistency_20260912/INDEX.md",
+      "git_blob_sha": "d62f2ecfa220f71694a572d9b172b4effd1c4b89",
+      "source_commit": "ec0d49f1cec7d6c34d13af0fcfdb824687d57392"
+    },
+    {
+      "original_path": "docs/research/TWO_WAVE_M0_AUTHORITY.md",
+      "archive_path": "docs/archive/repository_consistency_20260912/TWO_WAVE_M0_AUTHORITY.md",
+      "git_blob_sha": "461e92cd653361baf584d7f30ef01ceabf3a0c15",
+      "source_commit": "ec0d49f1cec7d6c34d13af0fcfdb824687d57392"
+    },
+    {
+      "original_path": "docs/research/TWO_WAVE_DIRECTION_CONTRIBUTION_LEDGER.md",
+      "archive_path": "docs/archive/repository_consistency_20260912/TWO_WAVE_DIRECTION_CONTRIBUTION_LEDGER.md",
+      "git_blob_sha": "52a2693c425d508fc83766540b9924928dcde001",
+      "source_commit": "ec0d49f1cec7d6c34d13af0fcfdb824687d57392"
+    },
+    {
+      "original_path": "experiments/two_wave_m0_authority.json",
+      "archive_path": "docs/archive/repository_consistency_20260912/two_wave_m0_authority.v1_32.json",
+      "git_blob_sha": "b2573e1ece6535196aad4696b772a16900cbfdeb",
+      "source_commit": "ec0d49f1cec7d6c34d13af0fcfdb824687d57392"
+    },
+    {
+      "original_path": ".github/workflows/ci.yml",
+      "archive_path": "docs/archive/repository_consistency_20260912/ci.yml",
+      "git_blob_sha": "236f75224db19a50f980d1f2ad42d41855870217",
+      "source_commit": "ec0d49f1cec7d6c34d13af0fcfdb824687d57392"
+    },
+    {
+      "original_path": "scripts/close_two_wave_v0707_governance.py",
+      "archive_path": "docs/archive/repository_consistency_20260912/close_two_wave_v0707_governance.py",
+      "git_blob_sha": "58ed43035d88fd3e4cffecdddca8b6c0e08e6ee3",
+      "source_commit": "ec0d49f1cec7d6c34d13af0fcfdb824687d57392"
+    }
+  ],
+  "frozen_source_manifest": "docs/governance/source_closure_manifest.json",
+  "frozen_source_manifest_git_blob_sha": "4a4cbdb81acb75c23b5a01e0627ac231e7cf0ed4",
+  "frozen_source_relocations": {
+    ".github/workflows/ci.yml": "docs/archive/repository_consistency_20260912/ci.yml"
+  },
+  "protected_base_trees": {
+    "src": "c2f3bab5ac13a7d2d6edfebd5d138894563036e0",
+    "shared": "4861d6e611671fa3a78872c9b684eb71d65485b1",
+    "data": "09e94cf6207088bc2341aaff8b262dc502b343bd"
+  },
+  "active_validation_entrypoints": [
+    "scripts/check_repository_consistency.py",
+    "scripts/verify_repository.py",
+    "scripts/validate_theme_package.py"
+  ],
+  "retired_write_entrypoints": {
+    "scripts/close_two_wave_v0707_governance.py": {
+      "status": "retired_cli_import_compatibility_only",
+      "archive": "docs/archive/repository_consistency_20260912/close_two_wave_v0707_governance.py",
+      "reason": "completed one-shot governance must not overwrite current authority with v0.7.7",
+      "compatibility_stub_git_blob_sha": "3524378f66b3f88f37d4a993313c81b0cd70510d"
+    }
+  },
+  "canonical_historical_replay_adapters": {
+    "v0.7.6": "scripts/run_two_wave_f3_lifecycle_qualification_transplant_v0706_retry.py",
+    "v0.7.7": "scripts/run_two_wave_lifecycle_qualified_direction_v0707_formal.py"
+  },
+  "script_policy": "All other pre-existing scripts are retained historical replay, dependency, or infrastructure utilities; existence does not authorize a new run or fresh scoring.",
+  "frozen_document_policy": "Imported seed documents and versioned research protocols remain at their original paths and hashes for dependencies and evidence replay. Historical next-step text is not a live command.",
+  "imported_noncurrent_entrypoints": [
+    "ai-readme.md",
+    "docs/00-index.md",
+    "docs/user/two_wave_strategy_handoff_prompt.md",
+    "docs/user/cloud_execution_prompt.md"
+  ],
+  "historical_tree_roles": {
+    "docs/archive/": "archived_evidence_not_current_authority",
+    "docs/reference/": "imported_reference_not_executable_navigation",
+    "docs/research/": "closed_versioned_research_unless_generated_current",
+    "experiments/": "immutable_evidence_except_named_current_authority",
+    "src/": "retained_research_and_infrastructure_library_not_production",
+    "shared/": "retained_import_dependency",
+    "tests/": "active_regressions_including_historical_contracts",
+    "data/": "frozen_development_data",
+    "scripts/": "historical_replay_or_infrastructure_unless_active_or_retired_override",
+    ".codex/": "environment_helpers_and_imported_reference_skills",
+    "docs/ops/": "frozen_infrastructure_contracts_except_current_maintenance_documents",
+    "docs/user/": "historical_user_specs_and_imported_workflows",
+    "docs/governance/": "governance_contracts_and_lifecycle_records"
+  },
+  "allowed_root_files": [
+    "AGENTS.md",
+    "README.md",
+    "CONTINUE_HERE.md",
+    "ai-readme.md",
+    "pyproject.toml",
+    ".gitignore"
+  ],
+  "allowed_workflows": [
+    ".github/workflows/ci.yml"
+  ],
+  "workflow_mode": "manual_opt_in_no_automatic_triggers",
+  "workflow_original_sha256": "cdebe3c07ca5b0753fdcd045beb7667aa4bfe0eac017e7e534ba8ef6d397090a",
+  "retention_rationale": "Do not delete frozen protocols, negative results, v0706 invalid-attempt records, data provenance, or scientific modules merely because a newer version exists. Archive superseded control-plane snapshots, not their scientific facts.",
+  "validation_status": "partial_current_session_checks_complete_full_checkout_regression_pending_local",
+  "local_verification_task": "TW-CONSISTENCY-20260912-01",
+  "evidence_pins": {
+    "experiments/two_wave_lifecycle_qualified_direction_v0707/ADJUDICATION.json": "2649bc92e70381f5664fb8f317fc7a26978f349a",
+    "experiments/two_wave_external_validation_availability_v0708/ADJUDICATION.json": "3a46d9b49be8b53e9fae2fcf01600068679ed52f"
+  },
+  "current_workflow_git_blob_sha": "ea7fd2bd0e9413909e5b5ae2cd4ddb2584c7eeb2"
+}
