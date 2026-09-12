@@ -1,0 +1,17 @@
+case_id,annotator_id,two_complete_same_scale_waves,parent_state,p0,p1,p2,p3,p4,confidence,notes,independent_of_first_pass_annotators,blinded_to_model,completed_at
+TW-161141AD3CDCB1E1,LOCAL_MODEL_C,no,not_applicable,,,,,,medium,jagged spikes; no clean sibling pair,true,true,2026-09-12T08:52:00+08:00
+TW-221CAE25E1865826,LOCAL_MODEL_C,yes,range,54,66,72,85,95,medium,two similar right-side range peaks,true,true,2026-09-12T08:52:00+08:00
+TW-248E0B37E4902172,LOCAL_MODEL_C,no,not_applicable,,,,,,medium,one uptrend then noisy top; extra wiggles,true,true,2026-09-12T08:52:00+08:00
+TW-2CB34C5F7B7C0ED8,LOCAL_MODEL_C,no,not_applicable,,,,,,medium,post-crash steps differ in shape and duration,true,true,2026-09-12T08:52:00+08:00
+TW-4FB6DEAC8E96E9A5,LOCAL_MODEL_C,yes,range,61,71,77,90,95,medium,two similar dips on the high plateau,true,true,2026-09-12T08:52:00+08:00
+TW-5F6DAC89FD392C7C,LOCAL_MODEL_C,no,not_applicable,,,,,,high,single downtrend; washouts not same-scale,true,true,2026-09-12T08:52:00+08:00
+TW-727C07BDFFAB5044,LOCAL_MODEL_C,no,not_applicable,,,,,,high,second up-leg much longer; end pullback small,true,true,2026-09-12T08:52:00+08:00
+TW-818D519BE1F122DA,LOCAL_MODEL_C,no,not_applicable,,,,,,medium,possible W but last rise unfinished,true,true,2026-09-12T08:52:00+08:00
+TW-82F0258B9EBDA82C,LOCAL_MODEL_C,yes,range,38,49,59,73,93,medium,two similar bottoming troughs after decline,true,true,2026-09-12T08:52:00+08:00
+TW-BBF0DB3ECF43DAB3,LOCAL_MODEL_C,no,not_applicable,,,,,,medium,noisy chop; no unique two-wave parent,true,true,2026-09-12T08:52:00+08:00
+TW-EB8AA880B5EE6706,LOCAL_MODEL_C,no,not_applicable,,,,,,medium,right washout much deeper than prior notch,true,true,2026-09-12T08:52:00+08:00
+TW-F27ED448D897BEB5,LOCAL_MODEL_C,no,not_applicable,,,,,,medium,multiple mixed-scale base humps after crash,true,true,2026-09-12T08:52:00+08:00
+TW-F2C7E617CB6AEB1F,LOCAL_MODEL_C,no,not_applicable,,,,,,medium,messy two peaks; spike and right decline unequal,true,true,2026-09-12T08:52:00+08:00
+TW-F33AEC1495E63809,LOCAL_MODEL_C,no,not_applicable,,,,,,medium,tight noisy range; no standout pair,true,true,2026-09-12T08:52:00+08:00
+TW-F6FED16292CCBC74,LOCAL_MODEL_C,yes,range,40,48,58,68,82,medium,two similar plateau scoops,true,true,2026-09-12T08:52:00+08:00
+TW-FA5372ED5121702B,LOCAL_MODEL_C,no,not_applicable,,,,,,medium,multiple small base humps not a unique pair,true,true,2026-09-12T08:52:00+08:00
