@@ -1,0 +1,42 @@
+name: repository-consistency-refresh-once
+
+on:
+  push:
+    branches:
+      - maintenance/repository-consistency-refresh-20260912
+    paths:
+      - .github/workflows/repository-consistency-refresh-once.yml
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: python -m pip install -e .
+      - run: python scripts/validate_theme_package.py
+      - run: pytest -q
+      - name: Apply repository authority refresh
+        run: python scripts/apply_repository_consistency_refresh.py
+      - name: Commit authority refresh
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add experiments/two_wave_m0_authority.json docs/governance/repository_component_status.json
+          if git diff --cached --quiet; then
+            echo "No authority refresh changes to commit."
+            exit 0
+          fi
+          git commit -m "Synchronize repository authority through v0708 [skip ci]"
+          git push origin HEAD:maintenance/repository-consistency-refresh-20260912
