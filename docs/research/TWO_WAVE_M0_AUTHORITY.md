@@ -459,3 +459,20 @@ The counteroffensive preserved the causal TCSS/ridge infrastructure and tested p
 Formal verdict: **`v0701_persistence_dominant_objectization_candidate_supported`**. F3 is a Development reconstruction candidate only, not active morphology authority. The legacy exact-consecutive tuple remains historical baseline evidence. Downstream publication, projection, qualification, and direction components are not declared false: they remain queued for transplantation tests.
 
 The next authorized step is a separately frozen causal F3 event/publication and downstream-transplant precheck. It must define first-known/immutable object semantics and quantify multiplicity/rewrite risk without fitting F3 parameters to the human labels.
+
+
+## v0.7.2: F3 causal event / publication transplant precheck — causal event gate fails narrowly
+
+Frozen protocol: `docs/research/TWO_WAVE_F3_CAUSAL_EVENT_PUBLICATION_TRANSPLANT_V0702_PROTOCOL.md`.  
+Protocol freeze commit: `3e4e12d27dc28f93aa3079d8ea0899601931ec60`.  
+Formal workflow run: `34679677705`.  
+Formal result commit: `580828754920f5c9a747bee310c0657bf41443c3`.  
+Result: `experiments/two_wave_f3_event_publication_transplant_v0702/RESULT.json`.  
+Result card: `experiments/two_wave_f3_event_publication_transplant_v0702/RESULT_CARD.md`.  
+Adjudication: `experiments/two_wave_f3_event_publication_transplant_v0702/ADJUDICATION.json`.
+
+Static F3 support reproduces `8/11`, but the preregistered permanent death-certificate event rule preserves only `7/11`; the frozen `8/11` causal-event gate therefore fails. The formal verdict is **`v0702_f3_static_objectization_not_causally_publishable`**.
+
+The failure does not invalidate the static F3 reconstruction. It localizes the next counteroffensive layer to causal event certification. The nonconsecutive predecessor raw-projection / first-valid immutable-publication transplant produced `9/11` published-raw semantic support, providing positive salvage evidence for the v0.6.4/v0.6.5 principles once a causal event object is available. v0.6.18 and D1/v0.6.25 remain historical components awaiting semantic transplantation retests; they are not declared false.
+
+The next authorized step is a frozen read-only causal-certification gap attribution. `morphology_acceptance=false`, `trade_authority=false`, `production_authority=false`.

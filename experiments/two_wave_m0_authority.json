@@ -1,5 +1,5 @@
 {
-  "schema": "two_wave_m0_authority@1.26",
+  "schema": "two_wave_m0_authority@1.27",
   "date": "2026-09-12",
   "primary_object": "two_wave_parent_structure_recognizer",
   "target_states": [
@@ -8,7 +8,7 @@
     "DownTrend",
     "Uncertain"
   ],
-  "global_status": "v0701_persistence_dominant_objectization_candidate_supported_f3_event_publication_transplant_precheck_next",
+  "global_status": "v0702_f3_static_objectization_not_causally_publishable_causal_certificate_gap_attribution_next",
   "morphology_acceptance": false,
   "historical_full_recognizer_operational_baseline": {
     "version": "v0.4.3",
@@ -18,7 +18,7 @@
     "parent_identity": {
       "version": "v0.5.2",
       "name": "exact-ridge parent identity",
-      "status": "legacy_exact_tuple_demoted_f3_persistence_dominant_objectization_development_candidate_supported",
+      "status": "f3_static_development_reconstruction_supported_causal_event_certificate_unresolved",
       "independent_reference_correspondence_status": "semantic_bridge_failure_localized_at_exact_tuple_objectization",
       "v0650_median_parent_interval_iou": 0.7741935483870968,
       "v0650_median_anchor_mae_fraction": 0.12421052631578948,
@@ -56,27 +56,34 @@
       "v0701_F3_median_candidate_objects": 142.0,
       "v0701_F3_median_compatible_objects": 1.0,
       "v0701_F3_exactly_one_compatible_cases": 5,
-      "v0701_morphology_authority_granted": false
+      "v0701_morphology_authority_granted": false,
+      "v0702_static_f3_support_cases": 8,
+      "v0702_causally_certified_f3_support_cases": 7,
+      "v0702_causal_event_support_pass": false
     },
     "same_scale_semantics": {
       "version": "v0.5.4",
       "name": "full-cycle-scale qualification",
-      "status": "historical_component_awaiting_retest_after_f3_event_publication_and_projection_freeze"
+      "status": "historical_component_awaiting_f3_semantic_transplant_retest_after_causal_event_resolution"
     },
     "raw_identity_publication": {
       "version": "v0.6.5",
       "name": "first-valid immutable predecessor publication",
-      "status": "historical_component_queued_for_f3_event_publication_transplant_precheck_not_declared_false",
+      "status": "historical_principle_positive_f3_transplant_evidence_blocked_by_causal_event_gate",
       "v0652_background_published_groups": 38176,
       "v0652_background_groups_with_later_valid_evidence": 2,
       "v0652_background_suppressed_rewrite_comparisons": 1,
       "v0652_qualified_groups_with_later_valid_evidence": 0,
-      "v0652_qualified_suppressed_rewrites": 0
+      "v0652_qualified_suppressed_rewrites": 0,
+      "v0702_published_raw_semantic_support_cases": 9,
+      "v0702_prior_invalid_projection_count": 0,
+      "v0702_later_valid_same_identity_count": 2378,
+      "v0702_suppressed_would_be_rewrite_count": 223
     },
     "qualification_policy": {
       "version": "v0.6.18",
       "name": "path-gate demotion",
-      "status": "legacy_object_development_champion_queued_for_transplantation_retest_after_f3_parent_freeze",
+      "status": "legacy_object_development_champion_awaiting_f3_transplant_retest_after_causal_event_resolution",
       "formal_verdict": "v0618_path_gate_demotion_research_candidate_pass",
       "workflow_run": 34423674192,
       "result_commit": "9600eca94de9fb2cc39db4b995edec3d5e7870c3",
@@ -86,11 +93,13 @@
       "independent_reference_calibrated": false,
       "v0648_reference_confirmed_candidate_fraction": 0.13333333333333333,
       "v0648_reference_confirmed_candidate_count": 16,
-      "v0648_candidate_cases": 120
+      "v0648_candidate_cases": 120,
+      "v0702_interface_precheck_qualified_count_descriptive": 89,
+      "v0702_interface_precheck_qualified_fraction_descriptive": 0.060216508795669824
     },
     "parent_direction": {
       "winner": null,
-      "status": "historical_direction_components_queued_for_transplantation_retest_after_f3_parent_and_qualification_freeze",
+      "status": "historical_components_awaiting_f3_semantic_transplant_retest_after_parent_and_qualification_resolution",
       "historical_baseline": {
         "name": "D1",
         "pooled_exact_agreement": 0.957592339261286,
@@ -109,7 +118,8 @@
         "decisive_agreement": 1.0,
         "opposite_trend_conflicts": 0,
         "range_decisive_share": 0.010617760617760617
-      }
+      },
+      "v0702_D1_decisive_override_count": 0
     }
   },
   "frozen_direction_universe": {
@@ -356,7 +366,7 @@
   "current_price_input_direction_expansion_status": "closed_after_v0646_close_high_low_and_native_open_classes_adjudicated_no_challenger_authorized",
   "current_temporal_replication_status": "v0647_complete_not_all_original_v0625_gates_pass",
   "current_reference_label_status": "v0648_complete_independent_reference_calibration_gates_not_all_pass",
-  "next_authorized_step": "freeze causal F3 event/publication semantics and downstream transplantation precheck; test causal first-known time, object multiplicity, rewrite risk, and whether the v0.6.5 append-only publication concept can be transplanted without human-label fitting; only after event/publication freeze may raw projection, v0.5.4/v0.6.18 qualification, and D1/v0.6.25 direction be re-tested sequentially",
+  "next_authorized_step": "freeze a read-only v0703 causal-certification gap attribution for the static-F3-supported but causal-unsupported case and aggregate event mechanics; separate missing skipped-ridge death evidence, missing selected-boundary coarse survival evidence, confirmation-after-cutoff, and unnecessarily strong permanence-certificate requirements; do not lower the 8/11 gate, use future survival, fit event-delay tolerance, retune F3, or advance to qualification calibration before causal event semantics are resolved",
   "no_current_direction_challenger_authorized": true,
   "forbidden_next_shortcuts": [
     "retry_endpoint_D2_or_confidence_gated_D2",
@@ -425,7 +435,12 @@
     "fit_F3_persistence_threshold_from_v0648_labels",
     "fit_bar_distance_or_skip_count_to_make_F3_pass_more_cases",
     "reuse_v0618_or_v0625_as_active_authority_before_F3_event_publication_and_projection_freeze",
-    "declare_v064_v065_v0618_D1_v0625_false_without_transplantation_retest"
+    "declare_v064_v065_v0618_D1_v0625_false_without_transplantation_retest",
+    "lower_v0702_causal_event_salvage_gate_below_8_of_11",
+    "use_future_ridge_survival_as_f3_event_certificate",
+    "fit_event_confirmation_delay_tolerance_from_v0702",
+    "skip_causal_event_resolution_and_calibrate_v0618_on_f3",
+    "declare_v064_v065_projection_publication_active_authority_from_v0702_raw_support_alone"
   ],
   "trade_authority": false,
   "production_authority": false,
@@ -659,5 +674,36 @@
     "same_scale_v054_and_qualification_v0618": "awaiting_transplantation_retest_not_declared_false",
     "direction_D1_v0625": "awaiting_transplantation_retest_not_declared_false"
   },
-  "no_active_semantic_parent_authority": true
+  "no_active_semantic_parent_authority": true,
+  "f3_causal_event_publication_transplant": {
+    "v0702": {
+      "status": "complete_static_objectization_not_causally_publishable",
+      "protocol": "docs/research/TWO_WAVE_F3_CAUSAL_EVENT_PUBLICATION_TRANSPLANT_V0702_PROTOCOL.md",
+      "protocol_freeze_commit": "3e4e12d27dc28f93aa3079d8ea0899601931ec60",
+      "formal_workflow_run": 34679677705,
+      "formal_result_commit": "580828754920f5c9a747bee310c0657bf41443c3",
+      "result": "experiments/two_wave_f3_event_publication_transplant_v0702/RESULT.json",
+      "result_card": "experiments/two_wave_f3_event_publication_transplant_v0702/RESULT_CARD.md",
+      "adjudication": "experiments/two_wave_f3_event_publication_transplant_v0702/ADJUDICATION.json",
+      "static_f3_support_cases": 8,
+      "causally_certified_f3_support_cases": 7,
+      "published_raw_semantic_support_cases": 9,
+      "causal_event_support_pass": false,
+      "published_raw_semantic_support_pass": true,
+      "interface_exception_count_descriptive": 461,
+      "interface_exception_type_counts_descriptive": {
+        "ValueError": 461
+      },
+      "d1_decisive_override_count": 0,
+      "primary_category": "v0702_f3_static_objectization_not_causally_publishable",
+      "reference_scoring_performed": false,
+      "threshold_fitting_performed": false,
+      "qualification_changed": false,
+      "direction_winner_changed": false,
+      "morphology_acceptance_changed": false,
+      "trade_authority_changed": false,
+      "production_authority_changed": false
+    }
+  },
+  "counteroffensive_current_breakpoint": "f3_causal_event_certificate_one_case_gap"
 }

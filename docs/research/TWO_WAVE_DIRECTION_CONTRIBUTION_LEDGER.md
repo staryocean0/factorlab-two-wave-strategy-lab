@@ -294,3 +294,12 @@ The next program step should be **independent reference-label morphology validat
 - F3 persistence-dominant nonconsecutive quintet supports `8/11` anchored human-positive cases and is retained as a Development reconstruction candidate.
 - D1 and v0.6.25 are **not invalidated**; they remain historical direction components awaiting transplantation after F3 event/publication, raw projection, and qualification are frozen.
 - No direction challenger is authorized at this stage.
+
+
+## v0.7.2 counteroffensive transplant precheck
+
+- Upstream semantic-parent/event evidence, not a direction contribution.
+- Static F3 support remains `8/11`; permanent causal certification preserves `7/11`, so current F3 event semantics are not accepted.
+- First-valid F3 raw publication nevertheless reaches `9/11` anchored semantic support, positive evidence for preserving the sequential projection / immutable-publication principles after the event layer is repaired.
+- D1 decisive override under v0.6.25 remains zero in the interface precheck. No reference direction scoring was performed.
+- v0.6.18 and D1/v0.6.25 remain queued for later semantic transplantation, not rejected.
