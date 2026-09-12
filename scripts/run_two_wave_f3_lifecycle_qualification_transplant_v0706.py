@@ -96,10 +96,10 @@ def _mechanical_upstream(case_rows: list[dict], formal_v0705: dict) -> dict:
         "publication_delay_median_bars": 0.0 if delay_medians and all(x == 0.0 for x in delay_medians) else None,
         "publication_delay_max_bars": max(delay_maxes) if delay_maxes else None,
         "publication_hard_invariant_violation_count": int(hard),
-        # These two semantic values are overwritten by fresh scoring after the
+        # These semantic values are overwritten by fresh scoring after the
         # label-free interface/contract gates pass. Until then the formal v0705
-        # authority keeps upstream precedence deterministic without unblinding
-        # qualification construction to human support cells.
+        # authority keeps upstream precedence deterministic without using human
+        # support cells in qualification construction or interface repair.
         "published_raw_semantic_support_cases": int(formal_sem["published_raw_semantic_support_cases"]),
         "published_raw_ordinal_hit_cases": [int(x) for x in formal_sem["per_ordinal_published_raw_cell_hit_cases"]],
         "permanent_certificate_gap_case_count": int(formal_sem["permanent_certificate_gap_case_count"]),
@@ -124,7 +124,8 @@ def main() -> int:
     bars, source_audit = load_development_bars(DATA_PATH, MANIFEST_PATH)
     frame = pd.read_parquet(DATA_PATH).copy()
     closes = frame["close"].astype(float).tolist()
-    ridge = build_ridge_run(bars, cfg=MaturityConfig(timeframe=VIEW))
+    qual_cfg = MaturityConfig(timeframe=VIEW)
+    ridge = build_ridge_run(bars, cfg=qual_cfg)
     if ridge.lineage_anomalies:
         raise AssertionError(f"v0.5.2 ridge lineage anomalies: {len(ridge.lineage_anomalies)}")
 
@@ -142,8 +143,9 @@ def main() -> int:
     if sorted(c.case_id for c in cases) != sorted(reference.index.tolist()):
         raise RuntimeError("frozen final-reference membership drift")
 
-    # Stage A: reconstruct the frozen anchored universe and v0705 publications,
-    # but do not score human support cells through qualification yet.
+    # Stage A reconstructs the already-frozen v0705 anchored audit universe and
+    # publications. Human support cells are retained but are not consulted by
+    # Stage B qualification construction or interface/contract repair.
     case_rows = []
     positive_candidate_count = 0
     anchored_count = 0
@@ -169,6 +171,7 @@ def main() -> int:
         publication = replay_publications_from_cache(ridge, lifecycle, prefix_frames, bars)
         case_rows.append(
             {
+                "cutoff": cutoff,
                 "lifecycle": lifecycle,
                 "publication": publication,
                 "cells": cells,
@@ -185,7 +188,7 @@ def main() -> int:
     upstream = _mechanical_upstream(case_rows, formal_v0705)
 
     # Stage B: label-free qualification interface + contract audit over all
-    # immutable v0705 publications in the frozen 11-case universe.
+    # immutable v0705 publications in the frozen 11-case audit universe.
     v054_exceptions: Counter[str] = Counter()
     v0618_exceptions: Counter[str] = Counter()
     v054_evaluated = 0
@@ -221,7 +224,7 @@ def main() -> int:
             v054 = None
             v0618 = None
             try:
-                v054 = qualify_published_raw_identity(phase, raw, confirmation, prefix, cfg=MaturityConfig(timeframe=VIEW))
+                v054 = qualify_published_raw_identity(phase, raw, confirmation, prefix, cfg=qual_cfg)
                 v054_evaluated += 1
             except Exception as exc:
                 v054_exceptions[type(exc).__name__] += 1
@@ -231,7 +234,7 @@ def main() -> int:
                     raw,
                     confirmation,
                     prefix,
-                    cfg=MaturityConfig(timeframe=VIEW),
+                    cfg=qual_cfg,
                 )
                 v0618_evaluated += 1
             except Exception as exc:
@@ -254,8 +257,10 @@ def main() -> int:
             strata = {
                 "already_certified_at_publication": status_at_pub == "certified",
                 "unresolved_at_publication_later_certified": (
-                    status_at_pub == "observed_live_unresolved" and final_certified
-                    and cert_bar is not None and int(cert_bar) > int(pub["publishing_evidence_bar"])
+                    status_at_pub == "observed_live_unresolved"
+                    and final_certified
+                    and cert_bar is not None
+                    and int(cert_bar) > int(pub["publishing_evidence_bar"])
                 ),
                 "unresolved_at_publication_still_unresolved": (
                     status_at_pub == "observed_live_unresolved" and not final_certified
@@ -308,22 +313,11 @@ def main() -> int:
         for case_row, case_q in zip(case_rows, by_case_qualification):
             lifecycle = case_row["lifecycle"]
             publication = case_row["publication"]
+            cutoff = int(case_row["cutoff"])
             cells = case_row["cells"]
             kinds = case_row["kinds"]
             human_bars = case_row["human_bars"]
 
-            lifecycle_sem = summarize_lifecycle_case_semantics(
-                lifecycle,
-                ridge,
-                int(max(human_bars[-1], lifecycle.get("cutoff", human_bars[-1]))),
-                cells,
-                kinds,
-                human_bars,
-            )
-            # build_lifecycle_for_case does not expose cutoff as a public key in
-            # every historical implementation; the semantic scorer only needs
-            # the frozen case cutoff, which is the upper edge of cells[-1].
-            cutoff = int(cells[-1][1])
             lifecycle_sem = summarize_lifecycle_case_semantics(
                 lifecycle,
                 ridge,
