@@ -18,6 +18,7 @@ from factor_lab.visual_structure.two_wave.data import load_development_bars
 from factor_lab.visual_structure.two_wave.extremum_ridge_v052 import build_ridge_run
 from factor_lab.visual_structure.two_wave.reference_label_freeze_v0648 import validate_final_reference_frame
 from factor_lab.visual_structure.two_wave.reference_label_packet_v0648 import sampling_commitment, select_blinded_cases
+from factor_lab.visual_structure.two_wave.ridge_semantic_objectization_f3dp_v0701 import evaluate_f3_case_dp
 from factor_lab.visual_structure.two_wave.ridge_semantic_objectization_v0701 import (
     frozen_decision,
     summarize_family_records,
@@ -26,7 +27,6 @@ from factor_lab.visual_structure.two_wave.ridge_semantic_objectization_stream_v0
     evaluate_f0_case,
     evaluate_f1_case,
     evaluate_f2_case,
-    evaluate_f3_case,
 )
 from factor_lab.visual_structure.two_wave.same_scale_v043 import MaturityConfig
 from factor_lab.visual_structure.two_wave.semantic_bridge_counteroffensive_v0700 import (
@@ -96,7 +96,7 @@ def main() -> int:
         "F0": evaluate_f0_case,
         "F1": evaluate_f1_case,
         "F2": evaluate_f2_case,
-        "F3": evaluate_f3_case,
+        "F3": evaluate_f3_case_dp,
     }
 
     for case in cases:
@@ -150,7 +150,7 @@ def main() -> int:
             "F2": "one_step_survivor_skeleton",
             "F3": "persistence_dominant_nonconsecutive_quintet",
         },
-        "enumeration_implementation": "definition_equivalent_streaming_unique_ridge_id_sets",
+        "enumeration_implementation": "definition_equivalent_exact_dp_plus_streaming_unique_ridge_id_objects",
         "family_results": families,
         "frozen_decision": decision,
         "primary_category": decision["primary_category"],
