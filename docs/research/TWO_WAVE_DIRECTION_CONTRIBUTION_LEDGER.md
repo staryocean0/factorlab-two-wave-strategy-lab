@@ -311,3 +311,11 @@ The next program step should be **independent reference-label morphology validat
 - Static F3 remains `8/11`, while both C0 and C1 permanent causal certificates remain `7/11`.
 - The one-case loss is attributable to explicit RidgeDeath evidence being unavailable at cutoff, not to the exact-coarse boundary representation.
 - D1/v0.6.25 remain historical direction components awaiting later semantic transplantation after parent-event lifecycle and qualification are resolved.
+
+
+## v0.7.4 prefix-causal lifecycle representation
+
+- Upstream parent-event lifecycle evidence only; no direction challenger or reference direction scoring was run.
+- Lifecycle-live F3 preserves `8/11` semantic support while terminal C1 certification remains `7/11`; the eighth case is live unresolved, not future-certified.
+- Hard append-only/causal invariant violations are zero.
+- D1/v0.6.25 remain historical direction components awaiting lifecycle-aware publication and later qualification transplantation.

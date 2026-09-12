@@ -491,3 +491,18 @@ Adjudication: `experiments/two_wave_f3_causal_certificate_gap_v0703/ADJUDICATION
 Required replication held: static F3 `8/11`, C0 causal `7/11`, exactly one gap case. C1 relaxed only exact-coarse boundary-survival representation but still required explicit skipped-ridge death; it remained `7/11` and recovered zero cases. The one gap case has four human-compatible static realizations, and all four lack explicit death by cutoff while the corresponding proof appears only later. The formal verdict is **`v0703_gap_requires_explicit_death_evidence_unavailable_at_cutoff`**.
 
 This rules out the narrow explanation that C0 failed merely because it demanded an exact coarse-level boundary representation. The next authorized stage is causal object/event-layer reconstruction, with an append-only lifecycle representation as the leading candidate. Qualification and direction remain blocked. `morphology_acceptance=false`, `trade_authority=false`, `production_authority=false`.
+
+
+## v0.7.4: F3 prefix-causal lifecycle representation — supported
+
+Frozen protocol: `docs/research/TWO_WAVE_F3_PREFIX_CAUSAL_LIFECYCLE_V0704_PROTOCOL.md`.  
+Protocol freeze commit: `3c0ae26d3453d8d0c5563be6ad58e7ea8c463ee0`.  
+Formal workflow run: `34681831280`.  
+Formal result commit: `96e528680b42e42b1951b9b656a9ed790c51073d`.  
+Result: `experiments/two_wave_f3_prefix_causal_lifecycle_v0704/RESULT.json`.  
+Result card: `experiments/two_wave_f3_prefix_causal_lifecycle_v0704/RESULT_CARD.md`.  
+Adjudication: `experiments/two_wave_f3_prefix_causal_lifecycle_v0704/ADJUDICATION.json`.
+
+The append-only lifecycle reproduces static F3 support at `8/11` and C1-certified support at `7/11`, while lifecycle-live support remains `8/11`. The one permanent-certificate gap is represented as live unresolved rather than falsely certified. All hard causal/append-only invariants pass with zero violations. Across the 11 frozen windows, 1543 F3 objects are observed, 1478 later satisfy C1, and 65 remain unresolved at cutoff; no dormant or reobserved transitions occur in this Development universe.
+
+Formal verdict: **`v0704_f3_prefix_causal_lifecycle_representation_supported`**. This is a supported Development representation, not active morphology authority. The next authorized stage is provisional lifecycle publication transplantation using the retained v0.6.4/v0.6.5 principles. Qualification and direction remain blocked. `morphology_acceptance=false`, `trade_authority=false`, `production_authority=false`.

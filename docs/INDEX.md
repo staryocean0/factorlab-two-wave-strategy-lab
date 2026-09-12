@@ -201,3 +201,13 @@ These snapshots contain links outside this bounded theme package. The scoped ind
 - Adjudication: `../experiments/two_wave_f3_causal_certificate_gap_v0703/ADJUDICATION.json`
 - Verdict: `v0703_gap_requires_explicit_death_evidence_unavailable_at_cutoff` (`8/11` static, `7/11` C0, `7/11` C1).
 - Next: causal object/event lifecycle reconstruction; qualification/direction remain blocked.
+
+
+### v0.7.4 F3 prefix-causal lifecycle reconstruction — complete
+
+- Protocol: `research/TWO_WAVE_F3_PREFIX_CAUSAL_LIFECYCLE_V0704_PROTOCOL.md`
+- Result: `../experiments/two_wave_f3_prefix_causal_lifecycle_v0704/RESULT.json`
+- Result card: `../experiments/two_wave_f3_prefix_causal_lifecycle_v0704/RESULT_CARD.md`
+- Adjudication: `../experiments/two_wave_f3_prefix_causal_lifecycle_v0704/ADJUDICATION.json`
+- Verdict: `v0704_f3_prefix_causal_lifecycle_representation_supported` (`8/11` live, `7/11` certified, zero hard-invariant violations).
+- Next: provisional lifecycle raw-projection / immutable-publication transplant; qualification/direction remain blocked.
