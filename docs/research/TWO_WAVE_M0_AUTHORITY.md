@@ -423,3 +423,22 @@ Across `38,176` published background identities, only `2` have a later valid evi
 All frozen Gates A-E fail. Formal verdict: **`v0652_structural_ordinal0_provenance_asymmetry_not_materially_expressed`**.
 
 Therefore ordinal-0 predecessor support and first-valid immutable publication are closed as a material explanation for the reference start-side mismatch. This does not declare p0 correct; it moves attribution one representation layer upstream. The next authorized step is a separately frozen read-only **filtered exact-ridge vs raw-projected vs human-anchor layer attribution**. No predecessor change, publication-policy change, projection-window fit, boundary tolerance, semantic-object challenger, qualification change, or direction challenger is authorized.
+
+
+## v0.7.0 counteroffensive: first semantic break localized; ridge infrastructure salvaged
+
+Frozen protocol: `docs/research/TWO_WAVE_SEMANTIC_BRIDGE_COUNTEROFFENSIVE_V0700_PROTOCOL.md`.  
+Formal workflow run: `34671433841`.  
+Formal result commit: `4c0fc9366dd8e2ce6537f9c384c24d90f2d2f920`.  
+Result: `experiments/two_wave_semantic_bridge_counteroffensive_v0700/RESULT.json`.  
+Result card: `experiments/two_wave_semantic_bridge_counteroffensive_v0700/RESULT_CARD.md`.
+
+The counteroffensive deliberately preserves downstream historical results until they are transplanted and retested. On the 11 independently confirmed human-positive cases with complete anchors, raw observed-turn support is `11/11`; a single common TCSS/ridge scale supports all five human cells in `10/11`, well above the frozen `8/11` salvage threshold. The nearest compatible ridge-node distance has median `0` bars at every ordinal.
+
+The first major semantic collapse occurs at exact five-ridge tuple objectization: only `3/11` cases have a human-compatible exact-ridge five-tuple, and `7` cases are L1-positive but L2-negative. By contrast there is no further L2-to-L3 loss: all three compatible exact tuples also have causal tuple births by cutoff.
+
+Formal verdict: **`v0700_ridge_infrastructure_salvage_supported_exact_tuple_objectization_breaks_semantic_bridge`**.
+
+Therefore the project is not reset to zero. Data/clock/replay/governance are retained unchanged; TCSS extrema and ridge lineage are retained as support infrastructure. The exact-consecutive-five-ridge-tuple is removed as semantic-parent authority and must be reconstructed. Tuple-birth timing, raw projection/publication, same-scale qualification, and D1/v0.6.25 direction are not declared false; they are historical components awaiting transplantation tests after the parent object is repaired.
+
+The next authorized step is v0.7.1 ridge-supported semantic parent objectization reconstruction. `morphology_acceptance=false`, `trade_authority=false`, `production_authority=false`.

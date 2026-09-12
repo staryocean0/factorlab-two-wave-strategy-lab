@@ -277,3 +277,12 @@ The next program step should be **independent reference-label morphology validat
 - Median raw-vs-filtered displacement is `3` bars for every ordinal p0-p4; p0 projection width is not anomalously large.
 - Verdict: `v0652_structural_ordinal0_provenance_asymmetry_not_materially_expressed`.
 - Predecessor / first-valid publication route is closed as the material explanation; next is filtered-ridge vs raw-projection layer attribution.
+
+
+## v0.7.0 counteroffensive salvage status
+
+- Direction work is not invalidated; it is upstream-blocked pending transplantation.
+- TCSS/ridge support is salvaged (`10/11` human-positive anchored cases).
+- Exact five-ridge tuple objectization fails the salvage threshold (`3/11`) and is the first localized semantic break.
+- Tuple-birth timing is not the first break (`L2→L3` loss `0`).
+- D1/v0.6.25 remain historical direction components, not winners and not active authority, until a repaired parent object reaches the direction transplantation stage.

@@ -1,5 +1,5 @@
 {
-  "schema": "two_wave_m0_authority@1.24",
+  "schema": "two_wave_m0_authority@1.25",
   "date": "2026-09-12",
   "primary_object": "two_wave_parent_structure_recognizer",
   "target_states": [
@@ -8,7 +8,7 @@
     "DownTrend",
     "Uncertain"
   ],
-  "global_status": "v0652_ordinal0_provenance_asymmetry_not_materially_expressed_filtered_ridge_vs_raw_projection_attribution_next",
+  "global_status": "v0700_counteroffensive_localized_first_semantic_break_at_exact_five_ridge_tuple_objectization_v0701_reconstruction_next",
   "morphology_acceptance": false,
   "historical_full_recognizer_operational_baseline": {
     "version": "v0.4.3",
@@ -18,8 +18,8 @@
     "parent_identity": {
       "version": "v0.5.2",
       "name": "exact-ridge parent identity",
-      "status": "supported_research_component_reference_correspondence_unresolved_raw_projection_publication_lineage_not_material_explanation",
-      "independent_reference_correspondence_status": "mixed_or_indeterminate",
+      "status": "exact_ridge_five_tuple_not_semantic_parent_authority_objectization_requires_reconstruction",
+      "independent_reference_correspondence_status": "semantic_bridge_failure_localized_at_exact_tuple_objectization",
       "v0650_median_parent_interval_iou": 0.7741935483870968,
       "v0650_median_anchor_mae_fraction": 0.12421052631578948,
       "v0650_median_start_boundary_error_bars": 17.0,
@@ -43,17 +43,20 @@
         3.0,
         3.0,
         3.0
-      ]
+      ],
+      "v0700_L1_common_scale_ridge_support": 10,
+      "v0700_L2_exact_tuple_support": 3,
+      "v0700_decisive_transition": "L1_to_L2"
     },
     "same_scale_semantics": {
       "version": "v0.5.4",
       "name": "full-cycle-scale qualification",
-      "status": "supported_research_component"
+      "status": "historical_component_awaiting_transplantation_retest_on_repaired_semantic_parent_object"
     },
     "raw_identity_publication": {
       "version": "v0.6.5",
       "name": "first-valid immutable predecessor publication",
-      "status": "supported_research_component_first_valid_freeze_not_material_explanation_of_reference_start_side_mismatch",
+      "status": "historical_component_awaiting_transplantation_retest_not_declared_false",
       "v0652_background_published_groups": 38176,
       "v0652_background_groups_with_later_valid_evidence": 2,
       "v0652_background_suppressed_rewrite_comparisons": 1,
@@ -63,7 +66,7 @@
     "qualification_policy": {
       "version": "v0.6.18",
       "name": "path-gate demotion",
-      "status": "development_champion_failed_independent_reference_calibration_upstream_filtered_ridge_vs_raw_layer_unresolved",
+      "status": "development_champion_on_legacy_object_awaiting_transplantation_retest_on_repaired_parent_object",
       "formal_verdict": "v0618_path_gate_demotion_research_candidate_pass",
       "workflow_run": 34423674192,
       "result_commit": "9600eca94de9fb2cc39db4b995edec3d5e7870c3",
@@ -77,7 +80,7 @@
     },
     "parent_direction": {
       "winner": null,
-      "status": "blocked_no_winner_upstream_parent_object_representation_and_qualification_not_reference_validated",
+      "status": "historical_direction_components_awaiting_transplantation_retest_after_semantic_parent_reconstruction",
       "historical_baseline": {
         "name": "D1",
         "pooled_exact_agreement": 0.957592339261286,
@@ -343,7 +346,7 @@
   "current_price_input_direction_expansion_status": "closed_after_v0646_close_high_low_and_native_open_classes_adjudicated_no_challenger_authorized",
   "current_temporal_replication_status": "v0647_complete_not_all_original_v0625_gates_pass",
   "current_reference_label_status": "v0648_complete_independent_reference_calibration_gates_not_all_pass",
-  "next_authorized_step": "freeze a read-only filtered exact-ridge versus raw-projection versus frozen-human-anchor layer-attribution audit on the already frozen anchored-positive cases; determine whether the p0/start-side mismatch is already present in filtered exact-ridge coordinates or is introduced or changed by raw projection; do not fit projection windows, boundary tolerances, ridge identities, pivot remapping, or a semantic-object challenger to v0648 labels",
+  "next_authorized_step": "v0.7.1 ridge-supported semantic parent objectization reconstruction: retain causal TCSS extrema/ridge infrastructure; replace exact-consecutive-five-ridge-tuple as the default semantic-parent bridge with separately frozen structural object families; do not fit bar-distance tolerances to the 11 anchored reference cases; after selecting a repaired semantic object, transplant and retest tuple-birth timing, raw projection/publication, same-scale qualification, and direction in that order",
   "no_current_direction_challenger_authorized": true,
   "forbidden_next_shortcuts": [
     "retry_endpoint_D2_or_confidence_gated_D2",
@@ -401,7 +404,13 @@
     "infer_p0_projection_bias_from_structural_provenance_difference_alone",
     "fit_raw_projection_windows_to_v0648_human_anchors",
     "replace_filtered_ridge_p0_with_human_p0",
-    "resume_direction_feature_mining_before_filtered_ridge_vs_raw_projection_layer_attribution"
+    "resume_direction_feature_mining_before_filtered_ridge_vs_raw_projection_layer_attribution",
+    "declare_all_v06_downstream_results_false_due_to_v0700",
+    "discard_tcss_ridge_infrastructure_after_v0700",
+    "fit_nearest_ridge_distance_tolerance_to_11_v0700_cases",
+    "repair_v0700_by_relaxing_exact_tuple_consecutiveness_without_separately_frozen_object_family",
+    "reuse_v0618_or_v0625_as_active_authority_before_transplantation_retest",
+    "skip_objectization_reconstruction_and_resume_direction_feature_mining"
   ],
   "trade_authority": false,
   "production_authority": false,
@@ -568,5 +577,49 @@
       "trade_authority_changed": false,
       "production_authority_changed": false
     }
+  },
+  "semantic_bridge_counteroffensive": {
+    "v0700": {
+      "status": "complete_first_break_localized_at_exact_five_ridge_tuple_objectization",
+      "protocol": "docs/research/TWO_WAVE_SEMANTIC_BRIDGE_COUNTEROFFENSIVE_V0700_PROTOCOL.md",
+      "protocol_freeze_commit": "525948dc7f22a01fdfd6df453a935181df41e0f6",
+      "formal_workflow_run": 34671433841,
+      "formal_result_commit": "4c0fc9366dd8e2ce6537f9c384c24d90f2d2f920",
+      "result": "experiments/two_wave_semantic_bridge_counteroffensive_v0700/RESULT.json",
+      "result_card": "experiments/two_wave_semantic_bridge_counteroffensive_v0700/RESULT_CARD.md",
+      "adjudication": "experiments/two_wave_semantic_bridge_counteroffensive_v0700/ADJUDICATION.json",
+      "anchored_reference_positive_cases": 11,
+      "salvage_threshold_cases": 8,
+      "layer_support_counts": {
+        "L0": 11,
+        "L1": 10,
+        "L2": 3,
+        "L3": 3,
+        "L4": 2,
+        "L5": 3
+      },
+      "decisive_transition": "L1_to_L2",
+      "L1_true_L2_false_cases": 7,
+      "L2_true_L3_false_cases": 0,
+      "primary_category": "v0700_ridge_infrastructure_salvage_supported_exact_tuple_objectization_breaks_semantic_bridge",
+      "development_discovery_only": true,
+      "new_object_constructor_fitted": false,
+      "threshold_fitting_performed": false,
+      "qualification_changed": false,
+      "direction_winner_changed": false,
+      "morphology_acceptance_changed": false,
+      "trade_authority_changed": false,
+      "production_authority_changed": false
+    }
+  },
+  "counteroffensive_component_retention": {
+    "data_clock_source_replay_governance": "retain_without_semantic_change",
+    "tcss_extrema_ridge_infrastructure": "retain_as_support_infrastructure_but_not_parent_authority",
+    "exact_ridge_five_tuple_objectization": "reconstruct_or_revalidate",
+    "tuple_birth_causal_adjacency_rule": "awaiting_transplantation_retest_after_objectization_repair",
+    "legacy_filtered_parent_identity": "reconstruct_or_revalidate",
+    "raw_projection_v064_v065": "awaiting_transplantation_retest_not_declared_false",
+    "same_scale_v054_and_qualification_v0618": "awaiting_transplantation_retest_not_declared_false",
+    "direction_D1_v0625": "awaiting_transplantation_retest_not_declared_false"
   }
 }

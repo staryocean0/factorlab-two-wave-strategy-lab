@@ -76,3 +76,6 @@ This repository does **not** own:
 The package still contains imported Layer 1/2/3 infrastructure closure required by the bounded cloud theme; those dependencies are not separate active strategy mandates.
 
 `production_authority=false`.
+
+
+v0.7.0 has now opened the counteroffensive. Ridge infrastructure is salvaged (`10/11`), while exact consecutive five-ridge tuple objectization is the first localized semantic break (`3/11`). Downstream v0.6.x components are retained for transplantation retests, not blanket-rejected. Next: v0.7.1 ridge-supported semantic parent objectization reconstruction.

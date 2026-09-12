@@ -160,3 +160,14 @@ These snapshots contain links outside this bounded theme package. The scoped ind
 - Governance adjudication: `../experiments/two_wave_ordinal0_publication_lineage_audit_v0652/ADJUDICATION.json`
 - Verdict: `v0652_structural_ordinal0_provenance_asymmetry_not_materially_expressed`.
 - Next: freeze a read-only filtered exact-ridge vs raw-projection vs frozen-human-anchor layer-attribution audit.
+
+
+### v0.7.0 semantic-bridge counteroffensive — complete
+
+- Protocol: `research/TWO_WAVE_SEMANTIC_BRIDGE_COUNTEROFFENSIVE_V0700_PROTOCOL.md`
+- Result: `../experiments/two_wave_semantic_bridge_counteroffensive_v0700/RESULT.json`
+- Result card: `../experiments/two_wave_semantic_bridge_counteroffensive_v0700/RESULT_CARD.md`
+- Adjudication: `../experiments/two_wave_semantic_bridge_counteroffensive_v0700/ADJUDICATION.json`
+- Verdict: `v0700_ridge_infrastructure_salvage_supported_exact_tuple_objectization_breaks_semantic_bridge`.
+- Salvage: ridge infrastructure retained; exact five-ridge tuple objectization is the first reconstruction point; downstream components await transplantation tests rather than being discarded.
+- Next: v0.7.1 ridge-supported semantic parent objectization reconstruction.
