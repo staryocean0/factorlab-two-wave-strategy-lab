@@ -1,0 +1,131 @@
+{
+  "schema": "two_wave_external_validation_availability_adjudication@0.7.8",
+  "date": "2026-09-12",
+  "audit_record": "docs/research/TWO_WAVE_EXTERNAL_VALIDATION_EVIDENCE_AVAILABILITY_V0708.md",
+  "upstream_v0707": {
+    "branch_head": "9c37c9d929c0cd2edaab45b8b8cad8ad6c2fa19a",
+    "formal_workflow_run": 34690335291,
+    "formal_result_commit": "37cf51ab4b546a2ac8650f31b8dfb1deef5e2c59",
+    "primary_category": "v0707_v0625_lifecycle_direction_transplant_supported_development_only_external_validation_blocked",
+    "direction_winner": null,
+    "v0647_external_validation_weakness_binding": true,
+    "v0648_external_validation_weakness_binding": true
+  },
+  "connected_repository_count": 7,
+  "repositories_audited": [
+    {
+      "repository": "staryocean0/factorlab-two-wave-strategy-lab",
+      "role": "consumer_research_repository",
+      "qualifying_new_temporal_evidence": false,
+      "qualifying_new_reference_label_evidence": false,
+      "reason": "existing v0647/v0648 evidence is already consumed and cannot be relabeled as new"
+    },
+    {
+      "repository": "staryocean0/factorlab-star50-filter-lab",
+      "role": "source_of_v0647_temporal_material",
+      "qualifying_new_temporal_evidence": false,
+      "qualifying_new_reference_label_evidence": false,
+      "evidence": {
+        "v0647_consumed_years": [2024, 2025, 2026],
+        "current_2026_actual_first_day": "2026-01-05",
+        "current_2026_actual_last_day": "2026-08-21",
+        "post_snapshot_rows": 0,
+        "fresh_oos": false,
+        "datahub_source_sha256": "aeacff04b268c166faac333ec7ab9d840abcd347d82cb3bcee0218d058fc7423"
+      },
+      "reason": "no post-2026-08-21 CSI1000 minute extension is currently present"
+    },
+    {
+      "repository": "staryocean0/factorlab-overnight-open-lab",
+      "role": "overnight_research_consumer_with_repeat_2026_pack",
+      "qualifying_new_temporal_evidence": false,
+      "qualifying_new_reference_label_evidence": false,
+      "evidence": {
+        "max_day": "2026-08-21",
+        "post_2026_08_21_included": false,
+        "fresh_oos": false,
+        "scientific_role": "repeat_only_not_fresh",
+        "datahub_source_sha256": "aeacff04b268c166faac333ec7ab9d840abcd347d82cb3bcee0218d058fc7423",
+        "annotated_panel_is_two_wave_morphology_reference": false
+      },
+      "reason": "same DataHub source and same terminal date as already-consumed 2026 material; overnight annotations are not Two-Wave morphology labels"
+    },
+    {
+      "repository": "staryocean0/factorlab-overnight-gap-fill-repeat-2026",
+      "role": "retired_duplicate_repeat_pack",
+      "qualifying_new_temporal_evidence": false,
+      "qualifying_new_reference_label_evidence": false,
+      "reason": "retired duplicate consolidated into overnight-open-lab; scientific role remains repeat_only_not_fresh"
+    },
+    {
+      "repository": "staryocean0/factorlab-trend-reversion-regime-lab",
+      "role": "independent_trend_reversion_research_seed",
+      "qualifying_new_temporal_evidence": false,
+      "qualifying_new_reference_label_evidence": false,
+      "evidence": {
+        "csi1000_1m_first_year": 2015,
+        "csi1000_1m_last_year": 2025,
+        "csi1000_1m_2026_present": false
+      },
+      "reason": "no current 2026 CSI1000 minute file and no independent Two-Wave morphology reference package"
+    },
+    {
+      "repository": "staryocean0/factorlab-multifactor-stock-lab",
+      "role": "stock_selection_research",
+      "qualifying_new_temporal_evidence": false,
+      "qualifying_new_reference_label_evidence": false,
+      "evidence": {
+        "2026_rows_absent": true,
+        "fresh_oos": false,
+        "minute_two_wave_reference_present": false
+      },
+      "reason": "daily/factor stock-selection surfaces only; not CSI1000 minute morphology evidence"
+    },
+    {
+      "repository": "staryocean0/factorlab-multifactor-research-private",
+      "role": "private_REAKA_research_package_workspace",
+      "qualifying_new_temporal_evidence": false,
+      "qualifying_new_reference_label_evidence": false,
+      "evidence": {
+        "observation_end": "2022-12-31",
+        "full_minute_data": false,
+        "fresh_oos": false
+      },
+      "reason": "REAKA portfolio/model packages; no full one-minute dataset and no Two-Wave morphology reference-label package"
+    }
+  ],
+  "temporal_trigger_A_satisfied": false,
+  "independent_reference_trigger_B_satisfied": false,
+  "combined_external_validation_reopening_condition_satisfied": false,
+  "candidate_identity_frozen": false,
+  "external_validation_protocol_opened": false,
+  "direction_scoring_opened": false,
+  "threshold_change_opened": false,
+  "result_opened": false,
+  "direction_winner": null,
+  "morphology_acceptance": false,
+  "trade_authority": false,
+  "production_authority": false,
+  "primary_category": "v0708_external_validation_evidence_gap_no_candidate_opened",
+  "adjudication": "blocked_external_evidence_availability_no_candidate_opened",
+  "reopening_triggers": {
+    "A_new_temporal_replication_material": {
+      "required": true,
+      "description": "a genuinely new CSI1000 minute-bar sample not consumed by v0.6.47, preferably a sealed post-2026-08-21 continuation, with immutable provenance/digest and no result-dependent filtering or retuning"
+    },
+    "B_new_independent_morphology_reference": {
+      "required": true,
+      "description": "an independent Two-Wave morphology/reference-label set not consumed by v0.6.48, with frozen provenance, labeling protocol, case universe, and label-release timing before model scoring"
+    }
+  },
+  "forbidden_shortcuts": [
+    "reuse_v0647_2024_2025_2026_samples_as_new_external_evidence",
+    "treat_duplicate_copy_of_same_datahub_export_as_independent_evidence",
+    "use_overnight_gap_annotation_as_two_wave_morphology_reference",
+    "open_another_in_sample_direction_rescue_or_tuning_branch",
+    "retune_v0625_or_qualification_or_lifecycle_thresholds_from_this_audit",
+    "install_v0625_as_direction_winner_from_v0707_development_support",
+    "grant_morphology_trade_or_production_authority"
+  ],
+  "next_authorized_step": "remain blocked with no direction candidate opened until both a genuinely new temporal replication sample and a new independent morphology/reference-label source become GitHub-visible and can be preregistered before scoring"
+}
