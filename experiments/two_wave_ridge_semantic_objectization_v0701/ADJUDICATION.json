@@ -1,0 +1,44 @@
+{
+  "schema": "two_wave_ridge_semantic_objectization_adjudication@0.7.1",
+  "protocol": "docs/research/TWO_WAVE_RIDGE_SEMANTIC_OBJECTIZATION_V0701_PROTOCOL.md",
+  "protocol_freeze_commit": "d5d90b16f6f9f1b4072fe23952085a10ea64682f",
+  "formal_workflow_run": 34677630544,
+  "formal_result_commit": "bc6f75a9734e90bbb158ea3377fd3710a391450e",
+  "primary_category": "v0701_persistence_dominant_objectization_candidate_supported",
+  "selected_reconstruction_family": "F3_persistence_dominant_nonconsecutive_quintet",
+  "anchored_reference_positive_cases": 11,
+  "f0_support_cases": 3,
+  "f1_support_cases": 10,
+  "f2_support_cases": 5,
+  "f3_support_cases": 8,
+  "salvage_threshold_cases": 8,
+  "f3_median_candidate_objects": 142.0,
+  "f3_median_compatible_objects": 1.0,
+  "f3_exactly_one_compatible_cases": 5,
+  "development_reconstruction_candidate_supported": true,
+  "morphology_authority_granted": false,
+  "human_distance_tolerance_fitted": false,
+  "skip_count_threshold_fitted": false,
+  "persistence_threshold_fitted": false,
+  "amplitude_duration_rescue_used": false,
+  "qualification_changed": false,
+  "direction_winner_changed": false,
+  "morphology_acceptance": false,
+  "trade_authority": false,
+  "production_authority": false,
+  "retained_components": [
+    "source_data_clock_replay_governance",
+    "causal_tcss_extrema",
+    "ridge_lineage_and_causal_survival"
+  ],
+  "historical_baseline_not_active_parent_authority": [
+    "v052_exact_consecutive_five_ridge_tuple"
+  ],
+  "queued_for_transplantation_retest_not_declared_false": [
+    "tuple_birth_event_timing_concepts",
+    "v064_v065_raw_projection_and_immutable_publication",
+    "v054_v0618_same_scale_qualification",
+    "D1_and_v0625_direction_logic"
+  ],
+  "next_authorized_step": "freeze causal F3 event/publication semantics and a downstream transplantation precheck; do not fit F3 parameters or retune qualification/direction from v0648 labels"
+}
