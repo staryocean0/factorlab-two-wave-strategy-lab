@@ -1,0 +1,94 @@
+{
+  "algorithmic_parent_span_fraction": {
+    "rank_probability_no_lt_yes_plus_half_tie": 0.6213942307692307,
+    "reference_no": {
+      "count": 104,
+      "median": 0.4473684210526316,
+      "q1": 0.3447368421052632,
+      "q3": 0.6026315789473684
+    },
+    "reference_yes": {
+      "count": 16,
+      "median": 0.5473684210526316,
+      "q1": 0.47105263157894733,
+      "q3": 0.6026315789473684
+    }
+  },
+  "annotator_confidence_used": false,
+  "annotator_notes_used": false,
+  "candidate_cases": 120,
+  "candidate_qualified_publications_available": 2115,
+  "canonical_identity_selection": "lexicographic_published_raw_occurrence_bars_then_phase",
+  "case_level_table_written": false,
+  "direction_prediction_used": false,
+  "direction_winner_changed": false,
+  "final_reference_sha256": "321ce484f7f3f62bf6ff9d7d45de666e77d0cd17001b63a258a3e274e529884d",
+  "frozen_decision": {
+    "model_fragment_of_human_parent": false,
+    "model_overwide_relative_to_human_parent": false,
+    "packet_window_visibility_failure": false,
+    "primary_category": "v0650_parent_representation_correspondence_not_identified",
+    "right_edge_staleness_supported": false,
+    "smaller_parent_size_supported": false
+  },
+  "future_outcome_used": false,
+  "human_anchor_correspondence": {
+    "anchor_correspondence_identified": true,
+    "anchor_correspondence_status": "mixed_or_indeterminate",
+    "containment_counts": {
+      "disjoint": 1,
+      "human_inside_model": 1,
+      "model_inside_human": 3,
+      "mutual_equal_boundaries": 1,
+      "partial_overlap": 5
+    },
+    "containment_incidence": {
+      "disjoint": 0.09090909090909091,
+      "human_inside_model": 0.09090909090909091,
+      "model_inside_human": 0.2727272727272727,
+      "mutual_equal_boundaries": 0.09090909090909091,
+      "partial_overlap": 0.45454545454545453
+    },
+    "median_anchor_mae_fraction": 0.12421052631578948,
+    "median_end_boundary_abs_error_bars": 4.0,
+    "median_interval_iou": 0.7741935483870968,
+    "median_span_ratio": 1.2678571428571428,
+    "median_start_boundary_abs_error_bars": 17.0,
+    "usable_human_anchor_cases": 11
+  },
+  "morphology_acceptance": false,
+  "multi_identity_candidate_cutoffs": 2,
+  "primary_category": "v0650_parent_representation_correspondence_not_identified",
+  "production_authority": false,
+  "protocol": "docs/research/TWO_WAVE_SEMANTIC_OBJECT_PARENT_REPRESENTATION_AUDIT_V0650_PROTOCOL.md",
+  "qualification_changed": false,
+  "reference_no_candidates": 104,
+  "reference_yes_candidates": 16,
+  "right_edge_gap_bars": {
+    "rank_probability_no_gt_yes_plus_half_tie": 0.5018028846153846,
+    "reference_no": {
+      "count": 104,
+      "median": 4.0,
+      "q1": 3.0,
+      "q3": 6.0
+    },
+    "reference_yes": {
+      "count": 16,
+      "median": 4.0,
+      "q1": 3.0,
+      "q3": 5.25
+    }
+  },
+  "sampling_commitment_sha256": "f4eeff13c1408c1ca3bf938c0cd8abc4dad961f63ed6a4a4158f243cd5b024c8",
+  "schema": "two_wave_semantic_object_parent_representation_audit@0.6.50",
+  "source_manifest_verified": true,
+  "source_sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48",
+  "threshold_fitting_performed": false,
+  "trade_authority": false,
+  "visibility": {
+    "reference_no_full_visibility_incidence": 1.0,
+    "reference_no_not_fully_visible_incidence": 0.0,
+    "reference_yes_full_visibility_incidence": 1.0,
+    "reference_yes_not_fully_visible_incidence": 0.0
+  }
+}
