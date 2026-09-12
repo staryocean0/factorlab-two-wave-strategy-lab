@@ -25,6 +25,7 @@ jobs:
           test "$(git hash-object scripts/repository_consistency.py)" = 89de8edefd46541e969b69b6c9235df34b34772b
           test "$(git hash-object archive/maintenance_20260912/reconcile.py)" = 914d1a9978a21c712d83b7f2ef1e212e534fd083
           test "$(git hash-object archive/maintenance_20260912/test_repository_consistency.py.template)" = b59a388c10e9521bd0324e76a6a43afd7a7506c6
+          python archive/maintenance_20260912/navigation_compatibility.py
           mkdir -p /tmp/two-wave-maintenance-validation
           python archive/maintenance_20260912/reconcile.py --apply | tee /tmp/two-wave-maintenance-validation/consistency.json
       - name: Validate every frozen source and market data product
@@ -62,7 +63,8 @@ jobs:
               'pytest': stats,
               'consistency': json.loads((logs/'consistency.json').read_text()),
               'package_validation': json.loads((logs/'package.json').read_text()),
-              'local_supplement': {'python': '3.13', 'governance_tests_passed': 21, 'full_environment_claimed': False},
+              'local_supplement': {'python': '3.13', 'governance_and_navigation_tests_passed': 27, 'full_environment_claimed': False},
+              'superseded_maintenance_attempt': {'workflow_run': 34693733556, 'failure': 'one unchanged four-layer navigation test detected omitted live-index links', 'repair': 'restore real frozen-contract links; do not weaken original test'},
               'scientific_experiment_rerun': False,
               'morphology_acceptance': False,
               'trade_authority': False,
@@ -78,7 +80,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A -- . ':!.github'
-          git diff --cached --check
+          git diff --cached --check -- . ':!archive'
           git commit -m 'Reconcile v0708 authority docs archives and tests with preserved evidence [skip ci]'
           git push origin "HEAD:${GITHUB_REF_NAME}"
       - uses: actions/upload-artifact@v4
