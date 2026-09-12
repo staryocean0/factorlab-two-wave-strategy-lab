@@ -1,0 +1,316 @@
+{
+  "annotator_confidence_used": false,
+  "annotator_notes_used": false,
+  "binary_diagnostics": {
+    "corresponding_leg_duration_mismatch_triggered": {
+      "family": "legacy_duration_mismatch",
+      "incidence_difference_no_minus_yes": -0.1298076923076923,
+      "reference_no_incidence": 0.4326923076923077,
+      "reference_yes_incidence": 0.5625,
+      "strong_support": false
+    },
+    "inefficient_leg_triggered": {
+      "family": "path_noise",
+      "incidence_difference_no_minus_yes": -0.06730769230769229,
+      "reference_no_incidence": 0.4326923076923077,
+      "reference_yes_incidence": 0.5,
+      "strong_support": false
+    },
+    "jump_dominated_leg_triggered": {
+      "family": "path_noise",
+      "incidence_difference_no_minus_yes": 0.09134615384615385,
+      "reference_no_incidence": 0.27884615384615385,
+      "reference_yes_incidence": 0.1875,
+      "strong_support": false
+    },
+    "multi_identity_at_cutoff": {
+      "family": "identity_ambiguity",
+      "incidence_difference_no_minus_yes": 0.019230769230769232,
+      "reference_no_incidence": 0.019230769230769232,
+      "reference_yes_incidence": 0.0,
+      "strong_support": false
+    }
+  },
+  "candidate_cases": 120,
+  "candidate_qualified_publications_available": 2115,
+  "case_level_table_written": false,
+  "continuous_diagnostics": {
+    "amplitude_ratio": {
+      "direction_adjusted_failure_rank": 0.4128605769230769,
+      "failure_direction": "higher",
+      "family": "same_scale_imbalance",
+      "rank_probability_no_gt_yes_plus_half_tie": 0.4128605769230769,
+      "reference_no": {
+        "count": 104,
+        "median": 1.3094806987723353,
+        "q1": 1.1438391284310372,
+        "q3": 1.5986323346631965
+      },
+      "reference_yes": {
+        "count": 16,
+        "median": 1.5853849678627527,
+        "q1": 1.2156959592021264,
+        "q3": 1.7651343575344418
+      },
+      "strong_support": false
+    },
+    "amplitude_unit_fraction": {
+      "direction_adjusted_failure_rank": 0.75,
+      "failure_direction": "lower",
+      "family": "fragment_parent_scale",
+      "rank_probability_no_gt_yes_plus_half_tie": 0.25,
+      "reference_no": {
+        "count": 104,
+        "median": 0.31374702750061895,
+        "q1": 0.22269914931878715,
+        "q3": 0.3980785997315184
+      },
+      "reference_yes": {
+        "count": 16,
+        "median": 0.43471746553155977,
+        "q1": 0.37106318354783435,
+        "q3": 0.4781273809255768
+      },
+      "strong_support": true
+    },
+    "completion_buffer_fraction": {
+      "direction_adjusted_failure_rank": 0.5027043269230769,
+      "failure_direction": "lower",
+      "family": "publication_maturity",
+      "rank_probability_no_gt_yes_plus_half_tie": 0.4972956730769231,
+      "reference_no": {
+        "count": 104,
+        "median": 0.042105263157894736,
+        "q1": 0.031578947368421054,
+        "q3": 0.06315789473684211
+      },
+      "reference_yes": {
+        "count": 16,
+        "median": 0.042105263157894736,
+        "q1": 0.031578947368421054,
+        "q3": 0.05526315789473684
+      },
+      "strong_support": false
+    },
+    "confirmation_delay_bars": {
+      "direction_adjusted_failure_rank": 0.5027043269230769,
+      "failure_direction": "lower",
+      "family": "publication_maturity",
+      "rank_probability_no_gt_yes_plus_half_tie": 0.4972956730769231,
+      "reference_no": {
+        "count": 104,
+        "median": 4.0,
+        "q1": 3.0,
+        "q3": 6.0
+      },
+      "reference_yes": {
+        "count": 16,
+        "median": 4.0,
+        "q1": 3.0,
+        "q3": 5.25
+      },
+      "strong_support": false
+    },
+    "corresponding_leg_duration_max_ratio": {
+      "direction_adjusted_failure_rank": 0.4909855769230769,
+      "failure_direction": "higher",
+      "family": "same_scale_imbalance",
+      "rank_probability_no_gt_yes_plus_half_tie": 0.4909855769230769,
+      "reference_no": {
+        "count": 104,
+        "median": 1.8786764705882353,
+        "q1": 1.5,
+        "q3": 2.6090909090909093
+      },
+      "reference_yes": {
+        "count": 16,
+        "median": 2.0912698412698414,
+        "q1": 1.5750000000000002,
+        "q3": 2.40625
+      },
+      "strong_support": false
+    },
+    "cycle_duration_ratio": {
+      "direction_adjusted_failure_rank": 0.4807692307692308,
+      "failure_direction": "higher",
+      "family": "same_scale_imbalance",
+      "rank_probability_no_gt_yes_plus_half_tie": 0.4807692307692308,
+      "reference_no": {
+        "count": 104,
+        "median": 1.3452380952380953,
+        "q1": 1.1428571428571428,
+        "q3": 1.5833333333333333
+      },
+      "reference_yes": {
+        "count": 16,
+        "median": 1.3141447368421053,
+        "q1": 1.2,
+        "q3": 1.455
+      },
+      "strong_support": false
+    },
+    "max_leg_flat_share": {
+      "direction_adjusted_failure_rank": 0.47896634615384615,
+      "failure_direction": "higher",
+      "family": "path_noise",
+      "rank_probability_no_gt_yes_plus_half_tie": 0.47896634615384615,
+      "reference_no": {
+        "count": 104,
+        "median": 0.0,
+        "q1": 0.0,
+        "q3": 0.0
+      },
+      "reference_yes": {
+        "count": 16,
+        "median": 0.0,
+        "q1": 0.0,
+        "q3": 0.0
+      },
+      "strong_support": false
+    },
+    "max_leg_jump_share": {
+      "direction_adjusted_failure_rank": 0.6274038461538461,
+      "failure_direction": "higher",
+      "family": "path_noise",
+      "rank_probability_no_gt_yes_plus_half_tie": 0.6274038461538461,
+      "reference_no": {
+        "count": 104,
+        "median": 0.4013854269897841,
+        "q1": 0.3422836549903541,
+        "q3": 0.5086406295543942
+      },
+      "reference_yes": {
+        "count": 16,
+        "median": 0.33678733790899384,
+        "q1": 0.28630880861688124,
+        "q3": 0.44042443577974605
+      },
+      "strong_support": false
+    },
+    "min_leg_efficiency": {
+      "direction_adjusted_failure_rank": 0.5474759615384616,
+      "failure_direction": "lower",
+      "family": "path_noise",
+      "rank_probability_no_gt_yes_plus_half_tie": 0.45252403846153844,
+      "reference_no": {
+        "count": 104,
+        "median": 0.5224759117405853,
+        "q1": 0.43689394575306784,
+        "q3": 0.5935683765401786
+      },
+      "reference_yes": {
+        "count": 16,
+        "median": 0.5362592103539799,
+        "q1": 0.4281326944469752,
+        "q3": 0.6531947986141637
+      },
+      "strong_support": false
+    },
+    "parent_anchor_excursion_fraction": {
+      "direction_adjusted_failure_rank": 0.5306490384615384,
+      "failure_direction": "lower",
+      "family": "fragment_parent_scale",
+      "rank_probability_no_gt_yes_plus_half_tie": 0.46935096153846156,
+      "reference_no": {
+        "count": 104,
+        "median": 0.7411218178587164,
+        "q1": 0.5322996582865187,
+        "q3": 0.9739903252560191
+      },
+      "reference_yes": {
+        "count": 16,
+        "median": 0.7538325150315854,
+        "q1": 0.6475918719408041,
+        "q3": 0.8484322442130259
+      },
+      "strong_support": false
+    },
+    "parent_span_bars": {
+      "direction_adjusted_failure_rank": 0.6225961538461539,
+      "failure_direction": "lower",
+      "family": "fragment_parent_scale",
+      "rank_probability_no_gt_yes_plus_half_tie": 0.37740384615384615,
+      "reference_no": {
+        "count": 104,
+        "median": 42.5,
+        "q1": 32.75,
+        "q3": 57.25
+      },
+      "reference_yes": {
+        "count": 16,
+        "median": 52.0,
+        "q1": 44.75,
+        "q3": 57.25
+      },
+      "strong_support": false
+    },
+    "parent_span_fraction": {
+      "direction_adjusted_failure_rank": 0.6225961538461539,
+      "failure_direction": "lower",
+      "family": "fragment_parent_scale",
+      "rank_probability_no_gt_yes_plus_half_tie": 0.37740384615384615,
+      "reference_no": {
+        "count": 104,
+        "median": 0.4473684210526316,
+        "q1": 0.3447368421052632,
+        "q3": 0.6026315789473684
+      },
+      "reference_yes": {
+        "count": 16,
+        "median": 0.5473684210526316,
+        "q1": 0.47105263157894733,
+        "q3": 0.6026315789473684
+      },
+      "strong_support": false
+    },
+    "qualified_identity_count_at_cutoff": {
+      "direction_adjusted_failure_rank": 0.5096153846153846,
+      "failure_direction": "higher",
+      "family": "identity_ambiguity",
+      "rank_probability_no_gt_yes_plus_half_tie": 0.5096153846153846,
+      "reference_no": {
+        "count": 104,
+        "median": 1.0,
+        "q1": 1.0,
+        "q3": 1.0
+      },
+      "reference_yes": {
+        "count": 16,
+        "median": 1.0,
+        "q1": 1.0,
+        "q3": 1.0
+      },
+      "strong_support": false
+    }
+  },
+  "control_cases": 120,
+  "control_reference_yes": 10,
+  "direction_prediction_used": false,
+  "direction_winner_changed": false,
+  "family_decision": {
+    "legacy_duration_mismatch_is_authorizing": false,
+    "primary_attribution": "diffuse_or_fundamental_semantic_object_mismatch",
+    "strongly_supported_families": {
+      "fragment_parent_scale": false,
+      "identity_ambiguity": false,
+      "path_noise": false,
+      "publication_maturity": false,
+      "same_scale_imbalance": false
+    },
+    "supported_family_names": []
+  },
+  "final_reference_sha256": "321ce484f7f3f62bf6ff9d7d45de666e77d0cd17001b63a258a3e274e529884d",
+  "future_outcome_used": false,
+  "morphology_acceptance": false,
+  "production_authority": false,
+  "protocol": "docs/research/TWO_WAVE_REFERENCE_CONDITIONED_QUALIFICATION_FAILURE_ATTRIBUTION_V0649_PROTOCOL.md",
+  "qualification_changed": false,
+  "reference_no_candidates": 104,
+  "reference_yes_candidates": 16,
+  "sampling_commitment_sha256": "f4eeff13c1408c1ca3bf938c0cd8abc4dad961f63ed6a4a4158f243cd5b024c8",
+  "schema": "two_wave_reference_conditioned_qualification_attribution@0.6.49",
+  "source_manifest_verified": true,
+  "source_sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48",
+  "threshold_fitting_performed": false,
+  "trade_authority": false
+}
