@@ -10,6 +10,10 @@ This directory contains both Two-Wave-specific handoff/runtime documents and inh
 - [`csi1000_datahub_on_demand_kline_binding_workflow.md`](csi1000_datahub_on_demand_kline_binding_workflow.md) — DataHub binding background.
 - [`cloudridge_paper_kernel_multiscale_timeseries_workflow.md`](cloudridge_paper_kernel_multiscale_timeseries_workflow.md) — multiscale/ridge workflow background.
 
+## Timing-infrastructure compatibility
+
+The shared frozen inventory remains at [`../ops/timing_infrastructure_four_layer_inventory@1.0.json`](../ops/timing_infrastructure_four_layer_inventory@1.0.json). Its compatibility navigation preserves the layer boundaries **数据时钟**, **K线测量**, research/decision semantics, and **执行标的**. Those terms describe inherited infrastructure ownership, not current Two-Wave strategy authority.
+
 ## Current research state
 
 Do not infer current status from the original handoff prompt or from an inherited workflow document. Use:

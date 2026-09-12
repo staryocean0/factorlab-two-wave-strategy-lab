@@ -13,6 +13,10 @@ The following files are useful background for this repository's shipped data/tim
 
 These documents describe infrastructure contracts and historical design context. They do **not** override the current Two-Wave machine authority or frozen research protocols.
 
+## Timing-infrastructure compatibility
+
+The shared frozen inventory [`timing_infrastructure_four_layer_inventory@1.0.json`](timing_infrastructure_four_layer_inventory@1.0.json) remains part of the repository's infrastructure contract. Its navigation shell keeps **数据时钟**, **K线测量**, research/decision semantics, and **执行标的** separated. It is infrastructure governance, not Two-Wave morphology/direction authority.
+
 ## Current authority lives elsewhere
 
 For current scientific status use:

@@ -51,6 +51,10 @@ See [`docs/governance/data_usage_declaration.json`](docs/governance/data_usage_d
 - v0.7.8 adjudication: [`experiments/two_wave_external_validation_availability_v0708/ADJUDICATION.json`](experiments/two_wave_external_validation_availability_v0708/ADJUDICATION.json)
 - Repository component status: [`docs/governance/repository_component_status.json`](docs/governance/repository_component_status.json)
 
+## Timing-infrastructure compatibility
+
+The broader FactorLab timing stack remains a **shared frozen infrastructure contract**, not Two-Wave scientific authority. Its four-layer inventory is preserved at [`docs/ops/timing_infrastructure_four_layer_inventory@1.0.json`](docs/ops/timing_infrastructure_four_layer_inventory@1.0.json). The compatibility shell keeps the layer boundaries explicit: **数据时钟** → **K线测量** → research/decision semantics → **执行标的**. Two-Wave work may reuse those frozen infrastructure contracts but may not silently collapse measurement and routing authority.
+
 ## Repository layout
 
 - `src/factor_lab/visual_structure/two_wave/` — current and historical Two-Wave research implementations. Versioned historical modules are retained for reproducibility; filenames alone do not confer authority.
