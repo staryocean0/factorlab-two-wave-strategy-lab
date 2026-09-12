@@ -1,0 +1,87 @@
+{
+  "annotator_confidence_used": false,
+  "annotator_notes_used": false,
+  "case_level_table_written": false,
+  "delay_threshold_fitted": false,
+  "direction_prediction_used": false,
+  "direction_winner_changed": false,
+  "downstream_transplant_precheck": {
+    "D1_v0625_direction_transplant_test_started": false,
+    "v054_v0618_thresholds_revalidated": false,
+    "v064_direct_projection_block_reason": "requires_consecutive_birth_nodes_but_F3_is_nonconsecutive",
+    "v064_predecessor_raw_projection_transplantable_unchanged": false,
+    "v064_sequential_raw_projection_idea_declared_false": false,
+    "v065_append_only_publication_concept_salvage_eligible": true,
+    "v065_exact_grouping_or_function_transplantable_unchanged": false,
+    "v066_v0618_interface_structurally_eligible_after_generalized_F3_projection_freeze": true
+  },
+  "f3_definition_changed": false,
+  "f3_family": "F3_persistence_dominant_nonconsecutive_quintet",
+  "frozen_decision": {
+    "certificate_coverage_threshold": 0.8,
+    "gate_A_causal_certificate_coverage": true,
+    "gate_B_direct_single_parent_publication_identifiability": false,
+    "primary_category": "v0702_f3_immutable_event_certificate_supported_append_only_concept_salvaged_object_selection_unresolved"
+  },
+  "future_outcome_used": false,
+  "human_reference_labels_used": false,
+  "morphology_acceptance": false,
+  "multiplicity_threshold_fitted": false,
+  "packet_cutoff_reconstruction": {
+    "canonical_groups": 38634,
+    "published_groups": 38176,
+    "qualified_publications": 2115
+  },
+  "packet_stratum_used": false,
+  "primary_category": "v0702_f3_immutable_event_certificate_supported_append_only_concept_salvaged_object_selection_unresolved",
+  "primary_label_blind_event_audit": {
+    "certificate_delay_bars": {
+      "count": 31324,
+      "max": 56.0,
+      "median": 0.0,
+      "min": 0.0,
+      "q1": 0.0,
+      "q3": 4.0
+    },
+    "certificate_replay_failure_count": 0,
+    "certified_object_count_per_f3_positive_cutoff": {
+      "count": 240,
+      "max": 245.0,
+      "median": 125.0,
+      "min": 32.0,
+      "q1": 105.0,
+      "q3": 152.25
+    },
+    "certified_object_fraction": 0.9205089776367216,
+    "certified_objects_immediate_no_skipped_ridge": 10948,
+    "certified_objects_requiring_death_witness": 20376,
+    "certified_presence_fraction_given_f3_positive_cutoff": 1.0,
+    "cutoffs_with_at_least_one_certified_object": 240,
+    "death_witness_fraction_among_certified": 0.6504916358064105,
+    "f3_positive_cutoffs": 240,
+    "immediate_no_skip_fraction_among_certified": 0.3495083641935896,
+    "ordinary_f3_object_count_per_cutoff": {
+      "count": 240,
+      "max": 267.0,
+      "median": 137.0,
+      "min": 32.0,
+      "q1": 114.0,
+      "q3": 167.0
+    },
+    "packet_cutoffs": 240,
+    "total_death_certified_f3_objects": 31324,
+    "total_ordinary_final_cutoff_f3_objects": 34029
+  },
+  "production_authority": false,
+  "projection_geometry_changed": false,
+  "protocol": "docs/research/TWO_WAVE_F3_CAUSAL_PUBLICATION_TRANSPLANT_V0702_PROTOCOL.md",
+  "protocol_freeze_commit": "9b062153bd28b9591b66eb26fcebf8f1d431a24f",
+  "publication_policy_changed": false,
+  "qualification_changed": false,
+  "sampling_commitment_sha256": "f4eeff13c1408c1ca3bf938c0cd8abc4dad961f63ed6a4a4158f243cd5b024c8",
+  "schema": "two_wave_f3_causal_publication_transplant_precheck@0.7.2",
+  "source_manifest_verified": true,
+  "source_sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48",
+  "threshold_fitting_performed": false,
+  "trade_authority": false
+}
