@@ -538,3 +538,22 @@ The authoritative retry reproduced the full v0.7.5 upstream (`1543/1543` publica
 Implementation lineage is retained: run `34685420204` / result commit `f3f47f115faf54fb688dcb26a86998b6daa49169` was invalid because ordinal-count mapping keys were serialized instead of values; retry `34687496456` failed before science due a CLI import-path error. Neither changed the frozen protocol or gates.
 
 This supports v0.6.18 as a Development qualification transplant on top of the v0.7.5 lifecycle-publication representation. It does not establish active morphology authority or a direction winner. The next stage is a separately frozen lifecycle-qualified direction transplant/adjudication using D1 as baseline and v0.6.25 only as a retained historical contribution. v0.6.47 temporal-replication weakness and v0.6.48 reference-calibration weakness remain unresolved constraints. `morphology_acceptance=false`, `trade_authority=false`, `production_authority=false`.
+
+
+## v0.7.7: lifecycle-qualified direction transplant — Development-supported, external-validation-blocked
+
+Frozen protocol: `docs/research/TWO_WAVE_LIFECYCLE_QUALIFIED_DIRECTION_TRANSPLANT_V0707_PROTOCOL.md`.  
+Protocol freeze commit: `c2fe567fec232e7bbd93614917d85f85b984dfbb`.  
+Authoritative formal run: `34690335291`.  
+Authoritative result commit: `37cf51ab4b546a2ac8650f31b8dfb1deef5e2c59`.  
+Result: `experiments/two_wave_lifecycle_qualified_direction_v0707/RESULT.json`.  
+Result card: `experiments/two_wave_lifecycle_qualified_direction_v0707/RESULT_CARD.md`.  
+Adjudication: `experiments/two_wave_lifecycle_qualified_direction_v0707/ADJUDICATION.json`.
+
+The formal run reproduced the full v0.7.6 qualification universe and then evaluated D1 and v0.6.25 only on the `115` publication-prefix-qualified lifecycle publications. Both direction interfaces covered `115/115` objects with zero exceptions, publication/lifecycle mutations, qualification-result mutations, future-bar dependencies, future-outcome/trade leaks, or D1-decisive overrides. v0.6.25 was materially active, rescuing `19` D1-uncertain publications under its unchanged unanimous erosion-consensus and absolute `0.10` margin gate.
+
+After the label-free Stage-A gates passed, the frozen human-semantic Stage B reproduced v0.6.18-qualified support in `9/11` anchored cases. The conservative all-publication case aggregation showed D1 and v0.6.25 tied at `7/9` exact, `2/9` uncertain, and zero opposite UpTrend/DownTrend conflicts; no human-exact decisive D1 case was harmed. Across the 11 semantically supported publications both components were exact `8/11`. Thus v0.6.25 is technically transplantable and materially expressed, but it did not establish a semantic advantage over D1 on the frozen Development reference subset.
+
+The formal verdict is **`v0707_v0625_lifecycle_direction_transplant_supported_development_only_external_validation_blocked`**. The retained v0.6.47 temporal replication still favors D1 on exact agreement (`242/253` versus `238/253`), and v0.6.48 independent-reference calibration remains weak (`5/16` exact for each component with only `16/120` reference-confirmed candidate presence). These are binding external-validation constraints. Consequently v0.6.25 remains a retained Development contribution, `parent_direction.winner=null`, `active_semantic_parent_authority=null`, `morphology_acceptance=false`, `trade_authority=false`, and `production_authority=false`.
+
+The current in-sample direction-transplant line is closed. Any future reopening of v0.6.25 direction authority requires a new preregistered external-validation protocol and genuinely external evidence that directly addresses both v0.6.47 and v0.6.48 without tuning on those held-out outcomes.

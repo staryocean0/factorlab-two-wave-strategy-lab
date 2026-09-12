@@ -1,5 +1,5 @@
 {
-  "schema": "two_wave_m0_authority@1.31",
+  "schema": "two_wave_m0_authority@1.32",
   "date": "2026-09-12",
   "primary_object": "two_wave_parent_structure_recognizer",
   "target_states": [
@@ -8,7 +8,7 @@
     "DownTrend",
     "Uncertain"
   ],
-  "global_status": "v0706_v0618_lifecycle_qualification_transplant_supported_direction_transplant_adjudication_next",
+  "global_status": "v0707_v0625_direction_transplant_supported_development_only_external_validation_blocked_no_direction_winner",
   "morphology_acceptance": false,
   "historical_full_recognizer_operational_baseline": {
     "version": "v0.4.3",
@@ -18,7 +18,7 @@
     "parent_identity": {
       "version": "v0.5.2",
       "name": "exact-ridge parent identity",
-      "status": "f3_prefix_causal_lifecycle_publication_and_qualification_supported_direction_transplant_next",
+      "status": "f3_prefix_causal_lifecycle_publication_qualification_and_direction_transplant_development_supported_external_validation_blocked",
       "independent_reference_correspondence_status": "semantic_bridge_failure_localized_at_exact_tuple_objectization",
       "v0650_median_parent_interval_iou": 0.7741935483870968,
       "v0650_median_anchor_mae_fraction": 0.12421052631578948,
@@ -74,7 +74,9 @@
       "v0705_published_raw_semantic_support_cases": 9,
       "v0705_gap_same_object_provisional_raw_support_cases": 1,
       "v0706_v0618_qualified_publication_count": 115,
-      "v0706_v0618_qualified_semantic_support_cases": 9
+      "v0706_v0618_qualified_semantic_support_cases": 9,
+      "v0707_direction_supported_case_count": 9,
+      "v0707_direction_semantic_gate_pass": true
     },
     "same_scale_semantics": {
       "version": "v0.5.4",
@@ -108,7 +110,7 @@
     "qualification_policy": {
       "version": "v0.6.18",
       "name": "path-gate demotion",
-      "status": "v0706_v0618_lifecycle_publication_qualification_transplant_supported_development_only_direction_transplant_next",
+      "status": "v0706_v0618_lifecycle_publication_qualification_transplant_supported_and_preserved_through_v0707_development_only",
       "formal_verdict": "v0618_path_gate_demotion_research_candidate_pass",
       "workflow_run": 34423674192,
       "result_commit": "9600eca94de9fb2cc39db4b995edec3d5e7870c3",
@@ -128,11 +130,13 @@
       "v0706_contract_violation_count": 0,
       "v0706_interface_exception_count": 0,
       "v0706_v0618_qualified_semantic_support_cases": 9,
-      "v0706_gap_v0618_qualified_same_object_raw_support_cases": 1
+      "v0706_gap_v0618_qualified_same_object_raw_support_cases": 1,
+      "v0707_qualified_direction_publication_count": 115,
+      "v0707_direction_interface_exception_count": 0
     },
     "parent_direction": {
       "winner": null,
-      "status": "historical_D1_and_v0625_awaiting_separately_frozen_lifecycle_qualified_direction_transplant_adjudication",
+      "status": "v0707_v0625_lifecycle_direction_transplant_supported_as_development_contribution_external_validation_blocked_no_winner",
       "historical_baseline": {
         "name": "D1",
         "pooled_exact_agreement": 0.957592339261286,
@@ -144,15 +148,37 @@
       "strongest_pooled_exact_contribution": {
         "version": "v0.6.25",
         "name": "absolute-margin erosion-consensus rescue",
-        "status": "rejected_contribution_retained_not_direction_winner",
+        "status": "v0707_transplant_supported_development_contribution_external_validation_blocked_not_direction_winner",
         "pooled_exact_agreement": 0.9589603283173734,
         "pooled_exact_count": 1402,
         "pooled_decisive_coverage": 0.7086183310533516,
         "decisive_agreement": 1.0,
         "opposite_trend_conflicts": 0,
-        "range_decisive_share": 0.010617760617760617
+        "range_decisive_share": 0.010617760617760617,
+        "v0707_publication_level_rescue_count": 19,
+        "v0707_supported_case_exact_count": 7,
+        "v0707_supported_case_count": 9,
+        "v0707_case_semantic_advantage_over_D1": false
       },
-      "v0702_D1_decisive_override_count": 0
+      "v0702_D1_decisive_override_count": 0,
+      "v0707": {
+        "formal_workflow_run": 34690335291,
+        "formal_result_commit": "37cf51ab4b546a2ac8650f31b8dfb1deef5e2c59",
+        "protocol_freeze_commit": "c2fe567fec232e7bbd93614917d85f85b984dfbb",
+        "qualified_publication_count": 115,
+        "D1_uncertain_count": 69,
+        "v0625_uncertain_count": 50,
+        "v0625_rescue_count": 19,
+        "supported_case_count": 9,
+        "D1_case_exact_count": 7,
+        "v0625_case_exact_count": 7,
+        "D1_case_uncertain_count": 2,
+        "v0625_case_uncertain_count": 2,
+        "v0625_case_semantic_advantage_over_D1": false,
+        "v0647_external_validation_blocked": true,
+        "v0648_external_validation_blocked": true,
+        "winner_installed": false
+      }
     }
   },
   "frozen_direction_universe": {
@@ -399,7 +425,7 @@
   "current_price_input_direction_expansion_status": "closed_after_v0646_close_high_low_and_native_open_classes_adjudicated_no_challenger_authorized",
   "current_temporal_replication_status": "v0647_complete_not_all_original_v0625_gates_pass",
   "current_reference_label_status": "v0648_complete_independent_reference_calibration_gates_not_all_pass",
-  "next_authorized_step": "freeze a separately adjudicated lifecycle-qualified direction transplant on the supported v0.7.5 lifecycle-publication and v0.7.6 v0.6.18 qualification stack; use historical D1 as the baseline and v0.6.25 absolute-margin erosion-consensus rescue only as a retained historical challenger/contribution, with all direction thresholds and qualification semantics unchanged; first audit zero interface exceptions, identity immutability, causal-prefix inputs, and zero D1-decisive override, then score frozen human parent-state semantics on the already-frozen Development reference cases; the experiment must report v0.6.47 temporal-replication and v0.6.48 reference-calibration weaknesses as unresolved external constraints, so a Development direction result cannot by itself grant morphology, trade, or production authority",
+  "next_authorized_step": "close the current Development direction-transplant line with v0.6.25 retained as a non-winning contribution and no parent-direction winner installed; do not open another in-sample direction rescue/tuning branch from v0.7.7. Any reopening of v0.6.25 direction authority requires a new preregistered external-validation protocol and genuinely external evidence that directly addresses both the v0.6.47 temporal-replication exact-agreement deficit and the v0.6.48 independent-reference coverage/calibration weakness without tuning on those held-out outcomes. Until such evidence exists, retain D1 only as the historical baseline and keep direction winner null.",
   "no_current_direction_challenger_authorized": true,
   "forbidden_next_shortcuts": [
     "retry_endpoint_D2_or_confidence_gated_D2",
@@ -497,7 +523,14 @@
     "reactivate_v0625_as_direction_winner_without_separate_direction_transplant_adjudication",
     "retune_D1_or_v0625_thresholds_during_direction_transplant",
     "ignore_v0647_temporal_replication_failure_in_direction_adjudication",
-    "ignore_v0648_reference_calibration_failure_in_direction_adjudication"
+    "ignore_v0648_reference_calibration_failure_in_direction_adjudication",
+    "install_v0625_as_direction_winner_from_v0707_development_support",
+    "treat_v0707_19_publication_rescues_as_semantic_improvement_on_the_frozen_reference_subset",
+    "retune_v0625_margin_or_Huber_thresholds_after_v0707",
+    "ignore_v0647_temporal_replication_exact_agreement_deficit",
+    "ignore_v0648_independent_reference_coverage_or_calibration_weakness",
+    "open_another_in_sample_direction_rescue_branch_without_new_external_validation",
+    "treat_v0707_as_morphology_trade_or_production_authority"
   ],
   "trade_authority": false,
   "production_authority": false,
@@ -573,7 +606,7 @@
       "production_authority_changed": false
     }
   },
-  "current_parent_representation_status": "F3_prefix_causal_lifecycle_publication_and_v0618_qualification_supported_as_development_representation_only",
+  "current_parent_representation_status": "F3_prefix_causal_lifecycle_publication_and_v0618_qualification_supported_as_development_representation_direction_authority_external_validation_blocked",
   "no_current_semantic_object_challenger_authorized": true,
   "left_boundary_internal_pivot_decomposition": {
     "v0651": {
@@ -762,7 +795,7 @@
       "production_authority_changed": false
     }
   },
-  "counteroffensive_current_breakpoint": "lifecycle_publication_qualification_transplant_supported_direction_transplant_adjudication_next",
+  "counteroffensive_current_breakpoint": "direction_transplant_development_supported_external_validation_blocked_no_winner",
   "f3_causal_certificate_gap_attribution": {
     "v0703": {
       "status": "complete_gap_requires_explicit_death_evidence_unavailable_at_cutoff",
@@ -907,5 +940,47 @@
       "trade_authority_changed": false,
       "production_authority_changed": false
     }
-  }
+  },
+  "f3_lifecycle_direction_transplant": {
+    "v0707": {
+      "status": "supported_development_direction_contribution_external_validation_blocked_no_winner",
+      "protocol": "docs/research/TWO_WAVE_LIFECYCLE_QUALIFIED_DIRECTION_TRANSPLANT_V0707_PROTOCOL.md",
+      "protocol_freeze_commit": "c2fe567fec232e7bbd93614917d85f85b984dfbb",
+      "formal_workflow_run": 34690335291,
+      "formal_result_commit": "37cf51ab4b546a2ac8650f31b8dfb1deef5e2c59",
+      "result": "experiments/two_wave_lifecycle_qualified_direction_v0707/RESULT.json",
+      "result_card": "experiments/two_wave_lifecycle_qualified_direction_v0707/RESULT_CARD.md",
+      "adjudication": "experiments/two_wave_lifecycle_qualified_direction_v0707/ADJUDICATION.json",
+      "publication_count": 1543,
+      "v0618_qualified_publication_count": 115,
+      "D1_evaluated_count": 115,
+      "v0625_evaluated_count": 115,
+      "direction_interface_exception_count": 0,
+      "identity_mutation_count": 0,
+      "qualification_result_mutation_count": 0,
+      "future_bar_dependency_violation_count": 0,
+      "D1_decisive_override_count": 0,
+      "D1_uncertain_count": 69,
+      "v0625_uncertain_count": 50,
+      "v0625_rescue_count": 19,
+      "v0618_qualified_semantic_support_cases": 9,
+      "D1_case_exact_count": 7,
+      "v0625_case_exact_count": 7,
+      "D1_case_uncertain_count": 2,
+      "v0625_case_uncertain_count": 2,
+      "v0625_semantic_advantage_over_D1": false,
+      "v0647_external_validation_weakness_binding": true,
+      "v0648_external_validation_weakness_binding": true,
+      "primary_category": "v0707_v0625_lifecycle_direction_transplant_supported_development_only_external_validation_blocked",
+      "direction_thresholds_changed": false,
+      "qualification_changed": false,
+      "publication_or_lifecycle_identity_changed": false,
+      "active_parent_authority_granted": false,
+      "direction_winner_installed": false,
+      "morphology_acceptance_changed": false,
+      "trade_authority_changed": false,
+      "production_authority_changed": false
+    }
+  },
+  "current_direction_transplant_status": "v0707_complete_development_supported_semantically_neutral_to_D1_on_frozen_supported_subset_external_validation_blocked_no_winner"
 }

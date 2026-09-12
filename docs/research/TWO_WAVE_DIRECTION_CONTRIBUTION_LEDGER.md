@@ -338,3 +338,14 @@ The next program step should be **independent reference-label morphology validat
 - v0.6.18 qualified 115 lifecycle publications versus 42 under v0.5.4 and retained human-anchor semantic support in `9/11` cases.
 - Historical D1 remains the direction baseline; v0.6.25 remains a retained historical contribution and is not a winner.
 - Next: separately freeze lifecycle-qualified direction transplant/adjudication. The prior v0.6.47 temporal-replication and v0.6.48 reference-calibration weaknesses remain binding context and cannot be erased by a Development replay.
+
+
+## v0.7.7 lifecycle-qualified direction transplant
+
+- Upstream representation and v0.6.18 qualification were reproduced unchanged: `1543` publications and `115` qualified publications, with zero qualification interface exceptions or contract violations.
+- D1 and v0.6.25 both evaluated all `115` qualified publications with zero exceptions, identity mutations, qualification-result mutations, future-bar dependencies, future/trade leaks, or D1-decisive overrides.
+- v0.6.25 was materially expressed: it rescued `19` D1-uncertain publications (`12` DownTrend, `6` UpTrend, `1` Range) under the unchanged unanimous erosion-consensus and `0.10` margin rule.
+- Frozen human semantics nevertheless showed no advantage over D1. On the `9/11` supported anchored cases, D1 and v0.6.25 were both exact `7/9`, uncertain `2/9`, and had zero opposite-trend conflicts; all 9 conservative case labels were unchanged. Across the 11 semantically supported publications both were exact `8/11`.
+- Therefore v0.6.25 is retained as a **Development direction contribution**, not a direction winner.
+- External constraints remain binding: v0.6.47 temporal replication exact agreement favors D1 (`242/253`) over v0.6.25 (`238/253`), while v0.6.48 independent-reference calibration remains only `5/16` exact for both with `16/120` reference-confirmed candidate presence.
+- Current route: close further in-sample direction rescue/tuning. Any authority reopening requires a new preregistered external-validation design using genuinely external evidence; no morphology, trade, or production authority follows from v0.7.7.

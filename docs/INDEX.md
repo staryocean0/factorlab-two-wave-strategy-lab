@@ -231,3 +231,13 @@ These snapshots contain links outside this bounded theme package. The scoped ind
 - Adjudication: `../experiments/two_wave_f3_lifecycle_qualification_transplant_v0706/ADJUDICATION.json`
 - Verdict: `v0706_v0618_lifecycle_qualification_transplant_supported` (`1543/1543` v0.6.18 interface coverage, zero exceptions/contract violations, `115` qualified publications, qualified semantic support `9/11`).
 - Next: separately frozen lifecycle-qualified D1/v0.6.25 direction transplant/adjudication; no current direction winner is restored.
+
+
+### v0.7.7 lifecycle-qualified direction transplant — complete
+
+- Protocol: `research/TWO_WAVE_LIFECYCLE_QUALIFIED_DIRECTION_TRANSPLANT_V0707_PROTOCOL.md`
+- Result: `../experiments/two_wave_lifecycle_qualified_direction_v0707/RESULT.json`
+- Result card: `../experiments/two_wave_lifecycle_qualified_direction_v0707/RESULT_CARD.md`
+- Adjudication: `../experiments/two_wave_lifecycle_qualified_direction_v0707/ADJUDICATION.json`
+- Verdict: `v0707_v0625_lifecycle_direction_transplant_supported_development_only_external_validation_blocked` (`115/115` D1/v0.6.25 evaluation, zero interface/causality violations, `19` legal v0.6.25 uncertainty rescues, frozen semantic subset tied with D1 at `7/9` case exact).
+- Authority: Development contribution only; no direction winner. v0.6.47 temporal replication and v0.6.48 independent-reference calibration remain binding external-validation blocks.
