@@ -1,0 +1,107 @@
+{
+  "active_parent_authority_granted": false,
+  "anchored_reference_positive_cases": 11,
+  "annotator_confidence_used": false,
+  "annotator_notes_used": false,
+  "bar_distance_tolerance_fitted": false,
+  "case_level_table_written": false,
+  "construction": {
+    "canonical_groups": 38634,
+    "published_groups": 38176,
+    "qualified_publications": 2115
+  },
+  "development_discovery_only": true,
+  "direction_threshold_retuned": false,
+  "direction_winner_changed": false,
+  "downstream_transplant_interface_precheck": {
+    "D1_decisive_override_count": 0,
+    "D1_state_counts": {
+      "downtrend": 240,
+      "range": 2,
+      "uncertain": 1035,
+      "uptrend": 201
+    },
+    "interface_exception_count": 461,
+    "interface_exception_type_counts": {
+      "ValueError": 461
+    },
+    "reference_scoring_performed": false,
+    "unique_published_f3_raw_records": 1478,
+    "v0618_qualified_count": 89,
+    "v0618_qualified_fraction": 0.060216508795669824,
+    "v0625_state_counts": {
+      "downtrend": 400,
+      "range": 5,
+      "uncertain": 271,
+      "uptrend": 341
+    }
+  },
+  "f3_event_publication_summary": {
+    "case_count": 11,
+    "causally_certified_f3_support_cases": 7,
+    "certified_object_count": {
+      "count": 11,
+      "max": 185.0,
+      "median": 133.0,
+      "min": 87.0
+    },
+    "event_certification_delay_bars": {
+      "count": 4080,
+      "max": 25.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "later_valid_same_identity_count": 2378,
+    "per_ordinal_published_raw_cell_hit_cases": {
+      "0": 11,
+      "1": 11,
+      "2": 11,
+      "3": 11,
+      "4": 10
+    },
+    "prior_invalid_projection_count": 0,
+    "published_object_count": {
+      "count": 11,
+      "max": 185.0,
+      "median": 133.0,
+      "min": 87.0
+    },
+    "published_raw_semantic_support_cases": 9,
+    "static_f3_support_cases": 8,
+    "static_object_count": {
+      "count": 11,
+      "max": 185.0,
+      "median": 142.0,
+      "min": 87.0
+    },
+    "suppressed_would_be_rewrite_count": 223
+  },
+  "final_reference_sha256": "321ce484f7f3f62bf6ff9d7d45de666e77d0cd17001b63a258a3e274e529884d",
+  "frozen_decision": {
+    "causal_event_support_pass": false,
+    "d1_decisive_override_zero": true,
+    "downstream_interface_exception_zero": false,
+    "primary_category": "v0702_f3_static_objectization_not_causally_publishable",
+    "published_raw_semantic_support_pass": true,
+    "salvage_threshold_cases": 8,
+    "static_f3_lineage_verified": true
+  },
+  "future_outcome_used": false,
+  "human_reference_labels_used_for_semantic_preservation_only": true,
+  "morphology_acceptance": false,
+  "persistence_threshold_fitted": false,
+  "primary_category": "v0702_f3_static_objectization_not_causally_publishable",
+  "production_authority": false,
+  "projection_geometry_changed_from_frozen_v0702_adapter": false,
+  "protocol": "docs/research/TWO_WAVE_F3_CAUSAL_EVENT_PUBLICATION_TRANSPLANT_V0702_PROTOCOL.md",
+  "protocol_freeze_commit": "3e4e12d27dc28f93aa3079d8ea0899601931ec60",
+  "qualification_authority_restored": false,
+  "qualification_threshold_retuned": false,
+  "reference_positive_candidate_cases": 16,
+  "sampling_commitment_sha256": "f4eeff13c1408c1ca3bf938c0cd8abc4dad961f63ed6a4a4158f243cd5b024c8",
+  "schema": "two_wave_f3_event_publication_transplant_precheck@0.7.2",
+  "source_manifest_verified": true,
+  "source_sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48",
+  "threshold_fitting_performed": false,
+  "trade_authority": false
+}
