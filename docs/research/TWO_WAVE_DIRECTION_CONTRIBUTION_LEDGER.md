@@ -236,3 +236,13 @@ The next program step should be **independent reference-label morphology validat
 - control human-positive miss: `10/120 = 8.33%` — pass.
 - Verdict: `v0648_independent_reference_calibration_gates_not_all_pass`.
 - Contribution status: reference evidence rejects current qualification/direction calibration; no direction challenger or threshold retuning authorized.
+
+
+## v0.6.49 upstream qualification attribution
+
+- This is **not a direction contribution**; it diagnoses the upstream qualification-semantic failure exposed by v0.6.48.
+- `104` reference-negative versus `16` reference-positive frozen candidate cases were compared under a pre-frozen read-only protocol.
+- No predeclared family (publication maturity, fragment scale, same-scale imbalance, path noise, identity ambiguity) met strong support.
+- Isolated clue: `amplitude_unit_fraction` adjusted rank `0.75`, but family corroboration failed; no cutoff or gate is authorized.
+- Verdict: `v0649_diffuse_or_fundamental_semantic_object_mismatch`.
+- Direction research remains blocked until the parent semantic object / representation mismatch is resolved.

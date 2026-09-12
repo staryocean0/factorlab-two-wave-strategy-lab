@@ -120,3 +120,13 @@ These snapshots contain links outside this bounded theme package. The scoped ind
 - Result card: `../experiments/two_wave_independent_reference_label_v0648/RESULT_CARD.md`
 - Governance adjudication: `../experiments/two_wave_independent_reference_label_v0648/ADJUDICATION.json`
 - Verdict: `v0648_independent_reference_calibration_gates_not_all_pass`; current v0.6.18 qualification semantics are not independently reference-calibrated.
+
+
+### v0.6.49 reference-conditioned qualification failure attribution — complete
+
+- Protocol: `research/TWO_WAVE_REFERENCE_CONDITIONED_QUALIFICATION_FAILURE_ATTRIBUTION_V0649_PROTOCOL.md`
+- Result: `../experiments/two_wave_reference_conditioned_qualification_attribution_v0649/RESULT.json`
+- Result card: `../experiments/two_wave_reference_conditioned_qualification_attribution_v0649/RESULT_CARD.md`
+- Governance adjudication: `../experiments/two_wave_reference_conditioned_qualification_attribution_v0649/ADJUDICATION.json`
+- Verdict: `v0649_diffuse_or_fundamental_semantic_object_mismatch`; no existing gate family is strongly supported.
+- Next: separately freeze a read-only semantic-object / parent-representation audit.

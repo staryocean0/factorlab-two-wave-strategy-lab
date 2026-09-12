@@ -339,3 +339,28 @@ Formal verdict: `v0648_independent_reference_calibration_gates_not_all_pass`.
 Interpretation: the dominant evidenced weakness is upstream candidate precision / qualification semantics, not another small direction-margin issue. v0.6.18 remains the historical Development-era qualification champion but is not independently reference-calibrated. No independently reference-calibrated qualification authority is installed. Parent-direction winner remains unset. `morphology_acceptance=false`, `trade_authority=false`, and `production_authority=false`.
 
 The v0.6.48 labels are evidence, not a tuning set. The next authorized research step must be separately frozen and read-only: reference-conditioned qualification failure attribution or a materially revised semantic object. Directly fitting v0.6.18 thresholds to these labels is forbidden.
+
+
+## v0.6.49: reference-conditioned qualification failure attribution — complete; no existing gate family explains the semantic failure
+
+Frozen protocol: `docs/research/TWO_WAVE_REFERENCE_CONDITIONED_QUALIFICATION_FAILURE_ATTRIBUTION_V0649_PROTOCOL.md`.  
+Protocol freeze commit: `0ee879f8258ee514e5b4556d7286f2ce2d4a972f`.  
+Formal workflow run: `34664379475`.  
+Formal result commit: `d3f4c3a2b97b6d517faed5fb4bbb54d2d95f46c8`.  
+Result: `experiments/two_wave_reference_conditioned_qualification_attribution_v0649/RESULT.json`.  
+Result card: `experiments/two_wave_reference_conditioned_qualification_attribution_v0649/RESULT_CARD.md`.  
+Governance adjudication: `experiments/two_wave_reference_conditioned_qualification_attribution_v0649/ADJUDICATION.json`.
+
+The audit compares the frozen `104` reference-negative versus `16` reference-positive v0.6.18 candidate cases without using annotator notes/confidence, D1/v0.6.25 predictions, future outcomes, or fitted thresholds. No predeclared failure family met the frozen strong-support rule:
+
+- publication maturity: unsupported (`confirmation_delay_bars` adjusted rank `0.5027`);
+- fragment/parent scale: unsupported as a family;
+- same-scale duration/amplitude imbalance: unsupported;
+- path noise / the v0.6.18-demoted path diagnostics: unsupported;
+- identity ambiguity: unsupported.
+
+The strongest isolated clue is `amplitude_unit_fraction`: reference-no median `0.3137`, reference-yes median `0.4347`, direction-adjusted rank `0.75`. But the corroborating parent-span and anchor-excursion diagnostics are only `0.6226` and `0.5306`, so the frozen rule explicitly rejects a `fragment_parent_scale` mechanism claim and does not authorize an amplitude cutoff.
+
+Formal verdict: **`v0649_diffuse_or_fundamental_semantic_object_mismatch`**.
+
+Interpretation: v0.6.48's low candidate semantic precision is not cleanly attributable to one existing qualification diagnostic family. The next scientific breakpoint moves upstream to the object itself: whether the exact-ridge/published-five-anchor identity and its parent boundaries correspond to the independently annotated visible parent object. No new qualification rule, restored path veto, amplitude threshold, or direction challenger is authorized. Independently reference-calibrated qualification authority remains `none`; parent-direction winner remains unset; `morphology_acceptance=false`, `trade_authority=false`, `production_authority=false`.

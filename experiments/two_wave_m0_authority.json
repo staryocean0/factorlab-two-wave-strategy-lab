@@ -1,5 +1,5 @@
 {
-  "schema": "two_wave_m0_authority@1.20",
+  "schema": "two_wave_m0_authority@1.21",
   "date": "2026-09-12",
   "primary_object": "two_wave_parent_structure_recognizer",
   "target_states": [
@@ -8,7 +8,7 @@
     "DownTrend",
     "Uncertain"
   ],
-  "global_status": "v0648_independent_reference_calibration_failed_qualification_semantics_not_validated",
+  "global_status": "v0649_diffuse_or_fundamental_semantic_object_mismatch_parent_representation_audit_next",
   "morphology_acceptance": false,
   "historical_full_recognizer_operational_baseline": {
     "version": "v0.4.3",
@@ -33,7 +33,7 @@
     "qualification_policy": {
       "version": "v0.6.18",
       "name": "path-gate demotion",
-      "status": "development_champion_failed_independent_reference_calibration",
+      "status": "development_champion_failed_independent_reference_calibration_no_gate_level_failure_family",
       "formal_verdict": "v0618_path_gate_demotion_research_candidate_pass",
       "workflow_run": 34423674192,
       "result_commit": "9600eca94de9fb2cc39db4b995edec3d5e7870c3",
@@ -313,7 +313,7 @@
   "current_price_input_direction_expansion_status": "closed_after_v0646_close_high_low_and_native_open_classes_adjudicated_no_challenger_authorized",
   "current_temporal_replication_status": "v0647_complete_not_all_original_v0625_gates_pass",
   "current_reference_label_status": "v0648_complete_independent_reference_calibration_gates_not_all_pass",
-  "next_authorized_step": "freeze a read-only reference-conditioned qualification failure attribution or materially revised semantic object; do not fit v0618 thresholds to the v0648 reference labels and do not resume direction micro-feature mining before resolving qualification semantics",
+  "next_authorized_step": "freeze a read-only semantic-object / parent-representation audit using the frozen v0648 reference evidence; test whether algorithmic five-anchor identity, parent boundaries, and reference-visible parent object correspond; do not mine residual gates or fit amplitude/qualification thresholds on v0648 labels",
   "no_current_direction_challenger_authorized": true,
   "forbidden_next_shortcuts": [
     "retry_endpoint_D2_or_confidence_gated_D2",
@@ -345,9 +345,46 @@
     "fit_or_retune_v0618_qualification_thresholds_on_v0648_reference_labels",
     "treat_v0648_development_reference_calibration_as_fresh_oos_acceptance",
     "resume_parent_direction_feature_mining_before_resolving_v0618_reference_semantic_failure",
-    "discard_reference_negative_candidate_cases_to_redefine_the_calibration_sample_post_hoc"
+    "discard_reference_negative_candidate_cases_to_redefine_the_calibration_sample_post_hoc",
+    "fit_amplitude_unit_fraction_cutoff_from_v0649",
+    "restore_v0618_demoted_path_gates_from_v0649",
+    "mine_residual_qualification_gates_from_the_104_v0648_reference_negative_candidates",
+    "claim_fragment_parent_scale_as_primary_v0649_mechanism_from_amplitude_unit_fraction_alone",
+    "resume_parent_direction_micro_feature_mining_before_semantic_object_parent_representation_audit"
   ],
   "trade_authority": false,
   "production_authority": false,
-  "current_independent_reference_calibrated_qualification_authority": null
+  "current_independent_reference_calibrated_qualification_authority": null,
+  "reference_conditioned_qualification_attribution": {
+    "v0649": {
+      "status": "complete_no_strong_predeclared_failure_family",
+      "protocol": "docs/research/TWO_WAVE_REFERENCE_CONDITIONED_QUALIFICATION_FAILURE_ATTRIBUTION_V0649_PROTOCOL.md",
+      "protocol_freeze_commit": "0ee879f8258ee514e5b4556d7286f2ce2d4a972f",
+      "formal_workflow_run": 34664379475,
+      "formal_result_commit": "d3f4c3a2b97b6d517faed5fb4bbb54d2d95f46c8",
+      "result": "experiments/two_wave_reference_conditioned_qualification_attribution_v0649/RESULT.json",
+      "result_card": "experiments/two_wave_reference_conditioned_qualification_attribution_v0649/RESULT_CARD.md",
+      "adjudication": "experiments/two_wave_reference_conditioned_qualification_attribution_v0649/ADJUDICATION.json",
+      "candidate_cases": 120,
+      "reference_no_candidates": 104,
+      "reference_yes_candidates": 16,
+      "strongly_supported_families": [],
+      "primary_attribution": "diffuse_or_fundamental_semantic_object_mismatch",
+      "isolated_amplitude_unit_fraction_failure_rank": 0.75,
+      "amplitude_cutoff_authorized": false,
+      "publication_maturity_supported": false,
+      "fragment_parent_scale_supported": false,
+      "same_scale_imbalance_supported": false,
+      "path_noise_supported": false,
+      "identity_ambiguity_supported": false,
+      "threshold_fitting_performed": false,
+      "qualification_changed": false,
+      "direction_winner_changed": false,
+      "morphology_acceptance_changed": false,
+      "trade_authority_changed": false,
+      "production_authority_changed": false,
+      "verdict": "v0649_diffuse_or_fundamental_semantic_object_mismatch"
+    }
+  },
+  "current_qualification_failure_attribution_status": "v0649_complete_no_strong_existing_gate_family_semantic_object_mismatch"
 }
