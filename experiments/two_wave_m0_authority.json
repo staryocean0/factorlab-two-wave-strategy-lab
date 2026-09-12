@@ -1,9 +1,14 @@
 {
-  "schema": "two_wave_m0_authority@1.19",
+  "schema": "two_wave_m0_authority@1.20",
   "date": "2026-09-12",
   "primary_object": "two_wave_parent_structure_recognizer",
-  "target_states": ["Range", "UpTrend", "DownTrend", "Uncertain"],
-  "global_status": "independent_reference_label_packet_ready_awaiting_blinded_annotations",
+  "target_states": [
+    "Range",
+    "UpTrend",
+    "DownTrend",
+    "Uncertain"
+  ],
+  "global_status": "v0648_independent_reference_calibration_failed_qualification_semantics_not_validated",
   "morphology_acceptance": false,
   "historical_full_recognizer_operational_baseline": {
     "version": "v0.4.3",
@@ -28,16 +33,21 @@
     "qualification_policy": {
       "version": "v0.6.18",
       "name": "path-gate demotion",
-      "status": "current_best_research_component",
+      "status": "development_champion_failed_independent_reference_calibration",
       "formal_verdict": "v0618_path_gate_demotion_research_candidate_pass",
       "workflow_run": 34423674192,
       "result_commit": "9600eca94de9fb2cc39db4b995edec3d5e7870c3",
       "both_qualified": 1462,
-      "aggregate_positive_overlap": 0.6838166510757717
+      "aggregate_positive_overlap": 0.6838166510757717,
+      "development_champion": true,
+      "independent_reference_calibrated": false,
+      "v0648_reference_confirmed_candidate_fraction": 0.13333333333333333,
+      "v0648_reference_confirmed_candidate_count": 16,
+      "v0648_candidate_cases": 120
     },
     "parent_direction": {
       "winner": null,
-      "status": "blocked_not_accepted_price_input_expansion_exhausted_v0647_temporal_replication_not_all_pass_v0648_reference_scoring_blocked_pending_annotations",
+      "status": "blocked_no_winner_v0648_reference_calibration_failed_upstream_qualification",
       "historical_baseline": {
         "name": "D1",
         "pooled_exact_agreement": 0.957592339261286,
@@ -67,13 +77,27 @@
     "comparison_offsets_are_diagnostic_only": true
   },
   "range_recovery_lineage": {
-    "v0635": {"status": "rejected_contribution_retained"},
-    "v0636": {"status": "diagnostic_complete_no_ceiling_change_authorized"},
-    "v0637": {"status": "rejected_contribution_retained"},
-    "v0638": {"status": "diagnostic_complete_no_weighting_consensus_gate"},
-    "v0639": {"status": "diagnostic_complete_no_gate_authorized"},
-    "v0640": {"status": "diagnostic_complete_route_closed"},
-    "v0641": {"status": "diagnostic_complete_route_closed"},
+    "v0635": {
+      "status": "rejected_contribution_retained"
+    },
+    "v0636": {
+      "status": "diagnostic_complete_no_ceiling_change_authorized"
+    },
+    "v0637": {
+      "status": "rejected_contribution_retained"
+    },
+    "v0638": {
+      "status": "diagnostic_complete_no_weighting_consensus_gate"
+    },
+    "v0639": {
+      "status": "diagnostic_complete_no_gate_authorized"
+    },
+    "v0640": {
+      "status": "diagnostic_complete_route_closed"
+    },
+    "v0641": {
+      "status": "diagnostic_complete_route_closed"
+    },
     "v0642": {
       "status": "diagnostic_complete_range_recovery_family_closed",
       "workflow_run": 34612200264,
@@ -192,7 +216,9 @@
           "v0625_exact_agreement": 0.972972972972973,
           "v0625_decisive_coverage": 0.7342342342342343,
           "all_original_v0625_gates_pass": false,
-          "failed_gates": ["decisive_class_diversity"]
+          "failed_gates": [
+            "decisive_class_diversity"
+          ]
         },
         "2026": {
           "both_v0618_qualified_pairs": 55,
@@ -235,34 +261,49 @@
   },
   "independent_reference_label_lineage": {
     "v0648": {
-      "status": "packet_ready_awaiting_two_independent_blinded_first_pass_annotations",
+      "status": "complete_calibration_gates_not_all_pass",
       "protocol": "docs/research/TWO_WAVE_INDEPENDENT_REFERENCE_LABEL_CONSTRUCTION_V0648_PROTOCOL.md",
       "protocol_freeze_commit": "86bfba86f01dda2f06b266b2025fbe3f1e39bc36",
       "packet_workflow_run": 34628102738,
-      "packet_metadata_commit": "e3addb31ec2a8754e711cf820e6092c14588bdd0",
+      "first_pass_freeze_workflow_run": 34662213635,
+      "final_scoring_workflow_run": 34663178194,
       "packet_manifest": "experiments/two_wave_independent_reference_label_v0648/PACKET_MANIFEST.json",
-      "sampling_commitment_record": "experiments/two_wave_independent_reference_label_v0648/SAMPLING_COMMITMENT.json",
-      "scoring_block_record": "experiments/two_wave_independent_reference_label_v0648/SCORING_BLOCKED.json",
-      "source_sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48",
-      "candidate_qualified_publications_available": 2115,
-      "selected_cases": 240,
-      "hidden_candidate_cases": 120,
-      "hidden_control_cases": 120,
-      "years": [2015, 2016, 2017, 2018, 2019, 2020],
-      "cases_per_year_per_hidden_stratum": 20,
-      "annotator_visible_file_count": 243,
-      "sampling_commitment_sha256": "f4eeff13c1408c1ca3bf938c0cd8abc4dad961f63ed6a4a4158f243cd5b024c8",
-      "blinded_annotation_zip_sha256": "4c08c8d3f32c6e222acb3c4236fa8f39428ff25349deae16d6f49dca2901566e",
-      "hidden_mapping_in_annotator_packet": false,
-      "independent_labels_present": false,
-      "model_scoring_started": false,
-      "label_quality_validator_implemented": true,
-      "first_pass_requires_two_distinct_annotator_ids": true,
-      "third_party_adjudication_required_for_disagreements": true,
-      "model_scoring_allowed_before_final_reference_freeze": false,
+      "first_pass_hash_freeze": "experiments/two_wave_independent_reference_label_v0648/FIRST_PASS_HASH_FREEZE.json",
+      "first_pass_quality": "experiments/two_wave_independent_reference_label_v0648/FIRST_PASS_QUALITY.json",
+      "adjudication_packet_manifest": "experiments/two_wave_independent_reference_label_v0648/ADJUDICATION_PACKET_MANIFEST.json",
+      "third_adjudicator_hash_freeze": "experiments/two_wave_independent_reference_label_v0648/THIRD_ADJUDICATOR_HASH_FREEZE.json",
+      "final_reference_freeze": "experiments/two_wave_independent_reference_label_v0648/FINAL_REFERENCE_FREEZE.json",
+      "final_reference_labels": "experiments/two_wave_independent_reference_label_v0648/FINAL_REFERENCE_LABELS.csv",
+      "reference_scoring_result": "experiments/two_wave_independent_reference_label_v0648/REFERENCE_SCORING_RESULT.json",
+      "result_card": "experiments/two_wave_independent_reference_label_v0648/RESULT_CARD.md",
+      "adjudication": "experiments/two_wave_independent_reference_label_v0648/ADJUDICATION.json",
+      "annotator_a_sha256": "6ae4650c9bb1144ea034af1cf97aa6fb95bf75f448ebffe84f903d8907d3a9dc",
+      "annotator_b_sha256": "34f6d9666f3b544a3c48f1122e4d0196cd6f4c1bce73e850d5ee2f7e0dc00f9d",
+      "third_adjudicator_sha256": "cf4a0c6b738bb4dac92cbcb8d8bdb5023e0061bb138220a83e0ea57bd4176b37",
+      "final_reference_sha256": "321ce484f7f3f62bf6ff9d7d45de666e77d0cd17001b63a258a3e274e529884d",
+      "first_pass_presence_exact_agreement": 0.9333333333333333,
+      "first_pass_presence_cohen_kappa": 0.7010742643624475,
+      "first_pass_parent_state_exact_both_yes": 1.0,
+      "first_pass_parent_state_cohen_kappa": 1.0,
+      "first_pass_disagreements": 16,
+      "unresolved_disagreements": 0,
+      "label_quality_gates_pass": true,
+      "candidate_reference_confirmed_presence_fraction": 0.13333333333333333,
+      "candidate_reference_confirmed_presence_count": 16,
+      "candidate_cases": 120,
+      "human_positive_control_miss_fraction": 0.08333333333333333,
+      "human_positive_control_count": 10,
+      "control_cases": 120,
+      "v0625_parent_state_exact_reference_confirmed": 0.3125,
+      "v0625_parent_state_exact_count": 5,
+      "v0625_opposite_trend_conflict_rate": 0.0,
+      "D1_parent_state_exact_reference_confirmed": 0.3125,
+      "all_calibration_support_gates_pass": false,
+      "verdict": "v0648_independent_reference_calibration_gates_not_all_pass",
+      "dominant_failure": "v0618_candidate_precision_semantic_qualification_not_independently_reference_calibrated",
       "development_period_calibration_only": true,
+      "threshold_retuning_performed": false,
       "morphology_acceptance_changed": false,
-      "qualification_changed": false,
       "direction_winner_changed": false,
       "trade_authority_changed": false,
       "production_authority_changed": false
@@ -271,8 +312,8 @@
   "current_range_recovery_family_status": "closed_after_v0642_no_empirical_candidate",
   "current_price_input_direction_expansion_status": "closed_after_v0646_close_high_low_and_native_open_classes_adjudicated_no_challenger_authorized",
   "current_temporal_replication_status": "v0647_complete_not_all_original_v0625_gates_pass",
-  "current_reference_label_status": "v0648_blinded_packet_ready_scoring_blocked_awaiting_two_independent_first_pass_annotations",
-  "next_authorized_step": "obtain_two_independent_blinded_v0648_annotation_sheets; freeze_both_sha256_hashes; run_pre_frozen_label_quality_gates; third_party_adjudicate_disagreements; freeze_final_reference_labels; only_then_unblind_hidden_mapping_and_score. do_not_resume_current_OHLC_direction_feature_mining",
+  "current_reference_label_status": "v0648_complete_independent_reference_calibration_gates_not_all_pass",
+  "next_authorized_step": "freeze a read-only reference-conditioned qualification failure attribution or materially revised semantic object; do not fit v0618 thresholds to the v0648 reference labels and do not resume direction micro-feature mining before resolving qualification semantics",
   "no_current_direction_challenger_authorized": true,
   "forbidden_next_shortcuts": [
     "retry_endpoint_D2_or_confidence_gated_D2",
@@ -300,8 +341,13 @@
     "change_v0648_sample_annotation_rules_or_agreement_gates_after_seeing_labels",
     "score_model_reference_agreement_before_disagreement_adjudication_and_final_reference_freeze",
     "tune_v0618_or_v0625_against_v0648_reference_labels",
-    "declare_global_morphology_acceptance_from_v0648_development_period_calibration_alone"
+    "declare_global_morphology_acceptance_from_v0648_development_period_calibration_alone",
+    "fit_or_retune_v0618_qualification_thresholds_on_v0648_reference_labels",
+    "treat_v0648_development_reference_calibration_as_fresh_oos_acceptance",
+    "resume_parent_direction_feature_mining_before_resolving_v0618_reference_semantic_failure",
+    "discard_reference_negative_candidate_cases_to_redefine_the_calibration_sample_post_hoc"
   ],
   "trade_authority": false,
-  "production_authority": false
+  "production_authority": false,
+  "current_independent_reference_calibrated_qualification_authority": null
 }

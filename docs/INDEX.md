@@ -109,3 +109,14 @@ The supplied data cannot satisfy the twelve-year strategy promotion workflow. Us
 - [`reference/factorlab_docs_user_README.md`](reference/factorlab_docs_user_README.md)
 
 These snapshots contain links outside this bounded theme package. The scoped index above is the executable package index.
+
+
+### v0.6.48 independent reference calibration — complete
+
+- Protocol: `research/TWO_WAVE_INDEPENDENT_REFERENCE_LABEL_CONSTRUCTION_V0648_PROTOCOL.md`
+- First-pass quality: `../experiments/two_wave_independent_reference_label_v0648/FIRST_PASS_QUALITY.json`
+- Final reference freeze: `../experiments/two_wave_independent_reference_label_v0648/FINAL_REFERENCE_FREEZE.json`
+- Formal scoring: `../experiments/two_wave_independent_reference_label_v0648/REFERENCE_SCORING_RESULT.json`
+- Result card: `../experiments/two_wave_independent_reference_label_v0648/RESULT_CARD.md`
+- Governance adjudication: `../experiments/two_wave_independent_reference_label_v0648/ADJUDICATION.json`
+- Verdict: `v0648_independent_reference_calibration_gates_not_all_pass`; current v0.6.18 qualification semantics are not independently reference-calibrated.

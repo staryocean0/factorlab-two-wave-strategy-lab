@@ -224,3 +224,15 @@ The next program step should be **independent reference-label morphology validat
 `morphology_acceptance=false`  
 `trade_authority=false`  
 `production_authority=false`
+
+
+## v0.6.48 independent reference calibration
+
+- Reference-label quality: passed (`93.33%` presence exact, kappa `0.701074`; parent-state exact/kappa `1.0` within both-yes cases).
+- Final reference: `240` cases, `16` adjudicated disagreements, `0` unresolved; SHA256 `321ce484f7f3f62bf6ff9d7d45de666e77d0cd17001b63a258a3e274e529884d`.
+- v0.6.18 candidate reference-confirmed presence: `16/120 = 13.33%` versus frozen `>=80%` gate — **fail**.
+- v0.6.25 exact state agreement on reference-confirmed candidates: `5/16 = 31.25%` versus frozen `>=85%` gate — **fail**.
+- v0.6.25 opposite UpTrend/DownTrend conflicts: `0` — pass.
+- control human-positive miss: `10/120 = 8.33%` — pass.
+- Verdict: `v0648_independent_reference_calibration_gates_not_all_pass`.
+- Contribution status: reference evidence rejects current qualification/direction calibration; no direction challenger or threshold retuning authorized.

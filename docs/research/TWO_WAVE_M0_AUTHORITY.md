@@ -7,9 +7,10 @@ Date: 2026-09-12
 - Primary object: `two_wave_parent_structure_recognizer`.
 - Target semantics: two complete same-scale waves -> parent `Range / UpTrend / DownTrend / Uncertain`.
 - Independent morphology acceptance: **false**.
-- Global status: `independent_reference_label_packet_ready_awaiting_blinded_annotations`.
+- Global status: `v0648_independent_reference_calibration_failed_qualification_semantics_not_validated`.
 - Historical full-recognizer operational baseline: **v0.4.3** until full morphology acceptance.
-- Qualification champion: **v0.6.18 path-gate demotion**.
+- Development-era qualification champion: **v0.6.18 path-gate demotion**.
+- Independently reference-calibrated qualification authority: **none**.
 - Parent-direction winner: **unset**.
 - Strongest pooled-exact direction contribution: **v0.6.25 absolute-margin erosion-consensus rescue**.
 - Trade authority: **false**.
@@ -319,3 +320,22 @@ The next legitimate program action is not another empirical feature experiment. 
 - use future returns, P&L, H1/H2, third-wave outcomes, or later-period selection data for morphology decisions.
 
 Independent morphology acceptance remains false. Trading and production remain closed.
+
+
+## v0.6.48 final: independent blinded reference calibration — complete; gates do not pass
+
+Formal final scoring workflow run: `34663178194`.  
+Final reference SHA256: `321ce484f7f3f62bf6ff9d7d45de666e77d0cd17001b63a258a3e274e529884d`.  
+Result: `experiments/two_wave_independent_reference_label_v0648/REFERENCE_SCORING_RESULT.json`.  
+Result card: `experiments/two_wave_independent_reference_label_v0648/RESULT_CARD.md`.  
+Governance adjudication: `experiments/two_wave_independent_reference_label_v0648/ADJUDICATION.json`.
+
+The annotation layer itself passed its pre-frozen quality gates: presence exact agreement `93.33%`, presence Cohen kappa `0.7010742643624475`, both-yes parent-state exact agreement `100%`, parent-state kappa `1.0`, and all `16` first-pass disagreements were independently adjudicated with `0` unresolved cases.
+
+The recognizer calibration then failed decisively. Among `120` hidden v0.6.18 candidate cases, the final reference confirms only `16` completed same-scale two-wave parents (`13.33%`), far below the frozen `80%` gate. Among those `16` confirmed cases, v0.6.25 parent-state exact agreement is `5/16 = 31.25%`, below the frozen `85%` gate. UpTrend/DownTrend opposite conflicts remain `0`, and the frozen control miss gate passes at `10/120 = 8.33%`.
+
+Formal verdict: `v0648_independent_reference_calibration_gates_not_all_pass`.
+
+Interpretation: the dominant evidenced weakness is upstream candidate precision / qualification semantics, not another small direction-margin issue. v0.6.18 remains the historical Development-era qualification champion but is not independently reference-calibrated. No independently reference-calibrated qualification authority is installed. Parent-direction winner remains unset. `morphology_acceptance=false`, `trade_authority=false`, and `production_authority=false`.
+
+The v0.6.48 labels are evidence, not a tuning set. The next authorized research step must be separately frozen and read-only: reference-conditioned qualification failure attribution or a materially revised semantic object. Directly fitting v0.6.18 thresholds to these labels is forbidden.
