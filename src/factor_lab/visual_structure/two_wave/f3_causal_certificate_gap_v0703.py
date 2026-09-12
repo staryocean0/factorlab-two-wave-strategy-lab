@@ -21,6 +21,13 @@ def _level_maps_confirmed(ridge_run, cutoff: int) -> list[dict[str, object]]:
     return out
 
 
+def _level_maps_all(ridge_run) -> list[dict[str, object]]:
+    return [
+        {str(row.ridge_id): row for row in rows}
+        for rows in ridge_run.ridge_nodes_by_level
+    ]
+
+
 def analyze_realization_certificate(
     ridge_run,
     level_rows: Sequence[object],
@@ -28,7 +35,12 @@ def analyze_realization_certificate(
     level: int,
     cutoff: int,
 ) -> dict:
-    """Return C0 blockers and the preregistered minimal explicit-death C1 proof."""
+    """Return C0 blockers and the preregistered minimal explicit-death C1 proof.
+
+    Blockers are attributed under the frozen cutoff.  Full-lineage inspection is
+    used only to distinguish evidence absent by cutoff from evidence that exists
+    but confirms later; it never changes C1 eligibility at the cutoff.
+    """
     idxs = tuple(int(x) for x in idxs)
     if len(idxs) != 5 or any(b <= a for a, b in zip(idxs, idxs[1:])):
         raise ValueError("five increasing selected positions required")
@@ -37,6 +49,7 @@ def analyze_realization_certificate(
         raise AssertionError("static F3 realization contains node unknown at cutoff")
 
     confirmed = _level_maps_confirmed(ridge_run, cutoff)
+    full = _level_maps_all(ridge_run)
     deaths = _death_index(ridge_run)
     blockers: list[str] = []
     c1_confirmation = max(int(x.node.confirmation_index) for x in nodes)
@@ -51,8 +64,13 @@ def analyze_realization_certificate(
             skipped_count += 1
             rid = str(skipped.ridge_id)
             death = deaths.get(rid)
-            if death is None or int(death.confirmation_index) > int(cutoff):
+            if death is None:
                 blockers.append("missing_explicit_death_by_cutoff")
+                c1_ok = False
+                continue
+            if int(death.confirmation_index) > int(cutoff):
+                blockers.append("missing_explicit_death_by_cutoff")
+                blockers.append("proof_confirmation_after_cutoff")
                 c1_ok = False
                 continue
             if int(death.fine_level) < int(level):
@@ -71,6 +89,8 @@ def analyze_realization_certificate(
 
             left_candidates = []
             right_candidates = []
+            left_future = []
+            right_future = []
             for higher in range(k, len(confirmed)):
                 lrow = confirmed[higher].get(left_id)
                 rrow = confirmed[higher].get(right_id)
@@ -78,24 +98,34 @@ def analyze_realization_certificate(
                     left_candidates.append((int(lrow.node.confirmation_index), higher, lrow))
                 if rrow is not None:
                     right_candidates.append((int(rrow.node.confirmation_index), higher, rrow))
+                lfull = full[higher].get(left_id)
+                rfull = full[higher].get(right_id)
+                if lfull is not None and int(lfull.node.confirmation_index) > int(cutoff):
+                    left_future.append((int(lfull.node.confirmation_index), higher, lfull))
+                if rfull is not None and int(rfull.node.confirmation_index) > int(cutoff):
+                    right_future.append((int(rfull.node.confirmation_index), higher, rfull))
 
             if exact_left is None:
                 if left_candidates:
                     blockers.append("exact_coarse_boundary_representation_missing_but_coarser_confirmed_survival_exists")
                 else:
                     blockers.append("left_boundary_not_proven_past_death_by_cutoff")
+                    if left_future:
+                        blockers.append("proof_confirmation_after_cutoff")
             if exact_right is None:
                 if right_candidates:
                     blockers.append("exact_coarse_boundary_representation_missing_but_coarser_confirmed_survival_exists")
                 else:
                     blockers.append("right_boundary_not_proven_past_death_by_cutoff")
+                    if right_future:
+                        blockers.append("proof_confirmation_after_cutoff")
 
             if not left_candidates:
                 c1_ok = False
             if not right_candidates:
                 c1_ok = False
             if left_candidates and right_candidates:
-                # Use the earliest qualifying confirmed representation at any level >=k.
+                # Use the earliest qualifying confirmed representation at any level >= k.
                 left_proof = min(left_candidates)
                 right_proof = min(right_candidates)
                 proof_confirmation = max(
@@ -109,7 +139,9 @@ def analyze_realization_certificate(
                 else:
                     c1_confirmation = max(c1_confirmation, proof_confirmation)
 
-    # C0 passes exactly when there are no blockers under its exact-coarse proof contract.
+    # C0 passes exactly when no C0-contract blocker is present.  Future-evidence
+    # attribution labels are descriptive and only occur together with a C0
+    # failure mode above.
     c0_ok = not blockers
     return {
         "c0_ok": c0_ok,
