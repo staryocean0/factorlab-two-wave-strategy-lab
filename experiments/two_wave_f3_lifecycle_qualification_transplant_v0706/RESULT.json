@@ -13,16 +13,26 @@
   "final_reference_sha256": "321ce484f7f3f62bf6ff9d7d45de666e77d0cd17001b63a258a3e274e529884d",
   "frozen_decision": {
     "interface_gate_passed": true,
-    "primary_category": "v0706_upstream_replication_drift_invalid",
+    "primary_category": "v0706_v0618_lifecycle_qualification_transplant_supported",
     "semantic_support_gate_cases": 8,
     "semantic_support_gate_passed": true,
-    "upstream_replication_ok": false,
+    "upstream_replication_ok": true,
     "v0618_contract_gate_passed": true,
     "v0618_qualified_semantic_support_cases": 9
   },
   "future_bar_used_for_qualification": false,
   "future_lifecycle_state_used_for_qualification": false,
   "future_outcome_used": false,
+  "implementation_retry": {
+    "direction_scoring_added": false,
+    "frozen_decision_gates_changed": false,
+    "original_invalid_formal_run_id": 34685420204,
+    "original_invalid_result_commit": "f3f47f115faf54fb688dcb26a86998b6daa49169",
+    "publication_or_lifecycle_identity_changed": false,
+    "qualification_thresholds_changed": false,
+    "retry_reason": "ordinal_count_mapping_keys_were_iterated_instead_of_values",
+    "scientific_protocol_unchanged": true
+  },
   "interface_audit": {
     "future_bar_dependency_violation_count": 0,
     "future_outcome_or_trade_authority_violation_count": 0,
@@ -36,7 +46,7 @@
     "v0618_exception_type_counts": {}
   },
   "morphology_acceptance": false,
-  "primary_category": "v0706_upstream_replication_drift_invalid",
+  "primary_category": "v0706_v0618_lifecycle_qualification_transplant_supported",
   "production_authority": false,
   "protocol": "docs/research/TWO_WAVE_F3_LIFECYCLE_QUALIFICATION_TRANSPLANT_V0706_PROTOCOL.md",
   "protocol_freeze_commit": "174188e55f573f43c7dac0e2d5d87f9a223bebaf",
@@ -206,11 +216,11 @@
     "publication_hard_invariant_violation_count": 0,
     "published_lifecycle_object_count": 1543,
     "published_raw_ordinal_hit_cases": [
-      0,
-      1,
-      2,
-      3,
-      4
+      11,
+      11,
+      11,
+      11,
+      10
     ],
     "published_raw_semantic_support_cases": 9
   },
