@@ -134,7 +134,7 @@ def _count_f1_unique_objects(ordered, masks, kinds) -> int:
                 if common:
                     dp[length][kind][common] = dp[length][kind].get(common, 0) + int(count)
         dp[1][kind][mask] = dp[1][kind].get(mask, 0) + 1
-    return sum(dp[5][kind].values() for kind in ("low", "high"))
+    return sum(sum(dp[5][kind].values()) for kind in ("low", "high"))
 
 
 def _f1_compatible_summary(levels, cells, required_kinds, human_bars) -> dict:
