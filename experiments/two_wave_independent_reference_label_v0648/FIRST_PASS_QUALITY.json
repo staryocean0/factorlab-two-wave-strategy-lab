@@ -1,0 +1,46 @@
+{
+  "adjudication_required": true,
+  "all_label_quality_gates_pass": true,
+  "annotator_a": "LOCAL_MODEL_A",
+  "annotator_b": "LOCAL_MODEL_B",
+  "both_yes_cases": 22,
+  "both_yes_parent_state_exact_agreement": 1.0,
+  "cases": 240,
+  "disagreement_case_ids": [
+    "TW-161141AD3CDCB1E1",
+    "TW-221CAE25E1865826",
+    "TW-248E0B37E4902172",
+    "TW-2CB34C5F7B7C0ED8",
+    "TW-4FB6DEAC8E96E9A5",
+    "TW-5F6DAC89FD392C7C",
+    "TW-727C07BDFFAB5044",
+    "TW-818D519BE1F122DA",
+    "TW-82F0258B9EBDA82C",
+    "TW-BBF0DB3ECF43DAB3",
+    "TW-EB8AA880B5EE6706",
+    "TW-F27ED448D897BEB5",
+    "TW-F2C7E617CB6AEB1F",
+    "TW-F33AEC1495E63809",
+    "TW-F6FED16292CCBC74",
+    "TW-FA5372ED5121702B"
+  ],
+  "disagreement_count": 16,
+  "first_pass_sheet_sha256": {
+    "annotator_a": "6ae4650c9bb1144ea034af1cf97aa6fb95bf75f448ebffe84f903d8907d3a9dc",
+    "annotator_b": "34f6d9666f3b544a3c48f1122e4d0196cd6f4c1bce73e850d5ee2f7e0dc00f9d"
+  },
+  "gates": {
+    "both_yes_parent_state_exact_at_least_80pct": true,
+    "parent_state_kappa_at_least_0_70_when_defined": true,
+    "presence_exact_agreement_at_least_85pct": true,
+    "presence_kappa_at_least_0_70_when_defined": true
+  },
+  "hidden_strata_unblinded": false,
+  "model_predictions_unblinded": false,
+  "model_scoring_allowed": false,
+  "parent_state_cohen_kappa": 1.0,
+  "presence_cohen_kappa": 0.7010742643624475,
+  "presence_exact_agreement": 0.9333333333333333,
+  "reason_model_scoring_blocked": "first-pass label quality precedes third-party disagreement adjudication and final reference freeze",
+  "schema": "two_wave_independent_reference_first_pass_quality@0.6.48"
+}
