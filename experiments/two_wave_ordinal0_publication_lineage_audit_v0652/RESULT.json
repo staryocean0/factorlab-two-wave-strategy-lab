@@ -1,0 +1,605 @@
+{
+  "annotator_confidence_used": false,
+  "annotator_notes_used": false,
+  "background_construction": {
+    "all_prepublication_invalid_reason_counts": {},
+    "canonical_filtered_groups": 38634,
+    "no_valid_publication_groups": 458,
+    "projection_contract_verified_valid_members": 38178,
+    "published_groups": 38176,
+    "ridge_tuple_births": 38636,
+    "suppressed_would_be_rewrite_comparisons_all_published": 1,
+    "v0618_qualified_publications": 2115,
+    "valid_evidence_members": 38178
+  },
+  "background_publication_universe": {
+    "cross_valid_member_spread": {
+      "groups_with_at_least_two_valid_members": 2,
+      "per_ordinal_raw_occurrence_spread": {
+        "0": {
+          "count": 2,
+          "median": 1.5,
+          "q1": 0.75,
+          "q3": 2.25
+        },
+        "1": {
+          "count": 2,
+          "median": 1.0,
+          "q1": 0.5,
+          "q3": 1.5
+        },
+        "2": {
+          "count": 2,
+          "median": 0.0,
+          "q1": 0.0,
+          "q3": 0.0
+        },
+        "3": {
+          "count": 2,
+          "median": 0.0,
+          "q1": 0.0,
+          "q3": 0.0
+        },
+        "4": {
+          "count": 2,
+          "median": 0.0,
+          "q1": 0.0,
+          "q3": 0.0
+        }
+      }
+    },
+    "evidence_member_count": {
+      "count": 38176,
+      "median": 1.0,
+      "q1": 1.0,
+      "q3": 1.0
+    },
+    "later_valid_publication_stability": {
+      "first_changed_ordinal_counts": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0
+      },
+      "first_changed_ordinal_incidence": {
+        "0": 1.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0,
+        "4": 0.0
+      },
+      "groups_with_later_valid_evidence": 2,
+      "groups_with_suppressed_rewrite": 1,
+      "later_valid_comparisons": 2,
+      "ordinal0_only_rewrite_comparisons": 0,
+      "ordinal0_only_rewrite_incidence": 0.0,
+      "per_ordinal_changed_counts": {
+        "0": 1,
+        "1": 1,
+        "2": 0,
+        "3": 0,
+        "4": 0
+      },
+      "per_ordinal_changed_incidence": {
+        "0": 1.0,
+        "1": 1.0,
+        "2": 0.0,
+        "3": 0.0,
+        "4": 0.0
+      },
+      "rewrite_group_incidence": 0.5,
+      "suppressed_rewrite_comparisons": 1
+    },
+    "pre_publication_invalid": {
+      "all_prior_invalid_members": 0,
+      "groups_with_any_prior_invalid": 0,
+      "groups_with_predecessor_specific_prior_invalid": 0,
+      "predecessor_specific_group_incidence": 0.0,
+      "predecessor_specific_member_share": 0.0,
+      "predecessor_specific_prior_invalid_members": 0,
+      "reason_counts": {}
+    },
+    "predecessor_change_association": {
+      "p0_change_incidence_given_predecessor_changed": 1.0,
+      "p0_change_incidence_given_predecessor_same": 0.0,
+      "predecessor_changed_comparisons": 1,
+      "predecessor_changed_p0_changed": 1,
+      "predecessor_same_comparisons": 1,
+      "predecessor_same_p0_changed": 0
+    },
+    "publication_birth_level_counts": {
+      "1": 6608,
+      "10": 563,
+      "11": 377,
+      "12": 256,
+      "13": 201,
+      "2": 7789,
+      "3": 6985,
+      "4": 5549,
+      "5": 3717,
+      "6": 2527,
+      "7": 1701,
+      "8": 1132,
+      "9": 771
+    },
+    "published_groups": 38176,
+    "publishing_projection": {
+      "per_ordinal_raw_filtered_abs_displacement": {
+        "0": {
+          "count": 38176,
+          "median": 1.0,
+          "q1": 0.0,
+          "q3": 3.0
+        },
+        "1": {
+          "count": 38176,
+          "median": 1.0,
+          "q1": 0.0,
+          "q3": 3.0
+        },
+        "2": {
+          "count": 38176,
+          "median": 1.0,
+          "q1": 0.0,
+          "q3": 3.0
+        },
+        "3": {
+          "count": 38176,
+          "median": 1.0,
+          "q1": 0.0,
+          "q3": 3.0
+        },
+        "4": {
+          "count": 38176,
+          "median": 1.0,
+          "q1": 0.0,
+          "q3": 3.0
+        }
+      },
+      "per_ordinal_window_width": {
+        "0": {
+          "count": 38176,
+          "median": 10.0,
+          "q1": 5.0,
+          "q3": 21.0
+        },
+        "1": {
+          "count": 38176,
+          "median": 12.0,
+          "q1": 7.0,
+          "q3": 25.0
+        },
+        "2": {
+          "count": 38176,
+          "median": 12.0,
+          "q1": 7.0,
+          "q3": 25.0
+        },
+        "3": {
+          "count": 38176,
+          "median": 12.0,
+          "q1": 7.0,
+          "q3": 25.25
+        },
+        "4": {
+          "count": 38176,
+          "median": 8.0,
+          "q1": 4.0,
+          "q3": 15.0
+        }
+      }
+    },
+    "valid_member_count": {
+      "count": 38176,
+      "median": 1.0,
+      "q1": 1.0,
+      "q3": 1.0
+    }
+  },
+  "case_level_table_written": false,
+  "direction_prediction_used": false,
+  "direction_winner_changed": false,
+  "frozen_decision": {
+    "gate_a_predecessor_eligibility_bottleneck_material": false,
+    "gate_b_denominator_ok": false,
+    "gate_b_first_valid_freeze_material": false,
+    "gate_c_denominator_ok": false,
+    "gate_c_ordinal0_rewrite_dominant": false,
+    "gate_d_denominator_ok": false,
+    "gate_d_predecessor_change_associated_with_p0_change": false,
+    "gate_e_publishing_p0_projection_displacement_larger": false,
+    "primary_category": "v0652_structural_ordinal0_provenance_asymmetry_not_materially_expressed"
+  },
+  "future_outcome_used": false,
+  "human_reference_labels_used": false,
+  "morphology_acceptance": false,
+  "primary_category": "v0652_structural_ordinal0_provenance_asymmetry_not_materially_expressed",
+  "primary_v0618_qualified_universe": {
+    "cross_valid_member_spread": {
+      "groups_with_at_least_two_valid_members": 0,
+      "per_ordinal_raw_occurrence_spread": {
+        "0": {
+          "count": 0,
+          "median": null,
+          "q1": null,
+          "q3": null
+        },
+        "1": {
+          "count": 0,
+          "median": null,
+          "q1": null,
+          "q3": null
+        },
+        "2": {
+          "count": 0,
+          "median": null,
+          "q1": null,
+          "q3": null
+        },
+        "3": {
+          "count": 0,
+          "median": null,
+          "q1": null,
+          "q3": null
+        },
+        "4": {
+          "count": 0,
+          "median": null,
+          "q1": null,
+          "q3": null
+        }
+      }
+    },
+    "evidence_member_count": {
+      "count": 2115,
+      "median": 1.0,
+      "q1": 1.0,
+      "q3": 1.0
+    },
+    "later_valid_publication_stability": {
+      "first_changed_ordinal_counts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0
+      },
+      "first_changed_ordinal_incidence": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0,
+        "4": 0.0
+      },
+      "groups_with_later_valid_evidence": 0,
+      "groups_with_suppressed_rewrite": 0,
+      "later_valid_comparisons": 0,
+      "ordinal0_only_rewrite_comparisons": 0,
+      "ordinal0_only_rewrite_incidence": 0.0,
+      "per_ordinal_changed_counts": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0
+      },
+      "per_ordinal_changed_incidence": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0,
+        "4": 0.0
+      },
+      "rewrite_group_incidence": 0.0,
+      "suppressed_rewrite_comparisons": 0
+    },
+    "pre_publication_invalid": {
+      "all_prior_invalid_members": 0,
+      "groups_with_any_prior_invalid": 0,
+      "groups_with_predecessor_specific_prior_invalid": 0,
+      "predecessor_specific_group_incidence": 0.0,
+      "predecessor_specific_member_share": 0.0,
+      "predecessor_specific_prior_invalid_members": 0,
+      "reason_counts": {}
+    },
+    "predecessor_change_association": {
+      "p0_change_incidence_given_predecessor_changed": null,
+      "p0_change_incidence_given_predecessor_same": null,
+      "predecessor_changed_comparisons": 0,
+      "predecessor_changed_p0_changed": 0,
+      "predecessor_same_comparisons": 0,
+      "predecessor_same_p0_changed": 0
+    },
+    "publication_birth_level_counts": {
+      "1": 7,
+      "2": 51,
+      "3": 222,
+      "4": 611,
+      "5": 707,
+      "6": 431,
+      "7": 80,
+      "8": 2,
+      "9": 4
+    },
+    "published_groups": 2115,
+    "publishing_projection": {
+      "per_ordinal_raw_filtered_abs_displacement": {
+        "0": {
+          "count": 2115,
+          "median": 3.0,
+          "q1": 1.0,
+          "q3": 4.0
+        },
+        "1": {
+          "count": 2115,
+          "median": 3.0,
+          "q1": 2.0,
+          "q3": 5.0
+        },
+        "2": {
+          "count": 2115,
+          "median": 3.0,
+          "q1": 2.0,
+          "q3": 5.0
+        },
+        "3": {
+          "count": 2115,
+          "median": 3.0,
+          "q1": 2.0,
+          "q3": 5.0
+        },
+        "4": {
+          "count": 2115,
+          "median": 3.0,
+          "q1": 1.0,
+          "q3": 4.0
+        }
+      },
+      "per_ordinal_window_width": {
+        "0": {
+          "count": 2115,
+          "median": 18.0,
+          "q1": 12.0,
+          "q3": 27.0
+        },
+        "1": {
+          "count": 2115,
+          "median": 24.0,
+          "q1": 18.0,
+          "q3": 32.0
+        },
+        "2": {
+          "count": 2115,
+          "median": 25.0,
+          "q1": 18.5,
+          "q3": 34.0
+        },
+        "3": {
+          "count": 2115,
+          "median": 23.0,
+          "q1": 18.0,
+          "q3": 30.0
+        },
+        "4": {
+          "count": 2115,
+          "median": 13.0,
+          "q1": 9.0,
+          "q3": 17.0
+        }
+      }
+    },
+    "valid_member_count": {
+      "count": 2115,
+      "median": 1.0,
+      "q1": 1.0,
+      "q3": 1.0
+    }
+  },
+  "production_authority": false,
+  "projection_geometry_changed": false,
+  "protocol": "docs/research/TWO_WAVE_ORDINAL0_FIRST_VALID_PUBLICATION_LINEAGE_AUDIT_V0652_PROTOCOL.md",
+  "publication_policy_changed": false,
+  "qualification_changed": false,
+  "runtime_lineage_contract": {
+    "contract_verified": true,
+    "first_valid_publication_contract_verified_published_groups": 38176,
+    "ordinal0_lower_source": "birth_level_predecessor_occurrence_plus_one",
+    "ordinal1_4_lower_source": "previous_selected_raw_anchor_plus_one",
+    "projection_contract_verified_valid_members": 38178,
+    "publication_evidence_order": "birth_confirmation_bar_then_birth_level_then_event_id",
+    "publication_policy": "first_valid_immutable_later_rewrites_suppressed",
+    "source_predecessor_marker_only_on_ordinal0": true
+  },
+  "sampling_commitment_sha256": "f4eeff13c1408c1ca3bf938c0cd8abc4dad961f63ed6a4a4158f243cd5b024c8",
+  "schema": "two_wave_ordinal0_publication_lineage_audit@0.6.52",
+  "source_manifest_verified": true,
+  "source_sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48",
+  "threshold_fitting_performed": false,
+  "trade_authority": false,
+  "unlabeled_v0648_candidate_cutoff_replication": {
+    "candidate_cutoffs": 120,
+    "decision_weight": "descriptive_only",
+    "human_reference_labels_used": false,
+    "lineage_summary": {
+      "cross_valid_member_spread": {
+        "groups_with_at_least_two_valid_members": 0,
+        "per_ordinal_raw_occurrence_spread": {
+          "0": {
+            "count": 0,
+            "median": null,
+            "q1": null,
+            "q3": null
+          },
+          "1": {
+            "count": 0,
+            "median": null,
+            "q1": null,
+            "q3": null
+          },
+          "2": {
+            "count": 0,
+            "median": null,
+            "q1": null,
+            "q3": null
+          },
+          "3": {
+            "count": 0,
+            "median": null,
+            "q1": null,
+            "q3": null
+          },
+          "4": {
+            "count": 0,
+            "median": null,
+            "q1": null,
+            "q3": null
+          }
+        }
+      },
+      "evidence_member_count": {
+        "count": 122,
+        "median": 1.0,
+        "q1": 1.0,
+        "q3": 1.0
+      },
+      "later_valid_publication_stability": {
+        "first_changed_ordinal_counts": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        },
+        "first_changed_ordinal_incidence": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 0.0,
+          "3": 0.0,
+          "4": 0.0
+        },
+        "groups_with_later_valid_evidence": 0,
+        "groups_with_suppressed_rewrite": 0,
+        "later_valid_comparisons": 0,
+        "ordinal0_only_rewrite_comparisons": 0,
+        "ordinal0_only_rewrite_incidence": 0.0,
+        "per_ordinal_changed_counts": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        },
+        "per_ordinal_changed_incidence": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 0.0,
+          "3": 0.0,
+          "4": 0.0
+        },
+        "rewrite_group_incidence": 0.0,
+        "suppressed_rewrite_comparisons": 0
+      },
+      "pre_publication_invalid": {
+        "all_prior_invalid_members": 0,
+        "groups_with_any_prior_invalid": 0,
+        "groups_with_predecessor_specific_prior_invalid": 0,
+        "predecessor_specific_group_incidence": 0.0,
+        "predecessor_specific_member_share": 0.0,
+        "predecessor_specific_prior_invalid_members": 0,
+        "reason_counts": {}
+      },
+      "predecessor_change_association": {
+        "p0_change_incidence_given_predecessor_changed": null,
+        "p0_change_incidence_given_predecessor_same": null,
+        "predecessor_changed_comparisons": 0,
+        "predecessor_changed_p0_changed": 0,
+        "predecessor_same_comparisons": 0,
+        "predecessor_same_p0_changed": 0
+      },
+      "publication_birth_level_counts": {
+        "2": 2,
+        "3": 13,
+        "4": 35,
+        "5": 36,
+        "6": 31,
+        "7": 5
+      },
+      "published_groups": 122,
+      "publishing_projection": {
+        "per_ordinal_raw_filtered_abs_displacement": {
+          "0": {
+            "count": 122,
+            "median": 3.0,
+            "q1": 1.0,
+            "q3": 4.0
+          },
+          "1": {
+            "count": 122,
+            "median": 3.0,
+            "q1": 2.0,
+            "q3": 5.0
+          },
+          "2": {
+            "count": 122,
+            "median": 3.0,
+            "q1": 2.0,
+            "q3": 5.0
+          },
+          "3": {
+            "count": 122,
+            "median": 3.0,
+            "q1": 2.0,
+            "q3": 5.0
+          },
+          "4": {
+            "count": 122,
+            "median": 3.0,
+            "q1": 1.0,
+            "q3": 4.0
+          }
+        },
+        "per_ordinal_window_width": {
+          "0": {
+            "count": 122,
+            "median": 18.5,
+            "q1": 13.0,
+            "q3": 26.0
+          },
+          "1": {
+            "count": 122,
+            "median": 25.0,
+            "q1": 18.0,
+            "q3": 34.0
+          },
+          "2": {
+            "count": 122,
+            "median": 24.5,
+            "q1": 18.0,
+            "q3": 33.75
+          },
+          "3": {
+            "count": 122,
+            "median": 23.0,
+            "q1": 19.0,
+            "q3": 30.0
+          },
+          "4": {
+            "count": 122,
+            "median": 12.0,
+            "q1": 10.0,
+            "q3": 17.0
+          }
+        }
+      },
+      "valid_member_count": {
+        "count": 122,
+        "median": 1.0,
+        "q1": 1.0,
+        "q3": 1.0
+      }
+    },
+    "multi_identity_cutoffs": 2,
+    "qualified_identity_records_at_candidate_cutoffs": 122
+  }
+}
