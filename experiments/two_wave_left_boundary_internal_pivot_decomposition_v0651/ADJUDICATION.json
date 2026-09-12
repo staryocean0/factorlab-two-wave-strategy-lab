@@ -3,6 +3,7 @@
   "protocol": "docs/research/TWO_WAVE_LEFT_BOUNDARY_INTERNAL_PIVOT_DECOMPOSITION_V0651_PROTOCOL.md",
   "protocol_freeze_commit": "ea6511289ab3131565bf13948f37663937e4dc41",
   "formal_workflow_run": 34667721079,
+  "formal_result_commit": "459ea2ee7f7960af4db4e4a086348edc2911fec8",
   "primary_category": "v0651_correspondence_decomposition_mixed_or_unresolved",
   "anchored_reference_positive_cases": 11,
   "median_p0_absolute_error_bars": 17.0,
