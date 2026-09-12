@@ -191,3 +191,13 @@ These snapshots contain links outside this bounded theme package. The scoped ind
 - Adjudication: `../experiments/two_wave_f3_event_publication_transplant_v0702/ADJUDICATION.json`
 - Verdict: `v0702_f3_static_objectization_not_causally_publishable` (`8/11` static, `7/11` causal).
 - Next: frozen causal-certification gap attribution; do not lower the gate or advance to qualification calibration yet.
+
+
+### v0.7.3 F3 causal-certificate gap attribution — complete
+
+- Protocol: `research/TWO_WAVE_F3_CAUSAL_CERTIFICATE_GAP_ATTRIBUTION_V0703_PROTOCOL.md`
+- Result: `../experiments/two_wave_f3_causal_certificate_gap_v0703/RESULT.json`
+- Result card: `../experiments/two_wave_f3_causal_certificate_gap_v0703/RESULT_CARD.md`
+- Adjudication: `../experiments/two_wave_f3_causal_certificate_gap_v0703/ADJUDICATION.json`
+- Verdict: `v0703_gap_requires_explicit_death_evidence_unavailable_at_cutoff` (`8/11` static, `7/11` C0, `7/11` C1).
+- Next: causal object/event lifecycle reconstruction; qualification/direction remain blocked.

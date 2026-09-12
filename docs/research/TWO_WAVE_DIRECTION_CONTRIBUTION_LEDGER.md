@@ -303,3 +303,11 @@ The next program step should be **independent reference-label morphology validat
 - First-valid F3 raw publication nevertheless reaches `9/11` anchored semantic support, positive evidence for preserving the sequential projection / immutable-publication principles after the event layer is repaired.
 - D1 decisive override under v0.6.25 remains zero in the interface precheck. No reference direction scoring was performed.
 - v0.6.18 and D1/v0.6.25 remain queued for later semantic transplantation, not rejected.
+
+
+## v0.7.3 causal-certificate gap attribution
+
+- Upstream parent-event evidence only; no direction challenger or reference direction scoring was run.
+- Static F3 remains `8/11`, while both C0 and C1 permanent causal certificates remain `7/11`.
+- The one-case loss is attributable to explicit RidgeDeath evidence being unavailable at cutoff, not to the exact-coarse boundary representation.
+- D1/v0.6.25 remain historical direction components awaiting later semantic transplantation after parent-event lifecycle and qualification are resolved.

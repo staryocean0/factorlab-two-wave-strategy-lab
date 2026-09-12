@@ -1,5 +1,5 @@
 {
-  "schema": "two_wave_m0_authority@1.27",
+  "schema": "two_wave_m0_authority@1.28",
   "date": "2026-09-12",
   "primary_object": "two_wave_parent_structure_recognizer",
   "target_states": [
@@ -8,7 +8,7 @@
     "DownTrend",
     "Uncertain"
   ],
-  "global_status": "v0702_f3_static_objectization_not_causally_publishable_causal_certificate_gap_attribution_next",
+  "global_status": "v0703_gap_requires_explicit_death_evidence_unavailable_at_cutoff_lifecycle_event_reconstruction_next",
   "morphology_acceptance": false,
   "historical_full_recognizer_operational_baseline": {
     "version": "v0.4.3",
@@ -18,7 +18,7 @@
     "parent_identity": {
       "version": "v0.5.2",
       "name": "exact-ridge parent identity",
-      "status": "f3_static_development_reconstruction_supported_causal_event_certificate_unresolved",
+      "status": "f3_static_development_reconstruction_supported_permanent_event_unresolved_due_causal_maturity",
       "independent_reference_correspondence_status": "semantic_bridge_failure_localized_at_exact_tuple_objectization",
       "v0650_median_parent_interval_iou": 0.7741935483870968,
       "v0650_median_anchor_mae_fraction": 0.12421052631578948,
@@ -59,17 +59,22 @@
       "v0701_morphology_authority_granted": false,
       "v0702_static_f3_support_cases": 8,
       "v0702_causally_certified_f3_support_cases": 7,
-      "v0702_causal_event_support_pass": false
+      "v0702_causal_event_support_pass": false,
+      "v0703_static_f3_support_cases": 8,
+      "v0703_c0_causal_support_cases": 7,
+      "v0703_c1_causal_support_cases": 7,
+      "v0703_gap_case_count": 1,
+      "v0703_c1_restores_salvage_threshold": false
     },
     "same_scale_semantics": {
       "version": "v0.5.4",
       "name": "full-cycle-scale qualification",
-      "status": "historical_component_awaiting_f3_semantic_transplant_retest_after_causal_event_resolution"
+      "status": "historical_component_awaiting_f3_semantic_transplant_retest_after_event_lifecycle_resolution"
     },
     "raw_identity_publication": {
       "version": "v0.6.5",
       "name": "first-valid immutable predecessor publication",
-      "status": "historical_principle_positive_f3_transplant_evidence_blocked_by_causal_event_gate",
+      "status": "historical_principle_positive_f3_transplant_evidence_blocked_by_event_lifecycle_resolution",
       "v0652_background_published_groups": 38176,
       "v0652_background_groups_with_later_valid_evidence": 2,
       "v0652_background_suppressed_rewrite_comparisons": 1,
@@ -83,7 +88,7 @@
     "qualification_policy": {
       "version": "v0.6.18",
       "name": "path-gate demotion",
-      "status": "legacy_object_development_champion_awaiting_f3_transplant_retest_after_causal_event_resolution",
+      "status": "legacy_object_development_champion_awaiting_f3_transplant_retest_after_event_lifecycle_resolution",
       "formal_verdict": "v0618_path_gate_demotion_research_candidate_pass",
       "workflow_run": 34423674192,
       "result_commit": "9600eca94de9fb2cc39db4b995edec3d5e7870c3",
@@ -99,7 +104,7 @@
     },
     "parent_direction": {
       "winner": null,
-      "status": "historical_components_awaiting_f3_semantic_transplant_retest_after_parent_and_qualification_resolution",
+      "status": "historical_components_awaiting_f3_semantic_transplant_retest_after_parent_event_lifecycle_and_qualification_resolution",
       "historical_baseline": {
         "name": "D1",
         "pooled_exact_agreement": 0.957592339261286,
@@ -366,7 +371,7 @@
   "current_price_input_direction_expansion_status": "closed_after_v0646_close_high_low_and_native_open_classes_adjudicated_no_challenger_authorized",
   "current_temporal_replication_status": "v0647_complete_not_all_original_v0625_gates_pass",
   "current_reference_label_status": "v0648_complete_independent_reference_calibration_gates_not_all_pass",
-  "next_authorized_step": "freeze a read-only v0703 causal-certification gap attribution for the static-F3-supported but causal-unsupported case and aggregate event mechanics; separate missing skipped-ridge death evidence, missing selected-boundary coarse survival evidence, confirmation-after-cutoff, and unnecessarily strong permanence-certificate requirements; do not lower the 8/11 gate, use future survival, fit event-delay tolerance, retune F3, or advance to qualification calibration before causal event semantics are resolved",
+  "next_authorized_step": "freeze a causal object/event-layer reconstruction audit that preserves frozen F3 static semantics and the 8/11 Development continuity target while testing an append-only lifecycle representation such as observed -> certified or observed -> invalidated; observation creation must be prefix-causal and immutable, later state transitions must be evidence-timed and append-only, identity rewrites are forbidden, and qualification/direction calibration remains blocked until lifecycle semantics are separately frozen and audited",
   "no_current_direction_challenger_authorized": true,
   "forbidden_next_shortcuts": [
     "retry_endpoint_D2_or_confidence_gated_D2",
@@ -440,7 +445,12 @@
     "use_future_ridge_survival_as_f3_event_certificate",
     "fit_event_confirmation_delay_tolerance_from_v0702",
     "skip_causal_event_resolution_and_calibrate_v0618_on_f3",
-    "declare_v064_v065_projection_publication_active_authority_from_v0702_raw_support_alone"
+    "declare_v064_v065_projection_publication_active_authority_from_v0702_raw_support_alone",
+    "treat_future_ridge_death_confirmation_as_available_at_cutoff",
+    "waive_explicit_death_to_force_permanent_f3_support_to_8_of_11",
+    "declare_static_f3_observation_a_permanent_event_without_lifecycle_state",
+    "fit_lifecycle_timeout_or_invalidation_tolerance_from_the_11_positive_cases",
+    "advance_to_qualification_or_direction_calibration_before_event_lifecycle_freeze"
   ],
   "trade_authority": false,
   "production_authority": false,
@@ -705,5 +715,36 @@
       "production_authority_changed": false
     }
   },
-  "counteroffensive_current_breakpoint": "f3_causal_event_certificate_one_case_gap"
+  "counteroffensive_current_breakpoint": "f3_permanent_event_requires_explicit_death_after_cutoff_lifecycle_event_reconstruction_next",
+  "f3_causal_certificate_gap_attribution": {
+    "v0703": {
+      "status": "complete_gap_requires_explicit_death_evidence_unavailable_at_cutoff",
+      "protocol": "docs/research/TWO_WAVE_F3_CAUSAL_CERTIFICATE_GAP_ATTRIBUTION_V0703_PROTOCOL.md",
+      "protocol_freeze_commit": "de795faf95a8a47c4835ccae76f37c6d1c196821",
+      "formal_workflow_run": 34681005995,
+      "formal_result_commit": "68c978187b531ad6ac18c564a3214035be0dafa5",
+      "result": "experiments/two_wave_f3_causal_certificate_gap_v0703/RESULT.json",
+      "result_card": "experiments/two_wave_f3_causal_certificate_gap_v0703/RESULT_CARD.md",
+      "adjudication": "experiments/two_wave_f3_causal_certificate_gap_v0703/ADJUDICATION.json",
+      "static_f3_support_cases": 8,
+      "c0_causal_support_cases": 7,
+      "c1_causal_support_cases": 7,
+      "c1_recovered_cases_vs_c0": 0,
+      "gap_case_count": 1,
+      "gap_human_compatible_static_realizations": 4,
+      "gap_missing_explicit_death_by_cutoff_count": 4,
+      "gap_proof_confirmation_after_cutoff_count": 4,
+      "every_gap_realization_missing_explicit_death": true,
+      "every_gap_realization_proof_after_cutoff": true,
+      "every_gap_realization_boundary_survival_unavailable": false,
+      "primary_category": "v0703_gap_requires_explicit_death_evidence_unavailable_at_cutoff",
+      "future_ridge_lineage_used_for_blocker_attribution_only": true,
+      "future_ridge_survival_used_for_certificate": false,
+      "threshold_fitting_performed": false,
+      "qualification_or_direction_evaluated": false,
+      "morphology_acceptance_changed": false,
+      "trade_authority_changed": false,
+      "production_authority_changed": false
+    }
+  }
 }

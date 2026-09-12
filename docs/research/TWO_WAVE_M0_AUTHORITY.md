@@ -476,3 +476,18 @@ Static F3 support reproduces `8/11`, but the preregistered permanent death-certi
 The failure does not invalidate the static F3 reconstruction. It localizes the next counteroffensive layer to causal event certification. The nonconsecutive predecessor raw-projection / first-valid immutable-publication transplant produced `9/11` published-raw semantic support, providing positive salvage evidence for the v0.6.4/v0.6.5 principles once a causal event object is available. v0.6.18 and D1/v0.6.25 remain historical components awaiting semantic transplantation retests; they are not declared false.
 
 The next authorized step is a frozen read-only causal-certification gap attribution. `morphology_acceptance=false`, `trade_authority=false`, `production_authority=false`.
+
+
+## v0.7.3: F3 causal-certificate gap attribution — explicit death is unavailable at cutoff
+
+Frozen protocol: `docs/research/TWO_WAVE_F3_CAUSAL_CERTIFICATE_GAP_ATTRIBUTION_V0703_PROTOCOL.md`.  
+Protocol freeze commit: `de795faf95a8a47c4835ccae76f37c6d1c196821`.  
+Formal workflow run: `34681005995`.  
+Formal result commit: `68c978187b531ad6ac18c564a3214035be0dafa5`.  
+Result: `experiments/two_wave_f3_causal_certificate_gap_v0703/RESULT.json`.  
+Result card: `experiments/two_wave_f3_causal_certificate_gap_v0703/RESULT_CARD.md`.  
+Adjudication: `experiments/two_wave_f3_causal_certificate_gap_v0703/ADJUDICATION.json`.
+
+Required replication held: static F3 `8/11`, C0 causal `7/11`, exactly one gap case. C1 relaxed only exact-coarse boundary-survival representation but still required explicit skipped-ridge death; it remained `7/11` and recovered zero cases. The one gap case has four human-compatible static realizations, and all four lack explicit death by cutoff while the corresponding proof appears only later. The formal verdict is **`v0703_gap_requires_explicit_death_evidence_unavailable_at_cutoff`**.
+
+This rules out the narrow explanation that C0 failed merely because it demanded an exact coarse-level boundary representation. The next authorized stage is causal object/event-layer reconstruction, with an append-only lifecycle representation as the leading candidate. Qualification and direction remain blocked. `morphology_acceptance=false`, `trade_authority=false`, `production_authority=false`.
