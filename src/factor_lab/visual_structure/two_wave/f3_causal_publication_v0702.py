@@ -52,7 +52,7 @@ def enumerate_f3_object_masks(ridge_run, chart_start: int, cutoff: int) -> tuple
         outgoing.setdefault(str(left), []).append((str(right), int(mask)))
 
     order_pos = {rid: i for i, rid in enumerate(ordered)}
-    for rid, rows in outgoing.items():
+    for rows in outgoing.values():
         rows.sort(key=lambda x: order_pos[x[0]])
 
     objects: dict[tuple[str, ...], int] = {}
@@ -81,26 +81,33 @@ def enumerate_f3_object_masks(ridge_run, chart_start: int, cutoff: int) -> tuple
     return objects, levels
 
 
-def _level_maps(levels: Sequence[Sequence[object]]) -> list[dict[str, object]]:
-    return [{str(row.ridge_id): row for row in rows} for rows in levels]
-
-
-def _death_map(ridge_run) -> dict[str, list[object]]:
+def build_death_map(ridge_run) -> dict[str, tuple[object, ...]]:
+    """Build the immutable global ridge-death lookup once per ridge run."""
     out: dict[str, list[object]] = {}
     for death in ridge_run.deaths:
         out.setdefault(str(death.ridge_id), []).append(death)
-    for rows in out.values():
-        rows.sort(key=lambda x: (int(x.coarse_level), int(x.confirmation_index)))
-    return out
+    return {
+        rid: tuple(sorted(rows, key=lambda x: (int(x.coarse_level), int(x.confirmation_index))))
+        for rid, rows in out.items()
+    }
+
+
+def build_cutoff_context(levels: Sequence[Sequence[object]]) -> dict:
+    """Cache cutoff-local level maps and causal survival used by many objects."""
+    return {
+        "level_maps": tuple(
+            {str(row.ridge_id): row for row in rows}
+            for rows in levels
+        ),
+        "survival": causal_survival_levels(levels),
+    }
 
 
 def _death_by_witness(rows: Sequence[object], witness_level: int, cutoff: int):
-    eligible = [
-        row for row in rows
-        if int(row.coarse_level) <= int(witness_level)
-        and int(row.confirmation_index) <= int(cutoff)
-    ]
-    return eligible[0] if eligible else None
+    for row in rows:
+        if int(row.coarse_level) <= int(witness_level) and int(row.confirmation_index) <= int(cutoff):
+            return row
+    return None
 
 
 def certificate_realization(
@@ -109,10 +116,17 @@ def certificate_realization(
     object_key: Sequence[str],
     level: int,
     cutoff: int,
+    *,
+    death_map: dict[str, Sequence[object]] | None = None,
+    cutoff_context: dict | None = None,
 ) -> dict | None:
     """Return the frozen monotone death certificate for one final F3 realization."""
     key = tuple(str(x) for x in object_key)
-    maps = _level_maps(levels)
+    context = build_cutoff_context(levels) if cutoff_context is None else cutoff_context
+    maps = list(context["level_maps"])
+    survival = dict(context["survival"])
+    deaths = build_death_map(ridge_run) if death_map is None else death_map
+
     if level < 0 or level >= len(maps) or any(rid not in maps[level] for rid in key):
         return None
     rows = list(levels[level])
@@ -124,11 +138,9 @@ def certificate_realization(
     if any(str(a.node.kind) == str(b.node.kind) for a, b in zip(nodes, nodes[1:])):
         return None
 
-    survival = causal_survival_levels(levels)
     if any(not _edge_is_dominant(rows, a, b, survival) for a, b in zip(positions, positions[1:])):
         return None
 
-    deaths = _death_map(ridge_run)
     base_confirmation = max(int(node.node.confirmation_index) for node in nodes)
     gap_times: list[int] = []
     used_death_witness = False
@@ -158,7 +170,7 @@ def certificate_realization(
             required_deaths = []
             valid = True
             for skipped_row in skipped:
-                death = _death_by_witness(deaths.get(str(skipped_row.ridge_id), []), k, cutoff)
+                death = _death_by_witness(deaths.get(str(skipped_row.ridge_id), ()), k, cutoff)
                 if death is None:
                     valid = False
                     break
@@ -191,10 +203,24 @@ def certificate_realization(
     }
 
 
-def object_valid_at_time(ridge_run, chart_start: int, cutoff: int, object_key: Sequence[str]) -> bool:
+def object_valid_at_time(
+    ridge_run,
+    chart_start: int,
+    cutoff: int,
+    object_key: Sequence[str],
+    *,
+    replay_context_cache: dict[int, dict] | None = None,
+) -> bool:
     key = tuple(str(x) for x in object_key)
-    levels = eligible_nodes_by_level(ridge_run, chart_start, cutoff)
-    survival = causal_survival_levels(levels)
+    cache = {} if replay_context_cache is None else replay_context_cache
+    if int(cutoff) not in cache:
+        levels = eligible_nodes_by_level(ridge_run, chart_start, cutoff)
+        cache[int(cutoff)] = {
+            "levels": levels,
+            "survival": causal_survival_levels(levels),
+        }
+    levels = cache[int(cutoff)]["levels"]
+    survival = cache[int(cutoff)]["survival"]
     for rows in levels:
         pos = {str(row.ridge_id): i for i, row in enumerate(rows)}
         if any(rid not in pos for rid in key):
@@ -217,18 +243,38 @@ def certificate_object(
     object_key: Sequence[str],
     level_mask: int,
     levels: Sequence[Sequence[object]],
+    *,
+    death_map: dict[str, Sequence[object]] | None = None,
+    cutoff_context: dict | None = None,
+    replay_context_cache: dict[int, dict] | None = None,
 ) -> dict | None:
+    deaths = build_death_map(ridge_run) if death_map is None else death_map
+    context = build_cutoff_context(levels) if cutoff_context is None else cutoff_context
     candidates = []
     for level in range(len(levels)):
         if not (int(level_mask) & (1 << level)):
             continue
-        cert = certificate_realization(ridge_run, levels, object_key, level, cutoff)
+        cert = certificate_realization(
+            ridge_run,
+            levels,
+            object_key,
+            level,
+            cutoff,
+            death_map=deaths,
+            cutoff_context=context,
+        )
         if cert is not None:
             candidates.append(cert)
     if not candidates:
         return None
     best = min(candidates, key=lambda x: (int(x["certificate_time"]), int(x["level"])))
-    if not object_valid_at_time(ridge_run, chart_start, int(best["certificate_time"]), object_key):
+    if not object_valid_at_time(
+        ridge_run,
+        chart_start,
+        int(best["certificate_time"]),
+        object_key,
+        replay_context_cache=replay_context_cache,
+    ):
         raise AssertionError("death-certified F3 object is not causally valid at certificate time")
     return best
 
