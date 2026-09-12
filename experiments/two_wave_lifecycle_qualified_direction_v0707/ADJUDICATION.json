@@ -1,0 +1,120 @@
+{
+  "schema": "two_wave_lifecycle_qualified_direction_transplant_adjudication@0.7.7",
+  "date": "2026-09-12",
+  "protocol": "docs/research/TWO_WAVE_LIFECYCLE_QUALIFIED_DIRECTION_TRANSPLANT_V0707_PROTOCOL.md",
+  "protocol_freeze_commit": "c2fe567fec232e7bbd93614917d85f85b984dfbb",
+  "authoritative_formal_workflow_run": 34690335291,
+  "authoritative_result_commit": "37cf51ab4b546a2ac8650f31b8dfb1deef5e2c59",
+  "primary_category": "v0707_v0625_lifecycle_direction_transplant_supported_development_only_external_validation_blocked",
+  "adjudication": "supported_development_direction_transplant_retained_contribution_external_validation_blocked_no_direction_winner",
+  "stage_a": {
+    "publication_count": 1543,
+    "v0618_qualified_publication_count": 115,
+    "D1_evaluated_count": 115,
+    "v0625_evaluated_count": 115,
+    "D1_exception_count": 0,
+    "v0625_exception_count": 0,
+    "D1_decisive_override_count": 0,
+    "publication_or_lifecycle_identity_mutation_count": 0,
+    "qualification_result_mutation_count": 0,
+    "future_bar_dependency_violation_count": 0,
+    "future_outcome_or_trade_authority_leak_count": 0,
+    "D1_uncertain_count": 69,
+    "v0625_uncertain_count": 50,
+    "v0625_rescue_count": 19,
+    "v0625_rescue_label_counts": {
+      "downtrend": 12,
+      "range": 1,
+      "uptrend": 6
+    },
+    "all_classification_changes_are_D1_uncertain_to_decisive": true,
+    "all_rescues_have_unanimous_decisive_consensus_and_margin_ge_0_10": true
+  },
+  "stage_b": {
+    "anchored_case_count": 11,
+    "v0618_qualified_semantic_support_cases": 9,
+    "semantically_supported_publication_count": 11,
+    "D1_case_exact_count": 7,
+    "v0625_case_exact_count": 7,
+    "D1_case_uncertain_count": 2,
+    "v0625_case_uncertain_count": 2,
+    "D1_case_opposite_human_trend_conflicts": 0,
+    "v0625_case_opposite_human_trend_conflicts": 0,
+    "human_exact_decisive_D1_harmed_case_count": 0,
+    "D1_to_v0625_case_transition_counts": {
+      "downtrend->downtrend": 4,
+      "range->range": 1,
+      "uncertain->uncertain": 2,
+      "uptrend->uptrend": 2
+    },
+    "case_level_semantic_delta": "neutral_on_all_9_supported_cases",
+    "D1_supported_publication_exact_count": 8,
+    "v0625_supported_publication_exact_count": 8,
+    "supported_publication_count": 11,
+    "publication_level_semantic_delta": "neutral_on_the_11_semantically_supported_publications"
+  },
+  "frozen_gates": {
+    "stage_a_gates_1_to_10_pass": true,
+    "stage_a_gate_11_material_expression_pass": true,
+    "stage_b_qualified_semantic_support_reproduced_9_of_11": true,
+    "semantic_gate_pass": true,
+    "v0625_case_exact_not_lower_than_D1": true,
+    "v0625_opposite_human_trend_conflicts_zero": true,
+    "v0625_uncertain_count_not_greater_than_D1": true,
+    "no_human_exact_decisive_D1_case_harmed": true,
+    "publication_level_D1_uncertainty_rescue_expressed": true
+  },
+  "external_validation_constraints": {
+    "v0647_temporal_replication": {
+      "pair_count": 253,
+      "D1_pooled_exact_count": 242,
+      "D1_pooled_exact_agreement": 0.9565217391304348,
+      "v0625_pooled_exact_count": 238,
+      "v0625_pooled_exact_agreement": 0.9407114624505929,
+      "v0625_pooled_decisive_coverage": 0.6857707509881423,
+      "v0625_decisive_agreement": 1.0,
+      "v0625_opposite_trend_conflicts": 0,
+      "original_v0625_all_gates_pass": false,
+      "binding_external_validation_weakness": true
+    },
+    "v0648_independent_reference_calibration": {
+      "candidate_reference_confirmed_presence_count": 16,
+      "candidate_case_count": 120,
+      "candidate_reference_confirmed_presence_fraction": 0.13333333333333333,
+      "D1_parent_state_exact_count": 5,
+      "D1_parent_state_exact_agreement": 0.3125,
+      "v0625_parent_state_exact_count": 5,
+      "v0625_parent_state_exact_agreement": 0.3125,
+      "D1_uncertain_rate": 0.5625,
+      "v0625_uncertain_rate": 0.4375,
+      "v0625_opposite_trend_conflict_rate": 0.0,
+      "all_calibration_support_gates_pass": false,
+      "binding_external_validation_weakness": true
+    }
+  },
+  "retained_contribution": {
+    "v0625_status": "retained_development_direction_contribution_not_winner",
+    "mechanically_expressed": true,
+    "publication_level_D1_uncertainty_rescues": 19,
+    "semantic_advantage_over_D1_on_frozen_9_case_subset": false,
+    "semantic_advantage_over_D1_on_11_supported_publications": false,
+    "interpretation": "v0.6.25 is technically transplantable and materially active on the 115-publication Development universe, but it does not improve the frozen supported human-semantic subset over D1 and remains blocked by the retained v0.6.47 and v0.6.48 external-validation weaknesses"
+  },
+  "authority": {
+    "active_semantic_parent_authority_granted": false,
+    "morphology_acceptance": false,
+    "parent_direction_winner": null,
+    "trade_authority": false,
+    "production_authority": false
+  },
+  "next_authorized_step": "close the current Development direction-transplant line with v0.6.25 retained as a non-winning contribution and no parent-direction winner installed; any reopening of v0.6.25 direction authority requires a new preregistered external-validation protocol and genuinely external evidence that directly addresses both the v0.6.47 temporal-replication exact-agreement deficit and the v0.6.48 independent-reference coverage/calibration weakness without tuning on those held-out outcomes",
+  "forbidden_shortcuts": [
+    "install_v0625_as_direction_winner_from_v0707_development_support",
+    "treat_the_19_publication_level_rescues_as_semantic_improvement_on_the_frozen_9_case_reference_subset",
+    "retune_v0625_margin_or_Huber_thresholds_after_v0707",
+    "ignore_v0647_temporal_replication_exact_agreement_deficit",
+    "ignore_v0648_independent_reference_coverage_or_calibration_weakness",
+    "use_future_lifecycle_state_or_future_bars_for_direction",
+    "treat_v0707_as_full_morphology_acceptance_trade_authority_or_production_authority"
+  ]
+}
