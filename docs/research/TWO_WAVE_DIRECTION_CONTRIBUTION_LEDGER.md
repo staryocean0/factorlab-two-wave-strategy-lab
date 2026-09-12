@@ -246,3 +246,13 @@ The next program step should be **independent reference-label morphology validat
 - Isolated clue: `amplitude_unit_fraction` adjusted rank `0.75`, but family corroboration failed; no cutoff or gate is authorized.
 - Verdict: `v0649_diffuse_or_fundamental_semantic_object_mismatch`.
 - Direction research remains blocked until the parent semantic object / representation mismatch is resolved.
+
+
+## v0.6.50 parent representation audit
+
+- This is upstream representation evidence, not a direction contribution.
+- All 120 candidate algorithmic parents were fully visible in the human packet; chart truncation and right-edge staleness are ruled out.
+- Smaller-parent evidence is sub-threshold (`P(span_no<span_yes)+0.5tie = 0.6214`).
+- `11/16` human-positive cases support direct anchor comparison: median interval IoU `0.7742`, normalized five-anchor MAE `0.1242`, start-boundary error `17` bars, end-boundary error `4` bars.
+- Frozen classification: `mixed_or_indeterminate`; formal category `v0650_parent_representation_correspondence_not_identified`.
+- No parent-boundary rule, pivot remapping, qualification gate, semantic-object challenger, or direction challenger is authorized.

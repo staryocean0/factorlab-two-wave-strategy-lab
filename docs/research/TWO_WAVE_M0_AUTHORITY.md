@@ -364,3 +364,24 @@ The strongest isolated clue is `amplitude_unit_fraction`: reference-no median `0
 Formal verdict: **`v0649_diffuse_or_fundamental_semantic_object_mismatch`**.
 
 Interpretation: v0.6.48's low candidate semantic precision is not cleanly attributable to one existing qualification diagnostic family. The next scientific breakpoint moves upstream to the object itself: whether the exact-ridge/published-five-anchor identity and its parent boundaries correspond to the independently annotated visible parent object. No new qualification rule, restored path veto, amplitude threshold, or direction challenger is authorized. Independently reference-calibrated qualification authority remains `none`; parent-direction winner remains unset; `morphology_acceptance=false`, `trade_authority=false`, `production_authority=false`.
+
+
+## v0.6.50: semantic-object / parent-representation audit — complete; correspondence mixed / not identified
+
+Frozen protocol: `docs/research/TWO_WAVE_SEMANTIC_OBJECT_PARENT_REPRESENTATION_AUDIT_V0650_PROTOCOL.md`.  
+Protocol freeze commit: `f7c80c2331c7bbefbe1dd4dcc4b0669e92c2113a`.  
+Formal workflow run: `34666720984`.  
+Formal result commit: `51657926c71e0308d64a233405f9363073e8997b`.  
+Result: `experiments/two_wave_semantic_object_parent_representation_v0650/RESULT.json`.  
+Result card: `experiments/two_wave_semantic_object_parent_representation_v0650/RESULT_CARD.md`.  
+Governance adjudication: `experiments/two_wave_semantic_object_parent_representation_v0650/ADJUDICATION.json`.
+
+The v0.6.48 chart window itself is not the failure: all `104/104` reference-negative and `16/16` reference-positive algorithmic five-anchor parents are fully visible in the frozen 96-bar packet. Right-edge gap is also indistinguishable (`4`-bar median in both groups; rank `0.5018`). The reference-negative parents are somewhat shorter, but the prespecified smaller-parent rank is only `0.6214`, below the `0.70` support threshold.
+
+Direct parent correspondence is identifiable because `11/16` reference-positive cases have complete valid frozen final-reference `p0..p4`. On those 11 cases, median outer-interval IoU is `0.7742`, but normalized five-anchor MAE is `0.1242`. This passes neither the frozen strong-correspondence band (`IoU>=0.70` and MAE<=`0.08`) nor the strong-mismatch band (`IoU<0.50` or MAE>`0.15`). Median start-boundary error is `17` bars versus only `4` bars at the end boundary; containment is heterogeneous rather than systematically fragmentary or over-wide.
+
+Formal verdict: **`v0650_parent_representation_correspondence_not_identified`**.
+
+Interpretation: the algorithmic and human objects are not simply disjoint — their outer intervals overlap materially and the right boundary is often close — but the left boundary and internal five-anchor decomposition do not establish strong correspondence. v0.5.2 exact-ridge parent identity remains a supported research component, but its independent-reference correspondence is unresolved. No boundary tolerance, pivot remapping, span gate, qualification change, semantic-object challenger, or direction challenger is authorized.
+
+The next authorized step is a separately frozen read-only left-boundary / internal-pivot correspondence decomposition. `morphology_acceptance=false`, `trade_authority=false`, `production_authority=false`.

@@ -130,3 +130,13 @@ These snapshots contain links outside this bounded theme package. The scoped ind
 - Governance adjudication: `../experiments/two_wave_reference_conditioned_qualification_attribution_v0649/ADJUDICATION.json`
 - Verdict: `v0649_diffuse_or_fundamental_semantic_object_mismatch`; no existing gate family is strongly supported.
 - Next: separately freeze a read-only semantic-object / parent-representation audit.
+
+
+### v0.6.50 semantic-object / parent-representation audit — complete
+
+- Protocol: `research/TWO_WAVE_SEMANTIC_OBJECT_PARENT_REPRESENTATION_AUDIT_V0650_PROTOCOL.md`
+- Result: `../experiments/two_wave_semantic_object_parent_representation_v0650/RESULT.json`
+- Result card: `../experiments/two_wave_semantic_object_parent_representation_v0650/RESULT_CARD.md`
+- Governance adjudication: `../experiments/two_wave_semantic_object_parent_representation_v0650/ADJUDICATION.json`
+- Verdict: `v0650_parent_representation_correspondence_not_identified`; outer intervals overlap, but left-boundary/internal-anchor correspondence remains unresolved.
+- Next: separately freeze a read-only left-boundary / internal-pivot correspondence decomposition.

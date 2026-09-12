@@ -28,7 +28,7 @@ Current best-supported research components are:
 - parent identity: **v0.5.2 exact-ridge identity**;
 - same-scale semantics: **v0.5.4 full-cycle qualification**;
 - immutable raw identity publication: **v0.6.5**;
-- qualification policy: **v0.6.18 path-gate demotion** — current best research qualification component;
+- qualification policy: **v0.6.18 path-gate demotion** — Development-era champion, but failed independent reference calibration;
 - fine-path partial-identification measurement: **v0.6.17** cloud-reviewed bounds;
 - parent direction (`Range / UpTrend / DownTrend`): **winner unset / not accepted**;
 - strongest pooled-exact Development direction contribution: **v0.6.25**, retained as evidence but not runtime authority.
@@ -43,7 +43,9 @@ v0.6.48 completed the independently blinded reference-label calibration. The ann
 
 v0.6.49 then executed the frozen read-only reference-conditioned failure attribution over the same 120 candidates. No predeclared existing diagnostic family — publication maturity, fragment/parent scale, duration/amplitude imbalance, path noise, or identity ambiguity — met the frozen strong-support rule. `amplitude_unit_fraction` produced an isolated adjusted rank of `0.75`, but its family-level corroboration failed, so no amplitude cutoff or qualification gate is authorized. The formal verdict is **`v0649_diffuse_or_fundamental_semantic_object_mismatch`**.
 
-Current global stage is therefore **semantic-object / parent-representation audit required**. Parent-direction winner remains unset; `morphology_acceptance=false`, `trade_authority=false`, `production_authority=false`. The next authorized action is a separately frozen read-only audit of whether the algorithmic exact-ridge/published-five-anchor object and its parent boundaries correspond to the independently annotated visible parent object. Residual gate mining, v0.6.18 threshold fitting, restored path vetoes, amplitude cutoff fitting, and renewed direction micro-feature mining remain unauthorized.
+v0.6.50 completed that semantic-object / parent-representation audit. All 120 candidate algorithmic parents were fully visible in the frozen human chart, and right-edge staleness was absent. Among the 11 reference-positive cases with complete human p0-p4 anchors, the outer parent intervals overlap reasonably well (median IoU `0.7742`) but the full five-anchor alignment remains only mixed (normalized anchor MAE `0.1242`); the start boundary differs by a median `17` bars while the end boundary differs by only `4` bars. The formal verdict is **`v0650_parent_representation_correspondence_not_identified`**.
+
+Current global stage is therefore **left-boundary / internal-pivot correspondence decomposition required**. v0.5.2 remains a supported research parent-identity component, but independent-reference correspondence is unresolved. Parent-direction winner remains unset; `morphology_acceptance=false`, `trade_authority=false`, `production_authority=false`. The next authorized action is a separately frozen read-only decomposition of start-boundary versus internal-pivot versus end-boundary correspondence. Fitting a 17-bar tolerance, fitting an anchor-MAE threshold, remapping pivots to the human labels, changing parent span to match labels, residual gate mining, or renewed direction micro-feature mining remain unauthorized.
 
 ## Four-layer timing navigation shell
 

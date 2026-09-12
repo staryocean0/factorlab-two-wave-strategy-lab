@@ -1,5 +1,5 @@
 {
-  "schema": "two_wave_m0_authority@1.21",
+  "schema": "two_wave_m0_authority@1.22",
   "date": "2026-09-12",
   "primary_object": "two_wave_parent_structure_recognizer",
   "target_states": [
@@ -8,7 +8,7 @@
     "DownTrend",
     "Uncertain"
   ],
-  "global_status": "v0649_diffuse_or_fundamental_semantic_object_mismatch_parent_representation_audit_next",
+  "global_status": "v0650_parent_representation_correspondence_not_identified_left_boundary_internal_pivot_decomposition_next",
   "morphology_acceptance": false,
   "historical_full_recognizer_operational_baseline": {
     "version": "v0.4.3",
@@ -18,7 +18,12 @@
     "parent_identity": {
       "version": "v0.5.2",
       "name": "exact-ridge parent identity",
-      "status": "supported_research_component"
+      "status": "supported_research_component_independent_reference_correspondence_unresolved",
+      "independent_reference_correspondence_status": "mixed_or_indeterminate",
+      "v0650_median_parent_interval_iou": 0.7741935483870968,
+      "v0650_median_anchor_mae_fraction": 0.12421052631578948,
+      "v0650_median_start_boundary_error_bars": 17.0,
+      "v0650_median_end_boundary_error_bars": 4.0
     },
     "same_scale_semantics": {
       "version": "v0.5.4",
@@ -33,7 +38,7 @@
     "qualification_policy": {
       "version": "v0.6.18",
       "name": "path-gate demotion",
-      "status": "development_champion_failed_independent_reference_calibration_no_gate_level_failure_family",
+      "status": "development_champion_failed_independent_reference_calibration_parent_correspondence_unresolved",
       "formal_verdict": "v0618_path_gate_demotion_research_candidate_pass",
       "workflow_run": 34423674192,
       "result_commit": "9600eca94de9fb2cc39db4b995edec3d5e7870c3",
@@ -47,7 +52,7 @@
     },
     "parent_direction": {
       "winner": null,
-      "status": "blocked_no_winner_v0648_reference_calibration_failed_upstream_qualification",
+      "status": "blocked_no_winner_upstream_parent_object_and_qualification_not_reference_validated",
       "historical_baseline": {
         "name": "D1",
         "pooled_exact_agreement": 0.957592339261286,
@@ -313,7 +318,7 @@
   "current_price_input_direction_expansion_status": "closed_after_v0646_close_high_low_and_native_open_classes_adjudicated_no_challenger_authorized",
   "current_temporal_replication_status": "v0647_complete_not_all_original_v0625_gates_pass",
   "current_reference_label_status": "v0648_complete_independent_reference_calibration_gates_not_all_pass",
-  "next_authorized_step": "freeze a read-only semantic-object / parent-representation audit using the frozen v0648 reference evidence; test whether algorithmic five-anchor identity, parent boundaries, and reference-visible parent object correspond; do not mine residual gates or fit amplitude/qualification thresholds on v0648 labels",
+  "next_authorized_step": "freeze a read-only left-boundary / internal-pivot correspondence decomposition using only the frozen v0648 final-reference anchors; separate start-boundary displacement from internal pivot displacement and end-boundary agreement; do not fit boundary tolerances, pivot remapping, span filters, or a semantic-object challenger directly to v0648 labels",
   "no_current_direction_challenger_authorized": true,
   "forbidden_next_shortcuts": [
     "retry_endpoint_D2_or_confidence_gated_D2",
@@ -350,7 +355,14 @@
     "restore_v0618_demoted_path_gates_from_v0649",
     "mine_residual_qualification_gates_from_the_104_v0648_reference_negative_candidates",
     "claim_fragment_parent_scale_as_primary_v0649_mechanism_from_amplitude_unit_fraction_alone",
-    "resume_parent_direction_micro_feature_mining_before_semantic_object_parent_representation_audit"
+    "resume_parent_direction_micro_feature_mining_before_semantic_object_parent_representation_audit",
+    "fit_a_17_bar_start_boundary_tolerance_from_v0650",
+    "fit_a_0_124_anchor_mae_threshold_from_v0650",
+    "choose_multi_identity_candidate_by_best_human_anchor_match",
+    "time_warp_or_permute_model_pivots_to_maximize_v0648_human_alignment",
+    "widen_or_narrow_parent_boundaries_directly_to_match_v0648_reference_anchors",
+    "declare_v052_parent_identity_rejected_from_mixed_v0650_correspondence",
+    "resume_parent_direction_feature_mining_before_left_boundary_internal_pivot_decomposition"
   ],
   "trade_authority": false,
   "production_authority": false,
@@ -386,5 +398,46 @@
       "verdict": "v0649_diffuse_or_fundamental_semantic_object_mismatch"
     }
   },
-  "current_qualification_failure_attribution_status": "v0649_complete_no_strong_existing_gate_family_semantic_object_mismatch"
+  "current_qualification_failure_attribution_status": "v0649_complete_no_strong_existing_gate_family_semantic_object_mismatch",
+  "semantic_object_parent_representation_audit": {
+    "v0650": {
+      "status": "complete_parent_representation_correspondence_not_identified",
+      "protocol": "docs/research/TWO_WAVE_SEMANTIC_OBJECT_PARENT_REPRESENTATION_AUDIT_V0650_PROTOCOL.md",
+      "protocol_freeze_commit": "f7c80c2331c7bbefbe1dd4dcc4b0669e92c2113a",
+      "formal_workflow_run": 34666720984,
+      "formal_result_commit": "51657926c71e0308d64a233405f9363073e8997b",
+      "result": "experiments/two_wave_semantic_object_parent_representation_v0650/RESULT.json",
+      "result_card": "experiments/two_wave_semantic_object_parent_representation_v0650/RESULT_CARD.md",
+      "adjudication": "experiments/two_wave_semantic_object_parent_representation_v0650/ADJUDICATION.json",
+      "candidate_cases": 120,
+      "reference_no_candidates": 104,
+      "reference_yes_candidates": 16,
+      "usable_human_anchor_cases": 11,
+      "multi_identity_candidate_cutoffs": 2,
+      "reference_no_full_visibility_incidence": 1.0,
+      "reference_yes_full_visibility_incidence": 1.0,
+      "right_edge_gap_rank_no_gt_yes": 0.5018028846153846,
+      "parent_span_rank_no_lt_yes": 0.6213942307692307,
+      "anchor_correspondence_status": "mixed_or_indeterminate",
+      "median_interval_iou": 0.7741935483870968,
+      "median_anchor_mae_fraction": 0.12421052631578948,
+      "median_start_boundary_abs_error_bars": 17.0,
+      "median_end_boundary_abs_error_bars": 4.0,
+      "median_span_ratio": 1.2678571428571428,
+      "packet_window_visibility_failure": false,
+      "right_edge_staleness_supported": false,
+      "smaller_parent_size_supported": false,
+      "model_fragment_of_human_parent": false,
+      "model_overwide_relative_to_human_parent": false,
+      "primary_category": "v0650_parent_representation_correspondence_not_identified",
+      "threshold_fitting_performed": false,
+      "qualification_changed": false,
+      "direction_winner_changed": false,
+      "morphology_acceptance_changed": false,
+      "trade_authority_changed": false,
+      "production_authority_changed": false
+    }
+  },
+  "current_parent_representation_status": "v0650_complete_mixed_outer_interval_overlap_left_boundary_internal_anchor_correspondence_unresolved",
+  "no_current_semantic_object_challenger_authorized": true
 }
