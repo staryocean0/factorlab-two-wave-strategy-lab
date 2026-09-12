@@ -1,0 +1,153 @@
+name: two-wave-v0648-governance-close-once
+
+on:
+  push:
+    branches:
+      - research/two-wave-reference-label-freeze-tooling-v0648
+
+permissions:
+  contents: write
+
+jobs:
+  close:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: python -m pip install -e .
+      - run: python scripts/validate_theme_package.py
+      - run: pytest -q
+      - name: Synchronize v0648 governance
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path('.')
+          authority_path = root / 'experiments/two_wave_m0_authority.json'
+          a = json.loads(authority_path.read_text())
+          a['schema'] = 'two_wave_m0_authority@1.20'
+          a['global_status'] = 'v0648_independent_reference_calibration_failed_qualification_semantics_not_validated'
+
+          q = a['component_authority']['qualification_policy']
+          q['status'] = 'development_champion_failed_independent_reference_calibration'
+          q['development_champion'] = True
+          q['independent_reference_calibrated'] = False
+          q['v0648_reference_confirmed_candidate_fraction'] = 0.13333333333333333
+          q['v0648_reference_confirmed_candidate_count'] = 16
+          q['v0648_candidate_cases'] = 120
+
+          pd = a['component_authority']['parent_direction']
+          pd['status'] = 'blocked_no_winner_v0648_reference_calibration_failed_upstream_qualification'
+
+          a['independent_reference_label_lineage']['v0648'] = {
+              'status': 'complete_calibration_gates_not_all_pass',
+              'protocol': 'docs/research/TWO_WAVE_INDEPENDENT_REFERENCE_LABEL_CONSTRUCTION_V0648_PROTOCOL.md',
+              'protocol_freeze_commit': '86bfba86f01dda2f06b266b2025fbe3f1e39bc36',
+              'packet_workflow_run': 34628102738,
+              'first_pass_freeze_workflow_run': 34662213635,
+              'final_scoring_workflow_run': 34663178194,
+              'packet_manifest': 'experiments/two_wave_independent_reference_label_v0648/PACKET_MANIFEST.json',
+              'first_pass_hash_freeze': 'experiments/two_wave_independent_reference_label_v0648/FIRST_PASS_HASH_FREEZE.json',
+              'first_pass_quality': 'experiments/two_wave_independent_reference_label_v0648/FIRST_PASS_QUALITY.json',
+              'adjudication_packet_manifest': 'experiments/two_wave_independent_reference_label_v0648/ADJUDICATION_PACKET_MANIFEST.json',
+              'third_adjudicator_hash_freeze': 'experiments/two_wave_independent_reference_label_v0648/THIRD_ADJUDICATOR_HASH_FREEZE.json',
+              'final_reference_freeze': 'experiments/two_wave_independent_reference_label_v0648/FINAL_REFERENCE_FREEZE.json',
+              'final_reference_labels': 'experiments/two_wave_independent_reference_label_v0648/FINAL_REFERENCE_LABELS.csv',
+              'reference_scoring_result': 'experiments/two_wave_independent_reference_label_v0648/REFERENCE_SCORING_RESULT.json',
+              'result_card': 'experiments/two_wave_independent_reference_label_v0648/RESULT_CARD.md',
+              'adjudication': 'experiments/two_wave_independent_reference_label_v0648/ADJUDICATION.json',
+              'annotator_a_sha256': '6ae4650c9bb1144ea034af1cf97aa6fb95bf75f448ebffe84f903d8907d3a9dc',
+              'annotator_b_sha256': '34f6d9666f3b544a3c48f1122e4d0196cd6f4c1bce73e850d5ee2f7e0dc00f9d',
+              'third_adjudicator_sha256': 'cf4a0c6b738bb4dac92cbcb8d8bdb5023e0061bb138220a83e0ea57bd4176b37',
+              'final_reference_sha256': '321ce484f7f3f62bf6ff9d7d45de666e77d0cd17001b63a258a3e274e529884d',
+              'first_pass_presence_exact_agreement': 0.9333333333333333,
+              'first_pass_presence_cohen_kappa': 0.7010742643624475,
+              'first_pass_parent_state_exact_both_yes': 1.0,
+              'first_pass_parent_state_cohen_kappa': 1.0,
+              'first_pass_disagreements': 16,
+              'unresolved_disagreements': 0,
+              'label_quality_gates_pass': True,
+              'candidate_reference_confirmed_presence_fraction': 0.13333333333333333,
+              'candidate_reference_confirmed_presence_count': 16,
+              'candidate_cases': 120,
+              'human_positive_control_miss_fraction': 0.08333333333333333,
+              'human_positive_control_count': 10,
+              'control_cases': 120,
+              'v0625_parent_state_exact_reference_confirmed': 0.3125,
+              'v0625_parent_state_exact_count': 5,
+              'v0625_opposite_trend_conflict_rate': 0.0,
+              'D1_parent_state_exact_reference_confirmed': 0.3125,
+              'all_calibration_support_gates_pass': False,
+              'verdict': 'v0648_independent_reference_calibration_gates_not_all_pass',
+              'dominant_failure': 'v0618_candidate_precision_semantic_qualification_not_independently_reference_calibrated',
+              'development_period_calibration_only': True,
+              'threshold_retuning_performed': False,
+              'morphology_acceptance_changed': False,
+              'direction_winner_changed': False,
+              'trade_authority_changed': False,
+              'production_authority_changed': False,
+          }
+          a['current_reference_label_status'] = 'v0648_complete_independent_reference_calibration_gates_not_all_pass'
+          a['current_independent_reference_calibrated_qualification_authority'] = None
+          a['next_authorized_step'] = (
+              'freeze a read-only reference-conditioned qualification failure attribution or materially revised semantic object; '
+              'do not fit v0618 thresholds to the v0648 reference labels and do not resume direction micro-feature mining before resolving qualification semantics'
+          )
+          a['no_current_direction_challenger_authorized'] = True
+          forbidden = a.setdefault('forbidden_next_shortcuts', [])
+          for item in [
+              'fit_or_retune_v0618_qualification_thresholds_on_v0648_reference_labels',
+              'treat_v0648_development_reference_calibration_as_fresh_oos_acceptance',
+              'resume_parent_direction_feature_mining_before_resolving_v0618_reference_semantic_failure',
+              'discard_reference_negative_candidate_cases_to_redefine_the_calibration_sample_post_hoc'
+          ]:
+              if item not in forbidden:
+                  forbidden.append(item)
+          authority_path.write_text(json.dumps(a, ensure_ascii=False, indent=2) + '\n')
+
+          human_path = root / 'docs/research/TWO_WAVE_M0_AUTHORITY.md'
+          h = human_path.read_text()
+          h = h.replace(
+              '- Global status: `independent_reference_label_packet_ready_awaiting_blinded_annotations`.',
+              '- Global status: `v0648_independent_reference_calibration_failed_qualification_semantics_not_validated`.'
+          )
+          h = h.replace(
+              '- Qualification champion: **v0.6.18 path-gate demotion**.',
+              '- Development-era qualification champion: **v0.6.18 path-gate demotion**.\n- Independently reference-calibrated qualification authority: **none**.'
+          )
+          section = '''\n\n## v0.6.48 final: independent blinded reference calibration — complete; gates do not pass\n\nFormal final scoring workflow run: `34663178194`.  \nFinal reference SHA256: `321ce484f7f3f62bf6ff9d7d45de666e77d0cd17001b63a258a3e274e529884d`.  \nResult: `experiments/two_wave_independent_reference_label_v0648/REFERENCE_SCORING_RESULT.json`.  \nResult card: `experiments/two_wave_independent_reference_label_v0648/RESULT_CARD.md`.  \nGovernance adjudication: `experiments/two_wave_independent_reference_label_v0648/ADJUDICATION.json`.\n\nThe annotation layer itself passed its pre-frozen quality gates: presence exact agreement `93.33%`, presence Cohen kappa `0.7010742643624475`, both-yes parent-state exact agreement `100%`, parent-state kappa `1.0`, and all `16` first-pass disagreements were independently adjudicated with `0` unresolved cases.\n\nThe recognizer calibration then failed decisively. Among `120` hidden v0.6.18 candidate cases, the final reference confirms only `16` completed same-scale two-wave parents (`13.33%`), far below the frozen `80%` gate. Among those `16` confirmed cases, v0.6.25 parent-state exact agreement is `5/16 = 31.25%`, below the frozen `85%` gate. UpTrend/DownTrend opposite conflicts remain `0`, and the frozen control miss gate passes at `10/120 = 8.33%`.\n\nFormal verdict: `v0648_independent_reference_calibration_gates_not_all_pass`.\n\nInterpretation: the dominant evidenced weakness is upstream candidate precision / qualification semantics, not another small direction-margin issue. v0.6.18 remains the historical Development-era qualification champion but is not independently reference-calibrated. No independently reference-calibrated qualification authority is installed. Parent-direction winner remains unset. `morphology_acceptance=false`, `trade_authority=false`, and `production_authority=false`.\n\nThe v0.6.48 labels are evidence, not a tuning set. The next authorized research step must be separately frozen and read-only: reference-conditioned qualification failure attribution or a materially revised semantic object. Directly fitting v0.6.18 thresholds to these labels is forbidden.\n'''
+          if '## v0.6.48 final: independent blinded reference calibration' not in h:
+              h += section
+          human_path.write_text(h)
+
+          ledger_path = root / 'docs/research/TWO_WAVE_DIRECTION_CONTRIBUTION_LEDGER.md'
+          l = ledger_path.read_text()
+          ledger_section = '''\n\n## v0.6.48 independent reference calibration\n\n- Reference-label quality: passed (`93.33%` presence exact, kappa `0.701074`; parent-state exact/kappa `1.0` within both-yes cases).\n- Final reference: `240` cases, `16` adjudicated disagreements, `0` unresolved; SHA256 `321ce484f7f3f62bf6ff9d7d45de666e77d0cd17001b63a258a3e274e529884d`.\n- v0.6.18 candidate reference-confirmed presence: `16/120 = 13.33%` versus frozen `>=80%` gate — **fail**.\n- v0.6.25 exact state agreement on reference-confirmed candidates: `5/16 = 31.25%` versus frozen `>=85%` gate — **fail**.\n- v0.6.25 opposite UpTrend/DownTrend conflicts: `0` — pass.\n- control human-positive miss: `10/120 = 8.33%` — pass.\n- Verdict: `v0648_independent_reference_calibration_gates_not_all_pass`.\n- Contribution status: reference evidence rejects current qualification/direction calibration; no direction challenger or threshold retuning authorized.\n'''
+          if '## v0.6.48 independent reference calibration' not in l:
+              l += ledger_section
+          ledger_path.write_text(l)
+
+          index_path = root / 'docs/INDEX.md'
+          idx = index_path.read_text()
+          idx_section = '''\n\n### v0.6.48 independent reference calibration — complete\n\n- Protocol: `research/TWO_WAVE_INDEPENDENT_REFERENCE_LABEL_CONSTRUCTION_V0648_PROTOCOL.md`\n- First-pass quality: `../experiments/two_wave_independent_reference_label_v0648/FIRST_PASS_QUALITY.json`\n- Final reference freeze: `../experiments/two_wave_independent_reference_label_v0648/FINAL_REFERENCE_FREEZE.json`\n- Formal scoring: `../experiments/two_wave_independent_reference_label_v0648/REFERENCE_SCORING_RESULT.json`\n- Result card: `../experiments/two_wave_independent_reference_label_v0648/RESULT_CARD.md`\n- Governance adjudication: `../experiments/two_wave_independent_reference_label_v0648/ADJUDICATION.json`\n- Verdict: `v0648_independent_reference_calibration_gates_not_all_pass`; current v0.6.18 qualification semantics are not independently reference-calibrated.\n'''
+          if '### v0.6.48 independent reference calibration — complete' not in idx:
+              idx += idx_section
+          index_path.write_text(idx)
+          PY
+
+      - name: Commit governance closure
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add experiments/two_wave_m0_authority.json docs/research/TWO_WAVE_M0_AUTHORITY.md docs/research/TWO_WAVE_DIRECTION_CONTRIBUTION_LEDGER.md docs/INDEX.md
+          git commit -m "Close v0648 independent reference calibration governance [skip ci]"
+          git push origin HEAD:research/two-wave-reference-label-freeze-tooling-v0648
