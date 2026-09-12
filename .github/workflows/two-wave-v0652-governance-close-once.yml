@@ -1,0 +1,168 @@
+name: two-wave-v0652-governance-close-once
+
+on:
+  push:
+    branches:
+      - research/two-wave-ordinal0-publication-lineage-audit-v0652
+
+permissions:
+  contents: write
+
+jobs:
+  close:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: python -m pip install -e .
+      - run: python scripts/validate_theme_package.py
+      - run: pytest -q
+      - name: Synchronize v0652 governance
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path('.')
+          authority_path = root / 'experiments/two_wave_m0_authority.json'
+          a = json.loads(authority_path.read_text())
+          a['schema'] = 'two_wave_m0_authority@1.24'
+          a['global_status'] = 'v0652_ordinal0_provenance_asymmetry_not_materially_expressed_filtered_ridge_vs_raw_projection_attribution_next'
+
+          parent = a['component_authority']['parent_identity']
+          parent['status'] = 'supported_research_component_reference_correspondence_unresolved_raw_projection_publication_lineage_not_material_explanation'
+          parent['independent_reference_correspondence_status'] = 'mixed_or_indeterminate'
+          parent['v0652_ordinal0_provenance_contract_is_structurally_distinct'] = True
+          parent['v0652_ordinal0_provenance_materially_expressed'] = False
+          parent['v0652_primary_qualified_publications'] = 2115
+          parent['v0652_qualified_groups_with_later_valid_evidence'] = 0
+          parent['v0652_qualified_groups_with_prior_invalid_evidence'] = 0
+          parent['v0652_p0_raw_filtered_displacement_median_bars'] = 3.0
+          parent['v0652_p1_p4_raw_filtered_displacement_medians_bars'] = [3.0, 3.0, 3.0, 3.0]
+
+          pub = a['component_authority']['raw_identity_publication']
+          pub['status'] = 'supported_research_component_first_valid_freeze_not_material_explanation_of_reference_start_side_mismatch'
+          pub['v0652_background_published_groups'] = 38176
+          pub['v0652_background_groups_with_later_valid_evidence'] = 2
+          pub['v0652_background_suppressed_rewrite_comparisons'] = 1
+          pub['v0652_qualified_groups_with_later_valid_evidence'] = 0
+          pub['v0652_qualified_suppressed_rewrites'] = 0
+
+          q = a['component_authority']['qualification_policy']
+          q['status'] = 'development_champion_failed_independent_reference_calibration_upstream_filtered_ridge_vs_raw_layer_unresolved'
+          q['development_champion'] = True
+          q['independent_reference_calibrated'] = False
+
+          pd = a['component_authority']['parent_direction']
+          pd['status'] = 'blocked_no_winner_upstream_parent_object_representation_and_qualification_not_reference_validated'
+
+          a['ordinal0_publication_lineage_audit'] = {
+              'v0652': {
+                  'status': 'complete_structural_asymmetry_not_materially_expressed',
+                  'protocol': 'docs/research/TWO_WAVE_ORDINAL0_FIRST_VALID_PUBLICATION_LINEAGE_AUDIT_V0652_PROTOCOL.md',
+                  'protocol_freeze_commit': '76981c7c348807e4fe328020e81741e45e5c47dd',
+                  'formal_workflow_run': 34669006007,
+                  'formal_result_commit': '0bf09d84d8a082515c8205ef1cf02dc8fd984780',
+                  'result': 'experiments/two_wave_ordinal0_publication_lineage_audit_v0652/RESULT.json',
+                  'result_card': 'experiments/two_wave_ordinal0_publication_lineage_audit_v0652/RESULT_CARD.md',
+                  'adjudication': 'experiments/two_wave_ordinal0_publication_lineage_audit_v0652/ADJUDICATION.json',
+                  'runtime_lineage_contract_verified': True,
+                  'background_canonical_filtered_groups': 38634,
+                  'background_published_groups': 38176,
+                  'background_valid_evidence_members': 38178,
+                  'background_groups_with_later_valid_evidence': 2,
+                  'background_suppressed_rewrite_comparisons': 1,
+                  'primary_v0618_qualified_publications': 2115,
+                  'primary_groups_with_prior_invalid_evidence': 0,
+                  'primary_groups_with_later_valid_evidence': 0,
+                  'primary_suppressed_rewrite_comparisons': 0,
+                  'primary_raw_filtered_displacement_median_by_ordinal': [3.0, 3.0, 3.0, 3.0, 3.0],
+                  'primary_projection_window_width_median_by_ordinal': [18.0, 24.0, 25.0, 23.0, 13.0],
+                  'gate_a_predecessor_eligibility_bottleneck_material': False,
+                  'gate_b_first_valid_freeze_material': False,
+                  'gate_c_ordinal0_rewrite_dominant': False,
+                  'gate_d_predecessor_change_associated_with_p0_change': False,
+                  'gate_e_publishing_p0_projection_displacement_larger': False,
+                  'primary_category': 'v0652_structural_ordinal0_provenance_asymmetry_not_materially_expressed',
+                  'ordinal0_predecessor_first_valid_route_closed_as_material_explanation': True,
+                  'human_reference_labels_used': False,
+                  'threshold_fitting_performed': False,
+                  'projection_geometry_changed': False,
+                  'publication_policy_changed': False,
+                  'qualification_changed': False,
+                  'direction_winner_changed': False,
+                  'morphology_acceptance_changed': False,
+                  'trade_authority_changed': False,
+                  'production_authority_changed': False
+              }
+          }
+
+          a['current_parent_representation_status'] = 'v0652_predecessor_first_valid_publication_route_closed_filtered_exact_ridge_vs_raw_projection_layer_attribution_required'
+          a['current_independent_reference_calibrated_qualification_authority'] = None
+          a['next_authorized_step'] = (
+              'freeze a read-only filtered exact-ridge versus raw-projection versus frozen-human-anchor layer-attribution audit on the already frozen anchored-positive cases; '
+              'determine whether the p0/start-side mismatch is already present in filtered exact-ridge coordinates or is introduced or changed by raw projection; '
+              'do not fit projection windows, boundary tolerances, ridge identities, pivot remapping, or a semantic-object challenger to v0648 labels'
+          )
+          a['no_current_direction_challenger_authorized'] = True
+          a['no_current_semantic_object_challenger_authorized'] = True
+          forbidden = a.setdefault('forbidden_next_shortcuts', [])
+          for item in [
+              'change_v064_predecessor_support_from_v0651_start_error_without_layer_attribution',
+              'change_v065_first_valid_publication_policy_after_v0652_negative_lineage_audit',
+              'treat_the_single_background_suppressed_rewrite_as_population_level_evidence',
+              'infer_p0_projection_bias_from_structural_provenance_difference_alone',
+              'fit_raw_projection_windows_to_v0648_human_anchors',
+              'replace_filtered_ridge_p0_with_human_p0',
+              'resume_direction_feature_mining_before_filtered_ridge_vs_raw_projection_layer_attribution'
+          ]:
+              if item not in forbidden:
+                  forbidden.append(item)
+          authority_path.write_text(json.dumps(a, ensure_ascii=False, indent=2) + '\n')
+
+          human_path = root / 'docs/research/TWO_WAVE_M0_AUTHORITY.md'
+          h = human_path.read_text()
+          section = '''\n\n## v0.6.52: ordinal-0 predecessor / first-valid publication lineage audit — complete; structural asymmetry not materially expressed\n\nFrozen protocol: `docs/research/TWO_WAVE_ORDINAL0_FIRST_VALID_PUBLICATION_LINEAGE_AUDIT_V0652_PROTOCOL.md`.  \nProtocol freeze commit: `76981c7c348807e4fe328020e81741e45e5c47dd`.  \nFormal workflow run: `34669006007`.  \nFormal result commit: `0bf09d84d8a082515c8205ef1cf02dc8fd984780`.  \nResult: `experiments/two_wave_ordinal0_publication_lineage_audit_v0652/RESULT.json`.  \nResult card: `experiments/two_wave_ordinal0_publication_lineage_audit_v0652/RESULT_CARD.md`.  \nGovernance adjudication: `experiments/two_wave_ordinal0_publication_lineage_audit_v0652/ADJUDICATION.json`.\n\nThe code-level provenance asymmetry is verified across the full Development reconstruction: ordinal 0 alone starts from the birth-level predecessor, whereas ordinals 1–4 start from the prior selected raw anchor; v0.6.5 publishes the first valid member under frozen evidence order and suppresses later rewrites. But this structural distinction is not materially expressed in the current qualified population.\n\nAcross `38,176` published background identities, only `2` have a later valid evidence member and only `1` suppressed rewrite exists. In the decisive `2,115` v0.6.18-qualified identities, every group has exactly one evidence member and one valid member: there are `0` prior-invalid groups, `0` later-valid groups, and `0` suppressed rewrites. Median `|raw-filtered|` displacement is exactly `3` bars at every ordinal `p0..p4`; p0's median projection window is `18` bars versus `24/25/23` for p1-p3.\n\nAll frozen Gates A-E fail. Formal verdict: **`v0652_structural_ordinal0_provenance_asymmetry_not_materially_expressed`**.\n\nTherefore ordinal-0 predecessor support and first-valid immutable publication are closed as a material explanation for the reference start-side mismatch. This does not declare p0 correct; it moves attribution one representation layer upstream. The next authorized step is a separately frozen read-only **filtered exact-ridge vs raw-projected vs human-anchor layer attribution**. No predecessor change, publication-policy change, projection-window fit, boundary tolerance, semantic-object challenger, qualification change, or direction challenger is authorized.\n'''
+          if '## v0.6.52: ordinal-0 predecessor / first-valid publication lineage audit' not in h:
+              h += section
+          human_path.write_text(h)
+
+          ledger_path = root / 'docs/research/TWO_WAVE_DIRECTION_CONTRIBUTION_LEDGER.md'
+          l = ledger_path.read_text()
+          section2 = '''\n\n## v0.6.52 ordinal-0 / publication lineage audit\n\n- Upstream provenance evidence only; not a direction contribution.\n- Runtime p0 predecessor provenance and first-valid immutable publication contracts were verified.\n- Full background: `38,176` published groups, only `2` with later-valid evidence and `1` suppressed rewrite.\n- Qualified universe: `2,115` identities, each with exactly one evidence/valid member; zero prior invalids, later-valid alternatives, or rewrites.\n- Median raw-vs-filtered displacement is `3` bars for every ordinal p0-p4; p0 projection width is not anomalously large.\n- Verdict: `v0652_structural_ordinal0_provenance_asymmetry_not_materially_expressed`.\n- Predecessor / first-valid publication route is closed as the material explanation; next is filtered-ridge vs raw-projection layer attribution.\n'''
+          if '## v0.6.52 ordinal-0 / publication lineage audit' not in l:
+              l += section2
+          ledger_path.write_text(l)
+
+          index_path = root / 'docs/INDEX.md'
+          idx = index_path.read_text()
+          idx_section = '''\n\n### v0.6.52 ordinal-0 predecessor / first-valid publication lineage audit — complete\n\n- Protocol: `research/TWO_WAVE_ORDINAL0_FIRST_VALID_PUBLICATION_LINEAGE_AUDIT_V0652_PROTOCOL.md`\n- Result: `../experiments/two_wave_ordinal0_publication_lineage_audit_v0652/RESULT.json`\n- Result card: `../experiments/two_wave_ordinal0_publication_lineage_audit_v0652/RESULT_CARD.md`\n- Governance adjudication: `../experiments/two_wave_ordinal0_publication_lineage_audit_v0652/ADJUDICATION.json`\n- Verdict: `v0652_structural_ordinal0_provenance_asymmetry_not_materially_expressed`.\n- Next: freeze a read-only filtered exact-ridge vs raw-projection vs frozen-human-anchor layer-attribution audit.\n'''
+          if '### v0.6.52 ordinal-0 predecessor / first-valid publication lineage audit — complete' not in idx:
+              idx += idx_section
+          index_path.write_text(idx)
+
+          readme_path = root / 'README.md'
+          r = readme_path.read_text()
+          old = '''Current global stage is therefore **ordinal-0 predecessor-support / first-valid-publication lineage audit required**. The start side is the strongest descriptive clue, but no start-boundary tolerance, translation correction, pivot remapping, semantic-object challenger, qualification change, or direction challenger is authorized. `morphology_acceptance=false`, `trade_authority=false`, `production_authority=false`.'''
+          new = '''v0.6.52 completed the frozen ordinal-0 predecessor / first-valid publication lineage audit without using the human reference labels in its primary decision. The structural p0 provenance asymmetry is real, but it is not materially expressed: all `2,115` v0.6.18-qualified identities have exactly one evidence member and one valid member, with zero prior-invalid selection, zero later-valid alternatives, and zero suppressed rewrites; median raw-vs-filtered displacement is `3` bars at every ordinal. The formal verdict is **`v0652_structural_ordinal0_provenance_asymmetry_not_materially_expressed`**.\n\nCurrent global stage is therefore **filtered exact-ridge vs raw-projection vs frozen-human-anchor layer attribution required**. The predecessor / first-valid publication route is closed as the material explanation, but p0 correspondence itself remains unresolved. No projection-window fit, boundary tolerance, ridge remapping, semantic-object challenger, qualification change, or direction challenger is authorized. `morphology_acceptance=false`, `trade_authority=false`, `production_authority=false`.'''
+          if old in r:
+              r = r.replace(old, new)
+          readme_path.write_text(r)
+          PY
+
+      - name: Commit v0652 governance closure
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add experiments/two_wave_m0_authority.json docs/research/TWO_WAVE_M0_AUTHORITY.md docs/research/TWO_WAVE_DIRECTION_CONTRIBUTION_LEDGER.md docs/INDEX.md README.md
+          git commit -m "Close v0652 ordinal0 publication lineage governance [skip ci]"
+          git push origin HEAD:research/two-wave-ordinal0-publication-lineage-audit-v0652
