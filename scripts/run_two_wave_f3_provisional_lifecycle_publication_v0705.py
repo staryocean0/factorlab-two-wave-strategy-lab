@@ -16,17 +16,19 @@ sys.path.insert(0, str(ROOT / "src"))
 
 from factor_lab.visual_structure.two_wave.data import load_development_bars
 from factor_lab.visual_structure.two_wave.extremum_ridge_v052 import build_ridge_run
-from factor_lab.visual_structure.two_wave.f3_prefix_causal_lifecycle_v0704 import build_lifecycle_for_case
+from factor_lab.visual_structure.two_wave.f3_prefix_causal_lifecycle_v0704 import (
+    build_lifecycle_for_case,
+    summarize_case_semantics as summarize_lifecycle_case_semantics,
+)
 from factor_lab.visual_structure.two_wave.f3_provisional_lifecycle_publication_v0705 import (
     cache_prefix_static_stores,
     frozen_decision,
     replay_publications_from_cache,
-    summarize_case_semantics,
+    summarize_case_semantics as summarize_publication_case_semantics,
     summarize_cases,
 )
 from factor_lab.visual_structure.two_wave.reference_label_freeze_v0648 import validate_final_reference_frame
 from factor_lab.visual_structure.two_wave.reference_label_packet_v0648 import sampling_commitment, select_blinded_cases
-from factor_lab.visual_structure.two_wave.ridge_semantic_objectization_v0701 import realization_matches_human
 from factor_lab.visual_structure.two_wave.same_scale_v043 import MaturityConfig
 from factor_lab.visual_structure.two_wave.semantic_bridge_counteroffensive_v0700 import (
     human_support_cells,
@@ -73,14 +75,6 @@ def replay_digest(row: dict) -> dict:
         "aggregate_publication_identity_sha256": str(row["aggregate_publication_identity_sha256"]),
         "hard_invariant_violation_counts": dict(row["hard_invariant_violation_counts"]),
     }
-
-
-def direct_lifecycle_live_support(lifecycle: dict, cells, kinds, human_bars) -> bool:
-    for key in lifecycle["final_live_keys"]:
-        for realization in lifecycle["final_static_store"].get(key, []):
-            if realization_matches_human(realization, cells, kinds, human_bars)[0]:
-                return True
-    return False
 
 
 def main() -> int:
@@ -139,15 +133,30 @@ def main() -> int:
         cells = human_support_cells(human_bars, chart_start, cutoff)
 
         lifecycle = build_lifecycle_for_case(ridge, chart_start, cutoff)
+        lifecycle_semantics = summarize_lifecycle_case_semantics(
+            lifecycle,
+            ridge,
+            cutoff,
+            cells,
+            kinds,
+            human_bars,
+        )
+        lifecycle_live_support_cases += int(bool(lifecycle_semantics["lifecycle_live_support"]))
+
         prefix_frames = cache_prefix_static_stores(ridge, chart_start, cutoff)
         publication = replay_publications_from_cache(ridge, lifecycle, prefix_frames, bars)
         publication_repeat = replay_publications_from_cache(ridge, lifecycle, prefix_frames, bars)
         replay_ok = replay_digest(publication) == replay_digest(publication_repeat)
         deterministic_case_replays.append(bool(replay_ok))
 
-        semantics = summarize_case_semantics(publication, lifecycle, cells, kinds, human_bars)
-        live_support = direct_lifecycle_live_support(lifecycle, cells, kinds, human_bars)
-        lifecycle_live_support_cases += int(live_support)
+        semantics = summarize_publication_case_semantics(publication, lifecycle, cells, kinds, human_bars)
+        # Upstream semantic lineage must use the frozen v0.7.4 realization-level scorer,
+        # not an object-level proxy introduced by the publication layer.
+        semantics["static_support"] = bool(lifecycle_semantics["static_support"])
+        semantics["certified_semantic_support"] = bool(lifecycle_semantics["certified_support"])
+        semantics["permanent_certificate_gap_case"] = bool(
+            lifecycle_semantics["static_support"] and not lifecycle_semantics["certified_support"]
+        )
         records.append(
             {
                 "lifecycle": lifecycle,
