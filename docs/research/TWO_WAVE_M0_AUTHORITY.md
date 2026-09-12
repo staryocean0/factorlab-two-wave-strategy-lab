@@ -385,3 +385,22 @@ Formal verdict: **`v0650_parent_representation_correspondence_not_identified`**.
 Interpretation: the algorithmic and human objects are not simply disjoint — their outer intervals overlap materially and the right boundary is often close — but the left boundary and internal five-anchor decomposition do not establish strong correspondence. v0.5.2 exact-ridge parent identity remains a supported research component, but its independent-reference correspondence is unresolved. No boundary tolerance, pivot remapping, span gate, qualification change, semantic-object challenger, or direction challenger is authorized.
 
 The next authorized step is a separately frozen read-only left-boundary / internal-pivot correspondence decomposition. `morphology_acceptance=false`, `trade_authority=false`, `production_authority=false`.
+
+
+## v0.6.51: left-boundary / internal-pivot correspondence decomposition — complete; mixed / unresolved
+
+Frozen protocol: `docs/research/TWO_WAVE_LEFT_BOUNDARY_INTERNAL_PIVOT_DECOMPOSITION_V0651_PROTOCOL.md`.  
+Protocol freeze commit: `ea6511289ab3131565bf13948f37663937e4dc41`.  
+Formal workflow run: `34667721079`.  
+Formal result commit: `459ea2ee7f7960af4db4e4a086348edc2911fec8`.  
+Result: `experiments/two_wave_left_boundary_internal_pivot_decomposition_v0651/RESULT.json`.  
+Result card: `experiments/two_wave_left_boundary_internal_pivot_decomposition_v0651/RESULT_CARD.md`.  
+Governance adjudication: `experiments/two_wave_left_boundary_internal_pivot_decomposition_v0651/ADJUDICATION.json`.
+
+The frozen `11` human-positive anchored cases show a strong descriptive start-side asymmetry but do not pass any preregistered mechanism category. Median absolute anchor error is `17, 13, 6, 11, 4` bars for `p0..p4`; `9/11` cases have larger start than end error. Removing a per-case rigid translation reduces median five-anchor MAE from `11.8` to `3.8` bars (`57.53%` median reduction), but median start/end offset disagreement remains `12` bars, so pure translation is rejected.
+
+After normalizing model and human parents to their own boundaries, median internal phase MAE is `0.0839727` and leg-share MAE `0.0756939`. Internal phase mismatch is not supported (`0.08397 < 0.12`), but the frozen strong correspondence / left-boundary rule required phase MAE `<=0.08`. The observed value narrowly misses that preregistered gate and must not be rounded into a pass.
+
+Formal verdict: **`v0651_correspondence_decomposition_mixed_or_unresolved`**.
+
+Interpretation: p0/start-side provenance and a removable temporal component are the strongest clues, while internal normalized geometry is comparatively close. But v0.6.51 does not authorize a left-boundary tolerance, translation correction, pivot remapping, parent challenger, qualification change, or direction challenger. The next authorized step moves into algorithm lineage: a separately frozen read-only audit of ordinal-0 predecessor support and first-valid publication to determine whether p0 is structurally generated differently from p1-p4.

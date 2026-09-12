@@ -256,3 +256,13 @@ The next program step should be **independent reference-label morphology validat
 - `11/16` human-positive cases support direct anchor comparison: median interval IoU `0.7742`, normalized five-anchor MAE `0.1242`, start-boundary error `17` bars, end-boundary error `4` bars.
 - Frozen classification: `mixed_or_indeterminate`; formal category `v0650_parent_representation_correspondence_not_identified`.
 - No parent-boundary rule, pivot remapping, qualification gate, semantic-object challenger, or direction challenger is authorized.
+
+
+## v0.6.51 parent-anchor decomposition
+
+- Upstream parent-representation evidence only; not a direction contribution.
+- p0/p4 median absolute errors are `17`/`4` bars; start error dominates in `9/11`.
+- Translation removal reduces median five-anchor MAE from `11.8` to `3.8` bars, but boundary-offset disagreement median `12` rejects pure rigid translation.
+- Boundary-normalized internal phase MAE is `0.08397`: below the mismatch band but just above the frozen `0.08` correspondence band. No post-hoc relaxation is allowed.
+- Verdict: `v0651_correspondence_decomposition_mixed_or_unresolved`.
+- Next: ordinal-0 predecessor/publication lineage audit; direction research remains blocked.

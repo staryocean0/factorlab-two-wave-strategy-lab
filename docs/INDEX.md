@@ -140,3 +140,13 @@ These snapshots contain links outside this bounded theme package. The scoped ind
 - Governance adjudication: `../experiments/two_wave_semantic_object_parent_representation_v0650/ADJUDICATION.json`
 - Verdict: `v0650_parent_representation_correspondence_not_identified`; outer intervals overlap, but left-boundary/internal-anchor correspondence remains unresolved.
 - Next: separately freeze a read-only left-boundary / internal-pivot correspondence decomposition.
+
+
+### v0.6.51 left-boundary / internal-pivot decomposition — complete
+
+- Protocol: `research/TWO_WAVE_LEFT_BOUNDARY_INTERNAL_PIVOT_DECOMPOSITION_V0651_PROTOCOL.md`
+- Result: `../experiments/two_wave_left_boundary_internal_pivot_decomposition_v0651/RESULT.json`
+- Result card: `../experiments/two_wave_left_boundary_internal_pivot_decomposition_v0651/RESULT_CARD.md`
+- Governance adjudication: `../experiments/two_wave_left_boundary_internal_pivot_decomposition_v0651/ADJUDICATION.json`
+- Verdict: `v0651_correspondence_decomposition_mixed_or_unresolved`.
+- Next: freeze a read-only ordinal-0 predecessor-support / first-valid-publication lineage audit.
