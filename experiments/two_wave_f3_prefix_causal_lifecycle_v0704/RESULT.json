@@ -1,0 +1,115 @@
+{
+  "active_parent_authority_granted": false,
+  "anchored_reference_positive_cases": 11,
+  "annotator_confidence_used": false,
+  "annotator_notes_used": false,
+  "c1_certificate_changed": false,
+  "case_level_table_written": false,
+  "churn_threshold_fitted": false,
+  "construction": {
+    "canonical_groups": 38634,
+    "published_groups": 38176,
+    "qualified_publications": 2115
+  },
+  "development_discovery_only": true,
+  "f3_static_objectization_changed": false,
+  "final_reference_sha256": "321ce484f7f3f62bf6ff9d7d45de666e77d0cd17001b63a258a3e274e529884d",
+  "frozen_decision": {
+    "certified_support_replication_ok": true,
+    "hard_invariant_violation_zero": true,
+    "lifecycle_live_support_preserved": true,
+    "permanent_certificate_gap_live_unresolved": true,
+    "primary_category": "v0704_f3_prefix_causal_lifecycle_representation_supported",
+    "static_support_replication_ok": true
+  },
+  "future_outcome_used": false,
+  "future_ridge_death_used_before_confirmation": false,
+  "future_ridge_lineage_used_for_event_creation": false,
+  "future_ridge_survival_used_for_event_creation": false,
+  "human_reference_labels_used_for_final_semantic_continuity_only": true,
+  "lifecycle_summary": {
+    "case_count": 11,
+    "hard_invariant_violation_count": 0,
+    "hard_invariant_violation_counts": {},
+    "mechanics": {
+      "certified_object_count_per_case": {
+        "count": 11,
+        "max": 185.0,
+        "median": 133.0,
+        "min": 87.0
+      },
+      "dormant_unresolved_object_count_at_cutoff_per_case": {
+        "count": 11,
+        "max": 0.0,
+        "median": 0.0,
+        "min": 0.0
+      },
+      "first_observation_witness_multiplicity": {
+        "count": 1543,
+        "max": 8.0,
+        "median": 2.0,
+        "min": 1.0
+      },
+      "lifecycle_event_count_per_object": {
+        "count": 1543,
+        "max": 2.0,
+        "median": 2.0,
+        "min": 1.0
+      },
+      "live_unresolved_object_count_at_cutoff_per_case": {
+        "count": 11,
+        "max": 26.0,
+        "median": 2.0,
+        "min": 0.0
+      },
+      "objects_with_dormant_transition": 0,
+      "objects_with_reobserved_transition": 0,
+      "observation_to_certification_delay_bars": {
+        "count": 1478,
+        "max": 22.0,
+        "median": 0.0,
+        "min": 0.0
+      },
+      "observed_object_count_per_case": {
+        "count": 11,
+        "max": 185.0,
+        "median": 142.0,
+        "min": 87.0
+      },
+      "suppressed_attempted_identity_rewrites": 0
+    },
+    "semantic_continuity": {
+      "all_permanent_certificate_gap_cases_live_unresolved": true,
+      "certified_support_cases": 7,
+      "lifecycle_live_support_cases": 8,
+      "live_unresolved_support_cases": 1,
+      "per_ordinal_live_cell_hit_cases": {
+        "0": 11,
+        "1": 11,
+        "2": 11,
+        "3": 11,
+        "4": 10
+      },
+      "static_f3_support_cases": 8,
+      "static_supported_certified_unsupported_cases": 1
+    }
+  },
+  "lifecycle_timeout_fitted": false,
+  "morphology_acceptance": false,
+  "primary_category": "v0704_f3_prefix_causal_lifecycle_representation_supported",
+  "production_authority": false,
+  "protocol": "docs/research/TWO_WAVE_F3_PREFIX_CAUSAL_LIFECYCLE_V0704_PROTOCOL.md",
+  "protocol_freeze_commit": "3c0ae26d3453d8d0c5563be6ad58e7ea8c463ee0",
+  "qualification_or_direction_evaluated": false,
+  "reference_positive_candidate_cases": 16,
+  "required_replication": {
+    "c1_certified_support_cases": 7,
+    "static_f3_support_cases": 8
+  },
+  "sampling_commitment_sha256": "f4eeff13c1408c1ca3bf938c0cd8abc4dad961f63ed6a4a4158f243cd5b024c8",
+  "schema": "two_wave_f3_prefix_causal_lifecycle@0.7.4",
+  "source_manifest_verified": true,
+  "source_sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48",
+  "threshold_fitting_performed": false,
+  "trade_authority": false
+}
