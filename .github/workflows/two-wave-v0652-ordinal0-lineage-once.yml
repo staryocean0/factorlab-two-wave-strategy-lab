@@ -1,0 +1,42 @@
+name: two-wave-v0652-ordinal0-lineage-once
+
+on:
+  push:
+    branches:
+      - research/two-wave-ordinal0-publication-lineage-audit-v0652
+    paths-ignore:
+      - experiments/two_wave_ordinal0_publication_lineage_audit_v0652/RESULT.json
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: python -m pip install -e .
+      - run: python scripts/validate_theme_package.py
+      - run: pytest -q
+      - name: Run frozen v0.6.52 ordinal0/publication lineage audit
+        run: python scripts/run_two_wave_ordinal0_publication_lineage_audit_v0652.py
+      - name: Commit aggregate result only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add experiments/two_wave_ordinal0_publication_lineage_audit_v0652/RESULT.json
+          if git diff --cached --quiet; then
+            echo "No v0652 result change"
+            exit 0
+          fi
+          git commit -m "Record formal v0652 ordinal0 publication lineage audit [skip ci]"
+          git push origin HEAD:research/two-wave-ordinal0-publication-lineage-audit-v0652
