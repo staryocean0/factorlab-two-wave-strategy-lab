@@ -1,0 +1,148 @@
+name: two-wave-v0648-first-pass-freeze-once
+
+on:
+  push:
+    branches:
+      - research/two-wave-reference-label-freeze-tooling-v0648
+    paths-ignore:
+      - experiments/two_wave_independent_reference_label_v0648/FIRST_PASS_HASH_FREEZE.json
+      - experiments/two_wave_independent_reference_label_v0648/FIRST_PASS_QUALITY.json
+      - experiments/two_wave_independent_reference_label_v0648/ADJUDICATION_PACKET_MANIFEST.json
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  freeze-and-compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: python -m pip install -e .
+      - run: python scripts/validate_theme_package.py
+      - run: pytest -q
+
+      - name: Freeze exact first-pass file hashes before comparison
+        shell: bash
+        run: |
+          set -euo pipefail
+          OUT=experiments/two_wave_independent_reference_label_v0648
+          A="$OUT/two_wave_v0648_annotator_A_completed.csv"
+          B="$OUT/two_wave_v0648_annotator_B_completed.csv"
+          A_SHA=$(sha256sum "$A" | awk '{print $1}')
+          B_SHA=$(sha256sum "$B" | awk '{print $1}')
+          test "$A_SHA" = "6ae4650c9bb1144ea034af1cf97aa6fb95bf75f448ebffe84f903d8907d3a9dc"
+          test "$B_SHA" = "34f6d9666f3b544a3c48f1122e4d0196cd6f4c1bce73e850d5ee2f7e0dc00f9d"
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root = Path('experiments/two_wave_independent_reference_label_v0648')
+          a = root / 'two_wave_v0648_annotator_A_completed.csv'
+          b = root / 'two_wave_v0648_annotator_B_completed.csv'
+          sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
+          record = {
+              'schema': 'two_wave_v0648_first_pass_hash_freeze@1.0',
+              'annotator_a_path': str(a),
+              'annotator_a_sha256': sha(a),
+              'annotator_b_path': str(b),
+              'annotator_b_sha256': sha(b),
+              'blinded_packet_sha256': '4c08c8d3f32c6e222acb3c4236fa8f39428ff25349deae16d6f49dca2901566e',
+              'comparison_started': False,
+              'hidden_strata_unblinded': False,
+              'model_predictions_unblinded': False,
+              'model_scoring_started': False,
+          }
+          (root / 'FIRST_PASS_HASH_FREEZE.json').write_text(json.dumps(record, indent=2, sort_keys=True) + '\n')
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$OUT/FIRST_PASS_HASH_FREEZE.json"
+          git commit -m "Freeze v0648 A/B first-pass SHA256 before comparison [skip ci]"
+          git push origin HEAD:research/two-wave-reference-label-freeze-tooling-v0648
+
+      - name: Run frozen first-pass label-quality comparison
+        run: |
+          python scripts/validate_two_wave_independent_reference_labels_v0648.py \
+            --annotator-a experiments/two_wave_independent_reference_label_v0648/two_wave_v0648_annotator_A_completed.csv \
+            --annotator-b experiments/two_wave_independent_reference_label_v0648/two_wave_v0648_annotator_B_completed.csv \
+            --output experiments/two_wave_independent_reference_label_v0648/FIRST_PASS_QUALITY.json
+
+      - name: Commit first-pass quality result
+        shell: bash
+        run: |
+          set -euo pipefail
+          OUT=experiments/two_wave_independent_reference_label_v0648/FIRST_PASS_QUALITY.json
+          git add "$OUT"
+          git commit -m "Record frozen v0648 first-pass label quality [skip ci]"
+          git push origin HEAD:research/two-wave-reference-label-freeze-tooling-v0648
+
+      - name: Read disagreement count
+        id: disagreement
+        shell: bash
+        run: |
+          COUNT=$(python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path('experiments/two_wave_independent_reference_label_v0648/FIRST_PASS_QUALITY.json')
+          print(json.loads(p.read_text())['disagreement_count'])
+          PY
+          )
+          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+
+      - name: Download frozen original blinded packet artifact
+        if: steps.disagreement.outputs.count != '0'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/v0648_packet_artifact
+          curl -fsSL \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/staryocean0/factorlab-two-wave-strategy-lab/actions/artifacts/10275108470/zip" \
+            -o /tmp/v0648_packet_artifact.zip
+          unzip -q /tmp/v0648_packet_artifact.zip -d /tmp/v0648_packet_artifact
+          PACKET=$(find /tmp/v0648_packet_artifact -type f -name 'two_wave_v0648_blinded_annotation_packet.zip' -print -quit)
+          test -n "$PACKET"
+          echo "PACKET=$PACKET" >> "$GITHUB_ENV"
+          test "$(sha256sum "$PACKET" | awk '{print $1}')" = "4c08c8d3f32c6e222acb3c4236fa8f39428ff25349deae16d6f49dca2901566e"
+
+      - name: Build disagreement-only third-adjudicator packet
+        if: steps.disagreement.outputs.count != '0'
+        run: |
+          rm -rf /tmp/v0648_adjudication
+          python scripts/prepare_two_wave_reference_adjudication_v0648.py \
+            --annotator-a experiments/two_wave_independent_reference_label_v0648/two_wave_v0648_annotator_A_completed.csv \
+            --annotator-b experiments/two_wave_independent_reference_label_v0648/two_wave_v0648_annotator_B_completed.csv \
+            --packet-zip "$PACKET" \
+            --output /tmp/v0648_adjudication
+          cp /tmp/v0648_adjudication/ADJUDICATION_PACKET_MANIFEST.json \
+            experiments/two_wave_independent_reference_label_v0648/ADJUDICATION_PACKET_MANIFEST.json
+
+      - name: Commit disagreement packet manifest
+        if: steps.disagreement.outputs.count != '0'
+        shell: bash
+        run: |
+          set -euo pipefail
+          P=experiments/two_wave_independent_reference_label_v0648/ADJUDICATION_PACKET_MANIFEST.json
+          git add "$P"
+          git commit -m "Record v0648 disagreement adjudication packet manifest [skip ci]"
+          git push origin HEAD:research/two-wave-reference-label-freeze-tooling-v0648
+
+      - name: Upload disagreement-only adjudication packet
+        if: steps.disagreement.outputs.count != '0'
+        uses: actions/upload-artifact@v4
+        with:
+          name: v0648-disagreement-third-adjudicator-packet
+          path: /tmp/v0648_adjudication/two_wave_v0648_disagreement_adjudication_packet.zip
+          if-no-files-found: error
+          retention-days: 90
