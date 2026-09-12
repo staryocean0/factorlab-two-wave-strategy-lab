@@ -94,7 +94,7 @@ This tests the causal child-death / first-adjacency birth rule separately from m
 
 ### L4 — legacy canonical filtered identity support
 
-At the frozen candidate cutoff, select the v0.6.18-qualified identity using the already frozen canonical rule (unique identity, or lexicographic filtered tuple then phase if needed).
+At the frozen candidate cutoff, select the v0.6.18-qualified identity using the already frozen v0.6.50 canonical rule: unique identity when unique; otherwise lexicographic order of `published_raw_occurrence_bars`, then `phase`.
 
 `L4=true` only if its five **filtered occurrence bars** fall one-per-human-cell with correct kinds.
 
