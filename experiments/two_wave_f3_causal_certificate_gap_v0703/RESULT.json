@@ -1,0 +1,91 @@
+{
+  "anchored_reference_positive_cases": 11,
+  "annotator_confidence_used": false,
+  "annotator_notes_used": false,
+  "blocker_attribution": {
+    "aggregate_blocker_counts": {
+      "missing_explicit_death_by_cutoff": 11,
+      "proof_confirmation_after_cutoff": 11
+    },
+    "aggregate_human_compatible_static_realizations": 47,
+    "case_identity_or_time_emitted": false,
+    "gap_blocker_counts": {
+      "missing_explicit_death_by_cutoff": 4,
+      "proof_confirmation_after_cutoff": 4
+    },
+    "gap_case_count": 1,
+    "gap_human_compatible_static_realizations": 4,
+    "per_case_c0_certified_realization_count": {
+      "count": 11,
+      "max": 10.0,
+      "median": 3.0,
+      "min": 0.0
+    },
+    "per_case_c1_certified_realization_count": {
+      "count": 11,
+      "max": 10.0,
+      "median": 3.0,
+      "min": 0.0
+    },
+    "per_case_compatible_realization_count": {
+      "count": 11,
+      "max": 10.0,
+      "median": 6.0,
+      "min": 0.0
+    }
+  },
+  "c1_minimal_explicit_death_certificate": {
+    "causal_support_cases": 7,
+    "proof_delay_bars_from_selected_nodes": {
+      "count": 36,
+      "max": 10.0,
+      "median": 3.5,
+      "min": 0.0
+    },
+    "recovered_cases_vs_c0": 0
+  },
+  "case_level_table_written": false,
+  "construction": {
+    "canonical_groups": 38634,
+    "published_groups": 38176,
+    "qualified_publications": 2115
+  },
+  "development_discovery_only": true,
+  "event_delay_tolerance_fitted": false,
+  "f3_objectization_changed": false,
+  "final_reference_sha256": "321ce484f7f3f62bf6ff9d7d45de666e77d0cd17001b63a258a3e274e529884d",
+  "frozen_decision": {
+    "c0_support_replication_ok": true,
+    "c1_restores_salvage_threshold": false,
+    "c1_support_cases": 7,
+    "every_gap_realization_boundary_survival_unavailable": false,
+    "every_gap_realization_missing_explicit_death": true,
+    "every_gap_realization_proof_after_cutoff": true,
+    "gap_case_count_replication_ok": true,
+    "primary_category": "v0703_gap_requires_explicit_death_evidence_unavailable_at_cutoff",
+    "static_support_replication_ok": true
+  },
+  "future_outcome_used": false,
+  "future_ridge_lineage_used_for_blocker_attribution_only": true,
+  "future_ridge_survival_used_for_certificate": false,
+  "human_reference_labels_used_for_same_frozen_semantic_support_only": true,
+  "morphology_acceptance": false,
+  "primary_category": "v0703_gap_requires_explicit_death_evidence_unavailable_at_cutoff",
+  "production_authority": false,
+  "protocol": "docs/research/TWO_WAVE_F3_CAUSAL_CERTIFICATE_GAP_ATTRIBUTION_V0703_PROTOCOL.md",
+  "protocol_freeze_commit": "de795faf95a8a47c4835ccae76f37c6d1c196821",
+  "qualification_or_direction_evaluated": false,
+  "reference_positive_candidate_cases": 16,
+  "required_replication": {
+    "c0_causal_support_cases": 7,
+    "static_f3_support_cases": 8,
+    "static_supported_c0_unsupported_gap_cases": 1
+  },
+  "salvage_gate_changed": false,
+  "sampling_commitment_sha256": "f4eeff13c1408c1ca3bf938c0cd8abc4dad961f63ed6a4a4158f243cd5b024c8",
+  "schema": "two_wave_f3_causal_certificate_gap_attribution@0.7.3",
+  "source_manifest_verified": true,
+  "source_sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48",
+  "threshold_fitting_performed": false,
+  "trade_authority": false
+}
