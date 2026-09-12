@@ -1,16 +1,16 @@
 """Memory-efficient, definition-equivalent v0.7.1 family enumeration.
 
-This module changes only the enumeration implementation: it streams scale
-realizations into unique ridge-ID sets instead of materializing every
-realization in nested dictionaries. Scientific family definitions are unchanged.
+This module changes only enumeration/counting implementation. Scientific
+family definitions, support conditions, and unique ridge-ID object semantics
+are unchanged.
 """
 from __future__ import annotations
 
+from itertools import product
 from typing import Iterator, Sequence
 
 from .ridge_semantic_objectization_v0701 import (
     _eligible_realization,
-    _node_sort_key,
     causal_survival_levels,
     eligible_nodes_by_level,
     object_key,
@@ -88,13 +88,93 @@ def evaluate_f0_case(ridge_run, chart_start, cutoff, cells, kinds, human_bars) -
     return result()
 
 
-def evaluate_f1_case(ridge_run, chart_start, cutoff, cells, kinds, human_bars) -> dict:
-    add, result = _collector(cells, kinds, human_bars)
+def _ridge_level_masks(ridge_run, chart_start: int, cutoff: int):
+    """Return global ridge order plus eligible-level bit masks.
+
+    With zero lineage anomalies every ridge ID originates at level 0 and ridge
+    order is preserved across scales. An F1 ridge-ID quintet exists iff the
+    five eligible-level masks have non-empty intersection.
+    """
     levels = eligible_nodes_by_level(ridge_run, chart_start, cutoff)
+    masks: dict[str, int] = {}
+    kinds: dict[str, str] = {}
     for level, rows in enumerate(levels):
-        for idxs in alternating_quintet_indices(rows):
-            add(level, tuple(rows[i] for i in idxs))
-    return result()
+        bit = 1 << level
+        for row in rows:
+            rid = str(row.ridge_id)
+            masks[rid] = masks.get(rid, 0) | bit
+            kinds.setdefault(rid, str(row.node.kind))
+            if kinds[rid] != str(row.node.kind):
+                raise AssertionError("ridge kind changed across scale")
+
+    global_rows = sorted(
+        ridge_run.ridge_nodes_by_level[0],
+        key=lambda x: (int(x.node.occurrence_index), int(x.node.confirmation_index), str(x.node.node_id)),
+    )
+    ordered = [str(row.ridge_id) for row in global_rows if masks.get(str(row.ridge_id), 0)]
+    if len(ordered) != len(set(ordered)):
+        raise AssertionError("level-0 ridge IDs must be unique")
+    if set(ordered) != set(masks):
+        raise AssertionError("eligible higher-level ridge lacks level-0 root identity")
+    return levels, ordered, masks, kinds
+
+
+def _count_f1_unique_objects(ordered, masks, kinds) -> int:
+    # DP state: number of unique ordered ridge-ID sequences of a given length,
+    # last kind and exact common-eligible-level mask. Each ridge ID is processed
+    # once in global order, so every ridge-ID object contributes exactly once.
+    dp = [{"low": {}, "high": {}} for _ in range(6)]
+    for rid in ordered:
+        mask = int(masks[rid])
+        kind = str(kinds[rid])
+        other = "high" if kind == "low" else "low"
+        for length in range(5, 1, -1):
+            for prev_mask, count in list(dp[length - 1][other].items()):
+                common = int(prev_mask) & mask
+                if common:
+                    dp[length][kind][common] = dp[length][kind].get(common, 0) + int(count)
+        dp[1][kind][mask] = dp[1][kind].get(mask, 0) + 1
+    return sum(dp[5][kind].values() for kind in ("low", "high"))
+
+
+def _f1_compatible_summary(levels, cells, required_kinds, human_bars) -> dict:
+    compatible_keys: set[tuple[str, ...]] = set()
+    ordinal_exact = [False] * 5
+    for level, rows in enumerate(levels):
+        choices = []
+        for cell, kind in zip(cells, required_kinds):
+            matches = [
+                row for row in rows
+                if str(row.node.kind) == str(kind)
+                and int(cell[0]) <= int(row.node.occurrence_index) <= int(cell[1])
+            ]
+            choices.append(matches)
+        if not all(choices):
+            continue
+        for nodes in product(*choices):
+            ids = tuple(str(x.ridge_id) for x in nodes)
+            if len(set(ids)) != 5:
+                continue
+            # Frozen cells are ordered/non-overlapping, so occurrence order is automatic.
+            compatible_keys.add(ids)
+            for i, node in enumerate(nodes):
+                if int(node.node.occurrence_index) == int(human_bars[i]):
+                    ordinal_exact[i] = True
+    return {
+        "compatible_object_count": len(compatible_keys),
+        "support": bool(compatible_keys),
+        "ordinal_exact_anchor": ordinal_exact,
+    }
+
+
+def evaluate_f1_case(ridge_run, chart_start, cutoff, cells, kinds, human_bars) -> dict:
+    levels, ordered, masks, ridge_kinds = _ridge_level_masks(ridge_run, chart_start, cutoff)
+    candidate_count = _count_f1_unique_objects(ordered, masks, ridge_kinds)
+    compatible = _f1_compatible_summary(levels, cells, kinds, human_bars)
+    return {
+        "candidate_object_count": int(candidate_count),
+        **compatible,
+    }
 
 
 def evaluate_f2_case(ridge_run, chart_start, cutoff, cells, kinds, human_bars) -> dict:
