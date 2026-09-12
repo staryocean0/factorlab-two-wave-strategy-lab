@@ -1,0 +1,28 @@
+name: repository-maintenance-snapshot-once
+on:
+  push:
+    branches: [maintenance/repository-consistency-20260912]
+    paths: [.github/workflows/repository-snapshot-once.yml]
+permissions:
+  contents: read
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Export frozen maintenance input without research execution
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/two-wave-maintenance
+          git archive ec0d49f1cec7d6c34d13af0fcfdb824687d57392 | gzip -n > /tmp/two-wave-maintenance/source.tar.gz
+          git ls-tree -r --long ec0d49f1cec7d6c34d13af0fcfdb824687d57392 > /tmp/two-wave-maintenance/tree.txt
+          sha256sum /tmp/two-wave-maintenance/source.tar.gz
+      - uses: actions/upload-artifact@v4
+        with:
+          name: two-wave-maintenance-source-ec0d49f1
+          path: /tmp/two-wave-maintenance/
+          retention-days: 7
