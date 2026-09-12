@@ -1,136 +1,111 @@
-# Two-Wave Layer 3 Research Control Plane
+# AGENTS.md — Two-Wave repository rules
 
-This private repository is a bounded FactorLab research theme package. Its
-purpose is to implement and validate a causal two-complete-wave parent-structure
-recognizer. It is not an authority to trade, mutate the local FactorLab current
-pointer, or promote a strategy.
+This repository is the bounded CSI1000 Two-Wave morphology/direction research lab. These rules apply to humans and coding agents working inside this repository.
 
-## Read order
+## Authority hierarchy
 
-1. `README.md`
-2. `docs/INDEX.md`
-3. `docs/user/two_wave_strategy_handoff_prompt.md`
-4. `docs/governance/data_usage_declaration.json`
-5. `docs/governance/layer3_tool16_candidate_slot.json`
-6. The current Layer 1/2/3 contracts linked from `docs/INDEX.md`
+When files disagree, resolve them in this order:
 
-## Frozen boundaries
+1. `experiments/two_wave_m0_authority.json` — canonical machine authority.
+2. Formal experiment `RESULT.json` and `ADJUDICATION.json` files referenced by that authority.
+3. Frozen protocols in `docs/research/`.
+4. `docs/research/TWO_WAVE_M0_AUTHORITY.md`, `README.md`, and `docs/INDEX.md` — human mirrors/navigation.
+5. Historical scripts/modules/docs — reproducibility evidence only unless a current protocol explicitly reuses them.
 
-- `tool_registry_v1_5` is the immutable current fifteen-tool prefix.
-- The proposed sixteenth identity is
-  `two_wave_parent_structure_recognizer`; it is only a candidate slot.
-- Do not edit V1.5 in place. A candidate registry must be a new V1.6 descendant
-  that preserves all fifteen identities byte-for-byte and appends exactly one
-  research-only tool.
-- The current Layer 3 architecture is
-  `timing_layer3_strategy_architecture@2.2`; the current identity registry is
-  `timing_strategy_identity_registry@2.2`. Neither has a registered usable
-  strategy.
-- This branch is infrastructure/shape-recognition research. It may not emit a
-  position, choose an option contract, claim economic routing authority, or
-  alter Layer 4.
-- Never use result-driven calendar rules. Never call any provided year, date,
-  event, or hand-labelled example a runtime state.
+Never infer current authority from a versioned module name or from the newest-looking historical result.
 
-## Data contract
+## Current scientific boundary
 
-- All shipped market rows are `000852.SH` CSI1000 index signal data.
-- The only shipped interval is 2015-01-05 through 2020-12-31 and its role is
-  `development_material`.
-- 2009-2014 minute history is unavailable for this index. The standard twelve
-  2009-2020 strategy-slice promotion contract therefore cannot pass here.
-- 2021 and later rows are physically absent and must not be downloaded,
-  inferred, requested over the network, or fabricated.
-- Data is index signal data, not a tradable fill surface. Index returns may not
-  be reported as executable IM, ETF, or option returns.
-- Timestamps in the package are normalized timezone-aware UTC bar-end times.
-  The source serialized Shanghai wall clock is retained separately for audit.
-- Use the supplied DataHub-built bar views. Do not resample new wall-clock
-  frequencies locally.
+As of 2026-09-12 the machine authority is `two_wave_m0_authority@1.33` with global status:
 
-## Required research order
+`v0708_external_validation_evidence_gap_no_candidate_opened_no_direction_winner`
 
-1. Freeze the recognition specification and evaluation protocol before reading
-   outcome metrics.
-2. Implement online pivots/cycles, same-scale pairing, two-wave envelope and
-   classification, versioned events, replay export, annotation support and
-   targeted synthetic tests.
-3. Prove prefix invariance: streaming and batch replay must produce identical
-   confirmed events on every identical data prefix; appended future rows may
-   not rewrite confirmed history.
-4. Evaluate morphology against independent labels. Algorithm-produced labels
-   are never ground truth. If labels are absent, report
-   `morphology_replication_not_yet_accepted`.
-5. Only after morphology acceptance may the third-wave hypothesis be opened.
-6. Only after the statistical stage is frozen may a trading baseline be opened.
+Current facts that must remain explicit:
 
-Do not optimize trading P&L to select the recognizer. Do not skip directly to a
-ZigZag breakout backtest. Do not add fixed third-wave exits, profit targets,
-timeouts, automatic reversal, or same-direction-break exits to the user baseline.
+- F3 prefix-causal lifecycle/publication/qualification/direction transplantation is supported only as a Development representation chain.
+- v0.6.25 is a retained non-winning Development direction contribution.
+- `parent_direction.winner = null`.
+- active semantic parent authority is unset.
+- `morphology_acceptance = false`.
+- trade and production authority are false.
+- no in-sample direction challenger is authorized.
 
-## Deliverables
+A direction-authority reopening requires BOTH genuinely new temporal evidence and new independently frozen Two-Wave morphology/reference labels. Do not substitute repeated data, same-snapshot copies, non-morphology annotations, future outcomes, or PnL.
 
-- Put new reusable code under `src/factor_lab/market_state/` or
-  `src/factor_lab/visual_structure/`.
-- Put unit tests under `tests/unit/`.
-- Put the executable workflow under `scripts/`.
-- Put specifications and results under `docs/`.
-- Put generated, reviewable results under `cloud_results/`; do not modify
-  `data/development/`.
-- Every conclusion must identify what was actually executed, the sample count,
-  failures, unresolved gaps, and authority status.
+## Data rules
 
-Run at minimum:
+### Shipped Development data
+
+This repository ships only CSI1000 (`000852.SH`) Development bar views for `2015-01-05..2020-12-31`. Those files remain the bounded Development package and are validated byte/row-wise by `scripts/validate_theme_package.py`.
+
+### External validation data
+
+Post-2020 data are **not shipped here**, but external material may be consumed only under a separately frozen protocol with immutable provenance. This distinction replaces the obsolete rule that 2021+ data can never be read over the network.
+
+Already-consumed external temporal evidence under v0.6.47 includes:
+
+- 2024 CSI1000 1m;
+- 2025 CSI1000 1m;
+- 2026-01-05..2026-08-21 CSI1000 1m.
+
+These slices are not fresh evidence anymore. v0.7.8 found no qualifying connected post-2026-08-21 minute extension and no new independent morphology/reference-label pack.
+
+Do not copy external validation rows into the shipped Development package unless a future separately reviewed packaging change explicitly authorizes that action.
+
+## Research discipline
+
+- Freeze scientific object families, gates, clocks, and verdict precedence **before** reading the formal score they govern.
+- Do not tune on human-reference labels, held-out temporal outcomes, future returns, PnL, trade results, or external-validation failures unless a protocol explicitly defines that data as Development information.
+- Do not change qualification/direction thresholds to repair an unrelated representation/interface failure.
+- Preserve causal prefix semantics. Runtime classification may not read future bars or future lifecycle state.
+- Keep publication identities append-only when the relevant protocol requires it.
+- A successful interface transplant is not equivalent to morphology, trading, or production authority.
+
+## Repository organization
+
+- `src/factor_lab/visual_structure/two_wave/` contains both current reusable Development components and historical versioned research modules. Retain historical modules needed for formal reproducibility.
+- `scripts/` contains formal runners, diagnostics, and maintenance utilities. A historical runner is not a current workflow.
+- `tests/` contains regression, causal-contract, replay, and governance tests.
+- `experiments/` is the canonical formal result/adjudication surface. Do not redirect current formal results to the obsolete `cloud_results/` convention.
+- `docs/research/` contains frozen protocols and research ledgers.
+- `docs/reference/` and `docs/archive/` are frozen source/history surfaces and are non-authoritative unless a current protocol cites them.
+
+## Workflow policy
+
+`.github/workflows/ci.yml` is the only long-lived GitHub Actions workflow.
+
+Formal science/governance/maintenance one-shot workflows may be created when required, but they must:
+
+1. be narrowly path-triggered;
+2. run validation/tests before writing formal state;
+3. commit only the declared aggregate/governance outputs;
+4. be deleted after successful closure.
+
+Do not leave completed one-shots active in `.github/workflows/`.
+
+## Source closure and mutable control-plane files
+
+The original imported source closure remains byte-frozen except for explicitly designated current control-plane files in `scripts/validate_theme_package.py`. Updating a mutable authority/navigation file is not permission to rewrite historical source material.
+
+If a broad imported index conflicts with the scoped Two-Wave index, retire the broad index as a compatibility pointer rather than treating it as current authority. Git history preserves its previous contents.
+
+## Required validation
+
+Before promoting a cleanup or scientific branch to `main`, run and pass:
 
 ```bash
 python scripts/validate_theme_package.py
-pytest -q tests/unit/test_market_state_tool_registry_v1_5.py \
-  tests/unit/test_timing_infrastructure_four_layer_inventory.py \
-  tests/unit/test_timing_layer2_measurement_boundary.py \
-  tests/unit/test_timing_layer3_strategy_boundary.py \
-  tests/unit/test_timing_layer3_orchestration.py \
-  tests/unit/test_timing_strategy_identity_registry.py
+pytest -q
 ```
 
-No production, paper-trading, registered-use, parameter-selection, or fresh-OOS
-authority is available in this repository.
+Repository consistency tests must verify at minimum:
 
-## 云端—本地交接协议（默认不生效）
+- authority schema/global status;
+- winner and runtime authority remain off when required;
+- governance data declarations match actual research history;
+- only the expected long-lived workflow remains;
+- canonical navigation files point to the same current status.
 
-### 生效条件
+## Main-branch policy
 
-Protocol 1 与 Protocol 2 **默认不生效**。只有在当前任务中被明确告知“你和云端协作”时才生效。同等表述包括“按云端交接协议执行”、“这是云端与本地协作”。
-
-把一项任务发到某个云端主题仓库、并要求该云端会话继续执行，也视为已经明确告知**该云端会话**启用本协议。
-
-### 不生效的情况
-
-正常情况下，许多任务由本地发起、在本地执行。即使本协议已经写进 `AGENTS.md`，只要当前任务没有上述明确告知，本协议就不生效：
-
-- 按普通本地任务继续工作，不要去写交接文档、等待云端，或把步骤发到 GitHub Actions；
-- 不要因为本文存在，就把本地任务改写成云端协作任务；
-- 未生效时，下面 Protocol 1 / Protocol 2 没有运行时效力。
-
-本协议即使生效，也只改变执行地点和沟通方式，不扩大训练、数据搬迁、金融验收或生产权限。
-
-### Protocol 1：云端缺数据时的文档交接与本地反馈
-
-适用于已激活协作后的计算、测试和证据检查。某一步因云端缺少所需数据而无法执行时，云端 AI 必须将该步骤写入 [云端—本地沟通文档](docs/ops/cloud_local_communication.md)，并在当次回复中明确告知用户任务编号、阻断原因、文档路径和需要本地大模型完成的事项，由用户安排本地大模型接手。不能只说“等待数据”、静默跳过，或默认要求把全部原始数据搬到云端。若沟通文档尚不存在，在首次交接时创建，不要为此先搬数据。
-
-交接只需一份可执行记录：任务目标与所需结论、代码分支/提交、已完成和未执行的步骤、缺失的最小数据及口径、执行命令或实施步骤、预期输出和验收条件。尚无可用执行器时如实写明需要本地实现的部分，不把拟议命令写成已经可以运行。已有同一任务记录则复用，历史大清单用链接定位，不反复复制或索取同一批文件。
-
-本地大模型完成后，在同一沟通记录中反馈实际代码版本、数据范围与必要身份摘要、命令与退出码、结果及产物位置、失败或未验证事项；大数据和大产物留在本地，只回传必要的小报告或可访问的文档。无法直接回写仓库时，由用户转交文档供云端归档；没有本地执行通道时，云端不得声称已经自动派发或执行。
-
-云端收到反馈后先读取并复核，区分“本地已反馈”与“云端已复核”，注明复核范围和结论后继续下游工作。不能把本地报告称为云端独立全量复验，也不能将未执行或失败项改写为通过。等待本地反馈期间，继续不依赖该缺失数据的独立工作。
-
-### Protocol 2：计算执行位置与工作流优先级
-
-**仅在本协议已生效时：** 云端 AI 在当前会话中直接执行 → 请求本地大模型执行 → 最后才考虑 GitHub Actions。本顺序适用于已有及后续云端工作流；工作流列出的命令说明要做什么，不意味着默认交给 Actions。未生效时不要按此顺序改写本地任务。
-
-先按每个步骤检查数据、工具、依赖和资源。能用当前云端会话实际可用的 Python、终端等工具完成的计算、测试、静态检查和小规模验证，优先自己运行并保存真实结果，不能因已有 CI 配置就外包给 Actions。写了代码、给出命令或推测结果都不等于实际执行。
-
-云端确实无法完成时，将该步骤按 Protocol 1 写入沟通文档，请本地大模型在其数据/算力环境执行；若已知云端缺少必要数据，可直接交接，不要求先进行注定失败的试跑。只有前两种方式不适用，且 Actions 能取得所需输入、具有可用额度并处于用户授权的资源范围内，才把 Actions 作为最后选择，并记录理由。无需为了走完顺序重复失败尝试或增加逐步审批。
-
-用户告知 Actions 无可用额度期间，不主动派发、重跑或用反复 push 试探额度。发布前检查相关触发条件，对适用的 push/pull_request 提交使用 `[skip ci]` 等跳过标记，避免仅为保存文档触发计算；其他触发类型需另行确认，不能假定标记通用。不伪造绿色检查、不擅自移除合并保护。额度恢复也不改变上述优先级。
-
-报告每一步的实际执行地点、已完成/未执行状态和证据位置。缺数据或额度不会自动否定策略，也不构成让无关步骤停工的理由；恢复后仅补执行仍必要的未完成步骤，不重复运行已具有适用证据的计算。
+Research/maintenance work may occur on dedicated branches. Move `main` only by a verified fast-forward after the branch is fully closed and CI is green. Do not merge stale `main` back into a newer linear research branch merely to manufacture a merge commit.

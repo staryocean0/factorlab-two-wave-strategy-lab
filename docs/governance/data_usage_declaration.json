@@ -1,9 +1,8 @@
 {
-  "schema_id": "two_wave_cloud_theme_data_usage@1.0",
-  "declared_before_strategy_or_morphology_results": true,
+  "schema_id": "two_wave_cloud_theme_data_usage@1.1",
   "instrument": "000852.SH",
   "instrument_name": "CSI1000 index",
-  "shipped_intervals": [
+  "shipped_development_intervals": [
     {
       "start": "2015-01-05",
       "end": "2020-12-31",
@@ -13,7 +12,8 @@
         "morphology_candidate_generation",
         "annotation_pack_generation",
         "causal_replay_debugging",
-        "synthetic_and_real_data_property_tests"
+        "synthetic_and_real_data_property_tests",
+        "formal_development_replay"
       ],
       "fresh_evidence": false
     }
@@ -25,15 +25,44 @@
       "reason": "CSI1000 minute product not available in the frozen FactorLab export"
     }
   ],
-  "physically_withheld_intervals": [
-    {
-      "start": "2021-01-01",
-      "end": "2026-08-21",
-      "role": "not_shipped_not_readable",
-      "reason": "preserve later causal challenge capacity"
-    }
-  ],
-  "data_identity": "DataHub-built CSI1000 index signal bar views",
+  "external_temporal_validation_history": {
+    "raw_rows_shipped_in_this_repository": false,
+    "protocol": "docs/research/TWO_WAVE_INDEPENDENT_TEMPORAL_MORPHOLOGY_REPLICATION_V0647_PROTOCOL.md",
+    "consumed_slices": [
+      {
+        "start": "2024-01-02",
+        "end": "2024-12-31",
+        "role": "consumed_external_temporal_replication"
+      },
+      {
+        "start": "2025-01-02",
+        "end": "2025-12-31",
+        "role": "consumed_external_temporal_replication"
+      },
+      {
+        "start": "2026-01-05",
+        "end": "2026-08-21",
+        "role": "consumed_external_temporal_replication",
+        "fresh_oos": false
+      }
+    ],
+    "already_consumed_evidence_may_be_reused_as_new_external_validation": false
+  },
+  "independent_reference_history": {
+    "v0648_candidate_cases": 120,
+    "v0648_reference_confirmed_candidate_count": 16,
+    "v0648_complete_anchor_cases": 11,
+    "new_independent_reference_label_pack_currently_available": false
+  },
+  "current_external_evidence_availability": {
+    "audit": "docs/research/TWO_WAVE_EXTERNAL_VALIDATION_EVIDENCE_AVAILABILITY_V0708.md",
+    "adjudication": "experiments/two_wave_external_validation_availability_v0708/ADJUDICATION.json",
+    "connected_repository_count": 7,
+    "post_2026_08_21_CSI1000_minute_extension_available": false,
+    "new_independent_two_wave_reference_labels_available": false,
+    "direction_reopening_condition_satisfied": false
+  },
+  "data_identity": "DataHub-built CSI1000 index signal bar views for shipped Development data; separately frozen external sources for validation only",
   "trade_fill_authority": false,
   "local_resampling_authority": false,
   "economic_strategy_selection_authority": false,

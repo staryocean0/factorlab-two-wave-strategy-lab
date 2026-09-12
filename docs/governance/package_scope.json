@@ -1,31 +1,51 @@
 {
-  "schema_id": "two_wave_cloud_theme_package_scope@1.0",
-  "package_role": "temporary_private_cloud_research_repository",
-  "objective": "develop_a_causal_two_complete_wave_parent_structure_recognizer_as_a_proposed_Layer3_tool16",
+  "schema_id": "two_wave_cloud_theme_package_scope@1.1",
+  "package_role": "public_bounded_research_and_reproducibility_repository",
+  "objective": "develop_and_audit_a_causal_two_complete_wave_parent_structure_recognizer_as_a_proposed_Layer3_tool16_without_installing_runtime_authority",
   "source_project": "FactorLab",
+  "repository_visibility": "public",
   "included": [
-    "user_handoff_prompt",
-    "scoped_document_index",
+    "two_wave_human_and_machine_authority_surfaces",
+    "scoped_documentation_and_research_protocols",
     "current_Layer1_Layer2_Layer3_contracts",
     "current_15_tool_registry_prefix",
-    "python_import_closure_for_timing_infrastructure",
-    "relevant_regression_tests",
-    "strategy_research_governance",
-    "CSI1000_2015_2020_DataHub_bar_views"
+    "python_import_closure_for_timing_and_visual_structure_infrastructure",
+    "historical_and_current_two_wave_research_modules_needed_for_reproducibility",
+    "regression_causality_replay_and_governance_tests",
+    "formal_experiment_results_cards_and_adjudications",
+    "CSI1000_2015_2020_DataHub_development_bar_views",
+    "metadata_and_results_for_separately_frozen_external_validation_runs"
   ],
   "excluded": [
-    "FactorLab_git_history",
     "credentials_and_environment_secrets",
-    "beads_interaction_history",
-    "runtime_caches",
-    "FactorLab_outputs_and_artifacts",
+    "local_runtime_caches",
+    "unreviewed_local_absolute_path_dependencies",
     "raw_transaction_data",
-    "option_and_futures_data",
-    "post_2020_CSI1000_rows",
-    "Layer4_economic_routing_implementation"
+    "option_and_futures_data_not_required_by_two_wave_reproducibility",
+    "post_2020_CSI1000_raw_rows_as_shipped_development_data",
+    "Layer4_economic_routing_implementation",
+    "broker_or_account_execution_authority",
+    "production_registry_mutation_authority"
   ],
+  "shipped_development_data_interval": {
+    "start": "2015-01-05",
+    "end": "2020-12-31",
+    "instrument": "000852.SH"
+  },
+  "external_validation_policy": {
+    "allowed_only_under_separately_frozen_protocol": true,
+    "raw_external_rows_need_not_be_shipped_in_this_repository": true,
+    "consumed_external_evidence_must_not_be_represented_as_fresh": true,
+    "current_new_external_evidence_available": false
+  },
+  "long_lived_workflow_surface": [
+    ".github/workflows/ci.yml"
+  ],
+  "completed_one_shot_workflows_must_be_retired": true,
   "authoritative_local_registry_mutation": false,
-  "cloud_result_import_requires_local_controller_review": true,
-  "private_repository_required": true,
+  "external_result_or_authority_change_requires_repository_review": true,
+  "private_repository_required": false,
+  "morphology_acceptance": false,
+  "trade_authority": false,
   "production_authority": false
 }
