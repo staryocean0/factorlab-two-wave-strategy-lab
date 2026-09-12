@@ -1,0 +1,41 @@
+name: two-wave-v0707-governance-close-once
+
+on:
+  push:
+    branches:
+      - research/two-wave-lifecycle-qualified-direction-v0707
+    paths:
+      - .github/workflows/two-wave-v0707-governance-close-once.yml
+
+permissions:
+  contents: write
+
+jobs:
+  close:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: python -m pip install -e .
+      - run: python scripts/validate_theme_package.py
+      - run: pytest -q
+      - run: python scripts/close_two_wave_v0707_governance.py
+      - name: Commit governance closure
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md docs/INDEX.md docs/research/TWO_WAVE_DIRECTION_CONTRIBUTION_LEDGER.md docs/research/TWO_WAVE_M0_AUTHORITY.md experiments/two_wave_m0_authority.json
+          if git diff --cached --quiet; then
+            echo "No v0707 governance change"
+            exit 0
+          fi
+          git commit -m "Close v0707 direction transplant governance [skip ci]"
+          git push origin HEAD:research/two-wave-lifecycle-qualified-direction-v0707
