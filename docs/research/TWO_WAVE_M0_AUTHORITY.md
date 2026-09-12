@@ -506,3 +506,18 @@ Adjudication: `experiments/two_wave_f3_prefix_causal_lifecycle_v0704/ADJUDICATIO
 The append-only lifecycle reproduces static F3 support at `8/11` and C1-certified support at `7/11`, while lifecycle-live support remains `8/11`. The one permanent-certificate gap is represented as live unresolved rather than falsely certified. All hard causal/append-only invariants pass with zero violations. Across the 11 frozen windows, 1543 F3 objects are observed, 1478 later satisfy C1, and 65 remain unresolved at cutoff; no dormant or reobserved transitions occur in this Development universe.
 
 Formal verdict: **`v0704_f3_prefix_causal_lifecycle_representation_supported`**. This is a supported Development representation, not active morphology authority. The next authorized stage is provisional lifecycle publication transplantation using the retained v0.6.4/v0.6.5 principles. Qualification and direction remain blocked. `morphology_acceptance=false`, `trade_authority=false`, `production_authority=false`.
+
+
+## v0.7.5: provisional F3 lifecycle publication transplant — supported
+
+Frozen protocol: `docs/research/TWO_WAVE_F3_PROVISIONAL_LIFECYCLE_PUBLICATION_V0705_PROTOCOL.md`.  
+Protocol freeze commit: `9652c7c2b0ba3761f1f326fd69d2d79039bd397d`.  
+Formal workflow run: `34683112169`.  
+Formal result commit: `5a7be41457adfdc304d215c06bd3ea8720ed16e7`.  
+Result: `experiments/two_wave_f3_provisional_lifecycle_publication_v0705/RESULT.json`.  
+Result card: `experiments/two_wave_f3_provisional_lifecycle_publication_v0705/RESULT_CARD.md`.  
+Adjudication: `experiments/two_wave_f3_provisional_lifecycle_publication_v0705/ADJUDICATION.json`.
+
+All 1543 observed lifecycle objects published at their first observation bar; all 1478 certified objects and all 65 final-unresolved objects were covered. Hard publication invariants were zero and deterministic replay passed. The first-valid append-only rule suppressed 239 later would-be raw-identity rewrites rather than altering the first publication. Published-raw semantic support remained `9/11` with per-ordinal cell hits `11/11, 11/11, 11/11, 11/11, 10/11`, and the single permanent-certificate gap case retained same-object provisional raw support. The formal verdict is **`v0705_f3_provisional_lifecycle_publication_transplant_supported`**.
+
+This supports transplantation of the v0.6.4 sequential raw-projection and v0.6.5 immutable-publication principles into the F3 lifecycle. It does not grant active morphology authority. The next authorized stage is a separately frozen lifecycle-publication qualification interface and semantic transplant precheck for v0.5.4/v0.6.18. Interface exceptions must be resolved without threshold retuning before semantic correspondence is scored. Direction remains blocked. `morphology_acceptance=false`, `trade_authority=false`, `production_authority=false`.

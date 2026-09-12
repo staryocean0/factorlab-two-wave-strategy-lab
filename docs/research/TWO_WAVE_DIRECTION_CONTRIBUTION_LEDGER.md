@@ -319,3 +319,12 @@ The next program step should be **independent reference-label morphology validat
 - Lifecycle-live F3 preserves `8/11` semantic support while terminal C1 certification remains `7/11`; the eighth case is live unresolved, not future-certified.
 - Hard append-only/causal invariant violations are zero.
 - D1/v0.6.25 remain historical direction components awaiting lifecycle-aware publication and later qualification transplantation.
+
+
+## v0.7.5 provisional lifecycle publication transplant
+
+- Upstream parent/publication evidence only; no direction challenger or direction scoring was run.
+- All 1543 observed F3 lifecycle objects obtained immutable raw publication at first observation; hard publication invariants were zero.
+- Raw semantic continuity remains `9/11`, and the unresolved eighth F3 semantic case has same-object provisional raw support.
+- v0.6.4 sequential projection and v0.6.5 first-valid immutable publication are retained as successfully transplanted Development principles.
+- D1/v0.6.25 remain historical direction components and cannot be reactivated until v0.5.4/v0.6.18 qualification transplantation is separately adjudicated.

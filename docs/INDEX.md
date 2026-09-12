@@ -211,3 +211,13 @@ These snapshots contain links outside this bounded theme package. The scoped ind
 - Adjudication: `../experiments/two_wave_f3_prefix_causal_lifecycle_v0704/ADJUDICATION.json`
 - Verdict: `v0704_f3_prefix_causal_lifecycle_representation_supported` (`8/11` live, `7/11` certified, zero hard-invariant violations).
 - Next: provisional lifecycle raw-projection / immutable-publication transplant; qualification/direction remain blocked.
+
+
+### v0.7.5 F3 provisional lifecycle publication transplant — complete
+
+- Protocol: `research/TWO_WAVE_F3_PROVISIONAL_LIFECYCLE_PUBLICATION_V0705_PROTOCOL.md`
+- Result: `../experiments/two_wave_f3_provisional_lifecycle_publication_v0705/RESULT.json`
+- Result card: `../experiments/two_wave_f3_provisional_lifecycle_publication_v0705/RESULT_CARD.md`
+- Adjudication: `../experiments/two_wave_f3_provisional_lifecycle_publication_v0705/ADJUDICATION.json`
+- Verdict: `v0705_f3_provisional_lifecycle_publication_transplant_supported` (`1543/1543` published, `1478/1478` certified covered, raw semantic support `9/11`).
+- Next: frozen v0.5.4/v0.6.18 lifecycle-publication qualification interface + semantic transplant precheck; direction remains blocked.
