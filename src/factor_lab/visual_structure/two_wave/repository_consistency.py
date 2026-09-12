@@ -34,12 +34,13 @@ def verify_v0708_adjudication(adjudication: Mapping[str, Any]) -> None:
     _require(adjudication.get("primary_category") == V0708_CATEGORY, "unexpected v0708 category")
     _require(int(adjudication.get("connected_repository_count", -1)) == 7, "v0708 repository census drift")
 
-    eligibility = adjudication.get("eligibility", {})
-    _require(eligibility.get("new_temporal_evidence_available") is False, "v0708 temporal evidence unexpectedly available")
-    _require(eligibility.get("new_independent_reference_label_evidence_available") is False, "v0708 label evidence unexpectedly available")
-    _require(eligibility.get("both_reopening_requirements_satisfied") is False, "v0708 must remain blocked")
+    _require(adjudication.get("temporal_trigger_A_satisfied") is False, "v0708 temporal trigger unexpectedly satisfied")
+    _require(adjudication.get("independent_reference_trigger_B_satisfied") is False, "v0708 label trigger unexpectedly satisfied")
+    _require(
+        adjudication.get("combined_external_validation_reopening_condition_satisfied") is False,
+        "v0708 combined reopening condition must remain blocked",
+    )
 
-    actions = adjudication.get("actions_frozen", {})
     for key in (
         "candidate_identity_frozen",
         "external_validation_protocol_opened",
@@ -47,12 +48,11 @@ def verify_v0708_adjudication(adjudication: Mapping[str, Any]) -> None:
         "threshold_change_opened",
         "result_opened",
     ):
-        _require(actions.get(key) is False, f"v0708 action must remain closed: {key}")
+        _require(adjudication.get(key) is False, f"v0708 action must remain closed: {key}")
 
-    authority = adjudication.get("authority", {})
-    _require(authority.get("parent_direction_winner") is None, "v0708 cannot install a direction winner")
+    _require(adjudication.get("direction_winner") is None, "v0708 cannot install a direction winner")
     for key in ("morphology_acceptance", "trade_authority", "production_authority"):
-        _require(authority.get(key) is False, f"v0708 cannot grant {key}")
+        _require(adjudication.get(key) is False, f"v0708 cannot grant {key}")
 
 
 def updated_authority(current: Mapping[str, Any], adjudication: Mapping[str, Any]) -> dict[str, Any]:
@@ -89,13 +89,17 @@ def updated_authority(current: Mapping[str, Any], adjudication: Mapping[str, Any
             "audit": V0708_AUDIT_DOC,
             "adjudication": V0708_ADJUDICATION,
             "connected_repository_count": int(adjudication["connected_repository_count"]),
-            "new_temporal_evidence_available": False,
-            "new_independent_reference_label_evidence_available": False,
-            "both_reopening_requirements_satisfied": False,
-            "candidate_opened": False,
-            "external_validation_protocol_opened": False,
-            "direction_scoring_opened": False,
-            "threshold_change_opened": False,
+            "new_temporal_evidence_available": bool(adjudication["temporal_trigger_A_satisfied"]),
+            "new_independent_reference_label_evidence_available": bool(
+                adjudication["independent_reference_trigger_B_satisfied"]
+            ),
+            "both_reopening_requirements_satisfied": bool(
+                adjudication["combined_external_validation_reopening_condition_satisfied"]
+            ),
+            "candidate_opened": bool(adjudication["candidate_identity_frozen"]),
+            "external_validation_protocol_opened": bool(adjudication["external_validation_protocol_opened"]),
+            "direction_scoring_opened": bool(adjudication["direction_scoring_opened"]),
+            "threshold_change_opened": bool(adjudication["threshold_change_opened"]),
             "required_reopening_triggers": list(REQUIRED_REOPENING_TRIGGERS),
             "primary_category": V0708_CATEGORY,
         }
