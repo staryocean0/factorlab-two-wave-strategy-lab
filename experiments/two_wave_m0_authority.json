@@ -1,5 +1,5 @@
 {
-  "schema": "two_wave_m0_authority@1.32",
+  "schema": "two_wave_m0_authority@1.33",
   "date": "2026-09-12",
   "primary_object": "two_wave_parent_structure_recognizer",
   "target_states": [
@@ -8,7 +8,7 @@
     "DownTrend",
     "Uncertain"
   ],
-  "global_status": "v0707_v0625_direction_transplant_supported_development_only_external_validation_blocked_no_direction_winner",
+  "global_status": "v0708_external_validation_evidence_gap_no_candidate_opened_no_direction_winner",
   "morphology_acceptance": false,
   "historical_full_recognizer_operational_baseline": {
     "version": "v0.4.3",
@@ -18,7 +18,7 @@
     "parent_identity": {
       "version": "v0.5.2",
       "name": "exact-ridge parent identity",
-      "status": "f3_prefix_causal_lifecycle_publication_qualification_and_direction_transplant_development_supported_external_validation_blocked",
+      "status": "f3_prefix_causal_lifecycle_publication_qualification_direction_transplant_development_supported_external_validation_evidence_gap",
       "independent_reference_correspondence_status": "semantic_bridge_failure_localized_at_exact_tuple_objectization",
       "v0650_median_parent_interval_iou": 0.7741935483870968,
       "v0650_median_anchor_mae_fraction": 0.12421052631578948,
@@ -136,7 +136,7 @@
     },
     "parent_direction": {
       "winner": null,
-      "status": "v0707_v0625_lifecycle_direction_transplant_supported_as_development_contribution_external_validation_blocked_no_winner",
+      "status": "v0707_development_direction_transplant_retained_v0708_external_validation_evidence_gap_no_winner",
       "historical_baseline": {
         "name": "D1",
         "pooled_exact_agreement": 0.957592339261286,
@@ -425,7 +425,7 @@
   "current_price_input_direction_expansion_status": "closed_after_v0646_close_high_low_and_native_open_classes_adjudicated_no_challenger_authorized",
   "current_temporal_replication_status": "v0647_complete_not_all_original_v0625_gates_pass",
   "current_reference_label_status": "v0648_complete_independent_reference_calibration_gates_not_all_pass",
-  "next_authorized_step": "close the current Development direction-transplant line with v0.6.25 retained as a non-winning contribution and no parent-direction winner installed; do not open another in-sample direction rescue/tuning branch from v0.7.7. Any reopening of v0.6.25 direction authority requires a new preregistered external-validation protocol and genuinely external evidence that directly addresses both the v0.6.47 temporal-replication exact-agreement deficit and the v0.6.48 independent-reference coverage/calibration weakness without tuning on those held-out outcomes. Until such evidence exists, retain D1 only as the historical baseline and keep direction winner null.",
+  "next_authorized_step": "Do not open another in-sample direction challenger or retune D1/v0.6.25. Reopen direction authority only under a new preregistered external-validation protocol after BOTH: (A) genuinely new CSI1000 temporal evidence not previously consumed by v0.6.47 or later validation, and (B) independently produced Two-Wave morphology/reference labels whose provenance, case universe and labeling protocol are frozen before model scoring.",
   "no_current_direction_challenger_authorized": true,
   "forbidden_next_shortcuts": [
     "retry_endpoint_D2_or_confidence_gated_D2",
@@ -530,7 +530,13 @@
     "ignore_v0647_temporal_replication_exact_agreement_deficit",
     "ignore_v0648_independent_reference_coverage_or_calibration_weakness",
     "open_another_in_sample_direction_rescue_branch_without_new_external_validation",
-    "treat_v0707_as_morphology_trade_or_production_authority"
+    "treat_v0707_as_morphology_trade_or_production_authority",
+    "reuse_v0647_consumed_data_as_new_external_evidence",
+    "treat_same_datahub_snapshot_copy_as_independent_temporal_evidence",
+    "use_non_morphology_annotations_as_two_wave_reference_labels",
+    "open_direction_candidate_before_v0708_trigger_A_and_B",
+    "retune_v0625_or_D1_without_new_external_protocol",
+    "promote_v0707_to_direction_winner_without_new_external_evidence"
   ],
   "trade_authority": false,
   "production_authority": false,
@@ -606,7 +612,7 @@
       "production_authority_changed": false
     }
   },
-  "current_parent_representation_status": "F3_prefix_causal_lifecycle_publication_and_v0618_qualification_supported_as_development_representation_direction_authority_external_validation_blocked",
+  "current_parent_representation_status": "F3_prefix_causal_lifecycle_publication_v0618_qualification_and_v0707_direction_transplant_supported_as_development_only_external_validation_evidence_gap",
   "no_current_semantic_object_challenger_authorized": true,
   "left_boundary_internal_pivot_decomposition": {
     "v0651": {
@@ -762,7 +768,7 @@
     "legacy_filtered_parent_identity": "reconstruct_or_revalidate",
     "raw_projection_v064_v065": "v0705_transplant_supported_and_preserved_through_v0706_development_only",
     "same_scale_v054_and_qualification_v0618": "v0706_lifecycle_publication_qualification_transplant_supported_development_only",
-    "direction_D1_v0625": "separately_frozen_lifecycle_qualified_direction_transplant_adjudication_next_not_reactivated"
+    "direction_D1_v0625": "v0707_transplant_supported_development_only_external_validation_blocked_no_winner"
   },
   "no_active_semantic_parent_authority": true,
   "f3_causal_event_publication_transplant": {
@@ -795,7 +801,7 @@
       "production_authority_changed": false
     }
   },
-  "counteroffensive_current_breakpoint": "direction_transplant_development_supported_external_validation_blocked_no_winner",
+  "counteroffensive_current_breakpoint": "external_validation_evidence_gap_no_candidate_opened",
   "f3_causal_certificate_gap_attribution": {
     "v0703": {
       "status": "complete_gap_requires_explicit_death_evidence_unavailable_at_cutoff",
@@ -982,5 +988,25 @@
       "production_authority_changed": false
     }
   },
-  "current_direction_transplant_status": "v0707_complete_development_supported_semantically_neutral_to_D1_on_frozen_supported_subset_external_validation_blocked_no_winner"
+  "current_direction_transplant_status": "v0707_complete_development_supported_v0708_external_validation_evidence_gap_no_winner",
+  "external_validation_availability": {
+    "v0708": {
+      "status": "evidence_gap_no_candidate_opened",
+      "audit": "docs/research/TWO_WAVE_EXTERNAL_VALIDATION_EVIDENCE_AVAILABILITY_V0708.md",
+      "adjudication": "experiments/two_wave_external_validation_availability_v0708/ADJUDICATION.json",
+      "connected_repository_count": 7,
+      "new_temporal_evidence_available": false,
+      "new_independent_reference_label_evidence_available": false,
+      "both_reopening_requirements_satisfied": false,
+      "candidate_opened": false,
+      "external_validation_protocol_opened": false,
+      "direction_scoring_opened": false,
+      "threshold_change_opened": false,
+      "required_reopening_triggers": [
+        "genuinely_new_temporal_sample_not_previously_consumed_by_v0647_or_later_validation",
+        "independently_frozen_two_wave_morphology_reference_labels_created_before_model_scoring"
+      ],
+      "primary_category": "v0708_external_validation_evidence_gap_no_candidate_opened"
+    }
+  }
 }

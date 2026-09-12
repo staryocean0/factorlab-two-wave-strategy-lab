@@ -1,0 +1,36 @@
+{
+  "schema": "two_wave_repository_component_status@1.0",
+  "date": "2026-09-12",
+  "authority_schema": "two_wave_m0_authority@1.33",
+  "global_status": "v0708_external_validation_evidence_gap_no_candidate_opened_no_direction_winner",
+  "active_workflow_surface": [
+    ".github/workflows/ci.yml"
+  ],
+  "current_scientific_chain": [
+    "v0.7.1 F3 persistence-dominant semantic objectization",
+    "v0.7.4 prefix-causal lifecycle",
+    "v0.7.5 immutable provisional lifecycle publication",
+    "v0.7.6 v0.6.18 qualification transplant",
+    "v0.7.7 D1/v0.6.25 direction transplant (Development only)",
+    "v0.7.8 external-validation evidence availability audit"
+  ],
+  "historical_reproducibility_assets_retained": true,
+  "one_shot_workflows_retained": false,
+  "direction_winner": null,
+  "active_semantic_parent_authority": null,
+  "morphology_acceptance": false,
+  "trade_authority": false,
+  "production_authority": false,
+  "next_reopening_requires": [
+    "genuinely new temporal evidence not previously consumed by v0.6.47 or later validation",
+    "independently frozen Two-Wave morphology/reference labels created before model scoring"
+  ],
+  "canonical_entrypoints": {
+    "human_readable_current_state": "README.md",
+    "research_index": "docs/INDEX.md",
+    "machine_authority": "experiments/two_wave_m0_authority.json",
+    "human_authority_snapshot": "docs/research/TWO_WAVE_M0_AUTHORITY.md",
+    "external_evidence_audit": "docs/research/TWO_WAVE_EXTERNAL_VALIDATION_EVIDENCE_AVAILABILITY_V0708.md",
+    "external_evidence_adjudication": "experiments/two_wave_external_validation_availability_v0708/ADJUDICATION.json"
+  }
+}
