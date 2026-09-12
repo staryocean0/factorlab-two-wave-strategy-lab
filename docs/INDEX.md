@@ -221,3 +221,13 @@ These snapshots contain links outside this bounded theme package. The scoped ind
 - Adjudication: `../experiments/two_wave_f3_provisional_lifecycle_publication_v0705/ADJUDICATION.json`
 - Verdict: `v0705_f3_provisional_lifecycle_publication_transplant_supported` (`1543/1543` published, `1478/1478` certified covered, raw semantic support `9/11`).
 - Next: frozen v0.5.4/v0.6.18 lifecycle-publication qualification interface + semantic transplant precheck; direction remains blocked.
+
+
+### v0.7.6 F3 lifecycle-publication qualification transplant — complete
+
+- Protocol: `research/TWO_WAVE_F3_LIFECYCLE_QUALIFICATION_TRANSPLANT_V0706_PROTOCOL.md`
+- Result: `../experiments/two_wave_f3_lifecycle_qualification_transplant_v0706/RESULT.json`
+- Result card: `../experiments/two_wave_f3_lifecycle_qualification_transplant_v0706/RESULT_CARD.md`
+- Adjudication: `../experiments/two_wave_f3_lifecycle_qualification_transplant_v0706/ADJUDICATION.json`
+- Verdict: `v0706_v0618_lifecycle_qualification_transplant_supported` (`1543/1543` v0.6.18 interface coverage, zero exceptions/contract violations, `115` qualified publications, qualified semantic support `9/11`).
+- Next: separately frozen lifecycle-qualified D1/v0.6.25 direction transplant/adjudication; no current direction winner is restored.

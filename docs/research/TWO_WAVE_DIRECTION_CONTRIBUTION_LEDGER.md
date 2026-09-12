@@ -328,3 +328,13 @@ The next program step should be **independent reference-label morphology validat
 - Raw semantic continuity remains `9/11`, and the unresolved eighth F3 semantic case has same-object provisional raw support.
 - v0.6.4 sequential projection and v0.6.5 first-valid immutable publication are retained as successfully transplanted Development principles.
 - D1/v0.6.25 remain historical direction components and cannot be reactivated until v0.5.4/v0.6.18 qualification transplantation is separately adjudicated.
+
+
+## v0.7.6 lifecycle-qualified qualification transplant
+
+- Qualification-only upstream stage; no direction component was scored in v0.7.6.
+- The immutable v0.7.5 lifecycle-publication objects accepted the frozen v0.5.4/v0.6.18 qualification APIs with `1543/1543` coverage and zero interface exceptions.
+- v0.6.18 contract violations were zero; only the two preregistered native-5m path vetoes were demoted.
+- v0.6.18 qualified 115 lifecycle publications versus 42 under v0.5.4 and retained human-anchor semantic support in `9/11` cases.
+- Historical D1 remains the direction baseline; v0.6.25 remains a retained historical contribution and is not a winner.
+- Next: separately freeze lifecycle-qualified direction transplant/adjudication. The prior v0.6.47 temporal-replication and v0.6.48 reference-calibration weaknesses remain binding context and cannot be erased by a Development replay.

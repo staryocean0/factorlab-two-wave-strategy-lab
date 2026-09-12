@@ -521,3 +521,20 @@ Adjudication: `experiments/two_wave_f3_provisional_lifecycle_publication_v0705/A
 All 1543 observed lifecycle objects published at their first observation bar; all 1478 certified objects and all 65 final-unresolved objects were covered. Hard publication invariants were zero and deterministic replay passed. The first-valid append-only rule suppressed 239 later would-be raw-identity rewrites rather than altering the first publication. Published-raw semantic support remained `9/11` with per-ordinal cell hits `11/11, 11/11, 11/11, 11/11, 10/11`, and the single permanent-certificate gap case retained same-object provisional raw support. The formal verdict is **`v0705_f3_provisional_lifecycle_publication_transplant_supported`**.
 
 This supports transplantation of the v0.6.4 sequential raw-projection and v0.6.5 immutable-publication principles into the F3 lifecycle. It does not grant active morphology authority. The next authorized stage is a separately frozen lifecycle-publication qualification interface and semantic transplant precheck for v0.5.4/v0.6.18. Interface exceptions must be resolved without threshold retuning before semantic correspondence is scored. Direction remains blocked. `morphology_acceptance=false`, `trade_authority=false`, `production_authority=false`.
+
+
+## v0.7.6: lifecycle-publication qualification transplant — supported
+
+Frozen protocol: `docs/research/TWO_WAVE_F3_LIFECYCLE_QUALIFICATION_TRANSPLANT_V0706_PROTOCOL.md`.  
+Protocol freeze commit: `174188e55f573f43c7dac0e2d5d87f9a223bebaf`.  
+Authoritative formal retry run: `34687608997`.  
+Authoritative result commit: `cc5942b074fd42ffdc10f78508688e21a451bc06`.  
+Result: `experiments/two_wave_f3_lifecycle_qualification_transplant_v0706/RESULT.json`.  
+Result card: `experiments/two_wave_f3_lifecycle_qualification_transplant_v0706/RESULT_CARD.md`.  
+Adjudication: `experiments/two_wave_f3_lifecycle_qualification_transplant_v0706/ADJUDICATION.json`.
+
+The authoritative retry reproduced the full v0.7.5 upstream (`1543/1543` publications, `1478/1478` certified coverage, `65/65` final-unresolved coverage, zero publication delay and zero publication invariant violations), including raw ordinal support `11/11, 11/11, 11/11, 11/11, 10/11`. Both v0.5.4 and v0.6.18 qualified all 1543 immutable publications without an exception, identity mutation, future-bar dependency, or trade/future-outcome leak. v0.6.18 contract violations were zero: it removed only `inefficient_leg` and `jump_dominated_leg`. v0.5.4 qualified 42 publications; v0.6.18 qualified 115, with 73 registered demotion transitions. After the label-free interface and contract gates passed, v0.6.18 retained qualified semantic support in `9/11` anchored cases and preserved the permanent-certificate gap's same-object qualified raw support. The formal verdict is **`v0706_v0618_lifecycle_qualification_transplant_supported`**.
+
+Implementation lineage is retained: run `34685420204` / result commit `f3f47f115faf54fb688dcb26a86998b6daa49169` was invalid because ordinal-count mapping keys were serialized instead of values; retry `34687496456` failed before science due a CLI import-path error. Neither changed the frozen protocol or gates.
+
+This supports v0.6.18 as a Development qualification transplant on top of the v0.7.5 lifecycle-publication representation. It does not establish active morphology authority or a direction winner. The next stage is a separately frozen lifecycle-qualified direction transplant/adjudication using D1 as baseline and v0.6.25 only as a retained historical contribution. v0.6.47 temporal-replication weakness and v0.6.48 reference-calibration weakness remain unresolved constraints. `morphology_acceptance=false`, `trade_authority=false`, `production_authority=false`.

@@ -1,5 +1,5 @@
 {
-  "schema": "two_wave_m0_authority@1.30",
+  "schema": "two_wave_m0_authority@1.31",
   "date": "2026-09-12",
   "primary_object": "two_wave_parent_structure_recognizer",
   "target_states": [
@@ -8,7 +8,7 @@
     "DownTrend",
     "Uncertain"
   ],
-  "global_status": "v0705_f3_provisional_lifecycle_publication_transplant_supported_qualification_transplant_precheck_next",
+  "global_status": "v0706_v0618_lifecycle_qualification_transplant_supported_direction_transplant_adjudication_next",
   "morphology_acceptance": false,
   "historical_full_recognizer_operational_baseline": {
     "version": "v0.4.3",
@@ -18,7 +18,7 @@
     "parent_identity": {
       "version": "v0.5.2",
       "name": "exact-ridge parent identity",
-      "status": "f3_prefix_causal_lifecycle_and_provisional_publication_supported_qualification_transplant_next",
+      "status": "f3_prefix_causal_lifecycle_publication_and_qualification_supported_direction_transplant_next",
       "independent_reference_correspondence_status": "semantic_bridge_failure_localized_at_exact_tuple_objectization",
       "v0650_median_parent_interval_iou": 0.7741935483870968,
       "v0650_median_anchor_mae_fraction": 0.12421052631578948,
@@ -72,17 +72,21 @@
       "v0704_hard_invariant_violation_count": 0,
       "v0705_published_lifecycle_object_count": 1543,
       "v0705_published_raw_semantic_support_cases": 9,
-      "v0705_gap_same_object_provisional_raw_support_cases": 1
+      "v0705_gap_same_object_provisional_raw_support_cases": 1,
+      "v0706_v0618_qualified_publication_count": 115,
+      "v0706_v0618_qualified_semantic_support_cases": 9
     },
     "same_scale_semantics": {
       "version": "v0.5.4",
       "name": "full-cycle-scale qualification",
-      "status": "historical_component_lifecycle_publication_qualification_transplant_interface_semantic_precheck_next"
+      "status": "v0706_lifecycle_publication_qualification_transplant_supported_development_only",
+      "v0706_v054_qualified_publication_count": 42,
+      "v0706_v054_qualified_semantic_support_cases": 3
     },
     "raw_identity_publication": {
       "version": "v0.6.5",
       "name": "first-valid immutable predecessor publication",
-      "status": "v0705_provisional_f3_lifecycle_publication_transplant_supported_development_only",
+      "status": "v0705_provisional_f3_lifecycle_publication_supported_and_preserved_through_v0706_development_only",
       "v0652_background_published_groups": 38176,
       "v0652_background_groups_with_later_valid_evidence": 2,
       "v0652_background_suppressed_rewrite_comparisons": 1,
@@ -104,7 +108,7 @@
     "qualification_policy": {
       "version": "v0.6.18",
       "name": "path-gate demotion",
-      "status": "legacy_object_development_champion_lifecycle_publication_qualification_transplant_precheck_next",
+      "status": "v0706_v0618_lifecycle_publication_qualification_transplant_supported_development_only_direction_transplant_next",
       "formal_verdict": "v0618_path_gate_demotion_research_candidate_pass",
       "workflow_run": 34423674192,
       "result_commit": "9600eca94de9fb2cc39db4b995edec3d5e7870c3",
@@ -116,11 +120,19 @@
       "v0648_reference_confirmed_candidate_count": 16,
       "v0648_candidate_cases": 120,
       "v0702_interface_precheck_qualified_count_descriptive": 89,
-      "v0702_interface_precheck_qualified_fraction_descriptive": 0.060216508795669824
+      "v0702_interface_precheck_qualified_fraction_descriptive": 0.060216508795669824,
+      "v0706_publication_count": 1543,
+      "v0706_v054_qualified_count": 42,
+      "v0706_v0618_qualified_count": 115,
+      "v0706_v0618_reject_to_qualified_count": 73,
+      "v0706_contract_violation_count": 0,
+      "v0706_interface_exception_count": 0,
+      "v0706_v0618_qualified_semantic_support_cases": 9,
+      "v0706_gap_v0618_qualified_same_object_raw_support_cases": 1
     },
     "parent_direction": {
       "winner": null,
-      "status": "historical_components_awaiting_lifecycle_publication_qualification_transplant_adjudication",
+      "status": "historical_D1_and_v0625_awaiting_separately_frozen_lifecycle_qualified_direction_transplant_adjudication",
       "historical_baseline": {
         "name": "D1",
         "pooled_exact_agreement": 0.957592339261286,
@@ -387,7 +399,7 @@
   "current_price_input_direction_expansion_status": "closed_after_v0646_close_high_low_and_native_open_classes_adjudicated_no_challenger_authorized",
   "current_temporal_replication_status": "v0647_complete_not_all_original_v0625_gates_pass",
   "current_reference_label_status": "v0648_complete_independent_reference_calibration_gates_not_all_pass",
-  "next_authorized_step": "freeze a lifecycle-publication qualification interface and semantic transplant precheck for historical v0.5.4/v0.6.18; feed immutable v0.7.5 phase, five raw occurrence bars, and publishing confirmation bar into the existing published-identity qualification interface with unchanged thresholds; first audit and eliminate implementation/interface exceptions without retuning qualification rules, preserve lifecycle object and publication identity, and stratify qualification mechanics by lifecycle status; only after the interface is clean may frozen human labels be used for semantic correspondence scoring; direction remains blocked until qualification transplantation is adjudicated",
+  "next_authorized_step": "freeze a separately adjudicated lifecycle-qualified direction transplant on the supported v0.7.5 lifecycle-publication and v0.7.6 v0.6.18 qualification stack; use historical D1 as the baseline and v0.6.25 absolute-margin erosion-consensus rescue only as a retained historical challenger/contribution, with all direction thresholds and qualification semantics unchanged; first audit zero interface exceptions, identity immutability, causal-prefix inputs, and zero D1-decisive override, then score frozen human parent-state semantics on the already-frozen Development reference cases; the experiment must report v0.6.47 temporal-replication and v0.6.48 reference-calibration weaknesses as unresolved external constraints, so a Development direction result cannot by itself grant morphology, trade, or production authority",
   "no_current_direction_challenger_authorized": true,
   "forbidden_next_shortcuts": [
     "retry_endpoint_D2_or_confidence_gated_D2",
@@ -477,7 +489,15 @@
     "rewrite_v0705_lifecycle_object_or_publication_identity_during_qualification",
     "skip_qualification_interface_exception_audit_and_score_reference_semantics_directly",
     "treat_v0705_publication_support_as_active_morphology_authority",
-    "reactivate_D1_or_v0625_before_qualification_transplant_adjudication"
+    "reactivate_D1_or_v0625_before_qualification_transplant_adjudication",
+    "retune_v054_or_v0618_after_v0706_support",
+    "condition_v0706_qualification_on_future_certification_or_final_lifecycle_state",
+    "rewrite_v0705_lifecycle_or_publication_identity_after_v0706",
+    "treat_v0706_qualification_support_as_active_morphology_authority",
+    "reactivate_v0625_as_direction_winner_without_separate_direction_transplant_adjudication",
+    "retune_D1_or_v0625_thresholds_during_direction_transplant",
+    "ignore_v0647_temporal_replication_failure_in_direction_adjudication",
+    "ignore_v0648_reference_calibration_failure_in_direction_adjudication"
   ],
   "trade_authority": false,
   "production_authority": false,
@@ -553,7 +573,7 @@
       "production_authority_changed": false
     }
   },
-  "current_parent_representation_status": "F3_prefix_causal_lifecycle_and_provisional_publication_supported_as_development_representation_only",
+  "current_parent_representation_status": "F3_prefix_causal_lifecycle_publication_and_v0618_qualification_supported_as_development_representation_only",
   "no_current_semantic_object_challenger_authorized": true,
   "left_boundary_internal_pivot_decomposition": {
     "v0651": {
@@ -707,9 +727,9 @@
     "exact_ridge_five_tuple_objectization": "reconstruct_or_revalidate",
     "tuple_birth_causal_adjacency_rule": "awaiting_transplantation_retest_after_objectization_repair",
     "legacy_filtered_parent_identity": "reconstruct_or_revalidate",
-    "raw_projection_v064_v065": "v0705_transplant_supported_development_only_not_active_morphology_authority",
-    "same_scale_v054_and_qualification_v0618": "next_lifecycle_publication_semantic_transplant_precheck_not_declared_false",
-    "direction_D1_v0625": "awaiting_qualification_transplant_adjudication_not_declared_false"
+    "raw_projection_v064_v065": "v0705_transplant_supported_and_preserved_through_v0706_development_only",
+    "same_scale_v054_and_qualification_v0618": "v0706_lifecycle_publication_qualification_transplant_supported_development_only",
+    "direction_D1_v0625": "separately_frozen_lifecycle_qualified_direction_transplant_adjudication_next_not_reactivated"
   },
   "no_active_semantic_parent_authority": true,
   "f3_causal_event_publication_transplant": {
@@ -742,7 +762,7 @@
       "production_authority_changed": false
     }
   },
-  "counteroffensive_current_breakpoint": "f3_lifecycle_publication_supported_qualification_transplant_precheck_next",
+  "counteroffensive_current_breakpoint": "lifecycle_publication_qualification_transplant_supported_direction_transplant_adjudication_next",
   "f3_causal_certificate_gap_attribution": {
     "v0703": {
       "status": "complete_gap_requires_explicit_death_evidence_unavailable_at_cutoff",
@@ -840,6 +860,49 @@
       "deterministic_replay_ok": true,
       "threshold_fitting_performed": false,
       "qualification_or_direction_evaluated": false,
+      "morphology_acceptance_changed": false,
+      "trade_authority_changed": false,
+      "production_authority_changed": false
+    }
+  },
+  "f3_lifecycle_qualification_transplant": {
+    "v0706": {
+      "status": "supported_development_transplant_not_active_morphology_authority",
+      "protocol": "docs/research/TWO_WAVE_F3_LIFECYCLE_QUALIFICATION_TRANSPLANT_V0706_PROTOCOL.md",
+      "protocol_freeze_commit": "174188e55f573f43c7dac0e2d5d87f9a223bebaf",
+      "original_implementation_invalid_formal_run": 34685420204,
+      "original_implementation_invalid_result_commit": "f3f47f115faf54fb688dcb26a86998b6daa49169",
+      "first_retry_execution_invalid_run": 34687496456,
+      "authoritative_formal_retry_run": 34687608997,
+      "authoritative_result_commit": "cc5942b074fd42ffdc10f78508688e21a451bc06",
+      "result": "experiments/two_wave_f3_lifecycle_qualification_transplant_v0706/RESULT.json",
+      "result_card": "experiments/two_wave_f3_lifecycle_qualification_transplant_v0706/RESULT_CARD.md",
+      "adjudication": "experiments/two_wave_f3_lifecycle_qualification_transplant_v0706/ADJUDICATION.json",
+      "publication_count": 1543,
+      "v054_evaluated_count": 1543,
+      "v0618_evaluated_count": 1543,
+      "interface_exception_count": 0,
+      "identity_mutation_count": 0,
+      "future_bar_dependency_violation_count": 0,
+      "contract_violation_count": 0,
+      "v054_qualified_count": 42,
+      "v0618_qualified_count": 115,
+      "v0618_reject_to_qualified_count": 73,
+      "published_raw_semantic_support_cases": 9,
+      "v054_qualified_semantic_support_cases": 3,
+      "v0618_qualified_semantic_support_cases": 9,
+      "v0618_qualified_ordinal_hit_cases": [
+        9,
+        10,
+        10,
+        10,
+        10
+      ],
+      "gap_v0618_qualified_same_object_raw_support_cases": 1,
+      "primary_category": "v0706_v0618_lifecycle_qualification_transplant_supported",
+      "qualification_thresholds_changed": false,
+      "direction_component_scored": false,
+      "active_parent_authority_granted": false,
       "morphology_acceptance_changed": false,
       "trade_authority_changed": false,
       "production_authority_changed": false
