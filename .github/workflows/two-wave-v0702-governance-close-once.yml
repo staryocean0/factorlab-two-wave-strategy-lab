@@ -1,0 +1,151 @@
+name: two-wave-v0702-governance-close-once
+
+on:
+  push:
+    branches:
+      - research/two-wave-f3-event-publication-transplant-v0702
+
+permissions:
+  contents: write
+
+jobs:
+  close:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: python -m pip install -e .
+      - run: python scripts/validate_theme_package.py
+      - run: pytest -q
+      - name: Synchronize v0702 governance
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path('.')
+          authority_path = root / 'experiments/two_wave_m0_authority.json'
+          a = json.loads(authority_path.read_text())
+          a['schema'] = 'two_wave_m0_authority@1.27'
+          a['global_status'] = 'v0702_f3_static_objectization_not_causally_publishable_causal_certificate_gap_attribution_next'
+
+          parent = a['component_authority']['parent_identity']
+          parent['status'] = 'f3_static_development_reconstruction_supported_causal_event_certificate_unresolved'
+          parent['active_semantic_parent_authority'] = None
+          parent['v0702_static_f3_support_cases'] = 8
+          parent['v0702_causally_certified_f3_support_cases'] = 7
+          parent['v0702_causal_event_support_pass'] = False
+
+          pub = a['component_authority']['raw_identity_publication']
+          pub['status'] = 'historical_principle_positive_f3_transplant_evidence_blocked_by_causal_event_gate'
+          pub['v0702_published_raw_semantic_support_cases'] = 9
+          pub['v0702_prior_invalid_projection_count'] = 0
+          pub['v0702_later_valid_same_identity_count'] = 2378
+          pub['v0702_suppressed_would_be_rewrite_count'] = 223
+
+          ss = a['component_authority']['same_scale_semantics']
+          ss['status'] = 'historical_component_awaiting_f3_semantic_transplant_retest_after_causal_event_resolution'
+
+          q = a['component_authority']['qualification_policy']
+          q['status'] = 'legacy_object_development_champion_awaiting_f3_transplant_retest_after_causal_event_resolution'
+          q['development_champion'] = True
+          q['independent_reference_calibrated'] = False
+          q['v0702_interface_precheck_qualified_count_descriptive'] = 89
+          q['v0702_interface_precheck_qualified_fraction_descriptive'] = 0.060216508795669824
+
+          d = a['component_authority']['parent_direction']
+          d['status'] = 'historical_components_awaiting_f3_semantic_transplant_retest_after_parent_and_qualification_resolution'
+          d['winner'] = None
+          d['v0702_D1_decisive_override_count'] = 0
+
+          a['f3_causal_event_publication_transplant'] = {
+              'v0702': {
+                  'status': 'complete_static_objectization_not_causally_publishable',
+                  'protocol': 'docs/research/TWO_WAVE_F3_CAUSAL_EVENT_PUBLICATION_TRANSPLANT_V0702_PROTOCOL.md',
+                  'protocol_freeze_commit': '3e4e12d27dc28f93aa3079d8ea0899601931ec60',
+                  'formal_workflow_run': 34679677705,
+                  'formal_result_commit': '580828754920f5c9a747bee310c0657bf41443c3',
+                  'result': 'experiments/two_wave_f3_event_publication_transplant_v0702/RESULT.json',
+                  'result_card': 'experiments/two_wave_f3_event_publication_transplant_v0702/RESULT_CARD.md',
+                  'adjudication': 'experiments/two_wave_f3_event_publication_transplant_v0702/ADJUDICATION.json',
+                  'static_f3_support_cases': 8,
+                  'causally_certified_f3_support_cases': 7,
+                  'published_raw_semantic_support_cases': 9,
+                  'causal_event_support_pass': False,
+                  'published_raw_semantic_support_pass': True,
+                  'interface_exception_count_descriptive': 461,
+                  'interface_exception_type_counts_descriptive': {'ValueError': 461},
+                  'd1_decisive_override_count': 0,
+                  'primary_category': 'v0702_f3_static_objectization_not_causally_publishable',
+                  'reference_scoring_performed': False,
+                  'threshold_fitting_performed': False,
+                  'qualification_changed': False,
+                  'direction_winner_changed': False,
+                  'morphology_acceptance_changed': False,
+                  'trade_authority_changed': False,
+                  'production_authority_changed': False
+              }
+          }
+          a['counteroffensive_current_breakpoint'] = 'f3_causal_event_certificate_one_case_gap'
+          a['next_authorized_step'] = (
+              'freeze a read-only v0703 causal-certification gap attribution for the static-F3-supported but causal-unsupported case and aggregate event mechanics; '
+              'separate missing skipped-ridge death evidence, missing selected-boundary coarse survival evidence, confirmation-after-cutoff, and unnecessarily strong permanence-certificate requirements; '
+              'do not lower the 8/11 gate, use future survival, fit event-delay tolerance, retune F3, or advance to qualification calibration before causal event semantics are resolved'
+          )
+          a['no_current_direction_challenger_authorized'] = True
+          forbidden = a.setdefault('forbidden_next_shortcuts', [])
+          for item in [
+              'lower_v0702_causal_event_salvage_gate_below_8_of_11',
+              'use_future_ridge_survival_as_f3_event_certificate',
+              'fit_event_confirmation_delay_tolerance_from_v0702',
+              'skip_causal_event_resolution_and_calibrate_v0618_on_f3',
+              'declare_v064_v065_projection_publication_active_authority_from_v0702_raw_support_alone'
+          ]:
+              if item not in forbidden:
+                  forbidden.append(item)
+          authority_path.write_text(json.dumps(a, ensure_ascii=False, indent=2) + '\n')
+
+          human_path = root / 'docs/research/TWO_WAVE_M0_AUTHORITY.md'
+          h = human_path.read_text()
+          sec = '''\n\n## v0.7.2: F3 causal event / publication transplant precheck — causal event gate fails narrowly\n\nFrozen protocol: `docs/research/TWO_WAVE_F3_CAUSAL_EVENT_PUBLICATION_TRANSPLANT_V0702_PROTOCOL.md`.  \nProtocol freeze commit: `3e4e12d27dc28f93aa3079d8ea0899601931ec60`.  \nFormal workflow run: `34679677705`.  \nFormal result commit: `580828754920f5c9a747bee310c0657bf41443c3`.  \nResult: `experiments/two_wave_f3_event_publication_transplant_v0702/RESULT.json`.  \nResult card: `experiments/two_wave_f3_event_publication_transplant_v0702/RESULT_CARD.md`.  \nAdjudication: `experiments/two_wave_f3_event_publication_transplant_v0702/ADJUDICATION.json`.\n\nStatic F3 support reproduces `8/11`, but the preregistered permanent death-certificate event rule preserves only `7/11`; the frozen `8/11` causal-event gate therefore fails. The formal verdict is **`v0702_f3_static_objectization_not_causally_publishable`**.\n\nThe failure does not invalidate the static F3 reconstruction. It localizes the next counteroffensive layer to causal event certification. The nonconsecutive predecessor raw-projection / first-valid immutable-publication transplant produced `9/11` published-raw semantic support, providing positive salvage evidence for the v0.6.4/v0.6.5 principles once a causal event object is available. v0.6.18 and D1/v0.6.25 remain historical components awaiting semantic transplantation retests; they are not declared false.\n\nThe next authorized step is a frozen read-only causal-certification gap attribution. `morphology_acceptance=false`, `trade_authority=false`, `production_authority=false`.\n'''
+          if '## v0.7.2: F3 causal event / publication transplant precheck' not in h:
+              h += sec
+          human_path.write_text(h)
+
+          ledger = root / 'docs/research/TWO_WAVE_DIRECTION_CONTRIBUTION_LEDGER.md'
+          l = ledger.read_text()
+          sec2 = '''\n\n## v0.7.2 counteroffensive transplant precheck\n\n- Upstream semantic-parent/event evidence, not a direction contribution.\n- Static F3 support remains `8/11`; permanent causal certification preserves `7/11`, so current F3 event semantics are not accepted.\n- First-valid F3 raw publication nevertheless reaches `9/11` anchored semantic support, positive evidence for preserving the sequential projection / immutable-publication principles after the event layer is repaired.\n- D1 decisive override under v0.6.25 remains zero in the interface precheck. No reference direction scoring was performed.\n- v0.6.18 and D1/v0.6.25 remain queued for later semantic transplantation, not rejected.\n'''
+          if '## v0.7.2 counteroffensive transplant precheck' not in l:
+              l += sec2
+          ledger.write_text(l)
+
+          idx_path = root / 'docs/INDEX.md'
+          idx = idx_path.read_text()
+          sec3 = '''\n\n### v0.7.2 F3 causal event / publication transplant precheck — complete\n\n- Protocol: `research/TWO_WAVE_F3_CAUSAL_EVENT_PUBLICATION_TRANSPLANT_V0702_PROTOCOL.md`\n- Result: `../experiments/two_wave_f3_event_publication_transplant_v0702/RESULT.json`\n- Result card: `../experiments/two_wave_f3_event_publication_transplant_v0702/RESULT_CARD.md`\n- Adjudication: `../experiments/two_wave_f3_event_publication_transplant_v0702/ADJUDICATION.json`\n- Verdict: `v0702_f3_static_objectization_not_causally_publishable` (`8/11` static, `7/11` causal).\n- Next: frozen causal-certification gap attribution; do not lower the gate or advance to qualification calibration yet.\n'''
+          if '### v0.7.2 F3 causal event / publication transplant precheck — complete' not in idx:
+              idx += sec3
+          idx_path.write_text(idx)
+
+          readme = root / 'README.md'
+          r = readme.read_text()
+          tail = '''\n\nv0.7.2 then tested whether F3 can be converted into a permanently causal immutable event while preserving the frozen Development semantics. Static F3 support reproduced `8/11`, but the explicit skipped-ridge death/survivor certificate preserved only `7/11`, so the formal verdict is **`v0702_f3_static_objectization_not_causally_publishable`**. This is a one-case event-certification gap, not a rejection of the F3 static reconstruction. The transplanted sequential raw-projection / first-valid immutable-publication principles produced `9/11` published-raw semantic support, so those historical principles remain promising but blocked behind the causal-event gate. The next authorized stage is a read-only causal-certification gap attribution. Qualification and direction components remain retained for later transplantation retests rather than blanket rejection.\n'''
+          if 'v0.7.2 then tested whether F3 can be converted' not in r:
+              r += tail
+          readme.write_text(r)
+          PY
+      - name: Commit v0702 governance closure
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add experiments/two_wave_m0_authority.json docs/research/TWO_WAVE_M0_AUTHORITY.md docs/research/TWO_WAVE_DIRECTION_CONTRIBUTION_LEDGER.md docs/INDEX.md README.md
+          git commit -m "Close v0702 F3 event publication governance [skip ci]"
+          git push origin HEAD:research/two-wave-f3-event-publication-transplant-v0702
