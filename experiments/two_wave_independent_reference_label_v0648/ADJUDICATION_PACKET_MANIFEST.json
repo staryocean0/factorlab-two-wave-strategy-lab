@@ -1,0 +1,17 @@
+{
+  "adjudication_packet_case_count": 16,
+  "adjudication_packet_contains_hidden_mapping": false,
+  "adjudication_packet_sha256": "28865bee6a85f8bd8affaf4f3cae132ff91981e87b0b2678f708318a70a5616c",
+  "annotator_a_id": "LOCAL_MODEL_A",
+  "annotator_a_sha256": "6ae4650c9bb1144ea034af1cf97aa6fb95bf75f448ebffe84f903d8907d3a9dc",
+  "annotator_b_id": "LOCAL_MODEL_B",
+  "annotator_b_sha256": "34f6d9666f3b544a3c48f1122e4d0196cd6f4c1bce73e850d5ee2f7e0dc00f9d",
+  "blinded_packet_sha256": "4c08c8d3f32c6e222acb3c4236fa8f39428ff25349deae16d6f49dca2901566e",
+  "disagreement_count": 16,
+  "first_pass_label_quality_pass": true,
+  "hidden_strata_unblinded": false,
+  "model_predictions_unblinded": false,
+  "model_scoring_allowed": false,
+  "schema": "two_wave_v0648_first_pass_freeze@1.0",
+  "status": "third_adjudication_required_packet_frozen"
+}
