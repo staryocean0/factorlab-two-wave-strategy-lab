@@ -55,7 +55,10 @@ def test_certification_requires_explicit_skipped_ridge_death_and_boundary_surviv
         60,
     )
     assert out["certified"] is True
-    assert out["event_confirmation_bar"] == 52
+    # Only the selected level-0 nodes plus the a/b survival proof for skipped x
+    # enter this certificate. Unrelated level-1 confirmations (e.g. e at 52)
+    # must not delay the event.
+    assert out["event_confirmation_bar"] == 51
     assert out["certificate_count"] == 1
 
     no_death = SimpleNamespace(deaths=[])
