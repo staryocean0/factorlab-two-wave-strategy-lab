@@ -286,3 +286,11 @@ The next program step should be **independent reference-label morphology validat
 - Exact five-ridge tuple objectization fails the salvage threshold (`3/11`) and is the first localized semantic break.
 - Tuple-birth timing is not the first break (`L2→L3` loss `0`).
 - D1/v0.6.25 remain historical direction components, not winners and not active authority, until a repaired parent object reaches the direction transplantation stage.
+
+
+## v0.7.1 semantic-parent reconstruction / direction hold
+
+- Upstream objectization reconstruction only; not a direction contribution.
+- F3 persistence-dominant nonconsecutive quintet supports `8/11` anchored human-positive cases and is retained as a Development reconstruction candidate.
+- D1 and v0.6.25 are **not invalidated**; they remain historical direction components awaiting transplantation after F3 event/publication, raw projection, and qualification are frozen.
+- No direction challenger is authorized at this stage.

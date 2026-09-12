@@ -171,3 +171,13 @@ These snapshots contain links outside this bounded theme package. The scoped ind
 - Verdict: `v0700_ridge_infrastructure_salvage_supported_exact_tuple_objectization_breaks_semantic_bridge`.
 - Salvage: ridge infrastructure retained; exact five-ridge tuple objectization is the first reconstruction point; downstream components await transplantation tests rather than being discarded.
 - Next: v0.7.1 ridge-supported semantic parent objectization reconstruction.
+
+
+### v0.7.1 ridge-supported semantic parent objectization — complete
+
+- Protocol: `research/TWO_WAVE_RIDGE_SEMANTIC_OBJECTIZATION_V0701_PROTOCOL.md`
+- Result: `../experiments/two_wave_ridge_semantic_objectization_v0701/RESULT.json`
+- Result card: `../experiments/two_wave_ridge_semantic_objectization_v0701/RESULT_CARD.md`
+- Governance adjudication: `../experiments/two_wave_ridge_semantic_objectization_v0701/ADJUDICATION.json`
+- Verdict: `v0701_persistence_dominant_objectization_candidate_supported`; F3 passes the frozen Development support gate at `8/11`.
+- Next: freeze causal F3 event/publication semantics and downstream transplantation precheck.

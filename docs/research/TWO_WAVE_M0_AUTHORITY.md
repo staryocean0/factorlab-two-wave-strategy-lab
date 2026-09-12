@@ -442,3 +442,20 @@ Formal verdict: **`v0700_ridge_infrastructure_salvage_supported_exact_tuple_obje
 Therefore the project is not reset to zero. Data/clock/replay/governance are retained unchanged; TCSS extrema and ridge lineage are retained as support infrastructure. The exact-consecutive-five-ridge-tuple is removed as semantic-parent authority and must be reconstructed. Tuple-birth timing, raw projection/publication, same-scale qualification, and D1/v0.6.25 direction are not declared false; they are historical components awaiting transplantation tests after the parent object is repaired.
 
 The next authorized step is v0.7.1 ridge-supported semantic parent objectization reconstruction. `morphology_acceptance=false`, `trade_authority=false`, `production_authority=false`.
+
+
+## v0.7.1: ridge-supported semantic parent objectization reconstruction — F3 supported as Development candidate
+
+Frozen protocol: `docs/research/TWO_WAVE_RIDGE_SEMANTIC_OBJECTIZATION_V0701_PROTOCOL.md`.  
+Protocol freeze commit: `d5d90b16f6f9f1b4072fe23952085a10ea64682f`.  
+Formal workflow run: `34677630544`.  
+Formal result commit: `bc6f75a9734e90bbb158ea3377fd3710a391450e`.  
+Result: `experiments/two_wave_ridge_semantic_objectization_v0701/RESULT.json`.  
+Result card: `experiments/two_wave_ridge_semantic_objectization_v0701/RESULT_CARD.md`.  
+Governance adjudication: `experiments/two_wave_ridge_semantic_objectization_v0701/ADJUDICATION.json`.
+
+The counteroffensive preserved the causal TCSS/ridge infrastructure and tested preregistered structural objectizations on the 11 independently anchored human-positive cases. Legacy exact-consecutive F0 reproduces only `3/11`; the unrestricted nonconsecutive F1 upper bound reaches `10/11` but is combinatorially non-identifying (median `35,888` candidate objects); F2 one-step survivors reach `5/11`; and F3 persistence-dominant nonconsecutive quintets reach the frozen Development support threshold exactly at **`8/11`**, with median `142` candidate objects and median `1` human-compatible object.
+
+Formal verdict: **`v0701_persistence_dominant_objectization_candidate_supported`**. F3 is a Development reconstruction candidate only, not active morphology authority. The legacy exact-consecutive tuple remains historical baseline evidence. Downstream publication, projection, qualification, and direction components are not declared false: they remain queued for transplantation tests.
+
+The next authorized step is a separately frozen causal F3 event/publication and downstream-transplant precheck. It must define first-known/immutable object semantics and quantify multiplicity/rewrite risk without fitting F3 parameters to the human labels.

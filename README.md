@@ -49,7 +49,7 @@ v0.6.51 completed the frozen left-boundary / internal-pivot decomposition. On th
 
 v0.6.52 completed the frozen ordinal-0 predecessor / first-valid publication lineage audit without using the human reference labels in its primary decision. The structural p0 provenance asymmetry is real, but it is not materially expressed: all `2,115` v0.6.18-qualified identities have exactly one evidence member and one valid member, with zero prior-invalid selection, zero later-valid alternatives, and zero suppressed rewrites; median raw-vs-filtered displacement is `3` bars at every ordinal. The formal verdict is **`v0652_structural_ordinal0_provenance_asymmetry_not_materially_expressed`**.
 
-Current global stage is therefore **filtered exact-ridge vs raw-projection vs frozen-human-anchor layer attribution required**. The predecessor / first-valid publication route is closed as the material explanation, but p0 correspondence itself remains unresolved. No projection-window fit, boundary tolerance, ridge remapping, semantic-object challenger, qualification change, or direction challenger is authorized. `morphology_acceptance=false`, `trade_authority=false`, `production_authority=false`.
+v0.7.0 localized the first large semantic loss to exact-consecutive five-ridge objectization: common-scale ridge support was `10/11`, while the legacy exact tuple supported only `3/11`. This preserves the causal ridge infrastructure but demotes the exact tuple from semantic-parent authority. Downstream v0.6.x components remain retained for transplantation retests rather than blanket rejection.
 
 ## Four-layer timing navigation shell
 
@@ -78,4 +78,4 @@ The package still contains imported Layer 1/2/3 infrastructure closure required 
 `production_authority=false`.
 
 
-v0.7.0 has now opened the counteroffensive. Ridge infrastructure is salvaged (`10/11`), while exact consecutive five-ridge tuple objectization is the first localized semantic break (`3/11`). Downstream v0.6.x components are retained for transplantation retests, not blanket-rejected. Next: v0.7.1 ridge-supported semantic parent objectization reconstruction.
+v0.7.1 has now reconstructed a ridge-supported semantic-parent candidate without fitting label-distance or persistence thresholds. F3 — the **persistence-dominant nonconsecutive quintet** — supports `8/11` anchored human-positive cases, versus legacy F0 `3/11`, F2 `5/11`, and the non-identifying F1 upper bound `10/11`. F3 is Development evidence only and is not morphology authority. The next authorized stage is **causal F3 event/publication + downstream transplantation precheck**: first freeze first-known/immutable F3 object semantics, then test whether historical raw projection/publication, qualification, and direction results can be transplanted sequentially. `morphology_acceptance=false`, `trade_authority=false`, `production_authority=false`.
