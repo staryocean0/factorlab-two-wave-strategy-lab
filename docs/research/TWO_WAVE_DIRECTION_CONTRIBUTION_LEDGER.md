@@ -266,3 +266,14 @@ The next program step should be **independent reference-label morphology validat
 - Boundary-normalized internal phase MAE is `0.08397`: below the mismatch band but just above the frozen `0.08` correspondence band. No post-hoc relaxation is allowed.
 - Verdict: `v0651_correspondence_decomposition_mixed_or_unresolved`.
 - Next: ordinal-0 predecessor/publication lineage audit; direction research remains blocked.
+
+
+## v0.6.52 ordinal-0 / publication lineage audit
+
+- Upstream provenance evidence only; not a direction contribution.
+- Runtime p0 predecessor provenance and first-valid immutable publication contracts were verified.
+- Full background: `38,176` published groups, only `2` with later-valid evidence and `1` suppressed rewrite.
+- Qualified universe: `2,115` identities, each with exactly one evidence/valid member; zero prior invalids, later-valid alternatives, or rewrites.
+- Median raw-vs-filtered displacement is `3` bars for every ordinal p0-p4; p0 projection width is not anomalously large.
+- Verdict: `v0652_structural_ordinal0_provenance_asymmetry_not_materially_expressed`.
+- Predecessor / first-valid publication route is closed as the material explanation; next is filtered-ridge vs raw-projection layer attribution.

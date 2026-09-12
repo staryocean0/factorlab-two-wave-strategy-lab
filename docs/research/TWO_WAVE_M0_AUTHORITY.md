@@ -404,3 +404,22 @@ After normalizing model and human parents to their own boundaries, median intern
 Formal verdict: **`v0651_correspondence_decomposition_mixed_or_unresolved`**.
 
 Interpretation: p0/start-side provenance and a removable temporal component are the strongest clues, while internal normalized geometry is comparatively close. But v0.6.51 does not authorize a left-boundary tolerance, translation correction, pivot remapping, parent challenger, qualification change, or direction challenger. The next authorized step moves into algorithm lineage: a separately frozen read-only audit of ordinal-0 predecessor support and first-valid publication to determine whether p0 is structurally generated differently from p1-p4.
+
+
+## v0.6.52: ordinal-0 predecessor / first-valid publication lineage audit — complete; structural asymmetry not materially expressed
+
+Frozen protocol: `docs/research/TWO_WAVE_ORDINAL0_FIRST_VALID_PUBLICATION_LINEAGE_AUDIT_V0652_PROTOCOL.md`.  
+Protocol freeze commit: `76981c7c348807e4fe328020e81741e45e5c47dd`.  
+Formal workflow run: `34669006007`.  
+Formal result commit: `0bf09d84d8a082515c8205ef1cf02dc8fd984780`.  
+Result: `experiments/two_wave_ordinal0_publication_lineage_audit_v0652/RESULT.json`.  
+Result card: `experiments/two_wave_ordinal0_publication_lineage_audit_v0652/RESULT_CARD.md`.  
+Governance adjudication: `experiments/two_wave_ordinal0_publication_lineage_audit_v0652/ADJUDICATION.json`.
+
+The code-level provenance asymmetry is verified across the full Development reconstruction: ordinal 0 alone starts from the birth-level predecessor, whereas ordinals 1–4 start from the prior selected raw anchor; v0.6.5 publishes the first valid member under frozen evidence order and suppresses later rewrites. But this structural distinction is not materially expressed in the current qualified population.
+
+Across `38,176` published background identities, only `2` have a later valid evidence member and only `1` suppressed rewrite exists. In the decisive `2,115` v0.6.18-qualified identities, every group has exactly one evidence member and one valid member: there are `0` prior-invalid groups, `0` later-valid groups, and `0` suppressed rewrites. Median `|raw-filtered|` displacement is exactly `3` bars at every ordinal `p0..p4`; p0's median projection window is `18` bars versus `24/25/23` for p1-p3.
+
+All frozen Gates A-E fail. Formal verdict: **`v0652_structural_ordinal0_provenance_asymmetry_not_materially_expressed`**.
+
+Therefore ordinal-0 predecessor support and first-valid immutable publication are closed as a material explanation for the reference start-side mismatch. This does not declare p0 correct; it moves attribution one representation layer upstream. The next authorized step is a separately frozen read-only **filtered exact-ridge vs raw-projected vs human-anchor layer attribution**. No predecessor change, publication-policy change, projection-window fit, boundary tolerance, semantic-object challenger, qualification change, or direction challenger is authorized.

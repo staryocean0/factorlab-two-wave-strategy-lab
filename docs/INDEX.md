@@ -150,3 +150,13 @@ These snapshots contain links outside this bounded theme package. The scoped ind
 - Governance adjudication: `../experiments/two_wave_left_boundary_internal_pivot_decomposition_v0651/ADJUDICATION.json`
 - Verdict: `v0651_correspondence_decomposition_mixed_or_unresolved`.
 - Next: freeze a read-only ordinal-0 predecessor-support / first-valid-publication lineage audit.
+
+
+### v0.6.52 ordinal-0 predecessor / first-valid publication lineage audit — complete
+
+- Protocol: `research/TWO_WAVE_ORDINAL0_FIRST_VALID_PUBLICATION_LINEAGE_AUDIT_V0652_PROTOCOL.md`
+- Result: `../experiments/two_wave_ordinal0_publication_lineage_audit_v0652/RESULT.json`
+- Result card: `../experiments/two_wave_ordinal0_publication_lineage_audit_v0652/RESULT_CARD.md`
+- Governance adjudication: `../experiments/two_wave_ordinal0_publication_lineage_audit_v0652/ADJUDICATION.json`
+- Verdict: `v0652_structural_ordinal0_provenance_asymmetry_not_materially_expressed`.
+- Next: freeze a read-only filtered exact-ridge vs raw-projection vs frozen-human-anchor layer-attribution audit.
