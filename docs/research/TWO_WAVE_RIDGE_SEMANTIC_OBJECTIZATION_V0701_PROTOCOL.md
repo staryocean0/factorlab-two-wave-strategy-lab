@@ -47,6 +47,8 @@ No future survival information may be used.
 
 All families use five ordered, distinct ridge nodes with alternating kinds at one common scale level. The only difference is how intervening ridge nodes are treated.
 
+For all families the semantic object identity is the ordered tuple of five **ridge IDs**, not `(ridge IDs, scale level)`. If the same ordered ridge-ID tuple satisfies a family at multiple scale levels, it counts as **one object**. Human-reference support is true when at least one eligible scale realization of that ridge-ID object places its five nodes in the frozen human cells with the required kinds. Candidate multiplicity therefore counts unique ridge-ID objects, not duplicate scale realizations.
+
 ### F0 — legacy exact-consecutive tuple baseline
 
 Use the existing v0.5.2 exact-ridge tuple definition: the five selected nodes must be consecutive in the level's ordered ridge sequence.
@@ -87,14 +89,14 @@ Thus an F3 object may skip intermediate fluctuations only when the selected sema
 
 ## 5. Human-reference support test
 
-A family object supports one anchored reference case only if its five nodes fall one-per-frozen-human-support-cell in ordinal order and each node kind matches the inferred human kind.
+A family object supports one anchored reference case only if at least one eligible scale realization of that object has five nodes falling one-per-frozen-human-support-cell in ordinal order and each node kind matches the inferred human kind.
 
 Report for every family:
 
 - support case count out of 11;
 - support fraction;
-- total candidate-object count distribution across the 11 charts;
-- human-compatible candidate count distribution;
+- unique candidate-object count distribution across the 11 charts;
+- unique human-compatible object count distribution;
 - number of cases with exactly one compatible object;
 - per-ordinal compatible-node exact-anchor incidence, descriptive only.
 
