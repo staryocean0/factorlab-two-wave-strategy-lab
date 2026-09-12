@@ -433,6 +433,13 @@ CI 仅验证，不评分、不写权威；一次性工作流完成后必须从 .
             put(p, f'已归档参考：{Path(p).name}',
                 f'本页不再是当前执行或权威入口。原件：{link(p,row["preserved_path"],"冻结原文")}。\n\n'
                 f'Two-Wave 当前入口：{link(p,"CONTINUE_HERE.md")}；当前白皮书：{link(p,"docs/research/TWO_WAVE_WHITEPAPER.md")}。')
+    for page in ('ai-readme.md', 'README.md', 'docs/00-index.md', 'docs/user/README.md', 'docs/ops/README.md'):
+        docs[page] += '\n## 四层基础设施导航（冻结兼容合同）\n\n'
+        docs[page] += link(page, 'docs/ops/timing_infrastructure_four_layer_inventory@1.0.json', 'timing_infrastructure_four_layer_inventory@1.0.json') + '\n\n'
+        docs[page] += '数据时钟 → K线测量 → 策略结构 → 执行标的；层间依赖关系保留，但本仓不获得 Layer 4 执行授权。\n\n'
+        docs[page] += link(page, 'docs/ops/timing_layer1_datahub_clock_split@1.0.json', '数据时钟合同') + ' / '
+        docs[page] += link(page, 'docs/ops/timing_layer2_measurement_plane@2.3.json', 'K线测量合同') + ' / '
+        docs[page] += link(page, 'docs/ops/timing_layer3_strategy_architecture@2.2.json', '策略结构合同') + '\n'
     return docs
 
 

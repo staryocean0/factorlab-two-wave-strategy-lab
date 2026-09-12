@@ -1,0 +1,74 @@
+{
+  "schema": "two_wave_repository_maintenance_validation@1.0",
+  "date": "2026-09-12",
+  "execution_venue": "GitHub Actions Python 3.11",
+  "python": "3.11.16 (main, Aug 13 2026, 02:46:14) [GCC 13.3.0]",
+  "workflow_run": 34693868764,
+  "input_commit": "c24ab6df6d60486869e2c97b560545d3448e1953",
+  "tested_scope": "working tree produced by the pinned reconciliation; final workflow-cleanup commit is validated separately by ordinary CI",
+  "command_exit_codes": {
+    "reconcile": 0,
+    "validate_theme_package": 0,
+    "full_pytest": 0
+  },
+  "pytest": {
+    "tests": 483,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "consistency": {
+    "status": "passed",
+    "scientific_revision": "v0.7.8",
+    "scientific_recomputation": false,
+    "file_count": 987,
+    "python_files_parsed": 530,
+    "derived_documents_checked": 103,
+    "current_local_links_checked": 458,
+    "current_broken_local_links": 0,
+    "preserved_original_files": 871,
+    "preservation_dispositions": {
+      "maintained_with_original_archived": 15,
+      "retained_unchanged": 763,
+      "archived_removed_active_path": 4,
+      "archived_with_redirect": 89
+    },
+    "active_workflow_count": 1,
+    "morphology_acceptance": false,
+    "trade_authority": false,
+    "production_authority": false
+  },
+  "package_validation": {
+    "archived_source_files_checked": 98,
+    "candidate_installed": false,
+    "candidate_tool_id": "two_wave_parent_structure_recognizer",
+    "data_product_count": 14,
+    "data_row_count": 749337,
+    "fresh_oos": false,
+    "immutable_tool_count": 15,
+    "maximum_file_bytes": 12842573,
+    "maximum_trading_day": "2020-12-31",
+    "minimum_trading_day": "2015-01-05",
+    "mutable_authority_files_checked": 4,
+    "production_authority": false,
+    "registered_use_authority": false,
+    "repository_file_count": 987,
+    "schema_id": "two_wave_cloud_theme_validation@1.0",
+    "source_files_checked": 469,
+    "status": "passed_bounded_cloud_theme_ready_for_morphology_research"
+  },
+  "local_supplement": {
+    "python": "3.13",
+    "governance_and_navigation_tests_passed": 27,
+    "full_environment_claimed": false
+  },
+  "superseded_maintenance_attempt": {
+    "workflow_run": 34693733556,
+    "failure": "one unchanged four-layer navigation test detected omitted live-index links",
+    "repair": "restore real frozen-contract links; do not weaken original test"
+  },
+  "scientific_experiment_rerun": false,
+  "morphology_acceptance": false,
+  "trade_authority": false,
+  "production_authority": false
+}

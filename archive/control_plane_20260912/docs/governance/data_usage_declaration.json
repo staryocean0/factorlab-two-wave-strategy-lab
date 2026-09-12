@@ -1,0 +1,43 @@
+{
+  "schema_id": "two_wave_cloud_theme_data_usage@1.0",
+  "declared_before_strategy_or_morphology_results": true,
+  "instrument": "000852.SH",
+  "instrument_name": "CSI1000 index",
+  "shipped_intervals": [
+    {
+      "start": "2015-01-05",
+      "end": "2020-12-31",
+      "role": "development_material",
+      "allowed_uses": [
+        "recognition_specification",
+        "morphology_candidate_generation",
+        "annotation_pack_generation",
+        "causal_replay_debugging",
+        "synthetic_and_real_data_property_tests"
+      ],
+      "fresh_evidence": false
+    }
+  ],
+  "unavailable_intervals": [
+    {
+      "start": "2009-01-01",
+      "end": "2014-12-31",
+      "reason": "CSI1000 minute product not available in the frozen FactorLab export"
+    }
+  ],
+  "physically_withheld_intervals": [
+    {
+      "start": "2021-01-01",
+      "end": "2026-08-21",
+      "role": "not_shipped_not_readable",
+      "reason": "preserve later causal challenge capacity"
+    }
+  ],
+  "data_identity": "DataHub-built CSI1000 index signal bar views",
+  "trade_fill_authority": false,
+  "local_resampling_authority": false,
+  "economic_strategy_selection_authority": false,
+  "fresh_oos": false,
+  "paper_trading_authority": false,
+  "production_authority": false
+}

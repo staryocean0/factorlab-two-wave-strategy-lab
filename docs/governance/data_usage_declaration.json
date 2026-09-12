@@ -1,6 +1,6 @@
 {
-  "schema_id": "two_wave_cloud_theme_data_usage@1.0",
-  "declared_before_strategy_or_morphology_results": true,
+  "schema_id": "two_wave_cloud_theme_data_usage@1.1",
+  "declared_before_strategy_or_morphology_results": false,
   "instrument": "000852.SH",
   "instrument_name": "CSI1000 index",
   "shipped_intervals": [
@@ -29,8 +29,8 @@
     {
       "start": "2021-01-01",
       "end": "2026-08-21",
-      "role": "not_shipped_not_readable",
-      "reason": "preserve later causal challenge capacity"
+      "role": "not_shipped_in_current_working_tree",
+      "reason": "physical absence does not imply unconsumed evidence; v0647 consumed external 2024/2025/2026 material"
     }
   ],
   "data_identity": "DataHub-built CSI1000 index signal bar views",
@@ -39,5 +39,19 @@
   "economic_strategy_selection_authority": false,
   "fresh_oos": false,
   "paper_trading_authority": false,
-  "production_authority": false
+  "production_authority": false,
+  "record_role": "current_scope_reconciliation_not_a_new_pre_result_data_declaration",
+  "original_pre_result_declaration": "archive/control_plane_20260912/docs/governance/data_usage_declaration.json",
+  "external_replication_history": {
+    "protocol": "docs/research/TWO_WAVE_INDEPENDENT_TEMPORAL_MORPHOLOGY_REPLICATION_V0647_PROTOCOL.md",
+    "consumed_years": [
+      2024,
+      2025,
+      2026
+    ],
+    "last_consumed_day": "2026-08-21",
+    "fresh_oos": false,
+    "new_download_authorized_by_this_maintenance": false,
+    "validation_resampling_exception": "frozen validation_resample_v0647 only; no general resampling authority"
+  }
 }

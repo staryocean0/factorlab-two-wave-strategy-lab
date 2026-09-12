@@ -1,243 +1,141 @@
-# Two-Wave Theme Document Index
-
-## 0. Current bucket authority
-
-Primary objective: causally identify two complete same-scale waves and classify the resulting parent structure as `Range`, `UpTrend`, `DownTrend`, or `Uncertain`.
-
-Concrete reversal/MR payoff research belongs to `factorlab-trend-reversion-regime-lab`. Bottom-layer Unsafe/Recovering/HighVol risk-state research belongs to `factorlab-star50-filter-lab`.
-
-Current M0 authority and direction/reference chain:
-
-- [`research/TWO_WAVE_M0_AUTHORITY.md`](research/TWO_WAVE_M0_AUTHORITY.md)
-- [`../experiments/two_wave_m0_authority.json`](../experiments/two_wave_m0_authority.json)
-- [`research/TWO_WAVE_DIRECTION_CONTRIBUTION_LEDGER.md`](research/TWO_WAVE_DIRECTION_CONTRIBUTION_LEDGER.md)
-- [`../experiments/two_wave_path_gate_demotion_v0618/RESULT_CARD.md`](../experiments/two_wave_path_gate_demotion_v0618/RESULT_CARD.md)
-- [`research/TWO_WAVE_DIRECTION_INFORMATION_CLASS_AUDIT_V0643.md`](research/TWO_WAVE_DIRECTION_INFORMATION_CLASS_AUDIT_V0643.md)
-- [`research/TWO_WAVE_NATIVE_HIGH_LOW_ENVELOPE_DIRECTION_ATTRIBUTION_V0644_PROTOCOL.md`](research/TWO_WAVE_NATIVE_HIGH_LOW_ENVELOPE_DIRECTION_ATTRIBUTION_V0644_PROTOCOL.md)
-- [`../experiments/two_wave_native_high_low_envelope_direction_v0644/RESULT_CARD.md`](../experiments/two_wave_native_high_low_envelope_direction_v0644/RESULT_CARD.md)
-- [`../experiments/two_wave_native_high_low_envelope_direction_v0644/ADJUDICATION.json`](../experiments/two_wave_native_high_low_envelope_direction_v0644/ADJUDICATION.json)
-- [`research/TWO_WAVE_NON_CLOSE_INFORMATION_CLASS_AUDIT_V0645.md`](research/TWO_WAVE_NON_CLOSE_INFORMATION_CLASS_AUDIT_V0645.md)
-- [`research/TWO_WAVE_NATIVE_OPEN_BODY_GAP_DIRECTION_ATTRIBUTION_V0646_PROTOCOL.md`](research/TWO_WAVE_NATIVE_OPEN_BODY_GAP_DIRECTION_ATTRIBUTION_V0646_PROTOCOL.md)
-- [`../experiments/two_wave_native_open_body_gap_direction_v0646/RESULT_CARD.md`](../experiments/two_wave_native_open_body_gap_direction_v0646/RESULT_CARD.md)
-- [`../experiments/two_wave_native_open_body_gap_direction_v0646/ADJUDICATION.json`](../experiments/two_wave_native_open_body_gap_direction_v0646/ADJUDICATION.json)
-- [`research/TWO_WAVE_INDEPENDENT_TEMPORAL_MORPHOLOGY_REPLICATION_V0647_PROTOCOL.md`](research/TWO_WAVE_INDEPENDENT_TEMPORAL_MORPHOLOGY_REPLICATION_V0647_PROTOCOL.md)
-- [`../experiments/two_wave_independent_temporal_replication_v0647/RESULT_CARD.md`](../experiments/two_wave_independent_temporal_replication_v0647/RESULT_CARD.md)
-- [`../experiments/two_wave_independent_temporal_replication_v0647/summary.json`](../experiments/two_wave_independent_temporal_replication_v0647/summary.json)
-- [`research/TWO_WAVE_INDEPENDENT_REFERENCE_LABEL_CONSTRUCTION_V0648_PROTOCOL.md`](research/TWO_WAVE_INDEPENDENT_REFERENCE_LABEL_CONSTRUCTION_V0648_PROTOCOL.md)
-- [`../experiments/two_wave_independent_reference_label_v0648/PACKET_MANIFEST.json`](../experiments/two_wave_independent_reference_label_v0648/PACKET_MANIFEST.json)
-- [`../experiments/two_wave_independent_reference_label_v0648/SAMPLING_COMMITMENT.json`](../experiments/two_wave_independent_reference_label_v0648/SAMPLING_COMMITMENT.json)
-- [`../experiments/two_wave_independent_reference_label_v0648/SCORING_BLOCKED.json`](../experiments/two_wave_independent_reference_label_v0648/SCORING_BLOCKED.json)
-
-Qualification-history anchors retained for audit:
-
-- [`../experiments/two_wave_duration_geometry_decomposition_v0619/RESULT_CARD.md`](../experiments/two_wave_duration_geometry_decomposition_v0619/RESULT_CARD.md)
-- [`../experiments/two_wave_one_bar_duration_repair_v0620/RESULT_CARD.md`](../experiments/two_wave_one_bar_duration_repair_v0620/RESULT_CARD.md)
-
-Global morphology status is now `independent_reference_label_packet_ready_awaiting_blinded_annotations`. v0.6.18 remains the current best **qualification-policy research component**. v0.6.25 remains the strongest pooled-exact **Development direction contribution**, but the parent-direction winner is still unset and `morphology_acceptance=false`.
-
-v0.6.43 found native high/low as a distinct frozen-anchor class and v0.6.44 closed it as `v0644_high_low_envelope_redundant_or_unstable`. v0.6.45 corrected the earlier “price-only exhausted” overstatement by identifying native `open` as the one market-price field not yet formally direction-adjudicated, while explicitly rejecting volume, clock/availability, session/calendar and source-support/gap metadata as substitutes for parent-state semantics. v0.6.46 then formally closed native open/body/gap as `v0646_native_open_body_gap_redundant_or_unstable`.
-
-The corrected OHLC market-bar price-input direction expansion is therefore **closed after v0.6.46**. v0.6.47 completed an independent post-2020 temporal replication of the frozen v0.6.18 + D1/v0.6.25 chain. The external 2024/2025 native offset-0 controls and the full 2015-2020 five-offset reconstruction both matched exactly, but the verdict was **`v0647_temporal_replication_under_original_v0625_gate_not_all_pass`**: pooled v0.6.25 exact was `238/253 = 94.0711%` versus D1 `242/253 = 95.6522%`, despite higher v0.6.25 decisive coverage (`68.5771%` vs `47.6285%`).
-
-v0.6.48 has now executed the next authorized stage rather than opening another direction challenger. No existing independent human/external Two-Wave reference-label dataset was found in the related repositories, so a **prediction-blinded 240-case annotation packet** was frozen and generated from the 2015-2020 main view. It contains 120 hidden candidate and 120 hidden control cases, balanced 20+20 per year; annotators receive only 96-bar neutral charts, anonymous case IDs, instructions and a blank label sheet. The hidden sample mapping is committed only by SHA-256 and is absent from the annotator packet. Model/reference scoring is explicitly blocked until two independent first-pass sheets are returned, both hashes are frozen, disagreements are third-party adjudicated, and final reference labels are frozen.
-
-No new direction challenger is authorized. The next program action is **collect the two independent blinded v0.6.48 annotation sheets and run the already-frozen label-quality gates**. Even a v0.6.48 calibration pass cannot by itself establish global morphology acceptance because this packet is Development-period calibration; a later fresh held-out reference-label validation remains required.
-
-## 1. User objective
-
-- [`user/two_wave_strategy_handoff_prompt.md`](user/two_wave_strategy_handoff_prompt.md)
-- [`user/cloud_execution_prompt.md`](user/cloud_execution_prompt.md)
-
-## 2. Package and data boundary
-
-- [`governance/package_scope.json`](governance/package_scope.json)
-- [`governance/data_usage_declaration.json`](governance/data_usage_declaration.json)
-- [`governance/layer3_tool16_candidate_slot.json`](governance/layer3_tool16_candidate_slot.json)
-- [`../data/README.md`](../data/README.md)
-- [`../data/manifest.json`](../data/manifest.json)
-
-## 3. Current FactorLab timing index chain
-
-- [`ops/timing_infrastructure_four_layer_inventory@1.0.json`](ops/timing_infrastructure_four_layer_inventory@1.0.json)
-- [`ops/timing_infrastructure_four_layer_split_whitepaper.md`](ops/timing_infrastructure_four_layer_split_whitepaper.md)
-- [`user/timing_infrastructure_four_layer_split_workflow.md`](user/timing_infrastructure_four_layer_split_workflow.md)
-- [`ops/timing_layer1_datahub_clock_split@1.0.json`](ops/timing_layer1_datahub_clock_split@1.0.json)
-- [`ops/timing_layer1_datahub_clock_split_whitepaper.md`](ops/timing_layer1_datahub_clock_split_whitepaper.md)
-- [`ops/timing_layer2_measurement_plane_version_registry@1.0.json`](ops/timing_layer2_measurement_plane_version_registry@1.0.json)
-- [`ops/timing_layer2_measurement_plane@2.3.json`](ops/timing_layer2_measurement_plane@2.3.json)
-- [`ops/timing_layer2_measurement_plane_whitepaper.md`](ops/timing_layer2_measurement_plane_whitepaper.md)
-- [`ops/timing_layer3_strategy_architecture_version_registry@1.0.json`](ops/timing_layer3_strategy_architecture_version_registry@1.0.json)
-- [`ops/timing_layer3_strategy_architecture@2.2.json`](ops/timing_layer3_strategy_architecture@2.2.json)
-- [`ops/timing_strategy_identity_registry@2.2.json`](ops/timing_strategy_identity_registry@2.2.json)
-- [`ops/timing_layer3_strategy_architecture_whitepaper.md`](ops/timing_layer3_strategy_architecture_whitepaper.md)
-- [`user/timing_layer3_strategy_architecture_workflow.md`](user/timing_layer3_strategy_architecture_workflow.md)
-- [`ops/timing_four_layer_port_version_registry@1.0.json`](ops/timing_four_layer_port_version_registry@1.0.json)
-- [`ops/timing_four_layer_port_contracts@1.1.json`](ops/timing_four_layer_port_contracts@1.1.json)
-- [`ops/timing_four_layer_integration_whitepaper.md`](ops/timing_four_layer_integration_whitepaper.md)
-
-## 4. Current fifteen-tool language
-
-- Python: `src/factor_lab/market_state/tool_registry_v1_5.py`
-- Regression test: `tests/unit/test_market_state_tool_registry_v1_5.py`
-- Candidate slot: [`governance/layer3_tool16_candidate_slot.json`](governance/layer3_tool16_candidate_slot.json)
-
-V1.5 is immutable. The cloud task may propose V1.6 but may not rewrite V1.5.
-
-## 5. Migrated supporting state-classification evidence
-
-The mis-scoped causal K-line recognizer v1-v13 lineage from `factorlab-trend-reversion-regime-lab` is preserved under:
-
-- [`archive/migrated_kline_state_recognizer_from_trend_reversion_20260909/MIGRATION_NOTE.md`](archive/migrated_kline_state_recognizer_from_trend_reversion_20260909/MIGRATION_NOTE.md)
-- authority/champion/contribution records and decisive v10-v13 result cards in the same directory.
-
-This package is a comparison baseline and contribution library, **not** a replacement for the Two-Wave morphology acceptance gate.
-
-## 6. Research governance
-
-- [`user/strategy_slice_rebuild_workflow.md`](user/strategy_slice_rebuild_workflow.md)
-- [`ops/strategy_slice_rebuild_whitepaper.md`](ops/strategy_slice_rebuild_whitepaper.md)
-- [`ops/strategy_progressive_development@1.0.json`](ops/strategy_progressive_development@1.0.json)
-- [`ops/post_training_strategy_science_acceptance@1.0.json`](ops/post_training_strategy_science_acceptance@1.0.json)
-- [`ops/post_training_account_audit@1.1.json`](ops/post_training_account_audit@1.1.json)
-
-The supplied data cannot satisfy the twelve-year strategy promotion workflow. Use these documents to preserve scientific boundaries, not to overclaim status.
-
-## 7. Reference-only original project indexes
-
-- [`reference/factorlab_docs_00_index.md`](reference/factorlab_docs_00_index.md)
-- [`reference/factorlab_docs_ops_README.md`](reference/factorlab_docs_ops_README.md)
-- [`reference/factorlab_docs_user_README.md`](reference/factorlab_docs_user_README.md)
-
-These snapshots contain links outside this bounded theme package. The scoped index above is the executable package index.
-
-
-### v0.6.48 independent reference calibration — complete
-
-- Protocol: `research/TWO_WAVE_INDEPENDENT_REFERENCE_LABEL_CONSTRUCTION_V0648_PROTOCOL.md`
-- First-pass quality: `../experiments/two_wave_independent_reference_label_v0648/FIRST_PASS_QUALITY.json`
-- Final reference freeze: `../experiments/two_wave_independent_reference_label_v0648/FINAL_REFERENCE_FREEZE.json`
-- Formal scoring: `../experiments/two_wave_independent_reference_label_v0648/REFERENCE_SCORING_RESULT.json`
-- Result card: `../experiments/two_wave_independent_reference_label_v0648/RESULT_CARD.md`
-- Governance adjudication: `../experiments/two_wave_independent_reference_label_v0648/ADJUDICATION.json`
-- Verdict: `v0648_independent_reference_calibration_gates_not_all_pass`; current v0.6.18 qualification semantics are not independently reference-calibrated.
-
-
-### v0.6.49 reference-conditioned qualification failure attribution — complete
-
-- Protocol: `research/TWO_WAVE_REFERENCE_CONDITIONED_QUALIFICATION_FAILURE_ATTRIBUTION_V0649_PROTOCOL.md`
-- Result: `../experiments/two_wave_reference_conditioned_qualification_attribution_v0649/RESULT.json`
-- Result card: `../experiments/two_wave_reference_conditioned_qualification_attribution_v0649/RESULT_CARD.md`
-- Governance adjudication: `../experiments/two_wave_reference_conditioned_qualification_attribution_v0649/ADJUDICATION.json`
-- Verdict: `v0649_diffuse_or_fundamental_semantic_object_mismatch`; no existing gate family is strongly supported.
-- Next: separately freeze a read-only semantic-object / parent-representation audit.
-
-
-### v0.6.50 semantic-object / parent-representation audit — complete
-
-- Protocol: `research/TWO_WAVE_SEMANTIC_OBJECT_PARENT_REPRESENTATION_AUDIT_V0650_PROTOCOL.md`
-- Result: `../experiments/two_wave_semantic_object_parent_representation_v0650/RESULT.json`
-- Result card: `../experiments/two_wave_semantic_object_parent_representation_v0650/RESULT_CARD.md`
-- Governance adjudication: `../experiments/two_wave_semantic_object_parent_representation_v0650/ADJUDICATION.json`
-- Verdict: `v0650_parent_representation_correspondence_not_identified`; outer intervals overlap, but left-boundary/internal-anchor correspondence remains unresolved.
-- Next: separately freeze a read-only left-boundary / internal-pivot correspondence decomposition.
-
-
-### v0.6.51 left-boundary / internal-pivot decomposition — complete
-
-- Protocol: `research/TWO_WAVE_LEFT_BOUNDARY_INTERNAL_PIVOT_DECOMPOSITION_V0651_PROTOCOL.md`
-- Result: `../experiments/two_wave_left_boundary_internal_pivot_decomposition_v0651/RESULT.json`
-- Result card: `../experiments/two_wave_left_boundary_internal_pivot_decomposition_v0651/RESULT_CARD.md`
-- Governance adjudication: `../experiments/two_wave_left_boundary_internal_pivot_decomposition_v0651/ADJUDICATION.json`
-- Verdict: `v0651_correspondence_decomposition_mixed_or_unresolved`.
-- Next: freeze a read-only ordinal-0 predecessor-support / first-valid-publication lineage audit.
-
-
-### v0.6.52 ordinal-0 predecessor / first-valid publication lineage audit — complete
-
-- Protocol: `research/TWO_WAVE_ORDINAL0_FIRST_VALID_PUBLICATION_LINEAGE_AUDIT_V0652_PROTOCOL.md`
-- Result: `../experiments/two_wave_ordinal0_publication_lineage_audit_v0652/RESULT.json`
-- Result card: `../experiments/two_wave_ordinal0_publication_lineage_audit_v0652/RESULT_CARD.md`
-- Governance adjudication: `../experiments/two_wave_ordinal0_publication_lineage_audit_v0652/ADJUDICATION.json`
-- Verdict: `v0652_structural_ordinal0_provenance_asymmetry_not_materially_expressed`.
-- Next: freeze a read-only filtered exact-ridge vs raw-projection vs frozen-human-anchor layer-attribution audit.
-
-
-### v0.7.0 semantic-bridge counteroffensive — complete
-
-- Protocol: `research/TWO_WAVE_SEMANTIC_BRIDGE_COUNTEROFFENSIVE_V0700_PROTOCOL.md`
-- Result: `../experiments/two_wave_semantic_bridge_counteroffensive_v0700/RESULT.json`
-- Result card: `../experiments/two_wave_semantic_bridge_counteroffensive_v0700/RESULT_CARD.md`
-- Adjudication: `../experiments/two_wave_semantic_bridge_counteroffensive_v0700/ADJUDICATION.json`
-- Verdict: `v0700_ridge_infrastructure_salvage_supported_exact_tuple_objectization_breaks_semantic_bridge`.
-- Salvage: ridge infrastructure retained; exact five-ridge tuple objectization is the first reconstruction point; downstream components await transplantation tests rather than being discarded.
-- Next: v0.7.1 ridge-supported semantic parent objectization reconstruction.
-
-
-### v0.7.1 ridge-supported semantic parent objectization — complete
-
-- Protocol: `research/TWO_WAVE_RIDGE_SEMANTIC_OBJECTIZATION_V0701_PROTOCOL.md`
-- Result: `../experiments/two_wave_ridge_semantic_objectization_v0701/RESULT.json`
-- Result card: `../experiments/two_wave_ridge_semantic_objectization_v0701/RESULT_CARD.md`
-- Governance adjudication: `../experiments/two_wave_ridge_semantic_objectization_v0701/ADJUDICATION.json`
-- Verdict: `v0701_persistence_dominant_objectization_candidate_supported`; F3 passes the frozen Development support gate at `8/11`.
-- Next: freeze causal F3 event/publication semantics and downstream transplantation precheck.
-
-
-### v0.7.2 F3 causal event / publication transplant precheck — complete
-
-- Protocol: `research/TWO_WAVE_F3_CAUSAL_EVENT_PUBLICATION_TRANSPLANT_V0702_PROTOCOL.md`
-- Result: `../experiments/two_wave_f3_event_publication_transplant_v0702/RESULT.json`
-- Result card: `../experiments/two_wave_f3_event_publication_transplant_v0702/RESULT_CARD.md`
-- Adjudication: `../experiments/two_wave_f3_event_publication_transplant_v0702/ADJUDICATION.json`
-- Verdict: `v0702_f3_static_objectization_not_causally_publishable` (`8/11` static, `7/11` causal).
-- Next: frozen causal-certification gap attribution; do not lower the gate or advance to qualification calibration yet.
-
-
-### v0.7.3 F3 causal-certificate gap attribution — complete
-
-- Protocol: `research/TWO_WAVE_F3_CAUSAL_CERTIFICATE_GAP_ATTRIBUTION_V0703_PROTOCOL.md`
-- Result: `../experiments/two_wave_f3_causal_certificate_gap_v0703/RESULT.json`
-- Result card: `../experiments/two_wave_f3_causal_certificate_gap_v0703/RESULT_CARD.md`
-- Adjudication: `../experiments/two_wave_f3_causal_certificate_gap_v0703/ADJUDICATION.json`
-- Verdict: `v0703_gap_requires_explicit_death_evidence_unavailable_at_cutoff` (`8/11` static, `7/11` C0, `7/11` C1).
-- Next: causal object/event lifecycle reconstruction; qualification/direction remain blocked.
-
-
-### v0.7.4 F3 prefix-causal lifecycle reconstruction — complete
-
-- Protocol: `research/TWO_WAVE_F3_PREFIX_CAUSAL_LIFECYCLE_V0704_PROTOCOL.md`
-- Result: `../experiments/two_wave_f3_prefix_causal_lifecycle_v0704/RESULT.json`
-- Result card: `../experiments/two_wave_f3_prefix_causal_lifecycle_v0704/RESULT_CARD.md`
-- Adjudication: `../experiments/two_wave_f3_prefix_causal_lifecycle_v0704/ADJUDICATION.json`
-- Verdict: `v0704_f3_prefix_causal_lifecycle_representation_supported` (`8/11` live, `7/11` certified, zero hard-invariant violations).
-- Next: provisional lifecycle raw-projection / immutable-publication transplant; qualification/direction remain blocked.
-
-
-### v0.7.5 F3 provisional lifecycle publication transplant — complete
-
-- Protocol: `research/TWO_WAVE_F3_PROVISIONAL_LIFECYCLE_PUBLICATION_V0705_PROTOCOL.md`
-- Result: `../experiments/two_wave_f3_provisional_lifecycle_publication_v0705/RESULT.json`
-- Result card: `../experiments/two_wave_f3_provisional_lifecycle_publication_v0705/RESULT_CARD.md`
-- Adjudication: `../experiments/two_wave_f3_provisional_lifecycle_publication_v0705/ADJUDICATION.json`
-- Verdict: `v0705_f3_provisional_lifecycle_publication_transplant_supported` (`1543/1543` published, `1478/1478` certified covered, raw semantic support `9/11`).
-- Next: frozen v0.5.4/v0.6.18 lifecycle-publication qualification interface + semantic transplant precheck; direction remains blocked.
-
-
-### v0.7.6 F3 lifecycle-publication qualification transplant — complete
-
-- Protocol: `research/TWO_WAVE_F3_LIFECYCLE_QUALIFICATION_TRANSPLANT_V0706_PROTOCOL.md`
-- Result: `../experiments/two_wave_f3_lifecycle_qualification_transplant_v0706/RESULT.json`
-- Result card: `../experiments/two_wave_f3_lifecycle_qualification_transplant_v0706/RESULT_CARD.md`
-- Adjudication: `../experiments/two_wave_f3_lifecycle_qualification_transplant_v0706/ADJUDICATION.json`
-- Verdict: `v0706_v0618_lifecycle_qualification_transplant_supported` (`1543/1543` v0.6.18 interface coverage, zero exceptions/contract violations, `115` qualified publications, qualified semantic support `9/11`).
-- Next: separately frozen lifecycle-qualified D1/v0.6.25 direction transplant/adjudication; no current direction winner is restored.
-
-
-### v0.7.7 lifecycle-qualified direction transplant — complete
-
-- Protocol: `research/TWO_WAVE_LIFECYCLE_QUALIFIED_DIRECTION_TRANSPLANT_V0707_PROTOCOL.md`
-- Result: `../experiments/two_wave_lifecycle_qualified_direction_v0707/RESULT.json`
-- Result card: `../experiments/two_wave_lifecycle_qualified_direction_v0707/RESULT_CARD.md`
-- Adjudication: `../experiments/two_wave_lifecycle_qualified_direction_v0707/ADJUDICATION.json`
-- Verdict: `v0707_v0625_lifecycle_direction_transplant_supported_development_only_external_validation_blocked` (`115/115` D1/v0.6.25 evaluation, zero interface/causality violations, `19` legal v0.6.25 uncertainty rescues, frozen semantic subset tied with D1 at `7/9` case exact).
-- Authority: Development contribution only; no direction winner. v0.6.47 temporal replication and v0.6.48 independent-reference calibration remain binding external-validation blocks.
+# 当前文档与历史证据索引
+
+<!-- Generated by scripts/repository_consistency.py; do not hand-edit. -->
+
+当前科学版本：**v0.7.8**；状态：`v0708_external_validation_evidence_gap_no_candidate_opened`。
+
+唯一机器权威：[experiments/two_wave_m0_authority.json](../experiments/two_wave_m0_authority.json)。v0.7.8 证据来源：[experiments/two_wave_external_validation_availability_v0708/ADJUDICATION.json](../experiments/two_wave_external_validation_availability_v0708/ADJUDICATION.json)。
+维护整理不是新的科学实验，不把版本号推进到 v0.7.9。
+
+| 项目 | 当前真实状态 |
+| --- | --- |
+| 父结构研究表示 | F3 persistence-dominant quintet → v0.7.4 prefix-causal lifecycle；仅 Development 支持 |
+| raw projection / publication | v0.7.5 已移植历史 v0.6.4/v0.6.5 原则；1543 个发布对象 |
+| qualification | v0.7.6 已移植 v0.6.18；115 个合格发布对象；语义支持 9/11 |
+| direction | v0.7.7 已完成；v0.6.25 保留为非胜者贡献，D1 仅为历史基线 |
+| direction 对照结果 | 19 个发布级不确定状态得到分类；Development 锚定子集 D1 与 v0.6.25 均为 7/9 exact，未证明语义提升 |
+| 当前权限 | semantic-parent authority=null；direction winner=null；morphology/trade/production=false |
+| 下一科学步骤 | 同时具备新时间样本 A 和新独立形态标签 B，先预注册再评分；当前 A=false、B=false |
+
+v0.6.47 的时间复制弱点与 v0.6.48 的独立参考校准弱点继续有效。
+11 个锚定案例及 115 个合格发布对象属于 Development，不是新的样本外证据。
+
+## 当前入口
+
+- [接续入口](../CONTINUE_HERE.md) / [机器权威](../experiments/two_wave_m0_authority.json) / [人类权威](research/TWO_WAVE_M0_AUTHORITY.md)
+- [当前白皮书](research/TWO_WAVE_WHITEPAPER.md) / [方向贡献台账](research/TWO_WAVE_DIRECTION_CONTRIBUTION_LEDGER.md)
+- [当前数据边界](governance/data_usage_declaration.json) / [当前仓库范围](governance/package_scope.json)
+- [全文件组件身份](governance/repository_component_inventory.json) / [维护审计](governance/REPOSITORY_MAINTENANCE_20260912.md) / [归档说明](../archive/README.md)
+
+## 冻结基础设施合同：兼容性，不授予科学晋升
+
+- [docs/ops/timing_infrastructure_four_layer_inventory@1.0.json](ops/timing_infrastructure_four_layer_inventory@1.0.json)
+- [docs/ops/timing_layer1_datahub_clock_split@1.0.json](ops/timing_layer1_datahub_clock_split@1.0.json)
+- [docs/ops/timing_layer2_measurement_plane@2.3.json](ops/timing_layer2_measurement_plane@2.3.json)
+- [docs/ops/timing_layer3_strategy_architecture@2.2.json](ops/timing_layer3_strategy_architecture@2.2.json)
+- [docs/ops/timing_strategy_identity_registry@2.2.json](ops/timing_strategy_identity_registry@2.2.json)
+- [docs/ops/timing_four_layer_port_contracts@1.1.json](ops/timing_four_layer_port_contracts@1.1.json)
+
+## 已冻结科学协议（历史，不是待办队列）
+
+- [TWO_WAVE_AMPLITUDE_NORMALIZATION_STABILITY_ATTRIBUTION_V0642_PROTOCOL.md](research/TWO_WAVE_AMPLITUDE_NORMALIZATION_STABILITY_ATTRIBUTION_V0642_PROTOCOL.md)
+- [TWO_WAVE_CYCLE_BAND_RANGE_RESCUE_V0629_PROTOCOL.md](research/TWO_WAVE_CYCLE_BAND_RANGE_RESCUE_V0629_PROTOCOL.md)
+- [TWO_WAVE_CYCLE_DRIFT_SIGN_TOPOLOGY_ATTRIBUTION_V0641_PROTOCOL.md](research/TWO_WAVE_CYCLE_DRIFT_SIGN_TOPOLOGY_ATTRIBUTION_V0641_PROTOCOL.md)
+- [TWO_WAVE_D1_HUBER_EROSION_CONSENSUS_V0623_PROTOCOL.md](research/TWO_WAVE_D1_HUBER_EROSION_CONSENSUS_V0623_PROTOCOL.md)
+- [TWO_WAVE_D1_HUBER_MARGIN_RESCUE_V0625_PROTOCOL.md](research/TWO_WAVE_D1_HUBER_MARGIN_RESCUE_V0625_PROTOCOL.md)
+- [TWO_WAVE_D1_HUBER_RESCUE_DIRECTION_V0622_PROTOCOL.md](research/TWO_WAVE_D1_HUBER_RESCUE_DIRECTION_V0622_PROTOCOL.md)
+- [TWO_WAVE_DURATION_GEOMETRY_DECOMPOSITION_V0619_PROTOCOL.md](research/TWO_WAVE_DURATION_GEOMETRY_DECOMPOSITION_V0619_PROTOCOL.md)
+- [TWO_WAVE_F3_CAUSAL_CERTIFICATE_GAP_ATTRIBUTION_V0703_PROTOCOL.md](research/TWO_WAVE_F3_CAUSAL_CERTIFICATE_GAP_ATTRIBUTION_V0703_PROTOCOL.md)
+- [TWO_WAVE_F3_CAUSAL_EVENT_PUBLICATION_TRANSPLANT_V0702_PROTOCOL.md](research/TWO_WAVE_F3_CAUSAL_EVENT_PUBLICATION_TRANSPLANT_V0702_PROTOCOL.md)
+- [TWO_WAVE_F3_LIFECYCLE_QUALIFICATION_TRANSPLANT_V0706_PROTOCOL.md](research/TWO_WAVE_F3_LIFECYCLE_QUALIFICATION_TRANSPLANT_V0706_PROTOCOL.md)
+- [TWO_WAVE_F3_PREFIX_CAUSAL_LIFECYCLE_V0704_PROTOCOL.md](research/TWO_WAVE_F3_PREFIX_CAUSAL_LIFECYCLE_V0704_PROTOCOL.md)
+- [TWO_WAVE_F3_PROVISIONAL_LIFECYCLE_PUBLICATION_V0705_PROTOCOL.md](research/TWO_WAVE_F3_PROVISIONAL_LIFECYCLE_PUBLICATION_V0705_PROTOCOL.md)
+- [TWO_WAVE_INDEPENDENT_REFERENCE_LABEL_CONSTRUCTION_V0648_PROTOCOL.md](research/TWO_WAVE_INDEPENDENT_REFERENCE_LABEL_CONSTRUCTION_V0648_PROTOCOL.md)
+- [TWO_WAVE_INDEPENDENT_TEMPORAL_MORPHOLOGY_REPLICATION_V0647_PROTOCOL.md](research/TWO_WAVE_INDEPENDENT_TEMPORAL_MORPHOLOGY_REPLICATION_V0647_PROTOCOL.md)
+- [TWO_WAVE_LEFT_BOUNDARY_INTERNAL_PIVOT_DECOMPOSITION_V0651_PROTOCOL.md](research/TWO_WAVE_LEFT_BOUNDARY_INTERNAL_PIVOT_DECOMPOSITION_V0651_PROTOCOL.md)
+- [TWO_WAVE_LEG_ASYMMETRY_STABILITY_ATTRIBUTION_V0640_PROTOCOL.md](research/TWO_WAVE_LEG_ASYMMETRY_STABILITY_ATTRIBUTION_V0640_PROTOCOL.md)
+- [TWO_WAVE_LIFECYCLE_QUALIFIED_DIRECTION_TRANSPLANT_V0707_PROTOCOL.md](research/TWO_WAVE_LIFECYCLE_QUALIFIED_DIRECTION_TRANSPLANT_V0707_PROTOCOL.md)
+- [TWO_WAVE_MUTUAL_MEDIAN_RANGE_RESCUE_V0631_PROTOCOL.md](research/TWO_WAVE_MUTUAL_MEDIAN_RANGE_RESCUE_V0631_PROTOCOL.md)
+- [TWO_WAVE_NATIVE_HIGH_LOW_ENVELOPE_DIRECTION_ATTRIBUTION_V0644_PROTOCOL.md](research/TWO_WAVE_NATIVE_HIGH_LOW_ENVELOPE_DIRECTION_ATTRIBUTION_V0644_PROTOCOL.md)
+- [TWO_WAVE_NATIVE_OPEN_BODY_GAP_DIRECTION_ATTRIBUTION_V0646_PROTOCOL.md](research/TWO_WAVE_NATIVE_OPEN_BODY_GAP_DIRECTION_ATTRIBUTION_V0646_PROTOCOL.md)
+- [TWO_WAVE_ONE_BAR_DURATION_REPAIR_V0620_PROTOCOL.md](research/TWO_WAVE_ONE_BAR_DURATION_REPAIR_V0620_PROTOCOL.md)
+- [TWO_WAVE_ORDER_SENSITIVE_RESIDUAL_SHAPE_ATTRIBUTION_V0639_PROTOCOL.md](research/TWO_WAVE_ORDER_SENSITIVE_RESIDUAL_SHAPE_ATTRIBUTION_V0639_PROTOCOL.md)
+- [TWO_WAVE_ORDINAL0_FIRST_VALID_PUBLICATION_LINEAGE_AUDIT_V0652_PROTOCOL.md](research/TWO_WAVE_ORDINAL0_FIRST_VALID_PUBLICATION_LINEAGE_AUDIT_V0652_PROTOCOL.md)
+- [TWO_WAVE_PATH_GATE_DEMOTION_V0618_PROTOCOL.md](research/TWO_WAVE_PATH_GATE_DEMOTION_V0618_PROTOCOL.md)
+- [TWO_WAVE_PHASE_BALANCED_WASSERSTEIN_RANGE_V0637_PROTOCOL.md](research/TWO_WAVE_PHASE_BALANCED_WASSERSTEIN_RANGE_V0637_PROTOCOL.md)
+- [TWO_WAVE_PHASE_BALANCE_RESIDUAL_ATTRIBUTION_V0638_PROTOCOL.md](research/TWO_WAVE_PHASE_BALANCE_RESIDUAL_ATTRIBUTION_V0638_PROTOCOL.md)
+- [TWO_WAVE_RANGE_EVIDENCE_INTERSECTION_V0630_PROTOCOL.md](research/TWO_WAVE_RANGE_EVIDENCE_INTERSECTION_V0630_PROTOCOL.md)
+- [TWO_WAVE_REFERENCE_CONDITIONED_QUALIFICATION_FAILURE_ATTRIBUTION_V0649_PROTOCOL.md](research/TWO_WAVE_REFERENCE_CONDITIONED_QUALIFICATION_FAILURE_ATTRIBUTION_V0649_PROTOCOL.md)
+- [TWO_WAVE_RIDGE_SEMANTIC_OBJECTIZATION_V0701_PROTOCOL.md](research/TWO_WAVE_RIDGE_SEMANTIC_OBJECTIZATION_V0701_PROTOCOL.md)
+- [TWO_WAVE_SEMANTIC_BRIDGE_COUNTEROFFENSIVE_V0700_PROTOCOL.md](research/TWO_WAVE_SEMANTIC_BRIDGE_COUNTEROFFENSIVE_V0700_PROTOCOL.md)
+- [TWO_WAVE_SEMANTIC_OBJECT_PARENT_REPRESENTATION_AUDIT_V0650_PROTOCOL.md](research/TWO_WAVE_SEMANTIC_OBJECT_PARENT_REPRESENTATION_AUDIT_V0650_PROTOCOL.md)
+- [TWO_WAVE_STATE_RELATIVE_MARGIN_V0627_PROTOCOL.md](research/TWO_WAVE_STATE_RELATIVE_MARGIN_V0627_PROTOCOL.md)
+- [TWO_WAVE_TWO_CYCLE_DISTRIBUTION_INTERSECTION_V0634_PROTOCOL.md](research/TWO_WAVE_TWO_CYCLE_DISTRIBUTION_INTERSECTION_V0634_PROTOCOL.md)
+- [TWO_WAVE_TWO_CYCLE_MEDIAN_SHIFT_RANGE_V0633_PROTOCOL.md](research/TWO_WAVE_TWO_CYCLE_MEDIAN_SHIFT_RANGE_V0633_PROTOCOL.md)
+- [TWO_WAVE_TWO_CYCLE_WASSERSTEIN_RANGE_V0635_PROTOCOL.md](research/TWO_WAVE_TWO_CYCLE_WASSERSTEIN_RANGE_V0635_PROTOCOL.md)
+- [TWO_WAVE_V0623_RESIDUAL_ATTRIBUTION_V0624_PROTOCOL.md](research/TWO_WAVE_V0623_RESIDUAL_ATTRIBUTION_V0624_PROTOCOL.md)
+- [TWO_WAVE_V0625_RESIDUAL_ATTRIBUTION_V0626_PROTOCOL.md](research/TWO_WAVE_V0625_RESIDUAL_ATTRIBUTION_V0626_PROTOCOL.md)
+- [TWO_WAVE_V0627_RANGE_RESCUE_ATTRIBUTION_V0628_PROTOCOL.md](research/TWO_WAVE_V0627_RANGE_RESCUE_ATTRIBUTION_V0628_PROTOCOL.md)
+- [TWO_WAVE_V0631_RESIDUAL_ATTRIBUTION_V0632_PROTOCOL.md](research/TWO_WAVE_V0631_RESIDUAL_ATTRIBUTION_V0632_PROTOCOL.md)
+- [TWO_WAVE_W1_RESIDUAL_ATTRIBUTION_V0636_PROTOCOL.md](research/TWO_WAVE_W1_RESIDUAL_ATTRIBUTION_V0636_PROTOCOL.md)
+- [TWO_WAVE_WHOLE_WINDOW_HUBER_DIRECTION_V0621_PROTOCOL.md](research/TWO_WAVE_WHOLE_WINDOW_HUBER_DIRECTION_V0621_PROTOCOL.md)
+
+## 结果卡与裁决（包括失败、无效及 blocked）
+
+- [two_wave_amplitude_normalization_stability_v0642/RESULT_CARD.md](../experiments/two_wave_amplitude_normalization_stability_v0642/RESULT_CARD.md)
+- [two_wave_cycle_band_range_rescue_v0629/RESULT_CARD.md](../experiments/two_wave_cycle_band_range_rescue_v0629/RESULT_CARD.md)
+- [two_wave_cycle_drift_sign_topology_v0641/RESULT_CARD.md](../experiments/two_wave_cycle_drift_sign_topology_v0641/RESULT_CARD.md)
+- [two_wave_d1_huber_erosion_consensus_v0623/RESULT_CARD.md](../experiments/two_wave_d1_huber_erosion_consensus_v0623/RESULT_CARD.md)
+- [two_wave_d1_huber_margin_rescue_v0625/RESULT_CARD.md](../experiments/two_wave_d1_huber_margin_rescue_v0625/RESULT_CARD.md)
+- [two_wave_d1_huber_rescue_direction_v0622/RESULT_CARD.md](../experiments/two_wave_d1_huber_rescue_direction_v0622/RESULT_CARD.md)
+- [two_wave_d1_huber_state_relative_margin_v0627/RESULT_CARD.md](../experiments/two_wave_d1_huber_state_relative_margin_v0627/RESULT_CARD.md)
+- [two_wave_duration_geometry_decomposition_v0619/RESULT_CARD.md](../experiments/two_wave_duration_geometry_decomposition_v0619/RESULT_CARD.md)
+- [two_wave_external_validation_availability_v0708/ADJUDICATION.json](../experiments/two_wave_external_validation_availability_v0708/ADJUDICATION.json)
+- [two_wave_f3_causal_certificate_gap_v0703/ADJUDICATION.json](../experiments/two_wave_f3_causal_certificate_gap_v0703/ADJUDICATION.json)
+- [two_wave_f3_causal_certificate_gap_v0703/RESULT_CARD.md](../experiments/two_wave_f3_causal_certificate_gap_v0703/RESULT_CARD.md)
+- [two_wave_f3_event_publication_transplant_v0702/ADJUDICATION.json](../experiments/two_wave_f3_event_publication_transplant_v0702/ADJUDICATION.json)
+- [two_wave_f3_event_publication_transplant_v0702/RESULT_CARD.md](../experiments/two_wave_f3_event_publication_transplant_v0702/RESULT_CARD.md)
+- [two_wave_f3_lifecycle_qualification_transplant_v0706/ADJUDICATION.json](../experiments/two_wave_f3_lifecycle_qualification_transplant_v0706/ADJUDICATION.json)
+- [two_wave_f3_lifecycle_qualification_transplant_v0706/RESULT_CARD.md](../experiments/two_wave_f3_lifecycle_qualification_transplant_v0706/RESULT_CARD.md)
+- [two_wave_f3_prefix_causal_lifecycle_v0704/ADJUDICATION.json](../experiments/two_wave_f3_prefix_causal_lifecycle_v0704/ADJUDICATION.json)
+- [two_wave_f3_prefix_causal_lifecycle_v0704/RESULT_CARD.md](../experiments/two_wave_f3_prefix_causal_lifecycle_v0704/RESULT_CARD.md)
+- [two_wave_f3_provisional_lifecycle_publication_v0705/ADJUDICATION.json](../experiments/two_wave_f3_provisional_lifecycle_publication_v0705/ADJUDICATION.json)
+- [two_wave_f3_provisional_lifecycle_publication_v0705/RESULT_CARD.md](../experiments/two_wave_f3_provisional_lifecycle_publication_v0705/RESULT_CARD.md)
+- [two_wave_independent_reference_label_v0648/ADJUDICATION.json](../experiments/two_wave_independent_reference_label_v0648/ADJUDICATION.json)
+- [two_wave_independent_reference_label_v0648/RESULT_CARD.md](../experiments/two_wave_independent_reference_label_v0648/RESULT_CARD.md)
+- [two_wave_independent_temporal_replication_v0647/RESULT_CARD.md](../experiments/two_wave_independent_temporal_replication_v0647/RESULT_CARD.md)
+- [two_wave_left_boundary_internal_pivot_decomposition_v0651/ADJUDICATION.json](../experiments/two_wave_left_boundary_internal_pivot_decomposition_v0651/ADJUDICATION.json)
+- [two_wave_left_boundary_internal_pivot_decomposition_v0651/RESULT_CARD.md](../experiments/two_wave_left_boundary_internal_pivot_decomposition_v0651/RESULT_CARD.md)
+- [two_wave_leg_asymmetry_stability_v0640/RESULT_CARD.md](../experiments/two_wave_leg_asymmetry_stability_v0640/RESULT_CARD.md)
+- [two_wave_lifecycle_qualified_direction_v0707/ADJUDICATION.json](../experiments/two_wave_lifecycle_qualified_direction_v0707/ADJUDICATION.json)
+- [two_wave_lifecycle_qualified_direction_v0707/RESULT_CARD.md](../experiments/two_wave_lifecycle_qualified_direction_v0707/RESULT_CARD.md)
+- [two_wave_mutual_median_range_rescue_v0631/RESULT_CARD.md](../experiments/two_wave_mutual_median_range_rescue_v0631/RESULT_CARD.md)
+- [two_wave_native_high_low_envelope_direction_v0644/ADJUDICATION.json](../experiments/two_wave_native_high_low_envelope_direction_v0644/ADJUDICATION.json)
+- [two_wave_native_high_low_envelope_direction_v0644/RESULT_CARD.md](../experiments/two_wave_native_high_low_envelope_direction_v0644/RESULT_CARD.md)
+- [two_wave_native_open_body_gap_direction_v0646/ADJUDICATION.json](../experiments/two_wave_native_open_body_gap_direction_v0646/ADJUDICATION.json)
+- [two_wave_native_open_body_gap_direction_v0646/RESULT_CARD.md](../experiments/two_wave_native_open_body_gap_direction_v0646/RESULT_CARD.md)
+- [two_wave_one_bar_duration_repair_v0620/RESULT_CARD.md](../experiments/two_wave_one_bar_duration_repair_v0620/RESULT_CARD.md)
+- [two_wave_order_sensitive_residual_shape_v0639/RESULT_CARD.md](../experiments/two_wave_order_sensitive_residual_shape_v0639/RESULT_CARD.md)
+- [two_wave_ordinal0_publication_lineage_audit_v0652/ADJUDICATION.json](../experiments/two_wave_ordinal0_publication_lineage_audit_v0652/ADJUDICATION.json)
+- [two_wave_ordinal0_publication_lineage_audit_v0652/RESULT_CARD.md](../experiments/two_wave_ordinal0_publication_lineage_audit_v0652/RESULT_CARD.md)
+- [two_wave_path_gate_demotion_v0618/RESULT_CARD.md](../experiments/two_wave_path_gate_demotion_v0618/RESULT_CARD.md)
+- [two_wave_phase_balance_residual_attribution_v0638/RESULT_CARD.md](../experiments/two_wave_phase_balance_residual_attribution_v0638/RESULT_CARD.md)
+- [two_wave_phase_balanced_wasserstein_range_v0637/RESULT_CARD.md](../experiments/two_wave_phase_balanced_wasserstein_range_v0637/RESULT_CARD.md)
+- [two_wave_range_evidence_intersection_v0630/RESULT_CARD.md](../experiments/two_wave_range_evidence_intersection_v0630/RESULT_CARD.md)
+- [two_wave_reference_conditioned_qualification_attribution_v0649/ADJUDICATION.json](../experiments/two_wave_reference_conditioned_qualification_attribution_v0649/ADJUDICATION.json)
+- [two_wave_reference_conditioned_qualification_attribution_v0649/RESULT_CARD.md](../experiments/two_wave_reference_conditioned_qualification_attribution_v0649/RESULT_CARD.md)
+- [two_wave_ridge_semantic_objectization_v0701/ADJUDICATION.json](../experiments/two_wave_ridge_semantic_objectization_v0701/ADJUDICATION.json)
+- [two_wave_ridge_semantic_objectization_v0701/RESULT_CARD.md](../experiments/two_wave_ridge_semantic_objectization_v0701/RESULT_CARD.md)
+- [two_wave_semantic_bridge_counteroffensive_v0700/ADJUDICATION.json](../experiments/two_wave_semantic_bridge_counteroffensive_v0700/ADJUDICATION.json)
+- [two_wave_semantic_bridge_counteroffensive_v0700/RESULT_CARD.md](../experiments/two_wave_semantic_bridge_counteroffensive_v0700/RESULT_CARD.md)
+- [two_wave_semantic_object_parent_representation_v0650/ADJUDICATION.json](../experiments/two_wave_semantic_object_parent_representation_v0650/ADJUDICATION.json)
+- [two_wave_semantic_object_parent_representation_v0650/RESULT_CARD.md](../experiments/two_wave_semantic_object_parent_representation_v0650/RESULT_CARD.md)
+- [two_wave_two_cycle_distribution_intersection_v0634/RESULT_CARD.md](../experiments/two_wave_two_cycle_distribution_intersection_v0634/RESULT_CARD.md)
+- [two_wave_two_cycle_median_shift_range_v0633/RESULT_CARD.md](../experiments/two_wave_two_cycle_median_shift_range_v0633/RESULT_CARD.md)
+- [two_wave_two_cycle_wasserstein_range_v0635/RESULT_CARD.md](../experiments/two_wave_two_cycle_wasserstein_range_v0635/RESULT_CARD.md)
+- [two_wave_v0623_residual_attribution_v0624/RESULT_CARD.md](../experiments/two_wave_v0623_residual_attribution_v0624/RESULT_CARD.md)
+- [two_wave_v0625_residual_attribution_v0626/RESULT_CARD.md](../experiments/two_wave_v0625_residual_attribution_v0626/RESULT_CARD.md)
+- [two_wave_v0627_range_rescue_attribution_v0628/RESULT_CARD.md](../experiments/two_wave_v0627_range_rescue_attribution_v0628/RESULT_CARD.md)
+- [two_wave_v0631_residual_attribution_v0632/RESULT_CARD.md](../experiments/two_wave_v0631_residual_attribution_v0632/RESULT_CARD.md)
+- [two_wave_w1_residual_attribution_v0636/RESULT_CARD.md](../experiments/two_wave_w1_residual_attribution_v0636/RESULT_CARD.md)
+- [two_wave_whole_window_huber_direction_v0621/RESULT_CARD.md](../experiments/two_wave_whole_window_huber_direction_v0621/RESULT_CARD.md)

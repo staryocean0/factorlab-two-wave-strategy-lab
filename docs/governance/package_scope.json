@@ -1,6 +1,6 @@
 {
-  "schema_id": "two_wave_cloud_theme_package_scope@1.0",
-  "package_role": "temporary_private_cloud_research_repository",
+  "schema_id": "two_wave_cloud_theme_package_scope@1.1",
+  "package_role": "bounded_two_wave_research_repository",
   "objective": "develop_a_causal_two_complete_wave_parent_structure_recognizer_as_a_proposed_Layer3_tool16",
   "source_project": "FactorLab",
   "included": [
@@ -26,6 +26,10 @@
   ],
   "authoritative_local_registry_mutation": false,
   "cloud_result_import_requires_local_controller_review": true,
-  "private_repository_required": true,
-  "production_authority": false
+  "production_authority": false,
+  "repository_visibility_observed": "public",
+  "visibility_changed_by_this_maintenance": false,
+  "seed_privacy_statement": "historical private requirement preserved in original scope; current repository is already public",
+  "current_authority": "experiments/two_wave_m0_authority.json",
+  "scientific_revision": "v0.7.8"
 }

@@ -1,0 +1,39 @@
+{
+  "schema_id": "two_wave_cloud_theme_controller_validation@1.0",
+  "status": "accepted_for_private_cloud_morphology_research",
+  "git_payload_mib": 38.2,
+  "frozen_source_file_count": 473,
+  "data_product_count": 14,
+  "data_row_count": 749337,
+  "data_file_size_mib": 30.75,
+  "maximum_single_file_bytes": 12842573,
+  "instrument": "000852.SH",
+  "development_start": "2015-01-05",
+  "development_end": "2020-12-31",
+  "post_2020_rows_present": false,
+  "timestamp_normalization_verified": true,
+  "ohlc_invariants_verified": true,
+  "duplicate_timestamps": 0,
+  "immutable_current_tool_count": 15,
+  "candidate_tool_ordinal": 16,
+  "candidate_tool_id": "two_wave_parent_structure_recognizer",
+  "candidate_installed": false,
+  "python_versions_tested": [
+    "3.11.11",
+    "3.13"
+  ],
+  "regression_test_count": 52,
+  "regression_tests_passed": 52,
+  "secret_pattern_matches": 0,
+  "files_over_50_mib": 0,
+  "remaining_scientific_gaps": [
+    "independent_human_morphology_labels_not_supplied",
+    "CSI1000_2009_2014_minute_history_unavailable",
+    "post_2020_causal_challenge_physically_withheld",
+    "tradeable_fill_surface_not_in_scope"
+  ],
+  "fresh_oos": false,
+  "registered_use_authority": false,
+  "paper_trading_authority": false,
+  "production_authority": false
+}

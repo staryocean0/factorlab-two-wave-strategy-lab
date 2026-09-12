@@ -1,0 +1,31 @@
+{
+  "schema_id": "two_wave_cloud_theme_package_scope@1.0",
+  "package_role": "temporary_private_cloud_research_repository",
+  "objective": "develop_a_causal_two_complete_wave_parent_structure_recognizer_as_a_proposed_Layer3_tool16",
+  "source_project": "FactorLab",
+  "included": [
+    "user_handoff_prompt",
+    "scoped_document_index",
+    "current_Layer1_Layer2_Layer3_contracts",
+    "current_15_tool_registry_prefix",
+    "python_import_closure_for_timing_infrastructure",
+    "relevant_regression_tests",
+    "strategy_research_governance",
+    "CSI1000_2015_2020_DataHub_bar_views"
+  ],
+  "excluded": [
+    "FactorLab_git_history",
+    "credentials_and_environment_secrets",
+    "beads_interaction_history",
+    "runtime_caches",
+    "FactorLab_outputs_and_artifacts",
+    "raw_transaction_data",
+    "option_and_futures_data",
+    "post_2020_CSI1000_rows",
+    "Layer4_economic_routing_implementation"
+  ],
+  "authoritative_local_registry_mutation": false,
+  "cloud_result_import_requires_local_controller_review": true,
+  "private_repository_required": true,
+  "production_authority": false
+}

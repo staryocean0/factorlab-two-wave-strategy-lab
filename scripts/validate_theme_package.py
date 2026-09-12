@@ -73,8 +73,11 @@ def validate_source_closure() -> dict[str, int]:
     entries = manifest.get("files")
     if not isinstance(entries, list) or not entries:
         raise RuntimeError("source closure is empty")
+    preservation = _require_json(ROOT / "docs/governance/repository_preservation_manifest_20260912.json")
+    locations = {row["original_path"]: row["preserved_path"] for row in preservation["files"]}
     checked = 0
     mutable_checked = 0
+    archived_checked = 0
     for item in entries:
         if not isinstance(item, dict):
             raise RuntimeError("source closure row must be an object")
@@ -85,6 +88,15 @@ def validate_source_closure() -> dict[str, int]:
                 raise RuntimeError(f"mutable authority entry missing: {relative}")
             mutable_checked += 1
             continue
+        preserved = locations.get(relative, relative)
+        if preserved != relative:
+            destination = Path(preserved)
+            if destination.is_absolute() or ".." in destination.parts or not preserved.startswith("archive/"):
+                raise RuntimeError(f"unsafe source archive mapping: {relative}")
+            path = ROOT / destination
+            if path.is_symlink() or not path.resolve().is_relative_to(ROOT.resolve()):
+                raise RuntimeError(f"source archive escaped repository: {relative}")
+            archived_checked += 1
         if not path.is_file() or _sha256(path) != str(item["sha256"]):
             raise RuntimeError(f"frozen source drifted: {relative}")
         checked += 1
@@ -95,6 +107,7 @@ def validate_source_closure() -> dict[str, int]:
         raise RuntimeError(f"mutable authority entries missing: {missing_authority}")
     return {
         "source_files_checked": checked,
+        "archived_source_files_checked": archived_checked,
         "mutable_authority_files_checked": mutable_checked,
     }
 
