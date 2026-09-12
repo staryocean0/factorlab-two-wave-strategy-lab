@@ -1,0 +1,12 @@
+{
+  "adjudication_packet_manifest_file": "ADJUDICATION_PACKET_MANIFEST.json",
+  "expected_disagreement_count": 16,
+  "first_pass_hash_freeze_file": "FIRST_PASS_HASH_FREEZE.json",
+  "first_pass_quality_file": "FIRST_PASS_QUALITY.json",
+  "hidden_strata_unblinded": false,
+  "model_predictions_unblinded": false,
+  "model_scoring_started": false,
+  "schema": "two_wave_v0648_third_adjudicator_hash_freeze@1.0",
+  "third_adjudicator_path": "experiments/two_wave_independent_reference_label_v0648/two_wave_v0648_third_adjudicator_completed.csv",
+  "third_adjudicator_sha256": "cf4a0c6b738bb4dac92cbcb8d8bdb5023e0061bb138220a83e0ea57bd4176b37"
+}
