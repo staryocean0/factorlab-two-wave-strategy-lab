@@ -294,3 +294,11 @@ The next program step should be **independent reference-label morphology validat
 - F3 persistence-dominant nonconsecutive quintet supports `8/11` anchored human-positive cases and is retained as a Development reconstruction candidate.
 - D1 and v0.6.25 are **not invalidated**; they remain historical direction components awaiting transplantation after F3 event/publication, raw projection, and qualification are frozen.
 - No direction challenger is authorized at this stage.
+
+
+## v0.7.2 F3 publication salvage / direction hold
+
+- Label-blind event audit salvages the append-only publication concept: F3 certificate coverage `92.05%`, cutoff presence `100%`, replay failures `0`.
+- Direct parent publication is not yet identified because certified F3 multiplicity is median `125`, Q3 `152.25`.
+- v0.6.18 and D1/v0.6.25 remain historical results queued for transplantation; no direction test is reopened yet.
+- Next: structural F3 object selection / uniqueness, then generalized projection, qualification retest, and direction retest in sequence.

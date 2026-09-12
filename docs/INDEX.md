@@ -181,3 +181,13 @@ These snapshots contain links outside this bounded theme package. The scoped ind
 - Governance adjudication: `../experiments/two_wave_ridge_semantic_objectization_v0701/ADJUDICATION.json`
 - Verdict: `v0701_persistence_dominant_objectization_candidate_supported`; F3 passes the frozen Development support gate at `8/11`.
 - Next: freeze causal F3 event/publication semantics and downstream transplantation precheck.
+
+
+### v0.7.2 F3 causal event/publication + transplant precheck — complete
+
+- Protocol: `research/TWO_WAVE_F3_CAUSAL_PUBLICATION_TRANSPLANT_V0702_PROTOCOL.md`
+- Result: `../experiments/two_wave_f3_causal_publication_transplant_v0702/RESULT.json`
+- Result card: `../experiments/two_wave_f3_causal_publication_transplant_v0702/RESULT_CARD.md`
+- Governance adjudication: `../experiments/two_wave_f3_causal_publication_transplant_v0702/ADJUDICATION.json`
+- Verdict: `v0702_f3_immutable_event_certificate_supported_append_only_concept_salvaged_object_selection_unresolved`.
+- Next: freeze purely structural F3 object-selection / uniqueness audit.

@@ -459,3 +459,22 @@ The counteroffensive preserved the causal TCSS/ridge infrastructure and tested p
 Formal verdict: **`v0701_persistence_dominant_objectization_candidate_supported`**. F3 is a Development reconstruction candidate only, not active morphology authority. The legacy exact-consecutive tuple remains historical baseline evidence. Downstream publication, projection, qualification, and direction components are not declared false: they remain queued for transplantation tests.
 
 The next authorized step is a separately frozen causal F3 event/publication and downstream-transplant precheck. It must define first-known/immutable object semantics and quantify multiplicity/rewrite risk without fitting F3 parameters to the human labels.
+
+
+## v0.7.2: F3 causal event/publication + downstream transplant precheck — append-only concept salvaged; selection unresolved
+
+Frozen protocol: `docs/research/TWO_WAVE_F3_CAUSAL_PUBLICATION_TRANSPLANT_V0702_PROTOCOL.md`.  
+Protocol freeze commit: `9b062153bd28b9591b66eb26fcebf8f1d431a24f`.  
+Formal workflow run: `34679691056`.  
+Formal result commit: `291633b7063e16acc7f39f261cefb1ff175d4cfb`.  
+Result: `experiments/two_wave_f3_causal_publication_transplant_v0702/RESULT.json`.  
+Result card: `experiments/two_wave_f3_causal_publication_transplant_v0702/RESULT_CARD.md`.  
+Governance adjudication: `experiments/two_wave_f3_causal_publication_transplant_v0702/ADJUDICATION.json`.
+
+The primary audit was label-blind across all 240 frozen packet cutoffs. `31,324 / 34,029 = 92.05%` of ordinary final-cutoff F3 objects received a monotone explicit-death certificate by the same cutoff, all `240/240` F3-positive cutoffs contained a certified object, and certificate replay failures were zero. Median certificate delay was `0` bars and Q3 `4` bars. Gate A therefore passes and the historical v0.6.5 **append-only publication concept is salvaged** for F3.
+
+However, event certification does not identify one parent: certified-object multiplicity per cutoff has median `125` and Q3 `152.25`, massively outside the frozen `<=1 / <=2` direct-publication band. Gate B fails. Formal verdict: **`v0702_f3_immutable_event_certificate_supported_append_only_concept_salvaged_object_selection_unresolved`**.
+
+The old v0.6.5 exact grouping/function is not reused unchanged. v0.6.4 predecessor projection is also not directly transplantable because it requires consecutive birth-level nodes, while F3 is nonconsecutive; the sequential projection idea itself remains alive. Qualification and direction remain queued for later transplantation rather than rejected.
+
+Next authorized step: a separately frozen purely structural F3 object-selection / uniqueness audit. Generalized raw projection remains blocked until a deterministic parent identity is frozen.

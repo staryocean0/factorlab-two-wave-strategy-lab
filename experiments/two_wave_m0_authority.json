@@ -1,5 +1,5 @@
 {
-  "schema": "two_wave_m0_authority@1.26",
+  "schema": "two_wave_m0_authority@1.27",
   "date": "2026-09-12",
   "primary_object": "two_wave_parent_structure_recognizer",
   "target_states": [
@@ -8,7 +8,7 @@
     "DownTrend",
     "Uncertain"
   ],
-  "global_status": "v0701_persistence_dominant_objectization_candidate_supported_f3_event_publication_transplant_precheck_next",
+  "global_status": "v0702_f3_immutable_event_certificate_supported_append_only_concept_salvaged_object_selection_unresolved",
   "morphology_acceptance": false,
   "historical_full_recognizer_operational_baseline": {
     "version": "v0.4.3",
@@ -18,7 +18,7 @@
     "parent_identity": {
       "version": "v0.5.2",
       "name": "exact-ridge parent identity",
-      "status": "legacy_exact_tuple_demoted_f3_persistence_dominant_objectization_development_candidate_supported",
+      "status": "F3_development_candidate_immutable_event_supported_structural_selection_unresolved",
       "independent_reference_correspondence_status": "semantic_bridge_failure_localized_at_exact_tuple_objectization",
       "v0650_median_parent_interval_iou": 0.7741935483870968,
       "v0650_median_anchor_mae_fraction": 0.12421052631578948,
@@ -56,27 +56,40 @@
       "v0701_F3_median_candidate_objects": 142.0,
       "v0701_F3_median_compatible_objects": 1.0,
       "v0701_F3_exactly_one_compatible_cases": 5,
-      "v0701_morphology_authority_granted": false
+      "v0701_morphology_authority_granted": false,
+      "v0702_ordinary_F3_objects": 34029,
+      "v0702_certified_F3_objects": 31324,
+      "v0702_certified_object_fraction": 0.9205089776367216,
+      "v0702_certified_presence_fraction": 1.0,
+      "v0702_certified_object_count_median": 125.0,
+      "v0702_certified_object_count_q3": 152.25,
+      "v0702_gate_A_event_certificate_passed": true,
+      "v0702_gate_B_single_parent_identifiability_passed": false
     },
     "same_scale_semantics": {
       "version": "v0.5.4",
       "name": "full-cycle-scale qualification",
-      "status": "historical_component_awaiting_retest_after_f3_event_publication_and_projection_freeze"
+      "status": "historical_component_waiting_F3_selection_then_generalized_projection_before_retest"
     },
     "raw_identity_publication": {
       "version": "v0.6.5",
       "name": "first-valid immutable predecessor publication",
-      "status": "historical_component_queued_for_f3_event_publication_transplant_precheck_not_declared_false",
+      "status": "append_only_publication_concept_salvaged_for_F3_exact_legacy_grouping_not_transplantable",
       "v0652_background_published_groups": 38176,
       "v0652_background_groups_with_later_valid_evidence": 2,
       "v0652_background_suppressed_rewrite_comparisons": 1,
       "v0652_qualified_groups_with_later_valid_evidence": 0,
-      "v0652_qualified_suppressed_rewrites": 0
+      "v0652_qualified_suppressed_rewrites": 0,
+      "v0702_append_only_concept_salvaged": true,
+      "v0702_exact_v065_function_transplantable_unchanged": false,
+      "v0702_certificate_delay_median_bars": 0.0,
+      "v0702_certificate_delay_q3_bars": 4.0,
+      "v0702_certificate_replay_failures": 0
     },
     "qualification_policy": {
       "version": "v0.6.18",
       "name": "path-gate demotion",
-      "status": "legacy_object_development_champion_queued_for_transplantation_retest_after_f3_parent_freeze",
+      "status": "legacy_object_development_champion_waiting_F3_selection_projection_before_transplantation_retest",
       "formal_verdict": "v0618_path_gate_demotion_research_candidate_pass",
       "workflow_run": 34423674192,
       "result_commit": "9600eca94de9fb2cc39db4b995edec3d5e7870c3",
@@ -90,7 +103,7 @@
     },
     "parent_direction": {
       "winner": null,
-      "status": "historical_direction_components_queued_for_transplantation_retest_after_f3_parent_and_qualification_freeze",
+      "status": "historical_direction_components_waiting_F3_selection_projection_qualification_before_transplantation_retest",
       "historical_baseline": {
         "name": "D1",
         "pooled_exact_agreement": 0.957592339261286,
@@ -356,7 +369,7 @@
   "current_price_input_direction_expansion_status": "closed_after_v0646_close_high_low_and_native_open_classes_adjudicated_no_challenger_authorized",
   "current_temporal_replication_status": "v0647_complete_not_all_original_v0625_gates_pass",
   "current_reference_label_status": "v0648_complete_independent_reference_calibration_gates_not_all_pass",
-  "next_authorized_step": "freeze causal F3 event/publication semantics and downstream transplantation precheck; test causal first-known time, object multiplicity, rewrite risk, and whether the v0.6.5 append-only publication concept can be transplanted without human-label fitting; only after event/publication freeze may raw projection, v0.5.4/v0.6.18 qualification, and D1/v0.6.25 direction be re-tested sequentially",
+  "next_authorized_step": "freeze a purely structural F3 object-selection / uniqueness audit using no human-anchor proximity and no fitted amplitude, duration, distance, persistence, multiplicity, or delay thresholds; if a deterministic parent identity is supported, then freeze generalized F3 raw projection; thereafter retest v0.5.4/v0.6.18 qualification and then D1/v0.6.25 direction sequentially",
   "no_current_direction_challenger_authorized": true,
   "forbidden_next_shortcuts": [
     "retry_endpoint_D2_or_confidence_gated_D2",
@@ -425,7 +438,13 @@
     "fit_F3_persistence_threshold_from_v0648_labels",
     "fit_bar_distance_or_skip_count_to_make_F3_pass_more_cases",
     "reuse_v0618_or_v0625_as_active_authority_before_F3_event_publication_and_projection_freeze",
-    "declare_v064_v065_v0618_D1_v0625_false_without_transplantation_retest"
+    "declare_v064_v065_v0618_D1_v0625_false_without_transplantation_retest",
+    "publish_one_F3_parent_by_human_anchor_proximity",
+    "fit_F3_object_selection_weights_or_thresholds_from_v0648_labels",
+    "choose_F3_parent_by_future_return_or_direction_agreement",
+    "open_generalized_raw_projection_before_F3_parent_selection_is_frozen",
+    "declare_v065_publication_concept_invalid_after_v0702_gate_A_pass",
+    "restore_v0618_or_v0625_active_authority_before_sequential_transplantation_retests"
   ],
   "trade_authority": false,
   "production_authority": false,
@@ -501,7 +520,7 @@
       "production_authority_changed": false
     }
   },
-  "current_parent_representation_status": "F3_persistence_dominant_nonconsecutive_quintet_supported_as_development_reconstruction_candidate_only",
+  "current_parent_representation_status": "F3_immutable_event_semantics_supported_parent_selection_uniqueness_unresolved",
   "no_current_semantic_object_challenger_authorized": true,
   "left_boundary_internal_pivot_decomposition": {
     "v0651": {
@@ -645,6 +664,37 @@
       "threshold_fitting_performed": false,
       "qualification_changed": false,
       "direction_winner_changed": false,
+      "trade_authority_changed": false,
+      "production_authority_changed": false
+    },
+    "v0702": {
+      "status": "complete_event_certificate_supported_append_only_concept_salvaged_object_selection_unresolved",
+      "protocol": "docs/research/TWO_WAVE_F3_CAUSAL_PUBLICATION_TRANSPLANT_V0702_PROTOCOL.md",
+      "protocol_freeze_commit": "9b062153bd28b9591b66eb26fcebf8f1d431a24f",
+      "formal_workflow_run": 34679691056,
+      "formal_result_commit": "291633b7063e16acc7f39f261cefb1ff175d4cfb",
+      "result": "experiments/two_wave_f3_causal_publication_transplant_v0702/RESULT.json",
+      "result_card": "experiments/two_wave_f3_causal_publication_transplant_v0702/RESULT_CARD.md",
+      "adjudication": "experiments/two_wave_f3_causal_publication_transplant_v0702/ADJUDICATION.json",
+      "packet_cutoffs": 240,
+      "ordinary_F3_objects": 34029,
+      "certified_F3_objects": 31324,
+      "certified_object_fraction": 0.9205089776367216,
+      "certified_presence_fraction_given_F3_positive_cutoff": 1.0,
+      "certificate_delay_median_bars": 0.0,
+      "certificate_delay_q3_bars": 4.0,
+      "certified_object_count_median": 125.0,
+      "certified_object_count_q3": 152.25,
+      "gate_A_causal_certificate_coverage": true,
+      "gate_B_direct_single_parent_publication_identifiability": false,
+      "v065_append_only_publication_concept_salvaged": true,
+      "v064_projection_transplantable_unchanged": false,
+      "human_reference_labels_used": false,
+      "packet_stratum_used": false,
+      "threshold_fitting_performed": false,
+      "qualification_changed": false,
+      "direction_winner_changed": false,
+      "morphology_acceptance_changed": false,
       "trade_authority_changed": false,
       "production_authority_changed": false
     }
