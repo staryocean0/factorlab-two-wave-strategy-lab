@@ -1,0 +1,89 @@
+name: repository-reconcile-once
+on:
+  push:
+    branches: [maintenance/repository-consistency-20260912]
+    paths: [.github/workflows/repository-reconcile-once.yml]
+permissions:
+  contents: write
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: python -m pip install -e .
+      - name: Verify locally tested maintenance source and apply once
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git hash-object scripts/repository_consistency.py)" = 89de8edefd46541e969b69b6c9235df34b34772b
+          test "$(git hash-object archive/maintenance_20260912/reconcile.py)" = 914d1a9978a21c712d83b7f2ef1e212e534fd083
+          test "$(git hash-object archive/maintenance_20260912/test_repository_consistency.py.template)" = b59a388c10e9521bd0324e76a6a43afd7a7506c6
+          mkdir -p /tmp/two-wave-maintenance-validation
+          python archive/maintenance_20260912/reconcile.py --apply | tee /tmp/two-wave-maintenance-validation/consistency.json
+      - name: Validate every frozen source and market data product
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/validate_theme_package.py | tee /tmp/two-wave-maintenance-validation/package.json
+      - name: Full unchanged scientific regressions and new maintenance tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pytest -q --junitxml=/tmp/two-wave-maintenance-validation/pytest.xml | tee /tmp/two-wave-maintenance-validation/pytest.log
+      - name: Record actual successful command receipts
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, os, sys
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+          logs = Path('/tmp/two-wave-maintenance-validation')
+          suites = list(ET.parse(logs/'pytest.xml').getroot().iter('testsuite'))
+          stats = {key: sum(int(s.get(key, '0')) for s in suites) for key in ('tests', 'failures', 'errors', 'skipped')}
+          if stats['failures'] or stats['errors']:
+              raise SystemExit('Never publish a failed validation receipt as passed')
+          result = {
+              'schema': 'two_wave_repository_maintenance_validation@1.0',
+              'date': '2026-09-12',
+              'execution_venue': 'GitHub Actions Python 3.11',
+              'python': sys.version,
+              'workflow_run': int(os.environ['GITHUB_RUN_ID']),
+              'input_commit': os.environ['GITHUB_SHA'],
+              'tested_scope': 'working tree produced by the pinned reconciliation; final workflow-cleanup commit is validated separately by ordinary CI',
+              'command_exit_codes': {'reconcile': 0, 'validate_theme_package': 0, 'full_pytest': 0},
+              'pytest': stats,
+              'consistency': json.loads((logs/'consistency.json').read_text()),
+              'package_validation': json.loads((logs/'package.json').read_text()),
+              'local_supplement': {'python': '3.13', 'governance_tests_passed': 21, 'full_environment_claimed': False},
+              'scientific_experiment_rerun': False,
+              'morphology_acceptance': False,
+              'trade_authority': False,
+              'production_authority': False,
+          }
+          Path('docs/governance/REPOSITORY_VALIDATION_20260912.json').write_text(json.dumps(result, ensure_ascii=False, indent=2)+'\n')
+          PY
+          python scripts/repository_consistency.py --write
+      - name: Commit non-workflow reconciliation only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A -- . ':!.github'
+          git diff --cached --check
+          git commit -m 'Reconcile v0708 authority docs archives and tests with preserved evidence [skip ci]'
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: repository-maintenance-validation
+          path: /tmp/two-wave-maintenance-validation/
+          retention-days: 14
