@@ -1,0 +1,101 @@
+name: two-wave-v0648-final-reference-and-scoring-once
+
+on:
+  push:
+    branches:
+      - research/two-wave-reference-label-freeze-tooling-v0648
+    paths-ignore:
+      - experiments/two_wave_independent_reference_label_v0648/THIRD_ADJUDICATOR_HASH_FREEZE.json
+      - experiments/two_wave_independent_reference_label_v0648/FINAL_REFERENCE_LABELS.csv
+      - experiments/two_wave_independent_reference_label_v0648/FINAL_REFERENCE_FREEZE.json
+      - experiments/two_wave_independent_reference_label_v0648/REFERENCE_SCORING_RESULT.json
+
+permissions:
+  contents: write
+
+jobs:
+  final-freeze-and-score:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: python -m pip install -e .
+      - run: python scripts/validate_theme_package.py
+      - run: pytest -q
+
+      - name: Freeze exact third-adjudicator SHA256 before final reference construction
+        shell: bash
+        run: |
+          set -euo pipefail
+          OUT=experiments/two_wave_independent_reference_label_v0648
+          C="$OUT/two_wave_v0648_third_adjudicator_completed.csv"
+          C_SHA=$(sha256sum "$C" | awk '{print $1}')
+          test "$C_SHA" = "cf4a0c6b738bb4dac92cbcb8d8bdb5023e0061bb138220a83e0ea57bd4176b37"
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          root = Path('experiments/two_wave_independent_reference_label_v0648')
+          c = root / 'two_wave_v0648_third_adjudicator_completed.csv'
+          sha = hashlib.sha256(c.read_bytes()).hexdigest()
+          record = {
+              'schema': 'two_wave_v0648_third_adjudicator_hash_freeze@1.0',
+              'third_adjudicator_path': str(c),
+              'third_adjudicator_sha256': sha,
+              'expected_disagreement_count': 16,
+              'first_pass_hash_freeze_file': 'FIRST_PASS_HASH_FREEZE.json',
+              'first_pass_quality_file': 'FIRST_PASS_QUALITY.json',
+              'adjudication_packet_manifest_file': 'ADJUDICATION_PACKET_MANIFEST.json',
+              'hidden_strata_unblinded': False,
+              'model_predictions_unblinded': False,
+              'model_scoring_started': False,
+          }
+          (root / 'THIRD_ADJUDICATOR_HASH_FREEZE.json').write_text(json.dumps(record, indent=2, sort_keys=True) + '\n')
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$OUT/THIRD_ADJUDICATOR_HASH_FREEZE.json"
+          git commit -m "Freeze v0648 third-adjudicator SHA256 before final reference [skip ci]"
+          git push origin HEAD:research/two-wave-reference-label-freeze-tooling-v0648
+
+      - name: Freeze final independent reference labels
+        shell: bash
+        run: |
+          set -euo pipefail
+          OUT=experiments/two_wave_independent_reference_label_v0648
+          python scripts/finalize_two_wave_reference_labels_v0648.py \
+            --annotator-a "$OUT/two_wave_v0648_annotator_A_completed.csv" \
+            --annotator-b "$OUT/two_wave_v0648_annotator_B_completed.csv" \
+            --adjudicator "$OUT/two_wave_v0648_third_adjudicator_completed.csv" \
+            --output "$OUT"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path('experiments/two_wave_independent_reference_label_v0648/FINAL_REFERENCE_FREEZE.json')
+          x = json.loads(p.read_text())
+          assert x['unresolved_disagreements'] == 0, x
+          assert x['model_scoring_allowed'] is True, x
+          assert x['first_pass_label_quality_pass'] is True, x
+          assert x['morphology_acceptance'] is False, x
+          PY
+          git add "$OUT/FINAL_REFERENCE_LABELS.csv" "$OUT/FINAL_REFERENCE_FREEZE.json"
+          git commit -m "Freeze adjudicated v0648 final reference labels [skip ci]"
+          git push origin HEAD:research/two-wave-reference-label-freeze-tooling-v0648
+
+      - name: Run pre-frozen v0648 model/reference scoring
+        shell: bash
+        run: |
+          set -euo pipefail
+          OUT=experiments/two_wave_independent_reference_label_v0648
+          python scripts/score_two_wave_independent_reference_v0648.py \
+            --final-reference "$OUT/FINAL_REFERENCE_LABELS.csv" \
+            --freeze-audit "$OUT/FINAL_REFERENCE_FREEZE.json" \
+            --output "$OUT"
+          git add "$OUT/REFERENCE_SCORING_RESULT.json"
+          git commit -m "Record formal v0648 independent reference scoring [skip ci]"
+          git push origin HEAD:research/two-wave-reference-label-freeze-tooling-v0648
