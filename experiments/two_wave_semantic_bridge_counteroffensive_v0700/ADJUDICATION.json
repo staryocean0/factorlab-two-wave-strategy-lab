@@ -1,0 +1,44 @@
+{
+  "schema": "two_wave_semantic_bridge_counteroffensive_adjudication@0.7.0",
+  "protocol": "docs/research/TWO_WAVE_SEMANTIC_BRIDGE_COUNTEROFFENSIVE_V0700_PROTOCOL.md",
+  "protocol_freeze_commit": "525948dc7f22a01fdfd6df453a935181df41e0f6",
+  "formal_workflow_run": 34671433841,
+  "formal_result_commit": "4c0fc9366dd8e2ce6537f9c384c24d90f2d2f920",
+  "primary_category": "v0700_ridge_infrastructure_salvage_supported_exact_tuple_objectization_breaks_semantic_bridge",
+  "anchored_reference_positive_cases": 11,
+  "salvage_threshold_cases": 8,
+  "layer_support_counts": {
+    "L0_raw_turn_support": 11,
+    "L1_common_scale_ridge_support": 10,
+    "L2_exact_ridge_tuple_support": 3,
+    "L3_tuple_birth_support": 3,
+    "L4_legacy_filtered_identity_support": 2,
+    "L5_legacy_published_raw_identity_support": 3
+  },
+  "decisive_transition": "L1_to_L2",
+  "L1_true_L2_false_cases": 7,
+  "L2_true_L3_false_cases": 0,
+  "retained_components": {
+    "data_clock_source_replay_governance": "retain_without_semantic_change",
+    "tcss_extrema_ridge_infrastructure": "retain_as_support_infrastructure_but_not_parent_authority"
+  },
+  "reconstruct_or_revalidate": [
+    "exact_ridge_five_tuple_objectization",
+    "legacy_filtered_parent_identity"
+  ],
+  "awaiting_transplantation_retest": [
+    "tuple_birth_causal_adjacency_rule",
+    "raw_projection_v064_v065",
+    "same_scale_v054_and_qualification_v0618",
+    "direction_D1_v0625"
+  ],
+  "historical_downstream_conclusions_declared_false": false,
+  "new_object_constructor_fitted": false,
+  "threshold_fitting_performed": false,
+  "qualification_changed": false,
+  "direction_winner_changed": false,
+  "morphology_acceptance": false,
+  "trade_authority": false,
+  "production_authority": false,
+  "next_authorized_step": "v0.7.1 ridge-supported semantic parent objectization reconstruction: retain TCSS/ridge support, remove exact-consecutive-five-ridge-tuple as default semantic-parent bridge, define structural object families before reference scoring, then transplant downstream components one layer at a time"
+}
