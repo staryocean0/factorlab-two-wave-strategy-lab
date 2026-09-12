@@ -1,0 +1,198 @@
+name: two-wave-v0706-governance-close-once
+
+on:
+  push:
+    branches:
+      - research/two-wave-f3-lifecycle-qualification-v0706
+    paths:
+      - .github/workflows/two-wave-v0706-governance-close-once.yml
+
+permissions:
+  contents: write
+
+jobs:
+  close:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: python -m pip install -e .
+      - run: python scripts/validate_theme_package.py
+      - run: pytest -q
+      - name: Synchronize v0706 governance
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path('.')
+          result_path = root / 'experiments/two_wave_f3_lifecycle_qualification_transplant_v0706/RESULT.json'
+          result = json.loads(result_path.read_text())
+          authority_path = root / 'experiments/two_wave_m0_authority.json'
+          a = json.loads(authority_path.read_text())
+
+          verdict = result['primary_category']
+          expected = 'v0706_v0618_lifecycle_qualification_transplant_supported'
+          if verdict != expected:
+              raise AssertionError(f'unexpected v0706 verdict: {verdict}')
+          retry = result.get('implementation_retry', {})
+          if retry.get('original_invalid_formal_run_id') != 34685420204:
+              raise AssertionError('v0706 implementation lineage missing original invalid run')
+          if retry.get('scientific_protocol_unchanged') is not True:
+              raise AssertionError('v0706 retry changed scientific protocol')
+          if result['required_upstream_replication']['published_raw_ordinal_hit_cases'] != [11, 11, 11, 11, 10]:
+              raise AssertionError('v0706 corrected upstream ordinal replication missing')
+          if int(result['interface_audit']['v054_exception_count']) != 0 or int(result['interface_audit']['v0618_exception_count']) != 0:
+              raise AssertionError('v0706 interface must be clean before governance closure')
+          if int(result['qualification_summary']['contract_violation_count']) != 0:
+              raise AssertionError('v0706 qualification contract must be clean before governance closure')
+
+          a['schema'] = 'two_wave_m0_authority@1.31'
+          a['global_status'] = 'v0706_v0618_lifecycle_qualification_transplant_supported_direction_transplant_adjudication_next'
+
+          parent = a['component_authority']['parent_identity']
+          parent['status'] = 'f3_prefix_causal_lifecycle_publication_and_qualification_supported_direction_transplant_next'
+          parent['active_semantic_parent_authority'] = None
+          parent['v0706_v0618_qualified_publication_count'] = int(result['qualification_summary']['v0618']['qualified_count'])
+          parent['v0706_v0618_qualified_semantic_support_cases'] = int(result['semantic_transplant']['v0618_qualified_semantic_support_cases'])
+
+          ss = a['component_authority']['same_scale_semantics']
+          ss['status'] = 'v0706_lifecycle_publication_qualification_transplant_supported_development_only'
+          ss['v0706_v054_qualified_publication_count'] = int(result['qualification_summary']['v054']['qualified_count'])
+          ss['v0706_v054_qualified_semantic_support_cases'] = int(result['semantic_transplant']['v054_qualified_semantic_support_cases'])
+
+          pub = a['component_authority']['raw_identity_publication']
+          pub['status'] = 'v0705_provisional_f3_lifecycle_publication_supported_and_preserved_through_v0706_development_only'
+
+          q = a['component_authority']['qualification_policy']
+          q['status'] = 'v0706_v0618_lifecycle_publication_qualification_transplant_supported_development_only_direction_transplant_next'
+          q['development_champion'] = True
+          q['independent_reference_calibrated'] = False
+          q['v0706_publication_count'] = int(result['qualification_summary']['publication_count'])
+          q['v0706_v054_qualified_count'] = int(result['qualification_summary']['v054']['qualified_count'])
+          q['v0706_v0618_qualified_count'] = int(result['qualification_summary']['v0618']['qualified_count'])
+          q['v0706_v0618_reject_to_qualified_count'] = int(result['qualification_summary']['v0618_reject_to_qualified_count'])
+          q['v0706_contract_violation_count'] = int(result['qualification_summary']['contract_violation_count'])
+          q['v0706_interface_exception_count'] = int(result['interface_audit']['v054_exception_count']) + int(result['interface_audit']['v0618_exception_count'])
+          q['v0706_v0618_qualified_semantic_support_cases'] = int(result['semantic_transplant']['v0618_qualified_semantic_support_cases'])
+          q['v0706_gap_v0618_qualified_same_object_raw_support_cases'] = int(result['semantic_transplant']['gap_v0618_qualified_same_object_raw_support_cases'])
+
+          d = a['component_authority']['parent_direction']
+          d['winner'] = None
+          d['status'] = 'historical_D1_and_v0625_awaiting_separately_frozen_lifecycle_qualified_direction_transplant_adjudication'
+
+          a['f3_lifecycle_qualification_transplant'] = {
+              'v0706': {
+                  'status': 'supported_development_transplant_not_active_morphology_authority',
+                  'protocol': 'docs/research/TWO_WAVE_F3_LIFECYCLE_QUALIFICATION_TRANSPLANT_V0706_PROTOCOL.md',
+                  'protocol_freeze_commit': '174188e55f573f43c7dac0e2d5d87f9a223bebaf',
+                  'original_implementation_invalid_formal_run': 34685420204,
+                  'original_implementation_invalid_result_commit': 'f3f47f115faf54fb688dcb26a86998b6daa49169',
+                  'first_retry_execution_invalid_run': 34687496456,
+                  'authoritative_formal_retry_run': 34687608997,
+                  'authoritative_result_commit': 'cc5942b074fd42ffdc10f78508688e21a451bc06',
+                  'result': 'experiments/two_wave_f3_lifecycle_qualification_transplant_v0706/RESULT.json',
+                  'result_card': 'experiments/two_wave_f3_lifecycle_qualification_transplant_v0706/RESULT_CARD.md',
+                  'adjudication': 'experiments/two_wave_f3_lifecycle_qualification_transplant_v0706/ADJUDICATION.json',
+                  'publication_count': int(result['qualification_summary']['publication_count']),
+                  'v054_evaluated_count': int(result['interface_audit']['v054_evaluated_count']),
+                  'v0618_evaluated_count': int(result['interface_audit']['v0618_evaluated_count']),
+                  'interface_exception_count': int(result['interface_audit']['v054_exception_count']) + int(result['interface_audit']['v0618_exception_count']),
+                  'identity_mutation_count': int(result['interface_audit']['identity_mutation_count']),
+                  'future_bar_dependency_violation_count': int(result['interface_audit']['future_bar_dependency_violation_count']),
+                  'contract_violation_count': int(result['qualification_summary']['contract_violation_count']),
+                  'v054_qualified_count': int(result['qualification_summary']['v054']['qualified_count']),
+                  'v0618_qualified_count': int(result['qualification_summary']['v0618']['qualified_count']),
+                  'v0618_reject_to_qualified_count': int(result['qualification_summary']['v0618_reject_to_qualified_count']),
+                  'published_raw_semantic_support_cases': int(result['semantic_transplant']['published_raw_support_cases']),
+                  'v054_qualified_semantic_support_cases': int(result['semantic_transplant']['v054_qualified_semantic_support_cases']),
+                  'v0618_qualified_semantic_support_cases': int(result['semantic_transplant']['v0618_qualified_semantic_support_cases']),
+                  'v0618_qualified_ordinal_hit_cases': result['semantic_transplant']['v0618_qualified_ordinal_hit_cases'],
+                  'gap_v0618_qualified_same_object_raw_support_cases': int(result['semantic_transplant']['gap_v0618_qualified_same_object_raw_support_cases']),
+                  'primary_category': verdict,
+                  'qualification_thresholds_changed': False,
+                  'direction_component_scored': False,
+                  'active_parent_authority_granted': False,
+                  'morphology_acceptance_changed': False,
+                  'trade_authority_changed': False,
+                  'production_authority_changed': False
+              }
+          }
+
+          a['counteroffensive_current_breakpoint'] = 'lifecycle_publication_qualification_transplant_supported_direction_transplant_adjudication_next'
+          a['next_authorized_step'] = (
+              'freeze a separately adjudicated lifecycle-qualified direction transplant on the supported v0.7.5 lifecycle-publication and v0.7.6 v0.6.18 qualification stack; '
+              'use historical D1 as the baseline and v0.6.25 absolute-margin erosion-consensus rescue only as a retained historical challenger/contribution, with all direction thresholds and qualification semantics unchanged; '
+              'first audit zero interface exceptions, identity immutability, causal-prefix inputs, and zero D1-decisive override, then score frozen human parent-state semantics on the already-frozen Development reference cases; '
+              'the experiment must report v0.6.47 temporal-replication and v0.6.48 reference-calibration weaknesses as unresolved external constraints, so a Development direction result cannot by itself grant morphology, trade, or production authority'
+          )
+          a['no_current_direction_challenger_authorized'] = True
+          a['current_parent_representation_status'] = 'F3_prefix_causal_lifecycle_publication_and_v0618_qualification_supported_as_development_representation_only'
+          retention = a.setdefault('counteroffensive_component_retention', {})
+          retention['raw_projection_v064_v065'] = 'v0705_transplant_supported_and_preserved_through_v0706_development_only'
+          retention['same_scale_v054_and_qualification_v0618'] = 'v0706_lifecycle_publication_qualification_transplant_supported_development_only'
+          retention['direction_D1_v0625'] = 'separately_frozen_lifecycle_qualified_direction_transplant_adjudication_next_not_reactivated'
+
+          forbidden = a.setdefault('forbidden_next_shortcuts', [])
+          for item in [
+              'retune_v054_or_v0618_after_v0706_support',
+              'condition_v0706_qualification_on_future_certification_or_final_lifecycle_state',
+              'rewrite_v0705_lifecycle_or_publication_identity_after_v0706',
+              'treat_v0706_qualification_support_as_active_morphology_authority',
+              'reactivate_v0625_as_direction_winner_without_separate_direction_transplant_adjudication',
+              'retune_D1_or_v0625_thresholds_during_direction_transplant',
+              'ignore_v0647_temporal_replication_failure_in_direction_adjudication',
+              'ignore_v0648_reference_calibration_failure_in_direction_adjudication'
+          ]:
+              if item not in forbidden:
+                  forbidden.append(item)
+          authority_path.write_text(json.dumps(a, ensure_ascii=False, indent=2) + '\n')
+
+          human_path = root / 'docs/research/TWO_WAVE_M0_AUTHORITY.md'
+          h = human_path.read_text()
+          sec = '''\n\n## v0.7.6: lifecycle-publication qualification transplant — supported\n\nFrozen protocol: `docs/research/TWO_WAVE_F3_LIFECYCLE_QUALIFICATION_TRANSPLANT_V0706_PROTOCOL.md`.  \nProtocol freeze commit: `174188e55f573f43c7dac0e2d5d87f9a223bebaf`.  \nAuthoritative formal retry run: `34687608997`.  \nAuthoritative result commit: `cc5942b074fd42ffdc10f78508688e21a451bc06`.  \nResult: `experiments/two_wave_f3_lifecycle_qualification_transplant_v0706/RESULT.json`.  \nResult card: `experiments/two_wave_f3_lifecycle_qualification_transplant_v0706/RESULT_CARD.md`.  \nAdjudication: `experiments/two_wave_f3_lifecycle_qualification_transplant_v0706/ADJUDICATION.json`.\n\nThe authoritative retry reproduced the full v0.7.5 upstream (`1543/1543` publications, `1478/1478` certified coverage, `65/65` final-unresolved coverage, zero publication delay and zero publication invariant violations), including raw ordinal support `11/11, 11/11, 11/11, 11/11, 10/11`. Both v0.5.4 and v0.6.18 qualified all 1543 immutable publications without an exception, identity mutation, future-bar dependency, or trade/future-outcome leak. v0.6.18 contract violations were zero: it removed only `inefficient_leg` and `jump_dominated_leg`. v0.5.4 qualified 42 publications; v0.6.18 qualified 115, with 73 registered demotion transitions. After the label-free interface and contract gates passed, v0.6.18 retained qualified semantic support in `9/11` anchored cases and preserved the permanent-certificate gap's same-object qualified raw support. The formal verdict is **`v0706_v0618_lifecycle_qualification_transplant_supported`**.\n\nImplementation lineage is retained: run `34685420204` / result commit `f3f47f115faf54fb688dcb26a86998b6daa49169` was invalid because ordinal-count mapping keys were serialized instead of values; retry `34687496456` failed before science due a CLI import-path error. Neither changed the frozen protocol or gates.\n\nThis supports v0.6.18 as a Development qualification transplant on top of the v0.7.5 lifecycle-publication representation. It does not establish active morphology authority or a direction winner. The next stage is a separately frozen lifecycle-qualified direction transplant/adjudication using D1 as baseline and v0.6.25 only as a retained historical contribution. v0.6.47 temporal-replication weakness and v0.6.48 reference-calibration weakness remain unresolved constraints. `morphology_acceptance=false`, `trade_authority=false`, `production_authority=false`.\n'''
+          if '## v0.7.6: lifecycle-publication qualification transplant' not in h:
+              h += sec
+          human_path.write_text(h)
+
+          ledger = root / 'docs/research/TWO_WAVE_DIRECTION_CONTRIBUTION_LEDGER.md'
+          l = ledger.read_text()
+          sec2 = '''\n\n## v0.7.6 lifecycle-qualified qualification transplant\n\n- Qualification-only upstream stage; no direction component was scored in v0.7.6.\n- The immutable v0.7.5 lifecycle-publication objects accepted the frozen v0.5.4/v0.6.18 qualification APIs with `1543/1543` coverage and zero interface exceptions.\n- v0.6.18 contract violations were zero; only the two preregistered native-5m path vetoes were demoted.\n- v0.6.18 qualified 115 lifecycle publications versus 42 under v0.5.4 and retained human-anchor semantic support in `9/11` cases.\n- Historical D1 remains the direction baseline; v0.6.25 remains a retained historical contribution and is not a winner.\n- Next: separately freeze lifecycle-qualified direction transplant/adjudication. The prior v0.6.47 temporal-replication and v0.6.48 reference-calibration weaknesses remain binding context and cannot be erased by a Development replay.\n'''
+          if '## v0.7.6 lifecycle-qualified qualification transplant' not in l:
+              l += sec2
+          ledger.write_text(l)
+
+          idx_path = root / 'docs/INDEX.md'
+          idx = idx_path.read_text()
+          sec3 = '''\n\n### v0.7.6 F3 lifecycle-publication qualification transplant — complete\n\n- Protocol: `research/TWO_WAVE_F3_LIFECYCLE_QUALIFICATION_TRANSPLANT_V0706_PROTOCOL.md`\n- Result: `../experiments/two_wave_f3_lifecycle_qualification_transplant_v0706/RESULT.json`\n- Result card: `../experiments/two_wave_f3_lifecycle_qualification_transplant_v0706/RESULT_CARD.md`\n- Adjudication: `../experiments/two_wave_f3_lifecycle_qualification_transplant_v0706/ADJUDICATION.json`\n- Verdict: `v0706_v0618_lifecycle_qualification_transplant_supported` (`1543/1543` v0.6.18 interface coverage, zero exceptions/contract violations, `115` qualified publications, qualified semantic support `9/11`).\n- Next: separately frozen lifecycle-qualified D1/v0.6.25 direction transplant/adjudication; no current direction winner is restored.\n'''
+          if '### v0.7.6 F3 lifecycle-publication qualification transplant' not in idx:
+              idx += sec3
+          idx_path.write_text(idx)
+
+          readme = root / 'README.md'
+          r = readme.read_text()
+          tail = '''\n\nv0.7.6 then transplanted the frozen v0.5.4/v0.6.18 qualification stack onto immutable v0.7.5 lifecycle publications. All `1543/1543` publications were evaluable under both policies with zero interface exceptions, identity mutations, future-bar dependencies, or qualification-contract violations. v0.6.18 qualified `115` publications versus `42` under v0.5.4 and retained qualified human-anchor semantic support in `9/11` cases, including the single permanent-certificate gap. The authoritative retry verdict is **`v0706_v0618_lifecycle_qualification_transplant_supported`**. This remains Development-only: active morphology authority and parent-direction winner are still unset. The next stage is a separately frozen lifecycle-qualified D1/v0.6.25 direction transplant/adjudication with no threshold retuning and with v0.6.47/v0.6.48 weaknesses retained as external constraints.\n'''
+          if 'v0.7.6 then transplanted the frozen v0.5.4/v0.6.18 qualification stack' not in r:
+              r += tail
+          readme.write_text(r)
+          PY
+      - name: Commit v0706 governance closure
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add experiments/two_wave_m0_authority.json docs/research/TWO_WAVE_M0_AUTHORITY.md docs/research/TWO_WAVE_DIRECTION_CONTRIBUTION_LEDGER.md docs/INDEX.md README.md
+          if git diff --cached --quiet; then
+            echo "No v0706 governance changes"
+            exit 0
+          fi
+          git commit -m "Close v0706 lifecycle qualification governance [skip ci]"
+          git push origin HEAD:research/two-wave-f3-lifecycle-qualification-v0706
