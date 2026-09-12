@@ -1,0 +1,140 @@
+{
+  "anchored_reference_positive_cases": 11,
+  "annotator_confidence_used": false,
+  "annotator_notes_used": false,
+  "case_level_table_written": false,
+  "construction_replay": {
+    "canonical_groups": 38634,
+    "published_groups": 38176,
+    "qualified_publications": 2115
+  },
+  "development_challenger_selected": true,
+  "development_discovery_only": true,
+  "direction_prediction_used": false,
+  "direction_winner_changed": false,
+  "family_support": {
+    "legacy_exact_consecutive_five_ridge_tuple": {
+      "aggregate_compatible_object_count": 4,
+      "compatible_object_count": {
+        "count": 11,
+        "max": 2.0,
+        "median": 0.0,
+        "min": 0.0
+      },
+      "minimum_skipped_snapshot_ridges_on_supported_cases": {
+        "count": 3,
+        "max": 0.0,
+        "median": 0.0,
+        "min": 0.0
+      },
+      "passes_development_salvage_threshold": false,
+      "support_count": 3,
+      "support_fraction": 0.2727272727272727,
+      "supported_level_count": {
+        "count": 11,
+        "max": 2.0,
+        "median": 0.0,
+        "min": 0.0
+      }
+    },
+    "same_scale_core_envelope_five_turn": {
+      "aggregate_compatible_object_count": 205,
+      "compatible_object_count": {
+        "count": 11,
+        "max": 43.0,
+        "median": 16.0,
+        "min": 0.0
+      },
+      "minimum_skipped_snapshot_ridges_on_supported_cases": {
+        "count": 10,
+        "max": 14.0,
+        "median": 3.0,
+        "min": 0.0
+      },
+      "passes_development_salvage_threshold": true,
+      "support_count": 10,
+      "support_fraction": 0.9090909090909091,
+      "supported_level_count": {
+        "count": 11,
+        "max": 6.0,
+        "median": 6.0,
+        "min": 0.0
+      }
+    },
+    "same_scale_full_envelope_five_turn": {
+      "aggregate_compatible_object_count": 107,
+      "compatible_object_count": {
+        "count": 11,
+        "max": 20.0,
+        "median": 10.0,
+        "min": 0.0
+      },
+      "minimum_skipped_snapshot_ridges_on_supported_cases": {
+        "count": 10,
+        "max": 14.0,
+        "median": 3.0,
+        "min": 0.0
+      },
+      "passes_development_salvage_threshold": true,
+      "support_count": 10,
+      "support_fraction": 0.9090909090909091,
+      "supported_level_count": {
+        "count": 11,
+        "max": 6.0,
+        "median": 6.0,
+        "min": 0.0
+      }
+    },
+    "same_scale_ordered_alternating_five_ridge_subsequence": {
+      "aggregate_compatible_object_count": 5376,
+      "compatible_object_count": {
+        "count": 11,
+        "max": 2745.0,
+        "median": 246.0,
+        "min": 0.0
+      },
+      "minimum_skipped_snapshot_ridges_on_supported_cases": {
+        "count": 10,
+        "max": 12.0,
+        "median": 3.0,
+        "min": 0.0
+      },
+      "passes_development_salvage_threshold": true,
+      "support_count": 10,
+      "support_fraction": 0.9090909090909091,
+      "supported_level_count": {
+        "count": 11,
+        "max": 6.0,
+        "median": 6.0,
+        "min": 0.0
+      }
+    }
+  },
+  "final_reference_sha256": "321ce484f7f3f62bf6ff9d7d45de666e77d0cd17001b63a258a3e274e529884d",
+  "frozen_decision": {
+    "development_challenger_selected": true,
+    "primary_category": "v071_full_envelope_parent_objectization_development_rescue_supported",
+    "salvage_threshold_cases": 8,
+    "selected_development_challenger_family": "same_scale_full_envelope_five_turn"
+  },
+  "future_outcome_used": false,
+  "human_anchor_distance_tolerance_fitted": false,
+  "human_reference_labels_used_for_postconstruction_compatibility_only": true,
+  "legacy_exact_control_expected_support": 3,
+  "morphology_acceptance": false,
+  "primary_category": "v071_full_envelope_parent_objectization_development_rescue_supported",
+  "production_authority": false,
+  "protocol": "docs/research/TWO_WAVE_RIDGE_SUPPORTED_SEMANTIC_PARENT_RECONSTRUCTION_V071_PROTOCOL.md",
+  "protocol_freeze_commit": "d39d3b555b486642c27e0ebb724f164af98ad3f4",
+  "qualification_changed": false,
+  "qualification_outcome_used_for_family_membership": false,
+  "raw_projection_outcome_used_for_family_membership": false,
+  "reference_positive_candidate_cases": 16,
+  "sampling_commitment_sha256": "f4eeff13c1408c1ca3bf938c0cd8abc4dad961f63ed6a4a4158f243cd5b024c8",
+  "schema": "two_wave_ridge_supported_semantic_parent_reconstruction@0.7.1",
+  "selected_development_challenger_family": "same_scale_full_envelope_five_turn",
+  "source_manifest_verified": true,
+  "source_sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48",
+  "threshold_fitting_performed": false,
+  "trade_authority": false
+}
