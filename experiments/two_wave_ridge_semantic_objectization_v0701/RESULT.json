@@ -1,0 +1,153 @@
+{
+  "amplitude_duration_rescue_used": false,
+  "anchored_reference_positive_cases": 11,
+  "annotator_confidence_used": false,
+  "annotator_notes_used": false,
+  "bar_distance_tolerance_fitted": false,
+  "case_level_table_written": false,
+  "construction": {
+    "canonical_groups": 38634,
+    "published_groups": 38176,
+    "qualified_publications": 2115
+  },
+  "development_discovery_only": true,
+  "direction_prediction_used": false,
+  "direction_winner_changed": false,
+  "enumeration_implementation": "definition_equivalent_exact_dp_plus_streaming_unique_ridge_id_objects",
+  "family_definitions": {
+    "F0": "legacy_exact_consecutive_five_ridge_tuple_baseline",
+    "F1": "ordered_common_scale_nonconsecutive_upper_bound",
+    "F2": "one_step_survivor_skeleton",
+    "F3": "persistence_dominant_nonconsecutive_quintet"
+  },
+  "family_results": {
+    "F0": {
+      "candidate_object_count": {
+        "count": 11,
+        "max": 87,
+        "median": 65.0,
+        "min": 53
+      },
+      "case_count": 11,
+      "compatible_object_count": {
+        "count": 11,
+        "max": 1,
+        "median": 0.0,
+        "min": 0
+      },
+      "exactly_one_compatible_object_cases": 3,
+      "per_ordinal_exact_anchor_case_count": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0
+      },
+      "support_case_count": 3,
+      "support_fraction": 0.2727272727272727
+    },
+    "F1": {
+      "candidate_object_count": {
+        "count": 11,
+        "max": 131561,
+        "median": 35888.0,
+        "min": 16576
+      },
+      "case_count": 11,
+      "compatible_object_count": {
+        "count": 11,
+        "max": 1740,
+        "median": 150.0,
+        "min": 0
+      },
+      "exactly_one_compatible_object_cases": 0,
+      "per_ordinal_exact_anchor_case_count": {
+        "0": 7,
+        "1": 6,
+        "2": 6,
+        "3": 7,
+        "4": 8
+      },
+      "support_case_count": 10,
+      "support_fraction": 0.9090909090909091
+    },
+    "F2": {
+      "candidate_object_count": {
+        "count": 11,
+        "max": 63,
+        "median": 56.0,
+        "min": 46
+      },
+      "case_count": 11,
+      "compatible_object_count": {
+        "count": 11,
+        "max": 1,
+        "median": 0.0,
+        "min": 0
+      },
+      "exactly_one_compatible_object_cases": 5,
+      "per_ordinal_exact_anchor_case_count": {
+        "0": 1,
+        "1": 1,
+        "2": 0,
+        "3": 0,
+        "4": 0
+      },
+      "support_case_count": 5,
+      "support_fraction": 0.45454545454545453
+    },
+    "F3": {
+      "candidate_object_count": {
+        "count": 11,
+        "max": 185,
+        "median": 142.0,
+        "min": 87
+      },
+      "case_count": 11,
+      "compatible_object_count": {
+        "count": 11,
+        "max": 2,
+        "median": 1.0,
+        "min": 0
+      },
+      "exactly_one_compatible_object_cases": 5,
+      "per_ordinal_exact_anchor_case_count": {
+        "0": 5,
+        "1": 2,
+        "2": 2,
+        "3": 4,
+        "4": 5
+      },
+      "support_case_count": 8,
+      "support_fraction": 0.7272727272727273
+    }
+  },
+  "final_reference_sha256": "321ce484f7f3f62bf6ff9d7d45de666e77d0cd17001b63a258a3e274e529884d",
+  "frozen_decision": {
+    "F0_lineage_continuity_verified": true,
+    "F1_upper_bound_continuity_verified": true,
+    "F2_supported": false,
+    "F3_supported": true,
+    "primary_category": "v0701_persistence_dominant_objectization_candidate_supported",
+    "salvage_threshold_cases": 8,
+    "selected_reconstruction_family": "F3_persistence_dominant_nonconsecutive_quintet"
+  },
+  "future_outcome_used": false,
+  "human_reference_labels_used": true,
+  "morphology_acceptance": false,
+  "persistence_threshold_fitted": false,
+  "primary_category": "v0701_persistence_dominant_objectization_candidate_supported",
+  "production_authority": false,
+  "protocol": "docs/research/TWO_WAVE_RIDGE_SEMANTIC_OBJECTIZATION_V0701_PROTOCOL.md",
+  "protocol_freeze_commit": "d5d90b16f6f9f1b4072fe23952085a10ea64682f",
+  "qualification_changed": false,
+  "reference_positive_candidate_cases": 16,
+  "sampling_commitment_sha256": "f4eeff13c1408c1ca3bf938c0cd8abc4dad961f63ed6a4a4158f243cd5b024c8",
+  "schema": "two_wave_ridge_semantic_objectization_reconstruction@0.7.1",
+  "selected_reconstruction_family": "F3_persistence_dominant_nonconsecutive_quintet",
+  "skip_count_threshold_fitted": false,
+  "source_manifest_verified": true,
+  "source_sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48",
+  "threshold_fitting_performed": false,
+  "trade_authority": false
+}
