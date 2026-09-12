@@ -1,0 +1,600 @@
+{
+  "aggregate": {
+    "all_calibration_support_gates_pass": false,
+    "candidate_cases": 120,
+    "candidate_reference_confirmed_presence_fraction": 0.13333333333333333,
+    "candidate_reference_presence_counts": {
+      "no": 104,
+      "yes": 16
+    },
+    "control_cases": 120,
+    "control_reference_presence_counts": {
+      "no": 110,
+      "yes": 10
+    },
+    "descriptive_D1": {
+      "confusion_matrix_reference_rows_model_columns": {
+        "downtrend": {
+          "downtrend": 3,
+          "range": 0,
+          "uncertain": 2,
+          "uptrend": 0
+        },
+        "range": {
+          "downtrend": 1,
+          "range": 0,
+          "uncertain": 7,
+          "uptrend": 1
+        },
+        "uncertain": {
+          "downtrend": 0,
+          "range": 0,
+          "uncertain": 0,
+          "uptrend": 0
+        },
+        "uptrend": {
+          "downtrend": 0,
+          "range": 0,
+          "uncertain": 0,
+          "uptrend": 2
+        }
+      },
+      "opposite_trend_conflict_count": 0,
+      "opposite_trend_conflict_rate": 0.0,
+      "parent_state_exact_agreement": 0.3125,
+      "parent_state_exact_count": 5,
+      "reference_confirmed_cases": 16,
+      "uncertain_count_all_candidates": 58,
+      "uncertain_count_reference_confirmed": 9,
+      "uncertain_rate_all_candidates": 0.48333333333333334,
+      "uncertain_rate_reference_confirmed": 0.5625
+    },
+    "gates": {
+      "candidate_reference_confirmed_presence_at_least_80pct": false,
+      "human_positive_control_miss_at_most_20pct": true,
+      "v0625_opposite_trend_conflict_at_most_2pct": true,
+      "v0625_parent_state_exact_at_least_85pct": false
+    },
+    "human_positive_control_miss_fraction": 0.08333333333333333,
+    "primary_v0625": {
+      "confusion_matrix_reference_rows_model_columns": {
+        "downtrend": {
+          "downtrend": 3,
+          "range": 0,
+          "uncertain": 2,
+          "uptrend": 0
+        },
+        "range": {
+          "downtrend": 1,
+          "range": 0,
+          "uncertain": 5,
+          "uptrend": 3
+        },
+        "uncertain": {
+          "downtrend": 0,
+          "range": 0,
+          "uncertain": 0,
+          "uptrend": 0
+        },
+        "uptrend": {
+          "downtrend": 0,
+          "range": 0,
+          "uncertain": 0,
+          "uptrend": 2
+        }
+      },
+      "opposite_trend_conflict_count": 0,
+      "opposite_trend_conflict_rate": 0.0,
+      "parent_state_exact_agreement": 0.3125,
+      "parent_state_exact_count": 5,
+      "reference_confirmed_cases": 16,
+      "uncertain_count_all_candidates": 40,
+      "uncertain_count_reference_confirmed": 7,
+      "uncertain_rate_all_candidates": 0.3333333333333333,
+      "uncertain_rate_reference_confirmed": 0.4375
+    }
+  },
+  "by_year_descriptive": {
+    "2015": {
+      "candidate_cases": 20,
+      "candidate_reference_confirmed_presence_fraction": 0.1,
+      "control_cases": 20,
+      "descriptive_D1": {
+        "confusion_matrix_reference_rows_model_columns": {
+          "downtrend": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 1,
+            "uptrend": 0
+          },
+          "range": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 1,
+            "uptrend": 0
+          },
+          "uncertain": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 0
+          },
+          "uptrend": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 0
+          }
+        },
+        "opposite_trend_conflict_count": 0,
+        "opposite_trend_conflict_rate": 0.0,
+        "parent_state_exact_agreement": 0.0,
+        "parent_state_exact_count": 0,
+        "reference_confirmed_cases": 2,
+        "uncertain_count_all_candidates": 11,
+        "uncertain_count_reference_confirmed": 2,
+        "uncertain_rate_all_candidates": 0.55,
+        "uncertain_rate_reference_confirmed": 1.0
+      },
+      "descriptive_only": true,
+      "human_positive_control_miss_fraction": 0.05,
+      "primary_v0625": {
+        "confusion_matrix_reference_rows_model_columns": {
+          "downtrend": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 1,
+            "uptrend": 0
+          },
+          "range": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 1
+          },
+          "uncertain": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 0
+          },
+          "uptrend": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 0
+          }
+        },
+        "opposite_trend_conflict_count": 0,
+        "opposite_trend_conflict_rate": 0.0,
+        "parent_state_exact_agreement": 0.0,
+        "parent_state_exact_count": 0,
+        "reference_confirmed_cases": 2,
+        "uncertain_count_all_candidates": 7,
+        "uncertain_count_reference_confirmed": 1,
+        "uncertain_rate_all_candidates": 0.35,
+        "uncertain_rate_reference_confirmed": 0.5
+      }
+    },
+    "2016": {
+      "candidate_cases": 20,
+      "candidate_reference_confirmed_presence_fraction": 0.15,
+      "control_cases": 20,
+      "descriptive_D1": {
+        "confusion_matrix_reference_rows_model_columns": {
+          "downtrend": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 0
+          },
+          "range": {
+            "downtrend": 1,
+            "range": 0,
+            "uncertain": 1,
+            "uptrend": 0
+          },
+          "uncertain": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 0
+          },
+          "uptrend": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 1
+          }
+        },
+        "opposite_trend_conflict_count": 0,
+        "opposite_trend_conflict_rate": 0.0,
+        "parent_state_exact_agreement": 0.3333333333333333,
+        "parent_state_exact_count": 1,
+        "reference_confirmed_cases": 3,
+        "uncertain_count_all_candidates": 7,
+        "uncertain_count_reference_confirmed": 1,
+        "uncertain_rate_all_candidates": 0.35,
+        "uncertain_rate_reference_confirmed": 0.3333333333333333
+      },
+      "descriptive_only": true,
+      "human_positive_control_miss_fraction": 0.2,
+      "primary_v0625": {
+        "confusion_matrix_reference_rows_model_columns": {
+          "downtrend": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 0
+          },
+          "range": {
+            "downtrend": 1,
+            "range": 0,
+            "uncertain": 1,
+            "uptrend": 0
+          },
+          "uncertain": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 0
+          },
+          "uptrend": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 1
+          }
+        },
+        "opposite_trend_conflict_count": 0,
+        "opposite_trend_conflict_rate": 0.0,
+        "parent_state_exact_agreement": 0.3333333333333333,
+        "parent_state_exact_count": 1,
+        "reference_confirmed_cases": 3,
+        "uncertain_count_all_candidates": 5,
+        "uncertain_count_reference_confirmed": 1,
+        "uncertain_rate_all_candidates": 0.25,
+        "uncertain_rate_reference_confirmed": 0.3333333333333333
+      }
+    },
+    "2017": {
+      "candidate_cases": 20,
+      "candidate_reference_confirmed_presence_fraction": 0.2,
+      "control_cases": 20,
+      "descriptive_D1": {
+        "confusion_matrix_reference_rows_model_columns": {
+          "downtrend": {
+            "downtrend": 1,
+            "range": 0,
+            "uncertain": 1,
+            "uptrend": 0
+          },
+          "range": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 2,
+            "uptrend": 0
+          },
+          "uncertain": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 0
+          },
+          "uptrend": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 0
+          }
+        },
+        "opposite_trend_conflict_count": 0,
+        "opposite_trend_conflict_rate": 0.0,
+        "parent_state_exact_agreement": 0.25,
+        "parent_state_exact_count": 1,
+        "reference_confirmed_cases": 4,
+        "uncertain_count_all_candidates": 10,
+        "uncertain_count_reference_confirmed": 3,
+        "uncertain_rate_all_candidates": 0.5,
+        "uncertain_rate_reference_confirmed": 0.75
+      },
+      "descriptive_only": true,
+      "human_positive_control_miss_fraction": 0.2,
+      "primary_v0625": {
+        "confusion_matrix_reference_rows_model_columns": {
+          "downtrend": {
+            "downtrend": 1,
+            "range": 0,
+            "uncertain": 1,
+            "uptrend": 0
+          },
+          "range": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 1,
+            "uptrend": 1
+          },
+          "uncertain": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 0
+          },
+          "uptrend": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 0
+          }
+        },
+        "opposite_trend_conflict_count": 0,
+        "opposite_trend_conflict_rate": 0.0,
+        "parent_state_exact_agreement": 0.25,
+        "parent_state_exact_count": 1,
+        "reference_confirmed_cases": 4,
+        "uncertain_count_all_candidates": 6,
+        "uncertain_count_reference_confirmed": 2,
+        "uncertain_rate_all_candidates": 0.3,
+        "uncertain_rate_reference_confirmed": 0.5
+      }
+    },
+    "2018": {
+      "candidate_cases": 20,
+      "candidate_reference_confirmed_presence_fraction": 0.1,
+      "control_cases": 20,
+      "descriptive_D1": {
+        "confusion_matrix_reference_rows_model_columns": {
+          "downtrend": {
+            "downtrend": 1,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 0
+          },
+          "range": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 0
+          },
+          "uncertain": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 0
+          },
+          "uptrend": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 1
+          }
+        },
+        "opposite_trend_conflict_count": 0,
+        "opposite_trend_conflict_rate": 0.0,
+        "parent_state_exact_agreement": 1.0,
+        "parent_state_exact_count": 2,
+        "reference_confirmed_cases": 2,
+        "uncertain_count_all_candidates": 9,
+        "uncertain_count_reference_confirmed": 0,
+        "uncertain_rate_all_candidates": 0.45,
+        "uncertain_rate_reference_confirmed": 0.0
+      },
+      "descriptive_only": true,
+      "human_positive_control_miss_fraction": 0.05,
+      "primary_v0625": {
+        "confusion_matrix_reference_rows_model_columns": {
+          "downtrend": {
+            "downtrend": 1,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 0
+          },
+          "range": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 0
+          },
+          "uncertain": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 0
+          },
+          "uptrend": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 1
+          }
+        },
+        "opposite_trend_conflict_count": 0,
+        "opposite_trend_conflict_rate": 0.0,
+        "parent_state_exact_agreement": 1.0,
+        "parent_state_exact_count": 2,
+        "reference_confirmed_cases": 2,
+        "uncertain_count_all_candidates": 7,
+        "uncertain_count_reference_confirmed": 0,
+        "uncertain_rate_all_candidates": 0.35,
+        "uncertain_rate_reference_confirmed": 0.0
+      }
+    },
+    "2019": {
+      "candidate_cases": 20,
+      "candidate_reference_confirmed_presence_fraction": 0.25,
+      "control_cases": 20,
+      "descriptive_D1": {
+        "confusion_matrix_reference_rows_model_columns": {
+          "downtrend": {
+            "downtrend": 1,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 0
+          },
+          "range": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 3,
+            "uptrend": 1
+          },
+          "uncertain": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 0
+          },
+          "uptrend": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 0
+          }
+        },
+        "opposite_trend_conflict_count": 0,
+        "opposite_trend_conflict_rate": 0.0,
+        "parent_state_exact_agreement": 0.2,
+        "parent_state_exact_count": 1,
+        "reference_confirmed_cases": 5,
+        "uncertain_count_all_candidates": 12,
+        "uncertain_count_reference_confirmed": 3,
+        "uncertain_rate_all_candidates": 0.6,
+        "uncertain_rate_reference_confirmed": 0.6
+      },
+      "descriptive_only": true,
+      "human_positive_control_miss_fraction": 0.0,
+      "primary_v0625": {
+        "confusion_matrix_reference_rows_model_columns": {
+          "downtrend": {
+            "downtrend": 1,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 0
+          },
+          "range": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 3,
+            "uptrend": 1
+          },
+          "uncertain": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 0
+          },
+          "uptrend": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 0
+          }
+        },
+        "opposite_trend_conflict_count": 0,
+        "opposite_trend_conflict_rate": 0.0,
+        "parent_state_exact_agreement": 0.2,
+        "parent_state_exact_count": 1,
+        "reference_confirmed_cases": 5,
+        "uncertain_count_all_candidates": 9,
+        "uncertain_count_reference_confirmed": 3,
+        "uncertain_rate_all_candidates": 0.45,
+        "uncertain_rate_reference_confirmed": 0.6
+      }
+    },
+    "2020": {
+      "candidate_cases": 20,
+      "candidate_reference_confirmed_presence_fraction": 0.0,
+      "control_cases": 20,
+      "descriptive_D1": {
+        "confusion_matrix_reference_rows_model_columns": {
+          "downtrend": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 0
+          },
+          "range": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 0
+          },
+          "uncertain": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 0
+          },
+          "uptrend": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 0
+          }
+        },
+        "opposite_trend_conflict_count": 0,
+        "opposite_trend_conflict_rate": 0.0,
+        "parent_state_exact_agreement": 0.0,
+        "parent_state_exact_count": 0,
+        "reference_confirmed_cases": 0,
+        "uncertain_count_all_candidates": 9,
+        "uncertain_count_reference_confirmed": 0,
+        "uncertain_rate_all_candidates": 0.45,
+        "uncertain_rate_reference_confirmed": 0.0
+      },
+      "descriptive_only": true,
+      "human_positive_control_miss_fraction": 0.0,
+      "primary_v0625": {
+        "confusion_matrix_reference_rows_model_columns": {
+          "downtrend": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 0
+          },
+          "range": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 0
+          },
+          "uncertain": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 0
+          },
+          "uptrend": {
+            "downtrend": 0,
+            "range": 0,
+            "uncertain": 0,
+            "uptrend": 0
+          }
+        },
+        "opposite_trend_conflict_count": 0,
+        "opposite_trend_conflict_rate": 0.0,
+        "parent_state_exact_agreement": 0.0,
+        "parent_state_exact_count": 0,
+        "reference_confirmed_cases": 0,
+        "uncertain_count_all_candidates": 6,
+        "uncertain_count_reference_confirmed": 0,
+        "uncertain_rate_all_candidates": 0.3,
+        "uncertain_rate_reference_confirmed": 0.0
+      }
+    }
+  },
+  "candidate_qualified_publications": 2115,
+  "descriptive_comparator": "D1",
+  "direction_winner_changed": false,
+  "final_reference_sha256": "321ce484f7f3f62bf6ff9d7d45de666e77d0cd17001b63a258a3e274e529884d",
+  "future_outcome_used": false,
+  "morphology_acceptance": false,
+  "primary_gated_model": "v0.6.25_absolute_margin_erosion_consensus_rescue",
+  "production_authority": false,
+  "qualification_policy": "v0.6.18_path_gate_demotion",
+  "sampling_commitment_sha256": "f4eeff13c1408c1ca3bf938c0cd8abc4dad961f63ed6a4a4158f243cd5b024c8",
+  "schema": "two_wave_independent_reference_scoring_v0648@1.0",
+  "source_manifest_verified": true,
+  "threshold_retuning_performed": false,
+  "trade_authority": false,
+  "verdict": "v0648_independent_reference_calibration_gates_not_all_pass"
+}
