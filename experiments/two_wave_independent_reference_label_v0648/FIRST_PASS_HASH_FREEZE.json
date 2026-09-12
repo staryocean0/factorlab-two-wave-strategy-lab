@@ -1,0 +1,12 @@
+{
+  "annotator_a_path": "experiments/two_wave_independent_reference_label_v0648/two_wave_v0648_annotator_A_completed.csv",
+  "annotator_a_sha256": "6ae4650c9bb1144ea034af1cf97aa6fb95bf75f448ebffe84f903d8907d3a9dc",
+  "annotator_b_path": "experiments/two_wave_independent_reference_label_v0648/two_wave_v0648_annotator_B_completed.csv",
+  "annotator_b_sha256": "34f6d9666f3b544a3c48f1122e4d0196cd6f4c1bce73e850d5ee2f7e0dc00f9d",
+  "blinded_packet_sha256": "4c08c8d3f32c6e222acb3c4236fa8f39428ff25349deae16d6f49dca2901566e",
+  "comparison_started": false,
+  "hidden_strata_unblinded": false,
+  "model_predictions_unblinded": false,
+  "model_scoring_started": false,
+  "schema": "two_wave_v0648_first_pass_hash_freeze@1.0"
+}
