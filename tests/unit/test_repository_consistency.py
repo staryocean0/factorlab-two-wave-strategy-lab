@@ -256,3 +256,44 @@ def test_relocated_source_requires_current_replacement(tmp_path):
     (tmp_path / ".github/workflows/ci.yml").unlink()
     with pytest.raises(RuntimeError, match="current replacement missing"):
         ns["validate_source_closure"]()
+
+
+def _current_declaration_fixture(tmp_path):
+    tree = ast.parse((ROOT / "scripts/validate_theme_package.py").read_text())
+    names = {"_require_json", "validate_current_declarations"}
+    keep = [node for node in tree.body if isinstance(node, ast.FunctionDef) and node.name in names]
+    ns = {"json": json, "Path": Path, "ROOT": tmp_path,
+          "USAGE": tmp_path / "docs/governance/current/data_usage_declaration.json"}
+    exec(compile(ast.Module(body=keep, type_ignores=[]), "current_declarations", "exec"), ns)
+    for relative in (CHECK.AUTHORITY, "docs/governance/current/package_scope.json", "docs/governance/current/data_usage_declaration.json"):
+        dest = tmp_path / relative
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        dest.write_bytes((ROOT / relative).read_bytes())
+    return ns
+
+
+def test_actual_current_declarations_match_M0(tmp_path):
+    ns = _current_declaration_fixture(tmp_path)
+    assert ns["validate_current_declarations"]() == {
+        "current_governance_declarations_checked": 2, "consumed_external_slices_declared": 3}
+
+
+@pytest.mark.parametrize("file,pointer,value", [
+    ("package_scope.json", "/repository_visibility", "private"),
+    ("package_scope.json", "/private_repository_required", True),
+    ("package_scope.json", "/production_authority", True),
+    ("data_usage_declaration.json", "/fresh_oos", True),
+    ("data_usage_declaration.json", "/economic_strategy_selection_authority", "false"),
+    ("data_usage_declaration.json", "/independent_reference_history/v0648_candidate_cases", 121),
+    ("data_usage_declaration.json", "/external_temporal_validation_history/consumed_slices", []),
+    ("data_usage_declaration.json", "/external_temporal_validation_history/already_consumed_evidence_may_be_reused_as_new_external_validation", True),
+    ("data_usage_declaration.json", "/current_external_evidence_availability/direction_reopening_condition_satisfied", True),
+])
+def test_current_declarations_fail_closed_on_status_or_history_drift(tmp_path, file, pointer, value):
+    ns = _current_declaration_fixture(tmp_path)
+    path = tmp_path / "docs/governance/current" / file
+    data = json.loads(path.read_text())
+    _put_nested(data, pointer, value)
+    path.write_text(json.dumps(data))
+    with pytest.raises(RuntimeError):
+        ns["validate_current_declarations"]()

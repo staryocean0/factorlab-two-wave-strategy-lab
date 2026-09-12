@@ -132,5 +132,14 @@
     "experiments/two_wave_lifecycle_qualified_direction_v0707/ADJUDICATION.json": "2649bc92e70381f5664fb8f317fc7a26978f349a",
     "experiments/two_wave_external_validation_availability_v0708/ADJUDICATION.json": "3a46d9b49be8b53e9fae2fcf01600068679ed52f"
   },
-  "current_workflow_git_blob_sha": "ea7fd2bd0e9413909e5b5ae2cd4ddb2584c7eeb2"
+  "current_workflow_git_blob_sha": "ea7fd2bd0e9413909e5b5ae2cd4ddb2584c7eeb2",
+  "current_governance_declarations": [
+    "docs/governance/current/package_scope.json",
+    "docs/governance/current/data_usage_declaration.json"
+  ],
+  "superseded_seed_declarations": {
+    "docs/governance/package_scope.json": "docs/governance/current/package_scope.json",
+    "docs/governance/data_usage_declaration.json": "docs/governance/current/data_usage_declaration.json"
+  },
+  "reconciled_prior_maintenance_commit": "49bae1a2d1cfb6ffc2fc4e520f6ff5553506bc9c"
 }

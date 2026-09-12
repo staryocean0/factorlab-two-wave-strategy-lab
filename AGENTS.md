@@ -2,7 +2,9 @@
 
 Read `CONTINUE_HERE.md`, `experiments/two_wave_m0_authority.json`,
 `docs/governance/REPOSITORY_LIFECYCLE.json`, `docs/INDEX.md`, then the
-specific frozen protocol/evidence required by the task.
+specific frozen protocol/evidence required by the task. Current package and data
+declarations live in `docs/governance/current/`; the same-named original seed
+declarations in `docs/governance/` are historical snapshots, not current claims.
 
 ## Scope and authority
 

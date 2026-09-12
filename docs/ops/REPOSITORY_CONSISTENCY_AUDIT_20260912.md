@@ -51,7 +51,7 @@ pytest. Wrong interpreters, missing files and failed steps remain explicit failu
 
 ## What actually ran in this session
 
-Current-session environment: Python 3.13.5 / pytest 9.0.2. The **79 new maintenance
+Current-session environment: Python 3.13.5 / pytest 9.0.2. The **89 maintenance
 regressions passed**, including synthetic fail-closed fixtures and actual generated
 document equality. The five authored/modified Python files parsed successfully.
 The full verification environment guard was exercised and correctly returned exit 2
@@ -70,3 +70,19 @@ The maintenance branch must remain a draft integration candidate until the full 
 receipt is returned and reviewed; do not claim that main or every component is already
 fully verified. Final changed-file and preserved-tree metadata can be independently
 checked against the PR and the lifecycle manifest.
+
+## Same-day maintenance integration
+
+A final pre-publication branch check also found the earlier eight-commit cleanup at
+`49bae1a2d1cfb6ffc2fc4e520f6ff5553506bc9c`. The integration preserves that history and
+explicitly resolves overlapping changes rather than overwriting the branch or leaving
+two competing current authorities. Its valid public-visibility and consumed-external-
+validation corrections are adopted under `docs/governance/current/`. The original
+seed declarations remain hash-preserved and explicitly historical; the active package
+validator consumes and checks the current declarations against M0.
+
+Ten additional declaration consistency/failure-injection tests passed, bringing the
+maintenance total from 79 to 89. No original scientific regression was removed from
+the common scientific baseline. Full Python 3.11/source/data verification remains
+pending. See [explicit reconciliation](../governance/MAINTENANCE_RECONCILIATION_20260912.md)
+and [current declarations](../governance/current/README.md).

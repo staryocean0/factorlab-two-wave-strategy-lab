@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_MANIFEST = ROOT / "data/manifest.json"
 SOURCE_MANIFEST = ROOT / "docs/governance/source_closure_manifest.json"
 SLOT = ROOT / "docs/governance/layer3_tool16_candidate_slot.json"
-USAGE = ROOT / "docs/governance/data_usage_declaration.json"
+USAGE = ROOT / "docs/governance/current/data_usage_declaration.json"
 MAX_GIT_FILE_BYTES = 100 * 1024 * 1024
 FORBIDDEN_PARTS = {
     ".env", ".venv", ".omx", ".local", ".runtime", "runtime", "artifacts", "output", ".beads",
@@ -178,11 +178,66 @@ def validate_tool_boundary() -> dict[str, object]:
     return {"immutable_tool_count": len(CURRENT_TOOL_IDS), "candidate_tool_id": candidate, "candidate_installed": False}
 
 
+def validate_current_declarations() -> dict[str, object]:
+    """Keep current package/data metadata aligned without rewriting seed evidence."""
+    scope = _require_json(ROOT / "docs/governance/current/package_scope.json")
+    usage = _require_json(USAGE)
+    authority = _require_json(ROOT / "experiments/two_wave_m0_authority.json")
+    expected_authority = "experiments/two_wave_m0_authority.json"
+    if scope.get("schema_id") != "two_wave_cloud_theme_package_scope@1.1" or usage.get("schema_id") != "two_wave_cloud_theme_data_usage@1.1":
+        raise RuntimeError("current declaration schema drift")
+    if scope.get("current_machine_authority") != expected_authority or usage.get("current_machine_authority") != expected_authority:
+        raise RuntimeError("current declarations point at competing authority")
+    if scope.get("repository_visibility") != "public" or scope.get("private_repository_required") is not False:
+        raise RuntimeError("current scope misstates repository visibility")
+    for key in ("morphology_acceptance", "trade_authority", "production_authority", "authoritative_local_registry_mutation"):
+        if scope.get(key) is not False:
+            raise RuntimeError(f"scope overclaims authority: {key}")
+    for key in ("trade_fill_authority", "local_resampling_authority", "economic_strategy_selection_authority", "fresh_oos", "paper_trading_authority", "production_authority"):
+        if usage.get(key) is not False:
+            raise RuntimeError(f"data declaration overclaims authority: {key}")
+    expected_interval = {"start": "2015-01-05", "end": "2020-12-31", "instrument": "000852.SH"}
+    if scope.get("shipped_development_data_interval") != expected_interval or usage.get("instrument") != "000852.SH":
+        raise RuntimeError("current shipped data scope drift")
+    intervals = usage.get("shipped_development_intervals", [])
+    if len(intervals) != 1 or any(intervals[0].get(key) != expected_interval[key] for key in ("start", "end")):
+        raise RuntimeError("current Development interval drift")
+    if intervals[0].get("fresh_evidence") is not False or usage.get("allowed_uses_are_not_current_execution_authorization") is not True:
+        raise RuntimeError("data availability became execution or fresh-evidence authority")
+    history = usage["external_temporal_validation_history"]
+    slices = [(x["start"], x["end"], x["role"]) for x in history["consumed_slices"]]
+    expected_slices = [("2024-01-02", "2024-12-31", "consumed_external_temporal_replication"),
+                       ("2025-01-02", "2025-12-31", "consumed_external_temporal_replication"),
+                       ("2026-01-05", "2026-08-21", "consumed_external_temporal_replication")]
+    if slices != expected_slices or history.get("raw_rows_shipped_in_this_repository") is not False:
+        raise RuntimeError("consumed external evidence or shipped rows misstated")
+    if history.get("already_consumed_evidence_may_be_reused_as_new_external_validation") is not False:
+        raise RuntimeError("consumed evidence relabelled as new")
+    ref = usage["independent_reference_history"]
+    for key, metric in (("v0648_candidate_cases", "v0648_candidate_cases"),
+                        ("v0648_reference_confirmed_candidate_count", "v0648_reference_confirmed_candidates"),
+                        ("v0648_complete_anchor_cases", "anchored_development_cases")):
+        if type(ref.get(key)) is not int or ref[key] != authority["metrics"][metric]:
+            raise RuntimeError(f"reference declaration/M0 count mismatch: {key}")
+    available = usage["current_external_evidence_availability"]
+    for key in ("post_2026_08_21_CSI1000_minute_extension_available", "new_independent_two_wave_reference_labels_available", "direction_reopening_condition_satisfied"):
+        if available.get(key) is not False:
+            raise RuntimeError(f"unavailable external evidence promoted: {key}")
+    if scope["external_validation_policy"].get("current_new_external_evidence_available") is not False:
+        raise RuntimeError("scope reopens external evidence")
+    if ref.get("new_independent_reference_label_pack_currently_available") is not False:
+        raise RuntimeError("reference labels fabricated")
+    if authority.get("temporal_trigger_A_satisfied") is not False or authority.get("independent_reference_trigger_B_satisfied") is not False:
+        raise RuntimeError("declarations/M0 external availability conflict")
+    return {"current_governance_declarations_checked": 2, "consumed_external_slices_declared": len(slices)}
+
+
 def main() -> None:
     result: dict[str, object] = {
         "schema_id": "two_wave_cloud_theme_validation@1.0",
         "status": "passed_bounded_cloud_theme_ready_for_morphology_research",
         **validate_source_closure(), **validate_repository_surface(), **validate_data(), **validate_tool_boundary(),
+        **validate_current_declarations(),
         "fresh_oos": False, "registered_use_authority": False, "production_authority": False,
     }
     print(json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True))

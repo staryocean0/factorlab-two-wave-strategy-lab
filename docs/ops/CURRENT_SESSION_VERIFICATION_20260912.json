@@ -6,12 +6,12 @@
   "python": "3.13.5",
   "pytest": "9.0.2",
   "maintenance_test_command": "python -m pytest -q tests/unit/test_repository_consistency.py",
-  "maintenance_tests_passed": 79,
+  "maintenance_tests_passed": 89,
   "maintenance_tests_failed": 0,
   "modified_python_files_syntax_checked": 5,
   "modified_python_syntax_passed": true,
   "generated_current_documents_checked": 6,
-  "fixture_scope": "Current generated docs plus synthetic guard fixtures; not historical market outcomes.",
+  "fixture_scope": "Actual current generated docs and declaration/M0 alignment plus synthetic guard fixtures; not historical market outcomes.",
   "full_supported_environment_verification_attempt": {
     "command": "python scripts/verify_repository.py --report /tmp/two-wave-verification.json",
     "status": "blocked_environment",
@@ -28,5 +28,9 @@
   "actions_dispatched_or_rerun": false,
   "local_verification_task": "TW-CONSISTENCY-20260912-01",
   "integration_status": "draft_changes_pending_local_full_verification_not_main_acceptance",
-  "authority_granted": false
+  "authority_granted": false,
+  "initial_pre_reconciliation_maintenance_tests_passed": 79,
+  "current_declaration_tests_added": 10,
+  "reconciled_prior_maintenance_commit": "49bae1a2d1cfb6ffc2fc4e520f6ff5553506bc9c",
+  "maintenance_test_source_git_blob_sha": "d4fb157e3dfb43ef8ce20e7e71e8328555a1ef9c"
 }
