@@ -2,10 +2,12 @@
 from __future__ import annotations
 
 from collections import Counter
+from itertools import product
 from statistics import median
 from typing import Sequence
 
 from .f3_event_publication_transplant_v0702 import _death_index
+from .ridge_semantic_objectization_stream_v0701 import _dominant_incremental
 
 
 def _level_maps_confirmed(ridge_run, cutoff: int) -> list[dict[str, object]]:
@@ -37,7 +39,7 @@ def analyze_realization_certificate(
 ) -> dict:
     """Return C0 blockers and the preregistered minimal explicit-death C1 proof.
 
-    Blockers are attributed under the frozen cutoff.  Full-lineage inspection is
+    Blockers are attributed under the frozen cutoff. Full-lineage inspection is
     used only to distinguish evidence absent by cutoff from evidence that exists
     but confirms later; it never changes C1 eligibility at the cutoff.
     """
@@ -125,7 +127,6 @@ def analyze_realization_certificate(
             if not right_candidates:
                 c1_ok = False
             if left_candidates and right_candidates:
-                # Use the earliest qualifying confirmed representation at any level >= k.
                 left_proof = min(left_candidates)
                 right_proof = min(right_candidates)
                 proof_confirmation = max(
@@ -139,9 +140,6 @@ def analyze_realization_certificate(
                 else:
                     c1_confirmation = max(c1_confirmation, proof_confirmation)
 
-    # C0 passes exactly when no C0-contract blocker is present.  Future-evidence
-    # attribution labels are descriptive and only occur together with a C0
-    # failure mode above.
     c0_ok = not blockers
     return {
         "c0_ok": c0_ok,
@@ -156,6 +154,65 @@ def analyze_realization_certificate(
         "blockers": blockers,
         "blocker_counts": dict(Counter(blockers)),
     }
+
+
+def audit_human_compatible_static_f3(
+    ridge_run,
+    eligible_levels: Sequence[Sequence[object]],
+    survival: dict[str, int],
+    cells: Sequence[tuple[int, int]],
+    kinds: Sequence[str],
+    cutoff: int,
+) -> list[dict]:
+    """Definition-equivalent pruning for the v0.7.3 human-compatible F3 audit.
+
+    The frozen support cells are ordered and non-overlapping. Instead of first
+    enumerating every alternating quintet and then applying the unchanged human
+    compatibility predicate, select the matching node choices for each cell and
+    apply the exact same F3 persistence-dominance test to their Cartesian product.
+    This changes enumeration cost only, never family or certificate semantics.
+    """
+    if len(cells) != 5 or len(kinds) != 5:
+        raise ValueError("five frozen human support cells and kinds required")
+
+    out: list[dict] = []
+    for level, rows in enumerate(eligible_levels):
+        positions = {str(row.ridge_id): i for i, row in enumerate(rows)}
+        if len(positions) != len(rows):
+            raise AssertionError("ridge IDs must be unique within one scale level")
+
+        choices = []
+        for cell, kind in zip(cells, kinds):
+            matches = [
+                row
+                for row in rows
+                if str(row.node.kind) == str(kind)
+                and int(cell[0]) <= int(row.node.occurrence_index) <= int(cell[1])
+            ]
+            choices.append(matches)
+        if not all(choices):
+            continue
+
+        for nodes in product(*choices):
+            ids = tuple(str(row.ridge_id) for row in nodes)
+            if len(set(ids)) != 5:
+                continue
+            idxs = tuple(positions[rid] for rid in ids)
+            if any(b <= a for a, b in zip(idxs, idxs[1:])):
+                continue
+            if any(str(a.node.kind) == str(b.node.kind) for a, b in zip(nodes, nodes[1:])):
+                continue
+            if not _dominant_incremental(rows, idxs, survival):
+                continue
+            out.append(
+                {
+                    "level": int(level),
+                    "nodes": tuple(nodes),
+                    "idxs": idxs,
+                    "audit": analyze_realization_certificate(ridge_run, rows, idxs, level, cutoff),
+                }
+            )
+    return out
 
 
 def distribution(values: Sequence[int | float]) -> dict:

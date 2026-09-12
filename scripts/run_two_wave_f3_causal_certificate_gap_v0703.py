@@ -17,7 +17,7 @@ sys.path.insert(0, str(ROOT / "src"))
 from factor_lab.visual_structure.two_wave.data import load_development_bars
 from factor_lab.visual_structure.two_wave.extremum_ridge_v052 import build_ridge_run
 from factor_lab.visual_structure.two_wave.f3_causal_certificate_gap_v0703 import (
-    analyze_realization_certificate,
+    audit_human_compatible_static_f3,
     distribution,
     frozen_decision,
 )
@@ -26,11 +26,6 @@ from factor_lab.visual_structure.two_wave.reference_label_packet_v0648 import sa
 from factor_lab.visual_structure.two_wave.ridge_semantic_objectization_v0701 import (
     causal_survival_levels,
     eligible_nodes_by_level,
-    realization_matches_human,
-)
-from factor_lab.visual_structure.two_wave.ridge_semantic_objectization_stream_v0701 import (
-    _dominant_incremental,
-    alternating_quintet_indices,
 )
 from factor_lab.visual_structure.two_wave.same_scale_v043 import MaturityConfig
 from factor_lab.visual_structure.two_wave.semantic_bridge_counteroffensive_v0700 import (
@@ -128,22 +123,20 @@ def main() -> int:
 
         levels = eligible_nodes_by_level(ridge, chart_start, cutoff)
         survival = causal_survival_levels(levels)
-        compatible = []
-        for level, rows in enumerate(levels):
-            for idxs in alternating_quintet_indices(rows):
-                if not _dominant_incremental(rows, idxs, survival):
-                    continue
-                nodes = tuple(rows[i] for i in idxs)
-                realization = {"level": int(level), "nodes": nodes}
-                hit, _ = realization_matches_human(realization, cells, kinds, human_bars)
-                if not hit:
-                    continue
-                audit = analyze_realization_certificate(ridge, rows, idxs, level, cutoff)
-                compatible.append(audit)
-                aggregate_compatible_realizations += 1
-                aggregate_blockers.update(str(x) for x in audit["blockers"])
-                if bool(audit["c1_ok"]):
-                    c1_delays.append(int(audit["c1_confirmation_delay_from_selected_nodes"]))
+        compatible_rows = audit_human_compatible_static_f3(
+            ridge,
+            levels,
+            survival,
+            cells,
+            kinds,
+            cutoff,
+        )
+        compatible = [row["audit"] for row in compatible_rows]
+        aggregate_compatible_realizations += len(compatible)
+        for audit in compatible:
+            aggregate_blockers.update(str(x) for x in audit["blockers"])
+            if bool(audit["c1_ok"]):
+                c1_delays.append(int(audit["c1_confirmation_delay_from_selected_nodes"]))
 
         static_case = bool(compatible)
         c0_case = any(bool(x["c0_ok"]) for x in compatible)
