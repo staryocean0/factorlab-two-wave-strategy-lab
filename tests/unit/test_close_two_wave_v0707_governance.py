@@ -1,14 +1,20 @@
+import importlib.util
 import json
 from pathlib import Path
 
-from scripts.close_two_wave_v0707_governance import (
-    ADJUDICATION_PATH,
-    AUTHORITY_PATH,
-    EXPECTED_CATEGORY,
-    RESULT_PATH,
-    updated_authority,
-    verify_formal_result,
-)
+ROOT = Path(__file__).resolve().parents[2]
+SCRIPT_PATH = ROOT / "scripts" / "close_two_wave_v0707_governance.py"
+SPEC = importlib.util.spec_from_file_location("close_two_wave_v0707_governance", SCRIPT_PATH)
+assert SPEC is not None and SPEC.loader is not None
+GOVERNANCE = importlib.util.module_from_spec(SPEC)
+SPEC.loader.exec_module(GOVERNANCE)
+
+ADJUDICATION_PATH = GOVERNANCE.ADJUDICATION_PATH
+AUTHORITY_PATH = GOVERNANCE.AUTHORITY_PATH
+EXPECTED_CATEGORY = GOVERNANCE.EXPECTED_CATEGORY
+RESULT_PATH = GOVERNANCE.RESULT_PATH
+updated_authority = GOVERNANCE.updated_authority
+verify_formal_result = GOVERNANCE.verify_formal_result
 
 
 def _load(path: Path):
