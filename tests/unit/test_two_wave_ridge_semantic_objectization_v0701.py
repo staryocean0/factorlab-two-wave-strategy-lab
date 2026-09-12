@@ -1,5 +1,8 @@
 from types import SimpleNamespace
 
+from factor_lab.visual_structure.two_wave.ridge_semantic_objectization_f3dp_v0701 import (
+    evaluate_f3_case_dp,
+)
 from factor_lab.visual_structure.two_wave.ridge_semantic_objectization_v0701 import (
     causal_survival_levels,
     family_f1_ordered_common_scale,
@@ -7,6 +10,7 @@ from factor_lab.visual_structure.two_wave.ridge_semantic_objectization_v0701 imp
     family_f3_persistence_dominant,
     frozen_decision,
     summarize_family_records,
+    summarize_family_case,
 )
 from factor_lab.visual_structure.two_wave.ridge_semantic_objectization_stream_v0701 import (
     evaluate_f1_case,
@@ -97,8 +101,15 @@ def test_f3_allows_only_lower_persistence_skipped_ridges():
         node("D", "high", 40),
         node("E", "low", 50),
     ]
-    objects = family_f3_persistence_dominant(run([l0, l1]), 0, 60)
+    r = run([l0, l1])
+    objects = family_f3_persistence_dominant(r, 0, 60)
     assert ("A", "B", "C", "D", "E") in objects
+
+    cells = [(8, 11), (18, 22), (28, 32), (38, 42), (48, 52)]
+    kinds = ["low", "high", "low", "high", "low"]
+    brute_summary = summarize_family_case(objects, cells, kinds, [10, 20, 30, 40, 50])
+    dp_summary = evaluate_f3_case_dp(r, 0, 60, cells, kinds, [10, 20, 30, 40, 50])
+    assert dp_summary == brute_summary
 
     # If X survives just as high as the selected boundaries, it may not be skipped.
     l1_with_x = [
