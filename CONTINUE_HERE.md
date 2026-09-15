@@ -1,4 +1,4 @@
-# CONTINUE HERE — 广义反转 / 均值回归研究入口（2026-09-08）
+# CONTINUE HERE — 广义反转 / 均值回归研究入口（2026-09-15）
 
 **本文件是判断本仓库“现在研究什么、下一步做什么”的第一权威。**
 
@@ -8,11 +8,9 @@
 
 当前状态：
 
-`R5_PARTIAL_SUPPORT_B1_BOUNDED_DIAGNOSTIC_FROZEN_CL008_LOCAL_EXECUTION_PENDING`
+`R5_B1_DIAGNOSTIC_SUPPORTED_SPECIALIST_HANDOFF_READY_BROAD_DISCOVERY_CONTINUES`
 
 ## 1. 数据治理
-
-当前：
 
 ```text
 TRAIN      = 2015-01-05..2018-12-31
@@ -30,11 +28,10 @@ BLACKBOX 只在候选成熟后才分配，默认只返回 aggregate confirmation
 
 ## 2. M0 两浪底座
 
-M0 继续作为 `M0_two_wave_structure_measurement_foundation`，不是交易 alpha。
+M0 = `M0_two_wave_structure_measurement_foundation`，不是交易 alpha。
 
 - operational baseline = v0.4.3
 - morphology = `morphology_replication_not_yet_accepted`
-- CL-005 = cloud-reviewed completed
 - v0.6.17 accepted capability = `interval_valued_session_aware_path_information_bounds`
 
 native 5m OHLC 不能默认等同于真实 fine path。
@@ -47,134 +44,98 @@ native 5m OHLC 不能默认等同于真实 fine path。
 - R4 old v1：no candidate qualifies。
 - T1 old 5-sigma/960-bar：closed before outcome under its historical supply gate。
 
-这些是 identity-level 历史结论，不限制底层数据重复使用。
+这些都是 identity-level 历史结论，不限制底层 TRAIN/VALIDATION 重复使用。
 
-## 4. R5 已完成 CL-007 云端验收
+## 4. R5 parent 结论保持不变
 
 Identity：`R5_multiscale_serial_dependence_state_v1`
 
-CL-007 local feedback commit：
+Parent cloud review：`docs/research/reversal_mean_reversion_R5_multiscale_serial_dependence_cloud_review_20260908.md`
 
-`abf95c1c0dacfee487bf2c6ecaa920c697cbfaec`
+Parent adjudication：`R5_partial_support_keep_researching_on_TRAIN_VALIDATION`
 
-Cloud review：
+关键点：
 
-`docs/research/reversal_mean_reversion_R5_multiscale_serial_dependence_cloud_review_20260908.md`
+- R5-A：mixed-state supply 足，但 TRAIN 21.97% -> VALIDATION 4.12%，不能当稳定离散 regime classifier。
+- R5-B1：interaction coefficient = `-1.06923`；VALIDATION B0/B1 MSE = `1.01165327 / 1.01011161`，约 0.152% 小增量。
+- R5-B2：更复杂 slower-memory interaction 更差，不升级。
+- R5-C：counter-trend shock recovery 预注册机制不支持，不 rescue。
 
-正式总裁决：
+## 5. CL-008 已完成并通过冻结诊断
 
-`R5_partial_support_keep_researching_on_TRAIN_VALIDATION`
+Diagnostic identity：`R5_B1_stability_shape_diagnostic_v1`
 
-### R5-A
+Receipt：`docs/research/local_broad_rmr_R5_B1_stability_shape_diagnostic_receipt_v1.json`
 
-供给充分，但离散 mixed-state 的 prevalence 漂移很大：
+Cloud review：`docs/research/reversal_mean_reversion_R5_B1_stability_shape_diagnostic_cloud_review_20260915.md`
 
-```text
-TRAIN mixed fraction      = 21.97%
-VALIDATION mixed fraction =  4.12%
-```
+执行事实：
 
-所以不把 `short<0 & long>0` 直接升级为稳定 regime classifier。
-
-### R5-B1
-
-当前唯一值得继续的一小块：
-
-```text
-TRAIN interaction coefficient = -1.06923
-VALIDATION MSE B0 = 1.01165327
-VALIDATION MSE B1 = 1.01011161
-relative improvement ≈ 0.152%
-```
-
-2019、2020 两年 B1 都优于 B0。
-
-这是**小而跨年的增量**，不能直接叫策略成功。
-
-### R5-B2
-
-额外 slow-memory interaction 不优于 B1：
-
-`VALIDATION MSE = 1.01058814`
-
-不升级。
-
-### R5-C
-
-当前“慢趋势中的反向 5m shock 后 15m 恢复”纯统计机制不支持。
-
-- resolved supply 很足：TRAIN 1323 / VALIDATION 723；
-- long-memory coefficient = `-2.3923`，与预注册 `>0` 相反；
-- VALIDATION mean recovery = `-0.03146`；
-- 2019、2020 mean recovery 都为负。
-
-因此当前 R5-C identity 关闭，不通过改 threshold / horizon / parent window 救。
-
-## 5. 当前唯一 R5 后续预算：B1 一次性诊断
-
-Diagnostic identity：
-
-`R5_B1_stability_shape_diagnostic_v1`
-
-目的只有两个：
-
-1. B1 的小幅 improvement 是否广泛出现在 validation trading days，而不是少数日期贡献；
-2. anti-persistence 越强时，经验 next-return slope 是否整体更负。
-
-冻结文件：
-
-- `docs/research/reversal_mean_reversion_R5_B1_stability_diagnostic_preanalysis_20260908.md`
-- `docs/governance/reversal_mean_reversion_R5_B1_stability_diagnostic_protocol_v1.json`
-- `docs/governance/reversal_mean_reversion_R5_B1_diagnostic_execution_freeze_v1.json`
-- `scripts/diagnose_broad_rmr_R5_B1_stability_shape.py`
-- `tests/unit/test_broad_rmr_R5_B1_stability_shape.py`
-
-## 6. 当前任务：CL-20260908-008
-
-Handoff：
-
-`docs/ops/cl_20260908_008_R5_B1_stability_shape_diagnostic_handoff.md`
-
-本地顺序：
-
-```bash
-pytest -q tests/unit/test_broad_rmr_R5_B1_stability_shape.py
-```
-
-期望 4 passed，然后：
-
-```bash
-python scripts/diagnose_broad_rmr_R5_B1_stability_shape.py \
-  --output docs/research/local_broad_rmr_R5_B1_stability_shape_diagnostic_receipt_v1.json
-```
-
-只推 compact receipt，使用 `[skip ci]`。
-
-## 7. CL-008 的裁决规则
+- current cloud session 重新核对 repo / branch / frozen artifacts；
+- current cloud binary transport 仍受执行环境限制；
+- 真正 diagnostic 在已授权 local machine 的独立 temp clone 上运行；
+- execution head = `cf8397c12a9defa243dc272224dedebe6ccd3251`；
+- source SHA256 = `bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48`；
+- frozen tests = 4/4 passed；
+- entry reproduction = passed at `1e-12` tolerance；
+- BLACKBOX=false；post-2020=false；PnL=false；fresh OOS claim=false。
 
 ### D1 — day breadth
 
-2019 和 2020 都必须：
-
 ```text
-fraction_days_B1_better > 0.50
-median day improvement > 0
+2019: fraction B1 better = 53.2787%, median improvement = +0.000304839
+2020: fraction B1 better = 56.3786%, median improvement = +0.000433809
 ```
+
+两年都过 frozen gate。
+
+`D1_day_breadth_supported = true`
 
 ### D2 — mechanism shape
 
-TRAIN feature distribution 固定 anti-persistence 5 个 quintile。VALIDATION、2019、2020 都必须满足：
-
 ```text
-top-quintile empirical next-return slope < bottom-quintile slope
-5-bin slope vs mean anti-persistence trend < 0
+VALIDATION pooled: bottom slope +0.090478 -> top slope -0.002443, trend -1.107158
+2019:              bottom slope +0.108674 -> top slope -0.034797, trend -1.638868
+2020:              bottom slope +0.064259 -> top slope +0.024667, trend -0.511917
 ```
 
-只有 D1=true 且 D2=true 才允许把 B1 交给专门 research identity。
+三组都满足 top slope < bottom slope 且 five-bin trend < 0。
 
-其它结果都不允许直接升级 HMM/rSLDS/Koopman。
+`D2_shape_supported = true`
 
-即使 D1+D2 都通过，也仍不自动分配 BLACKBOX。
+正式裁决：
+
+`R5_B1_diagnostic_supported_for_specialist_research`
+
+这只说明小增量具有足够的日度广度与预注册机制形状，**不表示策略成功，不表示 fresh OOS，不表示 BLACKBOX qualification。**
+
+## 6. Specialist handoff 已建立，但 BLACKBOX 仍为空
+
+Specialist identity：`R5_B1_anti_persistence_interaction_specialist_v1`
+
+Handoff：`docs/ops/R5_B1_anti_persistence_specialist_research_handoff_20260915.md`
+
+第一阶段只研究：
+
+1. 时间稳定性，不挑 favorable period；
+2. continuous effect shape，不做 filter rescue；
+3. 有真实数据时做不同基础频率和 CSI300/500/1000 transport；
+4. 机制稳定后再谈经济映射。
+
+暂不允许直接上 HMM / rSLDS / Koopman；不分配 BLACKBOX。
+
+## 7. 母仓下一步
+
+R5-B1 已交 specialist lane，本仓恢复“广而浅”的方向发现职责。后续 broad research 不应继续围绕 B1 无限调参，应优先寻找新的独立机制，例如：
+
+- 新的 cross-scale pullback identity；
+- failed breakout / boundary failure，但不复活旧 R2；
+- market-common shock vs local shock；
+- CSI300/500/1000 同步状态、breadth、dispersion；
+- volatility/path/cross-sectional information；
+- 只有真实数据到位时才研究 liquidity/order-book shock。
+
+新方向先做机制和供给验证，强方向再交 specialist。
 
 ## 8. 新数据的作用
 
@@ -186,9 +147,10 @@ top-quintile empirical next-return slope < bottom-quintile slope
 
 - 把 TRAIN/VALIDATION 称 fresh OOS；
 - 当前 discovery 阶段用 PnL/Sharpe 选模型；
+- outcome 后筛 favorable day/year/sign/time；
+- 用复杂 regime model 救简单机制失败；
 - paper trading / production / Layer 4；
 - FactorLab registry mutation；
-- outcome 后 favorable day/year/sign/time 筛选；
 - native OHLC 伪装 fine path。
 
 Production authority = false。
