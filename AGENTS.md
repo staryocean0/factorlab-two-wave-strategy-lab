@@ -1,3 +1,13 @@
+# RETIRED — DO NOT CONTINUE RESEARCH HERE
+
+**Effective 2026-09-15, this repository is retired as an active research/control-plane repository.**
+
+Do not start, resume, extend, rerun, retune, or hand off new research in this repository. Retained Two-Wave components, protocols, results, branches, issues, workflows, and Development data are historical evidence / reusable source material only unless a current paired repository explicitly imports them by immutable identity.
+
+The prior Two-Wave authority below remains preserved for provenance, but it no longer grants operational authority in this repository. Current work must be placed in the applicable new paired control plane. Trading and production authority remain false.
+
+---
+
 # AGENTS.md — Two-Wave repository rules
 
 This repository is the bounded CSI1000 Two-Wave morphology/direction research lab. These rules apply to humans and coding agents working inside this repository.
