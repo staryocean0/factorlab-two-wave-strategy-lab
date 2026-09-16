@@ -33,10 +33,10 @@ jobs:
         run: |
           test "$(git hash-object docs/governance/R7_layer2_5m_risk_state_reference_contract_v1.json)" = "138f150fad8b87e3fda13d2ce948ffe1d83e1c6b"
           test "$(git hash-object docs/research/R7_layer2_5m_risk_state_alignment_inventory_preanalysis_20260916.md)" = "54db46c94bd4fc394271b2b3e40ea48145698163"
-          test "$(git hash-object scripts/inventory_R7_layer2_5m_risk_state_alignment.py)" = "1410a0b9caf9b82164df8087d5007b0c2b809f96"
+          test "$(git hash-object scripts/inventory_R7_layer2_5m_risk_state_alignment.py)" = "9e6c253191fd93d860b4a97596b6cef8411a4f9a"
           test "$(git hash-object tests/unit/test_R7_layer2_5m_risk_state_alignment.py)" = "7fffdd40304ad9cefc612bb2eca8ce003a1ebfc4"
           test "$(git hash-object scripts/run_R7_native_1m_rejected_excursion.py)" = "e42ba3a260b2ed8c5fc3c6be548e73f5245b8e30"
-          test "$(git hash-object docs/governance/R7_layer2_5m_risk_state_alignment_inventory_execution_freeze_v1.json)" = "b68fc30ca5d9ba42192d03b0452161aeb6b8f24b"
+          test "$(git hash-object docs/governance/R7_layer2_5m_risk_state_alignment_inventory_execution_freeze_v2.json)" = "bffca1db0b7a8ba164e09c41dbaf9e12ad6807bc"
           test "$(git -C layer2 rev-parse HEAD)" = "1d760ea9525eb3688b70a4aa0f2b5b207af16a17"
           python - <<'PY'
           import hashlib
