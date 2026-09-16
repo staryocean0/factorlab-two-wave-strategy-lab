@@ -1,0 +1,58 @@
+{
+  "schema_id": "factorlab_R5_B1_specialist_stage1_execution_freeze@1.0",
+  "session_date": "2026-09-16",
+  "specialist_identity": "R5_B1_anti_persistence_interaction_specialist_v1",
+  "stage_identity": "R5_B1_specialist_stage1_stability_continuous_shape_v1",
+  "status": "frozen_before_real_data_execution",
+  "frozen_artifacts": {
+    "preanalysis": {
+      "path": "docs/research/R5_B1_specialist_stage1_preanalysis_20260916.md",
+      "blob_sha": "4f0e52e7afe7d75d434ae1cea25110bea6f71cc3"
+    },
+    "protocol": {
+      "path": "docs/governance/R5_B1_specialist_stage1_protocol_v1.json",
+      "blob_sha": "fb945c94469e12df2d4bb2bc26e66b0fc23d8074"
+    },
+    "runner": {
+      "path": "scripts/diagnose_R5_B1_specialist_stage1_stability_continuous_shape.py",
+      "blob_sha": "d57eac2c41413c966790dfefd573669ebfe535b6"
+    },
+    "tests": {
+      "path": "tests/unit/test_R5_B1_specialist_stage1_stability_continuous_shape.py",
+      "blob_sha": "28f86caf928f24f1b6c057bc3f7a1557bb4190e5"
+    }
+  },
+  "parent_artifacts": {
+    "CL008_runner": {
+      "path": "scripts/diagnose_broad_rmr_R5_B1_stability_shape.py",
+      "blob_sha": "a5f1f4dea7fb46a6d42c7d91f3404b1ec8022f28"
+    },
+    "R5_parent_runner": {
+      "path": "scripts/run_broad_rmr_R5_multiscale_serial_dependence.py",
+      "blob_sha": "cd0ac94f7f8dc4fba7c9ee25701bcca02f551f2a"
+    }
+  },
+  "source_identity": {
+    "path": "data/development/5m_offset_0.parquet",
+    "sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48",
+    "rows_expected": 70114,
+    "instrument": "000852.SH",
+    "maximum_day": "2020-12-31"
+  },
+  "required_test_command": "pytest -q tests/unit/test_R5_B1_specialist_stage1_stability_continuous_shape.py",
+  "expected_test_count": 5,
+  "required_run_command": "python scripts/diagnose_R5_B1_specialist_stage1_stability_continuous_shape.py --output docs/research/local_R5_B1_specialist_stage1_receipt_v1.json",
+  "required_receipt": "docs/research/local_R5_B1_specialist_stage1_receipt_v1.json",
+  "data_policy": {
+    "TRAIN_reusable": true,
+    "VALIDATION_reusable_and_diagnosable": true,
+    "BLACKBOX_assigned": false,
+    "BLACKBOX_read_authorized": false,
+    "post_2020_read_authorized": false,
+    "fresh_OOS_claim_authorized": false
+  },
+  "transport_authorized_only_if": "S1_true_and_S2_true",
+  "complex_regime_model_authorized": false,
+  "economic_mapping_authorized": false,
+  "production_authority": false
+}
