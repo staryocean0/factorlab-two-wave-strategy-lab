@@ -1,0 +1,80 @@
+{
+  "schema_id": "factorlab_R7_layer2_5m_risk_state_reference_contract@1.0",
+  "session_date": "2026-09-16",
+  "consumer_repository": "staryocean0/factorlab-two-wave-strategy-lab",
+  "consumer_branch": "codex/two-wave-phase1-20260905",
+  "consumer_identity": "R7_native_1m_rejected_excursion_specialist_v1",
+  "layer2_project": "CSI1000 Risk Tool / causal K-line risk",
+  "reference_only": true,
+  "layer2_mutation_authorized": false,
+  "authoritative_records": {
+    "private_repository": "staryocean0/csi1000-timing-strategy-private",
+    "pinned_private_commit": "7688ba57206dd29fbef88d8e57475255718471fe",
+    "risk_tool_v2_freeze_path": "docs/research/RISK_TOOL_V2_FREEZE_20260914.md",
+    "risk_tool_v2_freeze_blob": "bb080d209ce5964b4aac22732e57f8d9194133dc",
+    "phase1_adjudication_path": "docs/research/RISK_TOOL_V2_PHASE1_SCIENTIFIC_ADJUDICATION_20260914.json",
+    "phase1_adjudication_blob": "08fcc582ea6ec5c65880cb0fe80dcba167b7677b",
+    "v19_protocol_path": "runtime/research/cloud_imports/causal_kline_risk/850a0b66ab1464e5d9cf1a4931d700820543c1fe/research/highvol_risk_episode_state_machine_v19/PROTOCOL.md",
+    "v19_protocol_blob": "5e90e2ca4feb6ebef842fddf72268c8e40e792d1",
+    "v9_frozen_runner_blob": "ae2a7e095df58692ef9df0dfee5856cac727ca44"
+  },
+  "layer2_market_data_identity": {
+    "repository": "staryocean0/factorlab-trend-reversion-regime-lab",
+    "commit": "1d760ea9525eb3688b70a4aa0f2b5b207af16a17",
+    "canonical_suffix": "data/market/5m/<symbol>/<year>.parquet",
+    "authoritative_phase1_years": [2020, 2021, 2022, 2023, 2024, 2025],
+    "consumer_overlap_reference_year": 2020
+  },
+  "frozen_finalized_5m_state_semantics": {
+    "states": ["NORMAL", "UNSAFE", "RECOVERING"],
+    "risk_states": ["UNSAFE", "RECOVERING"],
+    "RV_WINDOW": 12,
+    "BG_WINDOW": 48,
+    "HIGHVOL_RATIO": 1.5,
+    "RECOVERY_NORMAL_RATIO": 1.1,
+    "SHOCK_SIGMA": 3.0,
+    "return": "same_trading_day_log_close_diff",
+    "rv12": "std_ddof0_of_latest_12_valid_5m_returns_including_current",
+    "bg_vol48": "std_ddof0_of_previous_48_valid_5m_returns_shift1",
+    "vol_ratio": "rv12_div_bg_vol48",
+    "shock_intensity": "abs(ret_5m)_div_bg_vol48",
+    "shock": "shock_intensity_ge_3",
+    "daily_initial_state": "NORMAL",
+    "transition": {
+      "fresh_shock": "UNSAFE",
+      "from_UNSAFE_or_RECOVERING_ratio_ge_1p5": "UNSAFE",
+      "from_UNSAFE_or_RECOVERING_1p1_lt_ratio_lt_1p5": "RECOVERING",
+      "from_UNSAFE_or_RECOVERING_ratio_le_1p1": "NORMAL",
+      "from_NORMAL_without_fresh_shock": "NORMAL"
+    }
+  },
+  "consumer_bucket_map": {
+    "primary_two_bucket": {
+      "NORMAL": "LOW_RISK",
+      "UNSAFE": "RISK_ACTIVE",
+      "RECOVERING": "RISK_ACTIVE"
+    },
+    "three_state_retained_for_descriptive_audit": true,
+    "note": "LOW_RISK/RISK_ACTIVE is a fixed consumer grouping of Layer2 states, not an outcome-fitted volatility threshold and not a claim that NORMAL equals low realized volatility in every bar."
+  },
+  "replay_boundary": {
+    "symbol": "000852.SH",
+    "consumer_period": "2015-01-05..2020-12-31",
+    "consumer_source": "data/development/5m_offset_0.parquet",
+    "consumer_source_sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48",
+    "post_2020_read_in_layer3": false,
+    "incomplete_5m_days": "mark_unavailable_and_exclude_from_state_replay",
+    "outcome_read_during_alignment_inventory": false
+  },
+  "forbidden": [
+    "modify_Layer2_thresholds_or_state_semantics",
+    "fit_new_risk_threshold_from_R7_outcomes",
+    "remap_states_after_R7_outcomes",
+    "consume_Layer2_recovery_probability_as_strategy_signal",
+    "read_post_2020_for_Layer3_selection",
+    "use_PnL_or_Sharpe_for_bucket_definition",
+    "claim_Layer2_Phase1_probability_model_supported"
+  ],
+  "layer2_phase1_probability_verdict": "NOT_SUPPORTED",
+  "production_authority": false
+}
