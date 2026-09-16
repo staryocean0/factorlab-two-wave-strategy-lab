@@ -1,0 +1,62 @@
+name: 1m-native-path-inventory
+
+on:
+  push:
+    branches:
+      - codex/two-wave-phase1-20260905
+    paths:
+      - '.github/workflows/1m-native-path-inventory.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inventory:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install repository-bounded data dependencies
+        run: python -m pip install 'numpy>=2.0,<2.6' 'pandas>=2.3,<3' 'pyarrow>=19,<20'
+      - name: Verify inventory runner and source identities
+        run: |
+          test "$(git hash-object scripts/inventory_1m_native_path_alignment.py)" = "e1b0fac39b954e96bc93e23a0e3693956f597511"
+          python - <<'PY'
+          import hashlib
+          targets={
+            'data/development/1m_official.parquet':'755217afce9dec383e48cd46d591402fa90dc50897abeb3dc7097c9a18a109d4',
+            'data/development/5m_offset_0.parquet':'bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48',
+          }
+          for p,expected in targets.items():
+              h=hashlib.sha256(open(p,'rb').read()).hexdigest()
+              assert h==expected,(p,h)
+          print('inventory sources verified')
+          PY
+      - name: Run inventory only
+        run: python scripts/inventory_1m_native_path_alignment.py --output /tmp/1m_native_path_inventory_v1.json
+      - name: Enforce inventory authority boundary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path('/tmp/1m_native_path_inventory_v1.json').read_text())
+          assert x['inventory_only'] is True
+          assert x['future_return_read'] is False
+          assert x['PnL_read'] is False
+          assert x['BLACKBOX_read'] is False
+          assert x['post_2020_read'] is False
+          assert x['authority']['local_resampling_performed'] is False
+          assert x['authority']['signal_or_outcome_screen_performed'] is False
+          assert x['authority']['production_authority'] is False
+          print('inventory authority boundary verified')
+          PY
+      - name: Upload inventory receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: 1m-native-path-inventory
+          path: /tmp/1m_native_path_inventory_v1.json
+          if-no-files-found: error
