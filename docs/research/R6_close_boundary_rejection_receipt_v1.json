@@ -1,0 +1,29 @@
+{
+  "BLACKBOX_read": false,
+  "PnL_read": false,
+  "adjudication": "R6_direction_not_supported",
+  "construction": {
+    "B1_feature_read": false,
+    "boundary_lookback_bars": 12,
+    "forward_horizon_bars": 3,
+    "rejection_delay_bars": 1,
+    "sigma_window_returns": 240,
+    "structure_cache_read": false
+  },
+  "direction_supported": false,
+  "event_count": 7384,
+  "fresh_OOS_claim": false,
+  "groups": {
+    "2019": {"control_mean":0.0872154028703617,"control_median":0.06609384104119204,"control_n":1060,"control_reversal_fraction":0.47924528301886793,"failed_mean":0.05617547039278552,"failed_median":-0.012420535310427213,"failed_n":290,"failed_reversal_fraction":0.506896551724138,"mean_effect":-0.03103993247757618,"reversal_fraction_delta":0.027651268705270016,"usable":true},
+    "2020": {"control_mean":-0.00033422562314089447,"control_median":0.07709064776839103,"control_n":992,"control_reversal_fraction":0.4627016129032258,"failed_mean":-0.038638635478752494,"failed_median":-0.1113296465292185,"failed_n":294,"failed_reversal_fraction":0.5238095238095238,"mean_effect":-0.0383044098556116,"reversal_fraction_delta":0.061107910906298024,"usable":true},
+    "TRAIN": {"control_mean":0.14851298990098122,"control_median":0.06913848735236926,"control_n":3694,"control_reversal_fraction":0.46778559826746074,"failed_mean":0.10223409738359653,"failed_median":0.03991505449774878,"failed_n":1054,"failed_reversal_fraction":0.48671726755218214,"mean_effect":-0.04627889251738469,"reversal_fraction_delta":0.018931669284721397,"usable":true},
+    "VALIDATION": {"control_mean":0.04489121599630977,"control_median":0.07288099274346121,"control_n":2052,"control_reversal_fraction":0.4712475633528265,"failed_mean":0.008443711614990697,"failed_median":-0.042808422633065474,"failed_n":584,"failed_reversal_fraction":0.5154109589041096,"mean_effect":-0.03644750438131907,"reversal_fraction_delta":0.04416339555128307,"usable":true},
+    "VALIDATION_lower": {"control_mean":-0.037177980556769546,"control_median":-0.09859192960916034,"control_n":979,"control_reversal_fraction":0.5291113381001021,"failed_mean":0.020769824498800285,"failed_median":-0.1728713745303354,"failed_n":301,"failed_reversal_fraction":0.5614617940199336,"mean_effect":0.05794780505556983,"reversal_fraction_delta":0.03235045591983143,"usable":true},
+    "VALIDATION_upper": {"control_mean":0.11977075320550327,"control_median":0.16938762568732235,"control_n":1073,"control_reversal_fraction":0.418452935694315,"failed_mean":-0.004666394314432233,"failed_median":0.10197821046023249,"failed_n":283,"failed_reversal_fraction":0.4664310954063604,"mean_effect":-0.12443714751993551,"reversal_fraction_delta":0.04797815971204539,"usable":true}
+  },
+  "identity": "R6_close_boundary_rejection_v1",
+  "production_authority": false,
+  "schema_id": "factorlab_R6_close_boundary_rejection_receipt@1.0",
+  "source": {"max_day":"2020-12-31","path":"data/development/5m_offset_0.parquet","post_2020_rows_read":false,"rows":70114,"sha256":"bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48","symbol":"000852.SH"},
+  "supply_supported": true
+}
