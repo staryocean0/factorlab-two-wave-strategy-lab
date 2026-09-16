@@ -62,11 +62,13 @@ At official endpoint t, R7 features use information through the close of native 
 Primary proxy execution is:
 
 - enter/rebalance at the **open of native minute t+1**;
-- measure the trade interval through the **close of native minute t+5**;
-- gross interval return = `target_position * (close[t+5] / open[t+1] - 1)`;
+- the five-bar forecast window runs through the **close of native minute t+5**;
+- within-window return is `target_position * (close[t+5] / open[t+1] - 1)`;
+- for two contiguous R7 windows on the same trading day whose signal endpoints differ by exactly 5 minutes, the prior position remains live from the prior window exit close to the next execution open, so gap carry is `old_position * (new_entry_open / old_exit_close - 1)` before the rebalance;
+- the interval gross return is `(1 + gap_carry_return) * (1 + window_return) - 1`;
 - all five future bars must be exact same-session native minutes already admitted by the R7 candidate construction;
 - no overnight exposure;
-- a discontinuity between adjacent R7 signal windows (for example the lunch break) forces flattening at the prior interval end and a new opening cost at the next admitted interval.
+- a discontinuity between adjacent R7 signal windows (including lunch/session gaps) forces flattening at the prior interval end, zero exposure through the gap, and a fresh opening at the next admitted interval.
 
 This is deliberately delayed relative to the signal and is not changed after viewing PnL.
 
@@ -107,7 +109,7 @@ For both the legacy comparator and formal OLD_BASELINE, report at every cost lev
 - 2019 total return;
 - 2020 total return.
 
-Also report the no-cost difference between the delayed proxy return and the parent normalized forecast target only as implementation diagnostics; MSE is not an economic acceptance gate here.
+Implementation diagnostics must also report candidate/trade counts, source-contract identity, and whether execution rows touch source rows marked `causal_flat_fill`. That diagnostic is descriptive only and cannot be used to remove unfavorable rows after PnL is known.
 
 ## 9. Pre-outcome acceptance rule
 
