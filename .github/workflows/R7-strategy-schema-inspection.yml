@@ -1,0 +1,41 @@
+name: R7-strategy-schema-inspection
+
+on:
+  push:
+    branches:
+      - codex/two-wave-phase1-20260905
+    paths:
+      - '.github/workflows/R7-strategy-schema-inspection.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inspect-schema-only:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install bounded schema dependency
+        run: python -m pip install 'pandas>=2.3,<3' 'pyarrow>=19,<20'
+      - name: Inspect official 1m and 5m schemas only
+        run: |
+          python - <<'PY'
+          import hashlib, pandas as pd, pyarrow.parquet as pq
+          targets={
+            'data/development/1m_official.parquet':'755217afce9dec383e48cd46d591402fa90dc50897abeb3dc7097c9a18a109d4',
+            'data/development/5m_offset_0.parquet':'bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48',
+          }
+          for path, expected in targets.items():
+              got=hashlib.sha256(open(path,'rb').read()).hexdigest()
+              assert got==expected,(path,got)
+              pf=pq.ParquetFile(path)
+              print('FILE',path)
+              print('SCHEMA',pf.schema_arrow)
+              print('ROWS',pf.metadata.num_rows)
+              # schema-only governance: do not read any market values / outcomes
+          PY
