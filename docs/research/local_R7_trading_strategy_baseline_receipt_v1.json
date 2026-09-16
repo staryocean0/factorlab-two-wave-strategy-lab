@@ -1,0 +1,81 @@
+{
+  "schema_id": "factorlab_R7_trading_strategy_baseline_receipt@1.0",
+  "identity": "R7_trading_strategy_baseline_v1",
+  "parent_identity": "R7_native_1m_rejected_excursion_v1",
+  "strategy_role": "index_proxy_research_backtest",
+  "workflow_run_id": 35054743474,
+  "workflow_job_id": 104662426973,
+  "workflow_conclusion": "success",
+  "artifact_id": 10430560602,
+  "artifact_digest": "sha256:b672a09f98c5461f6bdf8af780ef6ce9dac0222a344057afb8eff9f491a99d41",
+  "sources": {
+    "one_min": {"path": "data/development/1m_official.parquet", "sha256": "755217afce9dec383e48cd46d591402fa90dc50897abeb3dc7097c9a18a109d4", "rows": 350561},
+    "five_min": {"path": "data/development/5m_offset_0.parquet", "sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48", "rows": 70114},
+    "symbol": "000852.SH",
+    "max_day": "2020-12-31",
+    "instrument_type": "market_index",
+    "signal_price_view": "identity_index_point",
+    "fill_price_view": "raw_pit",
+    "data_contract": "cn_a_session_wall_clock_offset_v1",
+    "package_data_role": "development_material"
+  },
+  "parent_reproduction": {
+    "candidate_rows": 64215,
+    "TRAIN_rows": 42787,
+    "VALIDATION_rows": 21428,
+    "legacy_TRAIN_B1_beta": [0.0014301524091757528, 0.06384569479627822, -0.5327696198414725]
+  },
+  "execution": {
+    "signal_to_entry": "next_native_1m_open",
+    "window_exit": "t_plus_5_native_1m_close",
+    "contiguous_gap_carry": true,
+    "noncontiguous_flatten": true,
+    "overnight_exposure": false,
+    "trade_intervals": 21428,
+    "flat_fill_touch_intervals": 495,
+    "flat_fill_touch_fraction": 0.023100616016427104
+  },
+  "coefficient_policies": {
+    "legacy": "fixed_2015_2018_B1",
+    "OLD_BASELINE": "daily_expanding_B1_using_strictly_prior_trading_days",
+    "expanding_audit": {
+      "causality_ok": true,
+      "evaluation_days": 487,
+      "first_day": {"trading_day": "2019-01-02", "history_n": 42787, "history_max_day": "2018-12-28", "beta": [0.0014301524091757528, 0.06384569479627822, -0.5327696198414725]},
+      "last_day": {"trading_day": "2020-12-31", "history_n": 64171, "history_max_day": "2020-12-30", "beta": [0.007054321930005204, 0.0712388855055357, -0.47859757899488753]},
+      "all_history_max_day_strictly_before_eval_day": true
+    }
+  },
+  "position_rule": "clip(forecast_z,-1,+1)",
+  "cost_scenarios_bps": [0.0, 1.0, 2.0, 5.0],
+  "primary_cost_bps": 2.0,
+  "legacy_comparator": {
+    "0bps": {"total_return": 1.5668957990421006, "annualized_return": 0.6287328232056721, "annualized_volatility": 0.04981232269325652, "sharpe": 9.82703853490904, "sortino": 28.561226687291178, "max_drawdown": -0.022483920597555884, "calmar": 27.963664987947812, "average_daily_turnover": 10.01512323168633, "2019_total_return": 0.5418576319583839, "2020_total_return": 0.6648072726285155},
+    "1bps": {"total_return": 0.5761700484564689, "annualized_return": 0.26546593661748097, "sharpe": 4.788710621747193, "max_drawdown": -0.02471000119829503, "average_daily_turnover": 10.01512323168633, "2019_total_return": 0.21746417172233823, "2020_total_return": 0.29463362049221864},
+    "2bps": {"total_return": -0.032195468835996555, "annualized_return": -0.01679117935982044, "sharpe": -0.3185154641923952, "max_drawdown": -0.13670613242774632, "average_daily_turnover": 10.01512323168633, "2019_total_return": -0.03869070921845519, "2020_total_return": 0.0067566603638866685},
+    "5bps": {"total_return": -0.7759835687323114, "annualized_return": -0.5388949773628678, "sharpe": -15.205941019847929, "max_drawdown": -0.7763599740019373, "average_daily_turnover": 10.01512323168633, "2019_total_return": -0.5267896910927432, "2020_total_return": -0.5266028084109327}
+  },
+  "OLD_BASELINE": {
+    "0bps": {"gross_total_return": 1.50142986832408, "total_return": 1.50142986832408, "annualized_return": 0.6071043056295367, "annualized_volatility": 0.0485722872308846, "sharpe": 9.800924932138392, "sortino": 27.90381798935372, "max_drawdown": -0.022686235766163798, "calmar": 26.760909649675078, "positive_day_fraction": 0.7905544147843943, "positive_month_fraction": 1.0, "average_daily_turnover": 9.691847216614384, "annualized_turnover": 2442.3454985868248, "average_abs_exposure": 0.1436765984981897, "2019_total_return": 0.5404237880719109, "2020_total_return": 0.623858244525723},
+    "1bps": {"total_return": 0.5603401379152082, "annualized_return": 0.2588733814961086, "sharpe": 4.799929924596654, "max_drawdown": -0.025190063245077998, "average_daily_turnover": 9.691847216614384, "cumulative_explicit_cost": 0.4719929594491206, "2019_total_return": 0.2188480514219877, "2020_total_return": 0.28017609421848433},
+    "2bps": {"gross_total_return": 1.50142986832408, "total_return": -0.026713436670182222, "annualized_return": -0.01391325755409556, "annualized_volatility": 0.04813844478351129, "sharpe": -0.2670672170031825, "sortino": -0.4146461775413145, "max_drawdown": -0.13270195650953243, "calmar": -0.10484591124393952, "positive_day_fraction": 0.42915811088295686, "positive_month_fraction": 0.2916666666666667, "average_daily_turnover": 9.691847216614384, "annualized_turnover": 2442.3454985868248, "cumulative_explicit_cost": 0.9439859188982412, "average_abs_exposure": 0.1436765984981897, "long_fraction": 0.5210005600149338, "short_fraction": 0.4789994399850663, "flat_fraction": 0.0, "2019_total_return": -0.03560696616960668, "2020_total_return": 0.00922189313634858},
+    "5bps": {"total_return": -0.7638173198921493, "annualized_return": -0.5261020600893291, "sharpe": -15.065682531194462, "max_drawdown": -0.7642009713756819, "average_daily_turnover": 9.691847216614384, "cumulative_explicit_cost": 2.359964797245603, "2019_total_return": -0.522318492653281, "2020_total_return": -0.5055645310204153}
+  },
+  "primary_acceptance_gates": {
+    "net_total_return_gt_0": false,
+    "net_sharpe_gt_0": false,
+    "2019_net_total_return_gt_0": false,
+    "2020_net_total_return_gt_0": true,
+    "causal_expanding_fit": true,
+    "delayed_execution": true,
+    "no_execution_day_escape": true
+  },
+  "adjudication": "R7_OLD_BASELINE_EVALUATED_NOT_SUPPORTED_AT_2BPS_NO_RESCUE",
+  "BLACKBOX_read": false,
+  "post_2020_rows_read": false,
+  "fresh_OOS_claim": false,
+  "actual_IM_execution_cost_claim": false,
+  "paper_trading_authority": false,
+  "production_authority": false,
+  "registry_mutation": false
+}
