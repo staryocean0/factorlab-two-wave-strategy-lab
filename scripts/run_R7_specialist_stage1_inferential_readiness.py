@@ -207,8 +207,9 @@ def evaluate_C2(candidates: pd.DataFrame, beta0: np.ndarray, beta1: np.ndarray) 
     return out
 
 
-def _ci_contains(lower: float, upper: float, value: float) -> bool:
-    return bool(lower <= value <= upper)
+def _ci_contains(lower: float, upper: float, value: float, atol: float = ATOL) -> bool:
+    """Numerically stable closed-interval containment at machine-precision scale."""
+    return bool((lower - atol) <= value <= (upper + atol))
 
 
 def _calibration_group(frame: pd.DataFrame, beta1: np.ndarray) -> dict[str, Any]:
