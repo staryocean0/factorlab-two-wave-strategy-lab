@@ -1,0 +1,56 @@
+{
+  "schema_id": "factorlab_R7_L2_5m_risk_state_alignment_inventory_execution_freeze@3.0",
+  "session_date": "2026-09-16",
+  "identity": "R7_L2_5m_risk_state_alignment_inventory_v1",
+  "status": "refrozen_after_outcome_blind_alignment_diagnostic_only",
+  "market_outcome_seen": false,
+  "R7_future_outcome_seen": false,
+  "supersedes_execution_freeze": "docs/governance/R7_layer2_5m_risk_state_alignment_inventory_execution_freeze_v2.json",
+  "v2_execution": {
+    "run_id": 35045769704,
+    "job_id": 104635136602,
+    "workflow_conclusion": "success",
+    "synthetic_tests_passed": 4,
+    "outcome_columns_read": false,
+    "R7_model_fit_performed": false,
+    "bucket_supply_pass": true,
+    "candidate_state_match_ge_099": true,
+    "overlap_close_max_abs_diff": 0.0,
+    "overlap_state_agreement": 0.9999142661179699,
+    "alignment_supported": false,
+    "diagnosis": "cross_repo_2020_comparator_used_full_2015_2020_Layer3_rolling_history_while_frozen_Layer2_V9_physical_reference_starts_at_2020",
+    "scientific_threshold_or_bucket_changed": false
+  },
+  "implementation_correction": {
+    "scope": "cross_repository_equivalence_comparator_only",
+    "change": "replay_Layer3_2020_overlap_from_same_2020_physical_boundary_as_frozen_Layer2_V9_loader",
+    "full_2015_2020_consumer_state_series_changed": false,
+    "Layer2_state_semantics_changed": false,
+    "bucket_map_changed": false,
+    "100_percent_state_agreement_gate_changed": false,
+    "supply_gates_changed": false
+  },
+  "frozen_artifacts": {
+    "reference_contract": {"path":"docs/governance/R7_layer2_5m_risk_state_reference_contract_v1.json","blob_sha":"138f150fad8b87e3fda13d2ce948ffe1d83e1c6b"},
+    "preanalysis": {"path":"docs/research/R7_layer2_5m_risk_state_alignment_inventory_preanalysis_20260916.md","blob_sha":"54db46c94bd4fc394271b2b3e40ea48145698163"},
+    "runner": {"path":"scripts/inventory_R7_layer2_5m_risk_state_alignment.py","blob_sha":"315da5b6b7e1dc3fc72958eb2ba6b573d3a32397"},
+    "tests": {"path":"tests/unit/test_R7_layer2_5m_risk_state_alignment.py","blob_sha":"7fffdd40304ad9cefc612bb2eca8ce003a1ebfc4"},
+    "R7_parent_runner": {"path":"scripts/run_R7_native_1m_rejected_excursion.py","blob_sha":"e42ba3a260b2ed8c5fc3c6be548e73f5245b8e30"}
+  },
+  "external_overlap_source": {
+    "repository": "staryocean0/factorlab-trend-reversion-regime-lab",
+    "commit": "1d760ea9525eb3688b70a4aa0f2b5b207af16a17",
+    "path": "data/market/5m/000852.SH/2020.parquet",
+    "sha256_observed_v2": "5545c8e3b3199b76e6bd00e5c1db887c6121efb8841706336aeeaff5274329c5"
+  },
+  "scientific_boundaries": {
+    "R7_outcome_read": false,
+    "R7_model_fit": false,
+    "Layer2_mutation": false,
+    "Layer2_threshold_search": false,
+    "BLACKBOX_read": false,
+    "post_2020_Layer3_read": false,
+    "PnL_or_Sharpe": false
+  },
+  "production_authority": false
+}
