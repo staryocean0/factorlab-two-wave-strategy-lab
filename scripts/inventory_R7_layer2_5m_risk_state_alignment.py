@@ -183,6 +183,8 @@ def run(layer2_2020: Path) -> dict[str, Any]:
         raise RuntimeError("Layer3 5m SHA drift")
     five = r7._load(r7.FIVE_MIN_PATH, r7.FIVE_MIN_SHA, r7.FIVE_MIN_ROWS)
     l3 = normalize_5m(five.rename(columns={"bar_end_shanghai": "timestamp"}), "timestamp")
+
+    # Full-history replay is the consumer state series used for 2015-2020 R7 bucketing.
     l3_states, l3_meta = finalized_state_replay(l3)
 
     ext_raw = pd.read_parquet(layer2_2020)
@@ -194,8 +196,11 @@ def run(layer2_2020: Path) -> dict[str, Any]:
         raise RuntimeError("Layer2 overlap symbol mismatch")
     ext_states, ext_meta = finalized_state_replay(ext)
 
-    l3_2020 = l3_states.loc[l3_states["trading_day"].str.startswith("2020-")].copy()
-    overlap = l3_2020.merge(ext_states, on="timestamp", suffixes=("_l3", "_l2"), how="inner")
+    # Cross-repository equivalence must use the same physical 2020 boundary as the
+    # frozen Layer2 V9 loader. Do not carry 2019 rolling history into this comparator.
+    l3_2020_raw = l3.loc[l3["trading_day"].str.startswith("2020-")].copy()
+    l3_overlap_states, l3_overlap_meta = finalized_state_replay(l3_2020_raw)
+    overlap = l3_overlap_states.merge(ext_states, on="timestamp", suffixes=("_l3", "_l2"), how="inner")
     close_diff = np.abs(overlap["close_l3"].to_numpy(float) - overlap["close_l2"].to_numpy(float)) if len(overlap) else np.array([])
     state_agreement = float(overlap["risk_state_l3"].eq(overlap["risk_state_l2"]).mean()) if len(overlap) else 0.0
 
@@ -230,6 +235,7 @@ def run(layer2_2020: Path) -> dict[str, Any]:
             "external_2020_sha256": sha256_file(layer2_2020),
         },
         "layer3_replay": l3_meta,
+        "layer3_overlap_replay_2020_physical_boundary": l3_overlap_meta,
         "layer2_overlap_replay": ext_meta,
         "overlap_2020": {
             "common_rows": int(len(overlap)),
