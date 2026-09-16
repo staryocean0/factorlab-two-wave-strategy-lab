@@ -1,0 +1,71 @@
+{
+  "schema_id": "factorlab_R5_B1_specialist_stage1_stability_continuous_shape_protocol@1.0",
+  "session_date": "2026-09-16",
+  "specialist_identity": "R5_B1_anti_persistence_interaction_specialist_v1",
+  "stage_identity": "R5_B1_specialist_stage1_stability_continuous_shape_v1",
+  "status": "frozen_before_real_data_execution",
+  "data_roles": {
+    "TRAIN": "2015-01-05..2018-12-31_reusable",
+    "VALIDATION": "2019-01-01..2020-12-31_reusable_diagnosable",
+    "BLACKBOX": null
+  },
+  "entry_reproduction": {
+    "required": true,
+    "TRAIN_rows": 41685,
+    "VALIDATION_rows": 21428,
+    "B0_beta": [0.005567078395256155, 0.03487451881755519],
+    "B1_beta": [0.004947147092300985, 0.01303609638446463, -1.069228621037033],
+    "B0_validation_mse": 1.011653266505294,
+    "B1_validation_mse": 1.0101116108135515,
+    "absolute_tolerance": 1e-12
+  },
+  "S1_time_stability": {
+    "blocks": "fixed_calendar_half_year",
+    "TRAIN_expected_blocks": 8,
+    "VALIDATION_expected_blocks": 4,
+    "minimum_rows_per_block": 1000,
+    "local_block_model": "B1_fit_within_block_for_descriptive_interaction_coefficient_only",
+    "fixed_prediction_models": "global_TRAIN_fit_B0_and_B1",
+    "support_rule": {
+      "TRAIN_negative_local_interaction_blocks_min": 6,
+      "TRAIN_median_local_interaction_lt_0": true,
+      "VALIDATION_negative_local_interaction_blocks_min": 3,
+      "VALIDATION_median_local_interaction_lt_0": true,
+      "VALIDATION_positive_fixed_B1_MSE_improvement_blocks_min": 3
+    }
+  },
+  "S2_continuous_shape": {
+    "edges": "TRAIN_anti_persistence_feature_only_deciles_10_to_90_percentiles",
+    "minimum_rows_per_group_bin": 100,
+    "within_bin_relation": "next_z_equals_alpha_plus_slope_times_z",
+    "groups": ["TRAIN", "VALIDATION", "2019", "2020"],
+    "outputs": ["bin_n", "mean_anti", "slope", "MSE", "linear_trend", "spearman", "bottom20_slope", "top20_slope"],
+    "support_rule": {
+      "TRAIN": "trend_lt_0_and_top20_lt_bottom20",
+      "VALIDATION": "trend_lt_0_and_spearman_lte_minus_0.50_and_top20_lt_bottom20",
+      "2019": "trend_lt_0_and_top20_lt_bottom20",
+      "2020": "trend_lt_0_and_top20_lt_bottom20"
+    }
+  },
+  "adjudications": [
+    "R5_B1_specialist_stage1_stability_and_continuous_shape_supported",
+    "R5_B1_specialist_stage1_time_stable_but_shape_weak",
+    "R5_B1_specialist_stage1_shape_supported_but_time_stability_weak",
+    "R5_B1_specialist_stage1_not_robust_enough_for_transport",
+    "R5_B1_specialist_stage1_execution_drift_or_insufficient"
+  ],
+  "transport_authorized_only_if": "S1_true_and_S2_true",
+  "forbidden": [
+    "lag_window_feature_search",
+    "favorable_period_selection",
+    "production_decile_model",
+    "HMM_rSLDS_Koopman",
+    "BLACKBOX_read",
+    "post_2020_read",
+    "PnL_or_Sharpe",
+    "fresh_OOS_claim",
+    "paper_trading",
+    "production_or_Layer4"
+  ],
+  "production_authority": false
+}
