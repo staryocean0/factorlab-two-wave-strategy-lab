@@ -1,0 +1,28 @@
+{
+  "schema_id": "factorlab_R7_native_1m_rejected_excursion_execution_freeze@1.0",
+  "session_date": "2026-09-16",
+  "identity": "R7_native_1m_rejected_excursion_v1",
+  "status": "frozen_before_real_outcome",
+  "outcome_seen_before_freeze": false,
+  "frozen_artifacts": {
+    "preanalysis": {"path":"docs/research/R7_native_1m_rejected_excursion_preanalysis_20260916.md","blob_sha":"434fd827990a54a3da5edaeb0f771f6fe92245e6"},
+    "protocol": {"path":"docs/governance/R7_native_1m_rejected_excursion_protocol_v1.json","blob_sha":"52a6a2102e735c1260db54fb0cd3c60d3a6ea031"},
+    "runner": {"path":"scripts/run_R7_native_1m_rejected_excursion.py","blob_sha":"e42ba3a260b2ed8c5fc3c6be548e73f5245b8e30"},
+    "tests": {"path":"tests/unit/test_R7_native_1m_rejected_excursion.py","blob_sha":"b47cb25aa65955ebd80e4d9224202ded1cd4579a"}
+  },
+  "sources": {
+    "one_min": {"path":"data/development/1m_official.parquet","sha256":"755217afce9dec383e48cd46d591402fa90dc50897abeb3dc7097c9a18a109d4","rows":350561,"symbol":"000852.SH","maximum_day":"2020-12-31"},
+    "five_min_reference": {"path":"data/development/5m_offset_0.parquet","sha256":"bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48","rows":70114,"symbol":"000852.SH","maximum_day":"2020-12-31"}
+  },
+  "inventory_review": "docs/research/one_min_native_path_inventory_review_20260916.md",
+  "required_test_command": "pytest -q tests/unit/test_R7_native_1m_rejected_excursion.py",
+  "expected_test_count": 4,
+  "required_run_command": "python scripts/run_R7_native_1m_rejected_excursion.py --output /tmp/R7_native_1m_rejected_excursion_receipt_v1.json",
+  "github_actions_authorized_as_execution_surface": true,
+  "workflow_must_verify_frozen_blobs_and_source_hashes_before_tests": true,
+  "workflow_must_run_tests_before_real_runner": true,
+  "workflow_must_not_write_result_back_automatically": true,
+  "data_policy": {"BLACKBOX_assigned":false,"BLACKBOX_read_authorized":false,"post_2020_authorized":false,"PnL_authorized":false,"fresh_OOS_claim_authorized":false},
+  "bounded_diagnostic_authorized_only_if": "adjudication_equals_R7_supported_for_one_bounded_diagnostic",
+  "production_authority": false
+}
