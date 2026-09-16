@@ -1,0 +1,37 @@
+{
+  "BLACKBOX_read": false,
+  "C1": {
+    "2019": {"beta": [0.018849957266480658, 0.09543819793880587, -0.3938414816193858], "n": 10736, "rejection_CI95_lower": -0.4702217926722989, "rejection_CI95_upper": -0.3174611705664727, "rejection_coefficient": -0.3938414816193858, "rejection_se_CR1": 0.038970262543287164, "supported": true, "trading_days": 244},
+    "2020": {"beta": [0.015466401282333463, 0.09434311675857304, -0.39696187344570527], "n": 10692, "rejection_CI95_lower": -0.4610362972559728, "rejection_CI95_upper": -0.33288744963543776, "rejection_coefficient": -0.39696187344570527, "rejection_se_CR1": 0.032691633272691936, "supported": true, "trading_days": 243},
+    "C1_clustered_coefficient_supported": true,
+    "TRAIN": {"beta": [0.0014301524091757528, 0.06384569479627822, -0.5327696198414725], "n": 42787, "rejection_CI95_lower": -0.5894587864820372, "rejection_CI95_upper": -0.47608045320090786, "rejection_coefficient": -0.5327696198414725, "rejection_se_CR1": 0.02892357568186026, "supported": true, "trading_days": 973},
+    "VALIDATION": {"beta": [0.017158797912291263, 0.0949223024105671, -0.3954504427200495], "n": 21428, "rejection_CI95_lower": -0.44499486542090333, "rejection_CI95_upper": -0.3459060200191956, "rejection_coefficient": -0.3954504427200495, "rejection_se_CR1": 0.02527823117753894, "supported": true, "trading_days": 487}
+  },
+  "C2": {
+    "2019": {"bootstrap_mean_CI95_lower": 0.009433111921130272, "bootstrap_mean_CI95_upper": 0.03750235136904368, "days": 244, "fraction_positive_days": 0.610655737704918, "mean_day_improvement": 0.023629806616651313, "median_day_improvement": 0.016760478282792646, "p10_day_improvement": -0.10586184364563636, "p90_day_improvement": 0.15880499454320443, "supported": true},
+    "2020": {"bootstrap_mean_CI95_lower": 0.01330503418570873, "bootstrap_mean_CI95_upper": 0.039415000272070094, "days": 243, "fraction_positive_days": 0.6131687242798354, "mean_day_improvement": 0.026127322549123873, "median_day_improvement": 0.024592659660772176, "p10_day_improvement": -0.08276216313661691, "p90_day_improvement": 0.14994260236564808, "supported": true},
+    "C2_day_prediction_robustness_supported": true,
+    "VALIDATION": {"bootstrap_mean_CI95_lower": 0.01530831730123729, "bootstrap_mean_CI95_upper": 0.03453958451828887, "days": 487, "fraction_positive_days": 0.6119096509240246, "mean_day_improvement": 0.024876000398151993, "median_day_improvement": 0.0210738808545734, "p10_day_improvement": -0.10066115119667858, "p90_day_improvement": 0.15619243340218703},
+    "bootstrap_replicates": 10000,
+    "bootstrap_seed_base": 20260916
+  },
+  "C3": {
+    "2019": {"calibration_intercept": 0.017592538445199257, "calibration_intercept_CI95": [-0.013287658983974084, 0.0484727358743726], "calibration_intercept_contains_0": true, "calibration_slope": 0.8107598822817794, "calibration_slope_CI95": [0.6687983675117324, 0.9527213970518265], "calibration_slope_contains_1": false, "clean": false, "n": 10736, "residual_endpoint_CI95": [0.008250117316308127, 0.05493488896874701], "residual_endpoint_contains_0": false, "residual_endpoint_slope": 0.03159250314252757, "residual_rejection_CI95": [0.06254782716917377, 0.21530844927500004], "residual_rejection_contains_0": false, "residual_rejection_slope": 0.1389281382220869, "trading_days": 244},
+    "2020": {"calibration_intercept": 0.01456881942010413, "calibration_intercept_CI95": [-0.013358466246864804, 0.04249610508707306], "calibration_intercept_contains_0": true, "calibration_slope": 0.8043026084626907, "calibration_slope_CI95": [0.6841252281057367, 0.9244799888196448], "calibration_slope_contains_1": false, "clean": false, "n": 10692, "residual_endpoint_CI95": [0.0028956199304832064, 0.05809922399410648], "residual_endpoint_contains_0": false, "residual_endpoint_slope": 0.030497421962294845, "residual_rejection_CI95": [0.0717333225855, 0.19988217020603502], "residual_rejection_contains_0": false, "residual_rejection_slope": 0.1358077463957675, "trading_days": 243},
+    "C3_calibration_clean": false,
+    "VALIDATION": {"calibration_intercept": 0.016084209088520648, "calibration_intercept_CI95": [-0.004716250373484634, 0.036884668550525926], "calibration_intercept_contains_0": true, "calibration_slope": 0.8074363029299506, "calibration_slope_CI95": [0.7149380339047505, 0.8999345719551507], "calibration_slope_contains_1": false, "clean": false, "n": 21428, "residual_endpoint_CI95": [0.013160408291521042, 0.04899280693705661], "residual_endpoint_contains_0": false, "residual_endpoint_slope": 0.031076607614288827, "residual_rejection_CI95": [0.08777475442056928, 0.186863599822277], "residual_rejection_contains_0": false, "residual_rejection_slope": 0.13731917712142314, "trading_days": 487}
+  },
+  "PnL_read": false,
+  "adjudication": "R7_specialist_stage1_inferentially_supported_calibration_drift",
+  "entry_reproduction": {
+    "actual": {"2019_MSE_B0": 1.7444187739434946, "2019_MSE_B1": 1.7207889673268437, "2020_MSE_B0": 1.5749277678465021, "2020_MSE_B1": 1.5488004452973783, "B0": [0.013752645338616696, 0.04853230586734813], "B1": [0.0014301524091757528, 0.06384569479627822, -0.5327696198414725], "VALIDATION_MSE_B0": 1.6598472863016691, "VALIDATION_MSE_B1": 1.634971285903517, "candidate_rows": 64215},
+    "checks": {"2019_MSE_B0": true, "2019_MSE_B1": true, "2020_MSE_B0": true, "2020_MSE_B1": true, "B0": true, "B1": true, "VALIDATION_MSE_B0": true, "VALIDATION_MSE_B1": true, "candidate_rows": true},
+    "pass": true
+  },
+  "fresh_OOS_claim": false,
+  "identity": "R7_specialist_stage1_inferential_readiness_v1",
+  "parent_identity": "R7_native_1m_rejected_excursion_v1",
+  "post_2020_rows_read": false,
+  "production_authority": false,
+  "schema_id": "factorlab_R7_specialist_stage1_inferential_readiness@1.0"
+}
