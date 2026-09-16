@@ -1,0 +1,80 @@
+{
+  "schema_id": "factorlab_R7_L2_5m_risk_bucket_calibration_diagnostic@1.0",
+  "identity": "R7_L2_5m_risk_bucket_calibration_diagnostic_v1",
+  "parent_identity": "R7_native_1m_rejected_excursion_v1",
+  "adjudication": "R7_L2_state_conditioning_supported_residual_drift",
+  "entry_reproduction_passed": true,
+  "state_matched_rows": 64152,
+  "state_match_fraction": 0.9990189208128942,
+  "supply_passed": true,
+  "TRAIN_B2_beta": [-0.002411151890880899,0.08280468217976615,-0.5522751957652108,0.031139857885320504,-0.06473768767693991,0.0886271271381233],
+  "derived_bucket_parameters": {
+    "LOW_RISK": [-0.002411151890880899,0.08280468217976615,-0.5522751957652108],
+    "RISK_ACTIVE": [0.028728705994439607,0.018066994502826242,-0.46364806862708746]
+  },
+  "G1": {
+    "supported": true,
+    "joint_wald_df3": 10.512853349425344,
+    "chi_square_95_critical": 7.814727903251179,
+    "interaction_beta": [0.031139857885320504,-0.06473768767693991,0.0886271271381233]
+  },
+  "G2": {
+    "supported": true,
+    "VALIDATION": {"MSE_B1":1.634971285903517,"MSE_B2":1.6341454671656703,"relative_improvement":0.0005050967836357705},
+    "2019": {"MSE_B1":1.7207889673268437,"MSE_B2":1.7206227539585999,"relative_improvement":0.00009659137256211859},
+    "2020": {"MSE_B1":1.5488004452973783,"MSE_B2":1.5473123067645391,"relative_improvement":0.0009608329706758337},
+    "bucket_MSE_descriptive": {
+      "VALIDATION": {
+        "LOW_RISK": {"n":19004,"MSE_B1":1.5230260288594917,"MSE_B2":1.5219386074635999},
+        "RISK_ACTIVE": {"n":2424,"MSE_B1":2.5126147120027995,"MSE_B2":2.513839840836523}
+      },
+      "2019": {
+        "LOW_RISK": {"n":9678,"MSE_B1":1.6291478718308168,"MSE_B2":1.6282156517408832},
+        "RISK_ACTIVE": {"n":1058,"MSE_B1":2.55907112442566,"MSE_B2":2.5659119177233136}
+      },
+      "2020": {
+        "LOW_RISK": {"n":9326,"MSE_B1":1.4128987292373076,"MSE_B2":1.411650248626419},
+        "RISK_ACTIVE": {"n":1366,"MSE_B1":2.4766330982814337,"MSE_B2":2.473508759323914}
+      }
+    }
+  },
+  "G3": {
+    "calibration_clean": false,
+    "VALIDATION": {"calibration_slope":0.800266515040722,"CI95":[0.7118196401389333,0.8887133899425107]},
+    "2019": {"calibration_slope":0.7957267919113857,"CI95":[0.6595987857749954,0.931854798047776]},
+    "2020": {"calibration_slope":0.804716191997153,"CI95":[0.6906284744766029,0.9188039095177032]},
+    "VALIDATION_residual_endpoint_beta":0.027621810021209312,
+    "VALIDATION_residual_rejection_beta":0.16070913672872789
+  },
+  "bucket_local_vectors_descriptive": {
+    "TRAIN": {
+      "LOW_RISK": [-0.002411151890880722,0.08280468217976633,-0.5522751957652103],
+      "RISK_ACTIVE": [0.02872870599444121,0.018066994502826547,-0.4636480686270868]
+    },
+    "VALIDATION": {
+      "LOW_RISK": [0.011975297399918948,0.1104264922009755,-0.3915660590364828],
+      "RISK_ACTIVE": [0.05636248824382677,0.05420276450001382,-0.4372754116979807]
+    },
+    "2019": {
+      "LOW_RISK": [0.014686365613052973,0.10420872721553182,-0.3887194580931362],
+      "RISK_ACTIVE": [0.057910494113810475,0.06766530150676939,-0.4367171456426594]
+    },
+    "2020": {
+      "LOW_RISK": [0.009006720022856072,0.11804087583447703,-0.39437796442706785],
+      "RISK_ACTIVE": [0.05418275159275486,0.042428328519245107,-0.43747036595350547]
+    }
+  },
+  "execution": {
+    "run_id": 35046290393,
+    "job_id": 104636700326,
+    "head": "109c53162476bc673034963785d8fb59b698e650",
+    "tests_passed": 5,
+    "artifact_id": 10426629412,
+    "artifact_digest": "sha256:18537317bb5ed16ae375e9c4e1af15f3a50f1bd7aacb87a5d3f051acd3275f1a"
+  },
+  "BLACKBOX_read": false,
+  "post_2020_rows_read": false,
+  "PnL_read": false,
+  "fresh_OOS_claim": false,
+  "production_authority": false
+}
