@@ -45,14 +45,20 @@
   "execution": {
     "signal_time": "official_5m_endpoint_t_after_native_1m_close_t",
     "entry": "native_1m_open_t_plus_1",
-    "exit": "native_1m_close_t_plus_5",
+    "window_exit": "native_1m_close_t_plus_5",
+    "window_return": "position*(close_t_plus_5/open_t_plus_1-1)",
+    "contiguous_signal_gap_carry": "previous_position*(current_entry_open/previous_window_exit_close-1)",
+    "contiguous_definition": "same_trading_day_and_current_signal_time_minus_previous_signal_time_equals_5_minutes",
     "same_session_exact_native_continuity_required": true,
     "overnight_exposure": false,
-    "gap_policy": "flatten_previous_block_and_restart_from_zero",
-    "gross_return": "position*(close_t_plus_5/open_t_plus_1-1)"
+    "noncontiguous_gap_policy": "flatten_previous_block_at_previous_window_exit_and_restart_from_zero",
+    "gross_interval_combination": "(1+gap_carry_return)*(1+window_return)-1"
   },
   "costs": {
     "unit": "one_way_bps_per_absolute_turnover",
+    "contiguous_rebalance": "abs(new_position-old_position)",
+    "block_open": "abs(position)",
+    "block_close": "abs(position)",
     "scenarios_bps": [0.0, 1.0, 2.0, 5.0],
     "primary_research_stress_bps": 2.0,
     "actual_IM_cost_claim": false
