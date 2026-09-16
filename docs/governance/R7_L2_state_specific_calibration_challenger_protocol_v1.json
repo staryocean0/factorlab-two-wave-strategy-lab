@@ -1,0 +1,86 @@
+{
+  "schema_id": "factorlab_R7_L2_state_specific_calibration_challenger_protocol@1.0",
+  "session_date": "2026-09-16",
+  "identity": "R7_L2_state_specific_calibration_challenger_v1",
+  "parent_strategy": "R7_trading_strategy_baseline_v1",
+  "old_baseline_policy": "daily_global_expanding_B1_strictly_prior_trading_days",
+  "state_reference_contract": "docs/governance/R7_layer2_5m_risk_state_reference_contract_v1.json",
+  "state_bucket_map": {"NORMAL":"LOW_RISK","UNSAFE":"RISK_ACTIVE","RECOVERING":"RISK_ACTIVE"},
+  "challenger": {
+    "policy": "daily_state_bucket_specific_expanding_B1_strictly_prior_trading_days",
+    "design": ["intercept","endpoint_z","rejection_signed_z"],
+    "fit_scope": "all_prior_state_matched_rows_in_same_bucket",
+    "update_cadence": "once_per_trading_day",
+    "intraday_refit": false,
+    "fallback_on_insufficient_or_rank_deficient_history": "fail_execution",
+    "rolling_window": false,
+    "decay": false,
+    "regularization": false,
+    "threshold": null,
+    "risk_multiplier": null,
+    "parameter_search": false
+  },
+  "position": {"formula":"clip(forecast_z,-1,+1)","max_abs_exposure":1.0},
+  "data": {
+    "symbol":"000852.SH",
+    "train_history":"2015-01-05..2018-12-31_reusable",
+    "economic_evaluation":"2019-01-01..2020-12-31_reusable_validation",
+    "one_min_sha256":"755217afce9dec383e48cd46d591402fa90dc50897abeb3dc7097c9a18a109d4",
+    "five_min_sha256":"bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48",
+    "blackbox":"none_assigned",
+    "post_2020_read":false
+  },
+  "execution": {
+    "entry":"native_1m_open_t_plus_1",
+    "exit":"native_1m_close_t_plus_5",
+    "contiguous_gap_carry":true,
+    "noncontiguous_flatten":true,
+    "overnight_exposure":false,
+    "must_match_old_baseline":true
+  },
+  "costs": {
+    "unit":"one_way_bps_per_absolute_turnover",
+    "scenarios_bps":[0.0,1.0,2.0,5.0],
+    "primary_bps":2.0,
+    "must_match_old_baseline":true
+  },
+  "old_baseline_reproduction_2bps": {
+    "total_return":-0.026713436670182222,
+    "sharpe":-0.2670672170031825,
+    "return_2019":-0.03560696616960668,
+    "return_2020":0.00922189313634858,
+    "average_daily_turnover":9.691847216614384,
+    "max_drawdown":-0.13270195650953243,
+    "absolute_tolerance":1e-12
+  },
+  "promotion_primary_2bps": {
+    "old_baseline_reproduction":true,
+    "state_complete_and_causal_full_rank":true,
+    "challenger_total_return_gt_0":true,
+    "challenger_sharpe_gt_0":true,
+    "challenger_2019_return_gt_0":true,
+    "challenger_2020_return_gt_0":true,
+    "challenger_total_return_gt_old_baseline":true,
+    "challenger_sharpe_gt_old_baseline":true,
+    "challenger_average_daily_turnover_lt_old_baseline":true,
+    "challenger_max_drawdown_ge_old_baseline":true
+  },
+  "adjudications": [
+    "R7_L2_CHALLENGER_PROMOTED_NEW_RESEARCH_BASELINE",
+    "R7_L2_CHALLENGER_EVALUATED_NOT_PROMOTED_NO_RESCUE",
+    "R7_L2_CHALLENGER_EXECUTION_DRIFT_OR_INSUFFICIENT"
+  ],
+  "forbidden": [
+    "Layer2_threshold_change","state_remap","recovery_probability_signal","rolling_window_search",
+    "decay_or_half_life_search","regularization_search","new_R7_features","forecast_threshold_search",
+    "risk_multiplier_search","favorable_year_or_intraday_selection","cost_relabeling","execution_rule_change",
+    "BLACKBOX_read","post_2020_read","paper_trading","production","registry_mutation"
+  ],
+  "authority": {
+    "PnL_authorized_for_this_single_frozen_head_to_head":true,
+    "PnL_or_Sharpe_model_search_authorized":false,
+    "fresh_OOS_claim":false,
+    "actual_IM_execution_cost_claim":false,
+    "production_authority":false
+  }
+}
