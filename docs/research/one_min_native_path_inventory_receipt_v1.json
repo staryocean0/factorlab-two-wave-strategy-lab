@@ -1,0 +1,61 @@
+{
+  "BLACKBOX_read": false,
+  "PnL_read": false,
+  "alignment": {
+    "days_all_5m_endpoints_have_full_chain": 1460,
+    "days_with_any_missing_chain": 2,
+    "endpoint_close_abs_diff_max": 0.0,
+    "endpoint_close_abs_diff_nonzero_count": 0,
+    "endpoint_presence_fraction": 0.9999714750263856,
+    "five_min_endpoints": 70114,
+    "full_native_5x1m_chain_count": 70108,
+    "full_native_5x1m_chain_fraction": 0.9999144250791568,
+    "one_min_endpoint_present": 70112
+  },
+  "authority": {
+    "local_resampling_performed": false,
+    "production_authority": false,
+    "signal_or_outcome_screen_performed": false
+  },
+  "five_min_reference": {
+    "duplicate_symbol_timestamp_rows": 0,
+    "path": "data/development/5m_offset_0.parquet",
+    "rows": 70114,
+    "sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48",
+    "sha256_expected": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48"
+  },
+  "future_return_read": false,
+  "inventory_only": true,
+  "one_min": {
+    "columns": ["symbol","market","timestamp_source_serialized","bar_end_shanghai","timestamp","trading_day","open","high","low","close","volume","amount","available_at","source_kind","dataset_version","instrument_type","causal_flat_fill","source_minute_count","high_frequency_analysis_eligible","export_view_id","export_frequency","signal_price_view","fill_price_view","data_contract","package_data_role"],
+    "daily_rows": {
+      "days": 1462,
+      "days_with_240_rows": 1460,
+      "max_rows": 240,
+      "median_rows": 240.0,
+      "min_rows": 18,
+      "p01_rows": 240.0,
+      "p99_rows": 240.0
+    },
+    "duplicate_symbol_timestamp_rows": 0,
+    "exact_1m_same_day_transitions": 347634,
+    "exact_1m_transition_fraction": 0.9958034826796983,
+    "max_day": "2020-12-31",
+    "min_day": "2015-01-05",
+    "path": "data/development/1m_official.parquet",
+    "rows": 350561,
+    "same_day_transitions": 349099,
+    "sha256": "755217afce9dec383e48cd46d591402fa90dc50897abeb3dc7097c9a18a109d4",
+    "sha256_expected": "755217afce9dec383e48cd46d591402fa90dc50897abeb3dc7097c9a18a109d4",
+    "symbol_values": ["000852.SH"]
+  },
+  "post_2020_read": false,
+  "schema_id": "factorlab_1m_native_path_alignment_inventory@1.0",
+  "execution": {
+    "github_actions_run_id": 35041427672,
+    "head_sha": "9d18f536dda25eeac6ffb7f26a8ad4c27aad73fe",
+    "conclusion": "success",
+    "artifact_id": 10425251748,
+    "artifact_digest": "sha256:a52a3aec36d4be78e07cabcf716dab11ea1679fdd4dc1d01437126e23aa8f8cc"
+  }
+}
