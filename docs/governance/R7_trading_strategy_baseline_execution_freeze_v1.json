@@ -1,0 +1,83 @@
+{
+  "schema_id": "factorlab_R7_trading_strategy_baseline_execution_freeze@1.0",
+  "identity": "R7_trading_strategy_baseline_v1",
+  "date": "2026-09-16",
+  "branch": "codex/two-wave-phase1-20260905",
+  "pre_freeze_head": "3cbd20759f0ee23d6a1eaef3b5c7c4eacf4cc269",
+  "frozen_artifacts": {
+    "preanalysis": {
+      "path": "docs/research/R7_trading_strategy_baseline_preanalysis_20260916.md",
+      "blob_sha": "6a7ac54319631a1be866fda39b16a2430d04fcee"
+    },
+    "protocol": {
+      "path": "docs/governance/R7_trading_strategy_baseline_protocol_v1.json",
+      "blob_sha": "b33cc7552bdacdc11af1333ba9d8473c2a655c99"
+    },
+    "runner": {
+      "path": "scripts/run_R7_trading_strategy_baseline.py",
+      "blob_sha": "6c9a5f6952dcec13d270808939e5e9365e6668de"
+    },
+    "tests": {
+      "path": "tests/unit/test_R7_trading_strategy_baseline.py",
+      "blob_sha": "ae43bda7ef7f29caf1f79cde1d0bf2ad1f0cf0da",
+      "expected_test_count": 5
+    },
+    "parent_runner": {
+      "path": "scripts/run_R7_native_1m_rejected_excursion.py",
+      "blob_sha": "e42ba3a260b2ed8c5fc3c6be548e73f5245b8e30"
+    }
+  },
+  "frozen_data": {
+    "one_min": {
+      "path": "data/development/1m_official.parquet",
+      "sha256": "755217afce9dec383e48cd46d591402fa90dc50897abeb3dc7097c9a18a109d4",
+      "rows": 350561,
+      "symbol": "000852.SH",
+      "max_day": "2020-12-31"
+    },
+    "five_min": {
+      "path": "data/development/5m_offset_0.parquet",
+      "sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48",
+      "rows": 70114,
+      "symbol": "000852.SH",
+      "max_day": "2020-12-31"
+    }
+  },
+  "pre_outcome_contract": {
+    "evaluation_period": "2019-01-01..2020-12-31",
+    "formal_old_baseline": "daily_causal_expanding_B1_using_strictly_prior_trading_days",
+    "legacy_comparator": "fixed_2015_2018_B1",
+    "position_rule": "clip(forecast_z,-1,+1)",
+    "execution_entry": "next_native_1m_open",
+    "execution_window_exit": "t_plus_5_native_1m_close",
+    "contiguous_gap_carry": true,
+    "noncontiguous_flatten": true,
+    "cost_scenarios_bps": [0.0, 1.0, 2.0, 5.0],
+    "primary_cost_bps": 2.0,
+    "primary_acceptance": [
+      "2019_2020_net_total_return_gt_0",
+      "net_daily_sharpe_gt_0",
+      "2019_net_total_return_gt_0",
+      "2020_net_total_return_gt_0",
+      "causality_execution_source_tests_pass"
+    ]
+  },
+  "outcome_visibility_at_freeze": {
+    "schema_only_workflow_run": 35054267246,
+    "non_price_contract_workflow_run": 35054314234,
+    "strategy_PnL_seen": false,
+    "strategy_Sharpe_seen": false,
+    "strategy_drawdown_seen": false
+  },
+  "execution_authority": "dedicated_GitHub_Actions_workflow_after_this_freeze_only",
+  "authority": {
+    "PnL_authorized_for_this_frozen_strategy_engineering_run": true,
+    "PnL_may_change_R7_feature_identity": false,
+    "BLACKBOX_read": false,
+    "post_2020_read": false,
+    "fresh_OOS_claim": false,
+    "paper_trading": false,
+    "production": false,
+    "registry_mutation": false
+  }
+}
