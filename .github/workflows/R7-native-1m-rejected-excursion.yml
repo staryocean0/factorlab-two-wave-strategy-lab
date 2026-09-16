@@ -1,0 +1,70 @@
+name: R7-native-1m-rejected-excursion
+
+on:
+  push:
+    branches:
+      - codex/two-wave-phase1-20260905
+    paths:
+      - '.github/workflows/R7-native-1m-rejected-excursion.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  frozen-R7:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install bounded dependencies
+        run: python -m pip install 'numpy>=2.0,<2.6' 'pandas>=2.3,<3' 'pyarrow>=19,<20' 'pytest>=8.3,<9'
+      - name: Verify frozen artifacts and source identities
+        run: |
+          test "$(git hash-object docs/research/R7_native_1m_rejected_excursion_preanalysis_20260916.md)" = "434fd827990a54a3da5edaeb0f771f6fe92245e6"
+          test "$(git hash-object docs/governance/R7_native_1m_rejected_excursion_protocol_v1.json)" = "52a6a2102e735c1260db54fb0cd3c60d3a6ea031"
+          test "$(git hash-object scripts/run_R7_native_1m_rejected_excursion.py)" = "e42ba3a260b2ed8c5fc3c6be548e73f5245b8e30"
+          test "$(git hash-object tests/unit/test_R7_native_1m_rejected_excursion.py)" = "b47cb25aa65955ebd80e4d9224202ded1cd4579a"
+          test "$(git hash-object docs/governance/R7_native_1m_rejected_excursion_execution_freeze_v1.json)" = "3f0bffe74463ca1c9cff696334ed31ae68c30be6"
+          python - <<'PY'
+          import hashlib
+          targets={
+            'data/development/1m_official.parquet':'755217afce9dec383e48cd46d591402fa90dc50897abeb3dc7097c9a18a109d4',
+            'data/development/5m_offset_0.parquet':'bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48',
+          }
+          for p,expected in targets.items():
+              h=hashlib.sha256(open(p,'rb').read()).hexdigest()
+              assert h==expected,(p,h)
+          print('frozen identities verified')
+          PY
+      - name: Run frozen R7 synthetic tests
+        run: python -m pytest -q tests/unit/test_R7_native_1m_rejected_excursion.py
+      - name: Execute frozen R7 real-data screen
+        run: python scripts/run_R7_native_1m_rejected_excursion.py --output /tmp/R7_native_1m_rejected_excursion_receipt_v1.json
+      - name: Verify authority boundaries
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path('/tmp/R7_native_1m_rejected_excursion_receipt_v1.json').read_text())
+          assert x['sources']['one_min']['sha256']=='755217afce9dec383e48cd46d591402fa90dc50897abeb3dc7097c9a18a109d4'
+          assert x['sources']['five_min_reference']['sha256']=='bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48'
+          assert x['construction']['local_resampling_performed'] is False
+          assert x['construction']['M0_structure_cache_read'] is False
+          assert x['construction']['B1_feature_read'] is False
+          assert x['BLACKBOX_read'] is False
+          assert x['post_2020_rows_read'] is False
+          assert x['PnL_read'] is False
+          assert x['fresh_OOS_claim'] is False
+          assert x['production_authority'] is False
+          print(x['adjudication'])
+          PY
+      - name: Upload R7 receipt only
+        uses: actions/upload-artifact@v4
+        with:
+          name: R7-native-1m-rejected-excursion-receipt
+          path: /tmp/R7_native_1m_rejected_excursion_receipt_v1.json
+          if-no-files-found: error
