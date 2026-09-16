@@ -1,13 +1,13 @@
 {
-  "schema_id": "factorlab_broad_reversal_mean_reversion_program_state@1.8",
+  "schema_id": "factorlab_broad_reversal_mean_reversion_program_state@1.9",
   "session_date": "2026-09-16",
   "program_identity": "broad_reversal_mean_reversion_discovery_program_v1",
-  "current_status": "R7_SPECIALIST_STAGE1_INFERENTIAL_SUPPORT_CALIBRATION_DRIFT_FIXED_COEFFICIENT_TRANSPORT_NOT_READY",
+  "current_status": "R7_L2_CHALLENGER_EVALUATED_NOT_PROMOTED_TURNOVER_COST_FRAGILITY_REMAINS",
   "active_research_branch": "codex/two-wave-phase1-20260905",
   "repository_wide_mainline": "broad_reversal_mean_reversion_direction_discovery_with_reusable_TRAIN_VALIDATION_and_delayed_BLACKBOX",
   "data_roles": {
     "TRAIN": "2015-01-05..2018-12-31_reusable",
-    "VALIDATION": "2019-01-01..2020-12-31_reusable_and_diagnosable",
+    "VALIDATION": "2019-01-01..2020-12-31_reusable_and_diagnosable_not_fresh_OOS",
     "BLACKBOX": "none_assigned"
   },
   "data_governance_principle": "data_is_reusable_only_never_seen_blackbox_qualification_is_consumable",
@@ -28,113 +28,132 @@
   },
   "R7_parent": {
     "identity": "R7_native_1m_rejected_excursion_v1",
-    "status": "broad_screen_and_bounded_diagnostic_supported",
+    "status": "mechanism_supported",
     "candidate_rows": 64215,
     "TRAIN_rejection_coefficient": -0.5327696198414718,
     "VALIDATION_rejection_coefficient": -0.3954504427200495,
-    "VALIDATION_MSE_B0": 1.6598472863016687,
-    "VALIDATION_MSE_B1": 1.6349712859035168,
     "diagnostic_adjudication": "R7_diagnostic_supported_for_specialist_research",
     "BLACKBOX_used": false,
-    "post_2020_rows_read": false,
-    "PnL_used": false
-  },
-  "R7_specialist": {
-    "identity": "R7_native_1m_rejected_excursion_specialist_v1",
-    "status": "active_mechanism_supported_fixed_coefficient_transport_not_ready",
-    "handoff": "docs/ops/R7_native_1m_rejected_excursion_specialist_handoff_20260916.md",
-    "BLACKBOX_assigned": false,
-    "complex_regime_model_authorized": false,
-    "paper_trading_authorized": false
+    "post_2020_rows_read": false
   },
   "R7_specialist_stage1": {
     "identity": "R7_specialist_stage1_inferential_readiness_v1",
-    "status": "completed_cloud_reviewed_calibration_drift",
-    "execution_surface": "github_actions_refrozen_v2_execution",
-    "initial_run": {
-      "run_id": 35043104558,
-      "status": "synthetic_test_failure_before_real_runner",
-      "real_stage1_executed": false,
-      "scientific_protocol_changed_after_failure": false
-    },
+    "status": "completed_calibration_drift",
     "valid_run_id": 35043298059,
     "valid_job_id": 104627633019,
-    "tests_passed": 5,
-    "entry_reproduction_passed": true,
     "C1_clustered_coefficient_supported": true,
-    "C1": {
-      "TRAIN_beta": -0.5327696198414725,
-      "TRAIN_CI95": [-0.5894587864820372, -0.47608045320090786],
-      "VALIDATION_beta": -0.3954504427200495,
-      "VALIDATION_CI95": [-0.44499486542090333, -0.3459060200191956],
-      "2019_beta": -0.3938414816193858,
-      "2019_CI95": [-0.4702217926722989, -0.3174611705664727],
-      "2020_beta": -0.39696187344570527,
-      "2020_CI95": [-0.4610362972559728, -0.33288744963543776]
-    },
     "C2_day_prediction_robustness_supported": true,
-    "C2": {
-      "2019_fraction_positive_days": 0.610655737704918,
-      "2019_median_day_improvement": 0.016760478282792646,
-      "2019_bootstrap_mean_CI95": [0.009433111921130272, 0.03750235136904368],
-      "2020_fraction_positive_days": 0.6131687242798354,
-      "2020_median_day_improvement": 0.024592659660772176,
-      "2020_bootstrap_mean_CI95": [0.01330503418570873, 0.039415000272070094]
-    },
     "C3_calibration_clean": false,
-    "C3": {
-      "VALIDATION_calibration_slope": 0.8074363029299506,
-      "VALIDATION_calibration_slope_CI95": [0.7149380339047505, 0.8999345719551507],
-      "VALIDATION_residual_endpoint_slope": 0.031076607614288827,
-      "VALIDATION_residual_endpoint_CI95": [0.013160408291521042, 0.04899280693705661],
-      "VALIDATION_residual_rejection_slope": 0.13731917712142314,
-      "VALIDATION_residual_rejection_CI95": [0.08777475442056928, 0.186863599822277],
-      "2019_calibration_slope": 0.8107598822817794,
-      "2020_calibration_slope": 0.8043026084626907
-    },
     "adjudication": "R7_specialist_stage1_inferentially_supported_calibration_drift",
     "fixed_coefficient_transport_ready": false,
     "mechanism_retained": true,
-    "preregistered_calibration_research_authorized": true,
-    "mechanism_transport_authorized_only_after_source_governance": true,
-    "receipt": "docs/research/local_R7_specialist_stage1_inferential_readiness_receipt_v1.json",
-    "cloud_review": "docs/research/R7_specialist_stage1_inferential_readiness_cloud_review_20260916.md",
-    "handoff": "docs/ops/R7_specialist_stage1_calibration_drift_handoff_20260916.md",
-    "BLACKBOX_used": false,
-    "post_2020_rows_read": false,
-    "PnL_used": false,
     "fresh_OOS_claim": false
   },
+  "R7_L2_state_reference": {
+    "contract": "docs/governance/R7_layer2_5m_risk_state_reference_contract_v1.json",
+    "status": "frozen_causal_external_state_descriptor",
+    "bucket_map": {"NORMAL":"LOW_RISK","UNSAFE":"RISK_ACTIVE","RECOVERING":"RISK_ACTIVE"},
+    "threshold_or_state_mutation_authorized": false,
+    "recovery_probability_signal_authorized": false
+  },
+  "R7_L2_calibration_diagnostic": {
+    "identity": "R7_L2_5m_risk_bucket_calibration_diagnostic_v1",
+    "run_id": 35046290393,
+    "job_id": 104636700326,
+    "G1_heterogeneity_supported": true,
+    "G2_prediction_supported": true,
+    "G3_calibration_clean": false,
+    "adjudication": "R7_L2_state_conditioning_supported_residual_drift",
+    "interpretation": "Layer2_state_contains_incremental_calibration_information_but_static_state_split_does_not_remove_temporal_drift"
+  },
+  "R7_trading_strategy_baseline": {
+    "identity": "R7_trading_strategy_baseline_v1",
+    "policy": "daily_global_expanding_B1_using_strictly_prior_trading_days",
+    "run_id": 35054743474,
+    "job_id": 104662426973,
+    "primary_cost_bps": 2.0,
+    "primary_2bps": {
+      "total_return": -0.026713436670182222,
+      "sharpe": -0.2670672170031825,
+      "max_drawdown": -0.13270195650953243,
+      "average_daily_turnover": 9.691847216614384,
+      "return_2019": -0.03560696616960668,
+      "return_2020": 0.00922189313634858
+    },
+    "adjudication": "R7_OLD_BASELINE_EVALUATED_NOT_SUPPORTED_AT_2BPS_NO_RESCUE",
+    "role_after_adjudication": "comparison_baseline_only_not_trading_baseline"
+  },
+  "R7_L2_state_specific_calibration_challenger": {
+    "identity": "R7_L2_state_specific_calibration_challenger_v1",
+    "status": "completed_closed_no_rescue",
+    "policy": "daily_bucket_specific_expanding_B1_using_strictly_prior_rows",
+    "execution_head": "40c19410319b8c75959b1abeb439d424942d095c",
+    "run_id": 35058115791,
+    "job_id": 104672459346,
+    "artifact_id": 10431138239,
+    "artifact_digest": "sha256:721c035dd49e2d343e0be1f21ee3f595f6aac7dd5452c2b411c327e5d6c65a8f",
+    "synthetic_tests_passed": 5,
+    "old_baseline_reproduction_passed": true,
+    "state_complete_and_causal_full_rank": true,
+    "predictive_MSE": {
+      "VALIDATION": {"OLD":1.6331093434071284,"CHALLENGER":1.6321759038270744},
+      "2019": {"OLD":1.7197174922041978,"CHALLENGER":1.7195616775383478},
+      "2020": {"OLD":1.546144782475092,"CHALLENGER":1.5444305178783062}
+    },
+    "primary_2bps": {
+      "total_return": -0.010703866963489683,
+      "sharpe": -0.09779968393884765,
+      "max_drawdown": -0.13027583433114898,
+      "average_daily_turnover": 9.960849278247991,
+      "return_2019": -0.039545681724193815,
+      "return_2020": 0.030029345708487476
+    },
+    "promotion_gates_failed": [
+      "challenger_total_return_gt_0",
+      "challenger_sharpe_gt_0",
+      "challenger_2019_return_gt_0",
+      "challenger_average_daily_turnover_lt_old_baseline"
+    ],
+    "adjudication": "R7_L2_CHALLENGER_EVALUATED_NOT_PROMOTED_NO_RESCUE",
+    "receipt": "docs/research/local_R7_L2_state_specific_calibration_challenger_receipt_v1.json",
+    "cloud_review": "docs/research/R7_L2_state_specific_calibration_challenger_cloud_review_20260916.md",
+    "interpretation": "state_conditioning_improves_gross_and_prediction_slightly_but_does_not_solve_turnover_cost_fragility"
+  },
   "active_specialist_next_stage": {
-    "proposed_identity": "R7_calibration_strategy_readiness_v1",
-    "status": "must_freeze_before_outcome",
-    "scope": "low_capacity_causal_coefficient_updating_rule_only_parent_features_unchanged",
-    "preferred_family": "fixed_expanding_OLS_with_predeclared_minimum_history_and_update_cadence",
-    "forbidden": [
+    "status": "do_not_rescue_R7_L2_state_specific_calibration_challenger_v1",
+    "allowed_future_R7_economic_direction": "only_a_new_preregistered_identity_that_targets_turnover_or_execution_architecture_without_mutating_R7_or_Layer2_scientific_semantics",
+    "forbidden_under_closed_identity": [
+      "Layer2_threshold_change",
+      "state_remap",
+      "risk_multiplier_search",
       "rolling_window_search",
       "decay_or_half_life_search",
       "regularization_search",
       "feature_search",
-      "threshold_or_subperiod_selection",
-      "use_validation_full_period_refit_as_OOS_model"
+      "update_cadence_search",
+      "favorable_year_or_intraday_selection",
+      "cost_relabeling",
+      "execution_rule_posthoc_change"
     ]
   },
   "active_broad_direction": {
-    "status": "resume_independent_direction_selection_in_parallel",
-    "principle": "must_be_independent_of_R7_native_path_rejection_and_must_not_rescue_closed_R5_or_R6",
+    "status": "resume_independent_low_capacity_direction_discovery",
+    "principle": "must_be_independent_of_closed_R5_R6_and_closed_R7_L2_challenger_rescue",
     "cross_index_common_vs_idiosyncratic_direction": "deferred_until_upstream_data_governance_explicitly_authorizes_new_empirical_use"
   },
   "next_actions_in_order": [
-    "freeze_R7_calibration_strategy_readiness_v1_before_any_calibration_outcome",
-    "keep_parent_features_path_horizon_sigma_fixed",
-    "broad_parent_repo_continues_independent_low_capacity_direction_discovery",
+    "preserve_R7_L2_challenger_as_closed_evidence_no_rescue",
+    "use_OLD_BASELINE_only_as_fixed_comparator_not_promoted_research_baseline",
+    "resume_independent_broad_reversal_mean_reversion_direction_discovery",
+    "if_R7_economic_work_resumes_create_new_outcome_blind_turnover_execution_identity_before_any_result",
     "cross_market_mechanism_transport_only_after_explicit_source_governance_authorization",
-    "keep_BLACKBOX_unassigned_until_calibration_and_transport_are_mature_and_refrozen"
+    "keep_BLACKBOX_unassigned"
   ],
   "fixed_coefficient_transport_authorized": false,
-  "trading_PnL_authorized": false,
-  "paper_trading_authorized": false,
-  "fresh_OOS_claim_authorized": false,
+  "new_R7_research_baseline_promoted": false,
   "BLACKBOX_assigned": false,
+  "post_2020_authorized": false,
+  "fresh_OOS_claim_authorized": false,
+  "paper_trading_authorized": false,
   "production_authority": false
 }
