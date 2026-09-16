@@ -1,0 +1,71 @@
+name: R7-specialist-stage1-inferential-readiness
+
+on:
+  push:
+    branches:
+      - codex/two-wave-phase1-20260905
+    paths:
+      - '.github/workflows/R7-specialist-stage1-inferential-readiness.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  frozen-R7-specialist-stage1:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install bounded dependencies
+        run: python -m pip install 'numpy>=2.0,<2.6' 'pandas>=2.3,<3' 'pyarrow>=19,<20' 'pytest>=8.3,<9'
+      - name: Verify frozen artifacts and source identities
+        run: |
+          test "$(git hash-object docs/research/R7_specialist_stage1_inferential_readiness_preanalysis_20260916.md)" = "0f647450c41bdb929c5e2bdf38f8e83fe8eb7381"
+          test "$(git hash-object docs/governance/R7_specialist_stage1_inferential_readiness_protocol_v1.json)" = "c01386afaac416d7aadc83a6037e803c803eba37"
+          test "$(git hash-object scripts/run_R7_specialist_stage1_inferential_readiness.py)" = "73b033b1e5f468a02636739dc851ce36e7f792f1"
+          test "$(git hash-object tests/unit/test_R7_specialist_stage1_inferential_readiness.py)" = "6dea9e574ca391edca7c82821571665e243adcc4"
+          test "$(git hash-object scripts/run_R7_native_1m_rejected_excursion.py)" = "e42ba3a260b2ed8c5fc3c6be548e73f5245b8e30"
+          test "$(git hash-object docs/governance/R7_specialist_stage1_inferential_readiness_execution_freeze_v1.json)" = "e332128bf2b5e598575ff5ecbe634363712d9318"
+          python - <<'PY'
+          import hashlib, pandas as pd
+          targets={
+            'data/development/1m_official.parquet':('755217afce9dec383e48cd46d591402fa90dc50897abeb3dc7097c9a18a109d4',350561),
+            'data/development/5m_offset_0.parquet':('bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48',70114),
+          }
+          for p,(expected,n) in targets.items():
+              h=hashlib.sha256(open(p,'rb').read()).hexdigest()
+              assert h==expected,(p,h)
+              x=pd.read_parquet(p,columns=['symbol','trading_day'])
+              assert len(x)==n,(p,len(x))
+              assert set(x['symbol'].astype(str))=={'000852.SH'}
+              assert str(x['trading_day'].astype(str).max()) <= '2020-12-31'
+          print('frozen identities verified')
+          PY
+      - name: Run frozen specialist Stage 1 tests
+        run: python -m pytest -q tests/unit/test_R7_specialist_stage1_inferential_readiness.py
+      - name: Execute frozen specialist Stage 1
+        run: python scripts/run_R7_specialist_stage1_inferential_readiness.py --output /tmp/R7_specialist_stage1_inferential_readiness_receipt_v1.json
+      - name: Verify authority boundaries
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path('/tmp/R7_specialist_stage1_inferential_readiness_receipt_v1.json').read_text())
+          assert x['BLACKBOX_read'] is False
+          assert x['post_2020_rows_read'] is False
+          assert x['PnL_read'] is False
+          assert x['fresh_OOS_claim'] is False
+          assert x['production_authority'] is False
+          assert x['entry_reproduction']['pass'] is True
+          print(x['adjudication'])
+          PY
+      - name: Upload Stage 1 receipt only
+        uses: actions/upload-artifact@v4
+        with:
+          name: R7-specialist-stage1-inferential-readiness-receipt
+          path: /tmp/R7_specialist_stage1_inferential_readiness_receipt_v1.json
+          if-no-files-found: error
