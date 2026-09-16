@@ -1,0 +1,28 @@
+{
+  "schema_id": "factorlab_R6_close_boundary_rejection_execution_freeze@1.0",
+  "session_date": "2026-09-16",
+  "identity": "R6_close_boundary_rejection_v1",
+  "status": "frozen_before_real_outcome",
+  "frozen_artifacts": {
+    "preanalysis": {"path":"docs/research/R6_close_boundary_rejection_preanalysis_20260916.md","blob_sha":"1803d12adb6e35a6cec2029070f6df24b5986352"},
+    "protocol": {"path":"docs/governance/R6_close_boundary_rejection_protocol_v1.json","blob_sha":"8970b536ec3e6d23a2028829d72e1d0e20146c73"},
+    "runner": {"path":"scripts/run_R6_close_boundary_rejection.py","blob_sha":"4287d6f84c2b3aa336f734adf2aa437ab5887310"},
+    "tests": {"path":"tests/unit/test_R6_close_boundary_rejection.py","blob_sha":"7f14bafe8bdd0ddcb7cf17a024b0a44b7847a74b"},
+    "parent_utility": {"path":"scripts/run_broad_rmr_R5_multiscale_serial_dependence.py","blob_sha":"cd0ac94f7f8dc4fba7c9ee25701bcca02f551f2a"}
+  },
+  "source": {
+    "path": "data/development/5m_offset_0.parquet",
+    "sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48",
+    "rows": 70114,
+    "symbol": "000852.SH",
+    "max_day": "2020-12-31"
+  },
+  "required_test_command": "pytest -q tests/unit/test_R6_close_boundary_rejection.py",
+  "expected_test_count": 4,
+  "required_run_command": "python scripts/run_R6_close_boundary_rejection.py --output /tmp/R6_close_boundary_rejection_receipt_v1.json",
+  "outcome_seen_before_freeze": false,
+  "BLACKBOX_assigned": false,
+  "post_2020_authorized": false,
+  "PnL_authorized": false,
+  "production_authority": false
+}
