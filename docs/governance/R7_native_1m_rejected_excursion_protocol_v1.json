@@ -1,0 +1,58 @@
+{
+  "schema_id": "factorlab_R7_native_1m_rejected_excursion_protocol@1.0",
+  "session_date": "2026-09-16",
+  "identity": "R7_native_1m_rejected_excursion_v1",
+  "status": "frozen_before_real_outcome",
+  "sources": {
+    "one_min": {"path":"data/development/1m_official.parquet","sha256":"755217afce9dec383e48cd46d591402fa90dc50897abeb3dc7097c9a18a109d4","rows":350561,"symbol":"000852.SH","max_day":"2020-12-31"},
+    "five_min_reference": {"path":"data/development/5m_offset_0.parquet","sha256":"bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48","rows":70114,"symbol":"000852.SH","max_day":"2020-12-31"}
+  },
+  "roles": {"TRAIN":"2015-01-05..2018-12-31","VALIDATION":"2019-01-01..2020-12-31","BLACKBOX":null},
+  "construction": {
+    "anchor": "official_5m_endpoint_timestamp_identity",
+    "native_path_returns": 5,
+    "native_forward_returns": 5,
+    "exact_same_day_1m_continuity_required_t_minus_5_through_t_plus_5": true,
+    "previous_and_next_official_5m_endpoints_required": true,
+    "sigma_window_exact_1m_returns": 240,
+    "sigma_shift": 1,
+    "endpoint_z": "log_Pt_over_Ptminus5_div_sigma_past_t_div_sqrt5",
+    "extreme": "earliest_max_abs_log_displacement_from_Ptminus5_over_k_1_to_5",
+    "rejection_signed_z": "sign_extreme_times_abs_extreme_minus_sign_extreme_times_endpoint_displacement_div_sigma_past_t_div_sqrt5",
+    "next5_z": "log_Ptplus5_over_Pt_div_sigma_past_t_div_sqrt5"
+  },
+  "models": {
+    "B0": "next5_z_equals_intercept_plus_endpoint_z",
+    "B1": "B0_plus_rejection_signed_z",
+    "fit": "TRAIN_OLS_only_for_fixed_prediction",
+    "local_validation_fits": "descriptive_sign_only"
+  },
+  "supply_gate": {
+    "TRAIN_candidates_min": 30000,
+    "VALIDATION_candidates_min": 15000,
+    "each_validation_year_candidates_min": 7000,
+    "TRAIN_positive_rejection_min": 2000,
+    "TRAIN_negative_rejection_min": 2000,
+    "VALIDATION_positive_rejection_min": 1000,
+    "VALIDATION_negative_rejection_min": 1000
+  },
+  "support_gate": {
+    "TRAIN_rejection_coefficient_lt_0": true,
+    "VALIDATION_local_rejection_coefficient_lt_0": true,
+    "2019_local_rejection_coefficient_lt_0": true,
+    "2020_local_rejection_coefficient_lt_0": true,
+    "fixed_B1_MSE_lt_B0_in": ["VALIDATION","2019","2020"],
+    "VALIDATION_positive_rejection_mean_B0_residual_lt_0": true,
+    "VALIDATION_negative_rejection_mean_B0_residual_gt_0": true
+  },
+  "adjudications": [
+    "R7_supported_for_one_bounded_diagnostic",
+    "R7_supply_insufficient",
+    "R7_coefficient_direction_not_supported",
+    "R7_fixed_prediction_not_supported",
+    "R7_directional_symmetry_not_supported",
+    "R7_execution_drift_or_insufficient"
+  ],
+  "forbidden": ["path_window_search","forward_horizon_search","sigma_window_search","threshold_search","time_year_sign_filter","B1_anti_persistence_feature","M0_structure_cache","volume_or_high_low_feature","BLACKBOX_read","post_2020_read","PnL_or_Sharpe","complex_model_rescue"],
+  "production_authority": false
+}
