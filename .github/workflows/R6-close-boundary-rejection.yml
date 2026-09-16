@@ -1,0 +1,68 @@
+name: R6-close-boundary-rejection
+
+on:
+  push:
+    branches:
+      - codex/two-wave-phase1-20260905
+    paths:
+      - '.github/workflows/R6-close-boundary-rejection.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  frozen-R6:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: python -m pip install pytest numpy pandas pyarrow
+      - name: Verify frozen identities and source
+        run: |
+          test "$(git hash-object docs/research/R6_close_boundary_rejection_preanalysis_20260916.md)" = "1803d12adb6e35a6cec2029070f6df24b5986352"
+          test "$(git hash-object docs/governance/R6_close_boundary_rejection_protocol_v1.json)" = "8970b536ec3e6d23a2028829d72e1d0e20146c73"
+          test "$(git hash-object scripts/run_R6_close_boundary_rejection.py)" = "4287d6f84c2b3aa336f734adf2aa437ab5887310"
+          test "$(git hash-object tests/unit/test_R6_close_boundary_rejection.py)" = "7f14bafe8bdd0ddcb7cf17a024b0a44b7847a74b"
+          test "$(git hash-object docs/governance/R6_close_boundary_rejection_execution_freeze_v1.json)" = "ecd1c74153b090b32b9e32dde23b1f6d0249c160"
+          test "$(git hash-object scripts/run_broad_rmr_R5_multiscale_serial_dependence.py)" = "cd0ac94f7f8dc4fba7c9ee25701bcca02f551f2a"
+          python - <<'PY'
+          import hashlib, pandas as pd
+          p='data/development/5m_offset_0.parquet'
+          assert hashlib.sha256(open(p,'rb').read()).hexdigest()=='bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48'
+          x=pd.read_parquet(p, columns=['symbol','trading_day'])
+          assert len(x)==70114
+          assert set(x['symbol'].astype(str))=={'000852.SH'}
+          assert str(x['trading_day'].astype(str).max()) <= '2020-12-31'
+          print('source identity verified')
+          PY
+      - name: Run frozen R6 tests
+        run: python -m pytest -q tests/unit/test_R6_close_boundary_rejection.py
+      - name: Execute frozen R6 screen
+        run: python scripts/run_R6_close_boundary_rejection.py --output /tmp/R6_close_boundary_rejection_receipt_v1.json
+      - name: Verify authority boundaries
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path('/tmp/R6_close_boundary_rejection_receipt_v1.json').read_text())
+          assert x['source']['sha256']=='bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48'
+          assert x['source']['post_2020_rows_read'] is False
+          assert x['construction']['structure_cache_read'] is False
+          assert x['construction']['B1_feature_read'] is False
+          assert x['BLACKBOX_read'] is False
+          assert x['PnL_read'] is False
+          assert x['fresh_OOS_claim'] is False
+          assert x['production_authority'] is False
+          print(x['adjudication'])
+          PY
+      - name: Upload R6 receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: R6-close-boundary-rejection-receipt
+          path: /tmp/R6_close_boundary_rejection_receipt_v1.json
+          if-no-files-found: error
