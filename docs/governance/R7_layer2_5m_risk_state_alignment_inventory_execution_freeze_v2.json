@@ -1,0 +1,61 @@
+{
+  "schema_id": "factorlab_R7_L2_5m_risk_state_alignment_inventory_execution_freeze@2.0",
+  "session_date": "2026-09-16",
+  "identity": "R7_L2_5m_risk_state_alignment_inventory_v1",
+  "status": "refrozen_before_any_observed_inventory_outcome",
+  "outcome_seen_before_freeze": false,
+  "supersedes_execution_freeze": "docs/governance/R7_layer2_5m_risk_state_alignment_inventory_execution_freeze_v1.json",
+  "v1_execution": {
+    "run_id": 35045576776,
+    "job_id": 104634547095,
+    "identity_checks_passed": true,
+    "synthetic_tests_passed": 4,
+    "failure": "python_NameError_on_JSON_style_lowercase_false_while_constructing_receipt",
+    "receipt_written": false,
+    "inventory_outcome_printed_or_observed": false,
+    "scientific_protocol_changed": false
+  },
+  "implementation_correction": {
+    "scope": "receipt_boolean_literals_only",
+    "change": "replace_python_name_false_with_False_for_authority_flags",
+    "state_algorithm_changed": false,
+    "bucket_map_changed": false,
+    "supply_gates_changed": false,
+    "source_boundary_changed": false
+  },
+  "frozen_artifacts": {
+    "reference_contract": {"path":"docs/governance/R7_layer2_5m_risk_state_reference_contract_v1.json","blob_sha":"138f150fad8b87e3fda13d2ce948ffe1d83e1c6b"},
+    "preanalysis": {"path":"docs/research/R7_layer2_5m_risk_state_alignment_inventory_preanalysis_20260916.md","blob_sha":"54db46c94bd4fc394271b2b3e40ea48145698163"},
+    "runner": {"path":"scripts/inventory_R7_layer2_5m_risk_state_alignment.py","blob_sha":"9e6c253191fd93d860b4a97596b6cef8411a4f9a"},
+    "tests": {"path":"tests/unit/test_R7_layer2_5m_risk_state_alignment.py","blob_sha":"7fffdd40304ad9cefc612bb2eca8ce003a1ebfc4"},
+    "R7_parent_runner": {"path":"scripts/run_R7_native_1m_rejected_excursion.py","blob_sha":"e42ba3a260b2ed8c5fc3c6be548e73f5245b8e30"}
+  },
+  "layer2_authority": {
+    "private_authority_commit": "7688ba57206dd29fbef88d8e57475255718471fe",
+    "frozen_v9_state_runner_blob": "ae2a7e095df58692ef9df0dfee5856cac727ca44",
+    "v19_protocol_blob": "5e90e2ca4feb6ebef842fddf72268c8e40e792d1",
+    "risk_tool_v2_freeze_blob": "bb080d209ce5964b4aac22732e57f8d9194133dc",
+    "phase1_adjudication_blob": "08fcc582ea6ec5c65880cb0fe80dcba167b7677b"
+  },
+  "external_overlap_source": {
+    "repository": "staryocean0/factorlab-trend-reversion-regime-lab",
+    "commit": "1d760ea9525eb3688b70a4aa0f2b5b207af16a17",
+    "path": "data/market/5m/000852.SH/2020.parquet"
+  },
+  "layer3_sources": {
+    "one_min_sha256": "755217afce9dec383e48cd46d591402fa90dc50897abeb3dc7097c9a18a109d4",
+    "five_min_sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48"
+  },
+  "required_test_command": "pytest -q tests/unit/test_R7_layer2_5m_risk_state_alignment.py",
+  "expected_test_count": 4,
+  "scientific_boundaries": {
+    "R7_outcome_read": false,
+    "R7_model_fit": false,
+    "Layer2_mutation": false,
+    "Layer2_threshold_search": false,
+    "BLACKBOX_read": false,
+    "post_2020_Layer3_read": false,
+    "PnL_or_Sharpe": false
+  },
+  "production_authority": false
+}
