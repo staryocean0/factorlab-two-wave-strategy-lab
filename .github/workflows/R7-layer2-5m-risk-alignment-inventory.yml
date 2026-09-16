@@ -1,0 +1,76 @@
+name: R7-layer2-5m-risk-alignment-inventory
+
+on:
+  push:
+    branches:
+      - codex/two-wave-phase1-20260905
+    paths:
+      - '.github/workflows/R7-layer2-5m-risk-alignment-inventory.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  frozen-alignment-inventory:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Checkout pinned Layer2 canonical market source
+        uses: actions/checkout@v4
+        with:
+          repository: staryocean0/factorlab-trend-reversion-regime-lab
+          ref: 1d760ea9525eb3688b70a4aa0f2b5b207af16a17
+          path: layer2
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install bounded dependencies
+        run: python -m pip install 'numpy>=2.0,<2.6' 'pandas>=2.3,<3' 'pyarrow>=19,<20' 'pytest>=8.3,<9'
+      - name: Verify frozen identities
+        run: |
+          test "$(git hash-object docs/governance/R7_layer2_5m_risk_state_reference_contract_v1.json)" = "138f150fad8b87e3fda13d2ce948ffe1d83e1c6b"
+          test "$(git hash-object docs/research/R7_layer2_5m_risk_state_alignment_inventory_preanalysis_20260916.md)" = "54db46c94bd4fc394271b2b3e40ea48145698163"
+          test "$(git hash-object scripts/inventory_R7_layer2_5m_risk_state_alignment.py)" = "1410a0b9caf9b82164df8087d5007b0c2b809f96"
+          test "$(git hash-object tests/unit/test_R7_layer2_5m_risk_state_alignment.py)" = "7fffdd40304ad9cefc612bb2eca8ce003a1ebfc4"
+          test "$(git hash-object scripts/run_R7_native_1m_rejected_excursion.py)" = "e42ba3a260b2ed8c5fc3c6be548e73f5245b8e30"
+          test "$(git hash-object docs/governance/R7_layer2_5m_risk_state_alignment_inventory_execution_freeze_v1.json)" = "b68fc30ca5d9ba42192d03b0452161aeb6b8f24b"
+          test "$(git -C layer2 rev-parse HEAD)" = "1d760ea9525eb3688b70a4aa0f2b5b207af16a17"
+          python - <<'PY'
+          import hashlib
+          targets={
+            'data/development/1m_official.parquet':'755217afce9dec383e48cd46d591402fa90dc50897abeb3dc7097c9a18a109d4',
+            'data/development/5m_offset_0.parquet':'bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48',
+          }
+          for p,e in targets.items():
+              h=hashlib.sha256(open(p,'rb').read()).hexdigest()
+              assert h==e,(p,h)
+          print('frozen Layer3 and Layer2 identities verified')
+          PY
+      - name: Run frozen synthetic tests
+        run: python -m pytest -q tests/unit/test_R7_layer2_5m_risk_state_alignment.py
+      - name: Execute outcome-blind alignment inventory
+        run: python scripts/inventory_R7_layer2_5m_risk_state_alignment.py --layer2-2020 layer2/data/market/5m/000852.SH/2020.parquet --output /tmp/R7_L2_5m_risk_state_alignment_inventory_receipt_v1.json
+      - name: Verify authority boundaries
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path('/tmp/R7_L2_5m_risk_state_alignment_inventory_receipt_v1.json').read_text())
+          assert x['outcome_columns_read'] is False
+          assert x['R7_model_fit_performed'] is False
+          assert x['BLACKBOX_read'] is False
+          assert x['post_2020_rows_read_in_layer3'] is False
+          assert x['PnL_read'] is False
+          assert x['fresh_OOS_claim'] is False
+          assert x['production_authority'] is False
+          print('alignment_supported=',x['alignment_supported'])
+          PY
+      - name: Upload inventory receipt only
+        uses: actions/upload-artifact@v4
+        with:
+          name: R7-L2-5m-risk-alignment-inventory-receipt
+          path: /tmp/R7_L2_5m_risk_state_alignment_inventory_receipt_v1.json
+          if-no-files-found: error
