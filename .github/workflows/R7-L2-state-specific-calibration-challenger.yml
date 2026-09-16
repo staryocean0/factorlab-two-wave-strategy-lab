@@ -1,0 +1,90 @@
+name: R7-L2-state-specific-calibration-challenger
+
+on:
+  push:
+    branches:
+      - codex/two-wave-phase1-20260905
+    paths:
+      - '.github/workflows/R7-L2-state-specific-calibration-challenger.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  frozen-R7-L2-challenger:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install bounded dependencies
+        run: python -m pip install 'numpy>=2.0,<2.6' 'pandas>=2.3,<3' 'pyarrow>=19,<20' 'pytest>=8.3,<9'
+      - name: Verify frozen challenger artifacts and source identities
+        run: |
+          test "$(git hash-object docs/research/R7_L2_state_specific_calibration_challenger_preanalysis_20260916.md)" = "68ecf5afe0de57b4f3e14766653c169c2b537589"
+          test "$(git hash-object docs/governance/R7_L2_state_specific_calibration_challenger_protocol_v1.json)" = "22c1f3be46bba1de8e0bb7c0c3775269d2f8f084"
+          test "$(git hash-object scripts/run_R7_L2_state_specific_calibration_challenger.py)" = "7fc0b46e815821d4b13c38aefb45d10bff60138a"
+          test "$(git hash-object tests/unit/test_R7_L2_state_specific_calibration_challenger.py)" = "5c101fe6e8dcd1d23bb3d0da77dc79db08095b2e"
+          test "$(git hash-object docs/governance/R7_L2_state_specific_calibration_challenger_execution_freeze_v1.json)" = "d29b00f9e0925da159ecc0cc4feb6a7e60492883"
+          test "$(git hash-object scripts/run_R7_trading_strategy_baseline.py)" = "6c9a5f6952dcec13d270808939e5e9365e6668de"
+          test "$(git hash-object scripts/run_R7_native_1m_rejected_excursion.py)" = "e42ba3a260b2ed8c5fc3c6be548e73f5245b8e30"
+          test "$(git hash-object scripts/diagnose_R7_L2_5m_risk_bucket_calibration.py)" = "a6496f21e4bc019c7782a7fdc9634a6fa83851c4"
+          test "$(git hash-object scripts/inventory_R7_layer2_5m_risk_state_alignment.py)" = "315da5b6b7e1dc3fc72958eb2ba6b573d3a32397"
+          test "$(git hash-object docs/governance/R7_layer2_5m_risk_state_reference_contract_v1.json)" = "138f150fad8b87e3fda13d2ce948ffe1d83e1c6b"
+          test "$(git hash-object docs/governance/R7_trading_strategy_baseline_protocol_v1.json)" = "b33cc7552bdacdc11af1333ba9d8473c2a655c99"
+          test "$(git hash-object docs/research/local_R7_trading_strategy_baseline_receipt_v1.json)" = "47e36226af78153ab34ea0e21b5b90b2b083dc54"
+          python - <<'PY'
+          import hashlib, pandas as pd
+          targets={
+            'data/development/1m_official.parquet':('755217afce9dec383e48cd46d591402fa90dc50897abeb3dc7097c9a18a109d4',350561),
+            'data/development/5m_offset_0.parquet':('bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48',70114),
+          }
+          for p,(sha,n) in targets.items():
+              assert hashlib.sha256(open(p,'rb').read()).hexdigest()==sha
+              x=pd.read_parquet(p,columns=['symbol','trading_day'])
+              assert len(x)==n
+              assert set(x['symbol'].astype(str))=={'000852.SH'}
+              assert str(x['trading_day'].astype(str).max()) <= '2020-12-31'
+          print('frozen challenger identities verified')
+          PY
+      - name: Run frozen challenger synthetic tests
+        run: python -m pytest -q tests/unit/test_R7_L2_state_specific_calibration_challenger.py
+      - name: Execute frozen challenger head-to-head
+        run: python scripts/run_R7_L2_state_specific_calibration_challenger.py --output /tmp/R7_L2_state_specific_calibration_challenger_receipt_v1.json
+      - name: Verify authority boundaries and receipt completeness
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path('/tmp/R7_L2_state_specific_calibration_challenger_receipt_v1.json').read_text())
+          assert x['identity']=='R7_L2_state_specific_calibration_challenger_v1'
+          assert x['BLACKBOX_read'] is False
+          assert x['post_2020_rows_read'] is False
+          assert x['fresh_OOS_claim'] is False
+          assert x['actual_IM_execution_cost_claim'] is False
+          assert x['paper_trading_authority'] is False
+          assert x['production_authority'] is False
+          assert x['registry_mutation'] is False
+          assert x['global_expanding_audit']['all_history_max_day_strictly_before_eval_day'] is True
+          assert x['state_specific_expanding_audit']['all_history_strictly_prior'] is True
+          assert x['state_specific_expanding_audit']['all_history_full_rank'] is True
+          assert x['OLD_BASELINE_reproduction']['pass'] is True
+          for policy in ('OLD_BASELINE','L2_CHALLENGER'):
+              for panel in ('0bps','1bps','2bps','5bps'):
+                  m=x[policy]['cost_panel'][panel]
+                  for k in ('total_return','annualized_return','annualized_volatility','max_drawdown','average_daily_turnover','annualized_turnover','average_abs_exposure'):
+                      assert m[k] is not None
+                  assert set(m['year_total_return'])=={'2019','2020'}
+          print(x['adjudication'])
+          print(json.dumps(x['primary_2bps_gates'],indent=2))
+          print(json.dumps(x['L2_CHALLENGER']['cost_panel']['2bps'],indent=2))
+          PY
+      - name: Upload frozen challenger receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: R7-L2-state-specific-calibration-challenger-receipt
+          path: /tmp/R7_L2_state_specific_calibration_challenger_receipt_v1.json
+          if-no-files-found: error
