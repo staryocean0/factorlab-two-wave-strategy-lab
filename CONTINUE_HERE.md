@@ -4,11 +4,11 @@
 
 仓库级任务：
 
-> 用因果、多尺度、低容量框架发现广义反转 / 均值回归机制；核心是区分暂时偏离与父状态改变，并避免用复杂模型救简单机制失败。
+> 用因果、多尺度、低容量框架发现广义反转 / 均值回归机制；区分“机制是否存在”与“固定系数是否可迁移”，并避免用复杂模型或 outcome-driven 搜索救简单机制。
 
 当前状态：
 
-`R7_DIAGNOSTIC_SUPPORTED_SPECIALIST_HANDOFF_ESTABLISHED_BROAD_DISCOVERY_CONTINUES`
+`R7_SPECIALIST_STAGE1_INFERENTIAL_SUPPORT_CALIBRATION_DRIFT_FIXED_COEFFICIENT_TRANSPORT_NOT_READY`
 
 ## 1. 数据治理
 
@@ -18,178 +18,160 @@ VALIDATION = 2019-01-01..2020-12-31
 BLACKBOX   = none
 ```
 
-TRAIN/VALIDATION 都是 reusable research data，不是 fresh OOS。真正稀缺的是 never-seen BLACKBOX qualification；当前仍未分配 BLACKBOX。
+TRAIN/VALIDATION 都是 reusable research data，不是 fresh OOS。当前仍禁止 post-2020、PnL/Sharpe model selection、paper trading、production、registry mutation。
 
-禁止：post-2020、PnL/Sharpe model selection、paper trading、production、FactorLab registry mutation，除非后续另有明确授权。
+## 2. 已关闭/受限方向
 
-## 2. 已关闭或受限的旧方向
+- R1：旧 M1 方向证据不支持，不 rescue 同 identity。
+- R2：旧 range identity closed。
+- R3：predeclared direction falsified。
+- R4：no candidate qualifies。
+- R5-B1：CL008 后曾进 specialist，但更严格 Stage 1 时间稳定性失败，transport closed。
+- R6：close-boundary rejection upper/lower 方向不对称，`R6_direction_not_supported`，禁止 upper-only rescue。
+- T1：历史 shock identity closed。
 
-- R1：旧 identity 后续 M1 方向证据不支持，不 rescue 同一 identity。
-- R2：旧 low-capacity range identity closed。
-- R3：预注册方向 falsified。
-- R4：无 candidate qualified。
-- R5-B1：CL008 曾支持 specialist，但更严格 specialist Stage 1 时间稳定性失败，transport closed。
-- R6 close-boundary rejection：供给足，但 VALIDATION upper/lower 明显方向不对称；裁决 `R6_direction_not_supported`，禁止 upper-only outcome rescue。
-- T1 old transitory shock：历史 identity closed。
+## 3. R7 parent 与 bounded diagnostic 已通过
 
-## 3. 1m native path 数据已通过 inventory
+Parent：`R7_native_1m_rejected_excursion_v1`
 
-本仓已有官方 development 数据：
+固定 identity：
 
-- `data/development/1m_official.parquet`
-- rows = `350561`
-- SHA256 = `755217afce9dec383e48cd46d591402fa90dc50897abeb3dc7097c9a18a109d4`
-
-与 official 5m endpoint：
-
-- endpoints = `70114`
-- 同 timestamp 1m endpoint = `70112`
-- 完整 native 5x1m chain = `70108`
-- aligned endpoint close 最大差异 = `0`
-- 不做 local resampling。
-
-Inventory run：`35041427672`。
-
-## 4. R7 parent broad screen 已通过
-
-Identity：`R7_native_1m_rejected_excursion_v1`
-
-研究问题：在相同 official 5m endpoint displacement 下，native 1m 路径若曾走得更远又在 endpoint 前回撤，这个 continuous rejected excursion 是否对下一段 5m return 提供额外反向信息。
-
-Parent model：
-
-- B0 = endpoint displacement only；
-- B1 = B0 + continuous `rejection_signed_z`；
+- official native 1m + official 5m endpoint anchor；
 - past path = 5 native 1m returns；
-- outcome = next 5 native 1m returns；
-- sigma = previous 240 exact-1m returns RMS, shift(1)。
+- next outcome = 5 native 1m returns；
+- sigma = previous 240 exact-1m returns RMS, shift(1)；
+- B0 = endpoint displacement；
+- B1 = B0 + continuous `rejection_signed_z`；
+- no local resampling / no M0 cache / no R5-B1 feature。
 
-冻结执行 run：`35041836335`。
+Parent broad screen：candidate rows=`64215`；TRAIN rejection beta=`-0.532770`；VALIDATION local beta≈`-0.39545`；fixed B1 在 2019/2020 MSE 分别约改善 `1.35% / 1.66%`。
 
-关键结果：
+唯一 bounded diagnostic：`R7_rejected_excursion_stability_shape_diagnostic_v1`。
 
-```text
-candidate rows = 64215
-TRAIN rejection coefficient      = -0.532770
-VALIDATION local coefficient     ≈ -0.39545
-2019 local coefficient           ≈ -0.39384
-2020 local coefficient           ≈ -0.39696
+- D1 fixed half-year stability=true：TRAIN 7/8 negative；VALIDATION 4/4 negative、4/4 frozen improvement positive。
+- D2 magnitude shape=true：TRAIN/VALIDATION/2019/2020 的 aligned reversal score 均随 magnitude 呈正 trend，高 magnitude 正负方向 symmetry 通过。
 
-VALIDATION MSE B0/B1 = 1.65984729 / 1.63497129
-2019 relative improvement ≈ 1.35%
-2020 relative improvement ≈ 1.66%
-```
-
-正/负 rejected excursion 的 pooled residual symmetry 同时通过。
-
-Parent adjudication：
-
-`R7_supported_for_one_bounded_diagnostic`
-
-## 5. R7 唯一 bounded diagnostic 已完成并通过
-
-Diagnostic：`R7_rejected_excursion_stability_shape_diagnostic_v1`
-
-Execution freeze：`docs/governance/R7_rejected_excursion_stability_shape_diagnostic_execution_freeze_v1.json`
-
-Run：`35042530618`；job=`104625259981`；4/4 frozen synthetic tests passed；entry reproduction 1e-12 passed。
-
-Receipt：`docs/research/local_R7_rejected_excursion_stability_shape_diagnostic_receipt_v1.json`
-
-Cloud review：`docs/research/R7_rejected_excursion_stability_shape_diagnostic_cloud_review_20260916.md`
-
-### D1 — fixed half-year stability
-
-`D1_time_stability_supported = true`
-
-```text
-TRAIN:      7/8 half-years coefficient < 0
-TRAIN median coefficient = -0.753228
-
-VALIDATION: 4/4 half-years coefficient < 0
-VALIDATION median coefficient = -0.395287
-VALIDATION: 4/4 half-years frozen B1 improvement > 0
-```
-
-2015H2 是唯一 TRAIN coefficient >0 的固定块，保留原样，不删除、不筛选。
-
-### D2 — TRAIN-fixed magnitude shape
-
-`D2_magnitude_shape_supported = true`
-
-TRAIN-only magnitude quintile edges：
-
-`[0.0854063, 0.2019050, 0.3714535, 0.6597429]`
-
-aligned reversal score 随 rejected-excursion magnitude 的线性 trend：
-
-```text
-TRAIN       +0.269913
-VALIDATION  +0.287181
-2019        +0.266837
-2020        +0.310699
-```
-
-VALIDATION bottom/top mean score：`0.07183 -> 0.38269`。
-
-VALIDATION top bin：
-
-```text
-positive rejection mean residual = -0.43850
-negative rejection mean residual = +0.33788
-```
-
-四组都通过 top>bottom、top>0、top-bin sign symmetry。
-
-正式裁决：
+Diagnostic adjudication：
 
 `R7_diagnostic_supported_for_specialist_research`
 
-## 6. R7 specialist handoff 已建立
+Specialist：`R7_native_1m_rejected_excursion_specialist_v1`，但 BLACKBOX 仍为空。
 
-Specialist：`R7_native_1m_rejected_excursion_specialist_v1`
+## 4. Specialist Stage 1 已完成：机制支持，但 fixed coefficients 有 calibration drift
 
-Handoff：`docs/ops/R7_native_1m_rejected_excursion_specialist_handoff_20260916.md`
+Stage 1 identity：`R7_specialist_stage1_inferential_readiness_v1`
 
-状态：`AUTHORIZED WITHOUT BLACKBOX`
+Protocol：`docs/governance/R7_specialist_stage1_inferential_readiness_protocol_v1.json`
 
-Specialist 必须保持 parent identity，不允许把 path length / horizon / sigma / feature search 混进同一个验证身份。
+有效 execution freeze：`docs/governance/R7_specialist_stage1_inferential_readiness_execution_freeze_v2.json`
 
-第一阶段只做：
+有效 run：`35043298059`；job=`104627633019`；5/5 frozen synthetic tests passed；entry reproduction passed。
 
-1. day-clustered uncertainty，不挑 favorable days；
-2. calibration / residual sufficiency，不做 threshold rescue；
-3. 只有数据治理明确授权后才做跨市场 transport；
-4. 机制与 transport 稳定后再设计经济映射。
+第一次 run `35043104558` 在 synthetic test 阶段因零方差退化样本的 machine-epsilon containment 问题停止，真实 runner **未执行**。只做了 `1e-12` 数值 containment 修正，C1/C2/C3 科学定义和 gate 未变，并在真实 outcome 前建立 v2 freeze。
 
-仍不允许 HMM/rSLDS/Koopman rescue，不允许 BLACKBOX，不允许 PnL/Sharpe 反向选模型。
+Receipt：`docs/research/local_R7_specialist_stage1_inferential_readiness_receipt_v1.json`
 
-## 7. 跨指数数据现状
+Cloud review：`docs/research/R7_specialist_stage1_inferential_readiness_cloud_review_20260916.md`
 
-`factorlab-trend-reversion-regime-lab` 中存在 STAR50/CSI1000 5m 数据，但该仓当前数据治理说明没有授权新的实证候选，因此本仓不跨仓偷用。
+Handoff：`docs/ops/R7_specialist_stage1_calibration_drift_handoff_20260916.md`
 
-CSI300/CSI500/CSI1000 common-vs-idiosyncratic shock 方向继续保留，但必须等明确 source-governance authorization。
+### C1 — trading-day clustered coefficient uncertainty
 
-## 8. 母仓下一步
-
-R7 已进入 specialist lane；母仓继续 broad-and-shallow discovery，且新方向必须与 R7 native-path rejection 不同源，不能换名字继续调 R5/R6/R7。
-
-下一步顺序：
-
-1. specialist 冻结 inferential-readiness Stage 1；
-2. 母仓并行选择新的 independent low-capacity reversal identity；
-3. 跨市场 transport 仅在 source governance 明确授权后进行；
-4. 小型 never-seen BLACKBOX 只在 specialist model/features/evaluation 成熟并重新冻结后讨论。
-
-## 9. 权限边界
-
-当前仍为：
+`C1_clustered_coefficient_supported = true`
 
 ```text
-BLACKBOX_assigned          = false
-post_2020_authorized       = false
-trading_PnL_authorized     = false
-paper_trading_authorized   = false
-fresh_OOS_claim_authorized = false
-production_authority       = false
+TRAIN       beta -0.53277   95% CI [-0.58946, -0.47608]
+VALIDATION  beta -0.39545   95% CI [-0.44499, -0.34591]
+2019        beta -0.39384   95% CI [-0.47022, -0.31746]
+2020        beta -0.39696   95% CI [-0.46104, -0.33289]
+```
+
+四组 day-clustered CI upper 全部 <0。
+
+### C2 — frozen prediction day robustness
+
+`C2_day_prediction_robustness_supported = true`
+
+2019：244 days，positive days=`61.07%`，median improvement=`+0.01676`，bootstrap mean 95% CI=`[+0.00943,+0.03750]`。
+
+2020：243 days，positive days=`61.32%`，median improvement=`+0.02459`，bootstrap mean 95% CI=`[+0.01331,+0.03942]`。
+
+因此 R7 的机制/预测增量在 trading-day dependence 下仍有支持，但并非每天都改善。
+
+### C3 — calibration / residual sufficiency
+
+`C3_calibration_clean = false`
+
+VALIDATION pooled：
+
+```text
+calibration slope        = 0.80744
+95% CI                   = [0.71494, 0.89993]   # 不含 1
+residual endpoint slope  = +0.03108
+95% CI                   = [0.01316, 0.04899]   # 不含 0
+residual rejection slope = +0.13732
+95% CI                   = [0.08777, 0.18686]   # 不含 0
+```
+
+2019/2020 分开后 calibration slope 约 `0.811 / 0.804`，residual endpoint/rejection slopes 同方向。
+
+解释：TRAIN frozen B1 的方向是对的，但 amplitude 在 VALIDATION 上系统性过强；尤其 rejection beta 从 TRAIN `-0.533` 漂到 VALIDATION local `-0.395` 左右。
+
+正式裁决：
+
+`R7_specialist_stage1_inferentially_supported_calibration_drift`
+
+## 5. 当前权限含义
+
+允许：
+
+- 保留 R7 specialist mechanism；
+- 研究一个新的、事前冻结的低容量 coefficient calibration rule；
+- 在 source governance 明确授权后做 mechanism transport，并把 mechanism transport 与 coefficient transport 分开。
+
+不允许：
+
+- 宣称 fixed TRAIN coefficients transport-ready；
+- 直接用 2019/2020 full-period local re-fit 替换 TRAIN coefficients；
+- 搜 rolling window、half-life/decay、regularization、threshold、favorable period；
+- 增加 feature 后仍称同一 R7；
+- BLACKBOX/post-2020；
+- PnL/Sharpe 选择 calibration；
+- HMM/rSLDS/Koopman rescue；
+- paper trading / production。
+
+## 6. Specialist 下一步
+
+下一 identity：`R7_calibration_strategy_readiness_v1`。
+
+**必须在任何 calibration outcome 前重新冻结。**
+
+研究目标只允许是 coefficient-updating rule，不改 parent features/path/horizon/sigma。优先采用低自由度方案：固定 expanding OLS，预声明 minimum history 与 update cadence；先用 TRAIN 内固定 calendar forward-chaining 做 readiness，再使用 VALIDATION 作 reusable diagnostic。
+
+不得在 VALIDATION 上搜索窗口或超参后称为 transport qualification。
+
+## 7. 跨市场与 broad lane
+
+跨指数 common-vs-idiosyncratic / R7 mechanism transport 仍因上游数据治理未明确授权而暂缓。
+
+母仓 broad lane 继续独立寻找与 R7 native-path rejection 不同源的低容量机制；不得换名字继续调 R5/R6/R7。
+
+## 8. 下一步顺序
+
+1. outcome-blind 冻结 `R7_calibration_strategy_readiness_v1`；
+2. 保持 parent feature/path/horizon/sigma 不变；
+3. 母仓并行 broad discovery；
+4. source governance 明确授权后才做跨市场 mechanism transport；
+5. calibration 与 transport 都成熟且重新冻结后，才讨论小型 never-seen BLACKBOX。
+
+当前权限：
+
+```text
+fixed_coefficient_transport = false
+BLACKBOX_assigned           = false
+post_2020_authorized        = false
+trading_PnL_authorized      = false
+paper_trading_authorized    = false
+fresh_OOS_claim_authorized  = false
+production_authority        = false
 ```
