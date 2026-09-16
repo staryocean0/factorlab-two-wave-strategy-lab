@@ -1,0 +1,70 @@
+{
+  "schema_id": "factorlab_R6_close_boundary_rejection_protocol@1.0",
+  "session_date": "2026-09-16",
+  "identity": "R6_close_boundary_rejection_v1",
+  "status": "frozen_before_real_outcome",
+  "source": {
+    "path": "data/development/5m_offset_0.parquet",
+    "sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48",
+    "rows": 70114,
+    "symbol": "000852.SH",
+    "max_day": "2020-12-31"
+  },
+  "roles": {
+    "TRAIN": "2015-01-05..2018-12-31",
+    "VALIDATION": "2019-01-01..2020-12-31",
+    "BLACKBOX": null
+  },
+  "construction": {
+    "exact_same_day_5m_segments": true,
+    "boundary_lookback_bars": 12,
+    "rejection_delay_bars": 1,
+    "forward_horizon_bars": 3,
+    "sigma_window_returns": 240,
+    "upper_breakout": "close_t0_gt_max_prior_12_closes",
+    "lower_breakout": "close_t0_lt_min_prior_12_closes",
+    "failed_upper": "close_t1_lte_prior_upper_boundary",
+    "failed_lower": "close_t1_gte_prior_lower_boundary",
+    "control": "breakout_remains_outside_same_boundary_at_t1",
+    "signed_forward_z3": "direction_times_log_close_t1plus3_over_close_t1_div_sigma_past_t1_div_sqrt3"
+  },
+  "supply_gate": {
+    "TRAIN_failed_min": 100,
+    "TRAIN_control_min": 200,
+    "VALIDATION_failed_min": 50,
+    "VALIDATION_control_min": 100,
+    "each_validation_year_failed_min": 20,
+    "each_validation_year_control_min": 40,
+    "each_validation_direction_failed_min": 20,
+    "each_validation_direction_control_min": 40
+  },
+  "direction_gate": {
+    "TRAIN": "mean_effect_lt_0_and_reversal_fraction_delta_gt_0",
+    "VALIDATION": "mean_effect_lt_0_and_reversal_fraction_delta_gt_0",
+    "2019": "mean_effect_lt_0",
+    "2020": "mean_effect_lt_0",
+    "VALIDATION_upper": "mean_effect_lt_0",
+    "VALIDATION_lower": "mean_effect_lt_0"
+  },
+  "adjudications": [
+    "R6_supported_for_one_bounded_diagnostic",
+    "R6_supply_insufficient",
+    "R6_direction_not_supported",
+    "R6_execution_drift_or_insufficient"
+  ],
+  "forbidden": [
+    "boundary_window_search",
+    "rejection_delay_search",
+    "forward_horizon_search",
+    "sigma_window_search",
+    "time_or_year_filter",
+    "direction_filter",
+    "B1_anti_persistence_feature",
+    "M0_structure_cache",
+    "BLACKBOX_read",
+    "post_2020_read",
+    "PnL_or_Sharpe",
+    "complex_model_rescue"
+  ],
+  "production_authority": false
+}
