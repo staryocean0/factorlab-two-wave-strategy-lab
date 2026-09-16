@@ -1,0 +1,84 @@
+{
+  "schema_id": "factorlab_R7_trading_strategy_baseline_protocol@1.0",
+  "identity": "R7_trading_strategy_baseline_v1",
+  "date": "2026-09-16",
+  "parent_identity": "R7_native_1m_rejected_excursion_v1",
+  "purpose": "freeze_complete_index_proxy_trading_strategy_before_layer2_risk_composite_comparison",
+  "data": {
+    "symbol": "000852.SH",
+    "train": "2015-01-05..2018-12-31_reusable_history",
+    "economic_evaluation": "2019-01-01..2020-12-31_reusable_validation",
+    "blackbox": "none_assigned",
+    "one_min_path": "data/development/1m_official.parquet",
+    "one_min_sha256": "755217afce9dec383e48cd46d591402fa90dc50897abeb3dc7097c9a18a109d4",
+    "one_min_rows": 350561,
+    "five_min_path": "data/development/5m_offset_0.parquet",
+    "five_min_sha256": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48",
+    "five_min_rows": 70114,
+    "instrument_type": "market_index",
+    "signal_price_view": "identity_index_point",
+    "fill_price_view": "raw_pit",
+    "data_contract": "cn_a_session_wall_clock_offset_v1",
+    "package_data_role": "development_material"
+  },
+  "feature_identity": {
+    "official_5m_endpoint_anchor": true,
+    "native_path_returns": 5,
+    "native_forward_returns": 5,
+    "sigma_window_exact_1m_returns": 240,
+    "design_columns": ["intercept", "endpoint_z", "rejection_signed_z"],
+    "feature_search": false
+  },
+  "coefficient_policies": {
+    "legacy_static_train": "fit_B1_once_on_2015_2018_then_hold_fixed",
+    "old_baseline": "fit_B1_once_each_evaluation_day_using_only_rows_with_trading_day_less_than_that_day",
+    "intraday_refit": false,
+    "rolling_window_search": false,
+    "decay_search": false,
+    "regularization_search": false
+  },
+  "position": {
+    "formula": "clip(forecast_z,-1,+1)",
+    "threshold": null,
+    "max_abs_exposure": 1.0
+  },
+  "execution": {
+    "signal_time": "official_5m_endpoint_t_after_native_1m_close_t",
+    "entry": "native_1m_open_t_plus_1",
+    "exit": "native_1m_close_t_plus_5",
+    "same_session_exact_native_continuity_required": true,
+    "overnight_exposure": false,
+    "gap_policy": "flatten_previous_block_and_restart_from_zero",
+    "gross_return": "position*(close_t_plus_5/open_t_plus_1-1)"
+  },
+  "costs": {
+    "unit": "one_way_bps_per_absolute_turnover",
+    "scenarios_bps": [0.0, 1.0, 2.0, 5.0],
+    "primary_research_stress_bps": 2.0,
+    "actual_IM_cost_claim": false
+  },
+  "metrics": [
+    "total_return", "annualized_return", "annualized_volatility", "sharpe", "sortino",
+    "max_drawdown", "calmar", "positive_day_fraction", "positive_month_fraction",
+    "average_daily_turnover", "annualized_turnover", "cumulative_explicit_cost",
+    "average_abs_exposure", "long_fraction", "short_fraction", "flat_fraction",
+    "2019_total_return", "2020_total_return"
+  ],
+  "acceptance_primary_2bps": {
+    "net_total_return_gt_0": true,
+    "net_sharpe_gt_0": true,
+    "2019_net_total_return_gt_0": true,
+    "2020_net_total_return_gt_0": true,
+    "causality_and_execution_tests_required": true
+  },
+  "authority": {
+    "PnL_authorized_for_frozen_strategy_engineering": true,
+    "PnL_feature_selection_authorized": false,
+    "blackbox_read": false,
+    "post_2020_read": false,
+    "fresh_OOS_claim": false,
+    "paper_trading": false,
+    "production": false,
+    "registry_mutation": false
+  }
+}
