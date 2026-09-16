@@ -22,7 +22,7 @@ jobs:
           python-version: '3.11'
       - name: Install bounded schema dependency
         run: python -m pip install 'pandas>=2.3,<3' 'pyarrow>=19,<20'
-      - name: Inspect official 1m and 5m schemas only
+      - name: Inspect official schemas and non-price contract fields only
         run: |
           python - <<'PY'
           import hashlib, pandas as pd, pyarrow.parquet as pq
@@ -30,6 +30,7 @@ jobs:
             'data/development/1m_official.parquet':'755217afce9dec383e48cd46d591402fa90dc50897abeb3dc7097c9a18a109d4',
             'data/development/5m_offset_0.parquet':'bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48',
           }
+          meta_cols=['available_at','source_kind','dataset_version','instrument_type','causal_flat_fill','source_minute_count','high_frequency_analysis_eligible','export_view_id','export_frequency','signal_price_view','fill_price_view','data_contract','package_data_role']
           for path, expected in targets.items():
               got=hashlib.sha256(open(path,'rb').read()).hexdigest()
               assert got==expected,(path,got)
@@ -37,5 +38,10 @@ jobs:
               print('FILE',path)
               print('SCHEMA',pf.schema_arrow)
               print('ROWS',pf.metadata.num_rows)
-              # schema-only governance: do not read any market values / outcomes
+              cols=[c for c in meta_cols if c in pf.schema_arrow.names]
+              x=pd.read_parquet(path,columns=cols)
+              for c in cols:
+                  vals=sorted({str(v) for v in x[c].dropna().unique().tolist()})
+                  print('META',c,vals[:20], 'N_UNIQUE',len(vals))
+              # Governance: no OHLCV/amount values or R7 outcomes are read here.
           PY
