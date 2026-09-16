@@ -1,0 +1,39 @@
+{
+  "BLACKBOX_read": false,
+  "PnL_read": false,
+  "R7_model_fit_performed": false,
+  "alignment_supported": true,
+  "fresh_OOS_claim": false,
+  "gates": {
+    "bucket_supply_pass": true,
+    "candidate_state_match_ge_099": true,
+    "layer3_max_day_pass": true,
+    "layer3_sha_pass": true,
+    "layer3_symbol_pass": true,
+    "overlap_close_max_abs_diff_le_1e12": true,
+    "overlap_nonempty": true,
+    "overlap_state_agreement_exact": true
+  },
+  "identity": "R7_L2_5m_risk_state_alignment_inventory_v1",
+  "layer2_overlap_replay": {"complete_48bar_days":243,"excluded_day_labels":[],"excluded_incomplete_days":0,"input_days":243,"input_rows":11664,"replayed_rows":11664},
+  "layer2_reference": {
+    "canonical_market_commit": "1d760ea9525eb3688b70a4aa0f2b5b207af16a17",
+    "canonical_market_repo": "staryocean0/factorlab-trend-reversion-regime-lab",
+    "external_2020_sha256": "5545c8e3b3199b76e6bd00e5c1db887c6121efb8841706336aeeaff5274329c5",
+    "state_runner_blob": "ae2a7e095df58692ef9df0dfee5856cac727ca44"
+  },
+  "layer3_overlap_replay_2020_physical_boundary": {"complete_48bar_days":243,"excluded_day_labels":[],"excluded_incomplete_days":0,"input_days":243,"input_rows":11664,"replayed_rows":11664},
+  "layer3_replay": {"complete_48bar_days":1459,"excluded_day_labels":["2016-01-04","2016-01-07","2017-08-24"],"excluded_incomplete_days":3,"input_days":1462,"input_rows":70114,"replayed_rows":70032},
+  "outcome_columns_read": false,
+  "overlap_2020": {"close_max_abs_diff":0.0,"common_rows":11664,"risk_state_agreement":1.0},
+  "post_2020_rows_read_in_layer3": false,
+  "production_authority": false,
+  "r7_endpoint_eligibility": {"candidate_rows_without_outcome":64215,"state_match_fraction":0.9990189208128942,"state_matched_rows":64152},
+  "schema_id": "factorlab_R7_L2_5m_risk_state_alignment_inventory@1.0",
+  "supply": {
+    "2019": {"LOW_RISK":9678,"NORMAL":9678,"RECOVERING":769,"RISK_ACTIVE":1058,"UNSAFE":289,"eligible_candidates":10736,"matched_days":244},
+    "2020": {"LOW_RISK":9326,"NORMAL":9326,"RECOVERING":950,"RISK_ACTIVE":1366,"UNSAFE":416,"eligible_candidates":10692,"matched_days":243},
+    "TRAIN": {"LOW_RISK":37955,"NORMAL":37955,"RECOVERING":3140,"RISK_ACTIVE":4769,"UNSAFE":1629,"eligible_candidates":42787,"matched_days":971},
+    "VALIDATION": {"LOW_RISK":19004,"NORMAL":19004,"RECOVERING":1719,"RISK_ACTIVE":2424,"UNSAFE":705,"eligible_candidates":21428,"matched_days":487}
+  }
+}
