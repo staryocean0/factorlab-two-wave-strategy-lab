@@ -1,0 +1,53 @@
+{
+  "schema_id": "factorlab_R7_rejected_excursion_stability_shape_diagnostic_protocol@1.0",
+  "session_date": "2026-09-16",
+  "parent_identity": "R7_native_1m_rejected_excursion_v1",
+  "diagnostic_identity": "R7_rejected_excursion_stability_shape_diagnostic_v1",
+  "status": "frozen_before_diagnostic_outcome",
+  "entry_reproduction": {
+    "candidate_rows": 64215,
+    "TRAIN_B0_beta": [0.0137526453386167,0.04853230586734814],
+    "TRAIN_B1_beta": [0.0014301524091757736,0.06384569479627833,-0.5327696198414718],
+    "VALIDATION_MSE_B0": 1.6598472863016687,
+    "VALIDATION_MSE_B1": 1.6349712859035168,
+    "2019_MSE_B0": 1.7444187739434946,
+    "2019_MSE_B1": 1.720788967326843,
+    "2020_MSE_B0": 1.5749277678465021,
+    "2020_MSE_B1": 1.5488004452973783,
+    "absolute_tolerance": 1e-12
+  },
+  "D1_time_stability": {
+    "blocks": "fixed_calendar_half_year",
+    "TRAIN_expected_blocks": 8,
+    "VALIDATION_expected_blocks": 4,
+    "minimum_candidates_per_block": 4000,
+    "support_rule": {
+      "TRAIN_negative_local_rejection_coefficient_blocks_min": 6,
+      "TRAIN_median_local_rejection_coefficient_lt_0": true,
+      "VALIDATION_negative_local_rejection_coefficient_blocks_min": 3,
+      "VALIDATION_median_local_rejection_coefficient_lt_0": true,
+      "VALIDATION_positive_fixed_B1_MSE_improvement_blocks_min": 3
+    }
+  },
+  "D2_magnitude_shape": {
+    "rows": "nonzero_rejection_only",
+    "edges": "TRAIN_feature_only_abs_rejection_20_40_60_80_percentiles",
+    "minimum_total_rows_per_group_bin": 300,
+    "minimum_each_sign_rows_per_group_bin": 100,
+    "residual": "next5_z_minus_frozen_TRAIN_B0_prediction",
+    "aligned_reversal_score": "minus_sign_rejection_times_residual",
+    "groups": ["TRAIN","VALIDATION","2019","2020"],
+    "group_support_rule": "trend_mean_score_vs_mean_abs_rejection_gt_0_and_top_score_gt_bottom_score_and_top_score_gt_0_and_top_positive_residual_lt_0_and_top_negative_residual_gt_0",
+    "support_rule": "all_four_groups_supported"
+  },
+  "adjudications": [
+    "R7_diagnostic_supported_for_specialist_research",
+    "R7_diagnostic_time_stable_but_magnitude_shape_weak",
+    "R7_diagnostic_shape_supported_but_time_stability_weak",
+    "R7_diagnostic_not_robust_enough_for_specialist",
+    "R7_diagnostic_execution_drift_or_insufficient"
+  ],
+  "specialist_handoff_authorized_only_if": "D1_true_and_D2_true",
+  "forbidden": ["change_parent_R7_model","path_window_search","forward_horizon_search","sigma_window_search","magnitude_threshold_filter","favorable_halfyear_selection","BLACKBOX_read","post_2020_read","PnL_or_Sharpe","complex_model_rescue"],
+  "production_authority": false
+}
