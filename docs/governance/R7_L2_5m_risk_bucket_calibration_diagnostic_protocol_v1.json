@@ -1,0 +1,81 @@
+{
+  "schema_id": "factorlab_R7_L2_5m_risk_bucket_calibration_diagnostic_protocol@1.0",
+  "session_date": "2026-09-16",
+  "identity": "R7_L2_5m_risk_bucket_calibration_diagnostic_v1",
+  "parent_identity": "R7_native_1m_rejected_excursion_v1",
+  "status": "frozen_before_state_conditioned_outcome",
+  "state_reference": {
+    "contract": "docs/governance/R7_layer2_5m_risk_state_reference_contract_v1.json",
+    "LOW_RISK": ["NORMAL"],
+    "RISK_ACTIVE": ["UNSAFE", "RECOVERING"],
+    "threshold_search_authorized": false,
+    "bucket_remap_authorized": false
+  },
+  "entry_reproduction": {
+    "candidate_rows": 64215,
+    "TRAIN_B1_beta": [0.0014301524091757736,0.06384569479627833,-0.5327696198414718],
+    "VALIDATION_MSE_B1": 1.6349712859035168,
+    "2019_MSE_B1": 1.720788967326843,
+    "2020_MSE_B1": 1.5488004452973783,
+    "state_matched_rows": 64152,
+    "state_match_fraction": 0.9990189208128942,
+    "absolute_tolerance": 1e-12
+  },
+  "models": {
+    "B1_global": "frozen_parent_intercept_plus_endpoint_plus_rejection",
+    "B2_state": "B1_plus_risk_dummy_plus_risk_x_endpoint_plus_risk_x_rejection",
+    "B2_fit": "once_on_matched_TRAIN_only",
+    "parameter_search": false
+  },
+  "G1_heterogeneity": {
+    "covariance": "trading_day_cluster_robust_CR1",
+    "joint_interactions": ["risk_dummy","risk_x_endpoint","risk_x_rejection"],
+    "wald_df": 3,
+    "chi_square_95_critical": 7.814727903251179,
+    "support_rule": "TRAIN_joint_Wald_gt_fixed_critical"
+  },
+  "G2_prediction": {
+    "comparison": "fixed_TRAIN_B2_vs_frozen_parent_B1_on_state_matched_rows",
+    "groups": ["VALIDATION","2019","2020"],
+    "support_rule": "B2_MSE_lt_B1_MSE_in_all_three_groups",
+    "bucket_specific_MSE": "descriptive_only"
+  },
+  "G3_calibration": {
+    "groups": ["VALIDATION","2019","2020"],
+    "covariance": "trading_day_cluster_robust_CR1",
+    "calibration_clean": "intercept_CI_contains_0_and_slope_CI_contains_1",
+    "residual_coordinates": ["endpoint","rejection","risk","risk_x_endpoint","risk_x_rejection"],
+    "residual_clean": "all_five_feature_CIs_contain_0",
+    "clean_rule": "all_three_groups_clean",
+    "role": "classification_only_not_required_for_state_conditioning_support"
+  },
+  "adjudications": [
+    "R7_L2_state_conditioning_supported_calibration_clean",
+    "R7_L2_state_conditioning_supported_residual_drift",
+    "R7_L2_state_heterogeneity_supported_but_prediction_not_robust",
+    "R7_L2_state_conditioning_not_supported",
+    "R7_L2_state_diagnostic_execution_drift_or_insufficient"
+  ],
+  "next_stage_authorized_only_if": [
+    "R7_L2_state_conditioning_supported_calibration_clean",
+    "R7_L2_state_conditioning_supported_residual_drift"
+  ],
+  "forbidden": [
+    "Layer2_threshold_change",
+    "state_remap",
+    "unsupported_recovery_probability_use",
+    "additional_bucket_search",
+    "rolling_window_search",
+    "decay_search",
+    "regularization_search",
+    "new_R7_features",
+    "favorable_subperiod_or_direction_selection",
+    "BLACKBOX_read",
+    "post_2020_read",
+    "PnL_or_Sharpe_model_selection",
+    "complex_model_rescue",
+    "paper_trading",
+    "production"
+  ],
+  "production_authority": false
+}
