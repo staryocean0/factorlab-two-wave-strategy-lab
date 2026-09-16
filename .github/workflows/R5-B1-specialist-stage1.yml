@@ -1,0 +1,70 @@
+name: R5-B1-specialist-stage1
+
+on:
+  push:
+    branches:
+      - codex/two-wave-phase1-20260905
+    paths:
+      - '.github/workflows/R5-B1-specialist-stage1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  frozen-stage1:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install frozen dependencies
+        run: python -m pip install pytest numpy pandas pyarrow
+      - name: Verify frozen identities and source
+        run: |
+          test "$(git hash-object docs/research/R5_B1_specialist_stage1_preanalysis_20260916.md)" = "4f0e52e7afe7d75d434ae1cea25110bea6f71cc3"
+          test "$(git hash-object docs/governance/R5_B1_specialist_stage1_protocol_v1.json)" = "fb945c94469e12df2d4bb2bc26e66b0fc23d8074"
+          test "$(git hash-object scripts/diagnose_R5_B1_specialist_stage1_stability_continuous_shape.py)" = "d57eac2c41413c966790dfefd573669ebfe535b6"
+          test "$(git hash-object tests/unit/test_R5_B1_specialist_stage1_stability_continuous_shape.py)" = "28f86caf928f24f1b6c057bc3f7a1557bb4190e5"
+          test "$(git hash-object docs/governance/R5_B1_specialist_stage1_execution_freeze_v1.json)" = "d24dcf7a76482a335f2299b862fcf6b65e3bbd53"
+          test "$(git hash-object scripts/diagnose_broad_rmr_R5_B1_stability_shape.py)" = "a5f1f4dea7fb46a6d42c7d91f3404b1ec8022f28"
+          test "$(git hash-object scripts/run_broad_rmr_R5_multiscale_serial_dependence.py)" = "cd0ac94f7f8dc4fba7c9ee25701bcca02f551f2a"
+          python - <<'PY'
+          import hashlib
+          import pandas as pd
+          p='data/development/5m_offset_0.parquet'
+          h=hashlib.sha256(open(p,'rb').read()).hexdigest()
+          assert h=='bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48', h
+          df=pd.read_parquet(p, columns=['symbol','trading_day'])
+          assert len(df)==70114
+          assert set(df['symbol'].astype(str))=={'000852.SH'}
+          assert str(df['trading_day'].astype(str).max()) <= '2020-12-31'
+          print('frozen source identity verified')
+          PY
+      - name: Run frozen specialist tests
+        run: python -m pytest -q tests/unit/test_R5_B1_specialist_stage1_stability_continuous_shape.py
+      - name: Execute frozen specialist Stage 1
+        run: python scripts/diagnose_R5_B1_specialist_stage1_stability_continuous_shape.py --output /tmp/R5_B1_specialist_stage1_receipt_v1.json
+      - name: Verify authority boundaries
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path('/tmp/R5_B1_specialist_stage1_receipt_v1.json').read_text())
+          assert x['source_identity']['sha256']=='bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48'
+          assert x['source_identity']['maximum_day']=='2020-12-31'
+          assert x['BLACKBOX_read'] is False
+          assert x['post_2020_rows_read'] is False
+          assert x['PnL_read'] is False
+          assert x['fresh_OOS_claim'] is False
+          assert x['production_authority'] is False
+          print(x['adjudication'])
+          PY
+      - name: Upload aggregate specialist receipt only
+        uses: actions/upload-artifact@v4
+        with:
+          name: R5-B1-specialist-stage1-receipt
+          path: /tmp/R5_B1_specialist_stage1_receipt_v1.json
+          if-no-files-found: error
