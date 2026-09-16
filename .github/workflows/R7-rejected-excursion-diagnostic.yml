@@ -1,0 +1,70 @@
+name: R7-rejected-excursion-diagnostic
+
+on:
+  push:
+    branches:
+      - codex/two-wave-phase1-20260905
+    paths:
+      - '.github/workflows/R7-rejected-excursion-diagnostic.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  frozen-R7-diagnostic:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install bounded dependencies
+        run: python -m pip install 'numpy>=2.0,<2.6' 'pandas>=2.3,<3' 'pyarrow>=19,<20' 'pytest>=8.3,<9'
+      - name: Verify frozen diagnostic artifacts and source identities
+        run: |
+          test "$(git hash-object docs/research/R7_rejected_excursion_stability_shape_diagnostic_preanalysis_20260916.md)" = "bbc5718ceb618302b05eca8e56986b4a5ab0ac93"
+          test "$(git hash-object docs/governance/R7_rejected_excursion_stability_shape_diagnostic_protocol_v1.json)" = "b1dccc9d2208777bdedfed12119cd886aaa8eb18"
+          test "$(git hash-object scripts/diagnose_R7_rejected_excursion_stability_shape.py)" = "f7f3c64edf23e56cba4704422a3ef11095d6b4e5"
+          test "$(git hash-object tests/unit/test_R7_rejected_excursion_stability_shape.py)" = "bcde672947daabbc42984b2eda613b71bc8c5ad9"
+          test "$(git hash-object scripts/run_R7_native_1m_rejected_excursion.py)" = "e42ba3a260b2ed8c5fc3c6be548e73f5245b8e30"
+          test "$(git hash-object docs/governance/R7_rejected_excursion_stability_shape_diagnostic_execution_freeze_v1.json)" = "3b4220fe0b1520a23d8c14e28606f0c9bf12cac6"
+          python - <<'PY'
+          import hashlib, pandas as pd
+          targets={
+            'data/development/1m_official.parquet':('755217afce9dec383e48cd46d591402fa90dc50897abeb3dc7097c9a18a109d4',350561),
+            'data/development/5m_offset_0.parquet':('bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48',70114),
+          }
+          for p,(expected_sha,expected_rows) in targets.items():
+              h=hashlib.sha256(open(p,'rb').read()).hexdigest()
+              assert h==expected_sha,(p,h)
+              x=pd.read_parquet(p, columns=['symbol','trading_day'])
+              assert len(x)==expected_rows,(p,len(x))
+              assert set(x['symbol'].astype(str))=={'000852.SH'}
+              assert str(x['trading_day'].astype(str).max()) <= '2020-12-31'
+          print('frozen diagnostic identities verified')
+          PY
+      - name: Run frozen diagnostic synthetic tests
+        run: python -m pytest -q tests/unit/test_R7_rejected_excursion_stability_shape.py
+      - name: Execute frozen R7 diagnostic
+        run: python scripts/diagnose_R7_rejected_excursion_stability_shape.py --output /tmp/R7_rejected_excursion_stability_shape_diagnostic_receipt_v1.json
+      - name: Verify diagnostic authority boundaries
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path('/tmp/R7_rejected_excursion_stability_shape_diagnostic_receipt_v1.json').read_text())
+          assert x['BLACKBOX_read'] is False
+          assert x['post_2020_rows_read'] is False
+          assert x['PnL_read'] is False
+          assert x['fresh_OOS_claim'] is False
+          assert x['production_authority'] is False
+          print(x['adjudication'])
+          PY
+      - name: Upload R7 diagnostic receipt only
+        uses: actions/upload-artifact@v4
+        with:
+          name: R7-rejected-excursion-diagnostic-receipt
+          path: /tmp/R7_rejected_excursion_stability_shape_diagnostic_receipt_v1.json
+          if-no-files-found: error
