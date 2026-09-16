@@ -244,13 +244,13 @@ def run(layer2_2020: Path) -> dict[str, Any]:
         "supply": supply,
         "gates": gates,
         "alignment_supported": bool(all(gates.values())),
-        "outcome_columns_read": false,
-        "R7_model_fit_performed": false,
-        "BLACKBOX_read": false,
-        "post_2020_rows_read_in_layer3": false,
-        "PnL_read": false,
-        "fresh_OOS_claim": false,
-        "production_authority": false,
+        "outcome_columns_read": False,
+        "R7_model_fit_performed": False,
+        "BLACKBOX_read": False,
+        "post_2020_rows_read_in_layer3": False,
+        "PnL_read": False,
+        "fresh_OOS_claim": False,
+        "production_authority": False,
     }
 
 
