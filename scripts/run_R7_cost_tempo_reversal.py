@@ -77,6 +77,10 @@ def break_even(legs: pd.DataFrame) -> float | None:
 
 
 def run(output_dir: Path) -> dict:
+    frozen = json.loads((ROOT / "docs/governance/R7_cost_tempo_reversal_execution_freeze_v1.json").read_text())
+    for rel, digest in frozen["sha256_files"].items():
+        if hashlib.sha256((ROOT/rel).read_bytes()).hexdigest() != digest:
+            raise ValueError(f"execution freeze mismatch: {rel}")
     output_dir.mkdir(parents=True, exist_ok=False)
     one = old._load_execution_source()
     five = pd.read_parquet(old.FIVE_MIN_PATH, columns=["bar_end_shanghai","close"])

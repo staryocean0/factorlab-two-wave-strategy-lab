@@ -1,0 +1,18 @@
+{
+  "date": "2026-09-22",
+  "new_plus_OLD_BASELINE_tests_passed": 19,
+  "theme_package_validation": "failed_frozen_source_drift_AGENTS.md",
+  "AGENTS_unchanged_from_baseline": true,
+  "AGENTS_sha256": "e1682a54241bbc51531c5e10fcb2ae8ca5bf7e067af174df2bed220672768bf3",
+  "source_closure_manifest_changed": false,
+  "disposition": "retain_preexisting_package_metadata_failure; do_not_claim_full_package_certification; strict_R7_source_and_numeric_reproduction_still_required",
+  "inherited_boundary_tests_passed": 28,
+  "inherited_boundary_tests_failed": 1,
+  "inherited_failure": "test_live_indexes_have_four_layer_nav_shell: existing README missing old navigation string",
+  "unchanged_from_prior_completed_baseline": {
+    "README.md": true,
+    "tests/unit/test_timing_infrastructure_four_layer_inventory.py": true,
+    "docs/governance/source_closure_manifest.json": true
+  },
+  "full_package_certification": false
+}

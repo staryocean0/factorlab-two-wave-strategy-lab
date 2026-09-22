@@ -1,0 +1,22 @@
+{
+  "identity": "R7_cost_tempo_reversal_research_v1",
+  "freeze_version": 1,
+  "frozen_at": "2026-09-22T08:45:21.570522+00:00",
+  "real_new_horizon_outcomes_read_before_freeze": false,
+  "prior_baseline_outcomes_known": true,
+  "initial_synthetic_failure": "negative_sigma_not_rejected; fixed_before_real_runner",
+  "sha256_files": {
+    "scripts/r7_cost_tempo_core.py": "d3f61f3e21bc94005524a0c9ffa33c95d36693bdea924ef51920001cdcedc68a",
+    "scripts/run_R7_cost_tempo_reversal.py": "d3c3dbd3e96294add013871c8896c0e59a1639b416d9d1da57aea46e0f3a5fee",
+    "tests/unit/test_R7_cost_tempo_reversal.py": "d9356d9a0a2d446f018317273670e1e8176f2849f0bd083bf18869ac57dfccab",
+    "docs/research/R7_cost_tempo_reversal_preanalysis_20260922.md": "4dae98a6cf3346d285ac9b63fc6f1b348f5ee52872484c4b738321e54d5f4ec8",
+    "docs/governance/R7_cost_tempo_reversal_protocol_v1.json": "3a9c71fea986bae09d4f78740f4960762382c5e2aa5e29569db6625c17c3ef54",
+    "docs/research/R7_cost_tempo_option_source_audit_20260922.json": "a6d46760e5280076c9e5ad1c15f661d91024623345c9779b997f4a336ef3adba",
+    "docs/research/R7_cost_tempo_preflight_audit_20260922.json": "9163837f23b4fd7d9a9f888481ae1321738abc7adb0fe8c705b9b1d4fff17802",
+    "scripts/run_R7_trading_strategy_baseline.py": "53081972f4542b6c3c6081a8068f09b46760caa37b941628493d8365a16fdad8",
+    "scripts/run_R7_native_1m_rejected_excursion.py": "7e20e148b907e43b2d5532f8300dd4297f1f9a8bd27864148e15328fd369ab7c",
+    "docs/governance/R7_layer2_5m_risk_state_reference_contract_v1.json": "a7165e850495605c1c441d573d8add96a76227a1a21016de94dba5edb119518b"
+  },
+  "production_authority": false,
+  "real_option_replay_authorized": false
+}

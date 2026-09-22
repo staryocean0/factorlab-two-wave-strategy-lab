@@ -97,6 +97,8 @@ def select_horizon(sigma: float, train_median: float) -> int:
 
 
 def point_move_bp(forecast_z: float, sigma: float, horizon: int) -> float:
+    if horizon not in HORIZONS or not math.isfinite(sigma) or sigma <= 0:
+        raise ValueError("invalid horizon or sigma")
     v = float(forecast_z) * float(sigma) * math.sqrt(horizon)
     if not math.isfinite(v) or abs(v) > 1:
         raise ValueError("invalid/extreme point forecast")
@@ -176,10 +178,16 @@ def rank_identified_option_cards(cards: list[dict[str, Any]], *, underlying: str
                 continue
             if stamp.tzinfo is None or expires.tzinfo is None or not 0 <= (now-stamp).total_seconds() <= 120 or expires <= now:
                 continue
-            if not math.isfinite(bp) or bp < 0:
+            numbers = {k: float(card[k]) for k in ("bid", "ask", "forward", "contract_multiplier", "fee_open", "fee_close", "gamma", "vega", "theta")}
+            if not all(math.isfinite(v) for v in numbers.values()):
+                continue
+            if not (0 < numbers["bid"] <= numbers["ask"] and numbers["forward"] > 0 and numbers["contract_multiplier"] > 0 and numbers["fee_open"] >= 0 and numbers["fee_close"] >= 0):
+                continue
+            reference_bp = 10000. * ((numbers["ask"]-numbers["bid"])*numbers["contract_multiplier"]+numbers["fee_open"]+numbers["fee_close"]) / (abs(delta)*numbers["forward"]*numbers["contract_multiplier"])
+            if not math.isfinite(bp) or bp < 0 or not math.isclose(bp, reference_bp, rel_tol=1e-10, abs_tol=1e-10):
                 continue
             # Ready measurements are not full transaction costs when impact is absent.
-            output.append({**card, "complete_all_in_cost_ready": False, "routing_authority": False})
+            output.append({**card, "identified_round_trip_hurdle_bp": bp, "complete_all_in_cost_ready": False, "routing_authority": False})
         except (KeyError, TypeError, ValueError):
             continue
     return sorted(output, key=lambda x: (x["identified_round_trip_hurdle_bp"], str(x["contract_id"])))

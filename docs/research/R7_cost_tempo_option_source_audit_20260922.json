@@ -1,0 +1,27 @@
+{
+  "date": "2026-09-22",
+  "owner_root": "/home/starryocean/桌面/量化/baylum terminal 0.4.1/factor_lab",
+  "owner_commit": "b39bb12f43a46b165d18db93191a669234077444",
+  "reference_only": true,
+  "source_sha256": {
+    "src/factor_lab/market_state/csi1000_option_lifecycle_cost_map.py": "cd35e967f61a0f49096a15683effa18354de8b2eba18140d2a20e24dae989fd8",
+    "docs/user/csi1000_option_lifecycle_cost_map_v1_workflow.md": "10dc51320cac8180923f7f801a6e7db59278ff95fd407a3053afa1d407542157",
+    "docs/ops/timing_layer4_option_instrument_profile@1.3.json": "71ffd8acce1d31a0b7f1814b17d5b5a7f1ce6654a41cd7da4bf85f4541500a0c"
+  },
+  "synthetic_measurement": {
+    "contract_id": "csi1000_option_lifecycle_cost_map@1.0",
+    "status": "ok_identified_only",
+    "spread_cost_cash_rmb": 100.0,
+    "fee_cost_cash_rmb": 28.0,
+    "delta_equivalent_notional_rmb": 250000.0,
+    "eas_full_spread_bp": 4.0,
+    "fee_delta_equivalent_bp": 1.12,
+    "identified_round_trip_hurdle_bp": 5.12,
+    "relative_option_full_spread_bp": 99.50248756218906,
+    "complete_all_in_cost_ready": false,
+    "impact_status": "impact_unidentified"
+  },
+  "market_rows_read": 0,
+  "upstream_files_modified": false,
+  "average_hurdle_strategy_authority": "revoked"
+}

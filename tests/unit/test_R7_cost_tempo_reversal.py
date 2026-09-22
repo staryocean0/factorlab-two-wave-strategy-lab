@@ -140,3 +140,11 @@ def test_no_average_hurdle_or_fake_low_cost_card():
     now=pd.Timestamp("2023-06-01 10:00",tz="Asia/Shanghai")
     bad={"source_semantics":"sample_average_cost", "identified_round_trip_hurdle_bp":0.}
     assert c.rank_identified_option_cards([bad],underlying="000852.SH",direction=1,now=now,risk_mandate_id="test")==[]
+
+
+def test_option_card_rejects_forged_cost_and_missing_greeks():
+    now=pd.Timestamp("2023-06-01 10:00",tz="Asia/Shanghai")
+    base={"contract_id":"fake", "underlying":"000852.SH", "delta_forward":.5,"exposure_side":"buyer","structure":"long_single", "available_at":str(now),"expires_at":str(now+pd.Timedelta(days=10)),"source_semantics":"point_in_time_quote_measurement","cost_status":"ok_identified_only","risk_mandate_id":"test","eligible_under_mandate":True,"bid":100.,"ask":101.,"forward":5000.,"contract_multiplier":100.,"fee_open":14.,"fee_close":14.,"gamma":.001,"vega":20.,"theta":-.1,"identified_round_trip_hurdle_bp":.01}
+    assert c.rank_identified_option_cards([base],underlying="000852.SH",direction=1,now=now,risk_mandate_id="test")==[]
+    base["identified_round_trip_hurdle_bp"]=5.12; base["gamma"]=float("nan")
+    assert c.rank_identified_option_cards([base],underlying="000852.SH",direction=1,now=now,risk_mandate_id="test")==[]
