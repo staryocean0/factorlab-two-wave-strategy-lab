@@ -1,0 +1,748 @@
+{
+  "identity": "R7_cost_tempo_reversal_research_v1",
+  "date": "2026-09-22",
+  "execution_surface": "authorized_local_debian_isolated_worktree",
+  "execution_commit": "f09d7707339b8a4a93879b9fd5a92ad105cbbca3",
+  "stage": "A_index_proxy_engineering_diagnostic",
+  "source_sha256": {
+    "1m": "755217afce9dec383e48cd46d591402fa90dc50897abeb3dc7097c9a18a109d4",
+    "5m": "bea21fa9dd9532e21605511e07561b33d5569f86f69f5a487507531593b14c48"
+  },
+  "data_max_day": "2020-12-31",
+  "evaluation_days": 487,
+  "sigma_train_only_median": 0.0003876757136100365,
+  "train_sigma_rows": 42792,
+  "OLD_BASELINE_reproduction": {
+    "total_return": true,
+    "sharpe": true,
+    "max_drawdown": true,
+    "average_daily_turnover": true
+  },
+  "OLD_BASELINE": {
+    "0bps": {
+      "cost_bps": 0.0,
+      "trade_intervals": 21428,
+      "trading_days": 487,
+      "gross_total_return": 1.5014298683240765,
+      "total_return": 1.5014298683240765,
+      "annualized_return": 0.6071043056295355,
+      "annualized_volatility": 0.048572287230884484,
+      "sharpe": 9.800924932138386,
+      "sortino": 27.90381798935365,
+      "max_drawdown": -0.02268623576616402,
+      "calmar": 26.760909649674765,
+      "positive_day_fraction": 0.7905544147843943,
+      "positive_month_fraction": 1.0,
+      "average_daily_turnover": 9.691847216614386,
+      "annualized_turnover": 2442.345498586825,
+      "cumulative_explicit_cost": 0.0,
+      "gross_minus_net_total_return": 0.0,
+      "average_abs_exposure": 0.14367659849818956,
+      "long_fraction": 0.5210005600149338,
+      "short_fraction": 0.4789994399850663,
+      "flat_fraction": 0.0,
+      "year_total_return": {
+        "2019": 0.5404237880719107,
+        "2020": 0.6238582445257213
+      }
+    },
+    "1bps": {
+      "cost_bps": 1.0,
+      "trade_intervals": 21428,
+      "trading_days": 487,
+      "gross_total_return": 1.5014298683240765,
+      "total_return": 0.5603401379152051,
+      "annualized_return": 0.2588733814961073,
+      "annualized_volatility": 0.0482256047649186,
+      "sharpe": 4.79992992459664,
+      "sortino": 10.077138226699038,
+      "max_drawdown": -0.02519006324507822,
+      "calmar": 10.276805539449667,
+      "positive_day_fraction": 0.6242299794661191,
+      "positive_month_fraction": 0.875,
+      "average_daily_turnover": 9.691847216614386,
+      "annualized_turnover": 2442.345498586825,
+      "cumulative_explicit_cost": 0.47199295944912056,
+      "gross_minus_net_total_return": 0.9410897304088714,
+      "average_abs_exposure": 0.14367659849818956,
+      "long_fraction": 0.5210005600149338,
+      "short_fraction": 0.4789994399850663,
+      "flat_fraction": 0.0,
+      "year_total_return": {
+        "2019": 0.21884805142198616,
+        "2020": 0.28017609421848233
+      }
+    },
+    "2bps": {
+      "cost_bps": 2.0,
+      "trade_intervals": 21428,
+      "trading_days": 487,
+      "gross_total_return": 1.5014298683240765,
+      "total_return": -0.026713436670182555,
+      "annualized_return": -0.01391325755409567,
+      "annualized_volatility": 0.04813844478351119,
+      "sharpe": -0.26706721700320335,
+      "sortino": -0.41464617754134614,
+      "max_drawdown": -0.13270195650953176,
+      "calmar": -0.10484591124394088,
+      "positive_day_fraction": 0.42915811088295686,
+      "positive_month_fraction": 0.2916666666666667,
+      "average_daily_turnover": 9.691847216614386,
+      "annualized_turnover": 2442.345498586825,
+      "cumulative_explicit_cost": 0.9439859188982411,
+      "gross_minus_net_total_return": 1.5281433049942592,
+      "average_abs_exposure": 0.14367659849818956,
+      "long_fraction": 0.5210005600149338,
+      "short_fraction": 0.4789994399850663,
+      "flat_fraction": 0.0,
+      "year_total_return": {
+        "2019": -0.0356069661696069,
+        "2020": 0.009221893136347248
+      }
+    },
+    "5bps": {
+      "cost_bps": 5.0,
+      "trade_intervals": 21428,
+      "trading_days": 487,
+      "gross_total_return": 1.5014298683240765,
+      "total_return": -0.7638173198921502,
+      "annualized_return": -0.52610206008933,
+      "annualized_volatility": 0.04941277167542912,
+      "sharpe": -15.06568253119451,
+      "sortino": -11.459168597141508,
+      "max_drawdown": -0.7642009713756827,
+      "calmar": -0.688434168229678,
+      "positive_day_fraction": 0.12114989733059549,
+      "positive_month_fraction": 0.0,
+      "average_daily_turnover": 9.691847216614386,
+      "annualized_turnover": 2442.345498586825,
+      "cumulative_explicit_cost": 2.3599647972456026,
+      "gross_minus_net_total_return": 2.2652471882162266,
+      "average_abs_exposure": 0.14367659849818956,
+      "long_fraction": 0.5210005600149338,
+      "short_fraction": 0.4789994399850663,
+      "flat_fraction": 0.0,
+      "year_total_return": {
+        "2019": -0.5223184926532819,
+        "2020": -0.5055645310204155
+      }
+    }
+  },
+  "coefficient_audits": {
+    "5": {
+      "feature_rows": 64220,
+      "missing_labels": 3,
+      "all_history_prior": true,
+      "first": {
+        "day": "2019-01-02",
+        "history_max_day": "2018-12-28",
+        "n": 42789,
+        "beta": [
+          0.001336907483075831,
+          0.0638858582595278,
+          -0.5328036421757704
+        ]
+      },
+      "last": {
+        "day": "2020-12-31",
+        "history_max_day": "2020-12-30",
+        "n": 64173,
+        "beta": [
+          0.006992495545618011,
+          0.07126837046703566,
+          -0.4786179950562148
+        ]
+      },
+      "fit_days": 487
+    },
+    "15": {
+      "feature_rows": 52541,
+      "missing_labels": 0,
+      "all_history_prior": true,
+      "first": {
+        "day": "2019-01-02",
+        "history_max_day": "2018-12-28",
+        "n": 35009,
+        "beta": [
+          -0.036910928174489176,
+          0.05645222622628554,
+          -0.1245787977992343
+        ]
+      },
+      "last": {
+        "day": "2020-12-31",
+        "history_max_day": "2020-12-30",
+        "n": 52505,
+        "beta": [
+          -0.029242017011137805,
+          0.05585718601669931,
+          -0.12331809941412741
+        ]
+      },
+      "fit_days": 487
+    }
+  },
+  "new_arms": {
+    "FAST_EPISODE": {
+      "cost_panel": {
+        "0bps": {
+          "cost_bps": 0.0,
+          "total_return": 1.493191751584702,
+          "annualized_return": 0.6043633577927512,
+          "annualized_volatility": 0.04805902520176407,
+          "sharpe": 9.869499928733328,
+          "sortino": 28.24503400196642,
+          "max_drawdown_episode_marks": -0.022652395307426354,
+          "calmar": 26.679887472854446,
+          "positive_day_fraction": 0.7823408624229979,
+          "positive_month_fraction": 1.0,
+          "trading_calendar_days": 487,
+          "active_days": 487,
+          "trade_episodes": 21428,
+          "average_daily_turnover": 12.645667995377469,
+          "annualized_turnover": 3186.708334835122,
+          "time_weighted_abs_exposure": 0.13172570828518199,
+          "signal_average_abs_exposure": 0.14370077267474396,
+          "long_episode_fraction": 0.5209072241926451,
+          "short_episode_fraction": 0.4790927758073549,
+          "mean_holding_minutes": 5.0,
+          "gross_bp_per_unit_turnover": 1.4867625139761533,
+          "net_bp_per_unit_turnover": 1.4867625139761533,
+          "explicit_cost_sum_return_units": 0.0,
+          "flat_fill_touch_episodes": 495,
+          "year_total_return": {
+            "2019": 0.5390647199447751,
+            "2020": 0.6199395121435554
+          }
+        },
+        "1bps": {
+          "cost_bps": 1.0,
+          "total_return": 0.34686756864541257,
+          "annualized_return": 0.16659378529220592,
+          "annualized_volatility": 0.047186922988121695,
+          "sharpe": 3.2899705222758153,
+          "sortino": 6.333841705165036,
+          "max_drawdown_episode_marks": -0.028207264403427468,
+          "calmar": 5.906059620299907,
+          "positive_day_fraction": 0.5708418891170431,
+          "positive_month_fraction": 0.7083333333333334,
+          "trading_calendar_days": 487,
+          "active_days": 487,
+          "trade_episodes": 21428,
+          "average_daily_turnover": 12.645667995377469,
+          "annualized_turnover": 3186.708334835122,
+          "time_weighted_abs_exposure": 0.13172570828518199,
+          "signal_average_abs_exposure": 0.14370077267474396,
+          "long_episode_fraction": 0.5209072241926451,
+          "short_episode_fraction": 0.4790927758073549,
+          "mean_holding_minutes": 5.0,
+          "gross_bp_per_unit_turnover": 1.4867625139761533,
+          "net_bp_per_unit_turnover": 0.4867625139761531,
+          "explicit_cost_sum_return_units": 0.6158440313748827,
+          "flat_fill_touch_episodes": 495,
+          "year_total_return": {
+            "2019": 0.13937354697194704,
+            "2020": 0.18211237414184223
+          }
+        },
+        "2bps": {
+          "cost_bps": 2.0,
+          "total_return": -0.27242715223377834,
+          "annualized_return": -0.15174298172485312,
+          "annualized_volatility": 0.04666501614523311,
+          "sharpe": -3.502244843606616,
+          "sortino": -4.574472367309901,
+          "max_drawdown_episode_marks": -0.3187337913177506,
+          "calmar": -0.4760806223196405,
+          "positive_day_fraction": 0.31211498973305957,
+          "positive_month_fraction": 0.16666666666666666,
+          "trading_calendar_days": 487,
+          "active_days": 487,
+          "trade_episodes": 21428,
+          "average_daily_turnover": 12.645667995377469,
+          "annualized_turnover": 3186.708334835122,
+          "time_weighted_abs_exposure": 0.13172570828518199,
+          "signal_average_abs_exposure": 0.14370077267474396,
+          "long_episode_fraction": 0.5209072241926451,
+          "short_episode_fraction": 0.4790927758073549,
+          "mean_holding_minutes": 5.0,
+          "gross_bp_per_unit_turnover": 1.4867625139761533,
+          "net_bp_per_unit_turnover": -0.5132374860238469,
+          "explicit_cost_sum_return_units": 1.2316880627497655,
+          "flat_fill_touch_episodes": 495,
+          "year_total_return": {
+            "2019": -0.15653589278761648,
+            "2020": -0.13739915955543558
+          }
+        },
+        "5bps": {
+          "cost_bps": 5.0,
+          "total_return": -0.8853364329008812,
+          "annualized_return": -0.6739410503788021,
+          "annualized_volatility": 0.04725106928163765,
+          "sharpe": -23.64116999244016,
+          "sortino": -13.364264479423221,
+          "max_drawdown_episode_marks": -0.8853466962672455,
+          "calmar": -0.7612171064965156,
+          "positive_day_fraction": 0.057494866529774126,
+          "positive_month_fraction": 0.0,
+          "trading_calendar_days": 487,
+          "active_days": 487,
+          "trade_episodes": 21428,
+          "average_daily_turnover": 12.645667995377469,
+          "annualized_turnover": 3186.708334835122,
+          "time_weighted_abs_exposure": 0.13172570828518199,
+          "signal_average_abs_exposure": 0.14370077267474396,
+          "long_episode_fraction": 0.5209072241926451,
+          "short_episode_fraction": 0.4790927758073549,
+          "mean_holding_minutes": 5.0,
+          "gross_bp_per_unit_turnover": 1.4867625139761533,
+          "net_bp_per_unit_turnover": -3.5132374860238476,
+          "explicit_cost_sum_return_units": 3.0792201568744133,
+          "flat_fill_touch_episodes": 495,
+          "year_total_return": {
+            "2019": -0.6578509341356897,
+            "2020": -0.6648724823799701
+          }
+        }
+      },
+      "break_even_one_way_bps": 1.48355903731593,
+      "horizon_counts": {
+        "5": 21428
+      },
+      "tempo_state_counts": {
+        "HIGH_VOL": 13831,
+        "LOW_VOL": 7597
+      }
+    },
+    "FAST_COST": {
+      "cost_panel": {
+        "0bps": {
+          "cost_bps": 0.0,
+          "total_return": 0.6680020022930238,
+          "annualized_return": 0.30309613899631427,
+          "annualized_volatility": 0.04315596162758275,
+          "sharpe": 6.159264402700558,
+          "sortino": 13.818447133364371,
+          "max_drawdown_episode_marks": -0.023030156403761937,
+          "calmar": 13.160837194609934,
+          "positive_day_fraction": 0.6406570841889117,
+          "positive_month_fraction": 0.9166666666666666,
+          "trading_calendar_days": 487,
+          "active_days": 445,
+          "trade_episodes": 1964,
+          "average_daily_turnover": 4.256323951329913,
+          "annualized_turnover": 1072.593635735138,
+          "time_weighted_abs_exposure": 0.04433670782635326,
+          "signal_average_abs_exposure": 0.5277061518069419,
+          "long_episode_fraction": 0.5667006109979633,
+          "short_episode_fraction": 0.4332993890020367,
+          "mean_holding_minutes": 5.0,
+          "gross_bp_per_unit_turnover": 2.476509919573419,
+          "net_bp_per_unit_turnover": 2.476509919573419,
+          "explicit_cost_sum_return_units": 0.0,
+          "flat_fill_touch_episodes": 6,
+          "year_total_return": {
+            "2019": 0.2619224132359943,
+            "2020": 0.3217944184188841
+          }
+        },
+        "1bps": {
+          "cost_bps": 1.0,
+          "total_return": 0.3558102571957875,
+          "annualized_return": 0.17059544767069013,
+          "annualized_volatility": 0.04192953955937206,
+          "sharpe": 3.7786627377290167,
+          "sortino": 6.982396602294067,
+          "max_drawdown_episode_marks": -0.024898215274548274,
+          "calmar": 6.8517138995531965,
+          "positive_day_fraction": 0.5667351129363449,
+          "positive_month_fraction": 0.8333333333333334,
+          "trading_calendar_days": 487,
+          "active_days": 445,
+          "trade_episodes": 1964,
+          "average_daily_turnover": 4.256323951329913,
+          "annualized_turnover": 1072.593635735138,
+          "time_weighted_abs_exposure": 0.04433670782635326,
+          "signal_average_abs_exposure": 0.5277061518069419,
+          "long_episode_fraction": 0.5667006109979633,
+          "short_episode_fraction": 0.4332993890020367,
+          "mean_holding_minutes": 5.0,
+          "gross_bp_per_unit_turnover": 2.476509919573419,
+          "net_bp_per_unit_turnover": 1.4765099195734186,
+          "explicit_cost_sum_return_units": 0.20728297642976676,
+          "flat_fill_touch_episodes": 6,
+          "year_total_return": {
+            "2019": 0.14785711846614524,
+            "2020": 0.18116639726686512
+          }
+        },
+        "2bps": {
+          "cost_bps": 2.0,
+          "total_return": 0.10202129085549516,
+          "annualized_return": 0.05155348746494992,
+          "annualized_volatility": 0.04120932152454684,
+          "sharpe": 1.2405089830553468,
+          "sortino": 1.9173708169145658,
+          "max_drawdown_episode_marks": -0.04974724009124443,
+          "calmar": 1.036308494107262,
+          "positive_day_fraction": 0.48459958932238195,
+          "positive_month_fraction": 0.5833333333333334,
+          "trading_calendar_days": 487,
+          "active_days": 445,
+          "trade_episodes": 1964,
+          "average_daily_turnover": 4.256323951329913,
+          "annualized_turnover": 1072.593635735138,
+          "time_weighted_abs_exposure": 0.04433670782635326,
+          "signal_average_abs_exposure": 0.5277061518069419,
+          "long_episode_fraction": 0.5667006109979633,
+          "short_episode_fraction": 0.4332993890020367,
+          "mean_holding_minutes": 5.0,
+          "gross_bp_per_unit_turnover": 2.476509919573419,
+          "net_bp_per_unit_turnover": 0.4765099195734188,
+          "explicit_cost_sum_return_units": 0.4145659528595335,
+          "flat_fill_touch_episodes": 6,
+          "year_total_return": {
+            "2019": 0.044088949958019485,
+            "2020": 0.055486020515591816
+          }
+        },
+        "5bps": {
+          "cost_bps": 5.0,
+          "total_return": -0.4083082734294522,
+          "annualized_return": -0.23779823691704938,
+          "annualized_volatility": 0.04223919874740133,
+          "sharpe": -6.404120982982115,
+          "sortino": -6.54067731648768,
+          "max_drawdown_episode_marks": -0.41255968368789653,
+          "calmar": -0.5763971767462982,
+          "positive_day_fraction": 0.2464065708418891,
+          "positive_month_fraction": 0.08333333333333333,
+          "trading_calendar_days": 487,
+          "active_days": 445,
+          "trade_episodes": 1964,
+          "average_daily_turnover": 4.256323951329913,
+          "annualized_turnover": 1072.593635735138,
+          "time_weighted_abs_exposure": 0.04433670782635326,
+          "signal_average_abs_exposure": 0.5277061518069419,
+          "long_episode_fraction": 0.5667006109979633,
+          "short_episode_fraction": 0.4332993890020367,
+          "mean_holding_minutes": 5.0,
+          "gross_bp_per_unit_turnover": 2.476509919573419,
+          "net_bp_per_unit_turnover": -2.523490080426581,
+          "explicit_cost_sum_return_units": 1.036414882148834,
+          "flat_fill_touch_episodes": 6,
+          "year_total_return": {
+            "2019": -0.21430602267328724,
+            "2020": -0.2469183376156826
+          }
+        }
+      },
+      "break_even_one_way_bps": 2.468687969243893,
+      "horizon_counts": {
+        "5": 1964
+      },
+      "tempo_state_counts": {
+        "HIGH_VOL": 1680,
+        "LOW_VOL": 284
+      }
+    },
+    "SLOW_COST": {
+      "cost_panel": {
+        "0bps": {
+          "cost_bps": 0.0,
+          "total_return": 0.08504553784551994,
+          "annualized_return": 0.04314020470867108,
+          "annualized_volatility": 0.019779130849074587,
+          "sharpe": 2.145390880662679,
+          "sortino": 3.9359180090974624,
+          "max_drawdown_episode_marks": -0.01707238612567874,
+          "calmar": 2.5268995435724997,
+          "positive_day_fraction": 0.32854209445585214,
+          "positive_month_fraction": 0.8333333333333334,
+          "trading_calendar_days": 487,
+          "active_days": 272,
+          "trade_episodes": 861,
+          "average_daily_turnover": 0.7742592229242914,
+          "annualized_turnover": 195.11332417692142,
+          "time_weighted_abs_exposure": 0.02419560071638411,
+          "signal_average_abs_exposure": 0.21896878139612655,
+          "long_episode_fraction": 0.32171893147502906,
+          "short_episode_fraction": 0.6782810685249709,
+          "mean_holding_minutes": 15.0,
+          "gross_bp_per_unit_turnover": 2.174659316345731,
+          "net_bp_per_unit_turnover": 2.174659316345731,
+          "explicit_cost_sum_return_units": 0.0,
+          "flat_fill_touch_episodes": 23,
+          "year_total_return": {
+            "2019": 0.04150459837532572,
+            "2020": 0.04180580627115171
+          }
+        },
+        "1bps": {
+          "cost_bps": 1.0,
+          "total_return": 0.04489870777952909,
+          "annualized_return": 0.022986760612168533,
+          "annualized_volatility": 0.019444186075624603,
+          "sharpe": 1.1785488173601695,
+          "sortino": 1.966914222039031,
+          "max_drawdown_episode_marks": -0.02077924713748258,
+          "calmar": 1.1062364512092422,
+          "positive_day_fraction": 0.3141683778234086,
+          "positive_month_fraction": 0.7083333333333334,
+          "trading_calendar_days": 487,
+          "active_days": 272,
+          "trade_episodes": 861,
+          "average_daily_turnover": 0.7742592229242914,
+          "annualized_turnover": 195.11332417692142,
+          "time_weighted_abs_exposure": 0.02419560071638411,
+          "signal_average_abs_exposure": 0.21896878139612655,
+          "long_episode_fraction": 0.32171893147502906,
+          "short_episode_fraction": 0.6782810685249709,
+          "mean_holding_minutes": 15.0,
+          "gross_bp_per_unit_turnover": 2.174659316345731,
+          "net_bp_per_unit_turnover": 1.174659316345731,
+          "explicit_cost_sum_return_units": 0.037706424156412996,
+          "flat_fill_touch_episodes": 23,
+          "year_total_return": {
+            "2019": 0.02240912482942603,
+            "2020": 0.021996657114981666
+          }
+        },
+        "2bps": {
+          "cost_bps": 2.0,
+          "total_return": 0.006235415335831718,
+          "annualized_return": 0.003221700124062865,
+          "annualized_volatility": 0.019213652958085185,
+          "sharpe": 0.17698439422843404,
+          "sortino": 0.270561070189195,
+          "max_drawdown_episode_marks": -0.030133321600134377,
+          "calmar": 0.10691486875607162,
+          "positive_day_fraction": 0.28952772073921973,
+          "positive_month_fraction": 0.5833333333333334,
+          "trading_calendar_days": 487,
+          "active_days": 272,
+          "trade_episodes": 861,
+          "average_daily_turnover": 0.7742592229242914,
+          "annualized_turnover": 195.11332417692142,
+          "time_weighted_abs_exposure": 0.02419560071638411,
+          "signal_average_abs_exposure": 0.21896878139612655,
+          "long_episode_fraction": 0.32171893147502906,
+          "short_episode_fraction": 0.6782810685249709,
+          "mean_holding_minutes": 15.0,
+          "gross_bp_per_unit_turnover": 2.174659316345731,
+          "net_bp_per_unit_turnover": 0.17465931634573095,
+          "explicit_cost_sum_return_units": 0.07541284831282599,
+          "flat_fill_touch_episodes": 23,
+          "year_total_return": {
+            "2019": 0.00366279800984759,
+            "2020": 0.002563228736868872
+          }
+        },
+        "5bps": {
+          "cost_bps": 5.0,
+          "total_return": -0.1013907270488007,
+          "annualized_return": -0.05381712452192766,
+          "annualized_volatility": 0.01917698621114229,
+          "sharpe": -2.8747933581663085,
+          "sortino": -3.5337700676740367,
+          "max_drawdown_episode_marks": -0.10822761347077414,
+          "calmar": -0.4972587198040773,
+          "positive_day_fraction": 0.21560574948665298,
+          "positive_month_fraction": 0.125,
+          "trading_calendar_days": 487,
+          "active_days": 272,
+          "trade_episodes": 861,
+          "average_daily_turnover": 0.7742592229242914,
+          "annualized_turnover": 195.11332417692142,
+          "time_weighted_abs_exposure": 0.02419560071638411,
+          "signal_average_abs_exposure": 0.21896878139612655,
+          "long_episode_fraction": 0.32171893147502906,
+          "short_episode_fraction": 0.6782810685249709,
+          "mean_holding_minutes": 15.0,
+          "gross_bp_per_unit_turnover": 2.174659316345731,
+          "net_bp_per_unit_turnover": -2.8253406836542694,
+          "explicit_cost_sum_return_units": 0.18853212078206497,
+          "flat_fill_touch_episodes": 23,
+          "year_total_return": {
+            "2019": -0.050544388984783306,
+            "2020": -0.053553149272191125
+          }
+        }
+      },
+      "break_even_one_way_bps": 2.164860268090422,
+      "horizon_counts": {
+        "15": 861
+      },
+      "tempo_state_counts": {
+        "HIGH_VOL": 808,
+        "LOW_VOL": 53
+      }
+    },
+    "ADAPTIVE_COST": {
+      "cost_panel": {
+        "0bps": {
+          "cost_bps": 0.0,
+          "total_return": 0.5782733925959798,
+          "annualized_return": 0.26633949018955816,
+          "annualized_volatility": 0.04292946757958138,
+          "sharpe": 5.524362835014749,
+          "sortino": 12.66298981506062,
+          "max_drawdown_episode_marks": -0.023030156403761826,
+          "calmar": 11.564814650848543,
+          "positive_day_fraction": 0.5051334702258727,
+          "positive_month_fraction": 0.9166666666666666,
+          "trading_calendar_days": 487,
+          "active_days": 356,
+          "trade_episodes": 1732,
+          "average_daily_turnover": 3.4588086831537037,
+          "annualized_turnover": 871.6197881547333,
+          "time_weighted_abs_exposure": 0.03765503094267496,
+          "signal_average_abs_exposure": 0.4862701583994959,
+          "long_episode_fraction": 0.5496535796766744,
+          "short_episode_fraction": 0.4503464203233256,
+          "mean_holding_minutes": 5.306004618937644,
+          "gross_bp_per_unit_turnover": 2.7188304019125726,
+          "net_bp_per_unit_turnover": 2.7188304019125726,
+          "explicit_cost_sum_return_units": 0.0,
+          "flat_fill_touch_episodes": 8,
+          "year_total_return": {
+            "2019": 0.22870741795327731,
+            "2020": 0.2844989535629201
+          }
+        },
+        "1bps": {
+          "cost_bps": 1.0,
+          "total_return": 0.33367387389555914,
+          "annualized_return": 0.160666402244795,
+          "annualized_volatility": 0.04130080643628599,
+          "sharpe": 3.629176632393606,
+          "sortino": 6.858144703113538,
+          "max_drawdown_episode_marks": -0.02489821527454794,
+          "calmar": 6.452928471906793,
+          "positive_day_fraction": 0.44969199178644764,
+          "positive_month_fraction": 0.8333333333333334,
+          "trading_calendar_days": 487,
+          "active_days": 356,
+          "trade_episodes": 1732,
+          "average_daily_turnover": 3.4588086831537037,
+          "annualized_turnover": 871.6197881547333,
+          "time_weighted_abs_exposure": 0.03765503094267496,
+          "signal_average_abs_exposure": 0.4862701583994959,
+          "long_episode_fraction": 0.5496535796766744,
+          "short_episode_fraction": 0.4503464203233256,
+          "mean_holding_minutes": 5.306004618937644,
+          "gross_bp_per_unit_turnover": 2.7188304019125726,
+          "net_bp_per_unit_turnover": 1.7188304019125726,
+          "explicit_cost_sum_return_units": 0.16844398286958537,
+          "flat_fill_touch_episodes": 8,
+          "year_total_return": {
+            "2019": 0.1454104075614493,
+            "2020": 0.1643633278441341
+          }
+        },
+        "2bps": {
+          "cost_bps": 2.0,
+          "total_return": 0.12696018398854148,
+          "annualized_return": 0.06380073985102763,
+          "annualized_volatility": 0.040315792706125377,
+          "sharpe": 1.5543828846812138,
+          "sortino": 2.46228256454987,
+          "max_drawdown_episode_marks": -0.034683102293073476,
+          "calmar": 1.8395338257780132,
+          "positive_day_fraction": 0.3942505133470226,
+          "positive_month_fraction": 0.5833333333333334,
+          "trading_calendar_days": 487,
+          "active_days": 356,
+          "trade_episodes": 1732,
+          "average_daily_turnover": 3.4588086831537037,
+          "annualized_turnover": 871.6197881547333,
+          "time_weighted_abs_exposure": 0.03765503094267496,
+          "signal_average_abs_exposure": 0.4862701583994959,
+          "long_episode_fraction": 0.5496535796766744,
+          "short_episode_fraction": 0.4503464203233256,
+          "mean_holding_minutes": 5.306004618937644,
+          "gross_bp_per_unit_turnover": 2.7188304019125726,
+          "net_bp_per_unit_turnover": 0.7188304019125725,
+          "explicit_cost_sum_return_units": 0.33688796573917074,
+          "flat_fill_touch_episodes": 8,
+          "year_total_return": {
+            "2019": 0.06775122985247162,
+            "2020": 0.0554520121173252
+          }
+        },
+        "5bps": {
+          "cost_bps": 5.0,
+          "total_return": -0.32011656800145816,
+          "annualized_return": -0.1809836460208063,
+          "annualized_volatility": 0.041514833755902626,
+          "sharpe": -4.78647244249475,
+          "sortino": -5.132413386010164,
+          "max_drawdown_episode_marks": -0.33537875468507927,
+          "calmar": -0.5396395671835266,
+          "positive_day_fraction": 0.22587268993839835,
+          "positive_month_fraction": 0.16666666666666666,
+          "trading_calendar_days": 487,
+          "active_days": 356,
+          "trade_episodes": 1732,
+          "average_daily_turnover": 3.4588086831537037,
+          "annualized_turnover": 871.6197881547333,
+          "time_weighted_abs_exposure": 0.03765503094267496,
+          "signal_average_abs_exposure": 0.4862701583994959,
+          "long_episode_fraction": 0.5496535796766744,
+          "short_episode_fraction": 0.4503464203233256,
+          "mean_holding_minutes": 5.306004618937644,
+          "gross_bp_per_unit_turnover": 2.7188304019125726,
+          "net_bp_per_unit_turnover": -2.2811695980874274,
+          "explicit_cost_sum_return_units": 0.8422199143479269,
+          "flat_fill_touch_episodes": 8,
+          "year_total_return": {
+            "2019": -0.13508226940950452,
+            "2020": -0.21393283088974024
+          }
+        }
+      },
+      "break_even_one_way_bps": 2.7096344993678514,
+      "horizon_counts": {
+        "5": 1679,
+        "15": 53
+      },
+      "tempo_state_counts": {
+        "HIGH_VOL": 1679,
+        "LOW_VOL": 53
+      }
+    }
+  },
+  "primary_2bps_gates": {
+    "old_baseline_reproduced": true,
+    "strict_prior_history": true,
+    "total_positive": true,
+    "sharpe_positive": true,
+    "2019_positive": true,
+    "2020_positive": true,
+    "total_above_old": true,
+    "sharpe_above_old": true,
+    "drawdown_no_worse_than_old": true,
+    "turnover_below_old": true
+  },
+  "incremental_tempo_above_both_fixed_arms": true,
+  "adjudication": "STAGE_A_ENGINEERING_SUPPORTED",
+  "causal_execution_qualification": false,
+  "qualification_limit": "next_bar_open_is_boundary_price_proxy_not_positive_latency_execution_proof; drawdown_is_episode_marked_not_minute_marked",
+  "stage_B_real_option_replay_executed": false,
+  "real_option_selection_executed": false,
+  "post_2020_outcomes_read": false,
+  "BLACKBOX_read": false,
+  "fresh_OOS": false,
+  "production_authority": false,
+  "files": {
+    "ADAPTIVE_COST_trades.csv": "1b277486cef1d956076163022ff8a93ccb2117cfb6142e6586fa74d0b526d60b",
+    "FAST_COST_trades.csv": "827e50fc1504ed8774fbc4b3c74641f4d5f44c601c59ba23f44c494bb57fd646",
+    "FAST_EPISODE_trades.csv": "39887e07a703d72a548b634bd2c73d5d0c5113ee7d0f1d3d808c0375cf9c9bc5",
+    "SLOW_COST_trades.csv": "1a337a897584ab69bfb0909def55034cdafb6d99a813cf24cfdfb12171529a54",
+    "coefficients_H15.json": "2e9c097c70b510f508f6cac96d2c33438a661e41fd55838c0356e54965fef34b",
+    "coefficients_H5.json": "4f8b4e1e9e67767b78a052b04b92ed681468796ade0cc5c4719309615a1214dc",
+    "daily_returns.csv": "80a5b5f317aecd5c347caf079644be612628eafad0defef93652971ac20f05b7",
+    "monthly_returns.csv": "99bb987536549b0fe524e2cf6e6b94d26cf22fa9766d2ae5d6485374fdefcbec"
+  }
+}

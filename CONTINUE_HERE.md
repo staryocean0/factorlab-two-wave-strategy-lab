@@ -1,3 +1,12 @@
+# 2026-09-22 current checkpoint — R7 cost-tempo prototype
+
+New identity `R7_cost_tempo_reversal_research_v1` completed Stage-A index-proxy engineering replay. At fixed 2bp/side: +12.6960% cumulative, Sharpe 1.5544, episode-mark DD -3.4683%, turnover 3.4588/day. Both years positive; nominated adaptive arm exceeds fixed-fast and fixed-slow in pooled net return. This is NOT actual option PnL, full-package certification, positive-latency execution qualification, or production promotion. Low-vol slow leg has only 53 episodes.
+
+Read `docs/research/R7_cost_tempo_stageA_review_20260922.md`, the matching receipt, protocol and execution freeze. Next: positive-latency/common-minute accounting audit, then separately admitted real-MO quote replay using read-only cost/Greeks measurement. No new horizon/quantile/fee search. Existing Layer2 engine and closed challenger remain unchanged.
+
+---
+## Archived previous entry (historical, not the current next action)
+
 # CONTINUE HERE — 广义反转 / 均值回归研究入口（2026-09-16）
 
 **本文件是判断本仓库“现在研究什么、下一步做什么”的第一权威。**

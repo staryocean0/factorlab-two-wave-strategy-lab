@@ -1,8 +1,8 @@
 {
-  "schema_id": "factorlab_broad_reversal_mean_reversion_program_state@1.9",
-  "session_date": "2026-09-16",
+  "schema_id": "factorlab_broad_reversal_mean_reversion_program_state@1.10",
+  "session_date": "2026-09-22",
   "program_identity": "broad_reversal_mean_reversion_discovery_program_v1",
-  "current_status": "R7_L2_CHALLENGER_EVALUATED_NOT_PROMOTED_TURNOVER_COST_FRAGILITY_REMAINS",
+  "current_status": "R7_COST_TEMPO_STAGE_A_PROXY_SUPPORTED_REAL_OPTION_REPLAY_NOT_ADMITTED",
   "active_research_branch": "codex/two-wave-phase1-20260905",
   "repository_wide_mainline": "broad_reversal_mean_reversion_direction_discovery_with_reusable_TRAIN_VALIDATION_and_delayed_BLACKBOX",
   "data_roles": {
@@ -52,7 +52,11 @@
   "R7_L2_state_reference": {
     "contract": "docs/governance/R7_layer2_5m_risk_state_reference_contract_v1.json",
     "status": "frozen_causal_external_state_descriptor",
-    "bucket_map": {"NORMAL":"LOW_RISK","UNSAFE":"RISK_ACTIVE","RECOVERING":"RISK_ACTIVE"},
+    "bucket_map": {
+      "NORMAL": "LOW_RISK",
+      "UNSAFE": "RISK_ACTIVE",
+      "RECOVERING": "RISK_ACTIVE"
+    },
     "threshold_or_state_mutation_authorized": false,
     "recovery_probability_signal_authorized": false
   },
@@ -96,9 +100,18 @@
     "old_baseline_reproduction_passed": true,
     "state_complete_and_causal_full_rank": true,
     "predictive_MSE": {
-      "VALIDATION": {"OLD":1.6331093434071284,"CHALLENGER":1.6321759038270744},
-      "2019": {"OLD":1.7197174922041978,"CHALLENGER":1.7195616775383478},
-      "2020": {"OLD":1.546144782475092,"CHALLENGER":1.5444305178783062}
+      "VALIDATION": {
+        "OLD": 1.6331093434071284,
+        "CHALLENGER": 1.6321759038270744
+      },
+      "2019": {
+        "OLD": 1.7197174922041978,
+        "CHALLENGER": 1.7195616775383478
+      },
+      "2020": {
+        "OLD": 1.546144782475092,
+        "CHALLENGER": 1.5444305178783062
+      }
     },
     "primary_2bps": {
       "total_return": -0.010703866963489683,
@@ -120,21 +133,11 @@
     "interpretation": "state_conditioning_improves_gross_and_prediction_slightly_but_does_not_solve_turnover_cost_fragility"
   },
   "active_specialist_next_stage": {
-    "status": "do_not_rescue_R7_L2_state_specific_calibration_challenger_v1",
-    "allowed_future_R7_economic_direction": "only_a_new_preregistered_identity_that_targets_turnover_or_execution_architecture_without_mutating_R7_or_Layer2_scientific_semantics",
-    "forbidden_under_closed_identity": [
-      "Layer2_threshold_change",
-      "state_remap",
-      "risk_multiplier_search",
-      "rolling_window_search",
-      "decay_or_half_life_search",
-      "regularization_search",
-      "feature_search",
-      "update_cadence_search",
-      "favorable_year_or_intraday_selection",
-      "cost_relabeling",
-      "execution_rule_posthoc_change"
-    ]
+    "status": "audit_real_execution_before_any_new_optimization",
+    "identity": "R7_cost_tempo_reversal_research_v1",
+    "scope": "positive_latency_and_minute_account_reconstruction_then_separately_admitted_actual_MO_replay",
+    "closed_challenger_remains_closed": true,
+    "no_new_grid_search": true
   },
   "active_broad_direction": {
     "status": "resume_independent_low_capacity_direction_discovery",
@@ -142,12 +145,12 @@
     "cross_index_common_vs_idiosyncratic_direction": "deferred_until_upstream_data_governance_explicitly_authorizes_new_empirical_use"
   },
   "next_actions_in_order": [
-    "preserve_R7_L2_challenger_as_closed_evidence_no_rescue",
-    "use_OLD_BASELINE_only_as_fixed_comparator_not_promoted_research_baseline",
-    "resume_independent_broad_reversal_mean_reversion_direction_discovery",
-    "if_R7_economic_work_resumes_create_new_outcome_blind_turnover_execution_identity_before_any_result",
-    "cross_market_mechanism_transport_only_after_explicit_source_governance_authorization",
-    "keep_BLACKBOX_unassigned"
+    "preserve_closed_legacy_challenger_results",
+    "freeze_positive_latency_and_common_minute_mark_account_audit",
+    "admit_bounded_actual_MO_quote_cohort_under_new_consumer_grant_before_reading_outcomes",
+    "bind_read_only_option_measurements_and_integer_risk_budget",
+    "compare_actual_option_net_economics_without_double_counting_spread_or_theta",
+    "do_not_relabel_reusable_material_as_fresh_OOS"
   ],
   "fixed_coefficient_transport_authorized": false,
   "new_R7_research_baseline_promoted": false,
@@ -155,5 +158,46 @@
   "post_2020_authorized": false,
   "fresh_OOS_claim_authorized": false,
   "paper_trading_authorized": false,
-  "production_authority": false
+  "production_authority": false,
+  "R7_cost_tempo_research": {
+    "identity": "R7_cost_tempo_reversal_research_v1",
+    "status": "STAGE_A_ENGINEERING_SUPPORTED",
+    "execution_commit": "f09d7707339b8a4a93879b9fd5a92ad105cbbca3",
+    "primary_2bps": {
+      "cost_bps": 2.0,
+      "total_return": 0.12696018398854148,
+      "annualized_return": 0.06380073985102763,
+      "annualized_volatility": 0.040315792706125377,
+      "sharpe": 1.5543828846812138,
+      "sortino": 2.46228256454987,
+      "max_drawdown_episode_marks": -0.034683102293073476,
+      "calmar": 1.8395338257780132,
+      "positive_day_fraction": 0.3942505133470226,
+      "positive_month_fraction": 0.5833333333333334,
+      "trading_calendar_days": 487,
+      "active_days": 356,
+      "trade_episodes": 1732,
+      "average_daily_turnover": 3.4588086831537037,
+      "annualized_turnover": 871.6197881547333,
+      "time_weighted_abs_exposure": 0.03765503094267496,
+      "signal_average_abs_exposure": 0.4862701583994959,
+      "long_episode_fraction": 0.5496535796766744,
+      "short_episode_fraction": 0.4503464203233256,
+      "mean_holding_minutes": 5.306004618937644,
+      "gross_bp_per_unit_turnover": 2.7188304019125726,
+      "net_bp_per_unit_turnover": 0.7188304019125725,
+      "explicit_cost_sum_return_units": 0.33688796573917074,
+      "flat_fill_touch_episodes": 8,
+      "year_total_return": {
+        "2019": 0.06775122985247162,
+        "2020": 0.0554520121173252
+      }
+    },
+    "tempo_comparison_gate": true,
+    "receipt": "docs/research/local_R7_cost_tempo_stageA_receipt_20260922.json",
+    "review": "docs/research/R7_cost_tempo_stageA_review_20260922.md",
+    "full_package_certification": false,
+    "real_option_replay_executed": false,
+    "causal_execution_qualification": false
+  }
 }

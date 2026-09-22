@@ -1,0 +1,47 @@
+{
+  "source_execution_commit": "f09d7707339b8a4a93879b9fd5a92ad105cbbca3",
+  "independent_ledger_reconciliation": {
+    "FAST_EPISODE": {
+      "all_four_cost_panels_reconciled": true,
+      "calendar_days": 487,
+      "no_overlapping_episodes": true,
+      "rows": 21428
+    },
+    "FAST_COST": {
+      "all_four_cost_panels_reconciled": true,
+      "calendar_days": 487,
+      "no_overlapping_episodes": true,
+      "rows": 1964
+    },
+    "SLOW_COST": {
+      "all_four_cost_panels_reconciled": true,
+      "calendar_days": 487,
+      "no_overlapping_episodes": true,
+      "rows": 861
+    },
+    "ADAPTIVE_COST": {
+      "all_four_cost_panels_reconciled": true,
+      "calendar_days": 487,
+      "no_overlapping_episodes": true,
+      "rows": 1732
+    }
+  },
+  "entry_state_log_growth_attribution": [
+    {
+      "tempo_state": "HIGH_VOL",
+      "episodes": 1679,
+      "total_turnover": 1646.435739727811,
+      "net_return_sum": 0.11140561840115942,
+      "log_growth": 0.10988458170156097
+    },
+    {
+      "tempo_state": "LOW_VOL",
+      "episodes": 53,
+      "total_turnover": 38.00408896804276,
+      "net_return_sum": 0.009677037504719545,
+      "log_growth": 0.009639323529255188
+    }
+  ],
+  "interpretation": "53 slow episodes are insufficient to establish a mature low-volatility slow strategy; attribution is descriptive, not another tested challenger",
+  "no_new_candidate_or_fee_search": true
+}
